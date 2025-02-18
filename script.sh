@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Number of times to run the command
-num_iterations=500  # Change as needed
+num_iterations=1000  # Change as needed
 number_of_pages=250
 wait_time=5
 wait_time2=2
