@@ -8,7 +8,7 @@ wait_time2=2
 
 for ((i=1; i<=num_iterations; i++))
 do
-    echo "Running iteration $i... running pages.py with $number_of_pages pages"
+    echo -e "\tRunning iteration $i... running pages.py with $number_of_pages pages"
     python3 pages.py "$number_of_pages"
     
     echo -e "\tIteration $i complete. Waiting for $wait_time seconds..."
