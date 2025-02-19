@@ -1,0 +1,472 @@
+
+
+
+mares and company and maresware for computer forensic software 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+d. mares and maresware
+
+
+
+
+
+
+ 
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+ featuring
+
+
+
+
+
+
+
+ 
+    home
+
+blocked e_mails 
+what's new
+software
+
+ 
+
+
+
+ reference
+
+
+
+
+ about us 
+faq's
+articles
+resources 
+ 
+
+
+
+ our company
+
+
+
+
+
+legal
+ notices 
+
+contact us 
+
+blocked e_mails 
+
+my family
+
+new house
+
+furniture 
+
+
+
+
+
+
+
+
+
+
+
+
+
+            anti-virus users know this. most downloadable programs are in .exe (executable) format. 
+            some anti-virus programs will require you to explicity allow the dmares.com domain to 
+            allow download of executables. if you can't do that, let me know, and i'll get you a 
+            zipped version. but if you can't get your anti-virus to exclude a domain, get a new 
+            anti-virus.
+            
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+live free or
+vote dumb-o-crat 
+
+
+9-11 commenorative  flag 
+
+
+
+
+in loving memory of my wonderful wife, brenda (1948-2012). 
+her favorite poems
+rainbow bridge poem
+
+       
+peace of wild things
+
+
+
+
+
+the next 4 hour ksu tool testing seminar is being scheduled. check back frequently. 
+send my an email dm @ dmares.com and i'll remind you of the schedule.
+check this 
+link 
+
+for info. of the session, and a direct link to the ksu reference .
+
+
+
+
+
+
+the software is supplied as is with no warranty of usability, reliability or correctness.
+it will be the users resonsibility to determine if the software meets their needs. 
+appropriate acknowledgment is appreciated.
+
+
+
+virus checkers:
+when downloading any of the executables, please turn off your virus checking. many virus checkers, including: microsoft, vipre and others have a nasty habit of
+blocking the exe's from downloading. it is funny, that micorosft compiler builds the exe, but microsoft os won't download it. just a note. 
+virus checkers:
+
+
+ articles 
+
+our software doesn't contain bugs. its just operationally challenged. 
+
+remember: the software is command line not gui. so brush up on your typing skills.
+
+
+take a look below, or the articles on the  articles page. 
+and test your software and processes to see if it is really forensically sound.
+
+
+read them in the order they are listed here.
+
+catalog files  a preliminary article describing why i conducted all these tests.
+inventory/catalog files  creating an inventory of evidentiary files
+forensic file copying  article tests over 40 "forensic" file copiers
+forensic hashing  article tests over 30 "forensic" hash programs. 
+zip-it for forensic retention  article test a few zipping programs and 
+zip_it_take2  more tests for your zipping capabilities.
+zip_it_hashes   an unscientific discussion of container hash values.
+match file hashes  demonstrates hash matches using maresware.
+a hash software buffet   how-to use maresware hash software
+nsrl md5's  a short description of my restructured nsrl md5 data set.
+a crude timeline   analysis batch file using maresware software
+
+take a look at the most popular forensic programs:
+sample data links to sample data 
+(including some (complete, android and ios) 
+"massaged" nsrl data files") for testing your software.  
+diskcat catalog files on disk.  
+     download the exe. 
+hash hash (md5 & sha's) files on disk.  
+     download the exe.
+md5  md5 and sha hash files on disk & can
+        match hash against suspect hashes  
+     download the exe. 
+eml_process process eml headers.  
+     download the exe.
+ upcopy reliable forensic file copy.  
+     download the exe. 
+
+
+
+x-ways meta processing. for those using true 
+   forensic software.  
+     download the exe.
+
+
+
+direct links to software and help pages
+files a-c  |  
+files d-f  |  
+files g-k 
+files l-o  |  
+files p-s  |  
+files t-z
+
+
+
+
+
+
+many of the programs are available in linux format also. check the listings 
+ie: files d-f link, for the linux version. if you don't see a linux version, contact 
+me, as it may be available, just not on the web site. all linux versions 
+operate as near as possible to their windows version. so outputs can be 
+merged.
+
+
+the software and respective help files are available from the various information pages.
+follow the alphabetical links at the bottom of each page to the specific program. there 
+you will find links to the html help files and the exe downloads (if the exe if available).
+
+ the software is supplied as is with no warranty of usability, reliability or
+correctness. it will be the users resonsibility to determine if the software meets their
+needs.
+
+
+if you have problems with the software, please don't hesitate to email me for assistance. 
+but first take a look at any restrictions that microsoft may have instituted which may 
+keep the program from being fully functional. ie: administrator privilege.
+
+
+
+this page last updated: 1/22/2025
+top
+ 
+
+
+
+
+
+
+ 
+
+
+
+live free or
+
+ vote dumb-o-crat  
+
+
+9-11 commenorative  flag 
+
+
+
+
+
+in loving memory of my wonderful wife, brenda (1948-2012). 
+
+her favorite poems
+rainbow bridge poem
+       
+peace of wild things
+
+
+
+
+a challenge  
+tool testing session to see if your hash, copy, zip software passes the test.
+ 
+
+
+todays software special
+read it while its hot
+
+
+
+
+
+
+lets talk file cataloging with diskcat, or creating an inventory of the files in your
+evidence tree.
+
+whenever you seize evidence isn't creating an inventory of the seized items a primary operation? so, when seizing computer
+evidence in preparation of a forensic exam you might consider creating an inventory or catalog of those files which are
+located on the suspect computer and thus seized as evidence. yes/no?? 
+
+
+
+if so, lets create an evidence catalog; a list of files in the tree. or as i call it, diskct, for disk cataloging. for
+this operation consider using the diskcat
+  program.
+
+
+
+the diskcat program is specially designed to find and list all the files (or only user selected file types, ie: *.doc
+ *.txt, *jpg etc.) within the specified directory trees. notice i said trees not tree. because on the command line you can
+ point it to a number (up to 10) of directories to search and thus create a catalog or listing of all the files contained
+ within the directory trees.
+
+ 
+
+the output can be customized to include any or all three (mac) file times; find files based on file time or file size;
+full path, drive serial number and label, a user specified identifier to uniquely identify this suspect computer from the
+other suspect computer(s) in the listing, any ntfs alternate data streams; and other stuff. (thats a technical term). 
+
+
+
+the output contains delimited fields, sample here, for easy import to your favorite spreadsheet; 
+
+
+
+
+comment | path      |size|attr  |   cdate  | ctime       | tz| serial # | disk label 
+susepct1|c:\password|  60|arh...|2020/01/01|07:34:56:789c|gmt| 7ef7-17fc| drive_c
+
+
+
+
+if you want to see more software special summaries, click here
+
+
+
+
+
+what's new: don't let the age fool you.  this software gets better with age, like me.
+
+
+(12/2020) upcopy,  
+added --retry on -h hash/network errors.
+
+
+(7/2019) touchme,  
+linux clone to change any mac date/time.
+
+
+(6/2019) upcopy,  
+   hash,  
+   diskcat,  all 
+updated to be able to put unicode filenames to log files.  (--unicode=unilog option)
+
+
+(4/2019) upcopy,  
+ can now not only identify alternate data streams, but can export them to "normal" files.  (--adsextract options)
+
+
+(6/2018) verticle. a
+program to reprocess "horizontal" delimeted records and reform 
+it so that each field becomes a new line. easy reading for inclusion into narrative reports.
+
+
+(4/2018) md5. md5 updated 
+to match md5 and all sha values against provided file.
+
+(3/2017) url_srch. added 
+capability to find ipv6 standard format. url_srch finds files that contain
+ip addresses, e-mail addresses, and url formats. it then provides a list of those files
+for the user to act upon. 
+
+
+(7/2012) eml_process. a program to parse .eml 
+files and extract header metadata to a delimeted file for easy spreadsheet import. get 
+the .exe file
+
+ 
+
+today rant
+those wooden flags you see above are given to persons and organizations i think would appreciate them and what they stand for.
+over the past year i have given these flags to two national news persons and another tv personality who routinely advertise good
+intentions on tv. of all these individuals, only one has even responded to the receipt of the item. that goes to show, even the
+most sincere tv personalities may not be what they show publicly. 
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+  |  
+home 
+ |  
+whats new
+
+|  
+about us  |  
+faq's  |  
+articles  |  
+resources  |  
+legal notices  |  
+contact us  | 
+
+
+|  
+
+files a-c  |  
+files d-f  |  
+files g-k  |  
+files l-o  |  
+files p-s  |  
+files t-z  | 
+
+
+ |  
+software |  
+data analysis software
+ |  
+forensic processing software 
+ |  
+linux processing software 
+ | 
+
+ 
+ copyright © 1998-2025 by dan mares
+
+
+ 
+
+
+
+
