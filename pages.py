@@ -178,8 +178,14 @@ def process_urls_from_csv(doc_df, limit):
                 except Exception as e:
                     # PRINT THE url and doc_index
                     url, doc_index = futures[future]
-                    
-                    print(f"Exception occurred: {e}")
+
+                    print(f"Exception occurred for {url}, {doc_index}: {e}")
+                    with dict_lock:
+                        dict_urls[url] = False
+
+                        
+
+                    # print(f"Exception occurred: {e}")
 
                 if local_count % report_interval == 0:
                     print(f"Progress: {completed_count}/{total_urls} URLs processed by {time.ctime()} will complete in {((time.time() - start_time) / completed_count) * (total_urls - completed_count) / 60:.2f} minutes")
