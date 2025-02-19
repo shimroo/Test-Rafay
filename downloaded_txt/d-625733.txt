@@ -1,0 +1,324 @@
+
+
+
+
+
+rainbow software | software, hardware, linux…	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rainbow software
+
+
+software, hardware, linux…
+ 
+
+skip to content
+
+homehardware
+
+hacking carps printers
+hacking flarion desktop modem
+t-mobile pci express router
+
+
+linux
+programs
+uniflash
+
+
+
+
+
+
+
+
+creating missing windows 95 install floppy
+
+posted on 3. april 2017 by admin 
+
+do you have a set of windows 95 install floppies but one of them is missing/damaged? if they’re english, you can most probably download the images somewhere. but i haven’t found czech anywhere.
+the other option is to recreate it using diamond disk layout tool 1.00.0530 – the same that microsoft used to build the original cabs (see layout.inf). microsoft released the tools long time ago as mcabin10.zip.
+this is an example how i recreated missing disk 9 from czech windows 95 oem (rtm – first release – version 4.00.950).
+rebuilding cab files
+create a working directory, unzip mcabin10.zip there, create source and out subdirectiories.
+first, get the original files – e.g. from a cd of the same release and language version as your windows 95 floppies. some are available at winworld.
+the files in cabs on the cd are in the same order as on the floppies (except there are some extra files at the end) – that’s great as the ddf can be rebuilt. extract the cabs from the cd to the source subdirectory and save the file list (as it comes out of extract). you can use my win95.ddf file (for czech windows 95 rtm oem) as a base to create your own using the file list you saved (note the .new disk command which ends precopy2.cab to begin win95_02.cab).
+finally, run the process to create the cab files in out subdirectory:
+diamond /f win95.ddf
+ 
+rebuilding precopy
+if you need precopy1.cab or precopy2.cab, you need to rebuild them as ms probably did that too before releasing at least some versions of windows 95 (precopy2.cab is not forward-linked to win95_02.cab but win95_02.cab is backward-linked to precopy2.cab). my precopy.ddf.
+diamond /f precopy.ddf
+ 
+finalizing the cab files
+recreated win95_02.cab is not identical to the original one (don’t know why) but other cabs are – with one exception – the setid (two bytes at offset 20h) which is randomly generated. use hex editor to edit the setid (two bytes at offset 20h) to match the original files. finally, set the file modification time (using e.g. volkov commander).
+creating the floppy
+
+use winimage (8.1 if you’re doing this on windows 9x/me) to format a floppy in dmf 2048 (2048b cluster size) format.
+copy the required cab file there and label the floppy (in my case: label a: w95oemcsd9).
+use disk editor to edit the label date/time to match the file.
+copy the boot sector from another floppy in the set. this makes the floppy read-only for windows.
+
+
+
+
+posted in uncategorized 
+|
+comments off on creating missing windows 95 install floppy
+
+
+
+running vmware workstation 7.1.6 or player 3.1.6 with kernel 4.2
+
+posted on 30. december 2015 by admin 
+
+instead of providing more patches for vmware modules, i’ve set up a git repository on github that contains the patched modules. the patches up to 3.16 were split into separate commits and cleaned up. new patches were added to support kernels up to 4.4. preprocessor macros were added to allow even the latest module version to compile with older kernels (tested back to 2.6.38).
+https://github.com/ondrej-zary/old-vmware-modules
+
+
+
+posted in linux 
+|
+comments off on running vmware workstation 7.1.6 or player 3.1.6 with kernel 4.2
+
+
+
+accessing drac 4 from recent linux distributions
+
+posted on 24. december 2015 by admin 
+
+
+make sure you have firefox, java runtime environment and java plugin for firefox. in debian, you need these packages:
+
+iceweasel
+openjdk-7-jre
+icedtea-7-plugin
+
+
+drac 4 only supports sslv3 and tls 1.0 but they’re disabled in recent firefox/iceweasel versions – you get secure connection failed error. to fix it, go to about:config and set security.tls.insecure_fallback_hosts to a comma separated list of hosts you want connect to (e.g. 10.1.2.3,10.2.3.4). you can now connect and login to drac 4.
+drac 4 only supports ssl_rsa_with_rc4_128_md5 and ssl_rsa_with_rc4_128_sha cipher suites but they’re disabled in recent java versions – you get an exception and unknown main-class error if you try to open console. to fix it, enable ssl_rsa_with_rc4_128_md5 cipher suite by setting
+deployment.plugin.jvm.arguments=-dhttps.ciphersuites=tls_ecdhe_ecdsa_with_aes_256_cbc_sha,
+tls_ecdhe_rsa_with_aes_256_cbc_sha,
+tls_rsa_with_aes_256_cbc_sha,
+tls_ecdh_ecdsa_with_aes_256_cbc_sha,
+tls_ecdh_rsa_with_aes_256_cbc_sha,
+tls_dhe_rsa_with_aes_256_cbc_sha,
+tls_dhe_dss_with_aes_256_cbc_sha,
+tls_ecdhe_ecdsa_with_aes_128_cbc_sha,
+tls_ecdhe_rsa_with_aes_128_cbc_sha,
+tls_rsa_with_aes_128_cbc_sha,
+tls_ecdh_ecdsa_with_aes_128_cbc_sha,
+tls_ecdh_rsa_with_aes_128_cbc_sha,
+tls_dhe_rsa_with_aes_128_cbc_sha,
+tls_dhe_dss_with_aes_128_cbc_sha,
+tls_ecdhe_ecdsa_with_3des_ede_cbc_sha,
+tls_ecdhe_rsa_with_3des_ede_cbc_sha,
+ssl_rsa_with_3des_ede_cbc_sha,
+tls_ecdh_ecdsa_with_3des_ede_cbc_sha,
+tls_ecdh_rsa_with_3des_ede_cbc_sha,
+ssl_dhe_rsa_with_3des_ede_cbc_sha,
+ssl_dhe_dss_with_3des_ede_cbc_sha,
+tls_empty_renegotiation_info_scsv,
+ssl_rsa_with_rc4_128_md5
+in ~/.icedtea/deployment.properties (debian wheezy) or ~/.config/icedtea-web/deployment.properties (debian jessie). make sure everything is on single line and there are no spaces around the commas. you can also set it using itweb-settings (jvm settings->set jvm arguments for plugin) but there’s a bug – a backslash is prepended before equal (=) sign in deployment.properties so you have to edit the file then.
+console will not open from the drac web interface, you have to enter url manually (e.g. https://10.1.2.3/cgi/vkvm). you may want to bookmark it.
+
+
+
+
+posted in linux 
+|
+comments off on accessing drac 4 from recent linux distributions
+
+
+
+running vmware workstation 7.1.6 or player 3.1.6 with kernel 3.16
+
+posted on 2. january 2015 by admin 
+
+an updated patch is available to make vmware workstation 7.1.6 or player 3.1.6 work with kernel 3.16: vmware-patch_for_kernel_3.16.tar.gz
+this time, i’ve created the patch myself as there were no patches available on the web.
+if you used the previous patch for kernel 3.11, go into /usr/lib/vmware/modules, move the already-patched files out of the way and copy the unpatched files to their original location:
+# cd /usr/lib/vmware/modules/
+# mv source source-3.11
+# cp -a source-player3.1.6-something-backup source
+
+the install instructions are same as before, just replace 3.11 with 3.16:
+$ tar xf vmware-patch_for_kernel_3.16.tar.gz
+# cd vmware-patch_for_kernel_3.16
+# ./patch-vmware_for_kernel_3.16.sh
+
+tested with debian wheezy using kernel 3.16 from wheezy-backports.
+
+
+
+posted in linux 
+|
+comments off on running vmware workstation 7.1.6 or player 3.1.6 with kernel 3.16
+
+
+
+cups driver for canon carps printers
+
+posted on 23. january 2014 by admin 
+
+i’ve reverse-engineered carps data format used by some canon printers and created a cups driver called carps-cups. these printers can now print from linux!
+tested on mf5730. printers that use the same data format and should work:
+
+mf5750
+mf5770
+mf5630
+mf5650
+mf3110
+imageclass d300
+laserclass 500
+fp-l170/mf350/l380/l398
+lc310/l390/l408s
+pc-d300/fax-l400/icd300
+l180/l380s/l398s
+
+
+
+
+posted in uncategorized 
+|
+comments off on cups driver for canon carps printers
+
+
+
+running vmware workstation 7.1.6 or player 3.1.6 with kernel 3.11
+
+posted on 5. january 2014 by admin 
+
+if you need to run vmware workstation 7.1.6 or player 3.1.6 (because newer versions require virtualization support in cpu) with recent kernels, you will run into several problems:
+
+if you use kernel with just two-number version (e.g. 3.11), vmware refuses to compile the kernel modules because it expects three numbers in kernel version (e.g. 3.2.0). this can be solved by patching vmware binary files:
+# sed 's/\x83\xe8\x03\x83\xf8\x01\x0f\x96\xc0/\x83\xe8\x02\x83\xf8\x01\x0f\x96\xc0/' -i /usr/lib/vmware/lib/libvmware-modconfig-console.so/libvmware-modconfig-console.so
+# sed 's/\x83\xe8\x03\x83\xf8\x01\x0f\x96\xc0/\x83\xe8\x02\x83\xf8\x01\x0f\x96\xc0/' -i /usr/lib/vmware/lib/libvmware-modconfig.so/libvmware-modconfig.so
+as described here: https://bbs.archlinux.org/viewtopic.php?pid=974766#p974766
+if you attempt to compile the modules manually, it will fail because they use deprecated kernel functions. this can be solved by applying some patches to the module sources:
+
+patch that updates the modules to work with kernel 3.4:
+vmware-716-kernel34.patch
+from http://blog.errorok.com/2012/07/07/262/
+this also includes patch-modules_3.4.0.sh script that does all the work – unpacking, patching, packing the sources back and running compilation.
+patches to vmblock and vmnet for kernel 3.12:
+vmblock-7.1.5-3.12.patch
+vmnet-7.1.5-3.12.patch
+from https://github.com/amitkr/vmware-patches
+
+
+vmware fails to find kernel header files because it searches for version.h file at /lib/modules/`uname -r`/build/include/linux/version.h. this can be easily solved by creating a symlink to the new file location:
+ln -s /lib/modules/`uname -r`/build/include/generated/uapi/linux/version.h /lib/modules/`uname -r`/build/include/linux/version.h
+
+i put everything together and created a package of the above patches and modified script that does everything automatically: vmware-patch_for_kernel_3.11.tar.gz
+
+make sure you have gcc and kernel headers for the currently running kernel installed:
+# aptitude install linux-headers-`uname -r`
+install vmware:
+$ kdesu ./vmware-player-3.1.6-744570.i386.bundle
+or
+$ gksu ./vmware-player-3.1.6-744570.i386.bundle
+unpack and apply the patches:
+$ tar xf vmware-patch_for_kernel_3.11.tar.gz
+# cd vmware-patch_for_kernel_3.11
+# ./patch-vmware_for_kernel_3.11.sh
+run vmware.
+
+tested with debian wheezy using kernel 3.11 from wheezy-backports.
+
+
+
+posted in linux 
+|
+comments off on running vmware workstation 7.1.6 or player 3.1.6 with kernel 3.11
+
+
+
+cx861xx_flash – conexant cx861xx usb boot flash utility
+
+posted on 12. december 2012 by admin 
+
+a new utility was released – cx861xx_flash – conexant cx861xx usb boot flash utility. it can access flash on devices with cx86111/cx86113, such as flarion desktop modem.
+
+
+
+posted in linux 
+|
+comments off on cx861xx_flash – conexant cx861xx usb boot flash utility
+
+
+
+usbmonctl v1.3
+
+posted on 13. april 2012 by admin 
+
+usbmonctl v1.3 released, adding eizo flexscan hd2441w and s1921 control descriptions.
+
+
+
+posted in linux 
+|
+comments off on usbmonctl v1.3
+
+
+
+
+
+
+
+
+
+archives
+
+april 2017
+december 2015
+january 2015
+january 2014
+december 2012
+april 2012
+
+
+
+meta
+
+log in
+
+
+
+
+
+
+
+
+
+					rainbow software				
+
+
+
+					proudly powered by wordpress.				
+
+
+
+
+
+
