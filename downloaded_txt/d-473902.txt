@@ -1,0 +1,435 @@
+
+
+
+
+welcome home : vim online
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+not logged in (login)
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+home
+
+
+advanced search
+
+
+
+
+
+
+
+
+
+
+
+about vim
+
+
+community
+
+
+news
+
+
+sponsoring
+
+
+trivia
+
+
+documentation
+
+
+download
+
+
+
+
+
+
+
+
+
+
+
+scripts
+
+
+tips
+
+
+my account
+
+
+
+
+
+
+
+
+
+
+
+mercurical web
+
+
+site help
+
+
+
+
+
+
+
+
+
+
+what is vim online?
+
+vim online is a central place for the vim community to store useful vim tips
+and tools.
+vim has a scripting language that allows for plugin like extensions to enable
+ide behavior, syntax highlighting, colorization as well as other advanced
+features.
+these scripts can be uploaded and maintained using vim online.
+
+why those ads?
+
+the profits made from ads and links on vim.org go to iccf holland to help poor
+children in uganda.
+
+vim and iccf holland supporters:
+
+
+the blog starter is proud to
+support the work of vim and iccf.
+
+
+daytrading.com supports iccf and recommends vim for developing
+automated trading software
+
+
+youtube video downloader is proud to support vim.
+
+
+investing.co.uk is a proud sponsor of iccf and strives to educate people
+about stocks,
+copy trading software
+and other types of investing.
+
+# text link only valid for half a year from xword media
+
+
+directory.net is the oldest and most curated web directory online. we are proud to support vim.org and its mission to help the children in africa.
+
+          
+
+
+
+
+
+
+
+
+vim - the ubiquitous text editor
+vim is a highly configurable text editor built to make creating and
+changing any kind of text very efficient.
+it is included as "vi" with most unix systems and with apple os x.
+
+
+vim is rock stable and is continuously being developed to become even better.
+among its features are:
+
+persistent, multi-level undo tree
+extensive plugin system
+support for hundreds of programming languages and file formats
+powerful search and replace
+integrates with many tools
+
+
+
+
+  news
+ vim
+9.1.1122
+    is the current version 
+
+
+happy i love free software day!
+
+[2025-02-14]
+on february 25th, we celebrate free software and the incredible communities that make it possible. and what better occasion to express our gratitude to the vim, neovim, busybox vi, and all vi-related projects - a dedicated group of developers, maintainers, and users who continue to redefine what a text editor can be!
+vi and its descendants have stood the test of time, evolving into powerful, efficient, and customizable tools that developers, sysadmins, and writers rely on every day. whether it's the legendary vim, the modern and extensible neovim, or the lightweight busybox vi, these projects embody the spirit of freedom, flexibility, and innovation in software. the work we do as a community - enhancing these editors, maintaining plugins, refining documentation, and welcoming new users - is something to be proud of!
+
+on this special day, let's take a moment to reflect on the impact of free software and the people who build it. the fsfe's "i love free software" campaign reminds us why open-source contributions matter, and posts like this one show the passion behind our work. and of course, we can never say thank you enough to bram moolenaar and everyone who has shaped vim and its ecosystem over the years.
+
+to all contributors, maintainers, and users of vim, neovim, busybox vi, and every vi-inspired editor: your work matters, and today, we celebrate you!     (christian brabandt) 
+    
+
+bram moolenaar receives the europe sfs award by the fsfe posthumously
+
+[2024-11-08] 
+    bram has been posthumously honored by the free software foundation europe and received the europe sfs award 2024.     (christian brabandt) 
+    
+
+support for the xdg base directory specification
+
+[2024-04-18]
+patch 9.1.327 brings support for the freedesktop xdg base directory specification and has now been merged. a few more adjustments have been made withe following patches: v9.1.0337 and 9.1.345.
+
+that means, you can now place your configuration files under ~/.config/vim/ instead of ~/.vim so vim will stop littering your home directory.
+
+note: to make this change backwards compatible, vim will only attempt to source from that location, if ~/.vim/vimrc and ~/.vimrc file do not exist. so it won't impact existing users, but users that want to start using the new location, will need to move their existing configuration to the new place.
+
+you can also read about it at :h xdg-base-dir.
+
+thanks to all the contributors that help vim continuing to grow!     (christian brabandt) 
+    
+
+
+
+more news...
+
+get a vim t-shirt from freewear
+
+
+get a vim sticker or button
+
+
+vim items from japan
+
+
+
+
+
+
+
+
+
+vim: the power tool for everyone!
+
+see pictures of bram's latest visit to uganda on
+google photos.
+
+read the visit report on the iccf website.
+
+
+
+
+
+  recent script updates
+ 5,965 scripts, 19,206,692 downloads 
+
+
+
+
+
+[2025-02-18]
+ bufexplorer.zip : buffer explorer / browser
+
+
+
+(7.6.0) another major patch implemented by dr. michael henry.
+- https://github.com/jlanzarotta/bufexplorer/pull/119
+  * sorting by fullname now depends only on the buffer's absolute path using a new sorting mechanism. other sort modes have been converted to use this mechanism as well.
+   * display of directory buffers is now suppressed when g:bufexplorershowdirectories == 0 as described in the bufexplo... - jeff lanzarotta
+
+
+[2025-02-15]
+ decvers.vim : dec style backup files
+
+
+
+(1.0) initial upload - mark manning
+
+
+[2025-02-14]
+ studio98 : a vim colorscheme inspired by the ides of the windows 98/nt era.
+
+
+
+(1.0) initial upload - jan zwiener
+
+
+[2025-02-11]
+ keeptext : keep only {motion} text in lines or the buffer.
+
+
+
+(1.00) initial upload - ingo karkat
+
+
+more recent | 
+                    most downloaded | 
+                    top rated
+
+
+
+
+
+  vim tips
+
+
+
+
+the tips are located on the
+vim tips wiki.
+ this is a platform to exchange tips and tricks from and for vim users.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            help uganda
+	  
+
+
+
+              
+
+
+buy at amazon
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      if you have questions or remarks about this site, visit the
+      vimonline development pages.
+      please use this site responsibly.
+       
+      
+      questions about vim should go
+      to the maillist.
+      help bram help uganda.
+      
+	 
+	 
+
+    
+
+vim at github
+
+
+
+
+
+
+
+

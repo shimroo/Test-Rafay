@@ -1,0 +1,156 @@
+
+
+
+
+
+
+
+
+
+
+xanga 2.0 is here!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+xanga 2.0 is here!
+please excuse the dust while we launch xanga 2.0!   check out the latest news from the xanga team below…
+
+
+
+
+xanga news
+
+
+what we’ve been learning about themes
+
+the servers have been stable for a while now, and we're starting to shift gears to looking into features.  our biggest effort has been around researching themes systems, so we can upgrade xanga’s default theme system to be more flexible and powerful.  here’s what we’ve learned:
+* mobile-friendliness: providing a mobile-friendly version of themes is key.  a key question is how similar the mobile theme should be to the desktop theme.  a lot of themes out there don’t have any similarities at all - it can be tough to make mobile and desktop themes match.
+* header editing: a lot of people want to be able to do something basic, like edit the header area without having to touch any code.  bonus points for being able to easily upload a header image!
+* module editing: another common feature request is the ability to add and edit modules with basic html.
+* one theme versus lots of them: with all the features to support, it’s better to have one theme versus lots of them.  that means that the one theme has to be pretty flexible though, which is a bit tricky.
+* tradeoff between flexibility versus ease-of-use: it’s easy to provide flexibility by itself, but hard to provide a flexible theme that’s easy to configure and doesn’t require knowledge of html/css.
+* security:  we’ve looked at a lot of the themes out there, and many of them have huge security holes in them, so that people’s data can be easily compromised!   this has ruled out a lot of the turnkey solutions out there, alas.
+we’re currently researching theme systems out there, and seeing how they do against these criteria!  let us know if there are any theme systems out there you’d like us to look at, and we can share our thoughts/evaluations in our next post.
+
+
+
+
+an update on our servers
+
+we’ve been experiencing some higher levels of bot traffic on xanga lately, which have been keeping us very busy.  bot traffic can cause the servers to get slower (or worse, to be inaccessible), so we wanted to share an update on what's going on and what we've been doing to address it.
+1. lots of bots
+there are a growing number of "web crawler" bots that are trying to crawl our site, and sites in general.  as wikipedia puts it, “a web crawler is an internet bot that systematically browses the world wide web, typically for the purpose of web indexing.”
+it used to be that only large search engines like google or bing could afford to buy lots of servers and storage, and crawl websites.  but the rates for servers/storage have come down a lot lately, and we’ve noticed a big increase in bots and web crawlers.  social media is also a big contributor: every time someone pins a post, pinterest sends a bot to crawl the page being pinned.  with all the pinning going on these days, pinterest is sending a lot of bots out there into the world!
+as a result of all this, bot traffic is way up on the web and it’s been putting a strain on our servers.  we should be fine for now - and when bot traffic gets especially bad, we tweak our network settings to prevent the bots from overloading the servers.
+server maintenance is proving to be a lot of work though, so we’re looking find other ways to address the surge in bot traffic.
+2. ddos
+we experience denial-of-service attacks from time to time as well.  (“in computing, a denial-of-service (dos) or distributed denial-of-service (ddos) attack is an attempt to make a machine or network resource unavailable to its intended users.” - wikipedia)
+recently we were the inadvertent target of a ddos attack on our servers.  our webhost had a bunch of random servers compromised by a security vulnerability known as shellshock. our servers were not compromised (we had patched them immediately after the security vulnerability came to light), but some hackers used the other compromised servers to attack another set of servers on our web host.
+even though we weren’t directly attacked, the compromised servers caused significant congestion on our webhost’s network - and that congestion caused our servers to be unable to reach the internet. so xanga went down for about 2 hours.
+by the time we had figured out what was going on, the webhost had resolved the issue on their end.  and with some server tweaks on our end, we were able to once again get out servers connected to the internet.  our webhost has made changes to make sure that this won't happen again, and we will continue to monitor for server vulnerabilities so we can keep our servers safe.
+———
+just wanted to share a little bit about the sort of server maintenance we’ve been doing a lot of lately.  next up, we’re pulling together our thoughts on some of the top feature requests, starting with how we might upgrade our customizable theme system.
+
+
+
+
+update
+
+we want to thank everyone for being there for us.  without your involvement, we wouldn't be where we are today.
+here are a few of the things that we've been working on over this past year:
+* we built out a new server system, and migrated thousands of websites over to the new servers
+* we fought off ongoing ddos and brute password attacks that were slowing the site down
+* we've made further upgrades to our server setup over the past six months, to use new more powerful servers as they became available.
+* we're planning one more server upgrade later this year, to take advantage of better and cheaper server systems that have become available.
+
+one area where we've dropped the ball is providing updates on all of the above.  initially we were fighting off the ddos attacks, and didn't want to tip off our attackers on our progress.  so we focused on talking to our users one at a time, through our email support and help forums.
+but more recently, we've largely defeated the ongoing ddos and password attacks.  the site has been up and stable, and we're gearing up to make the further upgrades mentioned above.  we'll be providing more regular updates and communication, both on this blog and also on our facebook page.
+so we're working to communicate more regularly, and to start building the community teams that we mentioned earlier.  first up: we've asked joel of edlives.xanga.com to serve as a community liaison.  you can reach him at his blog at edlives.xanga.com, or through xanga's facebook page at http://www.facebook.com/xanga.  we will have a regular call with joel to discuss feedback and ideas.
+we're also going to be working together to pull together a list of other areas where we could use help.  if any come to mind, please let us know and we'll discuss it with joel in our next call!  and as a thank you for sticking with us, we're offering 6 months of free blog hosting to all of our paid members.  just email eugenia at help@xanga.net, and she'll add it the extra months to your account!
+thank you for sticking with us over the past year.  we're looking forward to working together to build xanga in the coming year.
+
+
+
+
+we're working to make ~2 million blog archive backups available for free download asap
+
+i mentioned previously that we've migrated all premium users and campaign contributors over to the xanga 2.0 servers.
+in addition, we also have prepared downloadable archives for the ~2 million xanga blogs saved on our servers... specifically:
+* we generated blog archives for every xangan who has signed into the site in the past 5 years, as long as they have more than two subscribers (to rule out spam).
+* we also generated blog  archives for every xangan who has signed into the site in the past year, and has at least ten blogs overall.
+we are currently working to make these archives available asap to all of our users (for free, of course). we've been working on this all day, and hope to have it available soon. there will be two ways to retrieve your data.
+1) once we launch this feature, you will be able to sign into xanga and download the archive (for free) from the link at the top of your dashboard, or
+2) upgrade to xanga 2.0 and we will upgrade your blog to the new servers using the data in the backup.
+let me know if you have any questions!
+ps we've been tuning the servers all day to run faster... let us know if you can feel a difference in the site speed!
+
+
+
+
+welcome to xanga 2.0!
+
+welcome to the official launch of xanga 2.0!
+here's how to get started:
+1. signin
+you can sign into your xanga account right here:
+* http://xanga.com/wp-login.php
+you can use the same username and password that you're used to, and it should work!
+2. check out your blog
+if you are premium or participated in our xanga 2.0 campaign, your blog should be in the same location!  for example, my blog is here:
+http://john.xanga.com
+if your blog appears, you should be able to go to your dashboard and start blogging!    your blog should even look similar to your old theme.  (if it looks a bit off, let us know here and we'll take a look!)
+http://help.xanga.com/forum/themes
+if your blog doesn't appear (and you are either premium or contributed to our campaign), please let us know in our help forum and we will look into it!
+http://help.xanga.com/forum/data-migration
+3. check out your reading page (to read posts)
+either way, you should be able to check out your reading page under your dashboard!
+
+it's a great way to find updates from your subs and friends!  speaking of which, we made some name changes related to subs and friends, to help make it a bit simpler and more intuitive... you can read about the name tweaks here!
+ps  thanks for your patience everyone... we will find a way to make it up to you!!
+pps we are now officially in phase 2 (of four) of the xanga 2.0 launch!
+phase 1: data migration
+phase 2: site tuning  <---
+phase 3: feature prioritization
+phase 4: building together
+the next month or two of work on xanga 2.0 is going to be busy, so we wanted to share with everyone a roadmap of how we’re thinking about things... if you're interested, you can read more details about the 4 phases here
+
+
+
+ 
+ 
+
+
+
+
+skip to toolbar
+
+
+xanga 
+ 
+log in  
+
+
