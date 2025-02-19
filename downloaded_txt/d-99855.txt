@@ -1,0 +1,527 @@
+
+
+
+
+gregory todd williams
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+gregory todd williams
+
+
+
+
+home
+about
+code
+résumé
+
+
+
+
+
+
+douglas world cruiser centennial
+september 23, 2024  4:03 pm
+
+
+this past weekend, i had a great time attending the celebration of the douglas world cruiser centennial at the santa monica airport. there were lots of aviation organizations — people from the ninety-nines and the faa stem aviation and space education were both excited to talk (and both were especially receptive to discuss opportunities to meet with local girl scouts). there was a dc-3 fly-by, many 1930s and 1940s aircraft parked on the apron, and lots of interesting electric plane start-ups.
+
+i’m not sure my daughter was quite as into the event as i was, but she seemed to have fun (free stickers and t-shirts helped). i have really great memories of smo, both from time spent nearby when my dad worked next door to the airport, and from the adjacent museum of flying (since moved to the south side of the airport) from which i was able to take a sight-seeing flight on a dc-3 once upon a time.
+i’ll be sad to see the airport close in the coming years, but i think its history is well enough intertwined with that of the city that it’s impact will never be truly lost.
+
+
+
+
+twenty years
+may 22, 2023 12:48 pm
+
+
+i just got home from a weekend spent in massachussetts at my twentieth college reunion.
+
+it was wonderful to be back at wheaton, see old friends (some of whom actually live nearby these days), and make some new ones.
+
+some things have changed. there are new buildings and new academic programs. but it was really great to see so much that hasn’t changed.
+the faculty, staff, and students; walks in the woods; campus on a spring afternoon.
+
+the graduating seniors were friendly and welcoming, and spent a surprising amount of time with us. i hope they can look back on their time at wheaton with as much fondness as i do.
+
+
+
+
+moving on…
+december 23, 2022  2:31 pm
+
+
+
+a brief post to note that i’ve stopped checking or posting to twitter. it was a huge part of my life for almost 16 years, but it seems clear that twitter is headed in a direction that i no longer wish to support.
+i’ve recently started following people from my long-dormant mastodon account at @kasei@w3c.social, and can still be found elsewhere on the web and irc.
+
+
+
+
+lrc on trains
+april  2, 2021 10:37 pm
+
+
+i was listening to this afternoon’s left right and center where the hosts discussed the proposed infrastructure plan, and specifically about amtrak and investments in american rail infrastructure. two arguments stuck out to me as way off base.
+the first was lanhee chen’s claim about the relative environmental impact of rail transport. while seeming to be optimistic about investments into airports, he said:
+i think rail is marginally maybe more environmentally friendly than flying by plane. if you look at certain measures of energy consumption it’s only marginally better.
+directing the argument to energy consumption feels like a weird direction to go when talking about environmental concerns. i would think the more direct comparison would be the environmental impact of the carbon emissions involved. on this, it’s impossible to take this argument seriously, as trains are simply better than flying. even our current (terribly slow and inefficient) trains in the us are twice as efficient as flying economy. and more modern, efficient trains (which one would hope an infrastructural investment would aim for) are vastly more efficient. an article in the national observer suggests that the “kilometers per tonne of climate pollution” for various methods of transport are: 5,000 for flying economy class, 10,000 for a north american train, and 81,000 for the eurostar train. a 2019 bbc article came to much the same conclusion.
+the second point was josh barro’s suggestion that the reason rail doesn’t make sense in america is due to our geography:
+there shouldn’t be cross country passenger rail. the reason that we don’t have a national high speed rail network has to do with our geography. first of all people overestimate the extent to which these network exist in europe. they do, but in france it’s basically all a radial network from paris. there’s no line from lyon to bordeaux. the country is too large for it to make sense to run these large operations.
+there’s some truth to this, but:
+
+focusing on a single european country feels misleading when european rail networks are connected
+focusing purely on high-speed rail ignores the many regional rail networks (even in france!) that complement the often “radial” high speed networks
+
+and even putting high speed upgrades aside, data on wikipedia suggests that the european union has roughly the same sized rail network as the us (~200,000km), but with ~117,000 of that being electrified versus the us’s ~2,000. there are lots of opportunities for improvement here that don’t necessarily result in a “cross country â ¦ high speed rail network.”
+and then there’s china. there may be other differences and issues with the chinese rail network (certainly the political system that got it built), but in terms of “geography”, in under 15 years the chinese have built more miles of high speed rail than the amtrak network has in total. maps of the chinese hsr network look to me like they cover roughly a third of the country’s area. while that’s a lot smaller area than the area of the contiguous united states, it seems much larger than the combined area of megaregions of the us. again, lots of opportunity for improvements.
+so mostly it feels, as always, like this country lacks a viable and environmentally friendly high speed rail network due to a lack of will.
+
+
+
+
+sparql* for wikidata
+august 12, 2019  8:51 am
+
+
+i recently asked olaf hartig on twitter if he was aware of anyone using rdf* or sparql* for modeling qualified statements in wikidata. these qualified statements are a feature of wikidata that allow a statement such as “the speed limit in germany is 100 km/h” to be qualified as applying only to “paved road outside of settlements.” getting the most out of wikidata: semantic technology usage in wikipedia’s knowledge graph by malyshev, et al. published last year at iswc 2018 helps to visualize this data:
+
+although olaf wasn’t aware of any work in this direction, i decided to look a bit into what the sparql* syntax might look like for wikidata queries. continuing with the speed limit example, we can query  for german speed limits, and their qualifications:
+select ?speed ?qualifierlabel where {
+    wd:q183
+        wdt:p3086 ?speed ;
+        p:p3086 [
+            ps:p3086 ?speed ;
+            pq:p3005 ?qualifier ;
+        ] .
+    service wikibase:label { bd:serviceparam wikibase:language "en" . }
+}
+
+this acts much like an rdf reification query. using sparql* syntax to represent the same query, i ended up with:
+select ?speed ?qualifierlabel where {
+    << wd:q183 wdt:p3086 ?speed >>
+        pq:p3005 ?qualifier ;
+    service wikibase:label { bd:serviceparam wikibase:language "en". }
+}
+
+this strikes me as a more appealing syntax for querying qualification statements, without requiring the repetition and understanding of the connection between wdt:p3086 and p:p3086. however, that repetition of “p3086” would still be required to access the quantityunit and normalized values via the psi: and psn: predicate namespaces. i’m not familiar enough with the history of wikidata to know why rdf reification wasn’t used in the modeling, but i think this shows that there are opportunities for improving the ux of the query interface (and possibly the rdf data model, especially if rdf* sees more widespread adoption in the future).
+with minimal changes to my swift sparql parser, i made a proof-of-concept translator from wikidata queries using sparql* syntax to standard sparql. it’s available in the sparql-star-wikidata branch, and as a docker image (kasei/swift-sparql-syntax:sparql-star-wikidata):
+$ docker pull kasei/swift-sparql-syntax:sparql-star-wikidata
+$ docker run -t kasei/swift-sparql-syntax:sparql-star-wikidata sparql-parser wikidata -s 'select ?speed ?qualifierlabel where { << wd:q183 wdt:p3086 ?speed >> pq:p3005 ?qualifier ; service wikibase:label { bd:serviceparam wikibase:language "en". } }'
+select ?speed ?qualifierlabel where {
+    _:_blank.b1 <http://www.wikidata.org/prop/statement/p3086> ?speed .
+    <http://www.wikidata.org/entity/q183> <http://www.wikidata.org/prop/p3086> _:_blank.b1 .
+    <http://www.wikidata.org/entity/q183> <http://www.wikidata.org/prop/direct/p3086> ?speed .
+    _:_blank.b1 <http://www.wikidata.org/prop/qualifier/p3005> ?qualifier .
+    service <http://wikiba.se/ontology#label>
+    {
+        <http://www.bigdata.com/rdf#serviceparam> <http://wikiba.se/ontology#language> "en" .
+    }
+}
+
+
+
+
+
+thoughts on hdt
+november 29, 2018  8:58 am
+
+
+i’ve recently been implementing an hdt parser in swift and had some thoughts on the process and on the hdt format more generally. briefly, i think having a standardized binary format for rdf triples (and quads) is important and hdt satisfies this need. however, i found the hdt documentation and tooling to be lacking in many ways, and think there’s lots of room for improvement.
+benefits
+hdt’s single binary file format has benefits for network and disk io when loading and transferring graphs. that’s its main selling point, and it does a reasonably good job at that. hdt’s use of a rdf term dictionary with pre-assigned numeric ids means importing into some native triple stores can be optimized. and being able to store rdf metadata about the rdf graph inside the hdt file is a nice feature, though one that requires publishers to make use of it.
+problems and challenges
+i ran into a number of outright problems when trying to implement hdt from scratch:
+
+the hdt documentation is incomplete/incorrect in places, and required reverse engineering the existing implementations to determine critical format details; questions remain about specifics (e.g. canonical dictionary escaping):
+here are some of the issues i found during implementation:
+
+dictionarysection says the “section starts with an unsigned 32bit value preamble denoting the type of dictionary implementation,” but the implementation actually uses an unsigned 8 bit value for this purpose
+foursectiondictionary conflicts with the previous section on the format uri (http://purl.org/hdt/hdt#dictionaryplain vs. http://purl.org/hdt/hdt#dictionaryfour)
+the paper cited for “vbyte” encoding claims that value data is stored in “the seven most significant bits in each byte”, but the hdt implementation uses the seven least significant bits
+“log64” referenced in bitmaptriples does not seem to be defined anywhere
+there doesn’t seem to be documentation on exactly how rdf term data (“strings”) is encoded in the dictionary. example datasets are enough to intuit the format, but it’s not clear why \u and \u escapes are supported, as this adds complexity and inefficiency. moreover, without a canonical format (including when/if escapes must be used), it is impossible to efficiently implement dictionary lookup
+
+the w3c submission seems to differ dramatically from the current format. i understood this to mean that the w3c document was very much outdated compared to the documentation at rdfhdt.org, and the available implementations seem to agree with this understanding
+there doesn’t seem to be any shared test suite between implementations, and existing tooling makes producing hdt files with non-default configurations difficult/impossible
+the secondary index format seems to be entirely undocumented
+
+in addition, there are issues that make the format unnecessarily complex, inefficient, non-portable, etc.:
+
+the default dictionary encoding format (plain front coding) is inefficient for datatyped literals and unnecessarily allows escaped content, resulting in inefficient parsing
+distinct value space for predicate and subject/object dictionary ids is at odds with many triple stores, and makes interoperability difficult (e.g. dictionary lookup is not just dict[id] -> term, but dict[id, pos] -> term; a single term might have two ids if it is used as both predicate and subject/object)
+the use of 3 different checksum algorithms seems unnecessarily complex with unclear benefit
+a long-standing github issue seems to indicate that there may be licensing issues with the c++ implementation, precluding it from being distributed in debian systems (and more generally, there seems to be a general lack of responsiveness to github issues, many of which have been open for more than a year without response)
+the example hdt datasets on rdfhdt.org are of varying quality; e.g. the swdf dataset was clearly compiled from multiple source documents, but did not ensure unique blank nodes before merging
+
+open questions
+instead of an (undocumented) secondary index file, why does hdt not allow multiple triples sections, allowing multiple triple orderings? a secondary index file might still be useful in some cases, but there would be obvious benefits to being able to store and access multiple triple orderings without the extra implementation burden of an entirely separate file format.
+future directions
+in his recent desemweb talk, axel polleres suggested that widespread hdt adoption could help to address several challenges faced when publishing and querying linked data. i tend to agree, but think that if we as a community want to choose hdt, we need to put some serious work into improving the documentation, tooling, and portable implementations.
+beyond improvements to existing hdt resources, i think it’s also important to think about use cases that aren’t fully addressed by hdt yet. the hdtq extension to to support quads is a good example here; allowing a single hdt file to capture multiple named graphs would support many more use cases, especially those relating to graph stores. i’d also like to see a format that supported both triples and quads, allowing the encoding of things like sparql rdf datasets (with a default graph) and trig files.
+
+
+
+
+property path use in wikidata queries
+september 28, 2018  9:06 am
+
+
+i recently began taking a look at the wikidata query logs that were published a couple of months ago and wanted to look into how some features of sparql were being used on wikidata. the first thing i’ve looked at is the use of property paths: how often paths are used, what path operators are used, and with what frequency.
+using the “interval 3” logs (2017-08-07–2017-09-03 representing ~78m successful queries1), i found that ~25% of queries used property paths. the vast majority of these use just a single property path, but there are queries that use as many as 19 property paths:
+
+
+
+pct.
+count
+number of paths
+
+
+
+
+74.3048%
+58161337
+0 paths used in query
+
+
+24.7023%
+19335490
+1 paths used in query
+
+
+0.6729%
+526673
+2 paths used in query
+
+
+0.2787%
+218186
+4 paths used in query
+
+
+0.0255%
+19965
+3 paths used in query
+
+
+0.0056%
+4387
+7 paths used in query
+
+
+0.0037%
+2865
+8 paths used in query
+
+
+0.0030%
+2327
+9 paths used in query
+
+
+0.0011%
+865
+6 paths used in query
+
+
+0.0008%
+604
+11 paths used in query
+
+
+0.0006%
+434
+5 paths used in query
+
+
+0.0005%
+398
+10 paths used in query
+
+
+0.0002%
+156
+12 paths used in query
+
+
+0.0001%
+110
+15 paths used in query
+
+
+0.0001%
+101
+19 paths used in query
+
+
+0.0001%
+56
+13 paths used in query
+
+
+0.0000%
+12
+14 paths used in query
+
+
+
+i normalized iris and variable names used in the paths so that i could look at just the path operators and the structure of the paths.
+the type of path operators used skews heavily towards * (zeroormore) as well as sequence and inverse paths that can be rewritten as simple bgps.
+here are the structures representing at least 0.1% of the paths in the dataset:
+
+
+
+pct.
+count
+path structure
+
+
+
+49.3632%
+10573772
+?s <iri1> * ?o .
+
+
+39.8349%
+8532772
+?s <iri1> / <iri2> ?o .
+
+
+4.6857%
+1003694
+?s <iri1> / ( <iri2> * ) ?o .
+
+
+1.8983%
+406616
+?s ( <iri1> + ) / ( <iri2> * ) ?o .
+
+
+1.4626%
+313290
+?s ( <iri1> * ) / <iri2> ?o .
+
+
+1.1970%
+256401
+?s ( ^ <iri1> ) / ( <iri2> * ) ?o .
+
+
+0.7339%
+157212
+?s <iri1> + ?o .
+
+
+0.1919%
+41110
+?s ( <iri1> / ( <iri2> * ) ) / ( ^ <iri3> ) ?o .
+
+
+0.1658%
+35525
+?s <iri1> / <iri2> / <iri3> ?o .
+
+
+0.1496%
+32035
+?s <iri1> / ( <iri1> * ) ?o .
+
+
+0.1124%
+11889
+?s ( <iri1> / <iri2> ) / ( <iri3> * ) ?o .
+
+
+
+there are also some rare but interesting uses of property paths in these logs:
+
+
+
+pct.
+count
+path structure
+
+
+
+
+0.0499%
+5274
+?s ( ( <iri1> / ( <iri2> * ) ) / ( <iri3> / ( <iri2> * ) ) ) / ( <iri4> / ( <iri2> * ) ) ?o .
+
+
+0.0015%
+157
+?s ( <iri1> / <iri2> / <iri3> / <iri4> / <iri5> / <iri6> / <iri7> / <iri8> / <iri9> ) * ?o .
+
+
+0.0003%
+28
+?s ( ( ( ( <iri1> / <iri2> / <iri3> ) ? ) / ( <iri4> ? ) ) / ( <iri5> * ) ) / ( <iri6> / ( <iri7> ? ) ) ?o .
+
+
+
+without further investigation it’s hard to say if these represent meaningful queries or are just someone playing with sparql and/or wikidata, but i found them curious.
+
+
+
+these numbers don’t align exactly with the wikidata query dumps as there were some that i couldn’t parse with my tools. ↩︎
+
+
+
+
+
+
+
+sparql blank nodes
+august  5, 2017 11:40 am
+
+
+i recently ran across what i believe to be a mistake in the sparql 1.1 query language, and thought i’d add some detail here.
+section 5.1.1 of the sparql 1.1 specification says:
+when using blank nodes of the form _:abc, labels for blank nodes are scoped to the basic graph pattern.  a label can be used in only a single basic graph pattern in any query.
+however, during the parsing of a sparql property paths into the sparql algebra, many property path expressions do not result in basic graph patterns. only those expressions that result in “adjacent triple patterns” produce a basic graph pattern. that means that a graph pattern such as:
+
+_:s <p> ?x ;
+    <q>* ?y .
+
+does not result in a bgp. intuitively, i think this should be allowed. it’s intention seems clear. however, it results in two primary algebraic components: a basic graph pattern with the triple pattern :s <p> ?x, and a property path :s zeroormorepath(<q>) ?y. this certainly breaks the rule about only using blank nodes in a single basic graph pattern.
+the language in section 5.1.1 originated in sparql 1.0, and i believe was just overlooked during the update to the language that added property paths.
+when handling blank node labels, instead of following the exact language of the specification, i believe sparql implementations should instead allow blank node labels that appear in any adjacent set of basic graph patterns and property paths.
+andy seaborne helpfully added this issue to the sparql 1.1 errata. 
+
+
+
+
+feature for sparql 1.2
+july  6, 2017  6:15 pm
+
+
+jindřich mynarz recently posted a good list of “what i would like to see in sparql 1.2” and i thought i’d add a few comments as well as some of my own wished-for features.
+explicit ordering in group_concat, and quads support for both the http graph store protocol and construct queries (items 2, 5, and 8 in jindřich’s list) seem like obvious improvements to sparql with a clear path forward for semantics and implementation.
+here are the some of the other wished-for features:
+
+explicitly specify the reduced modifier (#1)
+as an implementor, i quite like the fact that reduced is “underspecified.”
+it allows optimization opportunities that are much cheaper than a full
+distinct would be, while still reducing result cardinality. i think it’s
+unfortunate that reduced hasn’t seen much use over the years, but i’m not
+sure what a better-specified reduced operator would do different from distinct.
+property path quantifiers (#3)
+the challenge of supporting path quantifiers like elt{n,m} is figuring out
+what the result cardinality should be. the syntax for this was standardized
+during the development of sparql 1.1, but we couldn’t find consensus on whether
+elt{n,m} should act like a translation to an equivalent bgp/union pattern
+or like the arbitrary length paths
+(which do not introduce duplicate results). for small values of n and m,
+the translation approach seems natural, but as they grow, it’s not obvious
+that use cases would only want the translation semantics and not the
+non-duplicating semantics.
+perhaps a new syntax could be developed which would allow the query author
+to indicate the desired cardinality semantics.
+date time/duration arithmetic functions (#6)
+this seems like a good idea, and very useful to some users, though it would substantially increase the size and number of the built-in functions and operators.
+support for non-scalar-producing aggregates (#9)
+i’m interested to see how this plays out as a sparql extension in systems like stardog.
+it likely has a lot of interesting uses, but i worry that it would greatly complicate
+the query and data models, leading to calls to extend the semantics of rdf, and add new
+query forms, operators, and functions.
+structured serialization format for sparql queries (#10)
+i’m indifferent to this. i suspect some people would benefit from such a format,
+but i don’t think i’ve ever had need for one (where i couldn’t just parse a query
+myself and use the resulting ast) and it would be another format to support for
+implementors.
+
+beyond that, here are some other things i’d like to see worked on (either standardization, or cross-implementation support):
+
+support for window functions
+explicit support for named graphs in service blocks
+this can be partially accomplished right now for hard-coded graphs by using an endpoint url with the default-graph-uri query parameter, but i’d like more general support that could work dynamically with the active graph when the service block is evaluated.
+structured errors for use in the sparql protocol
+my preference for this would be using the rfc7807 “problem details” json format, with a curated list of iris and associated metadata representing common error types (syntax errors, query-to-complex or too-many-requests refusals, etc.). there’s a lot of potential for smarter clients if errors contain structured data (e.g. sparql editors can highlight/fix syntax issues; clients could choose alternate data sources such as triple pattern fragments when the endpoint is overwhelmed).
+
+
+
+
+
+sparql limit by resource
+march 20, 2017  7:17 pm
+
+
+as part of work on the attean semantic web toolkit, i found some time to work through limit-by-resource, an oft-requested sparql feature and one that my friend kjetil lobbied for during the sparql 1.1 design phase. as i recall, the biggest obstacle to pursuing limit-by-resource in sparql 1.1 was that nobody had a clear idea of how to fit it nicely into the existing sparql syntax and semantics. with hindsight, and some time spent working on a prototype, i now suspect that this was because we first needed to nail down the design of aggregates and let aggregation become a first-class feature of the language.
+now, with a standardized syntax and semantics for aggregation in sparql, limit-by-resource seems like just a small enhancement to the existing language and implementations by the addition of window functions. i implemented a rank operator in attean, used in conjunction with the already-existing group by. rank works on groups just like aggregates, but instead of producing a single row for each group, the rows of the group are sorted, and given an integer rank which is bound to a new variable. the groups are then “un-grouped,” yielding a single result set. limit-by-resource, then, is a specific use-case for ranking, where groups are established by the resource in question, ranking is either arbitrary or user-defined, and a filter is added to only keep rows with a rank less than a given threshold.
+i think the algebraic form of these operations should be relatively intuitive and straightforward. new window and ungroup algebra expressions are introduced akin to aggregation and aggregatejoin, respectively. window(g, var, windowfunc, args, order comparators) operates over a set of grouped results (either the output of group or another window), and ungroup(g) flattens out a set of grouped results into a multiset.
+if we wanted to use limit-by-resource to select the two eldest students per school, we might end up with something like this:
+project(
+    filter(
+        ?rank <= 2,
+        ungroup(
+            window(
+                group((?school), bgp(?p :name ?name . ?p :school ?school . ?p :age ?age .)),
+                ?rank,
+                rank,
+                (),
+                (desc(?age)),
+            )
+        )
+    ),
+    {?age, ?name, ?school}
+)
+
+students with their ages and schools are matched with a bgp. grouping is applied based on the school. rank with ordering by age is applied so that, for example, the result for the eldest student in each school is given ?rank=1, the second eldest ?rank=2, and so on. finally, we apply a filter so that we keep only results where ?rank is 1 or 2.
+the syntax i prototyped in attean allows a single window function application applied after a group by clause:
+prefix : <http://example.org/>
+select ?age ?name ?school where {
+    ?p :name ?name ;
+       :school ?school ;
+       :age ?age .
+}
+group by ?school
+rank(desc(?age)) as ?rank
+having (?rank <= 2)
+
+however, a more complete solution might align more closely with existing sql window function syntaxes, allowing multiple functions to be used at the same time (appearing syntactically in the same place as aggregation functions).
+prefix : <http://example.org/>
+select ?age ?name ?school where {
+    ?p :name ?name ;
+       :school ?school ;
+       :age ?age .
+}
+group by ?school
+having (rank(order by desc(?age)) <= 2)
+
+or:
+prefix : <http://example.org/>
+select ?age ?name ?school where {
+    {
+        select ?age ?name ?school (rank(group by ?school order by desc(?age)) as ?rank) where {
+            ?p :name ?name ;
+               :school ?school ;
+               :age ?age .
+        }
+    }
+    filter(?rank <= 2)
+}
+
+
+
+ 
+
+			© 2002–2019, gregory todd williams.
+		
+
+
