@@ -1,0 +1,625 @@
+
+
+
+
+
+
+
+
+
+
+
+blog-ed
+
+
+
+
+
+
+blog-ed
+
+a tiny insight into the tiny mind of ed - and cheaper than a therapist.
+
+
+
+
+
+
+
+
+potty page
+
+
+
+
+
+
+	march  4, 2012
+	
+
+possible solution to very slow ipod touch syncing (maybe iphone too)
+
+it's been a while since i've posted here. but one of my new year's resolutions was to consider to start blogging again... so here's an attempt
+
+
+a few weeks ago i bought myself a shiny 5g ipod touch.
+
+
+i had it delivered to work and within seconds of opening it up i was already surfing the web, syncing my purchases and allsorts to it via the wifi! amazing, i thought, "omg, the hype was right". when i came home i plugged it into my pc to sync all of my stuff. disaster. it took about a minute per song to transfer. "come back usb1, all is forgiven", i thought to myself.
+
+
+after managing to convince it to do wifi syncing i soon found that this was about 3 times quicker - but still too slow! rubbish. so... what could it be. well, i was using my old ipod cable... so maybe it was that... so i swapped leads with the new one... no joy.
+
+
+somewhere along the lines, i plugged my mobile phone into the computer to charge (sony ericsson elm, if you're wondering). lo and behold, the transfer started zipping along at a rate i'd become accustomed to with my old ipod.
+
+
+i thought to myself, "what the ...?"
+
+
+after much debugging i realised that the transfer only went quickly when the "sony ericsson device 1039 usb ethernet emulation (ndis 5)" driver was enabled. that is, if i disabled that, the upload to my ipod would go slow... and as soon as i re-enabled it, it would go fast. i was like some sort of inverse device conflict!
+
+
+so, i'd got a solution, albeit rubbish (my actual solution is still pretty pants to be fair). all i needed to do is make sure my phone was plugged in at the same time as my ipod. this clearly isn't that satisfactorily... so... i wondered if it was just that network driver it was after... or another (bearing in mind i'm well and truly in the 90s and have a wired lan card in this pc!). so, i dug around and came across a usb wifi dongle thingy. i've plugged this in the back of the pc and just dumped it behind there. it's not connected to a network or anything. it's just plugged in. sure enough... the ipod syncs at proper speeds!
+
+
+i have no real idea why this works. i have spotted that when you do a sync to the ipod and look at "resource monitor" there's some pretty fast 'network i/o' going on that's on a network device that's not listed - not sure if it's on the loopback device or if apple are doing something funky. my guess is that somewhere along the line it's remembering me having that network connection present in the past as it's causing it to look for it or something.
+
+
+anyway, if you've got slow sync issues, try seeing if plugging in another network device does anything? i've not gone so far as to plug in another ancient wired network card to see if that'll work too. that's an exercise for the reader.
+
+
+maybe another solution (a proper solution) might be to remove all remnants of previous network adapters that have been plugged into the machine - i'm up to "local area connection (20)" on my machine and see if that works. another exercise for the reader!
+
+good luck and let me know how you get on!
+
+posted by ed at 12:32 pm
+         |
+geek | 
+	
+	
+	
+
+
+	september 10, 2009
+	
+
+prediction about the prediction
+
+maybe you watched derren brown 'predict' the lottery numbers last night. maybe you didn't. meh. whatever. speculation is rife about how he could have done it.
+
+
+here's my theory.
+
+
+the first shot isn't live. it's pre-recorded. as is the shot where they show the camera man and him from behind. when it cuts back to the first camera, it's not really a man with a handheld camera, it's a fixed, floor mounted camera (and we're now live).
+
+
+the image taken by the camera is bigger than the image they actually broadcast (say 10% bigger). this could be achieved by digitally zooming the image or cropping it or whatever. the means that a smaller window can be moved around the actual image - giving the impression that the static feed is actually a handheld camera as it's moving a bit.
+
+
+as it zooms in loads at the end of the program, i can only assume that they 'unfix' the camera and use it as normal, or it's got a high resolution and they zoom in digitally rather than optically.
+
+
+as the camera is fixed, you can now have the left of the screen (where the balls are) showing a still shot of the balls, with a perfect edge to the dynamic right video. as you can move the window around the full image, it looks like the camera is moving, thus making it look like it's 'impossible' to stitch the two images together.
+
+
+as the balls are drawn the balls are replaced in the holder by some other dude. the time this takes is counted for by derren writing out the numbers and what have you. so long as the balls just fit into the trough, they'll be in the same position in each shot.
+
+
+then, all you do is cut to the live feed on both sides of the image before he walks across and tada.
+
+
+of course, after tomorrow when he's shown how his prediction was made, i could well just change this to show what he said, and look like a genius :)
+
+posted by ed at  7:19 pm
+         |
+ramble | 
+	
+	
+	
+
+
+	august 31, 2009
+	
+
+double opt-in e-mail lists
+
+i've just been idly reading about ways to stop people claiming that the emails you send them are spams - hints for mailing list admins etc.
+
+
+one idea (which pretty much everyone does now!?) is the double opt-in. the idea is simply, person signs up to list (opt in number one) and then you send them an email, with a link/code which they have to visit (opt in number two), to get on the mailing list/website.
+
+
+so, i was reading about this on the digital river site . one of the reasons they give for using double opt in for you list is to stop you from emailing spam traps - these are email addresses that exist purely to attract spam - nobody has any reason to email them as they are not real people.
+
+the page then goes on to explain that just one email that's caught in a spam trap could have devastating consequences - as the people who run the spam trap might add you to a block list that's used by lots of isps. fair enough.
+
+
+however, they then go on to explain that double opt-in will work wonders, because the account isn't a real person, they won't click on the link and will never end up on the list...
+
+
+can you see where i'm going yet?
+
+
+how, exactly, do you send them the opt-in email, without it setting off the spam trap alarms? or is the plan that every email that arrives at a spam trap address does get manually checked to see if it's only an opt-in email... rather than an actual message to the mailing list?
+
+
+hmmm?
+
+posted by ed at  9:20 pm
+         |
+geek | rant | 
+	
+	
+	
+
+
+	april  7, 2009
+	
+
+saynoto0870 and banks
+i wanted to phone my bank today and decided that i'd call them from my mobile (now i have a shed load of free minutes to use a month). however, they only have an 0845 number... (but, but that's a local number, right?). despite bt's moves in january 2009 to start actually treating them as the name suggests in their call packages (rather than not including them in the phone package and charging them the full up non-discounted local/national rate), my mobile phone provider doesn't, and treats them specially.
+my mobile tariff quite clearly states:
+inclusive minutes
+inclusive minutes can be used for calls to standard uk landlines (starting 01, 02 or 03) and all uk network mobiles. it excludes calls to non-geographic numbers (starting 05, 08), 07744 and 07755 numbers and premium rate (09) numbers.
+
+(that also means that'll i'll have to pay to call a 0800 (freephone) number from my mobile. what a load of banja lukas!)
+i ain't paying 25p a minute (that's a price i've found on wikipedia from july 08, it might not be current) to talk to my bank.
+anyways, as you're probably well aware, the issue with non-geographic 08 numbers (03 is fine) has been going on for a while, so much so that the honourable bunch at saynoto0870 are giving us alternative geographic numbers for companies who only publish a non-geographic number (0870, 0845, 0800, etc) to contact them with. my question is, how much can they be trusted?
+how easy would it be for me to put an entry in for a bank, that actually pointed to my number... and then the phonecall cost savvy people would call me rather than the bank?
+wouldn't it be chuffing easier (and more secure?) for the bank to publish a geographical number? i don't even care where it is geographically. if i'm phoning the halifax i don't give two hoots if it begins with 01422 or not (i'm aware that might bother some people). alternately, if you don't want people to think your call-centre might be based in xtown get a sodding 03 number!
+similarly, if you've got an 0800 number, be aware that it'll cost some people a lot to call you... when if you had geographical number it'd cost them nothing... paradoxical but true.
+looking at the reasons of support of 0870/0845 numbers on wikipedia is laughable, given today's technology (voip).
+it means that you only need one number, even if you're based all over the country - i can answer my home phone anywhere in the world... and i ain't no multi-national and my phone number is geographical.
+revenue - voip...
+routing - voip...
+of course, the other option is to moan at the phone suppliers to treat the numbers as though they're geographical/free. question is who'll win? maybe companies could do the protesting for us by just not using them.
+anyways, i shall phone the bank from home this evening, where it won't cost the earth.
+posted by ed at  1:20 pm
+         |
+ramble | rant | 
+	
+	
+	
+
+
+	april  2, 2009
+	
+
+numbers and scale...
+
+today i read an article in the bbc news magazine, it was all about how the use of numbers to describe stuff has become meaningless.
+
+
+i saw a good example of this today, in some propaganda from the council...
+
+
+apparently, libraries cost 85p a week, that's less than a takeaway burger a week. city events cost 27p a week, less than a mars bar. link buses cost a whooping 6p a week, less than an apple (fruit, not it, i guess). care for disabled adults, £1.94, less than a dozen eggs. 28p a week on older people's day centres (less than a bag of crisps) and a whopping £11.68 is spent on children - less than a takeaway.
+
+
+i've only listed things i don't currently directly benefit from...
+
+
+put another way, it's 784.16 quid a year. that's enough to buy return flights to shanghai (with klm this april) (£457 - ok, i know it's on offer...) and, erm, something else that costs 327 quid...
+
+
+so, peanuts then.
+
+posted by ed at 11:36 pm
+         |
+rant | 
+	
+	
+	
+
+
+	march 28, 2009
+	
+
+tweet tweet
+
+so... ages ago i wrote a thing that'll let me send a sms to my blog, and it'd automatically update a ticker thing in realtime...
+
+
+well, it appears that i wasn't the only person who thought this was a good idea...
+
+
+anyways, i've resisted the urge for too long and have joined twitter. feel free to follow me, the more the merrier... i plan to overtake stephen fry by lunchtime tomorrow. heh.
+
+
+by the power of php, my twitter feed also appears on my sidebar... how exciting?
+
+posted by ed at  4:09 pm
+         |
+geek | 
+	
+	
+	
+
+
+	march 13, 2009
+	
+
+six
+
+hardly seems worth it, but my calendar reliably informs me that my blog is a whole six years old today.
+
+
+doesn't time fly?
+
+
+completely unbeknown to me, it shares its birthday with the www, which is 20 today. happy birthday web.
+
+posted by ed at 11:20 am
+         |
+geek | 
+	
+	
+	
+
+
+	january 17, 2009
+	
+
+bluetooth... to wake up my pc
+this is a kind of follow on from the last post (about wake-on-lan and dhcp and stuff...)
+one of the joys of leaving your computer running is that it's always ready for you - if you hibernate it, it takes a bit of time to respond. if you turn it off it's gonna take some time to come back. (now i can hear some of you screaming... suspend, suspend... don't hibernate! well, my fingers are in my ears and i'm not listening - i've found that my pc comes out of suspend waaay too easily, although to be fair there's probably settings i can change to make the mouse not turn it on.)
+anyways, so seeing as there's a server that runs all the time in the lab, i thought "ah-ha", if i put a bluetooth dongle in it... and probe occasionally, when it sees my mobile phone it can start to turn the pc on (by wake-on-lan) that means that i can turn it on passively, by just being present so it's ready for my by the time i get there. i've not messed with full distances and the like, but i think it can see me as i leave the lift.
+this has lead to me finding a somewhat annoying feature of windows xp. this being that if you wol a hibernated machine... after 2 mins of idle time it'll hibernate itself again. so, the bluetooth turns the computer on, but you don't check your emails - you're making a cup of coffee... and the bloody thing turns itself back off!
+now... this feature is documented on microsoft's support site in kb810719 -
+after two minutes, if no other activity or ping requests from the network occur, the computer automatically returns to standby or hibernation. this behavior occurs because wake-on-lan is typically configured to return your computer to standby or hibernation after two minutes of inactivity.
+now, in there it says "typically configured...two minutes". ok. how do i configure it to be atypical, at a time of say 24 hours or 1 year? i can't find this documented anywhere!
+i guess i could write a program that convinces windows that executes the command setthreadexecutionstate saying that the computer is always busy, but that's a lot of a fudge.
+ideas, anyone?
+posted by ed at  4:53 pm
+         |
+geek | 
+	
+	
+	
+
+
+	january 15, 2009
+	
+
+hibernation, wake-on-lan and dhcp
+at work and at home i have computers that can both do wake-on-lan (wol). that means that i can turn them on over the lan (and as the lans are connected to the internet, from the internet). this is dead useful. i don't have to think... hmmm... i might need to access my computer remotely... i'd best leave it on anymore.
+i also hibernate my computer in both places - that's another reason for leaving it on... everything is just as you left if when you want to use the computer again.
+furthermore, in both places the computer gets its ip address (and other info) by dhcp (dynamic host configuration protocol) - that means that things like it's ip address and what namesevers to use are all configured centrally on another computer somewhere, and when i turn on the computer it checks to see what settings to use.
+ok. so why am i talking about this?
+when you enable windows to do all of these three things... that is hibernation, wol and dhcp, it does annoying things.
+a bit more background... basically, the information from the dhcp server expires - it goes out of date - and when this happens (well before this happens) the computer will ask the dhcp server for what the current configuration settings should be. now, for a stable network this will be the same configuration all the time. the people administering the dhcp server will set how long the information is valid for - it's up to them to suggest how stable they see the settings. if it's stable they might have a dhcp lease time of a week or more... if it's unstable, maybe an hour or two.
+at home i'm the admin, and i've decided that dhcp is valid for day. at work the admins have decided it's valid for two hours.
+ok, so when the computer hibernates its clever and knows that as it's could have to wol it needs to keep it's network configuration up-to-date. so, when it's half way between when it got the lease and when it expires it turns itself on, gets a dhcp update, and turns itself off again.
+the thing is, for wake-on-lan to work you don't need to know the ip address of the computer you need to turn on - you only need to know the mac address of the network card (as that's the only thing that's listening on the network and it's not really aware of any ip address, just its mac address).
+now, in some situations knowledge of the ip address could be useful - as i'm sure that there are network management programs that can be used to turn on computers remotely that are linked into the dhcp servers (dhcp servers keep a table linking ip addresses on the network to mac addresses on the network) - so if you've a big network, want to turn on a random computer and have no idea what the mac address is, but know it's ip address then this might be the way to go. (this is pure speculation... such management programs may not exist!)
+i however know the mac addresses of both computers i want to turn on (and by using the magic of the /etc/ethers file in linux i've got a table of ip addresses and mac addresses that my wakeonlan program knows about.)
+so, what's the problem. well... number one, my computer lives in my bedroom... and it turning on at 5am to refresh it's dhcp is far from ideal - secondly it doesn't turn itself off again for some reason.... and the computer at work turns itself on every hour (half of two) to update itself... given that it takes ages to go through the bios etc etc... it's actually on for about 5 mins every hour. what's worse... if you arrive at work when it's in the middle of a refresh and it's starting to shutdown again you have to wait for this shutdown and then turn it on again...
+so, what are the solutions to this problem...
+at home i'm the admin... so i've changed my entry on the dhcp tables (in dhcpd.conf) to something like...
+
+host blueberry { hardware ethernet 00:12:56:2b:4b:f9; fixed-address 192.168.1.10; default-lease-time 8640000; max-lease-time 10000000; }
+
+which sets the lease time to 100 days, meaning the computer will turn on to refresh every 50! as the computer seems to refresh its dhcp anyway when it comes out of hibernation i basically have to not turn my computer on in 50 days for it to be a problem.
+so, what about at work? where i'm not an admin of the network. well, i could set my settings in statically. this would be bad - and cause annoyance to me - they've set the lease time to 2 hours for a reason - they could go changing dns servers at random, the internet would appear broken and i've have to manually correct them!
+my solution was to install hibernate trigger. this is a little program that sits in your systray and waits for the computer to start hibernating - when it does it can run a program. it'll then also be waiting so that as soon as you come out of hibernation it runs another program.
+so, i have two batch files. one for hibernation and one from resuming - the hibernation one simply runs ipconfig /release. this removes all the automatically set ip settings from my computer - this convinces it that it never has to turn on to update them. my resume script runs ipconfig /renew, this forces the configuration to be pulled from the server. i'm not strictly sure that the renew one is required - the dhcp might get automatically updated when you start the computer from hibernate anyway - but it's there for good measure, i've not tested it without.
+anyway, that's how (or at least the only way i could think of) to stop your computer waking from hibernation when you've enable wake-on-lan. this was after searching for an answer for a good few hours. hopefully it'll help someone else!
+posted by ed at 11:04 pm
+         |
+geek | 
+	
+	
+	
+
+
+	january  9, 2009
+	
+
+can't resist!
+
+people who know me will know that i can't resist a dig at religion. so, imagine my glee when i read about some christians complaining to asa about the atheist 'adverts' on the sides of buses.
+
+
+that's not really helping your case is it? it's just going to make you look petty and have atheists laugh at you. ha ha ha.
+
+
+as for asking to humanists to prove that there is no god, you're having giraffe? looking at the 'advert' i'm a little lost as to whether it's actually an advert at all (as in should the asa get involved at all). ok, so they've paid some people (who happen to sell advertising space) for some space to publish an important message to the people, but is it really an advert?... basically, is the paper version of a public service announcement an advert. i'd like to think not.
+
+
+they also cleverly use the word "probably". now, i'm well aware that it's possible to read text and throw half the meaning out of the window, or interpret it however you wish - after all that's what happens with the bible, but seriously! despite clearly being used in jest, the word does change the meaning of the phrase!
+
+
+i'm not totally convinced that there's actually a need for the advert to be honest (other than to annoy people who believe in god - mission achieved on that front) as it's not really going to convince agnostics/theists that there's no god.
+
+
+could i complain to the asa about church bells? (not that i would 'cause i'm not a petty complainer... eww ewww... i'm so offended must complain to get my name in the paper)
+
+posted by ed at  6:43 pm
+         |
+ramble | 
+	
+	
+	
+
+
+
+
+
+
+july 2013
+
+sun
+mon
+tue
+wed
+thu
+fri
+sat
+
+
+
+ 
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+
+21
+
+22
+
+23
+
+24
+
+25
+
+26
+
+27
+
+
+28
+
+29
+
+30
+
+31
+
+ 
+
+ 
+
+ 
+
+
+
+recently commented
+
+
+scintillating...
+
+
+
+
+(25 aug by sherry)
+the problem with gin and lemonade...
+
+
+
+
+(04 apr by woo)
+plummet - damaged
+
+
+
+
+(28 mar by kdc)
+breaking into my alarm...
+
+
+
+
+(11 jan by allanm)
+prediction about the prediction
+
+
+
+
+(12 sep by ed)
+no longer a barclaycard customer
+
+
+
+
+(30 apr by joseph le brech)
+saynoto0870 and banks
+
+
+
+
+(07 apr by rob)
+bluetooth... to wake up my pc
+
+
+
+
+(21 mar by roger)
+hibernation, wake-on-lan and dhcp
+
+
+
+
+(16 feb by ed)
+british army's show me the way to armadillo spoof!
+
+
+
+
+(13 feb by mick)
+
+
+links on this site
+
+
+gallery
+photomap
+my charts
+
+
+twitter
+
+
+
+today's top 101roxette - what's she like?12roxette - (do you get) excited?13roxette - small talk14roxette - fireworks15roxette - looking for jane16roxette - view from a hill17roxette - how do you do!18roxette - harleys and indians (riders in the sky)19roxette - crash! boom! bang!110roxette - the big l.1
+
+search
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+archives
+
+
+2012march2009septemberaugustaprilmarchjanuary2008octoberaugustjulyjunemayaprilmarchjanuary2007decembernovemberoctoberseptemberaugustjulyjunemayaprilmarchfebruaryjanuary2006decembernovemberoctoberseptemberaugustjulyjunemayaprilmarchfebruaryjanuary2005decembernovemberoctoberseptemberaugustjulyjunemayaprilmarchfebruaryjanuary2004decembernovemberoctoberseptemberaugustjulyjunemayaprilmarchfebruaryjanuary2003decembernovemberoctoberseptemberaugustjulyjunemayaprilmarch
+recently, on blogs i read...
+
+x factor voting bias - follow up (oct 14 on toph's blog)
+season 2011-2012 (sep 17 on toph's blog)
+season 2010-2011 the end (sep 17 on toph's blog)
+x factor voting bias (dec 12 on toph's blog)
+softball 2011 (jul 17 on toph's blog)
+march - may 2010-11 update (jul 17 on toph's blog)
+jan, feb update (feb 27 on toph's blog)
+hodgson leaves liverpool (jan 8 on toph's blog)
+2010 into 2011 (jan 8 on toph's blog)
+half season update (jan 8 on toph's blog)
+week 9 2010/11 season - week 8 the aftermath (nov 6 on toph's blog)
+weeks 6, 7 & 8 season 2010/11 (oct 28 on toph's blog)
+weeks 3, 4 & 5 season 2010/11 - win 2 (sep 23 on toph's blog)
+northumberland holiday (sep 23 on toph's blog)
+week 2 10/11 season - win 1 (aug 28 on toph's blog)
+week 1 10/11 season (aug 20 on toph's blog)
+10/05/10 (may 10 on toph's blog)
+perseverance pays off (feb 25 on toph's blog)
+that was 2009 (jan 3 on toph's blog)
+bad car, good food, long waits (jan 16 on toph's blog)
+
+
+blogs i read...
+
+
+ant
+kat
+kate
+rosie
+sarah d
+toph
+warren
+wellsy
+
+
+blogs that sleep...
+
+
+charis
+claudestreet
+james h
+
+rob
+russ
+sarah
+kitty
+
+
+
+other sites i look at...
+
+
+backstage
+paul's website
+
+
+
+bum fluff
+
+
+
+support ed and buy stuff from amazon using this link...
+
+
+
+syndicate this site (xml)
+
+
+
+
+
+
+
+
+this weblog is licensed under acreative commons license.
+privacy policy
+
+
+visits since 12 april 2003: 
+word count:  253,627
+
+powered bymovable type 4.38
+
+
+
+
+

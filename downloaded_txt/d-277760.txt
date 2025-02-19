@@ -1,0 +1,323 @@
+
+
+
+
+
+welcome to 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+product specials
+
+
+
+";
+	  		
+	  		//$p_image = 'http://www.streetpros.com/'.$row_special["image"];
+	  		$p_image = $burl . "/" . $row_special["image"];
+			$lp_image = dir_server_root."/".$row_special["image"];
+			//print "";
+
+			list($width, $height, $type, $attr) = getimagesize($lp_image);
+
+			//print "";
+
+			if($height>$width){
+
+			$imgheight = 90;
+
+			$imgsz = 'height="'.$imgheight.'"';
+
+			}else{
+
+			$imgwidth = 90;
+
+			$imgsz = 'width="'.$imgwidth.'"';
+
+			}
+
+		//}else{
+
+	  	//$spc_img = http_server.dir_catalog.'images/default_product_image.gif';
+
+	   	//$imgwidth = 100;
+
+		//$imgsz = 'width="'.$imgwidth.'" height="100"';
+
+	 // }
+
+	  	//if (stristr($p_image,'default_product_image.gif')){
+
+	  	//	$spc_img = http_server.dir_catalog.'images/default_product_image.gif';
+
+		//}
+
+$r++;
+if ($r == 1){
+
+				  ?>       
+
+                           
+
+                                
+
+"> border="0" style="max-height: 90px; max-width: 90px;"/>
+" class="productname">$ - $
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+new products
+
+
+
+
+
+ 2) { break; };
+					  $np_img="";
+
+					  if ((file_exists(dir_server_root.'/shared/'.$row_special1["supplier_id"].'/'.$row_special1["image"]))&&(is_file(dir_server_root.'/shared/'.$row_special1["supplier_id"].'/'.$row_special1["image"]))){
+
+	  		//$np_img = http_server.dir_catalog.'shared/'.$row_special1["supplier_id"].'/'.$row_special1["image"];
+	  		$np_img = $furl.'shared/'.$row_special1["supplier_id"].'/'.$row_special1["image"];
+			$npl_img = dir_server_root.'shared/'.$row_special1["supplier_id"].'/'.$row_special1["image"];
+			print "";
+
+			list($width, $height, $type, $attr) = getimagesize($npl_img);
+
+			print "";
+
+			if($height>$width){
+
+			$imgheight = 90;
+
+			$imgsz = 'height="'.$imgheight.'"';
+
+			}else{
+
+			$imgwidth = 90;
+
+			$imgsz = 'width="'.$imgwidth.'"';
+
+			}
+
+		}else{
+
+	  	//$np_img = http_server.dir_catalog.'images/default_product_image.gif';
+	  	$np_img = $furl.'images/default_product_image.gif';
+
+	   	$imgwidth = 90;
+
+		$imgsz = 'width="'.$imgwidth.'" height="90"';
+
+	    }
+
+	  	if (stristr($p_image,'default_product_image.gif')){
+
+	  		//$np_img = http_server.dir_catalog.'images/default_product_image.gif';
+	  		$np_img = $furl.'images/default_product_image.gif';
+
+		}
+
+				  ?>        
+
+                           
+							
+
+">  border="0" style="max-height: 90px; max-width: 90px;"/>
+" class="productname">$
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+join today
+
+
+
+
+
+
+
+
+
+
+
+we will send you exclusive offers and latest releases for your vehicle!
+
+
+
+
+
+
+
+
+manage wishlist
+review all orders
+up coming events
+forums
+special deals
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+existing member
+
+
+user name: 
+
+
+
+
+
+password: 
+
+
+
+
+
+
+                                  remember me 
+
+
+forgot password
+
+
+
+                                   
+                                  
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
