@@ -1,0 +1,447 @@
+
+
+
+
+craig johnson consulting - network design and troubleshooting, and more
+
+
+
+
+
+
+
+
+
+
+scroll down for a number of general hints, tips and files for solving 
+bordermanager and netware problems! (ifolder 1.x and 2.x tips link is at the bottom of this page).
+
+news
+working mostly linux migrations
+for the past serveral years many of my clients are migrating from 
+netware to oes linux, either oes2 (sles10) or oes11 (sles11). oes11 is working 
+well, and the migration bugs i saw early in the oes1 and oes2 days are mostly 
+fixed.  i've done migrations of file, iprint, dns, dhcp, ifolder, and groupwise 
+recently, and all have been successful.  filr is becoming an interesting product. 
+groupwise 2012 and 2014 are working well.  aside from taking old netware shops into the 
+linux world (or microsoft), i've been doing a few cisco asa projects replacing 
+old bordermanager servers.  i've also been setting up vmware esxi servers, doing 
+physical to virtual migrations, and setting up iscsi san's.
+
+the bordermanager replacement is working well
+the superlumin nemesis server has been released for some time now, 
+and i've used it for all my network access between 2010 and 2011.  it 
+has proven to be quite stable for me.   i've been starting to do server migrations, 
+and i'd like to do more!  also, i have completed work on revision 1 of my 
+newest book - migrating from bordermanager to superlumin nemesis.  see the link 
+below.
+
+bordermanager to superlumin migrations book
+i've finished a new book called 'migrating from bordermanager to 
+superlumin nemesis".  this new ebook is available online at 
+this link.
+common network services book
+i've finished the first edition of my new book on
+dns, dhcp and web servers on windows, linux and netware.  this is the replacement 
+for the earlier beta version that i put on sale at brainshare in march, 2010.
+please check out the new book at this link.
+- you can use the graphic to the left for your reverse-proxied web sites if you like
+
+
+
+
+
+consulting services available
+need help migrating from bordermanager to superlumin or cisco asa? 
+need help with your network?  perhaps help with older netware servers,
+suse linux, or windows?  are you having or worried about migration issues going 
+from (or to) netware to other operating systems? are you ready to virtualize 
+your servers onto vmware?   thinking about setting up an iscsi san with shared 
+file services or clustered servers?  how about getting a zcm 11 server going to 
+manage your windows 7 pc's, and/or linux systems>? 
+ 
+need someone to troubleshoot that bordermanager server? how about zenworks (all versions), 
+netware, groupwise (up to 2014), microsoft or linux network troubleshooting, nds and network 
+designs, oes linux or netware server migrations, slp, dns, dhcp, wsus, 
+internetworking, router configuration, documentation, training, and more? 
+
+craig johnson consulting, llc is available for your project 
+needs. please go to this link for contact information and free and paid 
+support options. craig johnson holds the following certifications: novell cle (certified
+linux engineer), mcne, cne 3, 4.11, 5 and 6, compaq ase, cisco ccna and ibm pse.
+some common requests i get are to analyze, document and fix vpn, filters, access 
+rules, and routing issues which can be done via dial up or email, or to perform a bordermanager
+health check and document the server via pcanywhere, vnc or citrix dial-in. when i go 
+through your server, you can also consider it as intensive one-on-one training! i 
+also do groupwise, ifolder, edirectory, and various other work. click here for more information.
+
+
+current schedule - note - my 
+business phone number is: 
+480-575-0629
+note: i sometimes forget to forward my phone from one office to another.  if 
+i don't answer on the above number, try 602-684-4473.  however, i do generally 
+receive email on my cell phone, so i'm not too hard to contact that way unless 
+i forget my phone!
+
+mar 15-july 2-available
+july 3-12 - vacation in colorado-available
+july 13- jul 25-available
+july 25-aug 3 - out of town-unavailable
+
+
+
+
+
+
+i have written a new book on migrating from bordermanager to 
+superlumin nemesis, complete with simple, easy-to-follow examples of commonly-used 
+services.  edirectory single sign-on is covered, as is forward, reverse and 
+transparent proxy, generic proxy, static and dynamic nat, and examples of typical 
+filter exceptions.  troubleshooting information is included to help decipher 
+packet filtering, ldap to edirectory, partitioning new cache disks, and other 
+problems.
+
+the book is 135 pages long.  it is intended for network administrators who are 
+unfamiliar with the new superlumin replacement product for bordermanager.
+
+migrating from bordermanager to superlumin nemesis
+the first edition, revision 1.0 is now on sale for 
+$49.95.
+
+version 1.0
+ october 7, 2011
+ craig johnson
+a description of this 135 page book 
+is here.
+you can order the book directly from
+here.
+this document can only be purchased in adobe acrobat format. you can 
+download a copy the same day you order it.
+if you experience problems with the shopping cart system linked from this web site, 
+please send email to cjcsales2@craigjconsulting.com.
+
+
+
+
+i have written a book on configuring dns, dhcp and web 
+servers on windows 2003, netware 6.5, suse linux enterprise server 10 (sles10) 
+and open enterprise server 2 (oes2) linux.  the book is 786 pages 
+long.  it is intended for network administrators who are unfamiliar with the 
+concepts or procedures for configuring any of these services on one of the 
+covered operating systems.  it is particularly useful for novell administrators 
+transitioning from netware to windows or linux.
+a beginner's guide to common network services
+the first edition, revision 1.0 is now on sale for 
+$54.95.
+
+version 1.0
+ april 31, 2010
+ craig johnson
+a description of this 786 page book 
+is here.
+you can order the book directly from
+here.
+this document can only be purchased in adobe acrobat format. you can 
+download a copy the same day you order it.
+if you experience problems with the shopping cart system linked from this web site, 
+please send email to cjcsales2@craigjconsulting.com.
+
+
+
+
+linkwall suite for bordermanager
+the linkwall suite for bordermanager is a database that 
+resides on the bordermanager server and categorizes websites so you can block 
+or allow them with access rules.  similar to surfcontrol, but much cheaper!  
+up to 128 different categories, automated updating, easily-edited database lists, 
+and integration with rtmonitor.  you can buy linkwall 
+here.
+
+
+beginner's guide to bordermanager 3.x
+the fourth edition, beta 1 is now on sale.
+ 
+this new edition has 350 more pages than the third edition, and most of 
+that covers new bordermanager 3.9 features, such as imanager menus, pre-shared 
+key vpn, and migration information. the fourth edition, beta 1 is a beta 
+revision that i intend to enhance further as more real-world experience with 
+bordermanager 3.9 comes in.  buyers of the beta version will get the final 
+revision for free when it is finished.  and finally, bm39sp1 beta is available, 
+so i can update the book with some new features and bug fixes!
+finally, a book on bordermanager that shows examples of 
+configuring all the proxies, gateways, vpns and access rules, and much more. 
+1573 pages. highly recommended by novell.
+craig johnson
+ novell support connection sysop
+ fourth edition, beta 1
+ april 30, 2007
+a description of this book is here.
+significant corrections to the book are shown here.
+you can order the book directly from 
+here.
+you can order both the bordermanager 3.x book and the bordermanager filtering book 
+at the same time, and save $5 by clicking here.
+if you experience problems with the shopping cart system linked 
+from this web site, please send email to cjcsales2 "@" craigjconsulting "dot" com.
+
+
+
+
+novell bordermanager: a beginner's guide to configuring filter exceptions
+the only book of its kind - understand and configure packet 
+filter exceptions in bordermanager 2.1, 3.0, 3.5, 3.6 and 3.7, complete with 
+many examples. highly recommended by novell.
+special update notice!!! i am working on revising this 
+book to include new examples, and bordermanager 3.9 information.  if you buy 
+this book now, you will get a free upgrade to the fourth edition of the filtering 
+book when i get it ready for release.
+third edition, revision 2
+ november 27, 2002
+ craig johnson
+a description of this 322 page book 
+is here.
+significant corrections to the book are 
+shown here. 
+you can order the book directly from
+here.
+you can order both the bordermanager 3.x book and the bordermanager filtering book 
+at the same time, and save $5 by clicking here.
+this will be a two-part download! both of these books can 
+only be purchased in adobe acrobat pdf format. you can download a copy the 
+same day you order them.
+if you experience problems with the shopping cart system linked 
+from this web site, please send email to cjcsales2 "@" craigjconsulting "dot" com.
+
+
+
+
+i have written a quick guide to configuring the (free) nmas 
+version of radius which comes with bordermanager 3.8.   this guide is not 
+intended to be a book, and is only 46 pages long.  it covers the basic 
+installation and configuration of radius, and shows how to test the 
+installation, and also shows several common problems and their causes.
+a quick guide to configuring netware radius (nmas version)
+beta 1
+ september 7, 2005
+ craig johnson
+a description of this 46 page book 
+is here.
+you can order the book directly from
+here.
+this document can only be purchased in adobe acrobat format. you can 
+download a copy the same day you order it.
+if you experience problems with the shopping cart system linked from this web site, 
+please send email to cjcsales2 "@" craigjconsulting "dot" com.
+
+
+
+
+links
+links to other web sites, including those for other 
+novell support connection forums sysops, and netware-related sites can be seen 
+here. (updated nov. 11, 2004)
+
+
+
+
+novell ifolder, bordermanager and netware hints, tips, and files
+
+i strongly recommend bordermanager admins at least read tips 1, 6, 23 and 
+63 if this is the first visit to this web site.
+latest updates:
+
+ mar. 19, 2015 - updated ifolder tips with ifolder 3.9 buggy client fix tip.  link 
+ is at the bottom of this page.
+ mar. 5, 2010 - updated tip #1.
+ dec. 18, 2009 - updated tip #1, and added linkwall purchase web page.
+ apr. 2, 2009 - updated tip #1
+ feb. 28, 2009 - updated tip #1
+ jan. 24, 2009 - updated tip #1
+ apr. 24 - updated tip #1
+ mar. 23 - updated tip #1
+ mar. 5 - updated tip #1
+ feb. 29 - updated tip #1 and #63 with bm39sp1 updates
+ jan. 15 - updated tip #1
+ jan. 14 - updated tip #46
+ dec. 16 - updated tip #63
+ dec. 13 - updated tip #63
+ dec. 9 - updated tip #1 and #63
+
+*** these tips are shown in (more or less) chronological order 
+(some old ones may be obsolete - if it doesn't have a date on the tip, it is an 
+older tip) ***
+1. what are the current patches, and in what order do i apply them? 
+i've tried to list them all here. 
+(updated mar. 5, 2010.)
+2. changing the default filter exceptions to allow dial-up or cable modem 
+interfaces with dynamically-assigned addresses to be used - click here.
+3. fixing the nbm 3.5 non-stateful pop3-st filter definition - click here.
+4. preventing netware5 from bringing up a dial-up link (may also help clntrust issues) - click here.
+5. fixing a nat problem - click here.
+6. a discussion of tcpip.nlm issues - click here. (updated nov. 11, 2004)
+7. get the old, but reliable, bmtcpe4.exe patch with tcpip.nlm version 5.31a by clicking here. (note: this tip is obsolete unless you are
+running bordermanager 2.1!)
+8. uninstalling the bordermanager 3.5 enhancement pack (not necessary with bm35sp2 or newer patches) - click here.  (note: this tip is obsolete.)
+9. unloading and reloading bordermanager modules, to get the server to shut down quickly or whatever - (bmon and bmoff ncf files included!) - click here.
+10. making a custom error page for bordermanager (english and german sample included) - click here.
+*****************************************
+11. understanding and fixing licensing problems - click here.
+12. removing all the filters and filter exceptions, a discussion of brdcfg - click here.
+13. what the default filters should look like - click here. (updated nov. 11, 2004)
+14. the third edition, revision 1 of my book on bordermanager is done! click here for a description of the book. (updated june 9,
+2004)
+15. having problems with clntrust? find answers here. (updated nov. 23, 2004)
+16. no security container exists in the nds tree? using netware 5.1? get some help, and a file, here.
+17. sas objects show as ? marks in nwadmnn32 on a netware 5.1 server? get some help here.
+18. getting nwadmn32 to work with the bordermanager snapins. some tips are here. (updated jun. 27, 2004)
+19. how to load the bordermanager 3.x modules with command line options in autoexec.ncf for best results - go here. (updated nov. 10, 2004)
+20. fixing the -3 error when updating bordermanager in nwadmn32 - three ideas here.
+*****************************************
+21. simon begin's bordermanager free common log analysis program brdstats - see the readme and get the file (version 1.50a, updated 12/5/2002) 
+here.
+22. citrix & terminal server users! a tip on cookie-based authentication methods through the forward proxy are discussed here. (updated nov. 12, 2004)
+23. performance tuning your bordermanager server: - a) see the proxy tuning tid 3321740. everyone should read this. b) you can download
+an ncf file with recommended settings here, but you use these settings at your own risk. (they may need adjustment for your environment!). c) also see a
+novell tid 3988333 on proxy.cfg switches, and check out tip #63 below. d) if you use
+netware 6.5, be sure to tune the memory after it has run for a day or two. see a novell tid here.
+(updated tuneup file sep. 2, 2003, added link to memory management tid oct. 10, 2004)
+24. don't have the option to create a login policy object in the security container? need a snapin to see it? see a tip here for extending the
+schema. (updated nov. 12, 2004)
+
+25. a discussion of the ipflt31 filtering module versions and issues, including an older version of ipflt31.nlm to fix a stateful filtering problem is here. (updated dec. 6, 2004)
+
+26. you can get a management mib for bordermanager proxy by download this file. you can get a management mib for bordermanager vpn by downloading
+this file.
+27. want to redirect that pesky netware 5.x, 6.0 or 6.5 gui screen to your pc so that you can remotely install bordermanager? here are
+the instructions, and some useful files. (updated sep. 16, 2003)
+28. fixing the ssl proxy authentication error "login failed. please try again." see a tip here.
+29. getting the windows update feature to work with bordermanager - look here. (updated feb. 15, 2005)
+30. no cyberpatrol menu choice in access rules? non-english client32 installation? see a tip here.
+*****************************************
+31. a short history of nias and ipx/ip gateway is here.
+32. changing user password in proxy authentication ssl login - see a tip here.
+33. ssl login html page code from novell (feb. 2001) - download it here.
+34. how to get client-site vpn working over a pppoe dsl connection - two tips are here. (updated may 15, 2004)
+35. how to selectively refresh a single url in the proxy cache - see a tip here. (updated nov. 12, 2004)
+
+36. bordermanager 3.6 aclcheck reads rules very slowly - see the tip here.
+37. configuring a server to connect to an isp with a standard analog modem. here's a rough start.
+38. to fix the csaudit error 'cannot complete "add" operation', try the tip here.
+39. if you have slow proxy performance after applying nw50sp6a or nw51sp2a, have a look here.
+*****************************************
+40. a list of supported ftp commands for ftp proxy is here.
+41. one possible cause for the proxy unloading and reloading itself is here.
+42. a way to scan incoming smtp mail through the mail proxy for key words, potentially blocking viruses and spam - see the tip and associated file 
+here. (updated sep. 4, 2002)
+43. there's a trick to run a split dns system on bordermanager, and you can see it here.
+44. if you need to branch out of a login script based on the network address of a pure ip client (like for dial-up vpn connection), look at ideas 
+here.
+45. manually clearing proxy authentication at your pc is discussed here. (updated nov. 12, 2004)
+46. list of working and problem routers, and issues with cable 
+modem/dsl routers and vpn over nat are discussed here. 
+(updated jan. 14, 2008)
+47. ways to block chat programs, like icq, aol instant messenger, and msn 
+messenger are shown here. ((updated mar. 15, 2006)
+
+48. nat just quit working for you? especially if you have renamed interfaces, have a look here.
+49. security issues with netware 5.1 management portal service are discussed here.
+*****************************************
+50. a tip for fixing slow timesync and nds synchronization or slp failure issues with bordermanager servers can be found here.
+51. if you have problems adding a second public subnet to bordermanager, see the tip here. (updated aug. 23, 2001)
+52. you can get a free packet filter log analysis tool here.
+53. have bordermanager 3.6, and want netware 5.1 runtime software? see the tip here.
+54. i've reposted a good forum message explaining how to set up radius and cisco for dialback here.
+55. before trying to install bordermanager 3.6 on a netware 5.1 server patched to nw51sp3, check the tip here.
+56. if you are having problems with ie 5.5 and reverse proxy authentication, see the tip here.
+57. there is a brief explanation of packet filter log fields here.
+58. if you are having problems with bordermanager caching pages that it should not, look here.
+59. you can get the answer to making internet explorer on a macintosh work with ssl proxy authentication here. (updated may 15, 2004)
+*****************************************
+60. a tip for getting mail proxy to work more reliably can be found here.
+61. a couple of tips for viewing pdf files in browsers are here.
+62. a logging problem with tcp ip debug output on netware 6 is discussed here.
+63. you can read about and download a copy of my proxy.cfg file, rev. 30,
+here. (updated feb. 29, 2008)
+64. you can autoconfigure a laptop or pc to use a proxy on the local lan but not otherwise with a proxy.pac file. discussion and samples 
+here. (updated may 13, 2013)
+65. rdate quit working, using the examples in my books. the example server is gone, but you can see 3 replacements here.
+66. if ipx disappears from your site-to-site vpn after you applied a recent bordermanager patch, see the fix here.
+67. confused about user licensing requirements for bordermanager, netware or radius? need free netware 6.x server software and licenses? have a look at the tip 
+here. (updated nov. 12, 2004)
+68. some surfcontrol issues i know about are discussed 
+here. (updated apr. 5, 2007)
+69. several programs for adjusting mtu size (for client-site vpn issues) are linked here.
+*****************************************
+70. if you would like to block pop-up windows and advertisements, see the tip here.
+71. several methods for configuring proxy settings in browsers are discussed here. (updated aug. 15, 2003)
+72. real-time monitoring of bordermanager browsing via the rtmonitor program is 
+discussed here. demo program available here as well. 
+(updated oct. 27, 2006)
+73. sudden onset of sluggish server performance and poor internet performance - two reasons explained here. (updated sep. 1, 2003)
+74. i have some imanager 2.0 tips here which may help you get imanager working to administer bordermanager 3.8. (updated sept. 12,
+2003)
+75. need an updated b57 / q57 driver for your gigabit broadcom-based network card? see the discussion and file links here. (updated 
+aug. 1, 2004)
+76. nbm 3.8 client-site vpn error 'failed receiving server 
+public dh value' error explained here. (sep. 20, 2005)
+
+77. if you have a bordermanager 3.8 site-site vpn  server that won't 
+start vpn services, look here for answers. (updated 
+aug. 7, 2005)
+
+78. if you cannot access your bordermanager 3.8 private ip address over a client-site vpn connection, have a look here for some answers. (updated dec. 18, 2004)
+
+79. problems accessing secondary ip addresses on your netware server over a bridged 
+internet connection?  see the cause, and a possible workaround here. 
+(updated feb. 25, 2005)
+
+80.  some ways to try to block google images search are shown 
+here. (updated mar. 11, 2005)
+
+81.  a reason why you need to be careful using the new nonds function of the 
+filtsrv.nlm module from the bm38sp4_ir2 (and possibly later) patch is shown 
+here. (updated dec. 8, 2005)
+
+82.  disable the volume low warning message when a cache volume is full:  
+here. (updated may 19, 2006)
+
+83.  block remote proxy servers to prevent users from 
+bypassing your access rules here. (updated 
+june 17, 2007)
+
+
+
+
+
+here are some tips not specifically related to bordermanager...
+
+ click here for a multiboot menu for caldera dr dos, ibm pc dos and ms dos (sample included).
+
+how to efficiently search novell's knowledgebase to find just the information you want - click here
+
+how to access the novell public forums efficiently (use an nntp reader) - click here.
+
+netware 4.10 owners needing the strtl8a.exe patch (168k) in order to run the upgrade wizard can get it here. (yes, nothing to do with
+bordermanager, but feel free to buy a copy of one of my books too!)
+
+need to convert a windows pc from static ip addresses to dhcp? try the dhcpme.exe utility (from the zenworks cool solutions web site - don't know
+if it is still available there as it seems to be hard to find).
+
+want to improve the dns/dhcp management console for netware 5.0? see this tip from marcel cox.
+
+here's some information on how to open an incident with novell, including reporting software bugs.
+
+need the nldapi.nlm to recreate nldap objects? click here to download it (may need to hold shift key down).
+
+
+
+
+some tips on ifolder 1.x, 2.x and 3.x 
+are here. (updated march 19, 2015)
+
+
+
+
+
+
