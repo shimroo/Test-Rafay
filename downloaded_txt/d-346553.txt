@@ -1,0 +1,289 @@
+
+
+
+lambda the ultimate | programming languages weblog
+
+
+
+ 
+ 
+ lambda the ultimate      
+
+
+
+
+
+
+
+
+
+home
+feedback
+faq
+getting started
+discussions
+site operation discussions
+recent posts
+(new topic)
+departments
+courses
+research papers
+design docs
+quotations
+genealogical diagrams
+archives
+
+
+
+
+
+
+user login
+
+
+
+username:
+
+
+
+password:
+
+
+
+
+
+create new accountrequest new password
+
+
+navigation
+
+
+recent posts
+
+
+
+
+
+
+
+platonic c# - managing referential transparency through unique types
+
+the idea of platonic c# is to enforce referential transparency within the context of c#, by enforcing a set of rules around defaulting to immutability of data structures and requiring uniqueness of instances of mutable types.  
+by cdiggins at 2023-03-04 20:11 | object-functional | 6 comments | other blogs | 13327 reads
+
+
+computer history museum releases postscript source
+
+the computer history museum, in conjunction with adobe, has released the postscript source code. here is the release, with some helpful historical context and several photos:
+
+the story of postscript has many different facets. it is a story about profound changes in human literacy as well as a story of trade secrets within source code. it is a story about the importance of teams, and of geometry. and it is a story of the motivations and educations of engineer-entrepreneurs.
+the computer history museum is excited to publicly release, for the first time, the source code for the breakthrough printing technology, postscript. we thank adobe, inc. for their permission and support, and john warnock for championing this release. 
+by matt hellige at 2022-12-13 00:15 | history | login or register to post comments | other blogs | 13417 reads
+
+
+the verse calculus: a core calculus for functional logic programming
+
+the verse calculus: a core calculus for functional logic programming
+https://simon.peytonjones.org/assets/pdfs/verse-conf.pdf
+
+lennart augustsson, epic games, sweden
+joachim breitner
+koen claessen, epic games, sweden
+ranjit jhala, epic games, usa
+simon peyton jones, epic games, united kingdom
+olin shivers, epic games, usa/li>
+tim sweeney, epic games, usa
+
+
+functional logic languages have a rich literature, but it is tricky to give them a satisfying semantics. in this
+paper we describe the verse calculus, vc, a new core calculus for functional logical programming. our main
+contribution is to equip vc with a small-step rewrite semantics, so that we can reason about a vc program
+in the same way as one does with lambda calculus; that is, by applying successive rewrites to it.
+
+
+this draft paper describes our current thinking about verse. it is very much a work in progress, not a finished
+product. the broad outlines of the design are stable. however, the details of the rewrite rules may well change; we
+think that the current rules are not confluent, in tiresome ways. (if you are knowledgeable about confluence proofs,
+please talk to us!)we are eager to enagage in a dialogue with the community. please do write to us.
+ 
+by cdiggins at 2022-12-12 16:23 | functional | 4 comments | other blogs | 19913 reads
+
+
+ltu is now running in a new, more stable environment
+
+ltu has experienced a long period of downtime recently. its software infrastructure was outdated enough that it became difficult to maintain when problems arose. it has now been migrated to a brand new environment. it should be much more stable from now on. 
+by anton van straaten at 2022-08-31 06:37 | admin | 16 comments | other blogs | 97260 reads
+
+
+graydon hoare: 21 compilers and 3 orders of magnitude in 60 minutes
+
+in 2019, graydon hoare gave a talk to undergraduates (pdf of slides) trying to communicate a sense of what compilers looked like from the perspective of people who did it for a living.
+i've been aware of this talk for over a year and meant to submit a story here, but was overcome by the sheer number of excellent observations. i'll just summarise the groups he uses:
+
+the giants: by which he means the big compilers that are built the old-fashioned way that throw massive resources at attaining efficiency
+the variants, which use tricks to avoid being so massive:
+
+fewer optimisations: be traditional, but be selective and only the optimisations that really pay off
+use compiler-friendly languages, by which he is really taking about languages that are good for implementing compilers, like lisp and ml
+theory-driven meta-languages, esp. how something like yacc allows a traditional dragon-book style compiler to be written more easily
+base compiler on a carefully designed ir that is either easy to compile or reasonable to bytecode-interpret
+exercise discretion  to have the object code be a mix of compiled and interpreted
+use sophisticated partial evaluation
+forget tradition and implement everything directly by hand
+
+
+i really recommend spending time working through these slides. while much of the material i was familiar with, enough was new, and i really appreciated the well-made points, shout-outs to projects that deserve more visibility, such as nanopass compilers and cakeml, and the presentation of the futamura projections, a famously tricky concept, at the undergraduate level. 
+by charles stewart at 2022-02-27 14:47 | implementation | 1 comment | other blogs | 82079 reads
+
+
+latent effects for reusable language components
+
+latent effects for reusable language components, by birthe van den berg, tom schrijvers, casper bach poulsen, nicolas wu:
+the development of programming languages can be quite complicated and costly. hence, much effort has been devoted to the modular definition of language features that can be reused in various combinations to define new languages and experiment with their semantics. a notable outcome of these efforts is the algebra-based “datatypes "a la carte" (dtc) approach. when combined with algebraic effects, dtc can model a wide range of common language features. unfortunately, the
+current state of the art does not cover modular definitions of advanced control-flow mechanisms that defer execution to an appropriate point, such as call-by-name and call-by-need evaluation, as well as (multi-)staging. this paper defines latent effects, a generic class of such control-flow mechanisms. we demonstrate how function abstractions, lazy computations and a metaml-like staging can all be expressed in a modular fashion using latent effects, and how they can be combined in various ways to obtain complex semantics. we provide a full haskell implementation of our effects and handlers with a range of examples.
+looks like a nice generalization of the basic approach taken by algebraic effects to more subtle contexts. algebraic effects have been discussed here on ltu many times. i think this description from section 2.3 is a pretty good overview of their approach:
+le&h is based on a different, more sophisticated structure than ae&h’s free monad. this structure supports non-atomic operations (e.g., function abstraction, thunking, quoting) that contain or delimit computations whose execution may be deferred. also, the layered handling is different. the idea is still the same, to replace bit by bit the structure of the tree by its meaning. yet, while ae&h grows the meaning around the shrinking tree, le&h grows little “pockets of meaning” around the individual nodes remaining in the tree, and not just around the root. the latter supports deferred effects because later handlers can still re-arrange the semantic pockets created by earlier handlers. 
+by naasking at 2021-10-14 14:02 | effects | functional | theory | login or register to post comments | other blogs | 34418 reads
+
+
+introducing pathquery, google's graph query language
+
+introducing pathquery, google's graph query language
+we introduce pathquery, a graph query language developed to scale with google's query and data volumes as well as its internal developer community. pathquery supports flexible and declarative semantics. we have found that this enables query developers to think in a naturally "graphy" design space and to avoid the additional cognitive effort of coordinating numerous joins and subqueries often required to express an equivalent query in a relational space. despite its traversal-oriented syntactic style, pathquery has a foundation on a custom variant of relational algebra -- the exposition of which we presently defer -- allowing for the application of both common and novel optimizations. we believe that pathquery has withstood a "test of time" at google, under both large scale and low latency requirements. we thus share herein a language design that admits a rigorous declarative semantics, has scaled well in practice, and provides a natural syntax for graph traversals while also admitting complex graph patterns.
+things that are somewhat interesting to me, from an engineering standpoint:
+1. pathquery has a module/compilation system, enabling re-use of pathquery modules across projects.  (someone had mentioned that google has around 40,000 pathquery modules already, internally...)
+2. pathquery supports native functions so that some query pieces can be evaluated procedurally (peephole optimization)
+3. use of relational algebra to enable a lot of known optimizations, plus future optimizations
+also, from a socio-linguistic perspective, graph languages are effectively the new object-relational mapping layer, but they solve an interesting organizational problem of allowing multiple teams to code in different languages, without needing to re-write / re-implement entities and mapping configurations in each language.  it's the old new thing again... 
+by z-bo at 2021-06-30 13:23 | dsl | 1 comment | other blogs | 49988 reads
+
+
+google announces logica: organizing your data queries, making them universally reusable and fun
+
+you can read more about it at the google open source blog post, logica: organizing your data queries, making them universally reusable and fun.
+they advocate for datalog-like language they developed internally at google.
+the reason?
+good programming is about creating small, understandable, reusable pieces of logic that can be tested, given names, and organized into packages which can later be used to construct more useful pieces of logic. sql resists this workflow. although you can encapsulate certain repeated computations into views and functions, the syntax and support for these can vary among implementations, the notions of packages and imports are generally nonexistent, and higher-level constructions (e.g. passing a function to a function) are impossible. 
+by z-bo at 2021-04-29 14:50 | fun | 4 comments | other blogs | 57402 reads
+
+
+coq will be renamed
+
+from the coq-club:
+
+the coq development team acknowledges the recent discussions (started on the coq-club mailing list) around coq's logo and name.
+we wish to thank everyone that participated in these discussions. testimonies from people who experienced harassment or awkward situations, reports about students (notably women) who ended up not learning / using coq because of its name, were all very important so that the community could fully recognize the impact of the current name and its slang meaning in english, especially with respect to gender-diversity in the coq community.
+for these reasons, the coq development team is open to a renaming.
+
+suggestions for alternative names go here. 
+by ohad kammar at 2021-04-08 13:47 | general | 2 comments | other blogs | 76404 reads
+
+
+lambda: the ultimate excel worksheet function
+
+post by andy gordon and simon peyton jones on lambda giving excel users the ability to define functions.
+
+ever since it was released in the 1980s, microsoft excel has changed how people organize, analyze, and visualize their data, providing a basis for decision-making for the millions of people who use it each day. it’s also the world’s most widely used programming language. excel formulas are written by an order of magnitude more users than all the c, c++, c#, java, and python programmers in the world combined. despite its success, considered as a programming language excel has fundamental weaknesses. over the years, two particular shortcomings have stood out: (1) the excel formula language really only supported scalar values—numbers, strings, and booleans—and (2) it didn’t let users define new functions.
+until now.
+ 
+by bashyal at 2021-01-27 03:27 | fun | lambda calculus | 3 comments | other blogs | 69654 reads
+
+  next pagelast page
+
+
+logs:
+          hack the planet
+          ; javalobby
+          ; daily python-url
+ ; daily wtf
+ ; php everywhere ; (more)
+wikis:
+         wikiwiki
+         ; erlang
+; common lisp
+
+
+         ; haskell
+         ; squeak
+         ; tcl ; program transformation
+
+
+
+browse archives
+
+
+
+« february 2025  
+
+su
+mo
+tu
+we
+th
+fr
+sa
+
+ 
+ 
+ 
+ 
+ 
+ 
+1
+
+
+2
+3
+4
+5
+6
+7
+8
+
+
+9
+10
+11
+12
+13
+14
+15
+
+
+16
+17
+18
+19
+20
+21
+22
+
+
+23
+24
+25
+26
+27
+28
+ 
+
+
+
+
+
+active forum topics
+first-class patternscompiling high-level code to cryptographyhaxl(-like "monads") in terms of delimited continuations?programming languages with full-unicode syntax and identifiers are surprisingly hard to do well. a case study of concatenative v.s. applicative syntax designmore
+
+
+new forum topics
+compiling high-level code to cryptographyhaxl(-like "monads") in terms of delimited continuations?a case study of concatenative v.s. applicative syntax designusing javascript-like syntax to program with interaction netssorting the travelling salesman problemmore
+
+
+recent comments
+ah, cancel that request. 35 weeks 4 days ago.35 weeks 4 days agofirst-class link?35 weeks 4 days agovideo presentation1 year 5 weeks agoalso published in icfp1 year 10 weeks agoabout identifiers...1 year 11 weeks agoduplicate comment deleted.1 year 11 weeks agoalso true for postfix1 year 14 weeks agothat's all about the delimiters.1 year 18 weeks agohow about prefix notation?1 year 18 weeks ago
+
+
+
+
+
+
