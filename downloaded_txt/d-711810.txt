@@ -1,0 +1,206 @@
+
+
+
+
+
+
+
+www. is deprecated.
+
+
+
+
+
+
+
+
+
+
+
+home
+
+
+
+
+faq
+
+follow @www_deprecated
+
+
+
+
+
+
+
+
+stay in touch!
+dec 21, 2012
+
+
+tweets by @www_deprecated
+
+
+             no-www now hasa a social media presence!  check us out on twitter at @www_deprecated.
+             we post real-time updates of new validations and keep you posted when we update the domain extensions list.
+
+         
+
+
+no news is good news...
+dec 19, 2012
+
+             yes, we're still alive (for now).  thank you for your frequent emails.  no-www is approaching 10 years old and
+             we have recently surpassed 60,000 validated domains.  we also just implemented a new tld list builder which will ensure all of the new domain extensions can be validated just
+             as easily as your old favorites.
+         
+
+             the internet definitely isn't the same place it was a decade ago, but some things never change.  for one thing, www is still deprecated.  in a world of cheap domains and abundant bandwidth,
+             some of the once-valid technical claims against no-www simply don't hold water.
+         
+
+             keep fighting the good fight, people.  we're winning the internet, one domain at a time.
+         
+
+
+5 years and 38,000 domains will make you some enemies
+july 2, 2008
+today we passed 38,000 domains validated through no-www.  this is a nice round number so it seems worthy of tooting
+        our horn over.
+
+        no-www gets a lot of email from people asking why we do what we do, why their new-fangled tld isn't included, and
+        most frequently whether or not we are still alive.  the good news is that we are indeed still alive.  we try to answer every email
+        that arrives and add new tlds to the list of valid domain extensions as soon as they are known to us.
+unfortunately, not all of our mail is from adoring fans.  for example, one recent visitor wrote in with this insightful
+        message:
+
+         "you're stupid"
+        
+we've also generated at least two direct competitors:
+
+http://yes-www.org - a site that suggests that all domains have www. subdomains
+http://extra-www.org - a site that suggests that all domains have two www. subdomains. (www.www.domain.com)
+        
+thank you for your support and your criticism.  no-www will continue on its mission to promote domain availability without
+        the www subdomain.
+
+
+bloggers rejoice!
+may 26, 2005
+for those who might blog about no-www.org, we now have a snazzy new blog icon for you to use.  in addition
+         the larger variety listed below, you may now use this new slim one:
+
+
+image credits: jez m.
+
+feel free to direct link the image from this site.
+
+
+what is the goal of no-www?
+mar 7, 2005
+first, we've validated over 12,000 sites since this site's inception.  since this movement propagates mostly
+        through word-of-blog and online chatter of folks like yourself, that's quite a number.  no-www thanks you for your help
+        in spreading the word.
+it's been a while since the last update, but we've been far from absent.  behind the scenes, no-www has been
+        frequently discussing no-www philosophy with many interested visitors.  one recurring theme was "why are you trying to abolish
+        www?"  we'd like to take this time to make clear the goals of no-www.org:
+
+no-www.org philosophy
+no-www.org strives to make the internet and communications about it as fruitful as possible.  to that end,
+           we make the modest proposal that website makers configure their main sites to be accessible by domain.com as well as
+           www.domain.com.
+
+our ideal scene is one where non-specialized sites accept
+           traffic on the www host name, but silently redirect it to the bare domain name. this is what no-www calls
+           class b.  however,
+             any site that takes in traffic one way or the other on both the www host and the bare domain are acceptable here.
+we understand that this sort of configuration is not appropriate for every website.  for example, a domain
+           may require the webserver to be stored on a different machine than the domain root server.  however, relatively few sites are
+           built with this sort of architecture.  a properly wielded dns config can allegorically move mountains and make a setup like
+           a class b
+             fairly simple even for the biggest of websites.  in fact, several websites choose to forward traffic from
+           domain.com to www.domain.com for branding reasons and that's just fine with us.  as long as they don't simply
+           block all http traffic on the bare domain name, they're ok in our book.
+
+
+        we enjoy discussing these ideas with you, so feel free to email us via the contact link at the top of the page if you have any
+        feedback or questions!
+        
+
+
+show off your no-www approved status
+nov 17, 2003
+now you can show off your no-www status with these new site tags:
+
+
+
+type 1
+type 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+image credits: justin s.
+
+
+
+
+feel free to direct link the image from this site.
+
+
+make your site class b
+sep 3, 2003
+class b means that all of the traffic to http://www.yourdomain.com is politely and silently redirected to http://yourdomain.com.
+        this is currently the preferred no-www classification as it does not inconvenience your users, but it does assert the deprecated nature of the www subdomain.
+the process of making your domain a class b is quite simple.  all you need to do is create or modify a file called .htaccess
+        located in the root directory of your site and add the following lines:
+
+        rewriteengine on
+         rewritecond %{http_host} ^www\.(.+)$ [nc]
+         rewriterule ^(.*)$ http://%1/$1 [r=301,l]
+        
+
+
+why is .www deprecated?
+aug 14, 2003
+in order to answer this question, we must first recall the definition of www:
+world wide web:
+        n. abbr. www
+1) the complete set of documents residing on all internet servers that use the http protocol, accessible to users via a simple point-and-click system.
+        2) n : a collection of internet sites that offer text and graphics and sound and animation resources through the hypertext transfer protocol.
+        
+
+by default, all popular web browsers assume the http protocol.  in doing so, the software
+        prepends the 'http://' onto the requested url and automatically connect to the http server on port 80.  why
+        then do many servers require their websites to communicate through the www subdomain?  mail servers do not
+        require you to send emails to recipient@mail.domain.com.  likewise, web servers should allow access to their
+        pages though the main domain unless a particular subdomain is required.
+succinctly, use of the www subdomain is redundant and time consuming to communicate.  the internet,
+        media, and society are all better off without it.
+using the links at the top of the page, you may view recently validated domains as well as submit
+        domains for real-time validation.
+
+
+
+
+
+
+
+deprecate (dep'ri-kat'):
+to make invalid or obsolete by removing or flagging the item. when commands or statements in a language are planned for deletion in future releases of the compiler or rendering engine, they are said to be deprecated. programmers should begin to remove them from the source code in subsequent revisions of their programs.
+         
+
+
+
+
+
