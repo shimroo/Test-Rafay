@@ -1,0 +1,853 @@
+
+
+
+the daily duck
+ 
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+	the daily duck
+	
+  
+if it quacks like the truth, you read it on the daily duck.
+
+
+
+
+
+
+
+
+
+wednesday, august 28, 2013
+
+
+
+	 
+	 kicking more tin: ups 1354
+	 
+    
+
+
+[note: due to the complexity of this mishap, what follows contains more arcana than is healthy for anyone.  also, this will be the last post at the daily duck.  i will henceforth post at great guys.  this post just doesn't fit there.]
+
+first asiana 214, then southwest 345, now ups 1354.  three serious landing mishaps in quick succession.  what's going on here — have pilots forgotten how to land?
+
+while the accidents are superficially similar, they are actually significantly different.  i have already speculated that  asiana was a glaring example of inadequate basic flying skills caused by excessive reliance on automation.   
+
+swa 345, which thankfully didn't seriously hurt anyone, was the result of a snap decision by the capt to salvage a landing when a missed approach was in order.  the first officer allowed a low altitude (approx 500') change in the winds from 11 kts on the tail to 10 knots on the nose to shift the aimpoint well down the runway, which would have caused a long touchdown (speculamatation, except for the winds). the capt took control at 400' (fact), then readjusted the aimpoint; however, the adjustment required was quite large, particularly that close to the ground (speculamatation).  the consequences were an unrecoverable high sink rate and nose first touchdown (fact).  that is at least bad headwork, and possibly a sign of overall marginal piloting ability.
+
+in contrast, ups 1354 is far more complex.  ultimately, the cause of the mishap will be controlled flight into terrain, a sufficiently common cause of accidents that it has its own acronym:  cfit.  in other words, due to a lack of situational awareness, the crew flew the airplane to a point that wasn't the runway.  but there is probably a lot more to it than just that.
+
+first, a quick summary of the ups 1354 mishap sequence:
+the flight was a 45 minute leg from louisville, ky to birmingham, al. 
+weather was above approach minimums — scattered clouds at 1100 feet, ceiling at 3500 feet, good visibility, and calm winds; it was still night. 
+the primary instrument runway was out of service. the instrument approaches to the secondary runway are non-precision approaches (npa) which means they only had horizontal guidance. 
+the captain was the pilot flying (pf), the first officer pilot monitoring (pm).  both pilots were fully qualified in the a300. 
+the flight was cleared for the localizer approach to rwy 18 (i.e., the final approach course is due south). 
+the aircraft was fully configured and on speed. 
+the aircraft impacted trees approximately a mile short of the runway, then the ground.
+
+this is a much more complex accident chain than either asiana or southwest.  it certainly involves human visual limitations.  it might also involve one or more of channelized attention, proficiency, procedures, complacency, terrain, and flight management system (fms) memory limitations.
+
+during the day, gauging the proper glide path, while not a superhuman feat, is reasonably demanding:  being more than a half degree above or below is significant.  at night, all bets are off.  the lack of depth cues at night turns what was already non-trivial into downright difficult. making matters worse, the final approach was over sparsely lit terrain, creating what pilots call the "black hole" effect.  this aggravates the already existing tendency to be low on final at night, making it even more likely that the deviation will not be detected, even up to the point of impact.   because the only available instrument approach did not have vertical guidance, it required far more respect than a precision approach, even with the available visual glide slope indicator (vgsi) system (the approach procedure is prohibited at night if the vgsi is inop).   there was nothing inherently dangerous about the combination of weather, darkness, and a non-precision approach (npa), but it did create a situation requiring more skill and preparation than a garden variety precision approach.  
+
+the next thing worth noting is that there were two available instrument approach procedures (iaps), one relying upon a localizer (e.g., a ground based radio beacon for runway alignment and range), the other using gps.  this is the iap for localizer approach to runway 18 at birmingham (bhm loc 18 -- click on the image to enlarge):
+
+
+often, the distinction has no difference.  when an npa is in the flight management system (fms) database, gps and loc approaches are procedurally the same: once cleared for the approach and established on a segment of the procedure, the pf sets the minimum descent altitude (mda) in the altitude command window.  mda is the lowest altitude the pilot may fly until the runway environment is in sight and the airplane is in a position to fly a stabilized approach to the touchdown zone.   the airplane will fly the correct descent angle so as to reach the mda at the correct point from which the pilot can manually fly the airplane to touchdown without any change to the descent rate other than that induced by changing winds.  
+
+sometimes, though, there is a big difference.  if the approach is not in the fms database, which for reasons is likely the case here, then the airplane has no visual descent point on the mda to fly to, whether using the localizer or gps, then the difficulty factor increases.  this is the profile view of the loc rwy 18 approach to bhm:
+
+
+since the approach isn't in the fms, it doesn't know where the point "1" in the shaded circle is; therefore,  it can't calculate a flight path angle.  but wait, there's more.  because of terrain on final, there is a stepdown fix (imtoy) about halfway down final, then seemingly a further descent to the mda.
+
+in my airplane (md11), i would set the flight path angle (fpa) to −3.3 degrees 0.2 miles before baskn (lead distance to give the autopilot time to catch up), then set 1380' in the altitude window.  if we don't have the runway by 1600' above mean sea level (msl, read from the altimeter, which is 740' above field elevation), then there is no point going any lower, even though it is procedurally allowed.  1380' msl is the minimum altitude at imtoy, and since by company policy the autopilot must be engaged on an npa until able to proceed visually, the airplane will start increasing pitch attitude at 1580' in order to level off at 1380'.  since this takes the airplane above the desired glidepath, the presence of imtoy effectively destabilizes the approach.  so, practically speaking, if the runway isn't in sight 0.6 miles before imtoy, then a missed approach is the only alternative.  what this points out, among other things, is that how to fly an npa depends greatly upon what kind of airplane you are in.  a light civil with an approach speed of 80 knots can do things that an airliner with an approach speed of 140 knots can't manage.
+
+afaik, the fms in the a300 does not have the ability to command an fpa; however, the approach chart has a table to allow quickly determining the equivalent descent rate based upon ground speed.  for ups 1354 it would have been −813 feet per minute; the crew could have rounded to −800 fpm and accepted the 20-ish foot error that would have accumulated by imtoy, or done a "dive and drive", the term for using a higher descent rate to reach mda, then leveling off and driving to the next altitude restriction.  i don't know what ups does; my company gives pilots the option. 
+
+
+so, clearly, there is much more involved with this approach than for a precision approach, both in analysis and execution.  but despite the fact that pilots flying the big-iron almost never do non-database npas, it does happen, so all of this has to be well within our skill set.  
+
+it is at this point where i start speculating about how the mishap report will finally read.  up until a week ago, it would have gone like this:  primary cause — failure to acquire and follow the vgsi.  with the runway in sight, the pf disengaged the autopilot at baskn in order to fly a visual approach.  however, because of the failure to acquire the vgsi, in combination with black hole visual illusions, the pilot flew well below the required glide slope, causing a cfit mishap.  secondary cause — the pm also failed to acquire the vgsi, but nonetheless allowed the pf to descend below mda in violation of approach requirements.
+
+pretty straightforward.  i can see the pf getting wrapped up enough in the task to succumb to channelized attention.  that the pm just rode it in is tougher to explain.  but it wouldn't be the first time.
+
+so what happened last week? the ntsb released some preliminary information, including that the autopilot was engaged until the flight data recording ended, and there were ground proximity warning system (gpws) generated "sink rate" calls about five seconds prior to the first impact with the trees.
+
+wait.  what?  whatthewhat?
+
+the autopilot was engaged?  with mda as the target altitude, the autopilot would have leveled off at 370' above the point of impact.  since the airplane was apparently operating completely normally, then there are only two possibilities: the target altitude was miss set well below mda, or erroneously set above 2300' (the altitude at baskn where the final approach starts).  
+
+to anyone who is still awake, even those who are not pilots, the latter alternative must seem surpassing odd.  yet this is where i'm placing my speculamatation bet.  when flying big-iron, nearly 100% of the instrument approaches not in the simulator are precision approaches.  once commencing the final approach, the crew will set the missed approach altitude, in this case 3800', as the target altitude.
+
+the other perplexing element of all this is the role of the enhanced gpws (egpws).  gpws uses the radar altimeter to determine the airplane's height above the ground, then combines configuration, airspeed, and other parameters to determine if the sink rate is risking imprudence.  roughly speaking, the closer to the ground, the sooner the gpws will throw a "sink rate" call.
+
+the obvious shortcoming is that the system can't deal with significant terrain approaching the airport.  egpws incorporates gps position and a terrain database built specifically for each surveyed runway.  nearly all runways long enough for an a300 are in the database.  the egpws builds a terrain clearance floor (tcf) that gets thicker with distance from the runway.  the idea is that a normal approach will always be above the buffer, so any penetration of it, or a too rapid approach to it, will generate a "too low — terrain" call.  the inner boundary of the tcf starts somewhere between 0.3 and 1.5 nautical miles from the runway.  somehow the egpws failed to trigger at all, possibly because the tcf started at the far end of that range.  the gpws, fooled by terrain, gave a warning that, with only about 6 seconds to the first impact, was nearly too late.  an immediate go around would probably have saved the day, but the crew didn't react to the warning.  at northwest, a "sink rate" call at night or in the weather required an immediate go around.  at my current company, the flight operations manual makes no specific mention.  however, the stabilized approach criteria exclude a sink rate high enough to generate the warning, so the reaction should be the same.
+
+so where does this leave my speculations?  the brute fact of the impact point means that this is fundamentally pilot error.  the approach requires the vgsi to descend below the minimum altitude for the approach; obviously, neither pilot had acquired it.  terrain played a factor, because it likely delayed warnings from the ground prox system.  the night/black hole effects contributed, but that is the sort of situation which pilots should know to treat with a great deal of respect.  
+
+the crew may have been complacent; the cockpit voice recorder will demonstrate that one way or the other.  at my company, the minimum runway length for an a300 is 5,700 feet.  that is less than the 7,000 for bhm 18/36, but not by much.  had i been operating into a field just barely longer than the minimum, via a npa at night, and only 45 minutes en route, i would have had this thing fully sussed before heading for the jet, and with the mental go-around switch armed and put on a hair trigger.  the results suggest they viewed this as another ho-hum approach, even though it wasn't.  
+
+had the airplane gone no lower than the mda, even if it violated the crossing restriction at imtoy, we would have never heard about ups 1354.  this is, to me, the single biggest mystery about this mishap:  the pf must have set the wrong altitude — it happens occasionally — and the pm must not have caught it.  that happens occasionally, too.  occasionally times occasionally equals damn rarely, but not, unfortunately, never.
+
+with the advent of gps, there are a lot more waypoints for fmss to store.  consequently, flight departments have started deleting some approaches from aircraft databases.  ordinarily, no one is going to choose the bhm loc rwy18, because it is a short runway and there are ilss to the long runway, so this is probably one that ended up in the bit bucket.  because neither the loc or gps approach wasn't in the database, the crew couldn't use the airplane's ability to generate a flight path angle to a point on glideslope and only a mile from the runway.  
+
+as is always the case in mishaps like this, a whole lot of dominoes had to line up just right: the desired runway had to be closed, it had to be night, the approach had to go over a black hole, the best option had to have been deleted from the database, the terrain had to be just so, the approach flown required a lot of fiddling with the target altitude, both crew members had to not notice the miss-set altitude, both crew members had to channelize attention on a runway so seductively visible, yet somehow miss the four red youregonnadie lights.
+
+and a couple asides.
+
+the approach chart contains an error that, if spotted, would have prevented the crew from flying the approach.
+
+obviously, no one who is not an instrument rated pilot is going to find it.  unfortunately, i must admit that this pilot didn't, despite looking at the chart many times while writing this, spotted it, either.  while doing research for this post (i.e., what should be a part of journalism, but rarely is), i visited some pilot forums.
+
+which is when i got yet another lesson in how subtle human factors considerations can be.  in the fourth box from the top there are some notes, one of which says "when vgsi inop, procedure not authorized at night."  that i saw.
+
+before commencing an approach, the pilots must ascertain whether the reported weather is above some minimum value.  but that value depends upon the approach speed of the aircraft, and whether the airplane is capable of identifying imtoy (if the localizer distance measuring is out of service, non-gps airplanes cannot identify imtoy).  my airplane can identify imtoy regardless.  because my airplane has a high final approach speed, it is in category d.   so i go to the bottom of the chart, and because that is what we latin alphabet people do, read from the left until i get to the with imtoy column, then look down to the block that includes category d:  the visibility must be better than 1⅝ miles.  since i have satisfied my search criteria, i'm done.
+
+wrong.  because i have gotten the answer to my question, i will not continue searching, and will not notice the column on the right hand side that explicitly states that this approach may not be flown at night.  period.  in the aviation world, the most restrictive restriction wins.  therefore, strictly speaking, the crew were not allowed to request the approach.  and, oh by the way, the dispatchers were not allowed to dispatch the flight to birmingham at night because the weather didn't allow a visual approach, and approach control would not be allowed to clear them for an approach that isn't available in the first place.  all of which means a lot of people missed this error.
+
+actually, the "night — na" is wrong.  but in a realm that has to focus obsessively on detail and procedure, that isn't a call anyone gets to make; the "night — na" rules until the chart is corrected.  the contradiction in the chart renders the approach unavailable, yet a lot of people — many times more than i listed above — all missed it.  why?  because it was hiding in plain sight.  we read from right to left, and stop when we get the information we need.  no one continued beyond the "without imtoy" column, because by then you are done.  
+
+so if the approach actually had a night prohibition (and there are some), it has to be in the leftmost column, not lurking out in front of god and everybody on the right.  alternatively, the restriction has to integrated with the visibility requirement, e.g. day/ 1⅝.  hanging the "night — na" off to the right is a human factors disaster.  one of the outcomes to this mishap should be to fix every approach chart that has that restriction so that it isn't so diabolically invisible.
+
+and finally, an observation that goes beyond this mishap.  i fly with, oh, 30 different captains a year.  at my current company, over nearly seven years, that population of 200-ish captains includes three women.  the airplanes flying primarily domestically have a higher proportion of women, but it is still pretty small.  
+
+depending upon what you want to consider a significant mishap, at my company roughly 40% have had a woman as part of the crew.  almost all of the serious us accidents in this decade have had a woman on the flight deck: buffalo (fo, pm), the recent southwest schlamozzle (capt, pm then pf), and ups 1354 (fo, pm).  this isn't confined to the us, either.  (i hadn't twigged this until reading a pilot forum on the southwest nose gear collapse, when someone started listing the mishaps, both domestic and international.)  occam's razor insists on picking the simplest explanation, which is the tyranny of small numbers: any statistician could tell you that a coin could come up heads a half dozen times in a row.  but at some point that explanation becomes a bit strained, and enquiring minds should look elsewhere.  
+
+although i'm risking an extended stay in re-education camp, i would look to both affirmative action, and human dynamics: male display, and female deference.
+
+okay.  hit the post button, then run to the bunker with a month's worth of food, water, and underwear.
+
+over and out.
+
+
+
+
+posted by hey skipper at 5:11 pm
+8 comments
+
+
+
+
+
+
+monday, july 08, 2013
+
+
+
+	 
+	 let the speculation begin
+	 
+    
+
+
+updates:
+for particularly outstanding speculation, go here.  he is a general aviation pilot and aerospace engineer.  he used atc tracking data to provide more factual bases upon which to speculate.  all the news outlets should stop reporting and refer to him. (gratifyingly, his conclusions are the same as mine.)
+i had the seat positions reversed. pf was in the left seat, getting initial operating experience as a captain.  the instructor pilot was in the right seat; i have made changes where appropriate.
+the nyt today has a classic case of journalistic buffoonery: taking a simple fact and following it to never-never land:investigators in the cockpit of the wreckage found the auto-throttle switches set to the “armed” position, meaning that the auto-throttle could have been engaged, depending on various other settings, she said. the disclosure is far from conclusive, but raises the clear possibility that there was a mechanical failure or that the crew misunderstood the automated system it was using.in other words: we have no idea what we are talking about.  if the journalist had spent any time at all -- say ten minutes with wikipedia, and looking around for a subject matter expert -- said journalist would have learned that there are many autothrust system (ats) modes.  one of them could have been selected before being cleared for the visual approach, then forgotten.
+
+it appears the pf might have selected "level change" as the vertical guidance mode.  this would have clamped the throttles in idle until capturing the target altitude, at which point the flight management system (fms) will transition to speed-on-thrust.  the flight management system would then use pitch to control speed (too fast, raise nose; too slow, lower it).  it is a mode i almost never use, although many guys do.  imho, its only purpose is to cause the fms to ignore any altitude restrictions en route to the assigned altitude because of reasons.  it would have been a completely inappropriate mode to use on a visual approach, though, for several reasons.  first, there is no altitude to capture.  second, by no later than 500' above ground level, stabilized approach criteria require the airplane be on speed, which requires a speed-on-thrust mode.  additionally, speed-on-pitch only makes sense if you are on speed already; otherwise, if steep in fast selecting speed-on-thrust will put the throttles in idle until capturing the target speed, at which point the fms will manage thrust to maintain speed. it is possible that pf had selected level change while getting vectors on downwind and then forgot about it when cleared for the visual approach.  rolling out on final steep and fast would have camouflaged the incompatible mode until short final, when the airspeed finally went below target.  it is still baffling how the crew could have let it get even 5 knots slow, never mind 20, or why the pilot monitoring did not note the inappropriate ats mode.  
+an a330 captain friend of mine sent me this:
+
+here's an email from one of the  united 747 pilots that witnessed the 777 crashed in sfo.  they were  holding short of runway 28l at the time of the crash.on july 6, 2013 at approximately 1827z i  was the 747-400 relief f/o on flt 885, id326/06 sfo-kix. i was a witness to  the asiana flt 214 accident. we had taxied to hold short of runway 28l at sfo  on taxiway f, and were waiting to rectify a hazmat [hazardous materials] cargo issue as well as our final weights before we could run our before takeoff checklist and depart. as  we waited on taxiway f heading east, just prior to the perpendicular holding  area, all three pilots took notice of the asiana 777 on short final. i noticed  the aircraft looked low on glidepath and had a very high deck angle compared  to what seemed “normal”. i then noticed at the apparent descent rate and  closure to the runway environment the aircraft looked as though it was going  to impact the approach lights mounted on piers in the sf bay. the aircraft  made a fairly drastic looking pull up in the last few feet and it appeared and  sounded as if they had applied maximum thrust. however the descent path they  were on continued and the thrust applied didn't appear to come soon enough to prevent impact. the tail cone and empennage of the 777 impacted the bulkhead seawall and departed the airplane and the main landing gear sheared off instantly. this created a long debris field along the arrival end of 28l, mostly along the right side of 28l. we saw the fuselage, largely intact, slide  down the runway and out of view of our cockpit. we heard much confusion and quick instructions from sfo tower and a few moments later heard an aircraft go around over the runway 28 complex. we realized within a few moments that we were apparently unharmed so i got on the pa and instructed everyone to remain  seated and that we were safe.
+
+we all acknowledged if we had been  located between runways 28r and 28l on taxiway f we would have likely suffered  damage to the right side aft section of our aircraft from the  777.
+
+approximately two minutes later i was looking out the left side cockpit windows and noticed movement on the right  side of runway 28l. two survivors were stumbling but moving abeam the runway  “28l” marking on the north side of the runway. i saw one survivor stand up,  walk a few feet, then appear to squat down. the other appeared to be a woman  and was walking, then fell off to her side and remained on the ground until rescue personnel arrived.  the captain was on the radio and i told him to tell  tower what i had seen, but i ended up taking the microphone instead of  relaying through him. i told sfo tower that there appeared to be survivors on  the right side of the runway and they needed to send assistance immediately.  it seemed to take a very long time for vehicles and assistance to arrive for  these victims. the survivors i saw were approximately 1000-1500' away from the fuselage and had apparently been ejected from the  fuselage. [original post begins]
+regrettably, i have another opportunity to provide some expert aircraft mishap commentary and speculation.  news coverage of asiana 214 has been reasonably good, considering that the reporters are non-specialists.  what i have read has been somewhat garbled, but the gist of the thing is pretty much there.  
+
+first, a quick summary of the asiana 214 mishap sequence:
+weather was good, and the winds were light. 
+the glide slope component of the instrument landing system was out of service. 
+the first officer (fo) left seat pilot was the pilot flying (pf), and was undergoing captain initial operating experience (ioe)  given the number of hours in the 777, he almost certainly had fewer than 10 landings in the airplane.  he would have had many more in a very realistic flight simulator. 
+the right seat pilot captain (ca) was the pilot monitoring (pm), an instructor pilot, and the pilot in commandand possibly a line check airman. 
+the flight's intermediate approach was over san francisco heading south-southwest. 
+approach control cleared the flight for a visual to runway 28r (28 refers to the runway heading rounded to the nearest 10 degrees; r means the righthand runway). 
+the aircraft flew a left hand 180 degree turn to line up on final for rwy 28l 
+on short final, airspeed was well below (perhaps as much as 20 knots) the target approach speed of approximately 145 knots. 
+the aircrew made a very late attempt to go around. the aircraft pitched up, but there was insufficient airspeed and power to convert the descent into a climb.
+the aircraft impact point was approximately 2,000 feet short of the glide slope intercept, and 2,500 − 4000 feet short of the landing zone.  based on photos of the debris field, and some happenstance amateur video, it appears the tail of the aircraft struck the 13' high sea wall. 
+
+screen shot of the ksfo airport diagram, with some crude additions.  the flight path was from the lower left of the screen.  the impact point was probably the right side of the "8" in 28l.  the rest of the line shows the approximate path of the aircraft until it came to rest.  the bracket above the runway represents the span of the runway between the glide slope intercept point and the end of the touchdown zone.  the white bar across the runway just before the beginning of the bracket indicates the runway has a displaced landing threshold.  the portion of the runway preceding the displace threshold may be used for taxi and takeoff, but not for landing.  the purpose of the displaced threshold is to provide error margin in case of a short landing. 
+
+
+that the ils glide slope, which provides precise guidance in poor weather, was out of service has received prominent mention, far beyond its actual importance.  the normal approach glidepath angle is 3.0º.  given the precision of that number, it should come as no surprise that it is fairly critical.  if the approach is more than a half degree too steep, then arresting the sink rate at the right height above the runway becomes increasingly difficult.  more than a half degree too shallow and, particularly for large aircraft, there is the risk of the landing gear impacting approach lights.  if the approach is very drug in,  aimpoint errors increase exponentially[1].
+
+attaining and maintaining this glidepath isn't easy; due to human visual limitations, at night it is very difficult.  consequently all major airports, and even most small airfields, have precision approach path indicators.  when not obscured by weather, they provide excellent glidepath guidance from about 10 miles out all the way to touchdown.
+
+the papi is the row of four lights just to the left of the runway.  each light changes from red to white at a specific angle.  when on the proper glidepath, the inner two are red and the outer two white. in this picture, since the 3rd light is just starting to turn read, the pilot is very slightly, about 1/6th of a degree, below glidepath. 
+
+so, the big question here is how, despite extremely benign conditions and airport facilities completely adequate for those conditions, the pilots managed to convert a fully functional airliner into junk.
+
+some initial reporting indicated the aircraft had been flying a steep final.  however, the video clip, which captures the last 10 seconds before impact, seems to contradict that:  while the distance and oblique angle makes it difficult to tell for sure, to my eye the glidepath was very shallow.  additionally, the aircraft is visibly slow.   because there is a lot of airplane behind the main landing gear, large aircraft have a landing deck angle of about 5º in order to avoid striking the tail.  swagging, i'd put the deck angle at more than 7º.
+
+this isn't as contradictory as it sounds, though.  one of the most challenging problems in flying large aircraft is energy and flight path management — which is really two ways of saying the same thing.  my guess is that traffic was relatively light, and approach control cleared asiana for the visual when the aircraft had just passed the field, leaving it up to the aircrew to decide when to start their left turn to final.  since the pilot flying was in the right seat, he would not have been able to see the runway.  instead, he would have had to rely on other means to ensure sufficient distance from the airfield to get the airplane slowed, configured, and on the proper glidepath. 
+
+my hypothesis is that asiana turned in too soon, leading to a steep final and consequent difficulty in reducing airspeed. this is a classic setup for getting behind the plane, particularly for someone with little experience in type.  subsequently, the high sink rate and task saturation caused the pf to descend well below glidepath before correcting.  however, the correction was insufficient to put the aircraft on the correct glidepath before touchdown.  critically, the papi would have been all red, which means it was providing no additional guidance.   complicating matters, final was over calm water, which practically eliminated the pilots' ability to visually estimate altitude[2]. 
+
+so far, so obvious.  the puzzler is how the airspeed got so slow.  somehow, the auto throttle system (ats) was no longer controlling speed.  in my aircraft (md11), the ats may be manually overridden at any time for any duration, but will remain active.  however, in the 777, near as i could tell from talking to a 777 fo this morning, overriding the ats for greater than a certain time results in the ats disconnecting.  in my speculative scenario, the pf would have held the throttles in idle during the steep descent, and failed to note the ats commanding increase thrust after the aircraft went through the desired glidepath.  subsequently, the ats disconnected. the pf selected an inappropriate ats mode, which the pm failed to catch, and because the pilots were fixated outside on saving the approach, they neglected to monitor airspeed.  the 777 does have airspeed limit protection, but the aircraft hadn't reached that threshold before they suddenly swapped ends — the sudden increase in angle of attack triggered the stall warning — just before impact.  the stall warning would have triggered airspeed protection, but by then it was too late.
+
+recapping the speculation:  a short turn to final created a steep approach which task saturated the pf leading to late recognition that they had gone well below glidepath.  failure to regain the glidepath, aggravated by the loss of depth perception, caused an inability to detect that even though the cockpit might make to the runway, the tail wouldn't.  when they finally recognized the problem, there was insufficient energy available to change the flight vector.
+
+presuming my speculation is reasonably close to reality, the mishap report will have one cause:  aircrew failure to adhere to established stabilized approach criteria.  
+
+at my company, and asiana must be similar, in good weather the aircraft must be on glidepath, fully configured, checklists complete, on airspeed and engines spooled up no later than 500' above ground level.  (there is even a synthetic female voice that makes the 500' callout.)  if any of those conditions aren't met, or if any significant deviation occurs below 500' agl, then the first person to detect the deviation must direct a go-around.
+
+since 500 agl is nearly two miles, the better part of a minute, from the runway, the aircrew had failed to execute a go-around well before it comes into view in the video, eons before the crash.  
+
+when i first heard about this crash, i immediately thought i caught a whiff of the same stench of incompetence wafting through af447.  on thinking this one through, though, it is clear that given the right (and therefore, thankfully rare) combination of circumstances, i too could have become intimately familiar with how narrow the dividing line sometimes is between a successful flight and a disaster. [added:] this mishap is starting to look like having the same fundamental problem as af447.  when asked to fly the airplane, the pilots couldn't.  it isn't easy to maneuver an airliner onto final while configuring to land, but doing so should be an unquestioned part of a pilot's skill set. (you would think so, anyway; however, on a recent flight into anchorage we had the same setup as this mishap, with the added complication that the papi was also inop.  the captain required significant coaching to fly a proper final.)  that isn't to say even good pilots won't goon it up, and get so channelized on the task that they fail to make the decision to go around. (i saw this happen once in the flight simulator, with a 35 knot overshooting crosswind thrown into the mix.)  what is most unfathomable about this mishap is how two other pilots could sit through the whole thing without saying a word.  over dinner a couple nights ago, the consensus among the pilots at the table was that there is a widespread lack of basic flying skills caused by too much reliance on automated flight systems.  sadly, that sounds about right.
+
+[1] to illustrate this, assume a 90 degree glidepath; i.e., straight down.  a small change in the flight vector causes a small change in the impact point.  now assume a glidepath of not quite zero degrees.  a small change in flight vector will create a huge change in impact point.
+
+[2] in a previous life, my base lost an f-111 when the pilot, while on an overwater range, failed to detect a slow descent over calm water, despite looking outside.  on another clear but hazy and windless day, i noticed a boat in the sky.  a guy i know was conducting an simulated attack on one of our carriers in the med; he watched an f-14 attempting a stern conversion on him fly into the water.  had asiana been flying over land instead of water, i am certain their peripheral vision would have clued them in long before they got to the runway.
+
+
+
+posted by hey skipper at 7:36 am
+2 comments
+
+
+
+
+
+
+wednesday, june 19, 2013
+
+
+
+	 
+	 hubris, thy name is the daily duck
+	 
+    
+
+
+today this blog turns 1,000.  had it lived up to its grandiose claim, this postiversary would have occurred in july of 2007 or, if one is charitable by considering only those days between sunday and saturday, january 2008.
+
+clearly, then, the daily duck stands in some sort of pantheon of the over promised or under delivered, a distinction probably without difference.  
+
+robert duquette started tdd in october 2004, inviting brit, oroborous and me to contribute.  tdd was both an extension of, and reaction to the brothers judd blog.  orrin had an unparalleled format: pithy and contrarian takes on a wide range of social, political, religious and economic viewpoints.  probably because the topics were rather more demanding than most would willingly read for entertainment, bjb wasn't much visited by nitwits, flamers, or fools.  instead, it gathered posters who were largely articulate, knowledgable and analytical.  
+
+unfortunately, and for reasons i've never sussed, orrin suddenly changed.  first becoming antagonistic then, through surreptitiously vandalizing comments, dishonest.  it isn't clear what was to be gained by causing readers to beat a path to the exits, but that was the genesis of the term post judd alliance.
+
+unsurprisingly, at first tdd largely focussed on the same topics as bjb: religion with regard to ethics, religion with regard to knowledge, religion with regard to politics, religion with regard to evolution, religion with regard to science, religion with … well, you get the idea.  for example, brit's brilliant post, the story of the moral is as good a discussion of ethics and religion as can be found anywhere.
+
+in contrast, oroborous gave tdd much needed breadth.  writing outside the nearly pervasive all religion vs. [fill in the blank] all the time, oro's wide-ranging posts almost never had anything to do with the god wars.  thank goodness.
+
+inevitably, tdd has changed over the years.  in may 2007, brit left to start the dabbler.  whether it is rhetoric, verse, prose (see in particular his dabbler diary) or satire, he is one of the very best writers i have ever read.  with regard to the latter, i wrote my one and only amazon review of his blogmanship:
+
+sociology has long been stuck in the deathless troika of class, race, and gender. blogmanship, to which the appellation 'seminal' surely applies, shows the way forward for sociology to gain in the 21st century the relevance it claimed for itself in the 20th. after all, as this sharply observed study clearly demonstrates, on the internet the color of your gender, or its bank balance, are completely irrelevant. all that matters is the correct and timely application of the principals of blogmanship in order to leave your opponents watering their keyboards with tears of humiliation.
+
+in assembling this academic masterwork, noseybonk -- considering the subject, an actual name would have been as jarring as a lamborghini at a green peace meeting -- has cited the leading experts in the field, as well as adding his own sharply observed insights.
+
+the result is a definitive delineation of blogmanship principles which, absent being extremely well written, will surely be seen as clausewitzean in stature. 
+just six months later, oro stopped posting.  later i heard it was because he had started a business, and simply didn't have the time.  to this day, however, i can't help but think that my post on the flds and polygamy angered him; after all, he was mormon.  that was the beginning of the end of my posts on religion.
+
+tragically, duck passed away in january 2009.  unsurprisingly, in eulogizing duck, brit perfectly encapsulated tdd, and, by extension, all bloggers within the same genus as tdd:
+
+the daily duck was the cornerstone of the ‘post-judd alliance’ and, for a few years in particular, when there were four of us posting regularly, it was an absolute riot – providing the ideal, uncensored outlet for a motley bunch of amateur intellectuals to engage in ferocious debate, ribbing, one-upmanship and all the other things that prolix but intellectually-frustrated men love to get up to in their spare time. the infamous limerick war  was particularly memorable. 
+so i became the daily duck.  if not for duck's invitation, i would never have done anything other than comment on others' blog posts.  not that i didn't want to, but rather, for some odd reason, i thought of hosting a blog as something bloggers do.  that isn't quite as circular as it seems, because it comes from a now outmoded way of looking at the world.  conceptually, i equated bloggers with journalists.  just as i wouldn't presume to be a journalist, i didn't think of becoming a blogger.  
+
+thankfully, one of the things the internet has ditched is the notion of journalists as some privileged class of information purveyors and arbiters of correct thinking.
+
+i've spent good chunks of the last several days looking over the 999 posts and comment threads.  at the risk of excessive self-congratulation through association, there is an amazing amount of first rate writing and thinking in there, frequently better than that coming from "professionals".  regardless of anything else, it proves that there is, occasionally, such a thing as "free".
+
+i also found myself wondering if these posts and at their roughly 15,000 comments had any impact at all on my thinking, or if it was a completely empty exercise in using ideas as dams, no matter how little water they held.  
+
+for myself, i am no more religious.  however, i am far less dismissive of religion, even to the point of sometimes defending it.  perhaps it was the kitzmiller decision, but the air seems to have gone completely out of the evolution wars.  certainly, i felt a twinge of sudden self awareness when i found myself objecting to the global warming content in the new national education standards.  similarly, i remain pro-choice, but am quite queasy about it, and realize (unlike everyone remotely like amanda marcotte) that the pro-life argument has a great deal going for it.  when taking seriously arguments presented seriously, the first casualty is certainty.  
+
+what blogging hasn't changed for me is my opinion of progressivism as a collection of people who aren't smart enough to be progressives.  no one is, but large-l liberals are at least smart enough to know it.  worse, though, is that marcotte is progressivism embodied, and one thing progressives cannot do, by nature, is take seriously any contradictory argument.  they are pretty good at demonization, though. 
+
+so far as i know, guinness doesn't keep a record for such a thing, but if they did, i might just hold it.  as a consequence of my phony-balony job, i have gotten to meet, at one time or another, almost every member of the pja:  ali choudhoury during a stansted, uk layover; aog while returning to michigan from memphis following md11 initial qual; duck in minneapolis during dc9 requal, and again on roadtrip from boston, where we met david and peter along the way; harry in oahu and kauai; chris markle (a thoughtmesh regular) in la; brit in bristol; bret in la jolla; and lonbud (a very left leaning commenter to whom i lost a thread bet and owed dinner) in san francisco.
+
+my family, who apparently aren't worried about my easily injured feelings, referred to the pja as my "invisible friends".  along the way they got to meet duck, harry and brit.  despite that, i think my wife still finds this way of socializing quite odd.  perhaps she is right, as virtually all my friends are virtual.
+
+playing at being an intellectual is a decidedly minority pursuit, even more than being an f1 fan at a nascar race.  tdd and the rest of the pja made possible many enjoyable, informative, and wit-sharpening hours that would not have been possible at any other time in history, and without orrin.
+
+i don't know how much more life tdd has left to it.  i enjoy writing, and do it serviceably enough.  but more and more i am frustrated by the lapidary paragraphs in my mind, the sort of prose to make hitchens weep in sheer envy, no matter where he is, that vanish the moment my fingers get near a keyboard.  to have readers, a blog needs regular posting.  yet despite all the time i have in hotels, that frustration has become a real barrier — it is no fun reflecting on how age is gradually erasing a skill, modest as it was.
+
+perhaps, then, there will ultimately be a modern variant of zeno's paradox:  if a blog post is unread, does it exist?
+
+
+
+
+posted by hey skipper at 2:24 am
+14 comments
+
+
+
+
+
+
+sunday, may 19, 2013
+
+
+
+	 
+	 af447 -- the final report
+	 
+    
+
+
+"to an even greater extent than the sea, the sky is incredibly unforgiving of human carelessness, incapacity, or neglect." (unknown)
+
+with little notice, last year the french civil aviation safety investigation authority released the final report on af447.  (i have written about the mishap investigation here and here.) 
+
+first, a few words about how crash investigations proceed.  they start with an initial report, which primarily serves as an official notice of the accident and known circumstances.  then, depending on the severity of the crash and the complexity of the investigation, there will be one or more interim reports.  their purpose is to provide the accumulated list of facts.  the final report, based upon the accumulated evidence, provides a theory of the accident that incorporates the facts, along with recommendations to prevent similar mishaps.
+
+at over 250 pages, the report is definitely not something you would look to for light beach reading.  nor, as i am about to demonstrate, is it a natural fit for a blog post that won't soon remind readers that the internet is indeed big, then shortly thereafter convince them to direct their attention somewhere, anywhere else.  
+
+in order to avoid various and tedious means of citation, i will simply preface everything i sourced from the final report with (fr).  text prefaced with (de) is descriptive for a non-specialist audience.  everything else is in my humble, but very expert, opinion.  since the report follows a specific format, which is organizational rather than narrative, so a great extent  this analysis will, too.
+
+for those unwilling to subject themselves to a slog, i'll cut to the chase.  i thought the report failed to understand the underlying cause of the mishap, engaged in unwarranted speculation, completely missed a few "wait, what?" moments, and didn't question existing procedures.  now, the slog.
+
+in order to substantiate those criticisms, i'm going to become unavoidably abstruse.
+
+mishap summary
+
+while flying through an area with super-cooled water droplets, af447 lost all airspeed indications due to icing of the ram air pressure sensing devices.  the flying pilot (pf) then commanded full nose up, which resulted in the aircraft climbing outside its flight envelope, whereupon it entered an aft-stick stall.  neither the pf nor the monitoring pilot (pm) recognized the stall.  the aircraft remained in the aft stick stall until impact.
+
+history bites 
+
+(fr) with respect to the a330, there had been 13 previous incidents sufficiently well documented for analysis and comparison.  in all cases, unintended altitude variations were less than 1000 feet.  in five cases, crews deliberately descended up to 3500 feet in response to stall warnings; all but one of those warnings was due to a combination of flight control reversion to alternate law and turbulence.  (alternate law is a degraded flight control mode that uses arbitrary values instead of air data inputs to the flight control computer; also, in al there are no flight envelope protections.) within that seemingly benign group, though, is one instance where the crew made inappropriate high-amplitude control inputs, sometimes from both pilots, over four minutes. the inputs, although extreme, weren't sustained, the altitude deviations were less than 600 feet.  
+
+(fr) none of the affected crews applied the memory items from the unreliable airspeed procedure.  they didn't manually disconnect the flight directors, disengage autothrust, or set the pitch attitude to 5º per the procedure.
+
+at this point, someone — heck, everyone — should be raising their hands.  what are memory items, and what good are they?  
+
+(de) memory items are procedural steps to a small number of emergencies considered too time critical for reliance on the quick reference handbook.  (the qrh is largely dedicated to abnormal conditions.  it also has supplemental checklists for normal but non-routine operations, and tabular performance data.)
+
+while seemingly sensible, memory items disregard human limitations when responding to extremely rare events.  if the response is simple, (e.g., loss of cabin pressure, put on the o2 mask) they are unnecessary.  where the required procedure is more extensive, then it is extremely unlikely that the pilots will be able to fly/monitor the airplane while reciting a frequently verbose laundry list during a situation completely hostile to that very thing.  
+
+(de) my previous airline acknowledged that fact by putting a red bordered card on the glare shield containing the immediate action steps for time critical situations.  what the pilots were required to memorize was merely which abnormals were on the red border checklist: the flying pilot would direct the monitoring pilot to read the appropriate critical action items, in case the non-flying pilot wasn't already doing so.  
+
+the universal failure to apply what was a list of memory items for the a330 should be waving a giant red flag, already clearly visible for those not thoroughly stunned by habit, that history has comprehensively rejected the entire concept.  (my current airline is similarly stunned.)  if the crew had a red-bordered card with a list of steps to be read in the event of any problem with a primary flight instrument, you probably would never have heard of af447.  the report frequently refers to the "startle effect" such situations create, while simultaneously seeming oblivious to the obvious implications for the very notion of memory items.
+
+when you need a pilot, you don't want an operator
+
+(de) stripped to it's essence, piloting an airplane requires three things: continuous and accurate situational awareness; decisions based upon that awareness about what to do with the airplane; and implementing those decisions.  a popular term for this is ooda loop:  observe, orient, decide act.  all pretty self evident and, prior to glass cockpit airplanes, more or less essential.  
+
+(de) enter the fms and fcc, tlas for the flight management system and the flight control computer.  in modern airplanes, the fms maintains positional "awareness", and calculates the vector required to null the difference between the current and required position and speed.  when the autopilot is engaged, the fcc then moves the flight controls and throttles in order to null the difference between the aircraft vector and the fms commanded vector.  [note:  the fms actually works in mixed modes: following programmed route, altitudes and speeds; various permutations with pilot assigned heading, altitude, and speed; or, solely pilot assigned heading, altitude and speed.  full automation is common during climbout and en route; a combination mixed mode and solely pilot assigned during arrival.]  
+
+(de) from the pilot's point of view, the fms commands are shown by the flight director (fd) vertical and horizontal (fly-to) bars on the primary flight display.  centering the fly-to bars, whether via the fcc or manual flight control input, creates the "nulling" vector.
+
+there are two serious problems here.  1. the fms and fcc are very good.  2.  they are very reliable.  wait. problems … how?
+
+yes, that is counterintuitive.  but the generally accurate guidance and compliance of modern auto flight systems has meant there is almost no externally imposed incentive to not rely upon them.  moreover, the continual presence of fms flight guidance, especially when hand flying, has removed the piloting from flying.  remember, part — by far the biggest — of being a pilot requires deciding, continuously and in detail, where the airplane is, what the airplane needs to do, and what it can do.  manipulating the flight controls is the relatively trivial consequence of everything else.  
+
+however, as long as the fd is in view, the fms has taken the ood out of ooda.  even when hand flying, pilots are merely being self-propelled fccs, doing what the fms tells them to do.  so long as the fd is working, which is almost always, it makes all the control (attitude, power) and performance (heading, horizontal & vertical speed) instruments practically redundant.  pilots don't decide, for instance, what thrust setting and pitch attitude produces the required horizontal and vertical speeds; instead, they leave speed control to the autothrust system, while centering the fd pitch and roll command bars.  the consequence of extensively relying upon the fd means it is easy to for pilots to stop deciding for themselves what the airplane should be doing, which is a long step towards losing sight of what it both must and can do.  
+
+when glass cockpit (shorthand for fms/fcc) airliners first arrived, the operational philosophy — initially — was to always operate them at the highest possible level of automation consistent with the situation.  however, what should have been apparent at the outset became more or less quickly, depending on the airline, glaring enough: flying skills were deteriorating.  various airlines addressed this in various ways: scarcely; a fair amount, but not enough; and just right.
+
+northwest airlines, where i flew the a320 more than a decade ago, had by then taken the lesson fully on board.  the operations manual actively encouraged, when conditions were permissive (light traffic, good weather, on your a game), doing the flying version of the full monty.  not just turning off the autoflight and autothrust systems, but also the fd.  probably half the guys i flew with took the opportunity at least once per trip.  the other half either didn't feel the need, or doubted their abilities.
+
+my current employer, where i have been for six and a half years, started near the air france position, and as the consequence of some painful (but not infamous) experiences, shifted towards the position northwest had long since adopted.  flight ops hasn't quite gotten to the point of actively encouraging the full flying monty, but at least it is no longer prohibited, as it was up until a couple years ago.   most pilots at my base, but, oddly, far fewer at my company's main hub, hand fly from takeoff through about 20,000', and the last ten minutes or so of the flight.  in my experience, almost none (one capt in the last couple years, and yours truly) routinely do the full flying monty. (note:  glass cockpit airplanes in some respects have higher workloads than their steam gauge predecessors.  in the terminal environment, for reasons that don't bear going into, the monitoring pilot's (pm) workload increases significantly if the flying pilot (pf) is hand flying.  this means in a busy terminal environment, most pilots will have afs fully engaged to better distribute tasking.)
+
+
+air france (sfaik, i am speculating a bit here) didn't.  until af447, their philosophy was always maximum automation.  the consequence was an airline staffed by more by operators than pilots.  indeed, a design goal of the a320/330/340/380 (a32+) series was the elimination of pilot skill, to the point that when first writing the a320 flight manuals, airbus wanted to use the term "flight manager" instead of "pilot".  their flight test department saw that one off, but the underlying assumptions remained.
+
+nettle, ungrasped 
+
+a final report is supposed to contain data pertinent to the mishap, and causal theories that explain the data.  they should not engage in speculation, unless there are otherwise unbridgeable gaps in the data; that is not the case with af447.  yet the report does just that.  it invokes something they call "the startle affect", and combines that with an excessive emphasis in training about over-speeding the airplane to produce an explanation of the pf's reactions.  of course the startle effect exists: happens every time something goes bang in the flight.  yet virtually all flights with bangs don't end up in pieces, so this is an explanation that, on its own, explains nothing.  
+
+(fr) in fairness to the report, it does go into some detail about how air france's training with regard to over-speed was, pretty much by definition, excessive:  it was wrong.  the a32+ aircraft do not have enough power in level flight to overspeed the a32+ airfoil.  additionally, the report found that there was no discussion of stall recognition or recovery in the manual.  since one of the design features of the a32+ is extensive flight envelope protection, it isn't possible to stall the airplane.  clearly, that was at least one presumption too far. 
+
+however, it is an unacceptable leap to then explaining the flying pilot's comprehensively incorrect reaction to the loss of airspeed information as being motivated by his conclusion that the airplane was in the process of exceeding its maximum operating mach.  
+
+rather, the proximate cause is a quite simple nettle the final report leaves firmly ungrasped.  the only explanation for the pf putting the aircraft out of control, and the pm failing to satisfactorily notice and correct that situation is that neither pilot knew how to fly an airplane.
+
+consequently, the pf was completely incapable of performing the very first step of any abnormal situation:  maintain aircraft control.  he was unable to correctly identify not just the proper pitch attitude for level flight, but also a pitch attitude wildly inappropriate at cruise altitude.
+
+he compounded this problem, already easily bad enough, by lacking any apparent knowledge of the basic physics of flight.  the airplane was in level, unaccelerated, flight when the pitot systems went tango uniform.  therefore, it was not possible for the airplane to stall or overspeed.  to non-pilots, the first reaction must be "that's crazy talk".  but it's true.  if the pf had firewalled the throttles, rather than accelerate, the airplane would have climbed. if he had instead pulled the throttles back, it would have descended.  (a simplification, but close enough for this discussion.)
+
+nearly as appalling, neither pilot had any awareness of the airplane's performance margin at cruise altitude.  at the start of the mishap sequence, af447 was flying at, or very near to, its optimum altitude.  that means, among other things, that the difference between cruise thrust and max thrust is very small.  that means the aircraft only has enough excess power available to maintain horizontal speed at a vertical speed of roughly 1000' per minute.  consequently when climbing to a new optimum cruise altitude — which typically happens up to a half dozen times during a long flight as the gross weight decreases — the pitch change is a degree and a half, or less.  anything greater than that must result in a loss in airspeed.
+
+to show what i mean, here is a picture of the md11 primary flight display at optimum cruise altitude.  the a330 display is similar:
+
+
+
+(de) the black dot in the center of the artificial horizon (the aircraft reference) shows the fcc nulling the fms commands.  the aircraft attitude is ~1º right bank and 3º pitch.  the black bars on either side are the aircraft wings.  just above them are barbed cyan lines.  these are the pitch limit indicator.  the lines show the angle of attack remaining — 2º —  to stickshaker.  the barbs show the aoa remaining to stall, 4º.  the aircraft speed is 294 knots (338 mph) indicated, and mach 0.823, which is about 490 knots true (about 560 mph over the ground in still air).  at 294 knots, the airplane is 20 knots above the 1.3g buffet limit, and 18 knots below max operating mach at 32,960 feet.
+
+(it is perhaps worth noting, although the report doesn't, that the a32+ doesn't have a pitch limit indicator.  this is symptomatic of a design philosophy that seems to have pervaded the airbus fly-by-wire aircraft: because fbw control systems are able to extensively incorporate flight envelope protection, the airplane will always know better than the pilot.)
+
+(de) in this regime, the airplane is operating in what is sometimes referred to as the "coffin corner".  the gap between too fast and too slow is quite small.  in your car, it would be like if you let your speed slow to 65 from 70, the doors would fall off; if you accelerated to 75, the wheels would; and if you turned the steering wheel more than a couple degrees, you would end up in a ditch.
+
+(fr) when the pitot system succumbed to icing,  the pilot flying (pf) applied full aft stick, pulling the aircraft to well over 10 degrees nose high, a pitch attitude that first caused a gross altitude deviation, then inevitably and fairly quickly, an aft-stick stall.  
+
+the excessive nature of the pf's inputs can be explained by the startle effect and the emotional shock at the autopilot disconnection, amplified by the lack of practical training for crews in flight at high altitude, together with the unusual flight control laws. 
+(fr) the list of explanations are:  distraction; unconscious initiation of a previous plan to climb above the weather; the attraction of clear sky (the aircraft was flying at the edge of the cloud layer); task saturation; the turbulence at the time (which was at the upper limit of what is defined as "light"); concern about overspeeding the airplane; setting a pitch attitude appropriate for airspeed failure at low altitude, where avoiding the ground is the highest priority; and responding to contradictory flight director commands.
+
+to do this in the first place is so incomprehensible to me that i can't think of a metaphor, simile or analogy that comes even close to conveying both the required ignorance and ineptitude.  the report's list of explanations sidesteps the elephant in the room, which is this:  somehow there were two guys on the fight deck who completely lacked basic airmanship.  in particular, the pf failed to observe, orient and decide.  the combination of a highly automated airplane and a operations culture that emphasized total reliance on the autoflight system produced a pilot who could only act, which is the same as saying he wasn't a pilot at all, but merely an ambulatory stick actuator.
+
+(fr) the pm initially noted the pitch attitude and altitude deviation, but then failed to perform his primary duty — monitoring aircraft performance, announcing deviations the pf, and ensuring the pf corrects the deviations.  any competent pm, when faced with the pf's pitch input, would have dropped everything and directed the pf to the correct pitch attitude and altitude.  
+
+other issues 
+
+(de)  until the a32+ series, aircraft design required positive longitudinal stability.  that is, putting the center of lift (cl) far enough aft of the center of gravity (cg) so that a pitch change in one direction creates a torque around the cg in the other.  there are two goals: keeping the airplane from being too sensitive in pitch and, second, to make the airplane speed stable.  the distance between the cg and the cl creates an upward vector that, left unbalanced, would pitch the nose down.  the horizontal stabilizer, with a downward lift vector, is the balance.  however, the cost is the wings having to support both the aircraft weight, and the effective weight of the balancing vector.  more weight means more lift required which means more drag which means more fuel burn.  
+
+(fr)  [in alternate law] the airplane does not have positive longitudinal stability — it is not necessary to make or increase a nose-up input to compensate for a loss of speed while maintaining altitude.  
+
+this behavior, even if it may appear contrary to [certification provisions] was judged acceptable by taking into account special conditions and interpretation material.  indeed, the presence of flight envelope protection makes neutral static stability acceptable.  the specific consequence of [alternate law is that the airplane will stall if there is insufficient thrust to maintain level flight, without any flight control input].  it appears this absence of positive static stability could have contributed to the pf not identifying the approach to stall. 
+in other words, the a32+ is designed in such a way that would be unacceptable in a non-fbw airplane.  which is just fine, until your fbw airplane isn't.  this isn't to say the a32+ are un-flyable in alternate law; rather, maintaining the proper pitch attitude, which in order to do, one must know in the first place.  however, stalling a conventional aircraft requires a concerted effort both to get it, and keep it, there.
+
+(fr) in the absence of speed indications, stall warning consists of only of a synthetic "stall, stall" and a an illuminated master caution light, which generally illuminates for many other reasons.  the flight manual makes no mention of airframe buffet associated with stall.  there is insufficient awareness of the proximity of the stall angle of attack when cruising at high altitude.  
+
+this is another sign that airbus didn't take seriously enough the possibility of ending up in alternate law.  not only do conventional airliners have positive stability, they also have impossible to ignore stick shakers that kick in when airplane approaches stall.  
+
+as day to day hands-on-flying goes, the a320 is outstanding, and not just because of fbw.  flying with a stick is far more precise than a yoke.  but, as previously noted, one consideration to keep firmly in mind is that without static stability, the airplane will not seek flying speed, which makes intrusive stall warning even more important.  why the designers could get away without adding haptic feedback is a mystery the report never mentions, because it never notes the shortcoming in the first place.  
+
+(fr) while on the subject of things bizarre and ignored, the fr noted in explaining the mishap sequence that the stall warning, triggered by the angle of attack (aoa) approaching the stall aoa, silenced when the indicated airspeed was less than 60 knots.  
+
+now, while this isn't typically apparent in transport aircraft, there is no direct relationship between airspeed and angle of attack.  that is (and i have done this), it is possible to have both zero airspeed, and not be stalled: just get the airplane going straight up.  tying aoa validity to some minimum airspeed value is a silly schoolboy error.  not only does it ignore the physics of flight, it also means that multiple simultaneous airspeed failure also takes away aoa.  which segues nicely to …
+
+remember where you first read this 
+
+the report recommended making angle-of-attack information available:  "only a direct readout of the angle of attack could enable crews to rapidly identify the aerodynamic situation of the airplane and take the actions that may be required.  consequently, the bea recommends that the easa and faa evaluate the relevance of requiring the presence of an angle of attack indicator directly accessible to pilots on board [sic] aeroplanes."
+
+for long time reader-sufferers, i wrote this very thing years ago.  (along with criticizing the lack of flying skills among fms pilots.)
+
+and it is easy to do.  here is how the logic goes:  if true airspeed differs from ground speed plus the wind component (both sensed by the inertial platform) by more than (system tolerance) then replace airspeed on the primary flight display with aoa.  
+
+some parting shots 
+
+for those sufficiently geeked out, the af447 final report is very interesting because it lays out the whole process of investigating this tragedy.  and, ultimately, it does make some good recommendations in various areas.
+
+however, to my eye those who wrote the report went to amazing, but unconscious, lengths to avoid making eye contact with what was staring them right in the face:  air france has pilots whose flying skills aren't just weak, they are non-existent.  further, that situation is due to a culture that extols planning — no need to think for yourself, flight envelope protection will always be there — while failing to comprehend the possibility of plans failing, even when it had happened numerous times.  
+
+it's almost a metaphor.
+
+
+
+posted by hey skipper at 12:05 am
+14 comments
+
+
+
+
+
+
+thursday, april 25, 2013
+
+
+
+	 
+	 this needs some 'splainin
+	 
+    
+
+
+from fred kaplan, who, if memory serves, excoriated bush for giving saddam the bum's rush, in slate:
+
+at least five times in the last eight months, president obama has declared that any such use of chemical weapons would cross “a red line.” these are fighting words, or very close to them. if a president describes a possible action as “crossing a red line,” then does nothing about it, no future declaration of red lines—no threat to respond with force to some horrible action—will be taken seriously by anyone, friend or foe. 
+so how is it that assad's (possible) use of chemical weapons crosses a credibility threatening red-line, but saddam's killing over 5,000 kurds with chemical weapons did not?  on what basis did obama vote against invading iraq?
+
+enquiring minds want to know.
+
+
+
+
+
+posted by hey skipper at 5:16 pm
+5 comments
+
+
+
+
+
+
+friday, april 12, 2013
+
+
+
+	 
+	 tilting to the left.  just a little.
+	 
+    
+
+
+my son, a freshman at washington state university, is taking one of those courses that are the backbone of a university's core mission: to produce broadly educated minds.  or, to say it more concisely, a gen-ed requirement -- history 105, contemporary issues.  
+
+this the prompt, quoted in full, from his class's most recent assignment:
+
+some pundits, academics, and politicians often talk about the “unintended consequences” of global capitalism (joyce appleby uses this phrase in the final assigned section).  others argue that there is nothing unintended about capitalism’s consequences – that those in power are fully aware of the potential results, including financial crises like the one that shook the global economy in 2008 and continues to plague people’s of all nations (naomi klein makes such an argument).
+
+in a succinct, clearly written, three-page double-spaced essay that uses multiple historical examples from not only appleby but from other readings, lecture notes, and discussion notes, answer the following question:
+
+why has the capitalism/socialism debate been so divisive?
+
+use the 2008 financial crisis and the ensuing global recession as a starting point for a discussion of the historical and very contentious “consequences” of and responses to capitalism – arguably one of the most defining historical processes of the modern era. 
+on taking a look at this, some questions came immediately to mind:
+in what universe, no matter how distant in space or time, does naomi klein make an actual argument? 
+others argue there is nothing unintended about capitalism's consequences.  are there other others who argue that socialism's bugs are actually features? 
+based upon the prompt, what is "arguably one of the most defining defining historical processes of the modern era?" 
+again based upon the prompt, why would the students suspect the professor would be able to tell the difference between a succinct, clearly written essay and a pile of fish dead for three days?
+why does leaden, prolix and ungrammatical writing plague the collectivist professor's of all humanities? what the heck is the question, anyway? is that even important to providing the correct answer? 
+remember, this is a prompt for a writing assignment.  what is the prompt prompting?  on the face of it, that is easy — discuss some ways in which the intellectual divide between socialism and capitalism persists.  and, for the clairvoyant students, not just the ways, but the whys, too.  at some point, our entering arguments become axiomatic.  in many cases, there is no proving that a greater degree of individualism is preferable to more collectivism, because the notion of "preferable" itself is also at stake.   so, if the prompt had gone on from the seemingly simple question and focused it by saying "use the 2008 financial crisis to show why the argument between socialism and capitalism will continue", then the student could take the fundamental tenets of each, and show how the crisis both undermined and substantiated them.  (the cra was an instance of socialism, and, by ignoring risk, destroyed the housing market.  the banks, through looking only at personal enrichment, privatized gain while socializing risk.)   but that isn't what the prompt says. instead, it amounts to a non-sequitor.  one might just as well ask "why are the arguments between yankee and red sox fans so divisive?  using the recent doping scandals in athletics, explain why baseball is bad."   and that is before getting to the ambiguous references.  what, arguably, is the most defining historical process of the modern era, the 2008 financial crisis, the responses to it, or capitalism? then there is the fundamental viewpoint of the prompter, who really seems to be asking "why, since socialism is so obviously superior, how can there possibly be, absent those possessed of malevolent intent, any capitalists around with whom to argue?" but wait, there's more.  my son got his paper back today — he got a middling b.  that's reasonably good, i suppose, unless you are one of those others who suspects that, in the humanities, a's are already a seriously debased coin of the academic realm.   here is the content portion of his grade: content 17/20 - you do a great job of outlining some of the key differences between the two ideologies and giving modern examples. there are a few key elements that are missing from your essay, however. you do not discuss the role of the cold war and world war ii in the assoctaion of socialism with communism and the major propaganda efforts to solidify this idea in the minds of capitalistic nations. you also do not talk about the great depression, which is one of the most important events that socialists point to when condemning capitalism.  others who argue that academia hasn't tilted so far to the left that only its wiley coyote ignorance of physics has kept from long ago toppling over should hang their academic head in shame, should such an emotion still be available to them.   this is a perfect example of the kind of shameless bias that comes with collectivists' unquestioned — and let's savor the irony here — religious beliefs.  yes, the banking sector stunk the place up.  but the ways in which the financial crisis of 2008 continues to plague people’s of all nations, particularly those lashed to the euro, can hardly be separated from that socialist paradise which is greece. at this point, though, i must say there is one particular area where capitalism is inferior. in socialism, you don't have to pay for reeducation camp.
+
+
+
+posted by hey skipper at 6:22 pm
+24 comments
+
+
+
+
+
+
+thursday, march 28, 2013
+
+
+
+	 
+	 nothing was not an option
+	 
+    
+
+
+[this should have been entitled "18 months later, tomorrow comes".  i don't know why this took so long to get to — for me, time is no excuse — particularly because this is a subject with which i have some first hand experience]  
+
+for those who opposed the war all along, first 9/11/11, then 3/20/13 were causes for fresh waves of nearly onanistic condemnations and toldjasos.  even initially hawkish editorialists, chastened by a decade of  bleak experience, have engaged in hand-wringing attempts to explain their misjudgment.  nyt op-ed page writer and executive editor bill keller epitomizes the latter group, and ultimately encompasses the former.  here are some representative  (and highly edited for length) pull quotes from his mea culpa: 
+
+the question is really two questions: knowing what we know now, with the glorious advantage of hindsight, was it a mistake to invade and occupy iraq? and knowing what we knew then, were we wrong to support the war?
+
+broadly speaking, there were three arguments for invading iraq: … humanitarian; … [promoting] democracy …; … and [wmd/regional security/explicit and implicit support of terrorism].  
+
+for many of us, the monster argument was potent, even if it was not sufficient. … we were, as andrew sullivan put it, “enamored of [our] own morality.”
+
+but there are plenty of monstrous regimes that we do not go to the trouble of overthrowing. it should perhaps have caught our attention that samantha power, who literally wrote the book on humanitarian intervention (the pulitzer-winning “a problem from hell: america and the age of genocide”) and who had endorsed armed intervention in bosnia and rwanda, and at an earlier time in iraq, did not support the invasion of iraq in 2003.
+
+“my criterion for military intervention — with a strong preference for multilateral intervention — is an immediate threat of large-scale loss of life,” explained power, who now advises president obama on multilateral affairs and human rights. “that’s a standard that would have been met in iraq in 1988 but wasn’t in 2003.”
+
+the idea that america could install democracy in iraq always seemed to me the most wishful of the rationales for war, although some people who knew the region far better than i made that case. … the exiled iraqi academic kanan makiya — a proponent of invasion who later repented — observed that iraq’s population was so traumatized by decades of abuse that they were unwilling to take initiative or responsibility …
+
+…
+
+the main selling point for war in iraq, at least for the american public, was that hussein represented a threat to american security. but what kind of threat, exactly? 
+the following couple paras contain, more begged questions than there are sentences. 
+
+iraq was not, as afghanistan had been, the host country and operational base of the new strain of islamic fascism represented by al qaeda. it is true that hussein hosted some nasty characters, but so did many other dictators hostile to america. at the time, iraq was one of seven countries designated as sponsors of terrorism by the state department, and in the other six cases we settled for sanctions as recourse enough. and his conventional military — what was left of it after it was laid waste in the deserts of kuwait and iraq in 1991 — was under close supervision.
+
+that leaves the elusive [wmd]. we forget how broad the consensus was that hussein was hiding the kind of weapons that could rain holocaust on a neighbor or be delivered to america by proxy. he had recently possessed chemical weapons (he used them against the kurds), and it was only a few years since we had discovered he had an active ambition to acquire nuclear weapons. inspectors who combed the country after the first gulf war discovered a nuclear program far more advanced than our intelligence agencies had believed; so it is understandable that the next time around the analysts erred on the side of believing the worst.
+
+we now know that the consensus was wrong, and that it was built in part on intelligence that our analysts had good reason to believe was cooked. … a few journalists — notably jonathan landay and warren strobel of knight ridder newspapers — emphasized conflicting intelligence that questioned hussein’s capabilities. but assuming we couldn’t know for sure, what would have been acceptable odds? if there was only a 50-50 chance that hussein was close to possessing a nuclear weapon, could we live with that? one in five? one in 10?
+
+...
+
+in 1992, after driving the iraqi army out of kuwait, defense secretary dick cheney mused on the calculus of war. why, he asked an audience in seattle, had the united states not pursued hussein’s forces all the way to baghdad and removed him from power? because, cheney said, that would have committed the u.s. to an unacceptable long-term occupation, and it would have meant more american casualties. “the question in my mind is, how many additional american casualties is saddam worth?” cheney asked at the time. “and the answer is, not that damned many.”
+
+of course, cheney wasn’t so cautious the second time around. along with the arguments that he and many others made after 9/11 came some insufficiently considered assumptions: that we were competent to invade and occupy iraq without making an awful mess of it and that we could do it at a cost — in lives and money — that we could live with. in the end, the costs were greater than anyone anticipated because of calamitous mistakes in execution. 
+
+just consider the numbers. in the short-lived first gulf war, 148 americans died in battle. in the current war, the toll so far is nearly 4,500 american dead and 32,000 wounded. at least 100,000 iraqis, most of them noncombatants, have been killed. a war and occupation estimated to cost $100 billion over two years has already cost eight times that amount.
+
+...
+
+our occupation of iraq has also distracted us from afghanistan, furnished a propaganda point for al qaeda recruiters and limited the credibility of our support for independence movements elsewhere. it is worth mentioning, too, that our moral standing as champions of civil society has been compromised by the abuses of abu ghraib and rendition and torture, byproducts of the war that will long remain a blot on our reputation.
+where does this leave me? the world is well rid of saddam hussein. but knowing as we now do the exaggeration of hussein’s threat, the cost in iraqi and american lives and the fact that none of this great splurge has bought us confidence in iraq’s future or advanced the cause of freedom elsewhere — i think operation iraqi freedom was a monumental blunder. 
+clearly, then an open and shut case that iraqi freedom was not only a mistake in hindsight, but in foresight, as well.
+
+right?
+
+not so fast.  despite the length of this exercise in self-flagellation, mr. keller, who i am using as a proxy for essentially the entire anti-war left, either is incapable of comprehending, or elides, the central, inescapable problem:  nothing was not an option.  
+
+it was not a matter of operation iraqi freedom or [crickets].  yet that is precisely the notion mr. keller portrays.  despite his seeming expertise, he scarcely spent a moment on the status quo ante, or the various actors involved in it.  the decision to depose saddam did not have a nullity as its alternative.
+
+my goal here is to lay out briefly, yet in sufficient detail, the status quo ante in the hope of demonstrating that, like in so many aspects of international relations, there were no good options.  the choice wasn't between deposing saddam and crickets, but more like having to pick either the devil or the deep blue sea.
+
+the status quo ante  
+
+contra mr. keller, there were several reasons the us didn't extend desert storm to a full scale invasion of iraq.  most obvious should be that we could do only what was politically possible, and, given the nature of the coalition, continuing the march to baghdad probably wasn't.  beyond that, keller failed to consider the obvious influence on decision makers at the time: it is generally pointless to kill someone who is in the process of committing suicide.  between the considerable political risks and the seeming likelihood that saddam wouldn't long survive the kuwaiti debacle, it seemed a fair bet to be satisfied with limited, rather than absolute, objectives.
+
+unfortunately, saddam's hold on power was firmer than we imagined.  which left us with:
+
+southern watch, the long term, large scale air operation based primarily in saudi arabia to stop saddam's bombing attacks on shia in southern iraq. 
+northern watch,  a similar operation to protect the kurds in northern iraq. 
+ongoing futile attempts to ensure saddam's compliance with wmd inspections, which led to a series of un security council resolutions promising severe consequences in the event of continued defiance. 
+the oil for food program (off), which was established to stop saddam from re-establishing his military, while not causing additional suffering among the iraqis themselves.
+the french, chinese and russians were actively using off to undermine the sanctions. 
+massive un corruption related to off was causing what had previously been thought unimaginable: further besmirching the un's reputation. 
+saddam was actively funding palestinian suicide bombers 
+saddam was also routinely shooting at coalition aircraft enforcing the southern and northern no-fly zones. 
+this list could go on, but it should be sufficient to support this conclusion:  the sanctions regime and aerial occupation of the northern and southern thirds of iraq, which had gone on for a decade, had reached a dead end —  something was going to replace it.  this is the critical issue that keller (et al) never grasped: it wasn't a matter of invasion or nothing.  hand wringing over the human and financial costs of deposing saddam is an empty exercise.  of course it cost more than nothing.  of course the knock-on effects were worse than nothing.  but nothing was not an option.  some course of action had to replace the no-fly zones and the sanctions regime.  it is against the other possible courses of action that the costs of invading iraq need to be compared.    the choice was binary: either invade, or quit the field.  it is against the latter option, and its likely consequences, that we need to weigh operation iraqi freedom.  obviously, there is no rewinding the tape and trying that alternative on for size.  but when assessing almost any decision, whether a foreign policy decision or driving to the movies, we have to weigh the pros and cons of what we did against the foreseeable pros and cons of what we didn't.    fully caveated, here are some of the consequences of the only alternative on offer:  islamist psychology. shortly after 9/11, bin laden asserted to his muslim audience that the west in general, and the u.s. in particular, had a rotten and degenerate culture that no longer had the will to fight for its own survival. 
+similarly, (i can't recall his exact words) he also proclaimed that the muslim world would follow the strong horse. 
+therefore, we should expect that quitting the field would have had a profound effect on the entire muslim world.  not only could the us and the west be defeated, the fact of its defeat meant it was ripe for further attack.  "angering the arab street" was practically a cliché a decade ago, but, thankfully, is scarcely heard anymore.  that, supposedly, recruited terrorists.  possibly, but nothing like our defeat would have done. also, a reasonable conjecture as to why we no longer hear the "arab street" cliche is that the predictions the term entailed never came to pass.
+countries in the region. saddam would have been free to fully reconstitute his military. 
+saudi arabia would have been further radicalized, and we might very well have had to abandon our bases there. 
+all the countries in the region would have had to make some accommodation to the new "correlation of forces" (a term not much heard since the 1970s with respect to communism, but appropriate here).  none of those accommodations would have been in our interest, because they would have meant allying themselves with either iran or iraq. 
+saddam's iraq was iran's mortal enemy.  a resurgent iraq would have guaranteed iran pursuing a nuclear weapons program as energetically as it possibly could, because iraq would have been doing so itself. 
+the only alternative on offer to invading iraq was bound to carry significant "correlation of forces" costs — the entire region would find itself concluding that islamism was the strong horse.  all the countries around iraq and iran would find themselves forced to accommodate one or the other, which would have meant turning their backs on us. the parade of horribles gets worse.  the inevitable military competition between iran and iraq, which must be expected to include nuclear weapons, must also have been expected to lead to yet another war.  why do i say inevitable?  because, with the inescapable shift in the correlation of forces, the us's ability to step in would have been severely eroded, if not destroyed altogether.  the consequence should be obvious to anyone with the temerity to look: a hobbesian security dilemma. it is here where the downside risks really start mounting.  imagine a conflict that closes the straits of hormuz for, say, three months.  the economic and human costs are almost incalculable.  it is that possibility against which keller et al need to judge whether operation iraqi freedom was worth all its consequences.    now, it is entirely possible to disagree with elements of the preceding précis, or specifics of the results, or weigh the possible outcomes differently.  however, it is an illuminating exercise in journalistic incompetence and analytical malfeasance to engage in post-hoc hand wringing without once taking on board the strategic situation and the limited options it presented.  moreover, keller et al never seem to discuss several (albeit almost certainly unintended) positive outcomes of invading iraq, beyond saddam's elimination:  until the surge, islamists had their run of post-invasion iraq.  their fundamentalist certainty led them to an orgy of murder that has gone some way to weakening islamism everywhere. 
+the internecine warfare between sunni and shia (which saddam's rule had baked in, and would have happened eventually, regardless of our invasion) has had the consequence of reducing the extent of muslim religious certainty.  considering what the aftermath of 9/11 was supposed to look like, it should be amazing how few, and small, attacks against the west have been.  it is too early to declare victory, but there can be no doubting that violent islamism is on the wane. 
+the islamist notion that the us is too decadent to fight is dead, and its passing must have had an impact on islamist decisions to conduct further attacks against the west.   
+gaddafi's ceding libya's nuclear weapons program 
+strikingly, no one (well, excluding the galloways among us), no matter how fervently they opposed operation iraqi freedom, wishes saddam still in power.  
+
+you would think they might explain in some depth why that is.
+
+
+
+
+
+
+posted by hey skipper at 1:13 am
+8 comments
+
+
+
+
+
+
+monday, february 18, 2013
+
+
+
+	 
+	 toldja so.  i think.
+	 
+    
+
+
+some years ago, so my memory could well be, shall we say, inexact, i suggested at thought mesh that the 144,000 terawatt hours of annual global energy use could — must — be contributing to the increase in global temperatures.
+
+aog, whose technical and mathematical skills dwarf my own, was singularly unimpressed.  his argument, and it persuaded me, was human energy use was such a small proportion of that coming from the sun that, while true in theory, as a matter of practical fact the effect would be immeasurably small.
+
+yes, but.  according to a new study:  
+
+researchers using a computer model of the atmosphere found that activities from urban areas can warm the air as far as 1,000 miles away. in some areas, that increase was as much as 1 degree celsius (1.8 degrees fahrenheit).
+
+the temperature changes were caused by human behavior in cities, like heating buildings and powering vehicles, rather than natural heat that was captured by paved surfaces. the heat entered the atmosphere directly above cities, the scientists said, but was then dispersed by the natural movements of the global jet stream.
+as it happens, watts up with that has noticed that many weather measuring stations are poorly cited in ways that must result in systematically biasing temperature readings upwards.
+
+however, if this article says what i think it says, and if the study is sound, then two things must be true:
+
+since most weather stations are where people are, and most people are near urban areas, then most even apparently well cited stations are, in fact, irretrievably poorly situated.  consequently, their temperature changes over time are, at least in part, proxies for economic activity. 
+the magnitude of the urban induced temperature change is very nearly the magnitude of global warming over the last forty years.  therefore, temperature records may be, albeit indirectly, measuring the global urbanization occurring over the same period.
+unsurprisingly, "to better represent the effects of global warming, climate scientists should consider incorporating the effects of urban areas, they concluded."  if this sentence says what i think it says, then it means that what has been taken for greenhouse gas induced climate change is, in fair measure, actually a simple consequence of energy usage.  which, in turn, means that climate change must be less disastrous than warmenists believe, and that the only way to reduce such warming as there has been is to return to the stone age.  
+
+which warmenists may believe and desire, but will not admit.
+
+
+
+posted by hey skipper at 8:23 pm
+2 comments
+
+
+
+
+
+
+
+
+
+
+
+
+contributors
+
+unknown
+hey skipper
+
+
+
+
+subscribe to our feed at 
+http://feeds.feedburner.
+com/thedailyduck:
+subscribe
+recommended websites
+
+the postjudd alliance
+think of england
+great guys weblog
+thought mesh
+david's secret blog
+restating the obvious
+friends of the daily duck
+the dabbler
+random distractions
+ragbag
+erp's new blog
+skipper's favorites
+astronomy picture of the day archive
+arts & letters daily
+the loom
+volokh
+the mudville gazette 
+
+
+previous posts
+
+kicking more tin: ups 1354
+let the speculation begin
+hubris, thy name is the daily duck
+af447 -- the final report
+this needs some 'splainin
+tilting to the left.  just a little.
+nothing was not an option
+toldja so.  i think.
+agenda journalism
+the repression shoe is on the other foot
+
+ 
+subscribe toposts [atom] 
+subscribe tocomments [atom] 
+recent comments 
+ 
+
+archives
+
+october 2004
+november 2004
+december 2004
+january 2005
+february 2005
+march 2005
+april 2005
+may 2005
+june 2005
+july 2005
+august 2005
+september 2005
+october 2005
+november 2005
+december 2005
+january 2006
+february 2006
+march 2006
+april 2006
+may 2006
+june 2006
+july 2006
+august 2006
+september 2006
+october 2006
+november 2006
+december 2006
+january 2007
+february 2007
+march 2007
+april 2007
+may 2007
+june 2007
+july 2007
+august 2007
+september 2007
+october 2007
+november 2007
+december 2007
+january 2008
+february 2008
+march 2008
+april 2008
+may 2008
+june 2008
+july 2008
+august 2008
+september 2008
+october 2008
+november 2008
+december 2008
+january 2009
+february 2009
+march 2009
+april 2009
+may 2009
+june 2009
+july 2009
+august 2009
+september 2009
+october 2009
+november 2009
+december 2009
+january 2010
+february 2010
+march 2010
+april 2010
+may 2010
+june 2010
+july 2010
+september 2010
+october 2010
+november 2010
+december 2010
+january 2011
+february 2011
+april 2011
+may 2011
+june 2011
+july 2011
+september 2011
+october 2011
+november 2011
+december 2011
+january 2012
+february 2012
+march 2012
+april 2012
+may 2012
+july 2012
+august 2012
+september 2012
+october 2012
+november 2012
+december 2012
+january 2013
+february 2013
+march 2013
+april 2013
+may 2013
+june 2013
+july 2013
+august 2013
+
+
+
+
+
+daily cartoon
+click to enlarge
+
+
+
+
+
+cartoons by andertoons
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
