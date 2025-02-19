@@ -1,0 +1,315 @@
+
+
+
+
+
+the laboratorium (3d ser.) | a blog by james grimmelmann.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+¶  the laboratorium (3d ser.)
+
+a blog by james grimmelmannsoyez réglé dans votre vie et ordinaire afin d'être violent et original dans vos oeuvres.
+
+
+
+ a quarter century of statutory interpretation
+
+
+let me see if i have this right.
+
+fcc (1998): broadband internet is (probably) an âinformation serviceâ rather than a âtelecommunications serviceâ under the telecommunications act of 1996.
+9th circuit (2000): broadband internet is a telecommunications service.
+fcc (2002): broadband internet is an information service.
+9th circuit (2003): we held in 2000 that broadband internet is a telecommunications service, so the fcc cannot now classify it as an information service.
+supreme court (2005): the 9th circuit is wrong. under chevron the fccâs position that broadband internet is an information service should be upheld as long as it is a reasonable interpretation of an ambiguous statute, which it is.
+supreme court (2005) (scalia, j., dissenting): the fccâs interpretation is not reasonable; broadband internet is unambiguously a telecommunications service.
+fcc (2008): itâs illegal for comcast to block bittorrent on its broadband internet.
+d.c. circuit (2010): if the fcc is right that broadband internet is an information service, then there is no law prohibiting comcast from blocking bittorrent.
+fcc (2011): broadband internet is still an information service, so weâll use a different authority to enact a rule against blocking lawful traffic.
+d.c circuit (2014): the rule is invalid because it has the effect of treating broadband internet as a telecommunications service, even though you still say itâs an information service.
+fcc (2015): broadband internet is a telecommunications service.
+d.c. circuit (2016): under chevron the fccâs position that broadband internet is a telecommunications service should be upheld as long as it is a reasonable interpretation of an ambiguous statute, which it is.
+fcc (2018): broadband internet is an information service.
+d.c. circuit (2019): under chevron the fccâs position that broadband internet is an information service should be upheld as long as it is a reasonable interpretation of an ambiguous statute, which it is.
+fcc (2024): broadband internet is a telecommunications service.
+supreme court (2024): chevron is overruled.
+6th circuit (2025): broadband internet is an information service.
+likely incoming fcc chair (2025): broadband internet is an information service.
+
+by my reckoning, the fcc has treated broadband internet as an information service, then a telecommunications service, then an information service again, then a telecommunications service again, and is now poised to treat it as an information service for a third time. at various times, federal appellate courts have held that the telecommunications act can be read to treat broadband internet as a telecommunications service, must be read to treat broadband internet as an telecommunications service, can be read to treat broadband internet as an information service, and must be read to treat broadband internet as an information service.
+is this any way to run an information superhighway?
+
+update, january 2: corrected the description of the fccâs 1998 report (i had it backwards) and added a better link.
+
+
+january 2, 2025
+
+
+ when law is code
+
+
+i have a new jotwell review of sarah lawskyâs coding the code: catala and computationally accessible tax law. it is nominally a review of this recent (outstanding) article, but i used the occasion to go back through her recent body of work and introduce it to a wider audience who may not be aware of the remarkable nature of her project. here are some excerpts:
+
+sarah b. lawskyâs coding the code: catala and computationally accessible tax law offers an exceptionally thoughtful perspective on the automation of legal rules. it provides not just a nuanced analysis of the consequences of translating legal doctrines into computer programs (something many other scholars have done), but also a tutorial in how to do so effectively, with fidelity to the internal structure of law and humility about what computers do and donât do well. â¦
+coding the code, like the rest of lawskyâs work, stands out in two ways. first, she is actively making it happen, using her insights as a legal scholar and logician to push forward the state of the art. her lawsky practice problems siteâa hand-coded open source app that can generate as many tax exercises as students have the patience to work throughâis a pedagogical gem, because it matches the computer science under the hood to the structure of the legal problem. (her teaching algorithms and algorithms for teaching documents the app and why it works the way it does.)
+second, lawskyâs claims about the broader consequences of formal approaches are grounded in a nuanced understanding of what these formal approaches do well and what they do not. sometimes formalization leads to insight; her recent reasoning with formalized statutes shows how coding up a statute section can reveal unexpected edge cases and drafting mistakes. at other times, formalization is hiding in plain sight. as she observes in 2020âs form as formalization, the irs already walks taxpayers through tax algorithms; its forms provide step-by-step instruction for making tax computations. in every case, lawsky links carefully links her systemic claims to specific doctrinal examples. she shows not that computational law will change everything, but rather that it is already changing some things, in ways large and small.
+
+
+
+july 31, 2024
+
+
+ genlaw 2024
+
+
+iâm virtually attending the genlaw 2024 workshop today, and i will be liveblogging the presentations.
+introduction
+a. feder cooper and katherine lee: welcome!
+the generative ai supply chain includes many stages, actors, and choices. but wherever there are choices, there are research questions: how ml developers make those choices? and wherever there are choices, there are policy questions: what are the consequences for law and policy of those choices?
+genlaw is not an archival venue, but if you are interested in publishing work in this space, consider the acm cs&law conference, happening next in march 2025 in munich.
+kyle lo
+kyle lo, demystifying data curation for language models.
+i think of data in three stages:
+
+shopping for data, or acquiring it.
+cooking your data, or transforming it.
+tasting your data, or testing it.
+
+someone once told me, âinfinite tokens, you could just train on the whole internet.â scale is important. whatâs the best way to get a lot of data? our #1 choice is public apis leading to bulk data. 80 to 100% of the data comes from web scrapers (commoncrawl, internet archive, etc.). these are nonprofits that have been operating long before generative ai was a thing. a small percentage (about 1%) is user-created content like wikipedia or arxiv. and about 5% or less is open publishers, like pubmed. datasets also heavily remix existing datasets.
+nobody crawls the data themselves unless theyâre really big and have a lot of good programmers. you can either do deep domain-specific crawls, or a broad and wide crawl. a lot of websites require you to follow links and click buttons to get at the content. writing the code to coax out this contentâhidden behind jsârequires a lot of site-specific code. for each website, one has to ask whether going through this is worth the trouble.
+itâs also getting harder to crawl. a lot more sites have robots.txt that ask not to be crawled or have terms of service restricting crawling. this makes commoncrawlâs job harder. especially if youâre polite, you spend a lot more energy working through a decreasing pile of sources. more data is now available only to those who pay for it. weâre not running out of training data, weâre running out of open training data, which raises serious issues of equitable access.
+moving on to transformation, the first step is to filter out low-quality pages (e.g., site navigation or r/microwavegang). you typically need to filter out sensitive data like passwords, nsfw content, and duplicates.
+next is linearization: remove header text, navigational links on pages, etc., and convert to a stream of tokens. poor linearization can be irrecoverable. it can break up sentences and render source content incoherent.
+there is filtering: cleaning up data. every data source needs its own pipeline! for example, for code, you might want to include python but not fortran. training on user-uploaded csvs in a code repository is usually not helpful.
+ssing small-model classifiers to do filtering has side effects. there are a lot of terms of service out there. if you do deduplication, you may wind up throwing out a lot of terms of service. removing pii with low-precision classifiers can have legal consequences. or, sometimes we see data that includes scientific text in english and pornography in chineseâa poor classifier will misunderstand it.
+my last point: people have pushed for a safe harbor for ai research. we need something similar for open-data research. in doing open research, am i taking on too much risk?
+gabriele mazzini
+gabriele mazzini, introduction to the ai act and generative ai.
+the ai act is a first-of-its-kind in the world. in the eu, the commission proposes legislation and also implements it. the draft is send to the council, which represents governments of member states, and to the parliament, which is directly elected. the council and parliament have to agree to enact legislation. implementation is carried out via member states. the commission can provide some executive action and some guidance.
+the ai act required some complex choices: it should be horizontal, applying to all of ai, rather than being sector-specific. but different fields do have different legal regimes (e.g. financial regulation).
+the most important concept in the ai act is its risk-based approach. the greater the risk, the stricter the rulesâbut there is no regulation of ai as such. it focuses on use cases, with stricter rules for riskier uses.
+
+from the euâs point of view, a few usesâsuch as social scoringâare unacceptable risk and prohibited.
+the high-risk category covers about 90% of the rules in the ai act. this includes ai systems that are safety components of physical products (e.g. robotics). it also includes some specifically listed uses, such as recruitment in employment. these ai systems are subject to compliance with specific requirements ex ante.
+the transparency risk category requires disclosures (e.g. that you are interacting with an ai chatbot and not a human). this is where generative ai mostly comes in: that you know that content was created by ai.
+everything else is minimal or no risk and is not regulated.
+
+most generative ai systems are in the transparency category (e.g. disclosure of training data). but some systems, e.g. those trained over a certain compute threshold, are subject to stricter rules.
+martin senftleben
+martin senftleben, copyright and genai development â regulatory approaches and challenges in the eu and beyond
+ai forces us to confront the dethroning of the human author. copyright has long been based on the unique creativity of human authors, but now generative ai generate outputs that appear as though they were human-generated.
+in copyright, we give one person a monopoly right to decide what can be done with a work, but that makes follow-on innovation difficult. that was difficult enough in the past, when the follow-on innovation came from other authors (parody, pastiche, etc.). here, the follow-on innovation comes from the machine. copyright policy makes this complex right now. itâs an attempt to reconcile fair renumeration for human authors with a successful ai sector.
+the copyright answer would be licensingâon the input side, pay for each and every piece of data that goes into the data set, and on the output side, pay for outputs. if you do this, you get problems for the ai sector. you get very limited access to data, with a few large players paying for data from publishers, but others getting nothing. this produces bias in the sense that it only reflects mainstream inputs (english, but not dutch and slovak).
+if you try to favor a vibrant ai sector, you donât require licensing for training and you make all the outputs legal (e.g. fair use). this increases access and you have less bias on the output, but you have no remuneration for authors.
+from a legal-comparative perspective, itâs fascinating to see how different legislators approach these questions. japan and southeast asian countries have tried to support ai developers, e.g. broad text and data mining (tdm) exemptions as applied to ai training. in the u.s., the discussion is about fair use and there are about 25 lawsuits. fair use opens up the copyright system immediately because users can push back.
+in the e.u., forget about fair use. we have the directive on the digital single market in 2019, which was written without generative ai in mind. the focus was on scientific tdms. that exception doesnât cover commercial or even non-profit activity, only scientific research. a research organization can work with a private partner. there is also a broader tdm exemption that enables tdm unless the copyright owner has opted out using âmachine-readable meansâ (e.g. in robots.txt).
+the ai act makes things more complex; it has ai-related components. it confirms that reproductions for tdm are still within the scope of copyright and require an exemption. it confirms that opt-outs must be observed. what about training in other countries? if you at a later stage want to offer your trained models in the eu, you must have evidence that you trained in accordance with eu policy. this is an intended brussels effect.
+the ai act also has transparency obligations: specifically a âsufficiently detailed summary of the content used for training.â good luck with that one! even knowing whatâs in the datasets youâre using is a challenge. there will be an ai office, which will set up a template. also, is there a risk that ai trained in the eu will simply be less clever than ai trained elsewhere? that it will marginalize the eu cultural heritage?
+thatâs where we stand the e.u. codes of practice will start in may 2025 and become enforceable against ai providers in august 2025. if you seek licenses now, make sure they cover the training you have done in the past.
+panel: data curation and ip
+panelists: julia powles, kyle lo, martin senftleben, a. feder cooper (moderator)
+cooper: julia, tell us about the view from australia.
+julia: outside the u.s., copyright law also includes moral rights, especially attribution and integrity. three things: (1) artists are feeling disempowered. (2) lawyers gotten preoccupied with where (geographically) acts are taking place. (3) governments are in a giant game of chicken of who will insist that ai providers comply. everyone is waiting for artists to mount challenges that they donât have the resources to mount. most people who are savvy about ip hate copyright. we donât show the concern that we show for the ai industry for students or others who are impacted by copyright. australia is being very timid, as are most countries.
+cooper: martin, can you fill us in on moral rights?
+martin: copyright is not just about the money. itâs about the personal touch of what we create as human beings. moral rights:
+
+to decide whether a work will be made available to the public at all.
+attribution, to have your name associated with the work.
+integrity, to decide on modifications to the work.
+integrity, to object to the use of the work in unwanted contexts (such as pornography).
+
+the impact on ai training is very unclear. itâs not clear what will happen in the courts. perhaps moral rights will let authors avoid machine training entirely. or perhaps they will apply at the output level. not clear whether these rights will fly due to idea/expression dichotomy.
+cooper: kyle, can you talk about copyright considerations in data curation?
+kyle: iâm worried about: (1) itâs important to develop techniques for fine-tuning, but (2) will my company let me work on projects where we hand off the control to others? without some sort of protection for developing unlearning, we wonât have research on these techniques.
+cooper: follow-up: you went right to memorization. are we caring too much about memorization?
+kyle: thereâs a simplistic view that i want to get away from: that itâs only regurgitation that matters. there are other harmful behaviors, such as a perfect style imitator for an author. itâs hard to form an opinion about good legislation without knowledge of what the state of the technology is, and whatâs possible or not.
+julia: it feels like the wave of large models weâve had in the last few years have really consumed our thinking about the future of ai. especially the idea that we âneedâ scale and access to all copyrighted works. before chatgpt, the idea was that these models were too legally dangerous to release. we have impeded the release of bioscience because we have gone through the work of deciding what we want to allow. in many cases, having the large general model is not the best solution to a problem. in many cases, the promise remains unrealized.
+martin: memorization and learning of concepts is one of the most fascinating and different problems. from a copyright perspective, getting knowledge about the black box is interesting and important. cf. matthew sagâs âsnoopy problem.â cc licenses often come with a share-alike restriction. if it can be demonstrated that there are traces of this material in fully-trained models, those models would need to be shared under those terms.
+kyle: do we need scale? i go back and forth on this all the time. on the one hand,i detest the idea of a general-purpose model. itâs all domain effects. thatâs ml 101. on the other hand, these models are really impressive. the science-specific models are worse than gpt-4 for their use case. i donât know why these giant proprietary models are so good. the more i deviate my methods from common practice, the less applicable my findings are. we have to hyperscale to be relevant, but i also hate it.
+cooper: how should we evaluate models?
+when i work on general-purpose models, i try to reproduce what closed models are doing. i set up evaluations to try to replicate how they think. but i havenât even reached the point of being able to reproduce their results. everyoneâs hardware is different and training runs can go wrong in lots of ways.
+when i work on smaller and more specific  models, not very much has change. the story has been to focus on the target domain, and thatâs still the case. itâs careful scientific work. maybe the only wrench is that general-purpose models can be prompted for outputs that are different than the ones they were created to focus on.
+cooper: letâs talk about guardrails.
+martin: right now, the copyright discussion focuses on the ai training stage. in terms of costs, this means that ai training is burdened with copyright issues, which makes training more expensive. perhaps we should diversify legal tools by moving from input to output. let the trainers do what they want, and weâll put requirements on outputs and require them to create appropriate filters.
+julia: i find the argument that itâll be too costly to respect copyright to be bunk. there are 100 countries that have to negotiate with major publishers for access to copyrighted works. there are lots of humans that we donât make these arguments for. we should give these permissions to humans before machines. it seems obvious that weâd have impressive results at hyperscale. for 25 years, ip has debated traditional cultural knowledge. there, we have belatedly recognized the origin of this knowledge. the same goes for ai: itâs about acknowledging the source of the knowledge they are trained on.
+turning to supply chains, in addition to the copying right, there are authorizing, importing, and communicating, plus moral rights. an interesting avenue for regulation is to ask where sweatshops of people doing content moderation and data labeling take place.
+cooper: training is resource-intensive, but so is inference.
+question: why are we treating ai differently than biotechnology?
+julia: we have a strong physical bias. dolly the sheep had an impact that 3d avatars didnât. also, itâs different power players.
+martin: pam samuelson has a good paper on historical antecedents for new copying technologies. although i think that generative ai dethrones human authors and that is something new.
+kyle: ai is a proxy for other things; it doesnât feel genuine until itâs applied.
+question: there have been a lot of talks about the power of training on synthetic data. is copyright the right mechanism for training on synthetic data?
+kyle: it is hard to govern these approaches on the output side, you would really have to deal with it on the input side.
+martin: i hate to say this as a lawyer, but â¦ it depends.
+question: we live in a fragmented import/export market. (e.g., the data security executive order
+martin: there have been predictions that territoriality will die, but so far it has persisted.
+connor dunlop
+connor dunlop, gpai governance and oversight in the eu â and how you might be able to contribute
+three topics:
+
+role of civil society
+my work and how we fit in
+how you can contribute
+
+ai operates within a complex system of social and economic structures. the ecosystem includes industry and more. ai and society includes government actors and ngos exist to support those actors. there are many types of expertise involved here. ada lovelace is an organization that thinks abut how ai and data impact people in society. we aim for research expertise, promoting ai literacy, building technical tools like audits and evaluations. a possible gap in the ecosystem is strategic litigation expertise.
+at ada lovelace, we try to identify key topics early on and ground them in research. we do a lot of polling and engagement on public perspectives. and we recognize nuance and try to make sure that people know what the known unknowns are and where people disagree.
+on ai governance, we have been asking about different accountability mechanisms. what mechanisms are available, how are they employed in the real world, do they work, and can they be reflected in standards, law, or policy?
+sabrina kã¼spert
+sabrina kã¼spert, implementing the ai act
+the ai act follows a risk-based approach. (review of risk-based approach pyramid.) it adopts harmonized rules across all 27 member states. the idea is that if you create trust, you also create excellence. if provider complies, they get access to the entire eu.
+for general-purpose models, the rules are transparency obligations. anyone who wants to build on a general-purpose model should be able to understand its capabilities and what it is based on. providers must mitigate systemic risks with evaluation, mitigation, cybersecurity, incident reporting, and corrective measures.
+the eu ai office is part of the commission and the center of ai expertise for the eu. it will facilitate a process to detail the rules around transparency, copyright, risk assessment, and risk mitigation via codes of practice. also building enforcement structures. it will have technical capacity and regulatory powers (e.g. to compel assessments).
+finally, weâre facilitating international cooperation on ai. weâre working with the u.s. ai safety office, building an international network among key partners, and engaged in bilateral and multilateral activities.
+spotlight poster presentations
+adversarial perturbations cannot reliably protect artists from generative ai (robert hã¶nig, javier rando, nicholas carlini, florian tramer): we investigated methods that artists can use to prevent ai training on their work, and found that these protections can often be disabled. these tools (e.g. glaze) work by adding adversarial perturbations to an artistâs images in ways that are unnoticable to humans but degrade models trained on them. you can use an off-the-shelf huggingface model to remove the perturbations and recover the original images. in some cases, adding gaussian noise or using a different fine-tuning tool also suffices to disable the protections.
+training foundation models as data compression: on information, model weights and copyright law (giorgio franceschelli, claudia cevenini, mirco musolesi): our motivation is the knowledge that models tend to memorize and regurgitate. we observe that model weights are smaller than the training data, so there is an analogy that training is compression. given this, is a model a copy or derivative work of training data?
+machine unlearning fails to remove data poisoning attacks (martin pawelczyk, ayush sekhari, jimmy z di, yiwei lu, gautam kamath, seth neel): real-world motivations for unlearning are to remove data due to revoked consent or to unlearn bad/adversarial data that impact performance. typical implementations use likelihood ratio tests (lrts) that involve hundreds of shadow models. we put poisons in part of the training data; then we apply an unlearning algorithm to our poisoned model and then ask whether the algorithm removed the effects of the poison. we add gaussian poisoning to existing indiscriminate and targeted poisoning methods. unlearning can be evaluated by measuring correlation between our gaussians and the output model. we observe that the state-of-the-art methods we tried werenât really successful at removing gaussian poison and no method performs well across both vision and language tasks.
+ordering model deletion (daniel wilf-townsend): model deletion (a.k.a. model destruction or algorithmic disgorgement) is a remedial tool that courts and agencies can use that requires discontinuing use of a model trained on unlawfully used data. why do it? first, in a privacy context, the inferences are what you care about, so just deleting the underlying data isnât sufficient to prevent the harm. second, it provides increased deterrence. but there are problems, including proportionality. think of openai vs. a blog post: if gpt-4 trains on a single blog post of mine, then i could force deletion, which is massively disproportionate to the harm. it could be unfair, or create massive chilling effects. model deletion is an equitable remedy, and equitable doctrines should be used to enforce proportionality and tied to culpability.
+ignore safety directions. violate the cfaa?  (ram shankar siva kumar, kendra albert, jonathon penney): we explore the legal aspects of prompt injection attacks. we define prompt injection as inputting data into an llm that cause it to behave in ways contrary to the model providerâs intentions. there are legal and cybersecurity risks, including under the cfaa, and a history of government and companies targeting researchers and white-hat hackers. our paper attempts to show the complexity of applying the cfaa to generative-ai systems. one takeaway: whether prompt injection violates the cfaa depends on many factors. sometimes they do, but there are uncertainties. another takeaway: we need more clarity from courts and from scholars and researchers. thus, we need a safe harbor for security researchers.
+fantastic copyrighted beasts and how (not) to generate them (luxi he, yangsibo huang, weijia shi, tinghao xie, haotian liu, ; wang, yue; zettlemoyer, luke; zhang, chiyuan; chen, danqi; henderson, peter): we have all likely seen models that generate copyrighted charactersâand models that refuse to generate them. it turns out that using generic keywords like âitalian plumberâ suffices. there was a recent chinese case holding a service provider liable for generations of ultraman. our work introduces a copyrighted-characters reproduction benchmark. we also develop an evaluation suite that has consistency with user intent but avoids copyrighted characters. we applied this suite to various models, and propose methods to avoid copyrighted characters. we find that prompt rewriting is not fully effective on its own. but we find that using copyrighted character names as negative prompts increases effectiveness from about 50% to about 85%.
+matthew jagielski and katja filippova
+matthew jagielski and katja filippova, machine unlearning: [jg: i missed this due to a livestream hiccup, but will go back and fill it in.]
+kimberly mai
+kimberly mai, data protection in the era of generative ai
+under the gdpr, personal data is  âany information relating to an identified or identifiableâ person. that includes hash numbers of people in an experimental study, or license plate numbers. it depends on how easy it is to identify someone. the uk ai framework has principles that already map to data protection law.
+our view is that data protection law applies at every stage of the ai lifecycle. this makes the uk ico a key regulator in the ai space. ai is a key area of focus for us. generative ai raises some significant issues, and the ico has launched a consultation.
+what does âaccuracyâ mean in a generative-ai context? this isnât a statistical notion; instead, data must be correct, not misleading, and where necessary up-to-date. in a creative context, that might not require factual accuracy. at the output level, a hallucinating model that produces incorrect outputs about a person might be inaccurate.  we think this might require labeling, attribution, etc., but i am eager to hear your thoughts.
+now, for individual rights. we believe that rights to be informed and to access are crucial here. on the remaining four, itâs a more difficult picture. itâs very hard to unlearn, which makes the right to erasure quite difficult to apply. we want to hear from you how machine learning applies to data protection concepts. we will be releasing something on controllership shortly, and please share your thoughts with us. we can also provide advice on deploying systems. (we also welcome non-u.k. input.)
+herbie bradley
+herbie bradley, technical ai governance
+technical ai governance is technical analysis and tools for supporting effective ai governance. there are problems around data, compute, models, and user interaction. for example, are hardware-enabled compute governance feasible? or, how should we think about how often to evaluate fine-tuned models for safety? what are best practices for language model benchmarking? and, looking to the future, how likely is it that certain research directions will pan out? (examples include unlearning, watermarking, differential privacy, etc.)
+here is another example: risk thresholds. can we translate benchmark results into assessments that are useful to policymakers. the problems are that this is dependent on a benchmark, it has to have a qualitative element, and knowledge and best practices shift rapidly. any implementation will likely be iterative and involve conversations with policy experts and technical researchers.
+it is useful to have technical capacity within governments. first, to carry out the actual technical work for implementing a policy or carry out safety testing. second, you need it to have advisory capacity, and this is often much more useful.
+takeaways. first, if youâre a researcher, consider joining government or a think tank that supports government. second, if youâre a policy maker, consider uncertainties that could be answered by technical capacity.
+panel: privacy and data policy
+sabrina ross, herbie bradley, niloofar mireshgallah, matthew jagielski, paul ohm (moderator), katherine lee (moderator)
+paul: we have this struggle in policy to come up with rules and standards that can be measured. what do we think about herbieâs call for metrics?
+sabrina: we are at the beginning; the conversation is being led by discussions around safety. how do you measure data minimization, for example: comparing utility loss to data reduction. iâm excited by the trend.
+niloofar: there are multiple ways. differential privacy (dp) was a theory concept, used for the census, and now is treated as a good tool. but with llms, it becomes ambiguous again. tools can work in one place but not in another. events like this help technical people understand whatâs missing. i learned that most nlp people think of copyright as verbatim copying, but thatâs not the only form of copying.
+paul: i worry that if we learn too hard into evaluation, weâll lose values. what are we missing here?
+matthew: in the dp community, we have our clear epsilon values, and then we have our vibes, which arenât measured but are built into the algorithm. the data minimization paper has a lot of intuitive value.
+herbie: industry, academia, and government have different incentives and needs. academia may like evaluations that are easily measurable and cheap. industry may like it for marketing, or reducing liability risk. government may want it to be robust or widely used, or relatively cheap.
+niloofar: it depends on whatâs considered valuable. it used to be that data quality wasnât valued. a few years ago, at icml youâd only see theory papers, now there is more applied work.
+paul: you used this word âpublishâ: i thought you just uploaded things to arxiv and moved on.
+katherine: letâs talk about unlearning. can we talk about evaluations that might be useful, and how it might fit into content moderation.
+matthew: to evaluate unlearning, you need to say something about a counterfactual world. state of the art techniques include things like âtrain your model a thousand times,â which is impractical for big models. there are also provable techniques; evaluation there looks much different. for content moderation, itâs unclear that this is an intervention on data and not alignment. if you have a specific goal, that you can measure directly.
+herbie: with these techniques, itâs very easy to target adjacent knowledge, which isnât relevant and isnât what you want to target. often, various pieces of pii are available on the internet, and the system could locate them even if information on them has been removed from the model itself.
+paul: could we map the right to be forgotten onto unlearning?
+sophia: there are lots of considerations here (e.g. public figures versus private ones), so i donât see a universal application.
+paul: maybe what we want is a good output filter.
+niloofar: even if youâre able to verify deletion, you may still be leaking information. there are difficult questions about prospective vs. retrospective activity. itâs a hot potato situation: people put out papers then other people show they donât work. we could use more systematic frameworks.
+sophia: i prefer to connect the available techniques to the goals weâre trying to achieve.
+katherine: this is a fun time to bring up the copyright/privacy parallel. people talk about the dmca takedown process, which isnât quite applicable to generative ai but people do sometimes wonder about it.
+niloofar: i see that nlp people have a memorization idea, so they write a paper, and they need an application, so they look to privacy or copyright. they appeal to these two and put them together. the underlying latent is the same, but in copyright you can license it. i feel like privacy is more flexible, and you have complex inferences. in copyright, you have idea, expression, and those have different meanings.
+matthew: itâs interesting to see what changes in versions of a model. you are training the pain of a passive adversary versus one who is really going to try. for computer scientists, this idea of a weak vs. strong adversary is radioactive.
+paul: my myth of the superuser paper was about how laws are written to deal with powerful hackers but then used against ordinary users. licensing is something you can do for copyright risk; in privacy, we talk about consent. strategically, are they the same?
+sophia: for a long time, consent was seen as a gold standard. more recently, weâve started to consider consent fatigue. for some uses itâs helpful, for others itâs not.
+paul: the tdm exception is interesting. the conventional wisdom in privacy was that those dumb american rules were opt-out. in copyright, the tables have turned.
+matthew: licensing and consent change your distribution. some people are more likely to opt in or opt out.
+herbie: people donât have a good sense of how the qualities of licenseable differ from what is available on the internet.
+niloofar: there is a dataset of people chatting with chatgpt who affirmatively consented. but people share a lot of their private data through this, and become oblivious to what they have put in the model. youâre often sharing information about other people too. a journalist put their conversation with a private source into the chat!
+paul: especially for junior grad students, the fact that every jurisdiction is doing this alone might be confusing. why is that?
+herbie: i.e., why is there no international treaty?
+paul: or even talk more and harmonize?
+herbie: we do. the biden executive order influenced the e.u.âs thinking. but a lot of it comes down to cultural values and how different communities think.
+paul: can you compare the u.k. to the e.u.?
+herbie: weâre watching the ai act closely. i quite like what weâre doing.
+sophia: we have to consider the incentives that regulators are balancing. but in some ways, i think there is a ton of similarity. singapore and the e.u. both have data minimization.
+herbie: there are significant differences between the thinking of different government systems in terms of how up-to-date they are.
+paul: this is where i explain to my horrified friends that the ftc has 45 employees working on this. there is a real resource imbalance.
+matthew: the point about shared values is why junior grad students shouldnât be disheartened. the data minimization paper pulled out things that can be technicalized.
+niloofar: i can speak from the side of when i was a young grad student. when i came here, i was surprised by copyright. itâs always easier to build on legacy than to create something new.
+paul: none of you signed onto the cynical âitâs all trade war all the way down.â on our side of the pond, one story was that the rise of mistral changed the politics considerably. if true, mistral is the best thing ever to happen to silicon valley, because it tamps down protectionism. or maybe this is the american who has no idea what heâs talking about.
+katherine: weâve talked copyright, privacy, and safety. what else should we think about as we go off into the world?
+sophia: the problem is the organizing structure of the work to be done. is fairness a safety problem, a privacy problem, or an inclusion problem? weâve seen how some conceptions of data protection can impede fairness conversations.
+paul: i am genuinely curious. are things hardening so much that youâll find yourself in a group that people say, âwe do copyright here; toxicity is down the hall?â (i think this would be bad.)
+herbie: right now, academics are incentivized to talk about the general interface.
+paul: has anyone said âantitrustâ today? right now, there is a quiet struggle between the antitrust lina khan/tim wu camp and all the other information harms. there are some natural monopoly arguments when it comes to large models.
+niloofar: at least on the academic side, people who work in theory do both privacy and fairness. when people who work in nlp started to care more, then there started to be more division. so toxicity/ethics people are little separate. when you say âsafety,â itâs mostly about jailbreaking.
+paul: maybe these are different techniques for different problem? let me give you a thought about the first amendment. justice kagan gets five justices to agree that social media is core protected speech. lots of american scholars think this will also apply to large language models. this supreme court is putting first amendment on the rise.
+matthew: i think alignment is the big technique overlap iâm seeing right now. but when i interact with the privacy community, people who do that are privacy people.
+katherine: thatâs partly because those are the tools that we have.
+question: if we had unlearning, would that be okay with gdpr?
+question: if we go forward 2-3 years and there are some problems and clear beliefs about how they should be regulated, then how will this be enforced, and what skills do these people have?
+niloofar: on consent, i donât know what we do about children.
+paul: in the u.s., we donât consider children to be people.
+niloofar: i donât know what this solution would look like.
+kimberly: in the u.k., if youâre over 13 you can consent. gdpr has protections for children. you have to consider risks and harms to children when you are designing under data protection by design.
+herbie: if you have highly adversarial users, unlearning might not be sufficient.
+sabrina: weâre already computer scientists working with economists. the more we can bring to bear, the more successful weâll be.
+paul: iâve spent my career watching agencies bring in technologists. some success, some fail. europe has had success with investing a lot. but the state of oregon will hire half a technologist and pay them 30% what they would make. europe understands that you have to write a big check, create a team, and plan for managing them.
+matthew: as an oregonian, iâm glad oregon was mentioned. i wanted to mention that people want unlearning to do some things that are more suitable for unlearning, and there are some goals that really are about data management. (unless we start calling unlearning techniques âalignment.â)
+
+and thatâs it!
+
+
+july 27, 2024
+
+
+ the files are in the computer
+
+
+i have a new draft essay, the files are in the computer: on copyright, memorization, and generative ai. it is a joint work with my regular co-author a. feder cooper, who just completed his ph.d. in computer science at cornell. we presented an earlier version of the paper at the online ai disrupting law symposium symposium hosted by the chicago-kent law review in april, and the final version will come out in the cklr. here is the abstract:
+
+the new york timesâs copyright lawsuit against openai and microsoft alleges that openaiâs gpt models have âmemorizedâ times articles. other lawsuits make similar claims. but parties, courts, and scholars disagree on what memorization is, whether it is taking place, and what its copyright implications are. unfortunately, these debates are clouded by deep ambiguities over the nature of âmemorization,â leading participants to talk past one another.
+in this essay, we attempt to bring clarity to the conversation over memorization and its relationship to copyright law. memorization is a highly active area of research in machine learning, and we draw on that literature to pro- vide a firm technical foundation for legal discussions. the core of the essay is a precise definition of memorization for a legal audience. we say that a model has âmemorizedâ a piece of training data when (1) it is possible to reconstruct from the model (2) a near-exact copy of (3) a substantial portion of (4) that specific piece of training data. we distinguish memorization from âextractionâ (in which a user intentionally causes a model to generate a near-exact copy), from âregurgitationâ (in which a model generates a near-exact copy, regardless of the userâs intentions), and from âreconstructionâ (in which the near-exact copy can be obtained from the model by any means, not necessarily the ordinary generation process).
+several important consequences follow from these definitions. first, not all learning is memorization: much of what generative-ai models do involves generalizing from large amounts of training data, not just memorizing individual pieces of it. second, memorization occurs when a model is trained; it is not something that happens when a model generates a regurgitated output. regurgitation is a symptom of memorization in the model, not its cause. third, when a model has memorized training data, the model is a âcopyâ of that training data in the sense used by copyright law. fourth, a model is not like a vcr or other general-purpose copying technology; it is better at generating some types of outputs (possibly including regurgitated ones) than others. fifth, memorization is not just a phenomenon that is caused by âadversarialâ users bent on extraction; it is a capability that is latent in the model itself. sixth, the amount of training data that a model memorizes is a consequence of choices made in the training process; different decisions about what data to train on and how to train on it can affect what the model memorizes. seventh, system design choices also matter at generation time. whether or not a model that has memorized training data actually regurgitates that data depends on the design of the overall system: developers can use other guardrails to prevent extraction and regurgitation. in a very real sense, memorized training data is in the modelâto quote zoolander, the files are in the computer.
+
+
+
+july 23, 2024
+
+
+ a statement on signing
+
+
+i am serving on cornellâs committee on campus expressive activity. we have been charged with âmaking recommendations for the formulation of a cornell policy that both protects free expression and the right to protest, while establishing content-neutral limits that ensure the ability of the university community to pursue its mission.â our mission includes formulating a replacement for cornellâs controversial interim expressive activity policy, making recommendations about how the university should respond to violations of the policy, and educating faculty, staff, and students about the policy and the values at stake.
+i have resolved that while i am serving on the committee, i will not sign letters or other policy statements on these issues. this is a blanket abstention. it does not reflect any agreement or disagreement with the specifics of a statement within the scope of what the committee will consider.
+this is not because i have no views on free speech, universitiesâ mission, protests, and student discipline. i do. some of them are public because i have written about them at length; others are private because i have never shared them with anyone; most are somewhere in between. some of these views are strongly held; others are so tentative they could shift in a light breeze.
+instead, i believe that a principled open-mindedness is one of the most important things i can bring to the committee. this has been a difficult year for cornell, as for many other colleges and universities. frustration is high, and trust is low.a good policy can help repair some of this damage. it should help students feel safe, respected, welcomed, and heard. it should help community members be able to trust the administration, and each other.  everyone should be able to feel that the policy was created and is being applied fairly, honestly, and justly. whether or not we achieve that goal, we have to try.
+i think that signing my name to something is a commitment. it means that i endorse what it says, and that i am prepared to defend those views in detail if challenged. if i sign a letter now, and then vote for a committee report that endorses something different, i think my co-signers would be entitled to ask me to explain why my thinking had changed. and if i sign a letter now, i think someone who disagrees with it would be entitled to ask whether i am as ready to listen to their views as i should be.
+other members of the committee may reach different conclusions about what and when to sign, and i respect their choices. my stance reflects my individual views on what signing a letter means, and about what i personally can bring to the committee. others have different but entirely reasonable views.
+i also have colleagues and students who have views on the issues the committee will discuss. they will share many of those views, in open letters, op-eds, and other fora. this is a good thing. they have things to say that the community, the administration, and the committee should hear. i donât disapprove of their views by not signing; i donât endorse those views, either. iâm just abstaining for now, because my most important job, while the committeeâs work is ongoing, is to listen.
+
+
+may 29, 2024
+
+
+
+
+archive • 
+colophon • 
+rss feed • 
+json feed
+
+
+
+
+
+
