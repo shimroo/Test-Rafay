@@ -1,0 +1,299 @@
+
+
+
+
+
+
+the evolving ultrasaurus « sarah allen's reflections on internet software and other topics
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+the evolving ultrasaurus
+
+
+sarah allen's reflections on internet software and other topics
+
+
+main menu
+skip to primary content
+skip to secondary content
+
+
+
+
+
+
+
+
+
+the evolving ultrasaurus
+
+about
+speaking
+code
+archives
+contact
+what is an ultrasaurus?
+ 
+search
+
+ 
+
+
+
+
+
+
+
+
+
+hope is not a strategy 
+posted on july 4, 2020  by  sarah  | 
+
+leave a reply 
+
+
+
+“yeah i think i got to the limit of my bargaining … getting to end of may, and when i didn’t seem to get past my last best day which was 2 weeks ago” it was may 25th, the day i remember grieving for my lost life, text chatting with my flu buddy about the five stages of grief: denial, anger, bargaining, depression and acceptance.
+“i think the thing is that i have to learn to live with this — i can’t just keep expecting, waiting to suddenly get better.” i stopped making plans beyond “rest, walk a little, rest, eat a little, rest…” in achingly slow motion, on a good day i could send an email and talk on the phone to a friend.
+it’s not that i gave up hope, it’s just that thinking about any specific hope for the future was just not helpful. recently, my brother shared a poem that captured this experience well:
+my grandmother once gave me a tip:
+in difficult times, you move forward in small steps.
+do what you have to do, but little by little.
+don’t think about the future, or what may happen tomorrow.
+wash the dishes.
+remove the dust.
+write a letter.
+make a soup.
+you see?
+you are advancing step by step.
+take a step and stop.
+rest a little.
+praise yourself.
+take another step.
+then another.
+you won’t notice, but your steps will grow more and more.
+and the time will come when you can think about the future without crying.
+— elena mikhalkova, the room of ancient keys
+i couldn’t find anything else written by elena mikhalkova that has been translated into english. i’d love to hear about it if her books or any of her other poems is ever translated.
+
+
+posted in uncategorized. 
+
+
+
+patterns of actions are a making 
+posted on december 24, 2019  by  sarah  | 
+
+leave a reply 
+
+
+
+“there are things that you don’t even realize that you can do.” in a recent podcast, b. mure tells about graphic facilitation:
+
+  i didn’t really know it was a skill to have: to listen to people and very immediately draw something related to what they were talking about and present their ideas in a visual way.
+
+sometimes this is also called making “sketch notes.”  he goes on to talk about a general phenomenon where you discover that you can do a thing that you never thought was a thing:
+
+  there are so many things that, if you are not given the opportunity, if somebody doesn’t see that within you, or thinks maybe you should just come along and try this thing that i’ve organized, there are things that you don’t even realize that you can do.
+
+i think there are two parts of this that are transformational, that i’ve experienced myself and occasionally been able to spark in others.
+
+naming a pattern of actions or behavior: this is an act of creating that is rare and powerful. discovering something is a skill that one can be good at and apply with intention is aided by that skill having a name.
+recognizing the spark within someone else: seeing a capability, especially latent potential, within someone and naming it, inviting that person to experiment with a new skill, encouraging creative action in the world.
+
+there should be a word for the making of words that is more than coining a term, where the naming of a thing helps people do (or not do) whatever that is.
+i’ve thought a lot about how the term mansplaining has helped a generation notice and often modify behavior. i learned about restorative justice as a framework for transforming guilt into responsibility. i remember when, at an early railsbridge workshop, i applied lessons from my kid’s preschool to the challenge of how to teach without grabbing the keyboard (“use your words”).
+i love the idea of a word for a skill providing a path to developing that skill, connecting to a community, and finding paid work.
+
+the whole podcast with dan berry and b. mure is worth listening to for any creative folk or if you enjoy comics or visual storytelling and want a glimpse of that world.
+
+https://bmuredraws.com/
+
+
+posted in general. 
+
+
+
+memory safety: necessary, not sufficient 
+posted on december 22, 2019  by  sarah  | 
+
+leave a reply 
+
+
+
+as i think about developing new internet-connected software, i worry about the safety of the people who use it. by 2021, most web browsers won’t allow native code extensions, which will eliminate a lot of potential issues, while a hug swath of creative animations and interactives will disappear from the web. i spent some time this summer, thinking about what i could learn from the security vulnerabilities in the flash player that has been much maligned in recent years.
+flash cves (2001-2009)
+i looked at the common vulnerabilities and exposure list (cve list hosted by mitre with all reports 2001-2019. i found 1172 flash player vulnerabilities, which sounds huge, but in context of vulnerabilities reported in web browsers, doesn’t look that bad:
+
+1172  flash player 
+1999  internet explorer 
+2033  chrome 
+2442  firefox
+
+note: these numbers don’t necessarily tell us that firefox had more vulnerabilities than internet explorer. it could mean that firefox was more rigorously open in reporting vulnerabilities, which seems likely.
+understanding attack vectors
+vulnerabilities in the flash player were particularly dangerous because flash was installed on all of the web browsers, so any flaw in flash was much easier to exploit than a flaw in a specific web browser. to understand this, one needs to understand that the primary attack vector enabling a hacker to take advantage of a vulnerability in flash player was to create a malicious flash application or movie that would distract the user while doing something illicit or intentionally trigger a crash and then exploiting that crash to execute native code with access to the user’s machine.
+in the larger context of a specific attack, a vulnerability in the flash player would typically need to be combined with something else:
+* deceptive emails (aka phishing)
+* deceptive websites
+* “man in the middle” attacks (replace real web content with malicious content that appears identical)
+categorizing vulnerabilities
+i conducted a rough cut analysis of matching terms by reading the list of cves and creating categories that might provide instructive value in thinking through how to avoid similar issues in the future.
+
+
+802   memory safety
+42    other code execution
+58    xss, cors, clrf
+61    parsing / validation
+13    clickjacking
+91    bypass sandbox
+105   other
+
+memory safety (~70%)
+the vast majority of issues (“memory safety”) resulted from coding errors, which can now be avoided with modern programming languages. for a long time, we’ve been able to use languages like erlang/elixir, java, python, ruby, and go for server-side coding with memory safety features. even c++ has language features and libraries (though you must choose to use them).  now, for low-profile client software we can use rust or webassembly when we need something higher performance or less memory-hungry than javascript.
+escaping the “sandbox” (~15%)
+if we develop code that runs in a web browser, we can trust the browser’s “sandbox” — our apps can only use a restricted set of apis.  if we’re writing a web browser or any other internet-connected software used by humans or machines, then it is a good idea to carefully isolate our code that can access the operating system to write files or make network calls.
+from my cve analysis, coding errors in this category resulted in just over 15% of cves (other code execution, bypassing sandbox, and xss, cors, clrf issues). of course, the biggest thing you can do is not include the code that does powerful things you don’t want to allow. however, sometimes you do need to load and execute a shared library, accessing the filesystem and the network.
+parsing / validation (~5% / ~15% excluding memory safety)
+parsing and validation of input (mostly reading a file or parameter) is another common coding error pattern which can result in a serious vulnerability. having to fix these kinds of issues causes me to be very careful when adding parsing code to any app or library.  if we exclude memory safety errors, parsing and validation errors are larger than any identified class of error.
+
+clickjacking and “other”
+clickjacking is noteworthy for anyone developing a client app with extensions where 3rd party developers (or other users via content sharing) can present information to the user and allow interaction. this class of attack uses features that are designed to empower users to present compelling content to be instead used to trick people into doing something unintended.  for example, there were bugs that allowed flash content to overlay other web pages or browser ui, thereby tricking the user into clicking or typing in a way to provide privileged access.
+perhaps “other” deserves a closer look, but i didn’t find clear patterns and suspect that contains many smaller categories.
+parsing is hard
+in my experience, many programmers recognize that implementing an extension mechanism that allows for user interaction or providing a “sandbox” for 3rd party code can be very tricky to get right and will exercise great care in writing or using that kind of code.  however, i have often interacted with programmers who don’t seem to believe that writing code to parse text is difficult. writing code that performs the intended action is not hard, but writing code that has no unintended effects requires very careful coding and a little imagination.
+looking toward open source code for some examples to learn from, here are a few examples of url parsing libraries where bugs were found (and fixed) after vulnerabilities were discovered in the field:
+
+https://github.com/envoyproxy/envoy/issues/7728 (envoy proxy)
+https://go-review.googlesource.com/c/go/+/189258/ (go)
+https://www.cvedetails.com/cve/cve-2018-3774/ (url-parse node library)
+
+
+the results of this analysis were included as part of code mesh ldn 19 talk, a landscape of unintended consequences (video, slides). the data and methodology is available at on github: ultrasaurus/flash-cve-analysis.
+
+
+posted in uncategorized. 
+
+
+1
+2
+3
+4
+…
+202
+next »
+
+ 
+
+
+recent commentssilje randrup on the history of the letter ‘c’paula on the history of the letter ‘c’michelle on the history of the letter ‘c’craig on http/3 starter notes, rust quichekornel on [rust] what’s a tuple variant?simon on essential rust toolsbalsamiqval on the path is made by walkingjennifer on optimize for results, not opticsbernardo gomes on sailsjs testing: how to truncate the databasebernardo gomes on sailsjs testing: how to truncate the database
+
+recent posts
+
+
+hope is not a strategy
+
+
+duck typing in rust: trait vs type
+
+
+writing c library in rust
+
+
+rust on heroku with hyper http
+
+
+rust on heroku with async/await and tokio
+
+
+patterns of actions are a making
+
+
+memory safety: necessary, not sufficient
+
+
+brief history of rtmp + future thoughts
+
+
+rust 2020: fulfill the promise
+
+
+nut loaf with red pepper sauce
+
+
+http/3 starter notes, rust quiche
+
+
+[rust] what’s a tuple variant?
+
+
+graph in rust using petgraph
+
+
+debugging openssl shared libary
+
+
+digital identity: how to verify trust?
+
+
+essential rust tools
+
+
+learning scala with graphics
+
+
+when reality is broken, change the rules
+
+
+subverting sauron’s business model
+
+
+firebase auth migration from rails/devise
+
+
+
+
+
+© 2021 the evolving ultrasaurus, all rights reserved. 
+proudly powered by wordpress
+
+
+
+
+
+
+
+
+
+
+
