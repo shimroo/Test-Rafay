@@ -1,0 +1,264 @@
+
+
+employees.org
+
+
+employees.org
+
+
+
+
+our out-of-band status information is available at
+    https://status.employees.org
+
+
+
+
+note
+we remind users we do not back up user data and the disaster recovery plan is to wipe the system and start anew.  if this is not acceptable to you, you may have outgrown what employees.org offers and should consider a commercial service
+from the employees.org faq:
+lack of backups and disaster recovery
+user data on the employees.org web servers are not backed up. you should maintain copies of your data elsewhere. disaster recovery for employees.org will consist of reinstalling the system from scratch, without any user files.
+
+this is www.employees.org
+
+  questions / assistance, email: admin@employees.org
+
+
+
+
+
+
+frequently asked questions
+
+
+
+
+can't login via ssh or imap
+
+what is this proxmox spam firewall?
+i can't get my mail.
+i can't send my mail.
+basic commands like 'ls' don't work.
+i can't create any files.
+can i set up virtual hosting?
+ftp is turned off. how do i transfer files?
+what is my url to see my files on the web server?
+why can't i see my files from the web server? the server says forbidden!
+what permissions/owner/group should my web directories have?
+my php scripts don't work!
+my cgi scripts don't work!
+where is htpasswd for creating apache password files?
+are new accounts being accepted?
+help!  i lost my password - can i get it reset?
+i no longer need my account, how can i get rid of it?
+how do i log into employees.org
+can we install a particular perl module?
+how do i configure dreamweaver to work with ssh?
+what perl should i use?
+what is mailman?
+how do i create a new mailing list.
+how do i delete an existing mailing list.
+can i have a mysql database?
+
+help!  i can't find the answer to my question here!
+ssh fingerprints
+donate
+
+
+
+can't login via ssh or imap
+too many login failures from the same ip address causes that
+	ip address to be blocked for a few minutes.  repeated login
+	failures from that same ip address causes it to be blocked
+	forever.  to remove a block, send both your ip address
+	(visit https://showip.employees.org:81)
+	and employees.org account name
+	to admin.
+what is this proxmox spam firewall?
+all incoming mail is processed by an proxmox mail gateway, which reduces spam.  it is configured to drop incoming mail that it determines is spam, and to mark messages it suspects are spam.  if you would prefer, instead, that it tag and deliver your spam, please email a request to admin.
+it emails daily summaries of spam it has detected where false positives can be released into the
+	normail mailbox.
+
+i can't get my mail.
+
+see also can't login via ssh or imap.
+you can configure your email client (thunderbird, outlook,
+	mail, etc.) to use:
+	
+
+	imaps to mail.employees.org port 993 (also called "imap with tls")
+
+
+	
+	be sure the configuration is using just the username for
+	authentication (not user@employees.org); if using
+	outlook this may require manual account creation in
+	windows control panel (rather than within the outlook
+	application, as one might expect).
+we also operate a web-based mail at https://mail.employees.org.
+
+i can't send my mail.
+see also can't login via ssh or imap.
+configure your mail user agent (thunderbird, outlook, etc.) to use mail.employees.org port 587 (also called "submission" port), with tls and "plain" authentication, using your username and password.  only your username needs to be specified (not @employees.org).
+you can test connectivity by doing:
+nc mail.employees.org 587
+ from your operating system's command line (os x, use
+"terminal"; windows, use "start, run,
+cmd.exe").
+if connections to tcp/587 are blocked, you can:
+
+try using our alternative mail submission ports we have configured: 465, 587 or 1025.  test it first using 'nc mail.employees.org 1025' or 'nc mail.employees.org 587' and if it connects, configure your mailer to use that port.  the tcp/587 port requires tls and starttls; the tcp/1025 port requires starttls.
+
+
+(less preferred) send smtp via a server inside your company, or send smtp via your isp's mail server.  contact your company's it department or your isp's technical support for information on that server.  this is less preferred because it will be impossible for your email to be signed by dkim using this method, increasing the likelyhood it will be rejected by the recipient's system.
+
+
+basic commands like 'ls' don't work.
+your path doesn't include both '/bin' and '/usr/bin'. this wasn't required on solaris, but is required on freebsd.
+you can update path by editing either '~/.profile' (if you use a shell like bash) or '~/.login' (if you use a shell like csh). if you're not sure, start with .login; we default to csh. the easiest editor to use on unix is pico:
+   pico .login
+
+
+i can't create any files.
+disk quotas have been turned on, with a hard quota of 1gb.  if you have more than 1gb in your home area, you will not be allowed to create new files until you have freed up some disk space.  you can find out how much disk space you are using by typing the command:
+   /usr/bin/quota -v
+
+
+can i set up virtual hosting?
+yes, please email your request to admin
+
+ftp is turned off. how do i transfer files?
+use ssh-based tools like 'scp' or 'rsync' (with ssh).  on unix, ssh is available from openssh and includes 'scp' and 'sftp'. for windows, you can do ssh-based transfers with winscp.
+
+what is my url to see my files on the web server?
+we use the apache "userdir" directive to point user urls to the files.  the format for this is to append a  tilde ("~") followed by the account's username to the end of the host url.  thus the file:
+  /users/joeuser/www/index.html
+
+would be referenced as:
+  http://www.employees.org/~joeuser/index.html
+
+and:
+  /users/joeuser/swww/index.html
+
+would be referenced as:
+  https://www.employees.org/~joeuser/index.html
+
+
+why can't i see my files from the web server? the server says forbidden!
+the apache installation on employees.org is configured to require an index.html (or index.php, index.cgi, etc.) in a directory to show a web page for a given url.  this means that users must take deliberate action to expose their data and are less likely to expose data by accident.  yes, this is different from the default settings used in a lot of other apache installations.
+
+what permissions/owner/group should my web directories have?
+at the bottom of this section are instructions for using webit, which will adjust permissions.
+the web server accesses your files using file system acls, which is indicated by a "+" in the directory permissions.
+this is an explanation of the ideal permissions for the user example.  these are the minimal permissions necessary.
+your /users symlink should be owned by you. it doesn't matter what group or permissions:
+> ls -lad /users/examplelrwxr-xr-x  1 example example 21 may 31 23:15 /users/example -> /export/homea/example
+your home directory should be owned by you, group owned by you, and at least executable by group, and have an acl ("+").  your www directory (and swww directory, if you have one) should be owned by you, group owned by you, group readable and executable, and have an acl ("+").  the acl can be viewed with the getfacl command, and should be the same for both your top-level directory and the www directory itself:
+> # your home directory> ls -lad /export/homeaa/exampledrwx--x---+  40 example example 2.5k jun 14 07:02 /export/homeaa/example
+> # your www directory> ls -lad /users/example/wwwdrwxr-x---+  27 example example 1.5k jun  8 18:01 www/> getfacl ~/www# file: /home/example# owner: example# group: exampleuser::rwxgroup::---group:www:r-xmask::r-xother::---
+if any of these are broken, you can fix it yourself with the webit program located in "/usr/local/bin/".  as its parameter, give webit the directory or files you need the permissions and group ownership changed on as an argument to webit.  for example, to fix your www and swww directories, enter the commands:
+> /usr/local/bin/webit -r ~/www> /usr/local/bin/webit -r ~/swww
+
+my php scripts don't work!
+we use the suphp apache module to run php as the user.  the
+      typical problem is permissions; you can reset the permissions on
+      your account by
+      using webit described
+      above
+
+my cgi scripts don't work!
+make sure your cgi script ends in .cgi and outputs a valid content-type: header.  check the files 
+  /var/log/httpd/employees.org-error_log
+  /var/log/httpd/employees.org-access_log 
+  /var/log/httpd-suexec.log
+for more information on your script action.  if you see an access log entry but not an error log entry, your script is most likely doing something wrong.  if you want your cgi scripts to end in another file extension, you can create a ".htaccess" in your web directory containing something along the lines of:
+  addhandler cgi-script .not-a-cgi
+
+this will then cause files ending in .not-a-cgi to be executed as cgi scripts.
+
+where is htpasswd for creating apache password files?
+'/usr/local/sbin/htpasswd'
+
+are new accounts being accepted?
+new accounts are now being accepted.  the same operating policy as used before applies to the accounts.  be sure to read the operating policy.  most importantly, the total amount of disk space per sponsor is 1gb.
+create a new account by clicking here.
+
+help!  i lost my password - can i get it reset?
+to request a password reset use the online form at reset password and follow the instructions there.
+
+i no longer need my account, how can i get rid of it?
+first off - thank you for not just abandoning the account!
+to request an account deletion, send mail to nukeme@employees.org from either the employees.org account or the account's sponsor.
+this will be sent to the humans currently handling account deletion.  you may be asked to confirm if you really want the account deleted.  the nukeme existed before the lost password facility and many folks requesting deletion are unaware of the password reset mechanism. the majority of the deletion requests are rescinded once the users learn of it.
+
+how do i log into employees.org
+employees.org currently consists of a single host -
+clarinet.employees.org.  this is the same physical host as
+mail.employees.org, www.employees.org, etc., as well as the a record
+for just plain ol' employees.org.  if we start splitting services onto
+more hosts in the future, this situation could change.  however, after
+10 years the shell host will still be employees.org.
+to login, you need an ssh client. windows 10, all unix varients,
+and macos all come with a built-in ssh client.  pre-windows 10 you
+will need to install putty.
+use the ssh client to login to employees.org. first time you
+try logging in, you will be shown our ssh fingerprint, which can
+be validated by comparing to the fingerprints at the very bottom
+of this faq page.
+
+can we install a particular perl module?
+first, make sure you're using '/usr/local/bin/perl' rather than '/usr/bin/perl'. then, if the module still doesn't appear to be installed, contact help to request it.
+
+how do i configure dreamweaver to work with ssh?
+this is untested, but steve richey has pointed out the instructions at macromedia's site.
+
+what perl should i use?
+'/usr/local/bin/perl'
+
+what is mailman?
+mailman is a web-based mailing list management interface.
+to administer your mailing list, go to the administration
+      interface found
+      at http://www.employees.org/mailman/admin/*listname*
+      where *listname* is the name of your mailing list.  your mailing
+      list subscribers can change their settings
+      at http://www.employees.org/listinfo/*listname*.
+      these urls are in list-* headers of each message sent through
+      the list, as well as at the message footer.
+
+how do i create a new mailing list.
+send your request to admin and the human behind it will create the list when they can get to it.  no guarantees on how long that may be (could be weeks).
+in your email, specify your preferred mailing list address.  it is better if the mailing list name is over 8 characters in length so it won't accidentally collide with the username space.  a good way to do this is to end the list name with "-list", such as "foohighschool-list@employees.org".
+you also need to say who the "owner" of the list is and this must be an @employees.org account.  you can add other e-mail addresses to administrate the list after it is created, but we need this information to track who is responsible for what mailing list.
+
+how do i delete an existing mailing list.
+send e-mail to admin with the name of the list to be deleted.  the mailman administrators will check that the request is valid by asking the list administrator of the list in question for confirmation.  when confirmation is received, the mailman administrators will then delete the list.
+
+can i have a mysql database?
+we are now allowing mysql databases again.  to create yourself a database, run the mysqlme located in "/usr/local/bin/".  the program will create a mysql user entry for your userid and then create a database for you with the name of your userid.  you can 
+have more than one database by specifying a database name with the "-db dbname" option.  a database will then be created called "userid_dbname".
+for example, if userid john wanted to create a second db for his account to hold recipes, he could type:
+  /usr/local/bin/mysqlme -db recipes
+
+and the program would create a new database named john_recipes with userid john having appropriate rights.
+if you forget your userid's mysql password, you can force a reset of it with the program "mysqlpwr".
+
+
+help!  i can't find the answer to my question here!
+there is a mailing list of highly experienced employees.org users that have a broad variety of expertise that can help with your questions.  send mail to help@employees.org with as much detail of your question as possible.  note that the list has a limit on the size of mail it will accept.  rather than send long files, such as log entries, you should save them to a file in your personal web space (under www/) and mail a link to the file in your message.
+ssh fingerprints
+
+256 sha256:cr88eeso+jlhsiqcmrzpxsx+fdah4dxhyiqyo38h2m4 employees.org (ed25519)
+2048 sha256:ys42z7+uha/nzwyqrm4gcey2au/s+sjrhoyaw4mp0mc employees.org (rsa)
+256 sha256:xqhihgo3wfxqrlpouycltxzxtfybwdsfenqir0wpvi0 employees.org (ecdsa)
+
+donate
+donate via paypal to donation at employees.org.
+
+copyright © 2004-2020 •
+please see our operating policy for more information.
+
+
+
+

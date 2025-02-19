@@ -1,0 +1,482 @@
+
+
+
+
+
+
+
+
+
+fish clix. webtools for fishing websites.
+
+fish clix: site tracking and banner exchange
+
+
+
+
+
+
+
+
+
+welcome to fishclix.com
+webmaster's marketing tools for the
+      angling site
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+ 
+
+ 
+
+
+
+
+
+angler
+        login
+
+
+
+
+
+
+
+
+
+banner exchange
+voting
+booth
+fishclix
+portal
+
+
+
+
+
+
+
+sponsor links:
+thefishfinder
+
+
+fishing list
+
+fishing 
+
+\n";
+        foreach ($links as $link) {
+            if (isset($link['postid']) && $link['postid'] > 0) {
+                continue;
+            }
+
+            echo "" . ($link['beforetext'] ? $link['beforetext'] . ' ' : '') . '' . $link['text'] . '' . ($link['aftertext'] ? ' ' . $link['aftertext'] : '') . "\n";
+        }
+        echo '';
+    }
+}
+
+function tla_updatelocal($url, $file, $time_out)
+{
+    touch($file);
+
+    if ($xml = file_get_contents_tla($url, $time_out)) {
+        if ($handle = fopen($file, 'w')) {
+            fwrite($handle, $xml);
+            fclose($handle);
+        }
+    }
+}
+
+function tla_getlocal($file)
+{
+    if (function_exists('file_get_contents')) {
+        return file_get_contents($file);
+    }
+
+    $contents = '';
+    if ($handle = fopen($file, 'r')) {
+        $contents = fread($handle, filesize($file) + 1);
+        fclose($handle);
+    }
+
+    return $contents;
+}
+
+function file_get_contents_tla($url, $time_out)
+{
+    $result = '';
+    $urlinfo = parse_url($url);
+
+    if ($handle = @fsockopen($urlinfo['host'], 80)) {
+        if (function_exists('socket_set_timeout')) {
+            socket_set_timeout($handle, $time_out, 0);
+        } else if (function_exists('stream_set_timeout')) {
+            stream_set_timeout($handle, $time_out, 0);
+        }
+
+        fwrite($handle, 'get ' . $urlinfo['path'] . '?' . $urlinfo['query'] . " http/1.0\r\nhost: " . $urlinfo['host'] . "\r\nconnection: close\r\n\r\n");
+        while (!feof($handle)) {
+            $result .= @fread($handle, 40960);
+        }
+        fclose($handle);
+    } else if (function_exists('curl_init')) {
+        $ch = curl_init();
+        curl_setopt($ch, curlopt_url, $url);
+        curl_setopt($ch, curlopt_returntransfer, 1);
+        curl_setopt($ch, curlopt_connecttimeout, $time_out);
+        curl_setopt($ch, curlopt_timeout, $time_out);
+        curl_setopt($ch, curlopt_followlocation, 1);
+        $result = curl_exec($ch);
+        curl_close($ch);
+    }
+
+    $return = '';
+    $capture = false;
+    foreach (explode("\n", $result) as $line) {
+        $char = substr(trim($line), 0, 1);
+        if ($char == '[' || $char == '<') {
+            $capture = true;
+        }
+
+        if ($capture) {
+            $return .= $line . "\n";
+        }
+    }
+
+    return $return;
+}
+
+function tla_decode($str)
+{
+    if (!function_exists('html_entity_decode')) {
+        function html_entity_decode($string)
+        {
+           // replace numeric entities
+           $string = preg_replace('~&#x([0-9a-f]+);~ei', 'chr(hexdec("\1"))', $string);
+           $string = preg_replace('~&#([0-9]+);~e', 'chr(\1)', $string);
+           // replace literal entities
+           $trans_tbl = get_html_translation_table(html_entities);
+           $trans_tbl = array_flip($trans_tbl);
+           return strtr($string, $trans_tbl);
+        }
+    }
+
+    if (substr($str, 0, 1) == '[') {
+        $arr = json_decode($str, true);
+        foreach ($arr as $i => $a) {
+            foreach ($a as $k => $v) {
+                $arr[$i][$k] = tla_decode_str($v);
+            }
+        }
+
+        return $arr;
+    }
+
+    $out = '';
+    $retarr = '';
+
+    preg_match_all("/<(.*?)>(.*?)</", $str, $out, preg_set_order);
+    $n = 0;
+    while (isset($out[$n])) {
+        $retarr[$out[$n][1]][] = tla_decode_str($out[$n][0]);
+        $n++;
+    }
+
+    if (!$retarr) {
+        return false;
+    }
+
+    $arr = array();
+    $count = count($retarr['url']);
+    for ($i = 0; $i < $count; $i++) {
+        $arr[] = array(
+            'beforetext' => $retarr['beforetext'][$i],
+            'url' => $retarr['url'][$i],
+            'text' => $retarr['text'][$i],
+            'aftertext' => $retarr['aftertext'][$i],
+        );
+    }
+
+    return $arr;
+}
+
+function tla_decode_str($str)
+{
+    $search_ar = array('&#60;', '&#62;', '&#34;');
+    $replace_ar = array('<', '>', '"');
+    return str_replace($search_ar, $replace_ar, html_entity_decode(strip_tags($str)));
+}
+tla_ads();
+?>
+
+
+</font></td>
+      <td width="517" bgcolor="#ffffff" valign="top"> 
+      &nbsp;<br>
+      <div align="center">
+        <center>
+      &nbsp;<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- fishclixhome -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-1010133175049914"
+     data-ad-slot="7235418202"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script><table border="0" cellpadding="5" width="500">
+        <tr>
+          <td width="550">
+
+
+      <p align="center">&nbsp;</p>
+		<p align="center"><font face="arial" size="2"><b>feel free to have a look
+      around...</b></font></p>
+      <p align="left"><font face="arial" size="2">you'll find our
+      free internet tools to be some of the finest available for building your traffic or monitoring visitor trends
+      <b> at your
+      fishing website</b>.</font></p>
+
+
+
+    </center>
+
+
+
+      <hr width="90%" color="#11b1ff">
+
+
+
+      <p align="left">&nbsp;</p>
+
+
+
+      <p align="left"><font color="#b00000" face="verdana" size="2"><b>add a
+      host of co-branded visitor grabbing tools to your site!:</b></font></p>
+
+
+
+      <p align="left"><font face="verdana" size="2">our fishclix web portal
+      continues to grow and offer more useful technologies. from one easy form
+      you can now offer your visitors a co-branded version of:</font></p>
+
+
+
+      <ul>
+        <li>
+          <p align="left"><b><font size="2" face="arial" color="#000000">baitfish
+          websearch</font></b> <font size="2" face="arial" color="#000000"> (the worlds largest fishing only search
+          engine)</font></li>
+        <li>
+          <p align="left"><b><font size="2" face="arial" color="#000000">free
+          searchable news and weather</font></b></li>
+        <li>
+          <p align="left"><b><font size="2" face="arial" color="#000000">free
+          message board you control</font></b></li>
+        <li>
+          <p align="left"><b><font size="2" face="arial" color="#000000">top
+          destinations iar&nbsp;</font></b></li>
+        <li>
+          <p align="left"><b><font size="2" face="arial" color="#000000">free
+          classifieds</font></b> <font size="2" face="arial" color="#000000"> (integration coming soon)</font></li>
+        <li>
+          <p align="left"><b><font size="2" face="arial" color="#000000">many
+          more features to come!</font></b></li>
+      </ul>
+      <p align="center"><font size="2" face="verdana"><a href="baitfish.htm">more
+      details.</a></font></p>
+
+
+
+            <p>&nbsp;
+      <b>
+      <p align="left">
+<font face="arial" size="2" color="#b00000">drive new traffic to your site with&nbsp;the fishclix
+banner exchange.</font>
+      </p>
+      </b>
+          <blockquote>
+          <font face="arial" size="2">the fishclix banner exchange
+          is simple. insert some
+          code into your site and <u>upload your banner</u>. each<a href="http://www.mlesko.net"> time</a> one of your
+          visitors access the page with the exchange on it, you earn an
+          impression. we offer a 1:1 ratio to sites that consistently produce 
+          quality traffic. </font>&nbsp;<a href="stats/banner.html"><font face="arial" size="2">more details</font></a><font face="arial" size="2">&nbsp;&nbsp;</font>&nbsp;<font face="arial" size="2">
+          &nbsp;</font>
+          </blockquote>
+      <b>
+      <p align="left">&nbsp;</p>
+      <p align="left"><font color="#b00000" size="2" face="verdana">conduct giveaways, poll and surveys with ease!</font></p>
+      </b>
+          <blockquote>
+          <p align="left"><font face="verdana" size="2">i</font><font size="2" face="arial">t's
+              never been easier to collect data on your visitors, offer
+              giveaways of products/services and offer online polls.&nbsp; answer a few questions and click a button and you are ready to
+              offer your personal interactive contest or poll on your site! no
+              programming needed and as usual it's free!</font> <a href="vote.htm"><font face="verdana" size="2">more
+            details</font></a>
+          </blockquote>
+          <p align="left">&nbsp;
+          <p align="left"><b><font color="#b00000" size="2" face="verdana">give
+          your visitors free daily fishing&nbsp; news feeds</font></b></p>
+      <b>
+
+
+
+      <font size="3">
+      <p align="center"><font face="arial" color="#0000ff">fishticker news... just click on a headline</font><p align="center">
+<applet codebase="http://www.fishticker.com/jticker/" code="scrollpush.class" width="400"
+height="25">
+<param name="channelfilename" value="channels">
+<param name="channel" value="headlines">
+<param name="backcolor" value="ffffd7">
+<param name="bordercolor" value="408080">
+<param name="highlighttextcolor" value="0000ff">
+<param name="channelboxcolor" value="408080">
+<param name="channelcolor" value="ffffff">
+<param name="channelshadowcolor" value="000000">
+<param name="font" value="verdana">
+<param name="fontsize" value="11">
+<param name="horizpixshift" value="4">
+<param name="vertpixshift" value="2">
+<param name="delay" value="75">
+<param name="messagewait" value="4000">
+<param name="reloadloops" value="20">
+<param name="browserreload" value="true">
+<param name="targetframe" value="main">
+</applet>
+<br>
+</font>
+      </b>
+      <font size="1"><a href="http://www.fishticker.com/ticker.htm">click here
+      to add a ticker to your site</a></font>
+          <p align="left">&nbsp;</p>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- fishclixhome -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-1010133175049914"
+     data-ad-slot="7235418202"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p align="left">&nbsp;</p>
+          <p align="left"><font color="#b00000" size="2" face="verdana"><b>submit
+          your site to thefishfinder.com directory</b></font></p>
+
+    <center>
+
+          <p align="left"><center><font face="arial" size="2">just follow an
+          appropriate link to submit your site!</font></p>
+                  <p><font face="arial"><strong class="link"><small><a
+            href="http://www.thefishfinder.com/links/associations/">associations</a>
+                  - <a
+            href="http://www.thefishfinder.com/links/boats/">boats</a> - </small><a
+            href="http://www.thefishfinder.com/links/destinations/guides/"><small>charters
+              n guides</small></a><small> - </small></strong></font><font face="arial"><small><strong class="link"><a
+            href="http://www.thefishfinder.com/links/environment/">environment</a></strong> <br>
+                  <strong class="link"><a
+            href="http://www.thefishfinder.com/links/events/">events</a> - <a
+            href="http://www.thefishfinder.com/links/fishing_reports/">fishing
+                  reports</a> -</strong> </small>
+                  <strong class="link"><small><a
+            href="http://www.thefishfinder.com/links/non_commercial/freshwater/">freshwater</a>
+                  - </small></strong></font><font face="arial"><strong class="link"><small><a
+            href="http://www.thefishfinder.com/links/media/">media</a> - <a
+            href="http://www.thefishfinder.com/links/retail/">retail</a> - <a
+            href="http://www.thefishfinder.com/links/tackle/">tackle</a><br>
+                  </small>
+                  </strong></font></center><font face="verdana" color="#0000ff" size="1"><a href="http://"><br>
+              </a></font>
+          <p align="left"><font face="verdana" size="2" color="#b00000"><b>free 
+          classifieds </b></font></p>
+
+          <blockquote>
+          <p align="left"><font face="verdana" size="2">our free classifieds
+          garner a sizable amount of traffic each month. commercial and private
+          interests are welcome to post their fishing items for sale. the
+          advanced system allows for photographs and much more.&nbsp; <a href="http://www.thefishfinder.com/photads/viewads.html">more
+          details</a></font></p>
+          </blockquote>
+<p align="center">&nbsp;</p>
+        </center>
+  <p align="left"><b><font color="#b00000" size="2" face="verdana">paid and
+  free advertising</font></b></p>
+        <blockquote>
+      <p align="left"><font size="2" face="verdana">thefishfinder.com provides a
+      host of free and paid advertising opportunities for angler world and is
+      unmatched in it's creative diversity. you'll find your ads will be
+      speaking to the right demographics for your product at the right
+      price.&nbsp; <a href="http://www.thefishfinder.com/adverts.html">more
+      details&nbsp;</a></font></p>
+
+        </blockquote>
+
+          </td>
+        </tr>
+      </table>
+      </div>
+
+
+
+        </td>
+
+    </tr>
+    <tr>
+      <td width="517" bgcolor="#ffffff">
+
+  <center>
+
+<p align="right">
+&nbsp;
+           </center>
+
+      </td>
+    </tr>
+  <center>
+    <tr>
+      <td width="517" bgcolor="#ffffff">
+
+            </center>
+
+  &nbsp;
+      </td>
+    </tr>
+
+    <tr>
+      <td width="517" bgcolor="#c1ebff">     
+
+      <b>
+<p align="right"><font size="3"><font size="1" face="arial">© copyright <a href="mailto:webmaster@fishclix.com"> fish clix</a> all
+rights reserved.</font></p>
+</font>
+      </b>
+      </td>
+    </tr>
+  </table>
+
+    <p align="right">&nbsp;</p>
+  
+</body>
+</html>

@@ -1,0 +1,883 @@
+
+
+
+
+swear not by the wiki, the fickle wiki, the inconstant wiki
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[ about
+| features
+| music
+| pictures
+| software
+| writing
+]
+
+crummy: the site
+
+we fight 'em until we can't.
+
+
+
+
+
+
+news you can bruise
+[archives]
+
+
+
+
+
+
+buy my books!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  mon feb 03 2025 12:05 january film roundup: 
+   
+wallace & gromit: vengeance most fowl (2024): a fun movie, but i wish they'd come up with a brand new villain. instead they brought back feathers mcgraw, who's enjoyable, but i think this trend of creative people mining their past triumphs is getting a little worrisome. if we must mine the past for wallace & gromit villains, why not bring back the stop-motion monstrosities from the peter gabriel "sledgehammer" music video? just throwing out ideas here.
+
+thirty-day princess (1934): with a title like that you'd expect this to be a lifetime original from 2015, but with a screenplay credit for preston sturges you'd expect it to be better than that, and it is. a prince and the pauper-type screwball farce with a pretty long automat scene. cary grant hasn't got the voice down yet. it's all right.
+
+the last married couple in america (1980): george segal and natalie wood are always fun but this was more successful as a time capsule than as a comedy. also, i have to point out the shadow hypothesis that this movie never dares to mention: jeff and mari may actually be causing their friends' marriages to break up, draining their compatibility energy to keep their own relationship afloat. i think this is a really strong possibility, given that at the end of the movie they're able to destroy another couple's marriage just by spending five minutes alone in a room with them. the power of their love vampirism can't be overstated.
+
+inspector ike (2020): a "loving parody", as they say, of 70s detective shows, which is also a decent columbo-style mystery. i really enjoyed this because... well, it's a goofy version of columbo. nuff said. can't wait for poker face season 2? check this out. i do wish aparna nancherla had a bigger part, but it feels like a "i'll do one day of filming as a favor" kind of part.
+
+one, two, three (1961): rewatch with james. still a hilarious movie, an all-time great at making me laugh. almost 20 years after we first saw this film, scarlett's "well, bye!" is still a common reference in our household.
+
+it happened tomorrow (1944): the strange sequel to it happened one night. a fun light fantasy story, with the fantasy element being slightly more fantastic than it's a wonderful life. i thought the most fun part of this movie was its illustration of how an artifact from the future swiftly ceases to be interesting or valuable once your timeline catches up with the time of its production. it's not from the future anymore!
+
+batman returns (1992): i wasn't expecting this, but this is way better than the 1989 batman, and it's completely down to danny devito and michelle pfeiffer. it's a movie all about the villains, with batman himself being almost absent. batman (1989) was also all about the villain, but with an annoying amount of time dedicated to batman himself.
+
+the batman returns screenplay doesn't really need batman at all, though the marketing surely does. this could easily be the story of catwoman and penguin attempting to team up and then destroying one another. when he is on screen, michael douglas has the same blasé attitude towards the part which he'd display (i have to admit) to greater effect in birdman (2014).
+
+i didn't know christopher walken was in this, but he walkens his way through this movie and it's a treat. one of the most tim burton-compatible actors. speaking of burton, i've seen enough of his movies now that certain aesthetic choices are repeating. i guess i'd classify him as a wackier version of david lynch? he really puts his id on the screen, but not in a way that's terribly hard to figure out. spirals and stripes; the guy loves spirals and stripes.
+
+and i just realized this while writing this film roundup: the scene in wallace & gromit: vengeance most fowl where they're tracking the gnomes through the sewers is a clear reference to the part of batman returns where batman is tracking the penguins through the city streets. the ui is the same and really, the penguins in this movie should've used the sewers. good call, feathers mcgraw.
+
+ 
+
+
+  sun feb 02 2025 14:34 beautiful soup 4.13.0: 
+   after a beta period lasting nearly a year, i've released the biggest update to beautiful soup in many years. for version 4.13.0 i added type hints to the python code, and in doing so uncovered a large number of very small inconsistencies in the code. i've fixed the inconsistencies, but the result is a larger-than-usual number of deprecations and changes that may break backwards compatibility.
+
+the changelog for 4.13.0 is quite large so i'm writing this blog post to highlight just the most important changes, specifically the changes most likely to make you need (or want) to change your code.
+
+deprecations and backwards-incompatible changes
+
+deprecationwarning is issued on use for every deprecated method, attribute and class from the 3.0 and 2.0 major versions of beautiful soup. these have been deprecated for at least ten years, but they didn't issue deprecationwarning when you tried to use them. now they do, and they're all going away soon.
+
+this version drops support for python 3.6, which went eol in december 2021. the minimum supported major python version for beautiful soup is now python 3.7, which went eol in june 2023.
+
+the storage for a tag's attribute values now modifies incoming values
+  to be consistent with the html or xml spec. this means that if you set an
+  attribute value to a number, it will be converted to a string
+  immediately, rather than being converted when you output the document.
+
+more importantly for backwards compatibility, setting an html
+  attribute value to true will set the attribute's value to the
+  appropriate string per the html spec. setting an attribute value to
+  false or none will remove the attribute value from the tag
+  altogether, rather than (effectively, as before) setting the value
+  to the string "false" or the string "none".
+
+this means that some programs that modify documents will generate
+  different output than they would in earlier versions of beautiful soup,
+  but the new documents are more likely to represent the intent behind the
+  modifications.
+
+  to give a specific example, if you have code that looks something like this:
+
+checkbox1['checked'] = true
+checkbox2['checked'] = false
+
+then a document that used to look like this (with most browsers
+treating both boxes as checked):
+
+
+<input type="checkbox" checked="true"/>
+<input type="checkbox" checked="false"/>
+
+
+will now look like this (with browsers treating only the first box
+as checked):
+
+
+<input type="checkbox" checked="checked"/>
+<input type="checkbox"/>
+
+
+you can get the old behavior back by instantiating a treebuilder
+with attribute_dict_class=dict, or you can customize how beautiful soup
+treats attribute values by passing in a custom subclass of dict.
+
+
+if you pass an empty list as the attribute value when searching the
+  tree, you will now find all tags which have that attribute set to a value in
+  the empty list--that is, you will find nothing. this is consistent with other
+  situations where a list of acceptable values is provided. previously, an
+  empty list was treated the same as none and false, and you would have
+  found the tags which did not have that attribute set at all.
+
+when using one of the find() methods or creating a soupstrainer,
+  if you specify the same attribute value in attrs and the
+  keyword arguments, you'll end up with two different ways to match that
+  attribute. previously the value in keyword arguments would override the
+  value in attrs.
+
+the 'html5' formatter is now much less aggressive about escaping
+  ampersands, escaping only the ampersands considered "ambiguous" by the html5
+  spec (which is almost none of them). this is the sort of change that
+  might break your unit test suite, but the resulting markup will be much more
+  readable and more html5-ish.
+
+to quickly get the old behavior back, change code like this:
+
+
+tag.encode(formatter='html5')
+
+
+  to this:
+
+tag.encode(formatter='html5-4.12')
+in the future, the 'html5' formatter may be become the default html
+  formatter, which will change beautiful soup's default output. this
+  will break a lot of test suites so it's not going to happen for a
+  while.
+
+
+new features
+
+the online documentation now includes full api documentation generated from python docstrings.
+the new elementfilter class encapsulates beautiful soup's rules
+  about matching elements and deciding which parts of a document to
+  parse. this gives you direct access to beautiful soup's low-level matching api. see the documentation for details.
+the new pageelement.filter() method provides a fully general way of
+  finding elements in a beautiful soup parse tree. you can specify a
+  function to iterate over the tree and an elementfilter to determine
+  what matches.
+
+the navigablestring class now has a .string property which returns the
+  string itself. this makes it easier to iterate over a mixed list
+  of tag and navigablestring objects.
+
+defined a new warning class, unusualusagewarning, which is a superclass
+  for all of the warnings issued when beautiful soup notices something
+  unusual but not guaranteed to be wrong, like markup that looks like
+  a url (markupresembleslocatorwarning) or xml being run through an html
+  parser (xmlparsedashtmlwarning).
+
+the text of these warnings has been revamped to explain in more
+  detail what is going on, how to check if you've made a mistake,
+  and how to make the warning go away if you are acting deliberately.
+
+if these warnings are interfering with your workflow, or simply
+  annoying you, you can filter all of them by filtering
+  unusualusagewarning, without worrying about losing the warnings
+  beautiful soup issues when there *definitely* is a problem you
+  need to correct, such as use of a deprecated method.
+
+emit an unusualusagewarning if the user tries to search for an attribute
+  called _class; they probably mean class_.
+
+
+
+ 
+
+
+ mon jan 20 2025 07:39: 
+   “experience keeps a dear school, yet fools will learn in no other.” —benjamin franklin 
+
+
+ sun jan 19 2025 18:45 miscellaneous 2024 pictures: 
+   
+since i went through the trouble of finding a static gallery generator for my japan photos, i made another portfolio of miscellaneous pictures from the rest of 2024. 
+
+enjoy glimpses of amazing things that were part of my life last year, but which i didn't necessarily take the time to write about here.
+
+
+the rock 'n' roll hall of fame
+the andy warhol museum
+storm king
+a baseball game played under brooklyn atlantics1864 rules
+the inaccurate geographic center of new york city
+a visit to the kaufman astoria studios prop trailer
+and lots more!
+
+ 
+
+
+  (1)  sun jan 12 2025 13:56 2024 japan trip: 
+   
+i've hinted at this before in nycb but now i've got my photos organized and i'm ready to talk about the vacation i took in japan last november. i was nominally on vacation with my friend james, but he was working most days, so i spent a lot of time walking around exploring before meeting him for dinner, which i found to be a great way to run a vacation.
+
+i've put up a huge photo gallery of pictures full of wacky and interesting stuff, but in case you're planning your own visit, here are some of my recommendations:
+
+
+hibiya park in tokyo, where they have a replica of the liberty bell.
+the meguro parasitalogical museum
+the playful architecture of makoto sei watanabe: aoyama technical college, the iidabashi subway station, and, uh, the k museum. i knew the k museum had been shut down, but after taking a long bus ride to see its corpse, i discovered that it was also covered in tarps and undergoing demolition. oh well, i got to see a neighborhood of tokyo i wouldn't have seen otherwise.
+ntt docomo history square, featuring a timeline of hundreds of old cell phones. the moment in history where the iphone is introduced looks like the mass extinction that wiped out the ediacaran fauna. the guy who runs the museum was really excited to have a visitor, so check this one out!
+huge tonkatsu. it's delicious. i tried the nagoya style but i prefer the original.
+between tokyo and kyoto we spent two nights at the kashiawaya ryokan in shima onsen, a place much like the onsen town in the movie river. it was great to have some downtime after a week of running around tokyo.
+the kyoto railway museum. 
+the kyoto museum of crafts and design. don't be fooled by the size of the building; this a really small museum in the basement a convention center. great museum, though.
+national museum of art in osaka.
+the silver ball planet arcade, also in osaka. i'm sure there are bigger pinball arcades in the united states but this was the biggest one i've been in.
+the atomic bomb dome in hiroshima is rightfully famous but i was also struck by the actual hypocenter of the nuclear explosion, which just has a plaque next to a hospital and a parking garage.
+the toyota museum in nagoya, which is divided into two parts: looms and cars. a must for fans of lean manufacturing!
+i don't want to contribute to kyoto's overtourism problem, but the fushimi inari shrine was amazing. i got there at 8:30 am and it was pretty crowded already, but the further up the mountain you hike, the less crowded it is (and the more expensive the vending machine water is). i will tell you that i didn't get much out of the hike once i passed the scenic viewpoint about halfway up.
+the other huge overtouristed site in kyoto, the arashiyama bamboo forest, is... not as amazing imo. but, on the other side of the forest is the arashiyama park, which is really nice.
+
+why did i call it beautiful soup instead of nuts dom?
+it took some planning but i got a great view of mt. fuji from the shinkansen on the way back to tokyo. it's so much bigger than anything else in the landscape that it feels like someone landed an asteroid.
+the tokyo printing museum, a museum designed to showcase the wealth of toppan, a big printing company. but it's some pretty cool wealth. in addition to lots of old-timey prints and oboks there was a really nice temporary exhibit about linotype machines, but i've got nothing but memories from that part since photos weren't allowed in the temporary exhibits.
+
+there are two tokyo neighborhoods with little whale statues, and i saw both of them in the same day: 1 2
+
+finally i want to mention a couple stores that i didn't take pictures of. b-side label has cool laptop stickers. there are a few locations; i went to the one in kyoto.
+
+second, new yorkers might remember city bakery, which sold really great pastries including the legendary pretzel croissant, plus hot chocolate which was way too rich for my taste. in 2019 city bakery went out of business, leaving americans croissant-less. but there are twenty city bakery locations in japan! we were randomly walking through a mall in nagoya—bam! city bakery! heading to the kyoto shopping district—city bakery! they're quite a nostalgia trip, with everything looking and tasting exactly like it did the old city bakery on 19th street, or maybe 18th, i could never remember. anyway, that's why i've now got a freezer full of pretzel croissants from halfway across the world.
+ 
+
+
+ sun jan 05 2025 12:51 2024 film roundup roundup: 
+   i saw 73 movies in 2024, and twenty were good enough to be added to film roundup roundup, my ever-growing list of over 300 really good movies.
+
+here's my top ten for 2024. a very big year for japanese movies, but hundreds of beavers takes the gold home for the u.s. of a.
+
+
+hundreds of beavers (2022)
+supermarket woman (1996)
+river (2023)
+tokyo olympiad (1965)
+slacker (1990)
+dance with me (2019)
+the big clock (1948)
+a taxing woman (1987)
+something wild (1986)
+the fastest gun alive (1956)
+ 
+
+
+ fri jan 03 2025 10:46 the eater of meaning is now part of the olipy family: 
+   you know that email you get when a website you like is acquired by a big company and you know it's going to get shut down? this is like that, only the website shut down first and then got merged into a bigger project.
+
+in may 2003 i created the eater of meaning, a web proxy that changes the words on a web page and renders the results. it was popular for a while in the "blogosphere" and then i kind of forgot about it for 20 years, until it broke in 2024.
+
+throughout 2024 i got occasional emails from poets about the eater of meaning and could i fix it. upon reflection i decided that while running a public web proxy on my personal website in 2003 was kind of fun, doing so in 2024 is a bad idea. so the cgi script breaking was a blessing in disguise. but i didn't want the eater of meaning to disappear entirely because, as i've found out, it's important to some poets' artistic practice.
+
+so i've rewritten the eater of meaning code in modern python, and added it to olipy, my pack of art supplies. with basic python skills (or even python package-installing skills) you can have access to just about all of the eater of meaning's old functionality, as well as some new eaters based on the other olipy tools. i realize that this isn't as convenient as having it as a proxy on a website, but this is the best i can do for now. 
+
+
+ wed jan 01 2025 15:46 december film roundup: 
+   
+
+leah's perfect gift (2024): i had a part in making this movie! it's based on leah's perfect christmas by catherine beck, the pen name of a member of my writing group.
+
+near the beginning of the film the story train is visibly shunted off the generic "hallmark christmas movie" setup into a story that is, at best, poking loving fun at hallmark christmas movies, and then it's shunted back onto the track at the end for a hallmark christmas movie conclusion. in the middle the movie's all right, but the book spends a lot more time on leah's outsider's view of christmas in a way that really rings true. also, in the book they take the metro north up to connecticut rather than driving, which makes way more sense.
+
+the book is better, is what i'm saying. in a film roundup first, i will reproduce some of my old notes from the meeting of our writing group where we went over leah's perfect christmas:
+
+
+really cute, i don't have a lot to change.
+
+the best part was the dinner where leah takes gavin's bleu cheese
+because his mom won't make a meal accommodation, and then his mom
+makes a completely unnecessary meal accommodation for maddie.
+
+the parents are ridiculous stereotypes, but i didn't reliably find them ridiculous to the point of satire. i'd like to see more of that.
+
+the main issue i felt was a kind of emotional monotony through the
+middle of the book. often a rom-com has a red herring romantic partner. i would either introduce a red herring or make the christmas
+experience—not necessarily the parents—less uniformly
+unbearable. there needs to be something to distract leah from gavin,
+because i'm not being brought through the story solely by the idea
+that gavin isn't the guy he seems to be when they're in new
+york.
+
+i haven't read the final version of the book, but in the movie they chose door #2, giving leah a variety of christmasy side quests that let them showcase the many, many colorful sets and props available to the production.
+
+beaches (1988): the chick flicks continue! on my way back from japan i stopped in la to see susanna and family. she and i walked around crystal cove state park, where the beach house seen in beaches has been preserved as a miniature film museum. (according to the museum, that house was used in a lot of movies, but most of them were silent movies in the early days of hollywood, so nobody cares anymore.)
+
+this reminded me that our mom loved the soundtrack to beaches, or at least kept the tape in her car for a really long time until we knew all the songs. (other albums i assume mom loved from the same evidence: neil diamond: his 12 greatest hits.) so i told susanna i'd watch the movie with sumana when i got back.
+
+and... it's pretty good. the critical consensus is negative, but i thought it did a good job of showing a long-lasting friendship between two women, a friendship that is strained but never breaks. and there are a lot of good songs on that soundtrack. in the 20+ years since i last heard the beaches soundtrack i've grown more able to recognize the musical homages going on in the songs. in particular, i correctly identified "oh industry" as "a laurie anderson thing."
+
+
+and now, it's time to send off another star trek series with this month's television spotlight.
+
+star trek: lower decks (2020-2024): a standout of the stream trek era. i looked forward to every episode and thoroughly enjoyed the mixture of fan callbacks and traditional trek stories. but there's one thing i didn't enjoy, and it's summed up by sumana's common refrain while we were watching: "no one's making you be in starfleet, mariner." i griped about this in my roundup of season 1 and it never stopped being a problem. beckett mariner, the main character of the show, acts like a sulking  draftee for nearly the entire series, even though she's a graduate of an elite military academy and a member of a post-scarcity civilization devoted entirely to personal betterment.
+
+she sulks on a ship whose crew starts out mediocre but improves in cohesion over time. she sulks on her punitive assignment to a crappy space station, which we later see get turned around by crew who came in with a more positive attitude. other people improve, but she doesn't. there's a blissful couple of episodes when she actually leaves starfleet and seems to be living the life she wants, but she comes right back. i can sorta make this make sense based on the exposition we get—mommy issues plus dominion war ptsd, basically—but the series kept showing mariner grow as a person, only to hit her reset button at the end of an episode or season. (tendi did have sustained, persistent growth throughout the series, so it is possible.)
+
+the versions of mariner and boimler in the strange new worlds crossover were much more appealing than the cartoon versions, which probably indicates that the characters' flaws are exaggerated for comic effect vis-a-vis what they'd be like in a live-action show. but i don't find it funny to see people learn the same lessons over and over. it is a tribute to the writing of lower decks and the charisma of the actors that i loved the show despite this really annoying problem they never fixed.
+ 
+ 
+
+
+ sun dec 08 2024 14:19 november film roundup: 
+   
+the big clock (1948): a great thriller driven by the grey-flannel trappings of postwar america. having the detective lead a manhunt for himself is the sort of thing that feels like it should be a really common plot twist, but i can't think of another example.
+
+90 years old - so what? (2024): a lighthearted movie about aiko sato, japan's own andy rooney. saw it on a plane and enjoyed how it sped along the passage of time. i didn't know this was based on a true story until the end of the movie. it just never occurred to me. if anything, i assumed it was a vehicle for the 90-year-old lead actress, mitsuko kusabue.
+
+the asphalt jungle (1950): excellent heist film which blends in some noir, in that many of the criminals meet their hays code-required ends due to the humanizing weaknesses that made their characters more than cardboard thugs in the first part of the movie.
+
+once upon a time in the west (1968): i liked this movie, especially the ballsy opening that introduces stars only to kill them off, but it was so long i started falling asleep in act 3. i think there's a good 45 minutes in the middle you could cut.
+
+what if tokugawa ieyasu became prime minister? (2024): it wouldn't be good, i tell you, and neither is this movie. i wasn't really following all of the historical heroes, but i recently learned about ryōma sakamoto, and when one of the samurai pulled out a revolver and started shooting i thought "that's gotta be sakamoto."
+
+emblematic of the conceptual problems with this movie is a scene where it's explained that the ai-generated heroes have been programmed not to pursue their ideological clashes/historical rivalries with one another. this would basically require removing their opinions about what is best for japan--that is, their ability to do politics. it's a technocratic fantasy that, even though it falls apart inside the movie, doesn't fall apart quickly or disastrously enough to satisfy my cranky ass. to put it in american terms, if you brought back thomas jefferson and fdr and ronald reagan to rule the country, what course of action would they agree on?
+
+nonetheless, i saw this film on an airplane, so it gets my near-universal bad movie pass.
+
+ 
+
+
+ sat nov 02 2024 22:02 november film roundup: 
+   hey, how you doing? me? not so good. lots of anxiety. but one of the things that keeps me going is the pleasure of films, and the rounding up thereof, so here we go:
+
+
+ride lonesome (1959): perhaps the ultimate western title. sometimes a man's just gotta... ride lonesome. a decent story marred by the sort of lazy native american stereotypes that most westerns manage to avoid.
+
+timer (2009): gonna bring up my groundbreaking sleepless in seattle review once again, because timer takes the core concept in an interesting direction. see, what we perceive as the rules of rom-coms appear to the inhabitans of rom-coms as laws of physics. they don't make sense, but quantum mechanics doesn't make sense either. we can build technology based on quantum mechanics, and the people in timer build technology based on rom-com physics.
+
+however, i have to say those fictional people in a fictional world don't go far enough. what we see in timer is not technically a rom-com (it's light on the -com, among other things) but pretty close. i think we should lean more into the sci-fi premise here, because scientists in a rom-com universe wouldn't stop at inventing the timer. that's because the timer creates a wide variety of natural experiments that anyone can conduct, though any given person can only conduct one.
+
+the timer reveals a universe in which people have free will most of the time, but lose a chunk of their free will starting at midnight on the day they're destined to find their one. (i'll ignore the time zone problem here, lest a gremlin pop out of my computer and savage me.) what's more, you have to apply an opt-in prosthetic to have your free will suppressed! if you remove your timer on the day when you lose your free will, you and your true love both get your free will back! amazing! it's spooky action at a distance, scaled up to a macroscopic level!
+
+when discussing the film afterwards sumana and i proposed a subreddit where people post on the day their timer goes off, find their one online, and then hide in bed all day. since the process is rom-com love-at-first-sight, it requires eye contact, just like in sleepless in seattle. what happens when people start doing this? does the universe perform increasingly ridiculous feats of quantum teleportation to force the lovers together? do you end up in a groundhog day situation, forced to relive the day over and over until you cooperate with physics?
+
+uh, the movie's pretty fun. lots of little variations on the theme. may i recommend brendan's 2011 review if you want a review that covers, i dunno, the plot of the movie.
+
+mothra vs. godzilla (1964): definitely one on the goofy side, with its villainous tycoons and egg-munching reporters and kid-friendly ecological message—but also has a couple scenes of human-on-human violence which are surprisingly shocking in a kaiju movie. the big g seems more clumsy than hostile in this outing, with his tail frequently getting stuck in things and generally proving a liability.
+
+in a possible first, i though the human characters were more interesting than the monsters here. i was prepared to dislike the fairy twins, but i found them charming when they weren't singing. the fight scenes aren't the best because godzilla is never matched up against a kaiju with similar powers. mothra just swoops around his head a lot. 
+
+i will now never forget that "たまご" means "egg" because they say it so many times in this movie.
+
+ 
+
+
+ thu oct 24 2024 11:02 (a) stand-up to protect our vote: 
+   this saturday, my spouse sumana will be performing a short comedy set as a fundraiser for the election protection hotline. donate to a good cause and enjoy some technical humor! 
+
+
+ thu oct 10 2024 18:28 september film roundup: 
+   
+tokyo olympiad (1965): an incredible narrative film made from documentary footage. i did not think i would enjoy a movie about the olympics but i saw this movie, now i'm a believer. sumana also watched o sport, you are peace! (1981) and 16 days of glory (1985) and i watched some of those films as well, but there's no comparison in terms of quality. tokyo olympiad has a continuous focus on the people at the olympics, especially but not only the athletes. other films document the spectacle to please the ioc and the host country; tokyo olympics keeps pointing out that all the spectacle is made up of individual people doing stuff.
+
+incidentally, i have a strong memory of my dad taking me to watch greg louganis compete at the 1984 olympics, but there's footage of this in 16 days of glory, and it's happening in the afternoon; i remember it being dark out. maybe we went to the qualifying heats or something?
+
+being two isn't easy (1962): kon ichikawa impressed us so much that we decided to check out this pre-tokyo olympiad dramedy. not incredible, but very enjoyable, especially the wry sense of humor they give the look who's talking-esque two-year-old. the parents are believably harried, obaachan is both infuriating and sympathetic, and everyone's just doing their best.
+
+the hired hand (1971): a good, lonesome western from hollywood's all-too-brief "give the director total creative control" period. dramatizes the west with a complete absence of glamor, but without relying too much on shock value and violence. (there is a little, but it's not, like, unforgiven.)
+
+ 
+
+
+ wed sep 04 2024 23:15 august film roundup: 
+   sumana was gone for much of the month, and you know what that means: lots of movies from the 60s and 70s with below-average imdb ratings!
+
+
+christmas in july (1940): one for the "we can't agree on a title" files. a fun screwball comedy with twists you can see coming 1.2 miles away. at this point i can say that preston sturges movies just give me a good feeling. not because they're warm and fuzzy—they tend to be the opposite—but because they posit that the human capability to fuck things up is limited, that we do good despite ourselves.
+
+shack out on 101 (1955): like raiders of san joaquin, a film i chose because its title made me nostalgic for my childhood. it's got a fun cannery row vibe going on, and i didn't even mind the escalation into an action-ish noir movie, but my credulity was strained when basically every character in the film turned out to be a spy. it was like watching the final ending of clue.
+
+the swimmer (1968): i had heard of this movie, but suffered from a major misapprehension about the plot. i thought this guy literally swims from pool to pool, traversing underwater tunnels like in a mario game. i'm not saying i didn't also recognize it as a highbrow metaphor for the human condition, but when burt lancaster got out of the pool and started walking to the next one i was drastically disappointed.
+
+i dunno, it's still ok. i feel like i don't encounter many movies like this, movies that are nominally mimetic but operate on a mythic or archetypal level. most likely these movies are still around but i actively avoid them. like, evil does not exist (2023) and the killing of a sacred deer (2017) seem like they're going for a similar feel but i have no desire to see either one of those movies.
+
+the facts of life (1960): maybe lucille ball will make bob hope seem funny, i thought. and... she kinda does? it helps that this isn't a fake-divorce film, like you'd have to make to tell this kind of story in the 1950s. it depicts real suburban desperation and genuine, billy wilder-approved infidelity. i never thought i'd see the day, but here's a movie where bob hope has some actual chemistry with his lead actress.
+
+overall i didn't think this was great, but the ending was sweet. i guess what i'm saying is you take the good, you take the bad, you take them all, and... no, wait... sixty years ago we had ball and hope, and now... where was i going with this?
+
+the bank shot (1974): another movie adaptation from my donald westlake kick, and the best i can say for this is it really shows how the adaptation of a good source material can fall short. the hot rock (1972) takes a lot of liberties with the book, but they're all in the service of making the story move fast enough to hit an unusual number of plot beats in a normal-length film. the bank shot feels like they wanted to do a different movie with the same central gimmick. (it's a great gimmick.) the scenes where they execute the gimmick are great; the others are lousy and it doesn't help that oom-pah circus music is playing during every action scene to tell you it's funny.
+
+the characters are unrecognizable as well (just as well that most of them are renamed from the book). the point of the book is that dortmunder's genius at planning and staffing heists is exactly balanced out by his terrible luck. in this movie he's a super-criminal abetted by, and going up against, buffoons. they moved the setting from long island to la just because it was easier to film. not enjoyable.
+
+what was enjoyable was discovering, while writing this entry, that donald westlake wrote the screenplay for cops and robbers (1973)—a darkly comic heist  with a great gimmick that's also a good movie.
+
+salt and pepper (1968): this movie's bad, but it does give a sense of what it would be like if they'd started making austin powers movies in 1968. in that respect it's sort of like will success spoil rock hunter? from 1957—contemporaneous proof that the people who lived in a ridiculous part of the past were in on the joke. however, most of the actual jokes in this movie are not good, and the action scenes are like austin powers fight scenes but played straight. the best gag is near the beginning when sammy davis jr. does the longest-delayed double take i think i've seen in a movie.
+
+rafferty and the gold dust twins (1975): crime and grime, baby. when your response to being kidnapped is to just go with the flow, you know it's the 70s. less watchable than the bank shot but has more indie cred. looking up this movie after watching it, i saw that star alan arkin directed little murders, another "who cares, i'm already dead inside" movie. he also played the title character in simon (1980). the guy had some issues, is what i'm insinuating.
+
+the questor tapes (1974): as soon as i saw "teleplay by gene roddenberry" on this pilot-cum-made-for-tv-movie, i knew it was only a matter of time before majel barrett showed up. (it was about 45 seconds.) but what i didn't expect was seeing a whole dry run for star trek: the next generation. others have mentioned that robert foxworth's questor is a prototype of data, down to really specific 1st-season-of-tng stuff like the "fully functional" gag. what i haven't seen others mention is that the questor tapes also prototypes the data/geordi relationship, with jerry as questor's friend/maintenance guy.
+
+and man, this movie has gene roddenberry humanism sermonizing like nobody's business. "an insane creator? good thing humans don't have an insane creator! how horrible that would be!" (not a direct quote.) i would not watch this if it had been picked up as a series, but as a time capsule showing an early draft of one of my favorite things, i loved it. 
+
+ps: ol' gene reuses the vulcan nerve pinch in this one. it's a low-violence way to put your enemies out of action—perfect for network tv!
+
+one cut of the dead (2017): i enjoyed this, but not as much as i was expecting. the recent japanese mini-trend of long-take movies like this, river, beyond the infinite two minutes, etc. is very heartening. it's a genre of film that requires a lot of skill but very little money. however, this one was a bit disappointing because the description of the movie you see on imdb and whatnot is actually a description of the movie-within-a-movie (true fear) you see in act 1. there are definitely twists in act 3 that recontextualize true fear, but... there are no actual zombies in this film. sorry. it's just a triumph-of-the-human-spirit kind of thing.
+
+if there was some way to skip act 2 altogether i'd be more sanguine about recommending this film. it kind of drags, but you can't just cut it, because it's setting up all the character development for act 3.
+
+ 
+
+
+ sun aug 11 2024 15:56 july film roundup: 
+   pressed for time this month so i'm just gonna write some quick reviews and head off to resume my apparently busy life.
+
+
+seven samurai (1954): i know i said no more kurosawa films that take place before the meiji restoration, but i really needed to get out of the house for a day, so i saw this at film forum. it's good. i'm always apprehensive about sitting down for a three-hour movie, but due to selection bias they have a pretty good track record. the only super-long movie i've actually bailed out on was reds (1981).
+
+reading imdb trivia about the different drafts this screenplay went through was comforting to me, as i go through my own creative struggles. adding the wacky peasant-pretending-to-be-a-samurai was a good decision.
+
+slacker (1990): a hell of a movie. really impressive how it's able to keep its conceit going the whole time. sumana proposed this one and i was skeptical, mainly because of the title, but it turns out the movie originally had a super-pretentious title and the studio made richard linklater change it. speaking of which, that guy really loves his walk-and-talks, huh? great dialogue, stylized but still seeming naturalistic.
+
+now that i think of it, you could film an x-files episode entirely running in the background of this movie. many of the characters have a "wacky but sinister x-files side character" feel. i guess that really was the vibe of the 90s.
+
+since slacker and x-files now have me in the conspiracy mindset, time for me to share one of my patented cinematic conspiracy theories with you. i believe richard linklater has been secretly working on a film since 1990, with the cast and crew sworn to secrecy, to be released only after he dies.
+
+noises off (1992) - a fun farce with a tacked-on framing device we moviegoers probably didn't need. while planning this film roundup i kept thinking steve martin was in this, that's how fun it is. i don't even know what role i was mentally casting steve martin in. maybe christopher reeve?
+
+anyway, fun movie, especially if you like the goes wrong show type of chaos. probably not as fun as the original play, but the great thing about movies is you can now watch them anytime, without spending thousands of dollars to stage a new production.
+
+inside out 2 (2024) - i dunno. i read an article that framed this movie as specifically being about anxiety, and i guess through that lens it's a good guide for teens and their parents to get real about important topics. but i watched the whole movie, not just the anxiety part, and there's a lot that didn't work for me.
+
+rather than harp on this, i want to present another crackpot cinematic theory, this time about an earlier draft of the inside out 2 screenplay. i believe that the new emotions introduced by riley's puberty were originally intended as warped versions of the original five inside out emotions, rather than brand new characters. disgust→envy, fear→embarrassment, sadness→ennui, anger→anxiety. this plan fell apart when it became clear that the warped version of joy could only be horniness, and nobody wants that.
+
+it happened to jane (1959): one of the most generic movie titles ever, just below it happened one night and it. what happened to jane, you ask? fortunately, there's a song at the beginning of the movie that... no, the song explains nothing! jane falls in love, okay? with young puppy-dog lawyer jack lemmon, no less. what a catch!
+
+i don't have a way to quantify this, but my gut says that older comedies like this have more stuff than modern ones. this movie has detailed technical subplots about running a mail-order business, the legal system, small town democracy, and railroad freight logistics; on top of the usual rom-com antics about mercenary journalists and sex segregation of lobsters. also a song about the cub scouts, which has lyrics written by the director and which i must assume was included as some sort of residuals scam. i wouldn't say all of this comes together in a cohesive whole, but it definitely all happened to jane.
+
+supermarket woman (1996) - we loved this story of user research and continuous incremental improvement. the best film of the month, i think. showing recurring interactions with the same customers over time was a neat trick to kind of create recurring guest stars in a movie. also did a great job showing the clash between craftspeople, who want to do the best job possible, and people trying to run a damn store, who need to give the people what they want at the cheapest price.
+
+japanese question: the owner of the rival supermarket discount demon is referred to by the feudal title "daimyo". i am pretty sure this is a joke, but what kind of joke is it? is discount demon doing a kind of medieval times thing, what with the old-timey demon mascot and the military-style discipline? is this guy just really egotistical?
+
+ps: i think the supermarket shootout in hot fuzz was inspired by the chase scene in supermarket woman.
+
+a taxing woman (1987) - she's back! this is the point where we realized that juzo itami and nobuko miyamoto have a joel coen/frances mcdormand type of relationship. not as joyous as supermarket woman but a fun crime drama, sort of a tax fraud columbo. we do plan to see all of itami's films eventually, or at least i do. 
+
+old video game watch: there's some classic (i must assume) msx non-game software on display in the love hotel, but the real prize is the scene where itakura sees the villain's son playing super mario bros. on the family famicom computer. there's no generic atari beeps or disinclination to show anything but the back of the tv, the way there would be in an american movie of the period. it's shot very naturally, and when itakura takes over, she's realistically good at the game!
+
+capcom released a visual novel of a taxing woman for famicom, making this the only movie i'm aware of that had a video game adaptation published on a game system also seen in use in the movie. this probably happens all the time now, but the closest i can come to another example is the wii adaptation of iron man (2008). tony stark has a wii in his modernist house, but you don't ever see him flinging around the wiimote playing twilight princess.
+
+my cousin vinny (1992): this film is often praised by those in the legal profession. i guess that makes sense because there's no villain, the things happening in the courtroom are all things that  happen in real courtrooms, and it flatters the legal mind by depicting the justice system as actually seeking justice. unfortunately, as a non-lawyer, i must say there is a huge problem with this movie, and it's the titular vinny. 
+
+i mean, do you want this guy as your lawyer? i seriously thought the second-act twist was that oops, vinny actually isn't a lawyer. he failed the bar again, he's been lying to his family for months, and now he's in over his head. there's a recurring cycle early in the movie where vinny gets humiliated in court, over and over again, seemingly learning nothing. not only does it feel like he didn't go to law school, it feels like he's never seen a courtroom drama. if you cut all but one of these cycles, and skipped quickly to the part where he starts interviewing witnesses, i'd be a lot more sympathetic to the movie.
+
+the art of war (2000): sumana saw this in the theater, way back when, and remembered it as being full of bad computer stuff. but like with antitrust (2001), the perspective of years shows that the computer stuff, though hardly prophetic, isn't that bad. when it is bad, it's because the filmmakers came up with a bunch of roundabout hacker/spy crap instead of, i dunno, figuring out how to dramatize the use of pgp. it's pretty simple, guys: just show a "decrypting..." status bar.
+
+the wesley snipes action is fun, and this film has the same outsized impression of the un's influence that you find in much earlier films like a global affair (1964). i don't think i recommend this, exactly, but you could do worse.
+
+one of the first films that needs to manufacture a cell phone malfunction for the plot to work out.
+ 
+
+
+  (1)  sat jul 27 2024 13:10 when does the phantom tollbooth take place?: 
+   i just read the annotated phantom tollbooth, with annotations by leonard s. marcus. the annotations were excellent regarding earlier drafts of the manuscript, and the correspondence between norton juster and jules feiffer. but some of the annotations brought in scholarly analysis of the book's concepts, and i thought a lot of those fell flat compared to the gold standard of annotated children's books, martin gardner's the annotated alice.
+
+however, a couple things i noticed as i reread the book with those annotations put me in the mood to answer a specific high-concept question: when does this story take place, exactly? i did come up with an exact answer: though published in 1961, the phantom tollbooth begins on tuesday, april 11, 1967. but getting there requires several leaps of logic. i think these leaps make sense, but i also don't think the story was designed to support this kind of analysis. certainly norton juster didn't plan this, since the answer relies on societal trends that played out after the book was published. but here we go:
+ 
+how to interpret background assumptions?
+several of the inferences i'm going to make depend on an assumed geographic or cultural background. the lands beyond is, well, beyond, but it's an extremely american sort of fantasy world. everyone speaks english, all the puns are in english, all the spellings are american, and dictionopolis only recognizes the 26 characters of the latin alphabet. two characters in chapter 16 refer to american currency ("ten dollars apiece", "dollars or cents").
+
+specifically, i argue that the lands beyond are a new york tri-state area fantasy world, mainly because of the titular tollbooth. i grew up in los angeles, land of freeways, and when i first read this book as a child, a "tollbooth" seemed as weird and magical as a talking dodecohedron.
+
+for this analysis i will assume that milo lives in or near new york city, both for doyleist reasons (that's where norton juster lived when he wrote the book) and watsonian reasons (milo lives in an apartment building with at least eight stories and knows what a turnpike tollbooth is). the background assumptions of the lands beyond are the midcentury east coast american assumptions milo will recognize; there's no watsonian reason given for this but it seems indisputable. in the 1969 film, milo lives in san francisco, but that's only one of the problems with that movie.
+
+what year?
+next, let's establish the year the phantom tollbooth takes place. in the absence of any internal cues, we tend to assume a book is set in the year the book came out: 1961 in this case. this assumption worked until i hit chapter 16, where i ran into a big problem: the average boy, of "ten dollars apiece" fame, who is the .58 in his 2.58-children household.
+
+in 1961, worldwide fertility was 4.58 children per woman, and fertility in the united states was 3.52 children. the baby boom was winding down, and the pill had been approved by the fda the previous year, but no matter how you map "average fertility" to "size of family," i don't see how you get 2.58.
+
+norton juster was 32 years old in 1961, and i think this bit, which reifies averages, is based on things he heard long before, at the start of the baby boom. especially since the average child also says "a few years ago i was just .42". this is the detail that makes me very confident juster wasn't meticulously piecing all of this stuff together so someone could figure it out 60 years later. nonetheless, i press on, because i'm having fun.
+
+as i see it we have two options. we can say the phantom tollbooth takes place in the future—say, 1967, when the us fertility rate was 2.52; or we can say it takes place much earlier than 1961: right after world war ii, on the upswing of the baby boom. i really don't see how that second option can work, since the average child says "each family also has an average of 1.3 automobiles." i didn't look up the statistics for, say, 1947, but that sounds like 1950s-level prosperity at least. (on top of all the other things that would no doubt become anachronistic if this story took place in the 1940s.)
+
+so i'm saying the phantom tollbooth takes place in 1967, six years in the future relative to when the book came out.
+
+where does this leave the statement "a few years ago i was just .42", if "a few years ago" refers to the 1940s? well, this kid is an average, not an individual. he doesn't age; he waxes and wanes. in the 1940s he was .42, and by 1973 he, or one of his siblings, will disappear altogether.
+
+what date?
+the phantom tollbooth takes place in spring, based on this quote from the final chapter, when milo returns to the real world from the lands beyond:
+
+
+the tips of the trees held pale, young buds and the leaves were a rich deep green... there were... caterpillars to watch as they strolled through the garden.
+
+milo goes to school on the day he finds the tollbooth. after school he spends several subjective weeks in the lands beyond, but he returns to the real world the evening of the day he left. he then goes to school the next day. so milo leaves for the lands beyond during the school year, and not on a friday, saturday, or sunday.
+
+for the rest of this, i'm relying on what happens to milo inside the lands beyond. this is tricky because of the fairy-logic time dilation, not to mention that an entire week passes without notice in chapter 11. but i argue that we can nail it down using only clues before the missing week.
+
+in the doldrums, milo learns that "smiling is permitted only on alternate thursdays." this is right after he enters the lands beyond, so i think it's fair to assume this is happening on the same day he left. if it's a thursday on the day you go past the tollbooth, it seems like a reasonable assumption that it's still thursday on the other side. but if milo had left on a thursday, this rule would have required clarification—"this isn't one of the thursdays you can smile." so he probably didn't leave on a thursday. (if you don't find this convincing: we don't need this clue to narrow it down, but my final answer is consistent with this analysis.)
+
+now it gets a little more complicated. i'm going to argue that the events of chapters 1-10, basically the first half of the book, happen in a single subjective day. this encompasses a ton of activity (another reason why i think juster didn't meticulously plan out the timeline), but here's a summary of what happens in between all the clever conversations:
+
+milo arrives in the lands beyond while the sun is shining. he
+drives to dictionopolis, gets thrown in the dungeon, hears some
+stories from the which, then immediately escapes the dungeon to be
+greeted by "a shaft of brilliant sunshine"—so it's still
+daytime. there's a royal banquet and then milo drives out of
+dictionopolis. at this point (chapter 9) it is "late afternoon." they
+stop for the night, milo watches chroma conduct the sunset, and then
+falls asleep.
+
+so we have a lot of driving while the sun is out, a meal, more driving, and then watching the sunset. all, i would argue, over the course of a single day. you can argue that's too much to cram into a single day after school, and i agree, but the first half of the book has a pretty tight perspective on milo's activities, and we only see him eat one meal and sleep once.
+
+now here's the important part: the sunrise the next day is scheduled for 5:23 am. if it's the spring of 1967, this means the only day milo can have entered the lands beyond is tuesday, april 11. (remember, the implicit assumptions of the lands beyond are calibrated for milo's tri-state area self, which is why i'm using nyc as the location from which the time of sunrise is calculated.)
+
+so, there's our answer: the phantom tollbooth begins on tuesday, april 11, 1967. a spring day during the school year that's not a thursday, friday, saturday, or sunday. 
+
+beyond that point things are less reliable, because of the week that's lost in chapter 11, but fortunately i only found one more clue that needs to be slotted in. in chapter 12 the soundkeeper says her vault is open to the public "only on mondays from two to four", with the strong implication that this is not monday. but this looks like it happens on milo's second day in the lands beyond (apart from the missing week), which would be wednesday the... 19th, i guess. so that's consistent with an april 11 start date.
+
+in conclusions
+i've said a couple times before but i'll repeat: i don't think the phantom tollbooth was meant to hold up to this kind of analysis. here's another example: in chapter 18, tock says they've been traveling for "days", and then we read this:
+
+
+"weeks," corrected the bug, flopping into a deep comfortable armchair, for it did seem that way to him.
+
+the narrator clearly thinks "weeks" is an exaggeration, and i think that's correct, if you don't count the missing week from chapter 11 as an actual week. looking at the map, and seeing how much happened on milo's first day in the lands beyond, i think they could have made it to the castle in the air in 6-7 days, depending on how long they spent on time-sinks like swimming back from conclusions and doing tasks for the terrible trivium. (they spent at least 21 hours in the grasp of the trivium, by the way. i remember counting this up when i was a kid, so i've always been like this.)
+
+after the return of rhyme and reason, there are three days of feasting, and then milo heads back to the real world. at the beginning of chapter 20, "it suddenly occurred to milo that he must have been gone for several weeks." but that's the same idea that was treated as a silly exaggeration just three days earlier, in chapter 18! in actual fact, milo was gone for (lets say) 17 days by the calendar, and ten subjective days, since the missing week passed in a few seconds.
+
+so... the timeline here is not exactly intended to snap together like a lego set, is what i'm saying. but i am very happy that there seems to be a unique date where the phantom tollbooth began, even if norton juster didn't plan it that way and couldn't have anticipated that the question would ever have an answer. 
+
+
+ wed jul 10 2024 10:50 june film roundup: 
+   a little late this month since everything sucks and sumana and i have been watching a lot of tv shows instead of movies. but that just means you'll get a big television spotlight at the end of this post.
+
+
+the big lebowski (1998): possibly the first time i've ever seen a movie in a theater where everyone in the theater had seen the movie before. since this was my seventh viewing of the big lebowski, i decided to do something different by sitting way up in front and focusing on small background details. here's what i noticed that i hadn't noticed before:
+
+
+the last thing jeffrey lebowski does in the movie is hit a dog.
+on the porch of the unit opposite the dude's apartment there's a huge pile of shoes. shoe-free household, i guess. was it set up as part of set dressing or is that just the situation of whoever actually lived there?
+the dude's landlord seems like a prop 13 guy who inherited the apartment complex and is able to live his la artist lifestyle on the irregular proceeds of the rent.
+in the scene on the beach near the end, you can see someone just walking around on the cliff up above, unaware that they've become an extra in leonard's favorite movie of all time.
+
+the long goodbye (1973): why not, while lebowski is fresh in my mind? this started out as a lot of fun but made the mistake of really caring about the plot and the mystery. i loved the early adventure to find cat food, marlowe giving a pep talk to the hood assigned to trail him, but lost interest when he started taking his job seriously. not bad for my first robert altman film, though.
+
+the war between men and women (1974): jack lemmon plays james thurber, if thurber was lemmon's age in 1974. (he was actually 80 and had been dead for 13 years.) thurber's brand of quippy sexism is on its way out in 1974, but it still kinda works. the animated scenes distinguish this a bit from the average women's lib-era sex comedy, but otherwise i wasn't enthralled.
+
+streets of fire (1984): a goofy, over the top attempt to create a big movie musical that the kids will like, but it was made by baby boomers whose idea of cool is stuck in the james dean era. there's just not enough punk rock in this; in particular it's much less cool than the warriors, directed by the same director (walter hill) four years earlier.  however, streets of fire is so wacky and off the wall that sumana and i had a great time watching it. it's a classic good bad movie: a bizarre idea competently made and greenlight because hey, who knows what will be a hit?
+
+i think you could have made a big movie musical enjoyed by kids in 1984, but the kids in question would have been theater kids, right? not the punks. this movie and pennies from heaven (1981) are off the mark with their fixation on recreating a time in the past when musicals had mass appeal. you need modern sleaze and transgression, a la rocky horror picture show.
+
+i made a bet that at some point in the movie a street would be literally lit on fire. reader, i won that bet. there's also a classic "make this character a woman but change nothing else about the screenplay" character here, a la ellen ripley, which creates a sadly compelling female character by 1984 movie standards.
+
+bullet for a badman (1964): i don't have much to say about this generic 60s western. i remember that the location sites are beautiful, and the horses do a lot of good stunt work, falling over when their riders are shot and whatnot. i mean, i hope that's stunt work.
+
+
+and here is the promised television spotlight:
+
+
+franklin (2024): i think me and sumana might be the only people who have ever watched this. it seems like an apple tv honeypot designed solely to collect award nominations. i do recommend it if you're a major franklinhead, as it's full of snappy quips. probably way too slow and ponderous for the general public. we both thought thibault de montalembert was outstanding as the comte de vergennes.
+
+star trek: discovery (2017-2024): time to bid adieu to the weird eldest child of the rapidly-closing stream trek era. unlike star trek: picard, discovery had tons of great episodes and a really good season. unfortunately, it was season 3, four years ago. season 5 was all right, so i'm not super disappointed, but only because my expectations have been well lowered by this point.
+
+i haven't looked into this in detail, but i have to assume there was major turmoil behind the scenes at discovery, since the showrunner kept changing early on and the show kept lurching in different creative directions, occasionally doing things like casually spinning off a much better star trek series. but discovery never lost sight of its pole star: the belief that michael burnham is the most important person in history and has to save the universe all by herself once a year. honorable mention to the way star trek's traditional countdown-to-everything-blowing-up timers would inexplicably pause for minutes at a time so that everyone could have their character beat, though they did tone that down in the final season.
+
+my biggest discovery regret is that michelle yeoh and jason isaacs spent so much time playing contemptible mirror universe characters that we barely or never got to see their (presumably) heroic, star trek-y prime universe equivalents. doing a show that doesn't focus on the captain was a bold experiment but it left a void at the core of the show that took a really long time for michael and saru to grow to fill... by becoming captains.
+
+oh yeah, saru! one of my favorite trek characters, period. especially in the early seasons, he was a believable and sensitive portrayal of a sentient prey animal. and... yeah, i like most of the other characters (not you, burnham's various love interests) but saru is the standout here. the secondary cast was neglected from the start and it feels like they never recovered. i love the eventual chekhov-sulu bromance between owosekun and detmer but it was such a long road, getting from there to here.
+
+the prisoner (1967): i believe "hot mess" would be an appropriate term. this is so stylish and has tons of good ideas, many of which remain quotable 55 years later, but the impetus for the series in the first place—patrick mcgoohan's weariness of being typecast in spy shit—also drives it over the cliff at the end, with the last few episodes willing to put complete nonsense onscreen as long as the cliches of the spy genre are averted or mocked. we enjoyed seeing the titular prisoner become more and more adept at using his environment, manipulating the village and its government to his advantage. definitely worth a watch.
+
+i've mentioned before dave hutchinson's "fractured europe" series of books and how they have a mega twist which, now that i think on it, seems strongly inspired by the setting of the prisoner. this makes me feel a little better about my inevitable theft and adaptation of hutchinson's twist.
+
+ 
+
+
+ mon jun 10 2024 15:38 my pycon us 2024 talk: 
+   i've put up a transcript of the talk i gave at the pycon us maintainers summit last month, about the lessons i learned while being the solo maintainer of beautiful soup, over 20 years and through two periods of professional burnout:
+
+how to maintain a popular python library for most of your life without with burning out
+the quick takeaway is that strong boundaries are important: both the software boundaries provided by published apis and packaging dependencies, and the decision as to where your volunteer open source work ends and the rest of your life begins. i have some suggestions for the ways the two interact, and an anecdote about how we mentally rewrite our memories of our struggles to make ourselves more active participants. if you're the maintainer of an open source project, i recommend checking it out! 
+
+
+ wed jun 05 2024 22:11 may film roundup: 
+   
+rollerball (1975): the film that dares to showcase the dangers of relying on centralized archives for cultural memory. lockss, people!
+
+if the megacorps really wanted to turn their bloodthirsty audience against rollerball, they should have gotten jonathan to take a knee during the corporate anthem.
+
+i do have more than jokes, let me check my notes. oh yeah, i was spellbound by the bits of this movie that are just people setting up the arena for a fictional sport (e.g. the first few minutes). unlike most fictional sports, rollerball has consistent rules that make perfect sense. the rollerball scenes are shot like a sporting event, not a feature film—it reminds me of footage of stock car races and the like. the only reason rollerball isn't played in real life is that the creator refused to sell the rights to people who didn't get that it's a satire, you dolt, on the "sickness and insanity of contact sports and their allure." all of that's pretty unique, even if the film is a little slow.
+
+mr. thank you (1936): a.k.a. 有りがたうさん, which i can now read and understand thanks to my progress learning japanese. this movie dares to combine lighthearted fun with the darkness that pervades the human experience, which is what you'd expect from an honest slice-of-life movie made in depression-era japan. it's enjoyable...? like, it really is very enjoyable, but there also all these time bombs ticking in the background. wikipedia says "mr. thank you marries the daughter to save her from her fate," but that's not the impression i got at all.
+
+this is filmed on the izu peninsula, where laid-back camp also takes place, eighty years later.  both have shots of cars driving on the same seaside cliffs. i've seen lots of old movies filmed in vanished versions of places i've lived, new york and san francisco and los angeles, but i've never been conscious of so much difference in the way life has changed than when i compare mr. thank you and laid-back camp.
+
+a star athlete (1937): in the runup to war, hiroshi shimizu has now gone into making full-fledged if half-hearted propaganda movies. there's a sequence in this movie that's apparently very impressive for cinematographers. they can have it, i say. i knew it was coming, i've seen a few movies, and i couldn't even tell you where it started or ended. a couple jokey town-vs.gown bits, and then we're back to the half-hearted propaganda. the scene at the end where the con artists think they're being hunted down by the students they cheated is a funny sequence.
+
+some like it hot (1939): watched solely for the title. between this and the ghost breakers (1940), bob hope has a tremendous knack for almost starring in great movies. this one's nothing special, but it does show the frantic tinpan alley hustling behind those elegant club floor shows you see in 1930s movies.
+
+a thousand clowns (1965): at last, the true story of balatro can be told. really enjoyable, and inspirational if you're in that mood. the montages are like a capitalist version of man with a movie camera. other actors can't really share the same space with the overly charming lead. 
+
+jake berendes sampled a couple of lines from this movie for his song "what is the mind", notably the absurd "i'll have a hamburger and a flashlight." i just about jumped out of my seat when that line happened, i tell you. also it took me a while to figure out it was one of jake's songs, because originally i thought i was thinking of "where is my mind?" by the pixies. i'm not a big pixies fan, is what i'm saying.
+
+the kid in this movie is like a young robert de niro. as in, if de niro was a child actor in 1965.
+
+repo man (1984): "ordinary fuckin' people. i hate 'em." this has a lot of first-movie problems, but i can see why it's a cult classic. a ton of weird stuff happens, the filmmakers get a lot of cool images on the screen, but all of the jokes and commentary are at the approximate level of a frank zappa song (which, i admit, i used to be super into). i thought it was cheesy, but i ended up missing the cheese when it turned into an action movie.
+
+i grew up with those ralphs generic brand products (you see an updated version of the design in the opening scene of the big lebowski), so i had trouble distinguishing between the items that signified frugality and the ones intended to be satirical. also, what kind of liquor store stocks so many grocery products? anyway, i don't think i'm going to join the cult, but it was a fun movie.
+
+bobbie joe and the outlaw (1976): yeah, yeah, everybody wants to make their low budget post-bonnie and clyde nihilistic road trip shootout movie. the only mystery about this one is how they got linda carter to not only star in this movie, but show her boobs. that sold a few tickets, you bet. i guess the movie was released just as carter's career took off—she doesn't have top billing on the movie poster.
+
+there are a couple really good scenes in here, or at least scenes with eloquent dialogue, but they're disconnected from the rest of the story. i think the screenwriter had a few little pearls of genius that he stuffed into the screenplay because otherwise they'd never see film. smart move, in my opinion. the editor couldn't cut them because the movie's only 89 minutes long as it is.
+
+the kremlin letter (1970): i thought this was going to be a serious thriller, and it sort of was, but i was misled by some goofy james bond shit near the beginning, then further misled by a scene where the boss spy yelled at the new recruit: "you think this is going to be like your fancy spy college? here on the streets it's nothing but goofy james bond shit all day long!" it got a little more le carré-y after that. all in all, a decent popcorn thriller. 
+
+actually i just looked up the release year to put at the beginning of this entry, and it's a very good spy thriller for 1970. i've revised my opinion upwards at the very last moment. what a thrill ride!
+
+heathers (1988): gonna rain on the parade of this all-time classic, or at least the second half of the parade, after the big bands have come by and it's just the shriners and the boy scouts marching past. the first half of this movie is amazing. i loved the snappy dialogue, the psychological manipulation, the bleak view of humanity. then the second set of killings happened and, like repo man before it, it changed from something special into an action movie; in this case a slow-paced thriller about stopping a serial killer before he strikes again. 
+
+basically, we had a very girly murder comedy, and then a guy ran away with it and it became all about the guy and his emotional needs. to me the through-line of heathers is encapsulated in the line "i've cut off heather chandler's head and heather duke's head has sprouted back in its place." you can't change a social structure by replacing the people who enforce it. i think if (say) tina fey had written the heathers screenplay, it would have stayed on that track.
+
+incidentally, i decided to watch heathers because one of the beta readers for the constellation speedrun referred to one character in the book as "such a believable boyfriend-in-heathers skeeze" and i had no idea what she was talking about. now i understand!
+
+ 
+
+
+ sat may 04 2024 11:27 april film roundup: 
+   quite a few films this month despite work and two out-of-town trips: to ohio to see the solar eclipse (spectacular!) and upstate to storm king to see modernist sculpture too big to fit in a gallery (big!). i can recommend arlene schechet's girl group sculptures mentioned in this recent nyt article. the exhibit hadn't opened yet, but you can't exactly hide art at storm king. 
+
+anyway, gasp as films are rounded up before your eyes:
+
+
+much ado about nothing (1993): staging a shakespeare play as a movie? i don't think that's ever been done before. a fun production that really plays up the hedonism. lots of 90s butt-focused nudity, is what i'm saying. denzel washington is as likeable as ever. pre-speed keanu reeves is well cast as one of those shakespeare villains who keeps monologuing about his own villainry.
+
+the fastest gun alive (1956): i have a confession to make: sometimes i don't pay 100% attention to the black-and-white westerns i review. they're so stereotypical that i can put them on in the background, play a game on the steam deck, and just tune in for the interesting bits.
+
+well, an interesting bit happened pretty quickly in the fastest gun alive—a classic puppy-kick scene, but well executed—and i started paying full attention and never stopped. this is really good! it plays like a noir drama, with its exploration of human weakness, but it's not a noir with western trappings: it's specifically focused on the interaction between masculinity and firearms, which is as western as it gets. 
+
+it took me a while to figure all of this out, because the fastest gun alive is also the kind of movie that's padded with an unnecessary tap-dance number. so for a while i was baffled by this movie that seemed to be veering back and forth between double indemnity and oklahoma!. (imdb trivia: "glenn ford at first demanded that russ tamblyn's choreography not be included in the film. but at the premiere, the audience noticed that the choreography, performed by russ tamblyn, was written into the credits. they asked why there was no choreography in the movie and the studio eventually put it back." easier than re-filming the credits, i guess!)
+
+glenn ford does a very good sort of martin freeman everyman in the lead, but the quality of the underlying story probably comes from the chemistry between noir director russell rouse and screenwriter frank d. gilroy.
+
+i'm all right, jack (1959): another surprisingly good movie made from less than inspiring parts: in this case, the slightly bawdy postwar british comedy. what starts out with a goofy series of pre-monty python "job hunt" sketches becomes a relatively biting satire of labo[u]r, management, and the bargaining table where they meet. i find peter sellers a bit hit-and-miss, but he's great as the shop steward.
+
+like dentist on the job, i only found out after watching this that it's a sequel and we're supposed to remember the characters from the previous movie instead of just reading the stereotypes (which totally worked). i assumed that "as you know, bob, you served in the war with these unbearable secondary characters" was a common enough plot device not to need a whole other movie backing it up. and although those secondary characters can get pretty unbearable, they each get a scene in i'm all right, jack that humanizes them and makes them more sympathetic—something american comedies generally don't bother with.
+
+what did you do in the war, daddy? (1966): according to wikipedia, "the title of the film came to [blake] edwards when he was asked the question by his son geoffrey." i don't know why he didn't go on to make a movie about the coast guard, but instead we got this. it's all right. i like how the italian villagers are completely done with the war despite seemingly being unaffected by its ravages.
+
+this film is kind of america's version of the corporal and the others (1965), in that we've all agreed the nazis were the real bad guys in wwii and what side everyone else was on (the hungarians, the italians) isn't really relevant. once the germans show up this does lose a bit of the farce and become a more typical war movie. or maybe the farce moves up a level of abstraction: one fun thing about the last act of this movie is the ridiculous extreme to which it takes the old "knock out the enemy and wear their uniform" gag.
+
+hundreds of beavers (2022): this movie is just insane. it's like guy maddin made a feature-length live-action looney tunes cartoon, and i mean that completely literally. there's one breathtaking moment where it plays with a classic buster keaton gag (you know the one) and immediately follows it up with a postmodern twist on the exact same gag. brilliant.
+
+nonstop sight gags for two hours straight does get a little exhausting, but i noticed a couple of tricks that the film uses to  structure your attention. the unifying concept of the middle of the film is the trapline (wikipedia: "a route along which a trapper sets traps for their quarry"). one common trick i use in sf worldbuilding is to introduce a simplified version of an idea and gradually make it more and more complex. hundreds of beavers does the opposite: it shows a trapline that is way too complicated for either the protagonist or the audience to understand; then destroys it, replaces it with a much simpler trapline, and then starts gradually making it more complex, illustrating each complication with helpful video game-style graphics.
+
+the different types of trap on the trapline also provide structure to the gags in the middle of the film. as the trapper moves around and around the route, you sort of check in with each gag, so it's not just a formless mess of laughs... the way the first 30 minutes of this movie is. maybe the first bit should be treated like an animated short shown before the movie proper, with a break in between for a reel change.
+
+weird, funny, surprising, and different from almost any other movie (by which i mean, exactly like the funny parts of guy maddin's movies). a big recommendation from me.
+
+ 
+
+
+ wed apr 03 2024 12:47 march film roundup: 
+   
+mimang (2023): i went into this knowing it was inspired by the before series, and would have been a little bit disappointed were it not for the discussion afterwards with the director, where he explained that for him it's less about the changes in the characters over time, and more about the changes in the streets they're walking on.
+
+there's some of what i call "cornetto trilogy foreshadowing" at the beginning, but it foreshadows the way the film is shot and edited, rather than the plot. (the director brought this up in the discussion afterwards, so for once it's not just me spouting off on something i think i noticed.)
+
+the hot rock (1972): i've been reading 20th-century heist novels as research for a novel idea, and here's a movie based on such a novel (by donald westlake), which i read right after finishing the novel. i think it does a great job of taking the exciting cinematic set pieces from the novel, while not even trying to capture the more cerebral humor the novel gets from its wry omniscient narrator. great fun, big recommendation. another novel in the same heist-comedy series was made into a movie (what's the worst that could happen?), but not until 2001. that one doesn't seem very good or faithful to the book at all; the common fate of novel adaptations in the blockbuster era when not every movie was based on a novel.
+
+other 20th-century crime authors i've been trying out, btw: kyril bonfiglioli (hilarious!), dick francis (meh).
+
+assignment k (1968): amazing european location shots and some fun spycraft liven up a by-the-numbers espionage thriller. the agent's cover story (buyer for a toy company) is more interesting than his secret missions. i really wanted to see more about the challenges of onshoring manufacturing!
+
+raiders of san joaquin (1943): a forgettable western that i've already forgotten most of. i chose it out of some idea that it might take place in the san joaquin valley, but it's actually san joaquin county, up by stockton. of course it's actually whatever random place in california universal filmed their westerns, pretending to be stockton.
+
+something wild (1986): a psa for middle-aged guys on not getting mixed up with manic pixie dream girls. not quite like any other movie i've seen, which is its own kind of recommendation: until the last bit, i really had no idea what was going to happen next. this movie also effectively pulls one of my favorite dramatic tricks: a is trying to hide something really horrible/bizarre from b and you think there's going to be tense moments; but then it turns out b already knows and is cool with it, or at least resigned.
+
+overall a real comedic surprise from a director i associate with philadelphia and silence of the lambs.
+
+this movie has more arcade games than any movie i can think of that doesn't actually feature a video arcade. it's 1986, the peak year for arcade games being in (and outside!) every random convenience store and gas station. a period piece set in 1986 would make sure to feature classics like ms. pac-man and defender, but only a movie shot in real 1986 convenience stores would showcase yie ar kung-fu.
+
+(in case you weren't there, as i recall the outdoor arcade games were usually chained to something; you couldn't just pull up with a pickup truck after hours and steal them.)
+
+ 
+
+
+ thu mar 21 2024 20:32 tapes and transcripts are available!: 
+   i've updated the schickele mix online fan archive with... transcripts! all of the 130-ish episodes archived by fans now include transcripts of peter schickele's wisdom and silliness, cross-referenced to the corresponding timestamps on the internet archive. here's a random example: the transcript of episode 84, "clarinet plus".
+
+some of these transcripts were created by running whisper on my computer; others i created by paying someone else to run whisper on their more powerful computer. now that i've put it all up, one transcript per page, it doesn't seem that impressive, but it's a solid [runs script] 63.80 hours of transcribed text; that's after all the music was filtered out. 
+
+i've also updated the dataset with some previously missing information, thanks to reddit user kiyyik. remember, if you've got any schickele mix recordings, i'll take 'em!
+
+although the .srt files available for download are the originals as they came out of my/someone else's whisper process, i wrote some code to tidy up the transcripts for the html views. apart from cleaning up common hallucinations such as transcribing orchestral music as "¶¶" or "thank you.", i caught and corrected forty different ways to misspell peter schickele's name. here they are:
+
+
+chicelet
+chick-alee
+chick-fil-a
+chickalay
+chickaly
+chickelet
+chickley
+chickly
+chik-fil-a
+cicholet
+schiccoli
+schick-alee
+schickel
+schickeli
+schickelman
+schickely
+schickley
+schickli
+schickly
+schiekely
+shicabley
+shickeley
+shickely
+shickily
+shickley
+shickly
+shiggly
+shigley
+shikali
+shikely
+shikily
+shikley
+shikoli
+shikolik
+shinkley
+sickily
+sickle-ee
+sickley
+sickly
+sickely
+
+who could forget captain picard taking on the shikolik? 
+
+
+  (2)  sun mar 03 2024 11:55 february film roundup: 
+   
+dentist on the job (1961): dull black-and-white carry on-style comedy is livened up somewhat in the last act, where the lads hijack britain's first satellite launch. that was entertaining.
+
+i thought the setup was somewhat preposterous, and upon reflection, it is exceedingly preposterous. but afterwards i discovered this is a sequel to dentist in the chair (1960), so i'm a little less weirded out by the casual "i'm trying to find a sinecure for these two incompetent dentists who are best friends with a thief" setup in the opening scenes. those characters have already had a whole movie to set their dynamic, and we're just shoehorning them in to this one.
+
+moving violation (1976): a movie full of car chases and carefully arranged stunts. i can't decide if it's a terrible or great idea to show a long shot demonstrating how unlikely it is that car a would randomly hit car b, but it was a cool shot.
+
+kay lenz reminds me of my sister susanna, and eddie albert has another great role (cf. the heartbreak kid) that i really didn't expect from "the green acres guy." of course, fred macmurray is best known for being in a dull sitcom, but he was great in noir and western roles. actors take the jobs they can get, is what i'm saying.
+
+dance with me (2019): one thing i haven't mentioned on this blog is that i've started learning japanese as a hobby. in support of this, sumana suggested we watch some japanese media to help me practice reading hiragana and katakana, which explains the rest of this film roundup. first up: a film i wanted to watch at the japan cuts festival in 2019, missed my chance, and then couldn't find this movie for years. it was worth the wait--a funny setup that goes in really weird directions instead of becoming repetitive. big recommendation.
+
+river (2023): dance with me was good, but this is the best film we saw this month, by far: a time loop movie where each loop is shot in a single continuous take. highly character-driven, but with a bonkers twist so you don't leave the theater thinking you accidentally saw an arthouse movie.
+
+beyond the infinite two minutes (2021): turns out there's a boom of japanese time loop movies right now, so we watched a couple more. this is a precursor to river, made by pretty much all of the same people, and with the same long takes of people going up or down stairs. it's kind of a simpler, easier-to-understand version of primer (2004), but setup took way too long, with seemingly scene after scene involving new characters being introduced to the conceit of the movie. compared to river where pretty much everyone's on board by the third loop.
+
+mondays: see you 'this' week! (2022): office comedy as time loop movie. pretty fun but it passes up some obvious critiques about office work... or sets it up and leaves you to finish the critique yourself, but in my experience most movies ain't that subtle. like, the advertising agency in this movie is coming up with a campaign for a carbonated miso soup tablet--the sort of obviously unsuitable product you'd see in a filmed snl skit.
+
+good news for leonard's japanese reading practice, but bad news for any gaijin trying to watch this movie: there is so much on-screen japanese text in this one that subtitles weren't enough to follow the story. when it was just corporate emails and text messages, it was usually clear from context what was happening, but once we started getting "we're in a time loop" powerpoint presentations and ken burns pans over pages of manga, sumana and i were pausing a lot and making heavy use of google lens.
+
+the only other movie i can think of that's so text-heavy was shin godzilla (2016) and there the details of the text, like all human efforts to thwart godzilla, turned out not to matter. also, as i recall there was an english translation layer superimposed over the japanese text, like what you see in subtitled anime, so if you read quick enough you could catch it all.
+
+
+speaking of which, the television spotlight this month shines on laid-back camp, a relaxing anime series that sumana and i both enjoyed watching, and she didn't mind me constantly pausing to sound out signs or text messages. fun and calming, with lots of katakana on the signs so i felt like i'd figured out what they were saying once i decoded the sounds.
+
+btw there's another movie i regret missing in the 2019 japan cuts festival: samurai shifters, the nerdy samurai librarian story, which i still haven't found anywhere. just putting that here for my own future reference. 
+
+
+ sat feb 03 2024 12:30 january film roundup: 
+   
+future '38 (2016): a very divisive film according to user reviews, but sumana and i both loved the screwball comedy banter, the old-timey sci-fi slang, and the fact that it seems to have been filmed over by the trader joe's in long island city. it's kind of the perfect film roundup movie, because it combines the aesthetics of old comedies and low-budget sf.
+
+boy, did i get a wrong number! (1966): another midcentury modern sex comedy with no sex. bob hope is actually properly cast in this one, as a middle-aged father who's tempted... to bring leftover fried chicken to a hungry starlet. he should just cheat on his wife with his housekeeper phyllis diller, like a normal 1960s real estate broker.
+
+even dull movies like this usually have a couple interesting bits, and i think diller is the interesting bit here—i'd never seen her act before and she's got a lot of what i think of as "kate mckinnon energy."
+
+oh yeah, here's another thing: a while ago i mentioned that there's a span of decades where hollywood movies don't seem to have car chases. well, they definitely do by 1966. this is one of those comedies that ends with a wacky car chase that i find boring (see also: a funny thing happened on the way to the forum). you do get to see bob hope hijack a cop car, which i thought i'd only be able to see in the alternate universe of the man in the high castle.
+
+something must have happened in the early 60s to make car chases safer or cheaper to film. maybe a technological advancement, maybe a streamlined permitting system, maybe the formation of the stuntmen's association in 1961. maybe it was simply a lost technique rediscovered so they could film it's a mad, mad, mad, mad world (1963). i don't know. someone's got to have a master's thesis on this, i'm just going by what i see in the movies.
+
+the corporal and the others (1965): a.k.a.. "a tizedes meg a többiek". as the author of situation normal, the story spoke to me: people trying to opt out of a war take refuge in a seemingly abandoned place that quickly becomes a hotspot; farce ensures. not as much of the good soldier schweik as i perhaps stereotypically expected from an eastern european war comedy, but it was a good time overall.
+
+i imagine hungary in 1965 was a tetchy place to make a wwii movie, and the balancing act here is quite noticeable: the nazis are portrayed as monstrous buffoons and the regular hungarian army isn't that much better, while the advancing soviets (hungary's nominal enemy) are mainly represented by one hapless draftee. i think this works in the movie's favor as a comedy, driving home the fact that nobody is going to help these desertees, they've got to help each other. this enthusiastic imdb user review gives some historical context.
+
+bad day in black rock (1955): this film promises unity of time and doesn't quite deliver, although i guess the "bad day" could be the one that spencer tracy has arrived to investigate. this was a decent drama that had much less "classic western" than i expected based on the description. but it had way more "asteroid city" than i expected based on the description, which was a pleasant surprise.
+
+with six you get eggroll (1968): for some reason i thought this rom-com came out in 1978 and i kept thinking "this is really outdated, it could have been made ten years earlier." the joke's on me! this was all right; i liked the role-reversal, with the parents escaping to the drive-in to get away from their judgmental children. george carlin's first film role is as the waiter! some good banter between the leads, and unlike modern rom-coms it doesn't end when they get married. unfortunately, the comedy does end (in both senses) with a big car chase that's not very funny.
+
+mr. majestyk (1974): like watching first blood, if rambo was my grandpa dalton. this guy just wants to get his crop in, and he's going to fuck up the whole crime syndicate to do it. the elmore leonard screenplay elevates it above the usual 1970s action fare, i think.
+
+includes a great, messy scene where a bunch of watermelons are shot up, like the untouchables meets double dare. also includes a good, exciting car chase scene. maybe they just shouldn't be in comedies?
+
+decision at sundown (1957): a strangely bloodless title. "i'm gonna need a decision by sundown, tex." this movie's one big seige/hostage situation and maybe if i'd been in more of a dog day afternoon mood i would have liked it more. but probably not, judging from the amazingly dull final line. ("i'll tell you one thing, none of us will ever forget the day that bart allison spent in sundown.") it's the kind of bad line that now sounds like it came out of an llm. in fact, while writing this review i asked rob dubbin's llm to come up with a better final line, and it just didn't give me any output, silently admitting defeat. richard deacon provides some welcome comic relief.
+
+the wrong arm of the law (1963): a good concept, i always like a good cinematic police/criminal team-up, but only intermittently fun to watch. i hesitate to mention this since this isn't a hollywood picture and i don't know where it fits my theory, but... this 1963 comedy ends with a big car chase that's not very funny.
+
+the long good friday (1980): loved it. a better, non-comedy version of the wrong arm of the law. the classic tale of a criminal whose life is spiraling out of control and doesn't see that he's facing threats that are way above his level. before seeing this movie, i didn't know bob hoskins was british, because i'd only seen him play characters with perfect american accents; here, he perfectly straddles the line between genial and thuggish, which is where you want your movie crime bosses. a young helen mirren has a couple of intense scenes.
+
+simon (1980): a woody allen movie with no woody allen; alan arkin plays the part instead. unfortunately, woody passed on this one for a reason: the film is a mess. but it's a mess full of the aesthetic i love: modernist buildings, creepy think tanks, scientists who dress like carl sagan, the space shuttle back when it was an untested and mysterious spacecraft. all that good stuff. the rest of the film? well, there are some jokes, and wallace shawn's in it.
+
+the indian scientist in this film is credited as simply "jayant." there is an indian actor who acted under the name jayant, but he died in 1975. this is nikil jayant, an actual scientist who ended up playing an evil scientist in a movie about evil scientists. he was at bell labs at the time, and i have to assume marshall brickman met him there while researching the film.
+
+apart from simon (1980), dr. jayant is known for his work on data compression. here's an ieee paper from him from around the time of simon, a paper that apparently came with a vinyl record so you could hear the examples! this guy's a triple threat!
+
+the lawnmower man (1992): speaking of sci-fi messes. what i didn't know until just before i saw this film is that it's not a normal hollywood production; it's a low-budget movie made by a vr booster to get the public psyched up about vr. as a creative work, it's a b-movie that unexpectedly made it big. as a piece of cinema, it's kind of an industry propaganda film, like hats off to soup or telephones: when you need to talk to someone but they're in another town. go in with this knowledge, and the movie makes sense. it's not as boostery as hats off to soup, because the director also cares about telling a story, but that's why the vr segments are the way they are.
+
+do i recommend this film? not really, no. the goofy cgi isn't funny out of context, and the contextual matter is too slow and predictable to be interesting on its own. however, there is some nice-looking old tech, and if you can get over the "cheese" factor and the "total nonsense" factor, there are still some chills to be found in the scenes where human beings are transformed into human-shaped collections of pov-ray balls. also, young dean norris was a nice surprise.
+ 
+
+
+  (1)  wed jan 31 2024 14:12 schickele mix archive: 
+   to commemorate the recent passing of composer peter schickele (r.i.p.), i've created  the schickele mix online fan archive. this site presents all of the extant information online about schickele's amazing music-education radio show schickele mix, which stopped airing in 2007 and has been in copyright clearance hell ever since—an inevitable but undeserved fate.
+
+i've scraped the now-defunct official perl cgi that gave out schickele mix listings, and reformatted the listings with links to archived recordings of all the episodes that have been saved by fans. about 130 of about 180 episodes total have been archived, thanks entirely to two people, both of whom show up in this reddit thread to take credit. thanks, frodo_picard and gattgun, from a grateful world.
+
+all this metadata is now available as a big json file (so no one else has to download those old listings from the wayback machine and rewrite my scraping code), and i also created a podcast rss feed that lets you experience schickele mix in its haphazard original broadcast order. (this is different from the benofsky.com schickele mix podcast mainly in that it includes the gattgun archive, not just the frodo_picard archive.)
+
+i've got one more big piece of this project planned, but this is enough to tell the world, i think. the web page makes it clear which episodes of schickele mix are still missing fan-archive recordings. if you think you might have one of the missing episodes on an old cassette tape or something, please email me at leonardr@segfault.org. 
+
+
+  (1)  sat jan 20 2024 18:25 the 2023 crummy review of things, part 2: books and games: 
+   ok, i've finished looking over my records and i'm ready to do book and game recommendations. as often happens, the crummy.com review of things will proceed in fits and starts this year, but i'll eventually get it all done. i've discovered that this is now how i keep track of the passage of my life, rather than blogging the things i do right as i do them like a normal person.
+
+the crummy.com book of the year 2023 is happy snak, because it's the only book i wanted to do its own blog post about. other good books i read in 2023 include rescuing prometheus: four monumental projects that changed the modern world by thomas p. hughes, and the conceptually very similar the backroom boys: the secret return of the british boffin, by francis spufford.
+
+the crummy.com game of the year is mr. sun's hatbox by solo developer kenny sun, which sets roguelike combinatorics in a platforming environment with a slapstick style to create a comedic, customizable spelunky-style experience. other games i really enjoyed include: the legend of zelda: breath of the wild, mosa lina, factorio and void scrappers.
+
+finally, sumana and i added a few new games to our irregular daily rotation:
+
+
+diffle, a wordlelike that, apparently, fits with the way we think about words.
+connections from the nyt.
+metazooa, metaflora, and birdle, games of cladistics.
+
+next up: something else! 
+
+
+this document is part of crummy, the webspace of leonard richardson (contact information). it was last modified on tuesday, december 08 2020, 19:23:12 nowhere standard time and last built on wednesday, february 19 2025, 03:15:01 nowhere standard time.crummy is © 1996-2025 leonard richardson. unless otherwise noted, all text licensed under a creative commons license.document tree:
+http://www.crummy.com/
+
+
+site search:
+
+
+
+
+
+
+
+
+
