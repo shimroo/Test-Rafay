@@ -1,0 +1,1611 @@
+
+
+
+
+
+
+
+
+	cimis
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    security warning
+                
+
+
+
+
+
+
+                                your session is about to expire. do you want to continue?
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+login | register 
+
+
+
+
+
+
+
+
+                        home
+stations
+
+                        data
+
+                        spatial
+resources
+
+
+
+
+
+
+
+
+
+
+
+notices
+
+
+
+
+
+
+
+
+ 
+
+                    ftp has been updated to sftp at sftp://sftpcimis.water.ca.gov (host). contact us for username and password.
+                
+
+
+
+
+
+
+ 
+
+                    use filezilla or winscp to access the upgraded sftp data interface
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+overviewgetting startedcimis staffsystem newsfaqs
+
+
+
+
+
+
+
+
+
+
+ printer friendly version
+            
+
+
+cimis overview
+
+the following sections give a brief overview of cimis. sections include the following: introduction; data collection, transmission, and processing; data retrieval by users; eto maps (spatial cimis); and trends in cimis data use. please click on the arrow to the right of each title below to access the section.
+
+
+
+
+introduction
+
+
+the california irrigation management information system
+                            (cimis) is a program unit in the water use and efficiency branch, division of regional assistance, california department of water resources (dwr) that
+                            manages a network of over 145 automated weather stations in california. cimis was
+                            developed in 1982 by dwr and the university of california, davis (uc davis). it
+                            was designed to assist irrigators in managing their water resources more efficiently.
+                            efficient use of water resources benefits californians by saving water, energy,
+                            and money.
+                        
+
+
+data collection, transmission, and processing
+
+
+
+cimis weather stations collect weather data on a minute-by-minute basis. 
+                    hourly data reflects the previous hour's 60 minutes of readings. hourly
+                    and daily values are calculated and stored in the dataloggers. a computer at the
+                    dwr headquarters in sacramento calls every station starting at midnight pacific
+                    standard time (pst) and retrieves data at predetermined time intervals. at the time of
+                    this writing, cimis data is retrieved from the stations every hour. 
+
+                    when there is a communication problem between the polling server and any given station,
+                    the server skips that station and calls the next station in the list. after all
+                    other stations have reported, the polling server again polls the station with the
+                    communication problem. the interrogation continues into the next day until all of
+                    the station data have been transmitted.
+
+                    cimis data processing involves checking the accuracy of the measured weather data
+                    for quality, calculating reference evapotranspiration (eto/etr) and other intermediate
+                    parameters, flagging measured and calculated parameters, and storing the data in
+                    the cimis database. evapotranspiration (et) is a loss of water to the atmosphere
+                    by the combined processes of evaporation from soil and plant surfaces and transpiration
+                    from plants. reference evapotranspiration is et from standardized grass or alfalfa
+                    surfaces over which the weather stations are sitting. the standardization of grass
+                    or alfalfa surfaces for a weather station is required because et varies depending
+                    on plant (type, density, height) and soil factors and it is difficult, if not impossible,
+                    to measure weather parameters under all sets of conditions. irrigators have to use
+                    crop factors, known as crop coefficients (kc), to convert et from the standardized
+                    reference surfaces into an actual evapotranspiration (etc) by a specific crop.
+                    
+
+
+data retrieval by users
+
+
+cimis weather stations are randomly distributed throughout california. it is very
+                            important that users select stations that represent the same microclimate as their
+                            area of interest. resources to assist users in selecting representative weather
+                            stations include the cimis web site, local water districts, farm advisors, consultants,
+                            and cimis staff.
+                         
+
+                         calculated parameters (such as eto, net radiation, and dew point temperature)
+                         and measured parameters (such as solar radiation, air temperature, relative humidity,
+                         and wind speed) are stored in the cimis database for unlimited free access by registered
+                         cimis data users. data can be retrieved using the cimis web site here.
+data can be delivered to you via email on a given schedule.  email scheduling is available in two areas of the website after registering and 
+                         logging in. please click the data navigation bar, then my reports, then under custom reports click on the ‘edit’ button to adjust settings and 
+                         to have cimis send data to your email.  also after logging in, click on the spatial navigation bar and schedule spatial report to set up 
+                         emailing of spatial data.
+in addition to the web, cimis offers an ftp site 
+                         and web services for those interested in automated access to
+                         the data. the ftp site provides hourly and daily data for the previous 7 days and
+                         the previous 12 months. also available at the ftp site is one year's
+                         worth of rolling daily eto data, which means that the beginning and ending dates
+                         of this data advance forward by one day every day.
+web services for cimis includes the cimis web api.  this platform provides cimis data over soap and rest 
+                         protocols free of charge. the restful services have been designed with a simplified interface that allows data 
+                         to be queried by specific weather stations, zip codes, geographic coordinates, and even street addresses. 
+                         new services allow users to get cimis station data as well a comprehensive list of supported zip codes for the 
+                         spatial and station systems. please visit the cimis web api website for more details.
+
+                            contact information for cimis staff at the sacramento headquarters and the dwr regional
+                            offices are provided in the cimis staff tab on the home page. questions regarding
+                            the selection of a cimis station, installation of new station, missing data, and
+                            information on how to use the data can be directed to the cimis staff in your dwr
+                            regional office. there are four dwr regional offices in california. if you have
+                            problems contacting the cimis staff in your regional office, you can contact us (dwrcimispubliccontact@water.ca.gov) at the headquarters in sacramento.
+                         
+
+
+eto maps (spatial cimis)
+
+
+the eto zones map allows users to view the reference evapotranspiration (eto) zones for the state of california. this map divides the state into 18 zones based on long-term monthly average eto values calculated using data from cimis weather stations.
+many areas of california are not sufficiently covered
+                        by the network of randomly placed cimis stations. recognizing these spatial data
+                        gaps, cimis in cooperation with the uc davis developed a daily eto map known as
+                        spatial cimis. it provides daily eto at 2-km grids for the entire state. the eto
+                        maps are generated using complex sets of models. the input parameters to these models
+                        are combinations of data from satellites and ground measurements. spatial cimis
+                        covers data from february 20, 2003 forward and can be accessed here
+
+
+
+trends in cimis data users
+
+
+although cimis was initially designed to help agricultural growers develop water
+                            budgets for determining when to irrigate and how much water to apply, the user base
+                            has expanded over the years. current cimis data users include landscapers, local
+                            water agencies, fire fighters, air control board, pest control managers, university
+                            researchers, school teachers, students, construction engineers, consultants, hydrologists,
+                            government agencies, utilities, lawyers, weather agencies, and many more.
+                         
+
+                            the number of registered cimis data users has also been growing steadily over the
+                            years. currently, there are over 40,000 registered cimis data users. this number
+                            reflects only those registered users that are primary users of the cimis data. all
+                            users that are registered with cimis and have access to the archived cimis data
+                            are considered primary users. it has been established that thousands more users
+                            get cimis data from primary users. examples include local water districts and consultants
+                            providing cimis data to their clients, newspapers providing eto data to their subscribers,
+                            and websites providing cimis data to their customers. users that get their data
+                            from sources other than the cimis database are referred to as secondary or tertiary
+                            users.
+                         
+
+
+
+
+
+
+
+
+
+
+
+
+
+ printer friendly version
+            
+
+
+getting started
+
+
+
+                 cimis provides data from two sources; cimis stations and spatial cimis.  both types of data can be scheduled and emailed to you.  
+                 station data include measured parameters such as solar radiation, air temperature, soil temperature, relative humidity, wind speed, 
+                 and wind direction and derived parameters such as vapor pressure, dew point temperature, reference and evapotranspiration (eto). 
+                 spatial cimis data comes from satellite and cimis station data and consists of eto and solar radiation only. station data can be retrieved 
+                 from the data navigation bar whereas spatial cimis can be retrieved from the spatial navigation bar. 
+                
+follow the steps below to access current and archived reference evapotranspiration (eto) and station weather data. non-registered users can 
+                retrieve current station data within preset parameters. registered and logged in users have unlimited access to current and archived cimis data 
+                and all the website features, including email scheduling and spatial data. getting started provides information about the following: non-registered users, 
+                registered users or to register, other data report options for registered – logged in users, and navigation bar content summary. please click on the arrow 
+                to the right of each title below to access the section.
+
+
+
+
+non-registered users
+
+
+limited data
+
+click on the data navigation bar. select the limited hourly, limited daily, or limited monthly report style using the dropdown menu arrow. the time period for hourly is today's date and 7 days prior.  the time period for daily data is the previous 7 days. monthly data is the previous 12 months.
+select the unit of measure; english units are the default.
+choose a cimis station. select one or more stations closest to the location you are interested in, taking into consideration best matches 
+                                    to your location’s microclimate. to select multiple stations, hold down the shift or ctrl key while clicking on multiple stations. refer to the 
+                                    station location map tab under the stations navigation bar to verify what stations are closest to you.
+click on the run report button.
+a web report will be displayed in a new browser tab page. if a report does not display,
+                                        check your pop-up settings – including search engine toolbar pop-up settings – and
+                                        allow pop-ups from this website. then, try again.
+
+
+ftp data
+
+click on the data navigation bar and select the ftp reports link to select annual,
+                                        daily, hourly, and monthly ftp data.
+
+
+
+registered users or to register
+
+
+registration
+
+the login and register links are located at the upper right corner of the web pages,
+                                        or use the login link on the data navigation bar. spatial has a spatial reports
+                                        login tab.
+register by filling in the required information on the page. registration is required
+                                        for statistical purposes only and your information is not shared with any group
+                                        or entity.
+
+
+log in for unlimited data access
+
+after logging in, you may access archived cimis data and a selection of reporting
+                                        options. you can change your password any time on the account page (link at upper
+                                        right corner of the website). if you are logged out, the login link is also at the
+                                        upper right corner of the web page.
+click on the data navigation bar. select the hourly, daily, daily eto variance,
+                                        monthly, or monthly average eto report style by using the dropdown menu arrow. the default time period for hourly is today's date and 7 days prior. the default time period for daily data is the previous 7 days.
+                                         the monthly default period is the previous 12 months.
+select a reporting method, the default is web report. the web, xml (extensible markup
+                                        language), and pdf reports will display the data in a new browser page. selecting
+                                        csv (comma separated values) report may provide the option to save or open the data.
+                                        csv opens in microsoft excel, notepad, or similar programs.
+choose english or metric units. the default is english. select a date range for
+                                        the report.
+stations can be selected by status (active or inactive) and zip code. specific sensors
+                                        and hour ranges can be selected also on some reports.
+choose a cimis station. select one or more stations closest to the location you are interested in, taking into consideration best 
+                                    matches to your location’s microclimate. to select multiple stations, hold down the shift or ctrl key while clicking on multiple stations. 
+                                    refer to the station location map tab under the stations navigation bar to verify what stations are closest to you. if selecting by zip codes, 
+                                    separate them by a comma.
+click on the run report button. if a report does not display, check your pop-up
+                                        settings – including search engine toolbar pop-up settings – and allow pop-ups from
+                                        this website. then, try again.
+ click on logoff in the upper right corner to exit.
+
+
+
+other data report options for registered, logged in users
+
+
+my reports and preferences
+
+click on the data navigation bar and select the my reports and preferences links
+                                        (upper right). select from up to 3 custom station lists and display quick custom
+                                        reports using preferences defaults. use preferences to set up station lists and
+                                        to select defaults for output format, units of measure, and zip codes. also set
+                                        the date ranges for quick and custom reports.
+my reports also includes an email scheduling option. use the custom reports “edit”
+                                        link to create up to four customized reports and choose how often you will receive
+                                        them by email.
+
+
+schedule spatial reports
+
+click on the spatial navigation bar to get eto and solar radiation information from
+                                        combined satellite and cimis station data. click on the spatial overview tab for
+                                        more details.
+
+
+web services
+
+click on cimis web api to access the web services website for a full explanation of this method of accessing cimis data.
+request a web api appkey after registering on our site by scrolling to the bottom of the 'edit accounts' page and clicking on the 'getappkey' button.
+
+
+
+navigation bar content summary
+
+
+home
+
+what the cimis data is, how the cimis system works, and who uses it. use the getting
+                                        started tutorial to sample current cimis data or get archived data. contact your
+                                        local or state cimis staff. find the latest news about the cimis station system
+                                        and frequently asked questions (faq) lists.
+
+
+stations
+
+see a listing of active and inactive cimis stations. view a map of the cimis station
+                                        locations. read the cimis station siting criteria, station sensor list and details,
+                                        and the maintenance program for stations.
+
+
+data
+
+select hourly, daily, daily eto variance, monthly or monthly average eto reports.
+                                        set up your own custom reports, have them emailed to you, and select your report
+                                        default preferences.
+
+
+spatial
+
+see statewide solar radiation and eto maps. select up to 10 locations and have spatial
+                                        solar radiation and eto data emailed to you.
+
+
+resources
+
+read extra information about the cimis program, cimis data, eto, irrigation and
+                                        related publications. find a listing of irrigation service consultants and software.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            you may email 
+            (dwrcimispubliccontact@water.ca.gov)or call us at cimis headquarters in sacramento or contact your regional office below. 
+            cimis staff is generally available during normal business hours from 8 am to 5 pm.  regional office representatives listed below.
+        
+
+
+
+ printer friendly
+            version 
+
+
+        cimis staff
+
+
+
+headquarters
+            715 p street, 6th floor
+            p.o. box 942836
+            sacramento, ca 94236
+            dwrcimispubliccontact@water.ca.gov
+        
+
+
+
+jared birdsall
+
+
+                    (916) 707-1189
+                
+
+
+
+cayle little
+
+
+                    (916) 654-6265
+                
+
+
+
+ricardo trezza
+
+
+                    (916) 902-7638
+                
+
+
+
+wenguang zhao
+
+
+                    (916) 902-7277
+                
+
+
+
+
+northern region office
+            2440 main street
+            red bluff, ca 96080
+            fax: (530) 529-7322
+        
+
+
+
+todd flackus
+
+
+                    (707) 499-8429  
+                
+
+
+
+
+north central region office
+            3500 industrial boulevard
+            west sacramento, ca 95691
+            fax: (916) 376-9676
+        
+
+
+
+james briggs
+
+
+                    (916) 698-6161
+                
+
+
+
+
+south central region office
+            3374 east shields avenue
+            fresno, ca 93726
+            fax: (559) 230-3301
+        
+
+
+
+guillermo coronado
+
+
+                    (559) 230-3388
+                
+
+
+
+lida shoeyb
+
+
+                    (559) 230-3369
+                
+
+
+
+
+southern region office
+            770 fairmont avenue
+            glendale, ca 91203
+            fax: (818) 543-4604
+        
+
+
+
+robert fastenau
+
+
+                    (818) 621-9159
+                
+
+
+
+trevor hope
+
+
+                    (818) 621-9318
+                
+
+
+
+
+
+
+
+
+
+station 5 shafter is not reporting eto.
+posted: tuesday, june 25, 2024
+                        site conditions at the cimis station 5 shafter site no longer allow eto processing due to lack of irrigation and healthy grass reference surface. cimis is actively looking for new station hosts. if you know of an interested party with a large field, pasture, golf course, or park with year-round irrigated grassy surface, please contact us. 
+                    
+
+
+
+station 257 ridgecrest will report eto once irrigation is resumed.
+posted: tuesday, june 25, 2024
+                        station 257 ridgecrest's golf course has plans to resume irrigation of their back 9 fairways.  once irrigation is restored or the station equipment is moved to a reference site with irrigation and grass, eto will once again be able to process. 
+                    
+
+
+
+station 148 has been removed and deactivated
+posted: thursday, april 11, 2024
+station 148 was deactivated due to a land use change beginning april 9th, 2024.  we are grateful to the station host for providing their site for the past 25 years. if you know of any irrigated pastures, ballparks, or golf courses that would possibly host a cimis station in or near merced, please contact us.
+
+
+
+
+ftp has been upgraded
+posted: thursday, january 11, 2024
+                        the ftp has been updated to sftp at sftp://sftpcimis.water.ca.gov (host). contact us for new username and password. use filezilla or winscp to access.  to bring the ftp access up to date with modern security, the protocol has been upgraded to secure file transfer protocol (sftp).  contact us and an email will be sent to current ftp users which includes credentials for logging in to the new protocol. dwrcimispubliccontact@water.ca.gov
+                    
+
+
+
+station 198 santa paula has been discontinued
+posted: thursday, june 29, 2023
+station 198 santa paula has been discontinued due to a land use change. historical data is still available.
+
+
+
+
+station 142 orange cove has been retired.
+posted: friday, march 17, 2023
+                        station 109 orange cove has been retired due to site location and maintenance problems.  historic data is available. please contact cimis if you are interested in hosting a cimis station in your irrigated pasture, golf course, ballpark, or other land type.
+                    
+
+
+
+station 169 porterville has been retired due to a land-use change.  historic data is available.
+posted: friday, march 17, 2023
+                        station 169 porterville has been retired due to a land-use change.  historic data is available. please contact cimis if you are interested in hosting a cimis station in your irrigated pasture, golf course, ballpark, or other irrigated land type.
+                    
+
+
+
+station 62 temecula is no longer reporting eto.
+posted: friday, march 17, 2023
+station 62 temecula is no longer reporting eto due to poor site location (insufficient irrigated grass surface) and maintenance problems. please let us know if you know of a suitable irrigated field nearby for a new cimis station.
+
+
+
+
+station 88 cuyama temporarily not reporting eto.
+posted: thursday, february 23, 2023
+                        station 88 cuyama is temporarily not reporting eto until irrigation is resumed and the grass is restored.
+                    
+
+
+
+station 218 thermal south has been vandalized and is temporarily out of order
+posted: monday, december 12, 2022
+station 218 thermal south has been vandalized and is temporarily out of order.
+
+
+
+
+station 109 carneros has been retired.
+posted: friday, september 16, 2022
+station 109 has been retired due to site location and maintenance problems.  historic data is available. please contact cimis if you are interested in hosting a cimis station in your irrigated pasture, golf course, ball park, or other land type.
+
+
+
+
+a new cimis station, #265 paso robles, has been added to the network
+posted: tuesday, may 3, 2022
+                        there's a new cimis station, #265 paso robles, that has been added to the network.  the station is in san luis obispo county, just east of the salinas river. the irrigated pasture is surrounded by vineyards. 
+                    
+
+
+
+blackwells corner deactivated
+posted: tuesday, november 9, 2021
+cimis weather station #54, blackwell's corner has been turned off and will be removed. maintenance has been discontinued and the conditions surrounding the station have degraded to the point that the station data can no longer be used for cimis.  historical data is available.
+
+
+
+
+dixon 121 has been deactivated; land being converted to orchard
+posted: monday, july 12, 2021
+                        dixon 121, one of our longest running station sites at 27 years, has been deactivated.  the new landowner is converting the land to an orchard.   cimis is working with the station cooperator to locate a new site nearby. 
+                    
+
+
+
+station #57 buntingville will be replaced by a new station soon.
+posted: monday, may 17, 2021
+                        station #57 buntingville will be replaced by a new station soon.  the historical data from #57 is available, but the station has been shut down and removed.
+                    
+
+
+
+station #255 chino will be replaced by a new station this summer.
+posted: thursday, april 15, 2021
+                        station #255 chino will be replaced by a new station this summer.  the historical data from #255 is available, but the station has been shut down and removed.
+                    
+
+
+
+cellular providers have notified us that some station modems will lose service after jan. 1st, 2021.
+posted: monday, february 1, 2021
+cellular providers have notified us that some of the older generation station modems will lose service after jan. 1st, 2021. cimis station data and spatial cimis may be affected. station modems are being replaced with newer models.  station data is continuing to be collected and stored at the station and will be made available once communication is restored.  please check system news for updates. 
+
+
+
+
+station #216 arleta is operating again.
+posted: thursday, december 17, 2020
+                        the vandalism at station #216 arleta has been repaired, the station is operating and data is available now.
+                    
+
+
+
+station #111 green valley road has been turned off,
+posted: friday, december 4, 2020
+                        cimis weather station #111, green valley road has been turned off and may be removed. the conditions surrounding the station have degraded and have been built up to the point that the station data is no longer useful. historical data is available.
+                    
+
+
+
+cimis station #86 lindcove has been shut down.
+posted: friday, december 4, 2020
+                        station #86 lindcove has been replaced by station #258 lemon cove.  the historical data from #86 will be available, but the station has been shut down and will be removed.
+                    
+
+
+
+a new cimis station #264 sierra valley center has been added to the network
+posted: friday, november 20, 2020
+                        there's a new cimis station #264 sierra valley center that has been added to the network. the station is located east of portola in plumas county.
+                    
+
+
+
+a new cimis station #263 smith river has been added to the network.
+posted: friday, october 9, 2020
+                        a new cimis station #263 smith river has been added to the network. the station is located north of crescent city in del norte county.
+                    
+
+
+
+
+
+
+
+
+
+            the following are frequently asked questions (faq) regarding eto, reports, and general inquiries.  click to change categories and to show or hide answers.
+        
+
+
+general faqs
+report faqs
+eto faqs
+
+
+
+
+
+
+q
+
+
+what is cimis? show answer
+
+
+
+
+
+
+
+a
+
+
+                        cimis is an acronym for california irrigation management information system, a program unit in the water use and efficiency branch, california department of water resources (dwr). cimis is an integrated network of over 140 automated active weather stations located throughout california. historical data is also available from 80 inactive weather stations. inactive stations are weather stations that have been disconnected from the cimis network for various reasons. the numbers of active and inactive stations change with time as new stations are installed and existing stations are disconnected.
+                    
+
+
+
+
+
+
+
+
+q
+
+
+how does cimis work? show answer
+
+
+
+
+
+
+
+a
+
+
+                        weather parameters are collected on site and temporarily stored in a datalogger that is mounted on the masts of weather stations. a computer at dwr headquarters in sacramento calls every cimis station beginning around midnight (pacific standard time) and retrieves the data at predetermined intervals. the data is checked for quality and flagged, if necessary. flagging does not necessarily mean the data is bad but indicates possible problems or deviations from expected normalcy. the flagging process is explained in the data overview tab of the "resources" link in the navigation bar. reference evapotranspiration (eto) is calculated and stored in a database along with the collected climatic data. users can access the stored data via the "data" link in the navigation bar.
+                    
+
+
+
+
+
+
+
+
+q
+
+
+can i get cimis data automatically delivered to my email? show answer
+
+
+
+
+
+
+
+a
+
+
+                        yes. the my reports link and the schedule spatial report tab have quick and convenient features that enable users to receive cimis data automatically via email. users fill in a form specifying the desired cimis information, and it is delivered automatically to the email address provided. users only need to fill in the forms one time in order to receive automatic updates.
+                    
+
+
+
+
+
+
+
+
+q
+
+
+where is the "my reports" link and the "schedule spatial report" tab? show answer
+
+
+
+
+
+
+
+a
+
+
+                        to access these features, register and log in to the website.  schedule spatial report is a tab under  the “spatial” link in the navigation bar.  my reports is a link under the “data” link in the navigation bar. in the my reports page, click on "edit" under custom reports to access email features.
+                    
+
+
+
+
+
+
+
+
+q
+
+
+how do i set up custom report to send data to my email?  show answer
+
+
+
+
+
+
+
+a
+
+
+                        first off, verify that you have a valid email address associated with your account.  if you are a new user, you will need to register. after logging in, select the "data" link in the navigation bar at the top of the page. once logged into the data page, select the preferences link.  
+here you will create up to three lists of stations for which you want cimis data. select from the dropdown menus on the right that say “list 1" and "add station to list". you may add multiple stations.  if you need to see the station locations, go to the station location map under the "stations" link in the navigation bar. when you are finished selecting stations and other preferences, select save.  
+now click on the my reports link.  selecting any of the “list” buttons under quick reports will request data with preset parameters. selecting “list” buttons under custom reports will request data using additional criteria that you can preset by clicking the “edit” buttons.  after selecting “edit” you will have option to “edit custom report” by selecting data types, sensors, time, units, lists, choosing a custom report name, and specifying delivery frequency.  once the delivery is set to occur (changed from "no automated delivery" to another setting) then emails will be sent as early as the next morning to your inbox.  please remember to save your changes. 
+
+                    
+
+
+
+
+
+
+
+
+q
+
+
+how do i schedule spatial reports to send data to my email? show answer
+
+
+
+
+
+
+
+a
+
+
+                        it’s easy to schedule spatial reports. begin at the cimis website and select login. if you are a new user, you will need to register. now select the "spatial" link in the navigation bar at the top of the page. once logged in and on the spatial page, select the spatial report tab.  first, you will create a list of coordinates or zip codes for which you want spatial data. go to the google map on the right and select points, search an address, or type in coordinates. when you are finished selecting coordinates or addresses, select save. now click on the schedule spatial report tab. you have the option here to schedule data email frequency and select data types, units, and time window. there is also the option to choose spatial data according to zip codes or using the coordinates specified under the spatial report tab. remember to save your changes.
+                    
+
+
+
+
+
+
+
+
+q
+
+
+when was cimis established? show answer
+
+
+
+
+
+
+
+a
+
+
+                        cimis was established in 1982 as a joint project between the university of california, davis and dwr. dwr assumed management of the cimis program in 1985.
+                    
+
+
+
+
+
+
+
+
+q
+
+
+who owns the cimis stations? show answer
+
+
+
+
+
+
+
+a
+
+
+                        some of the cimis stations are owned by dwr while local cooperators own others. the list of local cooperators includes water agencies, universities, cities, u.s. department of agriculture, u.s. bureau of reclamation, conservation districts, and private agriculture related industries.
+                    
+
+
+
+
+
+
+
+
+q
+
+
+how many years of data are used to calculate cimis` historical (long-term average) data? show answer
+
+
+
+
+
+
+
+a
+
+
+                        all previous years of data back to 1989 are used in the long-term averages.  the most recent historical average calculations were done in 2011.  inactive stations have averages based on the time period in which they were active. stations that only have data prior to 1989 use historical averages previously calculated.  stations that have less than 5 years of data are assigned monthly averages from a nearby station with a similar microclimate.
+                    
+
+
+
+
+
+
+
+
+q
+
+
+what information is available from the station list tab? show answer
+
+
+
+
+
+
+
+a
+
+
+                        information detailing each station’s geographic location, elevation, site description, zip code coverage, start date, county, nearby city, eto status, reference surface, and datalogger type are available. you will also find photos from cardinal directions for each station.  other information regarding station components, maintenance procedures, siting criteria, and location can be obtained by clicking on the other tabs of the "stations" link in the navigation bar.
+                    
+
+
+
+
+
+
+
+
+q
+
+
+what other information can i get from the cimis web site? show answer
+
+
+
+
+
+
+
+a
+
+
+                        additional valuable information is presented on irrigation, eto, station siting, data quality control, contacts, downloads of important documents, links to useful web sites, system news, consultants, software, eto equations, eto zones map, station location map, and station sensor specifications.
+                    
+
+
+
+
+
+
+
+
+q
+
+
+what do i have to do to install a new cimis station in my area? show answer
+
+
+
+
+
+
+
+a
+
+
+                        you need to contact the cimis representatives from your dwr regional offices. you can get their contact information by clicking on "cimis staff" from the home navigation bar. you can also contact us by email at dwrcimispubliccontact@water.ca.gov
+
+
+
+
+
+
+
+
+
+q
+
+
+years ago i had an account. can i still use it on the web? show answer
+
+
+
+
+
+
+
+a
+
+
+                        your old username and password may still be active.  keep in mind that this website has many updated features and settings that you will need to adjust to benefit from.  if you find that your account has carried over, please update your registration information.  you may also need to reset your preferences and email delivery selections.  if you try to log in and encounter a problem or need help, please email us at dwrcimispubliccontact@water.ca.gov .
+                    
+
+
+
+
+
+
+
+
+q
+
+
+why do i have to register to access cimis data? show answer
+
+
+
+
+
+
+
+a
+
+
+                        registration is purely for statistical purposes. we want to know who is using our data so that we can better serve their needs. the information you provide is confidential and will not be shared. you can obtain cimis data without registration but it will be limited. 
+                    
+
+
+
+
+
+
+
+
+q
+
+
+whom do i contact if i have questions about cimis and its data? show answer
+
+
+
+
+
+
+
+a
+
+
+                        there are several ways you can get help. you can email us your questions by clicking on "contact us" at the bottom of any cimis page. our email address is dwrcimispubliccontact@water.ca.gov. you may also go to the "cimis staff" tab on the home page and call or email anyone from the list.
+                    
+
+
+
+
+
+
+
+
+q
+
+
+is there a fee involved? show answer
+
+
+
+
+
+
+
+a
+
+
+                        no. cimis is a state agency serving the public free of charge. 
+                    
+
+
+
+
+
+
+
+
+q
+
+
+my question isn't listed here! show answer
+
+
+
+
+
+
+
+a
+
+
+                        if your question is not listed here, please click here and email your question to the cimis public contact. 
+                    
+
+
+
+
+
+
+
+
+
+
+
+q
+
+
+what kinds of data are available from cimis? show answer
+
+
+
+
+
+
+
+a
+
+
+                        users can obtain hourly, daily, and monthly data for a variety of data types. daily and monthly data include eto, precipitation, solar radiation, air temperature, soil temperature, vapor pressure, relative humidity, dew point, and wind speed. air temperature and relative humidity include minimum, maximum, and average values. hourly values include all of those mentioned plus wind directions. data is available for the complete history of each station. an eto variance report is also available illustrating a comparison of eto of the previous seven days for the current year, previous year, and an average year. incidentally, hourly and daily data for the previous 7 days and monthly data for the previous 12 months can be obtained without registration.
+                    
+
+
+
+
+
+
+
+
+q
+
+
+is the cimis data taken before or after the hour shown on the report? show answer
+
+
+
+
+
+
+
+a
+
+
+here's an example to answer that - the data for 1400 will represent the average of, or sum of, the data taken between 1:00 p.m. and 2:00 p.m. pacific standard time (pst).
+
+
+
+
+
+
+
+
+
+q
+
+
+does cimis use daylight savings time? show answer
+
+
+
+
+
+
+
+a
+
+
+                        cimis does not change to daylight savings time (dst). 
+                    
+
+
+
+
+
+
+
+
+q
+
+
+what time zone is cimis in? show answer
+
+
+
+
+
+
+
+a
+
+
+                        all cimis data is based on pacific standard time (pst).
+                    
+
+
+
+
+
+
+
+
+q
+
+
+how can i access cimis data? show answer
+
+
+
+
+
+
+
+a
+
+
+                        cimis provides station data and spatial data.  this faq response will address access to station data. for spatial data (derived from satellite and interpolated station data), please click on the "spatial" link in the navigation bar. for more information about spatial data, see the faq response for "how do i schedule spatial reports to send data to my email?"  for data from individual stations, please visit the cimis website and click on the "data" link in the navigation bar.  you may also want to register. without registering and logging in, station data access is limited to the past 8 days of hourly (which includes today), one week of daily, and 1 year of monthly tabulated data files.  to access all the archived data, free of charge, as well as selection/filtering options, click on "register". fill in your name and email and you will receive a verification email with a link to complete your registration.  your email will become your user id and you will create your own  password. after registration, you will have unlimited access to cimis data. log in and return to the "data" page to see the expanded selection options. data is also available from our ftp site. 
+                    
+
+
+
+
+
+
+
+
+q
+
+
+how can i retrieve data from the cimis web site? show answer
+
+
+
+
+
+
+
+a
+
+
+                        to retrieve data, click on the "data" link in the navigation bar of the cimis web site. select the type of data report you are interested in. if you would like access to all available data, select login. after returning to the "data" page, select the report style and date range, weather station, advanced settings, and click on "run report." a report will be generated. see the home/getting started tab for more information. 
+                    
+
+
+
+
+
+
+
+
+q
+
+
+can i download cimis data automatically? show answer
+
+
+
+
+
+
+
+a
+
+
+                        yes, data can be downloaded automatically from our ftp site (ftp://ftpcimis.water.ca.gov). you may also click on ftp reports on the data page.  the data is stored in "pub" directory under several subdirectories for hourly and daily data. also, available in the in the "pub" directory is a readme.txt file that describes the formats for the ftp data. the data exists for the previous seven days at a time. also updated daily is one year of eto from all active stations.  another option for automatic data is the cimis web api.  the cimis web api provides cimis data via public web services in soap and rest protocols free of charge.  after or during registration, you may select the get appkey and an application key will be sent to you for access to this resource.  more information can be found here: http://et.water.ca.gov/home/faq 
+                    
+
+
+
+
+
+
+
+
+q
+
+
+what is a limited hourly report? show answer
+
+
+
+
+
+
+
+a
+
+
+                        limited reports provide roughly the last week of reported data for hourly and daily data, and a standard annual report for monthly data. register and log in for unlimited reports and the complete cimis dataset with options for sensor selection and more.
+                    
+
+
+
+
+
+
+
+
+q
+
+
+can i get real-time data from a cimis station? show answer
+
+
+
+
+
+
+
+a
+
+
+                        for quality and security reasons, cimis currently does not allow users to have direct access to the data loggers on its weather stations. currently, cimis hourly data is updated every hour. for further discussions please contact cimis headquarters staff or email us by clicking on the “contact” link below.
+                    
+
+
+
+
+
+
+
+
+q
+
+
+how much historical data can i retrieve from cimis? show answer
+
+
+
+
+
+
+
+a
+
+
+                        the time frame over which the cimis data is available varies from station to station depending on installation and ending dates. you can get detailed information on the starting and ending dates for any station by clicking on the "stations" link in the navigation bar and then the “station list" tab. then click on the station that you are interested in.  the table of stations in the “data” page also contain sortable connect and disconnect columns with dates for each station.
+                    
+
+
+
+
+
+
+
+
+q
+
+
+what is "wind run"? show answer
+
+
+
+
+
+
+
+a
+
+
+                        it is the total distance the wind has traveled past the weather station within a given time period.
+                    
+
+
+
+
+
+
+
+
+
+
+
+q
+
+
+what is eto? show answer
+
+
+
+
+
+
+
+a
+
+
+                        evapotranspiration (et) is the loss of water into the atmosphere by the combined processes of evaporation from soil and plant surfaces and transpiration from plants. eto is evapotranspiration from standardized vegetation (grass) with known biophysical characteristics. standardized vegetation, commonly known as reference vegetation or reference crop, is required because different plants have different biophysical characteristics and it is not practical to formulate equations for each plant type under different sets of conditions. the standard reference surface for eto estimation at most cimis stations is a well-irrigated clipped grass.
+                    
+
+
+
+
+
+
+
+
+q
+
+
+how can i use eto data for irrigation scheduling? show answer
+
+
+
+
+
+
+
+a
+
+
+                        eto indicates how much water a reference crop of grass needs over a certain time period for optimum growth and development. you derive daily actual evapotranspiration (etc) for a specific crop by multiplying eto by a crop factor known as the crop coefficient (kc). kc is derived from field experience and research that converts eto to etc. by adding up daily etc values, including losses due to  irrigation system inefficiencies, and adjusting for any rainfall and other applied water, your plants’ water needs can be estimated.  irrigation scheduling is analogous to balancing your checkbook, for example; additions of irrigation water and precipitation would be deposits whereas et, runoff, and deep percolation would be withdrawals. for more information on irrigation scheduling, visit the "resources" link in the navigation bar and then click on irrigation overview.
+                    
+
+
+
+
+
+
+
+
+q
+
+
+what is a crop coefficient (kc) and how can i obtain it? show answer
+
+
+
+
+
+
+
+a
+
+
+                        a crop coefficient is a factor that is used to convert eto into estimated evapotranspiration (etc) for a specific crop. it is a dimensionless number ranging in values roughly between 0.1 and 1.25. it depends on many factors including crop type, stage of growth, the equation used to calculate eto, and moisture content of the soil surface. for most crops and landscape vegetation growing in california, you can obtain kc values and information by clicking on the "resources" link in the navigation bar, selecting publications, and clicking on leaflet pdfs 21427 and 21428, or on the uc davis bis link at http://biomet.ucdavis.edu/irrigation_scheduling/bis/bis.htm, or by accessing the wucols iii guide here: http://www.water.ca.gov/wateruseefficiency/landscape/  .
+                    
+
+
+
+
+
+
+
+
+q
+
+
+how come eto from cimis is greater than precipitation? show answer
+
+
+
+
+
+
+
+a
+
+
+                        there is no direct connection between eto calculation and precipitation. eto can be greater, less, or equal to precipitation. eto tells you the amount of evaporative demand that an atmosphere imposes on a given reference crop providing there is adequate moisture in the soil. precipitation data is not used in the calculation of eto.   
+ however, during a raining event, weather data used in the calculation of eto, such as solar radiation (reduced by clouds), air temperature and air relative humidity,  would be affected; lower eto values might be expected, when compared to clear sky conditions. 
+                    
+
+
+
+
+
+
+
+
+q
+
+
+how is monthly average eto calculated? show answer
+
+
+
+
+
+
+
+a
+
+
+                        monthly average eto is a long-term average of monthly eto values. the time period over which the monthly data is averaged begins in 1989 and spans the time the station has been active. the minimum time requirement is 5 years. stations that have less than 5 years of data are assigned monthly averages from a nearby station with a similar microclimate.  dwr annually updates the monthly averages from the latest station data. the current cimis station network has many stations that now have 5 years, or more, of data.
+                    
+
+
+
+
+
+
+
+
+q
+
+
+what is daily eto variance? show answer
+
+
+
+
+
+
+
+a
+
+
+                        daily eto variance is the percent difference between the daily eto and the historic average daily eto for that cimis station on that date. the time period over which the daily data is averaged depends on how long the station has been active. the minimum time requirement is 5 years. 
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+back to top | contact us | site map
+
+
+conditions of
+                    use | privacy
+                        policy
+
+                copyright ©
+                2025
+                state of california
+
+
+
+
+
+
+
+

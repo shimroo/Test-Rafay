@@ -1,0 +1,232 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+satellite internet and information about how it works
+
+
+
+
+
+
+
+
+satellite internet
+
+
+
+
+
+
+
+helpful details about vsat services, beam coverages, antenna pointing, how it works, discussion and help forum.
+
+
+
+
+
+
+click on your world region to go details of services in your country.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+the above five regional links provide my review details of a number of 
+  businesses providing satellite internet and satellite broadband to end user customers. due to the many  providers set up in the past twenty years you need to read 
+  those pages carefully and also review the further entries listed towards the 
+  ends of those pages. if you want your details included, just tell me: eric@satsig.net. there is no charge.
+this web site is not commercial and we don't sell anything, we are here to promote legitimate, satcom access for people in all locations, who are unable to gain access using 
+  terrestrial adsl via copper or optical fibre phone lines or using cable modems. satcom is an alternative and provides independent 
+  small-dish two-way access from almost anywhere.
+dish pointing:
+find your latitude and longitude 
+  (for vsat and satellite tv dish pointing - gives image of your house plus azimuth, elevation and polarization angles).
+discussion forum:
+go to my satellite internet forum and tell us your problems or help others with your experiences, or announce your services.
+or view the 20 recent posts now. 
+  other pages on this web site:
+list of satellites in the geostationary orbit
+satellite link budget calculator
+design a satellite beam
+vsat information index
+maps and latitude and longitude index
+index to personal, holidays and miscellaneous pages
+noise temperature, noise figure and noise factor
+microwave spectrum analysers for sale & hire
+frequency spectrums
+on-line spectrum analyser (no longer working)
+great circle azimuth calculator, lat, long, bearing & range for point-to-point terrestrial applications and sailing
+pictures of some geostationary satellites taken from the ground
+how to set up antenna reflector panels using fishing line
+axial ratio and cross polar discrimination ( xpd ) interference
+eutelsat beacon frequencies
+explanation of satellite tv polar mount plus examples
+ku transmit reject / receive bandpass filters for sale
+w3a
+see a satellite photo of your home
+information about interference if you operate in c band
+
+
+
+
+teleport hub
+
+
+
+  my hp8560a spectrum analyser
+
+
+ku band vsat
+click here to provide feedback. please complete anonymous survey about your use of my website.
+
+
+
+
+search this site  click here >  satsig search
+
+there are over 300 communications satellites in the geostationary orbit, directly above the equator, spaced typically 2 or 3 
+degrees apart. because they orbit the earth at the same speed and in the same direction as the earth rotates they remain fixed in the sky and you can 
+use a fixed pointing very small aperture terminal (vsat) to communicate. the maximum possible coverage area from any one orbit position is approx one 
+third of the earth, as that is all that is visible from the orbit position at a height of 35726 km. for example, a
+
+satellite above the equator to south of india can provide coverage which includes south africa, europe to japan and australia, as well as india which 
+is almost directly below it. to help with small dish operations spot beams are pointed down at particular areas. this web site 
+shows many such beam coverage areas. in general, smaller spot beams permit smaller earth station dishes.
+the satellites are generally owned and operated by large international organisations, such as
+intelsat.
+eutelsat is an example of a european regional operator.
+in addition to geostationary satellites, constellations of low-earth-orbit 
+satellites, such as starlink, now 
+provide high speed internet access for both home and business users. flat, 
+phased array, antennas are popular and dynamically point their beam at 
+satellites as the move across the sky. 
+at the higher frequency ka band, 20/30 ghz, there is a significant trend towards high throughput satellite (hts) using small, multiple, spot beam design with the vsat technology used (e.g. viasat surfbeam or hughesnet) all being determined by the satellite owner, with smaller 
+local reseller companies employed to essentially deliver "satellite broadband" to end users customer, collect the money and resolve as much as possible of the 
+customer support locally.
+capacity is measured in amounts of transponder bandwidth (mhz) and downlink eirp power (dbw) and uplink g/t (dbk) and sensitivity (dbw/^m2) are sold to  
+satellite internet providers who have teleports with groups of large earth station dishes.  the conversion of bandwidth, measured in mhz, to 
+  information data rate is complex and depends on modulation method (e.g bpsk, qpsk, 8-qam or 16-qam) and the forward error correction coding rate 
+(e.g 1/2, 3/4 or 7/8) and the type of fec (e.g. turbo code, viterbi, low density 
+  parity check or  reed soloman or combinations thereof).  the size of the dishes used also affects the achieved capacity.  
+using a larger dish may markedly reduce costs per mbit/s.
+satellite internet providers then deliver the service to end users by providing them with equipment and with monthly 
+download (mbytes) capacity allowance, plus customer support.
+customer equipment consists of a small dish, from 60cm to 3.7m diameter, at least equipped with a receiver module (lnb definition = low noise block 
+down-converter) and transmit module (buc definition = block up-converter).
+see pictures of 
+typical customer vsat installations. the customer indoor equipment receives the signals and extracts 
+data for the customer's pc or local area network.  the indoor equipment also prepares data for transmission, typically in very brief
+tdma 
+bursts whenever the mouse is clicked to send a request to the internet.
+[2008]monthly bit rate rental is specified, for example, as 512k down / 64k up shared 20:1 at price $202 per month.  this price is per vsat customer 
+terminal (i.e. $4032 per month in total).  such a solution would suit 1 or 2 pcs per site.  when you are downloading a file the speed may be 
+up to 512k bit/s. with 50:1 sharing you would find that for much of the time the available bit rate is lower - as other people will be using the 
+capacity at the same time. in shared arrangements there are often monthly download and upload limits (measured in g bytes per month) per customer, so 
+that one user cannot block everyone else. such fair-use or fair-access-policies 
+(fap) policies can be complex and, for example, may allow 50 mbytes to be downloaded at high speed 
+(say at 355 kbit/s) with such activity then followed by several hours of restricted lower speed 128kbit/s service until the service returns to high 
+speed at the end of the day. such policies vary greatly from one provider to another.    when calculating the downlink bit rate capacity 
+required, allow  14 kbit/s per pc, so if you have 100 pcs in your local area network (lan) you need at 
+least 1 mbit/s dedicated download rate.  
+uplink bit rates required are about 1/3rd of the downlink rate. if your use is only web browsing then the up/down ratio is about 1/5.  if you do 
+lots of voip calls then you need more equal capacity up and down.  remember you 
+only get what you pay for.  as a rough estimate, for c and ku bands, if you see a monthly 
+tariff, divide it by $70 and that will give you the number of pcs that you can connect in your lan.  don't believe marketing hype about 
+"unlimited" downloads on what are, in reality, shared systems. for 
+lower cost ka band such as
+wildblue
+tooway
+avanti-hylas
+figures as low as $40 - $80 per month may apply for basic home satellite internet access.
+[2014]update on costs: 20 mbit/s down + 10 mbit/s up = $90,000 per month. "up to 20 mbit/s" shared between 1500 customers at $60 per month (each customer).
+[2015]use of older satellites in inclined orbit requires tracking antennas, e.g. 1.2m diameter.  the initial costs and maintenance cost of a tracking antenna can cost much more than for similar sized, fixed antenna, but the 
+satellite costs are lower, for example $600 per 1 mbit/s. such a terminal would suit a remote community, shared with 30 customers each at say $30 per month.
+if you need dedicated satellite internet, for services like voip which require at least 11kbit/s each way all the time the call is in progress then dedicated continuous information rate service (cir) is appropriate. dedicated service is 
+many times as expensive than shared service but is suitable for internet cafés, 
+businesses and community isps. a vsat terminal is therefore often shared amongst a community of users to share the cost of the monthly charges.
+this is not a price comparison site.  you need to contact 
+any of the businesses mentioned directly and ask them for prices. all information put in this web site at my discretion and may be deleted at any time if i get complaints.
+operation is in microwave frequency bands called c band (4/6ghz), ku band (11/14ghz) 
+and ka band (20/30 ghz). c band is ideal for heavy rain locations. ku band is the most popular with dish sizes in the range 60cm - 1.8m diameter.  
+widespread consumer oriented ka band spot-beam services exist in the us and canada. 
+examples are wildblue and viasat exede. in europe, ka band preliminary services operated on hotbird for several years and from spring 2011 a major
+tooway service has proved popular on ka-sat at 9 deg east longitude.
+read more in the
+tooway and 
+ka-sat forum.  more recently ka band hylas has started operation, with europe, 
+middle east and africa coverage. yahsat also provided ka band spot beam service 
+in the middle east and a number of africa countries. wide bandwidths are 
+available for satellite service in ka band and this combined with satellites 
+having very many spot beams means reduced costs to end users.  minimum 
+tariffs for home users around $30 - $40 per month. ka band suffers from severe rain 
+attenuation causing reduced bit rates so occasional outages should be expected.
+in equatorial areas (up to +/- 45 deg latitude) o3b has introduced a 
+revolutionary, medium height, o3b orbit system intended for town isps and cell phone trunking, also for relaying massive data files from maritime seismic survey 
+vessels.  o3b customer sites  each have two antennas, 
+tracking the satellites as they move across the sky from west to east above the equator. reduced 
+latency or time delay, due the reduced distance to medium orbit height is a key selling point.
+emails sent to me asking for space segment leases, asking for vsat services or equipment or asking for satcom services etc may 
+be forwarded to any possible suppliers unless you specifically request otherwise.  this site contains a 
+favourite icon (favicon)   reviews of equipment and services are welcome.
+please e-mail me 
+eric johnston. i am pleased to accept technical reviews and descriptions of alternative technologies and ways of providing services.  please 
+send your images also.  if you have a web site, please point people direct to specific pages here, rather than copying pages.  your 
+cooperation would be appreciated, thank you.
+this web site started off on a sun sparc10, then sun sparc 20, then to a 
+leased sun netra t-1 server, then a pair of leased virtual machine (vm) and most recently to a pair of dell poweredge t310 servers.
+france - index page.
+deutschland - index page.
+high resolution satellite photo images
+ku band buc sale.
+information about how an lnb works and lnbs for sale.
+
+
+
+
+"satellite signals", "ssl" and "satsig"  are trademarks.
+    other names used on this page, sun, solaris, wildblue, intelsat, newskies and eutelsat are trade names of the respective organisations.
+all content copyright (c) 1999-2016 ssl ltd. all rights reserved.   established web site since 1 jan 1999.
+disclaimer, terms of use and privacy  
+    forum user agreement  
+    forum rules  
+    cookie policy.
+last updated 26 jan 2025
+
+
+
+
+
+
