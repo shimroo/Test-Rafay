@@ -176,6 +176,9 @@ def process_urls_from_csv(doc_df, limit):
                 try:
                     future.result()
                 except Exception as e:
+                    # PRINT THE url and doc_index
+                    url, doc_index = futures[future]
+                    
                     print(f"Exception occurred: {e}")
 
                 if local_count % report_interval == 0:
