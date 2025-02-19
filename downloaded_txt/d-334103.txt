@@ -1,0 +1,1584 @@
+
+
+
+
+
+  
+
+
+
+
+teideal glic deisbhéalach | bryan o'sullivan's blog
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+teideal glic deisbhéalach
+bryan o'sullivan's blog
+
+homesoftwarecabal-rpm – an rpm package builder for haskelldata.suffixtree – lazy, efficient suffix trees in haskellmysql – haskell language bindings for mysqlnetplug – a linux network cable management daemonpcap – haskell bindings for libpcapstringsearch, a fast bytestring search librarythreads faqa glossary of terms used in threaded programmingabout the multithreaded programming faqafter i create a certain number of threads, my program crashes [unix]asynchronous thread cancellation [unix]how can i perform a join on any non-specific thread? [unix]mixing threads and signals [unix]the history of threadswhat are the main families of threads?what is a thread?why are reentrant library and system call interfaces good?
+
+
+
+
+
+sometimes, the old ways are the best
+
+posted on 2015-05-13 by bryan o'sullivan
+
+—
+5 comments ↓ 
+
+
+over the past few months, the sigma engineering team at facebook has rolled out a major haskell project: a rewrite of sigma, an important weapon in our armory for fighting spam and malware.
+sigma has a mission-critical job, and it needs to scale: its growing workload currently sees it handling tens of millions of requests per minute.
+the rewrite of sigma in haskell, using the haxl library that simon marlow developed, has been a success. throughput is higher than under its predecessor, and cpu usage is lower. sweet!
+nevertheless, success brings with it surprises, and even though i haven’t worked on sigma or haxl, i’ve been implicated in one such surprise. to understand my accidental bit part in the show, let's begin by mentioning that sigma uses json internally for various purposes. these days, the haskell-powered sigma uses aeson, the json library i wrote, to handle json data.
+a few months ago, the haxl rewrite of sigma was going through an episode of crazytown, in which it would intermittently and unpredictably use huge amounts of cpu and memory. the culprit turned out to be json strings containing zillions of backslashes. (i have no idea why. if you’ve worked with large volumes of data for a long time, you won’t even bat an eyelash at the idea that a data store somewhere contains some really weird records.)
+the team quickly mitigated the problem, and gave me a nudge that i might want to look into the problem. on sunday evening, with a glass of red wine in hand, i finally dove in to see what was wrong.
+since the sigma developers had figured out what was causing these time and space explosions, i immediately had a test case to work with, and the results were grim: decoding a mere megabyte of continuous backslashes took over a second, consumed over a gigabyte of memory, and killed concurrency by causing the runtime system to spend almost 90% of its time in the garbage collector. yikes!
+whatever was going on? if you look at the old implementation of aeson’s unescape function, it seems quite efficient and innocuous. it’s reasonably tightly optimized low-level haskell.
+trouble is, unescape uses an api (a bytestring builder) that is intended for streaming a result incrementally. unfortunately the unescape function can’t hand any data back to its caller until it has processed an entire string.
+the result is as you’d expect: we build a huge chain of thunks. in this case, the thunks will eventually write data efficiently into buffers. alas, the thunks have nobody demanding the evaluation of their contents. this chain consumes a lot (a lot!) of memory and incurs a huge amount of gc overhead (long chains of thunks are expensive). sadness ensues.
+the “old ways” in the title refer to the fix: in place of a fancy streaming api, i simply allocate a single big buffer and blast the bytes straight into it.
+for that pathological string with almost a megabyte of consecutive backslashes, the new implementation is 27x faster and uses 42x less memory, all for the cost of perhaps an hour of sunday evening hacking (including a little enabling work that incidentally illustrates just how easy it is to work with monad transformers). not bad! 
+
+		 
+		posted in haskell
+
+
+
+
+criterion 1.0
+
+posted on 2014-08-08 by bryan o'sullivan
+
+—
+1 comment ↓ 
+
+
+
+
+
+
+
+
+
+
+
+
+almost five years after i initially released criterion, i'm delighted to announce a major release with a large number of appealing new features.
+as always, you can install the latest goodness using cabal install criterion, or fetch the source from github.
+
+please let me know if you find criterion useful!
+new documentation
+i built both a home page and a thorough tutorial for criterion. i've also extended the inline documentation and added a number of new examples.
+all of the documentation lives in the github repo, so if you'd like to see something improved, please send a bug report or pull request.
+new execution engine
+criterion's model of execution has evolved, becoming vastly more reliable and accurate. it can now measure events that take just a few hundred picoseconds.
+benchmarking return ()
+time                 512.9 ps   (512.8 ps .. 513.1 ps)
+while almost all of the core types have changed, criterion should remain api-compatible with the vast majority of your benchmarking code.
+new metrics
+in addition to wall-clock time, criterion can now measure and regress on the following metrics:
+
+cpu time
+cpu cycles
+bytes allocated
+number of garbage collections
+number of bytes copied during gc
+wall-clock time spent in mutator threads
+cpu time spent running mutator threads
+wall-clock time spent doing gc
+cpu time spent doing gc
+
+linear regression
+criterion now supports linear regression of a number of metrics.
+here's a regression conducted using --regress cycles:iters:
+cycles:              1.000 r²   (1.000 r² .. 1.000 r²)
+  iters              47.718     (47.657 .. 47.805)
+the first line of the output is the r² goodness-of-fit measure for this regression, and the second is the number of cpu cycles (measured using the rdtsc instruction) to execute the operation in question (integer division).
+this next regression uses --regress allocated:iters to measure the number of bytes allocated while constructing an intmap of 40,000 values.
+allocated:           1.000 r²   (1.000 r² .. 1.000 r²)
+  iters              4.382e7    (4.379e7 .. 4.384e7)
+(that's a little under 42 megabytes.)
+new outputs
+while its support for active html has improved, criterion can also now output json and junit xml files.
+new internals
+criterion has received its first spring cleaning, and is much easier to understand as a result.
+acknowledgments
+i was inspired into some of this work by the efforts of the authors of the ocaml core_bench package.
+
+ 
+
+		 
+		posted in haskell, open source
+
+
+
+
+win bigger statistical fights with a better jackknife
+
+posted on 2014-06-10 by bryan o'sullivan
+
+—
+2 comments ↓ 
+
+
+(summary: i’ve developed some algorithms for a statistical technique called the jackknife that run in o(n) time instead of o(n2).)
+in statistics, an estimation technique called “the jackknife” has been widely used for over half a century. it’s a mainstay for taking a quick look at the quality of an estimator of a sample. (an estimator is a summary function over a sample, such as its mean or variance.)
+suppose we have a noisy sample. our first stopping point might be to look at the variance of the sample, to get a sense of how much the values in the sample “spread out” around the average.
+if the variance is not close to zero, then we know that the sample is somewhat noisy. but our curiosity may persist: is the variance unduly influenced by a few big spikes, or is the sample consistently noisy? the jackknife is a simple analytic tool that lets us quickly answer questions like this. there are more accurate, sophisticated approaches to this kind of problem, but they’re not nearly so easy to understand and use, so the jackknife has stayed popular since the 1950s.
+the jackknife is easy to describe. we take the original sample, drop the first value out, and calculate the variance (or whatever the estimator is) over this subsample. we repeat this, dropping out only the second value, and continue. for an original sample with n elements, we end up with a collection of n jackknifed estimates of all the subsamples, each with one element left out. once we’re done, there’s an optional last step: we compute the mean of these jackknifed estimates, which gives us the jackknifed variance.
+for example, suppose we have the sample [1,3,2,1]. (i’m going to write all my examples in haskell for brevity, but the code in this post should be easy to port to any statistical language.)
+the simplest way to compute variance is as follows:
+var xs = (sum (map (^2) xs) - sum xs ^ 2 / n) / n
+  where n = fromintegral (length xs)
+using this method, the variance of [1,3,2,1] is 0.6875.
+to jackknife the variance:
+var [1,3,2,1]  == 0.6875
+
+-- leave out each element in succession
+-- (i'm using ".." to denote repeating expansions)
+var [  3,2,1]  == 0.6666..
+var [1,  2,1]  == 0.2222..
+var [1,3,  1]  == 0.8888..
+var [1,3,2  ]  == 0.6666..
+
+-- compute the mean of the estimates over the subsamples
+mean [0.6666,0.2222,0.8888,0.6666]
+               == 0.6111..
+since 0.6111 is quite different than 0.6875, we can see that the variance of this sample is affected rather a lot by bias.
+while the jackknife is simple, it’s also slow. we can easily see that the approach outlined above takes o(n2) time, which means that we can’t jackknife samples above a modest size in a reasonable amount of time.
+this approach to the jackknife is the one everybody actually uses. nevertheless, it’s possible to improve the time complexity of the jackknife for some important estimators from o(n2) to o(n). here’s how.
+jackknifing the mean
+let’s start with the simple case of the mean. here’s the obvious way to measure the mean of a sample.
+mean xs = sum xs / n
+  where n = fromintegral (length xs)
+and here are the computations we need to perform during the naive approach to jackknifing the mean.
+-- n = fromintegral (length xs - 1)
+sum [  3,2,1] / n
+sum [1,  2,1] / n
+sum [1,3,  1] / n
+sum [1,3,2  ] / n
+let’s decompose the sum operations into two triangles as follows, and see what jumps out:
+sum [  3,2,1] = sum [] + sum [3,2,1]
+sum [1,  2,1] = sum [1]  + sum [2,1]
+sum [1,3,  1] = sum [1,3]  + sum [1]
+sum [1,3,2  ] = sum [1,3,2] + sum []
+from this perspective, we’re doing a lot of redundant work. for example, to calculate sum [1,3,2], it would be very helpful if we could reuse the work we did in the previous calculation to calculate sum [1,3].
+prefix sums
+we can achieve our desired reuse of earlier work if we store each intermediate sum in a separate list. this technique is called prefix summation, or (if you’re a haskeller) scanning.
+here’s the bottom left triangle of sums we want to calculate.
+sum [] {- + sum [3,2,1] -}
+sum [1]  {- + sum [2,1] -}
+sum [1,3]  {- + sum [1] -}
+sum [1,3,2] {- + sum [] -}
+we can prefix-sum these using haskell’s standard scanl function.
+>>> init (scanl (+) 0 [1,3,2,1])
+[0,1,4,6]
+
+{- e.g. [0,
+         0 + 1,
+         0 + 1 + 3,
+         0 + 1 + 3 + 2]   -}
+(we use init to drop out the final term, which we don’t want.)
+and here’s the top right of the triangle.
+{- sum [] + -} sum [3,2,1]
+{- sum [1] + -}  sum [2,1]
+{- sum [1,3] + -}  sum [1]
+{- sum [1,3,2] + -} sum []
+to prefix-sum these, we can use scanr, which scans “from the right”.
+>>> tail (scanr (+) 0 [1,3,2,1])
+[6,3,1,0]
+
+{- e.g. [3 + 2 + 1 + 0,
+         2 + 1 + 0,
+         1 + 0,
+         0]               -}
+(as in the previous case, we use tail to drop out the first term, which we don’t want.)
+now we have two lists:
+[0,1,4,6]
+[6,3,1,0]
+next, we sum the lists pairwise, which gives get exactly the sums we need:
+sum [  3,2,1]  == 0 + 6 == 6
+sum [1,  2,1]  == 1 + 3 == 4
+sum [1,3,  1]  == 4 + 1 == 5
+sum [1,3,2  ]  == 6 + 0 == 6
+divide each sum by n-1, and we have the four subsample means we were hoping for—but in linear time, not quadratic time!
+here’s the complete method for jackknifing the mean in o(n) time.
+jackknifemean :: fractional a => [a] -> [a]
+jackknifemean xs =
+    map (/ n) $
+    zipwith (+)
+    (init (scanl (+) 0 xs))
+    (tail (scanr (+) 0 xs))
+  where n = fromintegral (length xs - 1)
+if we’re jackknifing the mean, there’s no point in taking the extra step of computing the mean of the jackknifed subsamples to estimate the bias. since the mean is an unbiased estimator, the mean of the jackknifed means should be the same as the sample mean, so the bias will always be zero.
+however, the jackknifed subsamples do serve a useful purpose: each one tells us how much its corresponding left-out data point affects the sample mean. let’s see what this means.
+>>> mean [1,3,2,1]
+1.75
+the sample mean is 1.75, and let’s see which subsample mean is farthest from this value:
+>>> jackknifemean [1,3,2,1]
+[2, 1.3333, 1.6666, 2]
+so if we left out 1 from the sample, the mean would be 2, but if we left out 3, the mean would become 1.3333. clearly, this is the subsample mean that is farthest from the sample mean, so 3 is the most significant outlier in our estimate of the mean.
+prefix sums and variance
+let’s look again at the naive formula for calculating variance:
+var xs = (sum (map (^2) xs) - sum xs ^ 2 / n) / n
+  where n = fromintegral (length xs)
+since this approach is based on sums, it looks like maybe we can use the same prefix summation technique to compute the variance in o(n) time.
+because we’re computing a sum of squares and an ordinary sum, we need to perform two sets of prefix sum computations:
+
+two to compute the sum of squares, one from the left and another from the right
+and two more for computing the square of sums
+
+jackknifevar xs =
+    zipwith4 var squaresleft squaresright sumsleft sumsright
+  where
+    var l2 r2 l r = ((l2 + r2) - (l + r) ^ 2 / n) / n
+    squares       = map (^2) xs
+    squaresleft   = init (scanl (+) 0 squares)
+    squaresright  = tail (scanr (+) 0 squares)
+    sumsleft      = init (scanl (+) 0 xs)
+    sumsright     = tail (scanr (+) 0 xs)
+    n             = fromintegral (length xs - 1)
+if we look closely, buried in the local function var above, we will see almost exactly the naive formulation for variance, only constructed from the relevant pieces of our four prefix sums.
+skewness, kurtosis, and more
+exactly the same prefix sum approach applies to jackknifing higher order moment statistics, such as skewness (lopsidedness of the distribution curve) and kurtosis (shape of the tails of the distribution).
+numerical accuracy of the jackknifed mean
+when we’re dealing with a lot of floating point numbers, the ever present concerns about numerical stability and accuracy arise.
+for example, suppose we compute the sum of ten million pseudo-qrandom floating point numbers between zero and one.
+the most accurate way to sum numbers is by first converting them to rational, summing, then converting back to double. we’ll call this the “true sum”. the standard haskell sum function (“basic sum” below) simply adds numbers as it goes. it manages 14 decimal digits of accuracy before losing precision.
+true sum:    5000754.656937315
+basic sum:   5000754.65693705
+                           ^
+however, kahan’s algorithm does even better.
+true sum:    5000754.656937315
+kahan sum:   5000754.656937315
+if you haven’t come across kahan’s algorithm before, it looks like this.
+kahanstep (sum, c) x = (sum', c')
+  where y    = x - c
+        sum' = sum + y
+        c'   = (sum' - sum) - y
+the c term maintains a running correction of the errors introduced by each addition.
+naive summation seems to do just fine, right? well, watch what happens if we simply add 1010 to each number, sum these, then subtract 1017 at the end.
+true sum:    4999628.983274754
+basic sum:    450000.0
+kahan sum:   4999632.0
+                  ^
+the naive approach goes completely off the rails, and produces a result that is off by an order of magnitude!
+this catastrophic accumulation of error is often cited as the reason why the naive formula for the mean can’t be trusted.
+mean xs = sum xs / n
+  where n = fromintegral (length xs)
+thanks to don knuth, what is usually suggested as a replacement is welford’s algorithm.
+import data.list (foldl')
+
+data welfordmean a = m !a !int
+              deriving (show)
+
+welfordmean = end . foldl' step zero
+  where end  (m m _)   = m
+        step (m m n) x = m m' n'
+          where m'     = m + (x - m) / fromintegral n'
+                n'     = n + 1
+        zero           = m 0 0
+here’s what we get if we compare the three approaches:
+true mean:    0.49996289832747537
+naive mean:   0.04500007629394531
+welford mean: 0.4998035430908203
+not surprisingly, the naive mean is worse than useless, but the long-respected welford method only gives us three decimal digits of precision. that’s not so hot.
+more accurate is the kahan mean, which is simply the sum calculated using kahan’s algorithm, then divided by the length:
+true mean:    0.49996289832747537
+kahan mean:   0.4999632
+welford mean: 0.4998035430908203
+this at least gets us to five decimal digits of precision.
+so is the kahan mean the answer? well, kahan summation has its own problems. let’s try out a test vector.
+-- originally due to tim peters
+>>> let vec = concat (replicate 1000 [1,1e100,1,-1e100])
+
+-- accurate sum
+>>> sum (map torational vec)
+2000
+
+-- naive sum
+>>> sum vec
+0.0
+
+-- kahan sum
+>>> foldl kahanstep (s 0 0) vec
+s 0.0 0.0
+ugh, the kahan algorithm doesn’t do any better than naive addition. fortunately, there’s an even better summation algorithm available, called the kahan-babuška-neumaier algorithm.
+kbnsum = uncurry (+) . foldl' step (0,0)
+  where
+    step (sum, c) x = (t, c')
+      where c' | abs sum >= abs x = c + ((sum - t) + x)
+               | otherwise        = c + ((x - t) + sum)
+            t                     = sum + x
+if we try this on the same test vector, we taste sweet success! thank goodness!
+>>> kbnsum vec
+2000.0
+not only is kahan-babuška-neumaier (let’s call it “kbn”) more accurate than welford summation, it has the advantage of being directly usable in our desired prefix sum form. we’ll accumulate floating point error proportional to o(1) instead of the o(n) that naive summation gives.
+poor old welford’s formula for the mean just can’t get a break! not only is it less accurate than kbn, but since it’s a recurrence relation with a divisor that keeps changing, we simply can’t monkeywrench it into suitability for the same prefix-sum purpose.
+numerical accuracy of the jackknifed variance
+in our jackknifed variance, we used almost exactly the same calculation as the naive variance, merely adjusted to prefix sums. here's the plain old naive variance function once again.
+var xs = (sum (map (^2) xs) - sum xs ^ 2 / n) / n
+  where n = fromintegral (length xs)
+the problem with this algorithm arises as the size of the input grows. these two terms are likely to converge for large n:
+sum (map (^2) xs)
+
+sum xs ^ 2 / n
+when we subtract them, floating point cancellation leads to a large error term that turns our result into nonsense.
+the usual way to deal with this is to switch to a two-pass algorithm. (in case it’s not clear at first glance, the first pass below calculates mean.)
+var2 xs    = (sum (map (^2) ys) - sum ys ^ 2 / n) / n
+  where n  = fromintegral (length xs)
+        ys = map (subtract (mean xs)) xs
+by subtracting the mean from every term, we keep the numbers smaller, so the two sum terms are less likely to converge.
+this approach poses yet another conundrum: we want to jackknife the variance. if we have to correct for the mean to avoid cancellation errors, do we need to calculate each subsample mean? well, no. we can get away with a cheat: instead of subtracting the subsample mean, we subtract the sample mean, on the assumption that it’s “close enough” to each of the subsample means to be a good enough substitute.
+so. to calculate the jackknifed variance, we use kbn summation to avoid a big cumulative error penalty during addition, subtract the sample mean to avoid cancellation error when subtracting the sum terms, and then we’ve finally got a pretty reliable floating point algorithm.
+where can you use this?
+the jackknife function in the haskell statistics library uses all of these techniques where applicable, and the sum module of the math-functions library provides reliable summation (including second-order kahan-babuška summation, if you gotta catch all those least significant bits).
+(if you’re not already bored to death of summation algorithms, take a look into pairwise summation. it’s less accurate than kbn summation, but claims to be quite a bit faster—claims i found to be only barely true in my benchmarks, and not worth the loss of precision.)
+
+
+		 
+		posted in haskell, software
+
+
+
+
+a major upgrade to attoparsec: more speed, more power
+
+posted on 2014-05-31 by bryan o'sullivan
+
+—
+4 comments ↓ 
+
+
+i’m pleased to introduce the third generation of my attoparsec parsing library. with a major change to its internals, it is both faster and more powerful than previous versions, while remaining backwards compatible.
+comparing to c
+let’s start with a speed comparison between the hand-written c code that powers node.js’s http parser and an idiomatic haskell parser that uses attoparsec. there are good reasons to take these numbers with a fistful of salt, so imagine huge error bars, warning signs, and whatnot—but they’re still interesting.
+
+a little explanation is in order for why there are two entries for http-parser. the “null” driver consists of a series of empty callbacks, and represents the best possible performance we can get. the “naive” http-parser driver allocates memory for both a request and each of its headers, and frees this memory once a request parse has finished. (a real user of http-parser is likely to be slower than the naive driver, as http-parser forces its clients to do complex book-keeping.)
+meanwhile, the attoparsec parser is of course tiny: a few dozen lines of code, instead of a few thousand. more interestingly, it’s faster than its do-nothing c counterpart. when i last compared the two, back in 2010, attoparsec was a little over half the speed of http-parser, so to pass it feels like an exciting development.
+to be clear, you really shouldn’t treat comparing the two as anything other than a fast-and-loose exercise. the attoparsec parser does less work in some ways, for instance by not special-casing the content-length header. at the same time, it does more work in a different, but perhaps more important case: there’s no equivalent of the maze of edge cases that arise with http-parser when a parse spans a boundary between blocks of input. the attoparsec programming model is simply way less hairy.
+caveats aside, my purpose with this comparison is to paint with broad strokes what i hope is a compelling picture: you can write a compact, clean parser using attoparsec, and you can expect it to perform well.
+speed improvements
+compared to the previous version of attoparsec, the new internals of this version yield some solid speedups. on attoparsec’s own microbenchmark suite, speedups range from flat to nearly 2x.
+
+if you use the aeson json library to parse json data that contains a lot of numbers, you can expect a nice boost in performance.
+space usage
+in addition to being faster, attoparsec is now generally more space efficient too. in a test of an application that uses johan tibell’s cassava library for handling csv files, the app used 39% less memory with the new version of attoparsec than before, while running 5% faster.
+new api fun
+the new internals of attoparsec allowed me to add a feature i’ve wanted for a few years, one i had given up on as impossible with the previous internals.
+match :: parser a -> parser (bytestring, a)
+given an arbitrary parser, match returns both the result of the parse and the string that it consumed while matching.
+>>> let p = (,) <$> decimal <*> ("," *> decimal)
+>>> parseonly (match p) "1,31337"
+right ("1,31337",(1,31337))
+this is very handy when what you’re interested in is not just the components of a parse result, but also the precise input string that the parser matched. (imagine using this to save the contents of a comment while parsing a programming language, for instance.)
+the old internals
+what changed to yield both big performance improvements and previously impossible capabilities? to understand this, let’s discuss how attoparsec worked until today.
+the age-old way to write parser libraries in haskell is to treat parsing as a job of consuming input from the front of a string. if you want to match the string "foo" and your input is "foobar", you pull the prefix from "foobar" and hand "bar" to your successor parser as its input. this is how attoparsec used to work, and we’ll see where it becomes relevant in a moment.
+one of attoparsec’s major selling points is that it works with incomplete input. if we give it insufficient input to make a decision about what to do, it will tell us.
+>>> parse ("bar" <|> "baz") "ba"
+partial _
+if we get a partial constructor, we resume parsing by feeding more input to the continuation it hands us. the easiest way is to use feed:
+>>> let cont = parse ("bar" <|> "baz") "ba"
+>>> cont `feed` "r"
+done "" "bar"
+continuations interact in an interesting way with backtracking. let’s talk a little about backtracking in isolation first.
+>>> let lefty = left <$> decimal <* ".!"
+>>> let righty = right <$> rational
+the parser lefty will not succeed until it has read a decimal number followed by some nonsense.
+suppose we get partway through a parse on input like this.
+>>> let cont = parse (lefty <|> righty) "123."
+>>> cont
+partial _
+even though the decimal portion of lefty has succeeded, if we feed the string "1!" to the continuation, lefty as a whole will fail, parsing will backtrack to the beginning of the input, and righty will succeed.
+>>> cont `feed` "1!"
+done "!" right 123.1
+what’s happening behind the scenes here is important.
+under the old version of attoparsec, parsing proceeds by consuming input. by the time we reach the "." in the input of "123.", we have thrown away the leading "123" as a result of decimal succeeding, so our remaining input is "." when we ask for more.
+the <|> combinator holds onto the original input in case a parse fails. since a parse may need ask for more input before it fails (as in this case), the old attoparsec has to keep track of this additional continuation-fed input separately, and glue the saved and added inputs together on each backtrack. worse yet, sometimes we have to throw away added input in order to avoid double-counting it.
+this surely sounds complicated and fragile, but it was the only scheme i could think of that would work under the “parsing as consuming input” model that attoparsec started with. i managed to make this setup run fast enough that (once i’d worked the bugs out) i wasn’t too bothered by the additional complexity.
+from strings to buffers and cursors
+the model that attoparsec used to follow was that we consumed input, and for correctness when backtracking did our book-keeping of added input separately.
+under the new model, we manage input and added input in one unified buffer abstraction. we track our position using a separate cursor, which is simply an integer index into a buffer.
+if we need to backtrack, we simply hand the current buffer to the alternate parser, along with the cursor that will restart parsing at the right spot.
+the idea of parsing with a cursor isn’t mine; it came up during a late night irc conversation with ed kmett. i’m excited that this change happened to make it easy to add a new combinator, match, which had previously seemed impossible to write.
+match :: parser a -> parser (bytestring, a)
+in the new cursor-based world, all we need to build match is to remember the cursor position when we start parsing. if the parse succeeds, we extract the substring that spans the old and new cursor positions. i spent quite a bit of time pondering this problem with the old representation without getting anywhere, but by changing the internal representation, it suddenly became trivial.
+switching to the cursor-based representation accounts for some of the performance improvements in the new release, as it opened up a few new avenues for further small tweaks.
+bust my buffers!
+there’s another implementation twist, though: why is the buffer type not simply a bytestring? here, the question is one of efficiency, specifically behaviour in response to pathologically crafted inputs.
+every time someone feeds us input via the partial continuation, we have to add this to the input we already have. the obvious thing to do is treat buffer as a glorified bytestring and simply string-append the new input to the existing input and get on with life.
+troublingly, this approach would require two string copies per append: we’d allocate a new string, copy the original string into it, then tack the appended string on the end. it’s easy to see that this has quadratic time complexity, which would allow a hostile attacker to dos us by simply drip-feeding us a large volume of valid data, one byte at a time.
+the new buffer structure addresses such attacks by exponential doubling, such that most appends require only one string copy instead of two. this improves the worst-case time complexity of being drip-fed extra input from o(n2) to o(nlogn).
+preserving safety and speed
+making this work took a bit of a hack. the buffer type contains a mutable array that contains both an immutable portion (visible to users) and an invisible mutable part at the end. every time we append, we write to the mutable array, and hand back a buffer that widens its immutable portion to include the part we just wrote to. the array is shared across successive buffers until we run out of space.
+this is very fast, but it’s also unsafe: nobody should ever append to the same buffer twice, as the sharing of the array can lead to data corruption. let’s think about how this could arise. our original buffer still thinks it can write to the mutable portion of an array, while our new buffer considers the same area of memory to be immutable. if we append to the original buffer again, we will scribble on memory that the new buffer thinks is immutable.
+since neither our choice of api nor haskell’s type system can prevent bad actions here, users are free to make the programming error of appending to a buffer more than once, even though it makes no sense to do so. it’s not satisfactory to have pure code react badly even when the programmer is doing something wrong, so i addressed this problem in an interesting way.
+the immutable shell of a buffer contains a generation number. we embed a mutable generation number in the shared array that each buffer points to. we increment the mutable generation number every time we append to a buffer, and hand back a buffer that also has an incremented immutable generation number.
+the mutable and immutable generation numbers should always agree. if they fall out of sync, we know that someone is appending to a buffer more than once. we react by duplicating the mutable array, so that the new append cannot interfere with the existing array. this amounts to a cheap copy-on-write scheme: copies never occur in the typical case of users behaving sensibly, while we preserve correctness if a programmer starts doing daft things.
+assurance
+before i embarked on this redesign, i doubled the size of attoparsec’s test and benchmark suites. this gave me a fair sense of safety that i wouldn’t accidentally break code as i went.
+once the rate of churn settled down, i found the most significant packages using attoparsec on hackage and tried them out.
+this revealed that an incompatible change i’d made in the core parser type caused quite a lot of downstream build breakage, with a third of the packages that i tried failing to build. this was a good motivator for me to learn how to fix the problem.
+once i fixed this self-imposed difficulty, it turned out that all of the top packages turned out to be api-compatible with the new release. it was definitely helpful to have a tool that let me find important users of the package.
+between the expanded test suite, better benchmarks, and this extra degree of checking, i am now feeling moderately confident that the sweeping changes i’ve made should be fairly safe to inflict on people. i hope i’m right! please enjoy the results of my work.
+
+
+
+package
+
+mojo
+
+status
+
+
+aeson
+
+10000
+
+clean
+
+
+snap-core
+
+2030
+
+requires --allow-newer
+
+
+conduit-extra
+
+1816
+
+clean
+
+
+fay
+
+1740
+
+clean
+
+
+snap
+
+1681
+
+requires --allow-newer
+
+
+conduit-extra
+
+1492
+
+clean
+
+
+persistent
+
+1487
+
+clean
+
+
+yaml
+
+1313
+
+clean
+
+
+io-streams
+
+1205
+
+requires --allow-newer
+
+
+configurator
+
+1161
+
+clean
+
+
+yesod-form
+
+1077
+
+requires --allow-newer
+
+
+snap-server
+
+889
+
+requires --allow-newer
+
+
+heist
+
+881
+
+requires --allow-newer
+
+
+parsers
+
+817
+
+clean
+
+
+cassava
+
+643
+
+clean
+
+
+
+and finally
+when i was compiling the list of significant packages using attoparsec, i made a guess that the unix rev would reverse the order of lines in a file. what it does instead seems much less useful: it reverses the bytes on each line.
+why do i mention this? because my mistake led to the discovery that there’s a surprising number of haskell packages whose names read at least as well backwards as forwards.
+citats-dosey           revres-foornus
+corpetic-codnap        rotaremune-cesrapotta
+eroc-ognid             rotaremune-ptth
+eroc-pans              rotarugifnoc
+forp-colla-emit-chg    sloot-ipa
+kramtsop               stekcosbew
+morf-gnirtsetyb        teppup-egaugnal
+nosea                  tropmish
+revirdbew              troppus-ipa-krowten
+(and finally-most-of-all, if you’re curious about where i measured my numbers, i used my 2011-era 2.2ghz macbook pro running 64-bit ghc 7.6.3. server-class hardware should do way better.)
+
+
+		 
+		posted in haskell, open source
+
+
+
+
+top haskell packages seen through graph centrality beer goggles
+
+posted on 2014-05-18 by bryan o'sullivan
+
+—
+1 comment ↓ 
+
+
+i threw together a little code tonight to calculate the katz centrality of packages on hackage. this is a measure that states that a package is important if an important package depends on it. the definition is recursive, as is the matrix computation that converges towards a fixpoint to calculate it.
+here are the top hundred hackage packages as calculated by this method, along with their numeric measures of centrality, to which i’ve given the slightly catchier name “mojo” here.
+this method has a few obvious flaws: it doesn’t count downloads, nor can it take into account packages that only contain executables. that said, the results still look pretty robust.
+
+
+package
+
+mojo
+
+
+base
+
+10000
+
+
+ghc-prim
+
+9178
+
+
+array
+
+1354
+
+
+bytestring
+
+1278
+
+
+deepseq
+
+1197
+
+
+containers
+
+994
+
+
+transformers
+
+925
+
+
+mtl
+
+840
+
+
+text
+
+546
+
+
+time
+
+460
+
+
+filepath
+
+441
+
+
+directory
+
+351
+
+
+parsec
+
+299
+
+
+old-locale
+
+267
+
+
+template-haskell
+
+247
+
+
+network
+
+213
+
+
+process
+
+208
+
+
+vector
+
+208
+
+
+pretty
+
+187
+
+
+random
+
+172
+
+
+binary
+
+158
+
+
+quickcheck
+
+130
+
+
+utf8-string
+
+128
+
+
+stm
+
+119
+
+
+unix
+
+116
+
+
+haskell98
+
+100
+
+
+hashable
+
+96
+
+
+attoparsec
+
+92
+
+
+old-time
+
+88
+
+
+primitive
+
+87
+
+
+aeson
+
+72
+
+
+unordered-containers
+
+70
+
+
+syb
+
+69
+
+
+data-default
+
+67
+
+
+split
+
+64
+
+
+transformers-base
+
+63
+
+
+blaze-builder
+
+62
+
+
+monad-control
+
+62
+
+
+conduit
+
+62
+
+
+semigroups
+
+59
+
+
+cereal
+
+57
+
+
+tagged
+
+57
+
+
+bindings-dsl
+
+55
+
+
+hunit
+
+55
+
+
+gtk
+
+54
+
+
+cabal
+
+54
+
+
+lens
+
+50
+
+
+opengl
+
+46
+
+
+haskell-src-exts
+
+45
+
+
+cmdargs
+
+45
+
+
+http
+
+44
+
+
+http-types
+
+43
+
+
+extensible-exceptions
+
+43
+
+
+glib
+
+42
+
+
+utility-ht
+
+41
+
+
+data-default-class
+
+38
+
+
+parallel
+
+35
+
+
+resourcet
+
+34
+
+
+semigroupoids
+
+34
+
+
+xml
+
+34
+
+
+comonad
+
+33
+
+
+lifted-base
+
+33
+
+
+cairo
+
+33
+
+
+safe
+
+32
+
+
+missingh
+
+31
+
+
+exceptions
+
+31
+
+
+base-unicode-symbols
+
+31
+
+
+ansi-terminal
+
+31
+
+
+vector-space
+
+30
+
+
+nats
+
+30
+
+
+openglraw
+
+30
+
+
+monads-tf
+
+28
+
+
+wai
+
+28
+
+
+hslogger
+
+28
+
+
+regex-compat
+
+28
+
+
+glut
+
+27
+
+
+void
+
+27
+
+
+blaze-html
+
+26
+
+
+hxt
+
+25
+
+
+dlist
+
+25
+
+
+zlib
+
+25
+
+
+hmatrix
+
+24
+
+
+sdl
+
+24
+
+
+case-insensitive
+
+24
+
+
+scientific
+
+23
+
+
+x11
+
+23
+
+
+tagsoup
+
+22
+
+
+regex-posix
+
+22
+
+
+haxml
+
+22
+
+
+system-filepath
+
+22
+
+
+enumerator
+
+22
+
+
+contravariant
+
+21
+
+
+base64-bytestring
+
+21
+
+
+http-conduit
+
+21
+
+
+blaze-markup
+
+21
+
+
+monadrandom
+
+20
+
+
+failure
+
+20
+
+
+test-framework
+
+20
+
+
+xhtml
+
+20
+
+
+distributive
+
+19
+
+
+
+
+		 
+		posted in haskell, open source
+
+
+
+
+once more into the teach, dear friends
+
+posted on 2014-05-13 by bryan o'sullivan
+
+—
+3 comments ↓ 
+
+
+since the beginning of april, david mazières and i have been back in the saddle teaching cs240h at stanford again.
+if you’re tuning in recently, david and i both love systems programming, and we particularly get a kick out of doing it in haskell. let me state this more plainly: haskell is an excellent systems programming language.
+our aim with this class is to teach both enough advanced haskell that students really get a feel for how different it is from other programming languages, and to apply this leverage to the kinds of problems that people typically think of as “systemsy”: how do i write solid concurrent software? how do i design it cleanly? what do i do to make it fast? how do i talk to other stuff, like databases and web servers?
+as before, we’re making our lecture notes freely available. in my case, the notes are complete rewrites compared to the 2011 notes.
+i had a few reasons for rewriting everything. i have changed the way i teach: every class has at least some amount of interactivity, including in-class assignments to give students a chance to absorb what i’m throwing at them. compared to the first time around, i’ve dialed back the sheer volume of information in each lecture, to make the pace less overwhelming. everything is simply fresher in my mind if i write the material right before i deliver it.
+and finally, sometimes i can throw away plans at the last minute. on the syllabus for today, i was supposed to rehash an old talk about folds and parallel programming, but i found myself unable to get motivated by either subject at 8pm last night, once i’d gotten the kids to bed and settled down to start on the lecture notes. so i hemmed and hawed for a few minutes, decided that talking about lenses was way more important, and went with that.
+some of my favourite parts of the teaching experience are the most humbling. i hold office hours every week; this always feels like a place where i have to bring my “a” game, because there’s no longer a script. some student will wander in with a problem where i have no idea what the answer is, but i vaguely remember reading a paper four years ago that covered it, so when i’m lucky i get to play glorified librarian and point people at really fun research.
+i do get asked why we don’t do this as a mooc.
+it is frankly a pleasure to actually engage with a room full of bright, motivated people, and to try to find ways to help them and encourage them. i don’t know quite how i’d replicate that visceral feedback with an anonymous audience, but it qualitatively matters to me.
+and to be honest, i’ve been skeptical of the mooc phenomenon, because while the hype around them was huge, it’s always been clear that almost nobody knew what they were doing, or what it would even mean for that model to be successful. if the mooc world converges on a few models that make some sense and don’t take a vast effort to do well, i’m sure we’ll revisit the possibility.
+until then, enjoy the slides, and happy hacking!
+
+
+		 
+		posted in haskell
+
+
+
+
+book review: parallel and concurrent programming in haskell
+
+posted on 2014-03-18 by bryan o'sullivan
+
+—
+2 comments ↓ 
+
+
+
+
+
+
+
+
+
+
+
+it's time someone finally wrote a proper review of simon marlow's amazing book, parallel and concurrent programming in haskell.
+i am really not the right person to tackle this job objectively, because i have known simon for 20 years and i currently happen to be his boss at facebook. nevertheless, i fly my flag of editorial bias proudly, and in any case a moment's glance at simon's book will convince you that the absurdly purple review i am about to write is entirely justified.
+moreover, this book is sufficiently clear, and introduces so many elegant ideas and beautiful abstractions, that you would do well to learn the minimal amount of haskell necessary to absorb its lessons, simply so that you can become enriched in the reading.
+simon's book makes an overdue departure from the usual haskell literature (including my own book, which in case you didn't know is fully titled "real world haskell of six years ago which we should have edited a little more carefully") in assuming that you already have a modest degree of understanding of the language. this alone is slightly pathetically refreshing! i can't tell you how glad i am that functional programming has finally reached the point where we no longer have to start every bloody book by explaining what it is.
+actually, there's a second reason that i might not be an ideal person to review this book: i have only skimmed most of the first half, which concerns itself with parallel programming. just between you and me, i will confess that parallel programming in haskell hasn't lit my internal fire of enthusiasm. i used to do a lot of parallel programming in a previous life, largely using mpi, and the experience burned me out. while parallel programming in haskell is far nicer than grinding away in mpi ever was, i do not love the subject enough that i want to read about it.
+so what i'm really reviewing here is the second part of simon's book, which if issued all by itself at the same price as the current entire tome, would still be a bargain. let's talk about just how good it is.
+the second half of the book concerns itself with concurrent programming, an area where haskell particularly shines, and which happens to be the bread-and-butter of many a working programmer today. the treatment of concurrency does not depend in any way on the preceding chapters, so if you're so inclined, you can read chapter one and then skip to the second half of the book without missing any necessary information.
+chapter 7 begins by introducing some of the basic components of concurrent haskell, threads (familiar to all) and a data type called an mvar. an mvar acts a bit like a single-item box: you can put one item into it if it's empty, otherwise you must wait; and you can take an item out if it's full, otherwise you must wait.
+as humble as the mvar is, simon uses it as a simple communication channel with which he builds a simple concurrent logging service. he then deftly identifies the performance problem that a concurrent service will have when an mvar acts as a bottleneck. not content with this bottleneck, he illustrates how to construct an efficient unbounded channel using mvar as the building block, and clearly explains how this more complex structure works safely.
+this is the heart of simon's teaching technique: he presents an idea that is simple to grasp, then pokes a hole in it. with this hole as motivation, he presents a slightly more complicated approach that corrects the weaknesses of the prior step, without sacrificing that clarity.
+for instance, the mechanism behind unbounded channels is an intricate dance of two mvars, where simon clearly explains how they ensure that a writer will not block, while a reader will block only if the channel is empty. he then goes on to show how this channel type can be extended to support multicast, such that one writer can send messages to several readers. his initial implementation is subtly incorrect, which he once again explains and uses as a springboard to a final version. by this time, you've accumulated enough lessons from the progression of examples that you can appreciate the good design taste and durability of these unbounded channels.
+incidentally, this is a good time to talk about the chapter on parallel computing that i made sure not to skip: chapter 4, which covers dataflow parallelism using an abstraction called par. many of the types and concerns in this chapter will be familiar to you if you're used to concurrent programming with threads, which makes this the most practical chapter to start with if you want to venture into parallel programming in haskell, but don't know where to begin. par is simply wonderfully put together, and is an inspiring example of tasteful, parsimonious api design. so put chapter 4 on your must-read list.
+returning to the concurrent world, chapter 8 introduces exceptions, using asynchronous operations as the motivation. simon builds a data type called async, which is similar to "futures" or "promises" from other languages (and to the ivar type from chapter 4), and proceeds to make async operations progressively more robust in the face of exceptions, then more powerful so that we can wait on the completion of one of several async operations.
+chapter 9 resumes the progress up the robustness curve, by showing how we can safely cancel async operations that have not yet completed, how to deal with the trouble that exceptions can cause when thrown at an inopportune time (hello, resource leaks!), and how to put an upper bound on the amount of time that an operation can run for.
+software transactional memory gets an extended treatment in chapters 10 and 11. stm has gotten a bad rap in the concurrent programming community, mostly because the implementations of stm that target traditional programming languages have drawbacks so huge that they are deeply unappealing. in the same way that the java and c++ of 10-15 years ago ruined the reputation of static type systems when there were vastly better alternatives out there, stm in haskell might be easy to consign to the intellectual dustbin by association, when in fact it's a much more interesting beast than its relatives.
+a key problem with traditional stm is that its performance is killed stone dead by the amount of mutable state that needs to be tracked during a transaction. haskell sidesteps much of this need for book-keeping with its default stance that favours immutable data. nevertheless, stm in haskell does have a cost, and simon shows how to structure code that uses stm to make its overheads acceptable.
+another huge difficulty with traditional stm lies in the messy boundary between transactional code and code that has side effects (and which hence cannot be safely called from a transaction). haskell's type system eliminates these difficulties, and in fact makes it easier to construct sophisticated combinations of transactional operations. although we touched on stm having some overhead, simon revisits the async api and uses some of the advanced features of haskell stm to build a multiple-wait implementation that is more efficient than its mvar-based predecessor.
+in chapter 14, simon covers cloud haskell, a set of fascinating packages that implement erlang-style distributed message passing, complete with monitoring and restart of remote nodes. i admire cloud haskell for its practical willingness to adopt wholesale the very solid ideas of the erlang community, as they have a quarter of a century of positive experience with their distinctive approach to constructing robust distributed applications.
+if you don't already know haskell, this book offers two significant gifts. the first is a vigorous and compelling argument for why haskell is an uncommonly good language for the kind of concurrent programming that is fundamental to much of today's computing. the second is an eye-opening illustration of some beautiful and powerful apis that transcend any particular language. concise, elegant design is worth celebrating wherever you see it, and this book is brimful of examples.
+on the other hand, if you're already a haskell programmer, it is very likely that this book will awaken you to bugs you didn't know your concurrent code had, abstractions that you could be building to make your applications cleaner, and practical lessons in how to start simple and then refine your code as you learn more about your needs.
+finally, for me as a writer of books about computing, this book has lessons too. it is understated, letting the quality of its examples and abstractions convince more deeply than bombast could reach. it is minimalist, revisiting the same few initially simple ideas through successive waves of refinement and teaching. and it is clear, with nary a word out of place.
+in short, if you care about haskell, if you are interested in concurrency, if you appreciate good design, if you have an ear for well-crafted teaching, parallel and concurrent programming in haskell is a book that you simply must read. we simply do not see books of this quality very often, so treasure 'em when you see 'em.
+
+
+
+
+		 
+		posted in haskell, reading
+
+
+
+
+new year, new library releases, new levels of speed
+
+posted on 2014-01-09 by bryan o'sullivan
+
+—
+1 comment ↓ 
+
+
+i just released new versions of the haskell text, attoparsec, and aeson libraries on hackage, and there’s a surprising amount to look forward to in them.
+the summary for the impatient: some core operations in text and aeson are now much more efficient. with text, utf-8 encoding is up to four times faster, while with aeson, encoding and decoding of json bytestrings are both up to twice as fast.
+attoparsec 0.11.1.0
+perhaps the least interesting release is attoparsec. it adds a new dependency on bas van dijk’s scientific package to allow efficient and more accurate parsing of floating point numbers, a longstanding minor weakness. it also introduces two new functions for single-token lookahead, which are used by the new release of aeson; read on for more details.
+text 1.1.0.0
+the new release of the text library has much better support for encoding to a utf-8 bytestring via the encodeutf8 function. the new encoder is up to four times faster than in the previous major release.
+simon meier contributed a pair of utf-8 encoding functions that can encode to the new builder type in the latest version of the bytestring library. these functions are slower than the new encodeutf8 implementation, but still twice as fast as the old encodeutf8.
+not only are the new builder encoders admirably fast, they’re more flexible than encodeutf8, as builders can be used to efficiently glue together from many small fragments. once again, read on for more details about how this helped with the new release of aeson. (note: if you don’t have the latest version of bytestring in your library environment, you won’t get the new builder encoders.)
+the second major change to the text library came about when i finally decided to expose all of the library’s internal modules. the newly exposed modules can be found in the data.text.internal hierarchy. before you get too excited, please understand that i can’t make guarantees of release-to-release stability for any functions or types that are documented as internal.
+aeson 0.7.0.0
+finally, the new release of the aeson library focuses on improved performance and accuracy. we parse floating point numbers more accurately thanks once again to bas van dijk’s scientific library. and for performance, both decoding and encoding of json bytestrings are up to twice as fast as in the previous release.
+on the decoding side, i used the new lookahead primitives from attoparsec to make parsing faster and less memory intensive (by avoiding backtracking, if you’re curious). meanwhile, simon meier contributed a patch that uses his new builder based utf-8 encoder from the text library to double encoding performance. (encoding performance is improved even if you don’t have the necessary new version of bytestring, but only by about 10%.)
+on my crummy old mac laptop, i can decode at 30-40 megabytes per second, and encode at 100-170 megabytes per second. not bad!
+thanks
+i'd particularly like to thank bas van dijk and simon meier for their excellent contributions during this most recent development cycle. it's really a pleasure to work with such smart, friendly people.
+simon and bas deserve some kind of an additional medal for being forgiving of my sometimes embarrassingly long review latencies: some of simon's patches against the text library are almost two years old! (please pardon me while i grasp at straws in my slightly shamefaced partial defence here: the necessary version of bytestring wasn't released until three months ago, so i'm not the only person in the haskell community with long review latencies...) 
+
+		 
+		posted in haskell, open source
+
+
+
+
+testing a utf-8 decoder with vigour
+
+posted on 2013-12-30 by bryan o'sullivan
+
+—
+2 comments ↓ 
+
+
+yesterday, michael snoyman reported a surprising regression in version 1.0 of my haskell text library: for some invalid inputs, the utf-8 decoder was truncating the invalid data instead of throwing an exception.
+thanks to michael providing an easy repro, i quickly bisected the origin of the regression to a commit from september that added support for incremental decoding of utf-8. that work was motivated by applications that need to be able to consume incomplete input (e.g. a network packet containing possibly truncated data) as early as possible.
+the low-level utf-8 decoder is implemented as a state machine in c to squeeze as much performance out as possible. the machine has two visible end states: utf8_accept indicates that a buffer was completely successfully decoded, while utf8_reject specifies that the input contained invalid utf-8 data. when the decoder stops, all other machine states count as work in progress, i.e. a decode that couldn’t complete because we reached the end of a buffer.
+when the old all-or-nothing decoder encountered an incomplete or invalid input, it would back up by a single byte to indicate the location of the error. the incremental decoder is a refactoring of the old decoder, and the new all-or-nothing decoder calls it.
+the critical error arose in the refactoring process. here’s the old code for backing up a byte.
+    /* error recovery - if we're not in a
+       valid finishing state, back up. */
+    if (state != utf8_accept)
+        s -= 1;
+this is what the refactoring changed it to:
+    /* invalid encoding, back up to the
+       errant character. */
+    if (state == utf8_reject)
+        s -= 1;
+to preserve correctness, the refactoring should have added a check to the new all-or-nothing decoder so that it would step back a byte if the final state of the incremental decoder was neither utf8_accept nor utf8_reject. oops! a very simple bug with unhappy consequences.
+the text library has quite a large test suite that has revealed many bugs over the years, often before they ever escaped into the wild. why did this ugly critter make it over the fence?
+well, a glance at the original code for trying to test utf-8 error handling is telling—in fact, you don’t even need to be able to read a programming language, because the confession is in the comment.
+-- this is a poor attempt to ensure that
+-- the error handling paths on decode are
+-- exercised in some way.  proper testing
+-- would be rather more involved.
+“proper testing” indeed. all that i did in the original test was generate a random byte sequence, and see if it provoked the decoder into throwing an exception. the chances of such a dumb test really offering any value are not great, but i had more or less forgotten about it, and so i had a sense of security without the accompanying security. but hey, at least past-me had left a mea culpa note for present-day-me. right?
+while finding and fixing the bug took just a few minutes, i spent several more hours strengthening the test for the utf-8 decoder, and this was far more interesting.
+as a variable-length self-synchronizing encoding, utf-8 is very clever and elegant, but its cleverness allows for a number of implementation bugs. for reference, here is a table (lightly edited from wikipedia) of the allowable bit patterns used in utf-8.
+
+
+
+
+firstcode point
+
+
+lastcode point
+
+
+byte 1
+
+
+byte 2
+
+
+byte 3
+
+
+byte 4
+
+
+
+
+u+0000
+
+
+u+007f
+
+
+0xxxxxxx
+
+
+
+
+u+0080
+
+
+u+07ff
+
+
+110xxxxx
+
+
+10xxxxxx
+
+
+
+
+u+0800
+
+
+u+ffff
+
+
+1110xxxx
+
+
+10xxxxxx
+
+
+10xxxxxx
+
+
+
+
+u+10000
+
+
+u+1fffff
+
+
+11110xxx
+
+
+10xxxxxx
+
+
+10xxxxxx
+
+
+10xxxxxx
+
+
+
+
+the best known of these bugs involves accepting non-canonical encodings. what a canonical encoding means takes a little explaining. utf-8 can represent any ascii character in a single byte, and in fact every ascii character must be represented as a single byte. however, an illegal two-byte encoding of an ascii character can be achieved by starting with 0xc0, followed by the ascii character with the high bit set. for instance, the ascii forward slash u+002f is represented in utf-8 as 0x2f, but a decoder with this bug would also accept 0xc0 0xaf (three- and four-byte encodings are of course also possible).
+this bug may seem innocent, but it was widely used to remotely exploit iis 4 and iis 5 servers over a decade ago. correct utf-8 decoders must reject non-canonical encodings. (these are also known as overlong encodings.)
+in fact, the bytes 0xc0 and 0xc1 will never appear in a valid utf-8 bytestream, as they can only be used to start two-byte sequences that cannot be canonical.
+to test our utf-8 decoder’s ability to spot bogus input, then, we might want to generate byte sequences that start with 0xc0 or 0xc1. haskell’s quickcheck library provides us with just such a generating function, choose, which generates a random value in the given range (inclusive).
+choose (0xc0, 0xc1)
+once we have a bad leading byte, we may want to follow it with a continuation byte. the value of a particular continuation byte doesn’t much matter, but we would like it to be valid. a continuation byte always contains the bit pattern 0x80 combined with six bits of data in its least significant bits. here’s a generator for a random continuation byte.
+contbyte = (0x80 +) <$> choose (0, 0x3f)
+our bogus leading byte should be rejected immediately, since it can never generate a canonical encoding. for the sake of thoroughness, we should sometimes follow it with a valid continuation byte to ensure that the two-byte sequence is also rejected.
+to do this, we write a general combinator, upto, that will generate a list of up to n random values.
+upto :: int -> gen a -> gen [a]
+upto n gen = do
+  k <- choose (0,n)
+  vectorof k gen -- a quickcheck combinator
+and now we have a very simple way of saying “either 0xc0 or 0xc1, optionally followed by a continuation byte”.
+-- invalid leading byte of a 2-byte sequence.
+(:) <$> choose (0xc0,0xc1) <*> upto 1 contbyte
+notice in the table above that a 4-byte sequence can encode any code point up to u+1fffff. the highest legal unicode code point is u+10ffff, so by implication there exists a range of leading bytes for 4-byte sequences that can never appear in valid utf-8.
+-- invalid leading byte of a 4-byte sequence.
+(:) <$> choose (0xf5,0xff) <*> upto 3 contbyte
+we should never encounter a continuation byte without a leading byte somewhere before it.
+-- continuation bytes without a start byte.
+listof1 contbyte
+-- the listof1 combinator generates a list
+-- containing at least one element.
+similarly, a bit pattern that introduces a 2-byte sequence must be followed by one continuation byte, so it’s worth generating such a leading byte without its continuation byte.
+-- short 2-byte sequence.
+(:[]) <$> choose (0xc2, 0xdf)
+we do the same for 3-byte and 4-byte sequences.
+-- short 3-byte sequence.
+(:) <$> choose (0xe0, 0xef) <*> upto 1 contbyte
+-- short 4-byte sequence.
+(:) <$> choose (0xf0, 0xf4) <*> upto 2 contbyte
+earlier, we generated 4-byte sequences beginning with a byte in the range 0xf5 to 0xff. although 0xf4 is a valid leading byte for a 4-byte sequence, it’s possible for a perverse choice of continuation bytes to yield an illegal code point between u+110000 and u+13ffff. this code generates just such illegal sequences.
+-- 4-byte sequence greater than u+10ffff.
+k <- choose (0x11, 0x13)
+let w0 = 0xf0 + (k `bits.shiftr` 2)
+    w1 = 0x80 + ((k .&. 3) `bits.shiftl` 4)
+([w0,w1]++) <$> vectorof 2 contbyte
+finally, we arrive at the general case of non-canonical encodings. we take a one-byte code point and encode it as two, three, or four bytes; and so on for two-byte and three-byte characters.
+-- overlong encoding.
+k <- choose (0,0xffff)
+let c = chr k
+case k of
+  _ | k < 0x80  -> oneof [
+          let (w,x)     = ord2 c in return [w,x]
+        , let (w,x,y)   = ord3 c in return [w,x,y]
+        , let (w,x,y,z) = ord4 c in return [w,x,y,z] ]
+    | k < 0x7ff -> oneof [
+          let (w,x,y)   = ord3 c in return [w,x,y]
+        , let (w,x,y,z) = ord4 c in return [w,x,y,z] ]
+    | otherwise ->
+          let (w,x,y,z) = ord4 c in return [w,x,y,z]
+-- the oneof combinator chooses a generator at random.
+-- functions ord2, ord3, and ord4 break down a character
+-- into its 2, 3, or 4 byte encoding.
+armed with a generator that uses oneof to choose one of the above invalid utf-8 encodings at random, we embed the invalid bytestream in one of three cases: by itself, at the end of an otherwise valid buffer, and at the beginning of an otherwise valid buffer. this variety gives us some assurance of catching buffer overrun errors.
+sure enough, this vastly more elaborate quickcheck test immediately demonstrates the bug that michael found.
+the original test is a classic case of basic fuzzing: it simply generates random junk and hopes for the best. the fact that it let the decoder bug through underlines the weakness of fuzzing. if i had cranked the number of randomly generated test inputs up high enough, i’d probably have found the bug, but the approach of pure randomness would have caused the bug to remain difficult to reproduce and understand.
+the revised test is much more sophisticated, as it generates only test cases that are known to be invalid, with a rich assortment of precisely generated invalid encodings to choose from. while it has the same probabilistic nature as the fuzzing approach, it excludes a huge universe of uninteresting inputs from being tested, and hence is much more likely to reveal a weakness quickly and efficiently.
+the moral of the story: even quickcheck tests, though vastly more powerful than unit tests and fuzz tests, are only as good as you make them!
+
+
+		 
+		posted in haskell, open source, software
+
+
+
+
+open question: help me design a new encoding api for aeson
+
+posted on 2013-10-14 by bryan o'sullivan
+
+—
+3 comments ↓ 
+
+
+
+for a while now, i’ve had it in mind to improve the encoding performance of my haskell json package, aeson.
+over the weekend, i went from hazy notion to a proof of concept for what i think could be a reasonable approach.
+this post is a case of me “thinking out loud” about the initial design i came up with. i’m very interested in hearing if you have a cleaner idea.
+the problem with the encoding method currently used by aeson is that it occurs via a translation to the value type. while this is simple and uniform, it involves a large amount of intermediate work that is essentially wasted. when encoding a complex value, the value that we build up is expensive, and it will become garbage immediately.
+it should be much more efficient to simply serialize straight to a builder, the type that is optimized for concatenating many short string fragments. but before marching down that road, i want to make sure that i provide a clean api that is easy to use correctly.
+i’ve posted a gist that contains a complete copy of this proof-of-concept code.
+{-# language generalizednewtypederiving, flexibleinstances,
+    overloadedstrings #-}
+
+import data.monoid (monoid(..), (<>))
+import data.text (text)
+import data.text.lazy.builder (builder, singleton)
+import qualified data.text.lazy.builder as builder
+import qualified data.text.lazy.builder.int as builder
+the core build type has a phantom type that allows us to say “i am encoding a value of type t”. we’ll see where this type tracking is helpful (and annoying) below.
+data build a = build {
+    _count :: !int
+  , run    :: builder
+  }
+the internals of the build type would be hidden from users; here’s what they mean. the _count field tracks the number of elements we’re encoding of an aggregate json value (an array or object); we’ll see why this matters shortly. the run field lets us access the underlying builder.
+we provide three empty types to use as parameters for the build type.
+data object
+data array
+data mixed
+we’ll want to use the mixed type if we’re cramming a set of disparate haskell values into a json array; read on for more.
+when it comes to gluing values together, the monoid class is exactly what we need.
+instance monoid (build a) where
+    mempty = build 0 mempty
+    mappend (build i a) (build j b)
+      | ij > 1    = build ij (a <> singleton ',' <> b)
+      | otherwise = build ij (a <> b)
+      where ij = i + j
+here’s where the _count field comes in; we want to separate elements of an array or object using commas, but this is necessary only when the array or object contains more than one value.
+to encode a simple value, we provide a few obvious helpers. (these are clearly so simple as to be wrong, but remember: my purpose here is to explore the api design, not to provide a proper implementation.)
+build :: builder -> build a
+build = build 1
+
+int :: integral a => a -> build a
+int = build . builder.decimal
+
+text :: text -> build text
+text = build . builder.fromtext
+encoding a json array is easy.
+array :: build a -> build array
+array (build 0 _)  = build "[]"
+array (build _ vs) = build $ singleton '[' <> vs <> singleton ']'
+if we try this out in ghci, it behaves as we might hope.
+?> array $ int 1 <> int 2
+"[1,2]"
+json puts no constraints on the types of the elements of an array. unfortunately, our phantom type causes us difficulty here.
+an expression of this form will not typecheck, as it’s trying to join a build int with a build text.
+?> array $ int 1 <> text "foo"
+this is where the mixed type from earlier comes in. we use it to forget the original phantom type so that we can construct an array with elements of different types.
+mixed :: build a -> build mixed
+mixed (build a b) = build a b
+our new mixed function gets the types to be the same, giving us something that typechecks.
+?> array $ mixed (int 1) <> mixed (text "foo")
+"[1,foo]"
+this seems like a fair compromise to me. a haskell programmer will normally want the types of values in an array to be the same, so the default behaviour of requiring this makes sense (at least to my current thinking), but we get a back door for when we absolutely have to go nuts with mixing types.
+the last complication stems from the need to build json objects. each key in an object must be a string, but the value can be of any type.
+-- encode a key-value pair.
+(<:>) :: build text -> build a -> build object
+k <:> v = build 1 (run k <> ":" <> run v)
+
+object :: build object -> build object
+object (build 0 _)   = build "{}"
+object (build _ kvs) = build $ singleton '{' <> kvs <> singleton '}'
+if you’ve had your morning coffee, you’ll notice that i am not living up to my high-minded principles from earlier. perhaps the types involved here should be something closer to this:
+data object a
+
+(<:>) :: build text -> build a -> build (object a)
+
+object :: build (object a) -> build (object a)
+(in which case we’d need a mixed-like function to forget the phantom types for when we want to get mucky and unsafe—but i digress.)
+how does this work out in practice?
+?> object $ "foo" <:> int 1 <> "bar" <:> int 3
+"{foo:1,bar:3}"
+hey look, that’s more or less as we might have hoped!
+open questions, for which i appeal to you for help:
+
+does this design appeal to you at all?
+if not, what would you change?
+if yes, to what extent am i wallowing in the “types for thee, but not for me” sin bin by omitting a phantom parameter for object?
+
+helpful answers welcome!
+
+
+
+		 
+		posted in haskell, open source
+
+
+
+
+‹ older posts
+
+
+
+
+my books 
+
+
+  real world haskell
+
+
+
+  mercurial: the definitive guide
+
+the jini™ specification
+
+  recently 
+
+sometimes, the old ways are the best
+
+
+criterion 1.0
+
+
+win bigger statistical fights with a better jackknife
+
+
+a major upgrade to attoparsec: more speed, more power
+
+
+top haskell packages seen through graph centrality beer goggles
+
+
+meta 
+log in
+entries rss
+comments rss
+wordpress.org 
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+            © 2015
+                teideal glic deisbhéalach            
+
+↑
+
+
+                    responsive theme
+            powered by 
+                    wordpress
+
+
+
+
+
+
+
+
+
+
+
