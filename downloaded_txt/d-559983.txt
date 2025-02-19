@@ -1,0 +1,372 @@
+
+
+
+
+
+java performance tuning
+
+
+
+java performance tuning
+java(tm) - see bottom of page
+
+
+|home
+|services
+|training
+|newsletter
+|tuning tips
+|tool reports
+|articles
+|resources
+|about us
+|site map
+|contact us
+|
+
+
+
+tools: |
+gc log analysers|
+multi-tenancy tools|
+books|
+sizeof|
+thread analysers|
+heap dump analysers|
+
+
+
+our valued sponsors who help make this site possible
+
+jprofiler: get rid of your performance problems and memory leaks! 
+
+training online: concurrency, threading, gc, advanced java and more ... 
+
+
+
+java performance tuning
+
+
+
+
+jprofiler
+      
+
+        get rid of your performance problems and memory leaks!
+      
+
+
+
+modern garbage collection tuning
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+java performance training courses
+      
+
+        courses available now. we can provide training courses to handle all your java performance needs
+      
+
+
+
+java performance tuning, 2nd ed
+      
+
+        the classic and most comprehensive book on tuning java
+      
+
+
+
+java performance tuning newsletter
+      
+
+        your source of java performance news. subscribe now!  enter email:  
+
+
+
+
+
+
+
+
+
+
+
+training online
+      
+
+        threading essentials course
+      
+
+
+
+
+
+
+
+
+
+
+jprofiler
+      
+
+        get rid of your performance problems and memory leaks!
+      
+
+
+
+
+
+
+
+
+new: january 2025 newsletter
+
+we list all the latest java performance related news and articles
+"what a year! i covered genai+llm, ebpf continuous profiling, integrated profiling and tracing, ffm, different styles of gc tuning, of io implementation, of startup with crac. thread-local handshakes, opentelemetry, eventual consistency, k8s related tuning, all the performance changes from two jdk releases, serverless ... and more!"
+all the latest java performance tips extracted in concise form
+"jvm collectors include: serial collector - single-threaded, stop-the-world, good for single-core systems and small heaps (<4gb); parallel collector/throughput collector - multi-threaded gc, stop-the-world, maximizes throughput (application time vs. gc time), good for batch processing, scientific computing, data analysis; cms (concurrent mark and sweep) - removed in jdk 14; g1 (garbage first) - region-based collector (heap is divided into regions), balances throughput and response time; epsilon - no-op garbage collector, for testing application performance with no gc overhead or for extremely memory-constrained applications where the memory usage is known exactly; shenandoah - region-based, concurrent collector, for low response times and large heaps; zgc (z garbage collector) - region-based, concurrent, generational collector, designed for large heaps."
+
+
+december 2024 newsletter
+
+we list all the latest java performance related news and articles
+"even introductions to java performance tuning often have useful tips for everyone"
+all the latest java performance tips extracted in concise form
+"there are several options to improve java startup time. the best choice depends on the specific application's characteristics and requirements. using a compiled image is the fastest but has limitations. crac is very fast but has restrictions. cds is a good general-purpose option."
+
+
+november 2024 newsletter
+
+we list all the latest java performance related news and articles
+"worst case virtual memory runs at *disk* speed"
+all the latest java performance tips extracted in concise form
+"avoiding waiting by: eliminating synchronization (eg partitioning the data per core and processing just on the core); use wait-free algorithms; keep the code in user-space (avoid kernel calls or bypass it if possible); avoid context-switching (use dedicated thread-to-core); use async/non-blocking io; use busy polling; make shared data structures read-only; use single-producer+single-consumer queues to transfer between cores; use tcp_nodelay; don't process requests as they come in from the network, take them off the queue and process separately so that longer latency requests don't block the queue"
+
+
+october 2024 newsletter
+
+we list all the latest java performance related news and articles
+"far more people can ask and understand simple questions and answers than have the expertise to delve into metrics, logs, traces and profiles, identify causes and propose fixes"
+all the latest java performance tips extracted in concise form
+"default ergonomics are terrible for cloud workloads. use explicit heap sizes (use -xx:maxrampercentage or 75%-85% of container memory), garbage collector algorithms, system resources provided, and -xx:activeprocessorcount values"
+
+
+september 2024 newsletter
+
+we list all the latest java performance related news and articles
+"this easily installed, low cost, low overhead and useful ebpf based continuous profiling agent will become widespread - but it only does one type of profiling"
+all the latest java performance tips extracted in concise form
+"the most efficient way to generate and transform classes is via asm (and asm based libraries like byte buddy) and fall back to the classfile api if the asm approach fails because of forward compatibility issues"
+
+
+august 2024 newsletter
+
+we list all the latest java performance related news and articles
+"you should be turning on generational mode if you are on an earlier jdk and using zgc"
+all the latest java performance tips extracted in concise form
+"java value objects can improve memory access by keeping object data close together in the cache rather than in the heap and needing a ram access"
+
+
+july 2024 newsletter
+
+we list all the latest java performance related news and articles
+"tech is still growing and will for decades. each type of deployment has it's niche ? use the tech that works best for your case and be prepared to look at all the alternatives, because we have more and more options available"
+all the latest java performance tips extracted in concise form
+"kubernetes pod cpu throttling happens each 100ms that the millicore budget is used, ie if in the first part of a 100ms window you use all your allocated millicore budget, the pod is not allocated any more cpu until the start of the next 100ms window. this cpu budget includes your application cpu usage as well as the jvm and gc cpu usage. the jvm uses runtime.availableprocessors() to size the gc thread count and internal jvm thread pools, but this is an integer value, so millicores are rounded up to the next full core. this means the jvm can be expecting more cpu than is actually allocated, eg 1100 millicores would see the jvm decide it has 2 cores and allocate 2 threads to the gc which might cause too much cpu utilization by the gc and cause the application to be throttled. using -xx:activeprocessorcount=n let's you explicitly tell the jvm how many cores it should use; it also let's you increase the thread pool sizes if that is beneficial."
+
+
+june 2024 newsletter
+
+we list all the latest java performance related news and articles
+"in this case you may need entirely different styles of design and architecture for optimal performance on different systems, in a subsystem that you probably haven't considered needed that!"
+all the latest java performance tips extracted in concise form
+"it is important to note that the -xx:maxrampercentage does not constrain the total size of the memory the java process can use. it specifically refers to the jvm heap size. the suggested procedure for setting container jvm memory is: 1. start with maxrampercentage at 75%; 2. if your maximum heap usage stays high, you need to increase the container memory, but if the heap usage is okay but the process size is close to the container limit, you need to decrease maxrampercentage (or give more containermemory)"
+
+
+may 2024 newsletter
+
+we list all the latest java performance related news and articles
+"tracing and profiling assist each other yet are rarely integrated. now the elastic java agent team have made available their open source integration of these two technologies, called inferred spans."
+all the latest java performance tips extracted in concise form
+"to find the cause of a performance issue you follow the sequence of: 1 look at distributed traces to see where requests are delayed; 2. look at the metrics affecting the identified component from step 1 and look for anomalous values; 3. profile (eg with jfr) the components that are identified"
+
+
+april 2024 newsletter
+
+we list all the latest java performance related news and articles
+"a very different style of gc tuning requiring specialized tuning skills, applied across large numbers of jvms - but with direct measurable cost benefits"
+all the latest java performance tips extracted in concise form
+"strategies for preventing memory leaks include: ensure that objects are in scope only as long as they are needed; use static fields cautiously; avoid static collections that grow indefinitely; always unregister listeners and callbacks when they are no longer needed; limit the size of caches; remove objects from collections when they are no longer needed; be cautious with inner class instances; always close resources (eg files, streams, connections) after use; profile your application memory usage; unit and integration test to check for memory leaks"
+
+
+march 2024 newsletter
+
+we list all the latest java performance related news and articles
+"thread-local handshakes allows sampling which does not suffer from safepoint bias and has very low overhead"
+all the latest java performance tips extracted in concise form
+"steady-state and limit load tests are quite different. steady-state models your expected traffic including peaks. limit increases the load until some resource is saturated - this identifies the resource that will bottleneck your system, and also whether the system can recover if the load then reduces"
+
+
+february 2024 newsletter
+
+we list all the latest java performance related news and articles
+"java 22 has one significant new feature, the foreign function and memory api - finally released after more than 10 years in development"
+all the latest java performance tips extracted in concise form
+"arena models the lifecycle of memorysegments. they can be global (lasts for the jvm lifetime), automatic (managed by gc), confined (bounded to a single thread and deallocated when closed or scope exits) or shared (not bounded by threads but also deallocated when closed or scope exits)"
+
+
+january 2024 newsletter
+
+we list all the latest java performance related news and articles
+"for concurrent updates hashtable.size() is strictly consistent, concurrenthashmap.size() is eventually consistent"
+all the latest java performance tips extracted in concise form
+"because garbage collection costs across an entire organization is hugely significant and garbage collection cost tends to be dominated by memory requirements and pressure, memory profiling and tuning actually reduces costs across the board as reduced memory pressure translates directly to reduced garbage collection which translates directly to reduced cpu!  a lot of high-performance java dev have become experts at avoiding allocations altogether for exactly this reason"
+
+
+december 2023 newsletter
+
+we list all the latest java performance related news and articles
+"eventual consistency has become the more popular mechanism because of the lower latency of data access"
+all the latest java performance tips extracted in concise form
+"selecting the right garbage collector is crucial for optimizing application performance:  serial gc for small applications with low memory footprint and low cpu requirements, but not suitable for low-latency applications due to longer gc pauses; parallel gc (throughput collector) for maximizing application throughput by utilizing multiple threads for garbage collection but also not suitable for low-latency applications due to significant gc pauses; cms (concurrent mark sweep) designed to minimize pause times by working concurrently with application threads, has lower pause times but suffers from fragmentation ultimately giving long pauses; g1 (garbage-first collector) tries to provide a good balance between throughput and pause times, but doesn't give the lowest pause times; zgc (z garbage collector) and shenandoah  designed for low-latency applications, aiming to achieve pause times of less than 10ms, even on large heaps"
+
+
+november 2023 newsletter
+
+we list all the latest java performance related news and articles
+"the full process data structure of the jvm is dramatically different depending on which gc algorithm is chosen"
+all the latest java performance tips extracted in concise form
+"common cache invalidation algorithms: time-based after a certain period of time; version-based whenever version changes; delta-based - compare the current version with the latest version and invalidate if the delta between the two exceeds a certain threshold; least recently used (lru) - the item not accessed for the longest time is evicted from the cache; least frequently used (lfu) - the item accessed the least is evicted from the cache. of course caches can combine multiple algorithms"
+
+
+october 2023 newsletter
+
+we list all the latest java performance related news and articles
+"most jvm tuning changes needed in production are garbage collection related changes"
+all the latest java performance tips extracted in concise form
+"testing gotchas: testing once is jittery and un-representative, interpreted code behaves very differently from compiled jit optimized code, system.currenttimemillis() can go backwards (eg from ntp), jvm code and branch elimination can give unrepresentative performance for unrepresentative data and workloads, testing on different platforms can give very different (unrepresentative) results, power saving modes can give unrepresentative results, having other processes running at the same time can give unrepresentative results."
+
+
+september 2023 newsletter
+
+we list all the latest java performance related news and articles
+"i show all the performance changes in every released version of the jdk since jdk 10"
+all the latest java performance tips extracted in concise form
+"virtual threads currently (jdk21) implement cooperative scheduling. this isn't a limitation of virtual threads, it's a choice of the current implementation. virtual threads can implement fully pre-emptive scheduling (and may in future)"
+
+
+august 2023 newsletter
+
+we list all the latest java performance related news and articles
+"there is just one significant new performance feature - but it's huge! virtual threads have finally arrived"
+all the latest java performance tips extracted in concise form
+"virtual threads run on daemon (carrier/platform) threads in a forkjoin pool. so be aware that if there are no non-daemon threads left, the daemon threads - and so all virtual threads - will be terminated"
+
+
+july 2023 newsletter
+
+we list all the latest java performance related news and articles
+"the most common performance concerns are mundane - here's how to deal with them"
+all the latest java performance tips extracted in concise form
+"if running on bare metal, set the heap to whatever size the application needs, but less than available ram; for a container set to less than 75% of container memory. set using -xmx or -xx:maxrampercentage=75 - but note applications and 3rd party products using off-heap memory may need this lower"
+
+
+june 2023 newsletter
+
+we list all the latest java performance related news and articles
+"great for monitoring, generating alerts, debugging, root cause analysis, system resource analysis"
+all the latest java performance tips extracted in concise form
+"when scaling to achieve the same operations, small scale implementations may need different algorithms than the large scale implementations if you want optimal efficiency, especially when considering parallelization"
+
+
+may 2023 newsletter
+
+we list all the latest java performance related news and articles
+"this is, unusually, a very controversial jep; there is a strong preference by the community that it should not proceed"
+all the latest java performance tips extracted in concise form
+"if you have performance problems from having huge objects regularly collected, you need to tune the region sizes or try a different garbage collector"
+
+
+april 2023 newsletter
+
+we list all the latest java performance related news and articles
+"this change, if it proceeds, will stop a large swathe of troubleshooting and monitoring tools from working on jvms (without having to first restart them with an option change)"
+all the latest java performance tips extracted in concise form
+"allocation rates of around 10gb/s is the maximum that the majority of machines can sustain - regardless of core counts. and at that rate it dominates cpu. four threads allocating is already enough to hit the highest per-thread allocation rate possible on many systems. the l3 cache is the limiting factor"
+
+
+march 2023 newsletter
+
+we list all the latest java performance related news and articles
+"the new 4gls aren't new languages, they are 3gls together with intelligent ides"
+all the latest java performance tips extracted in concise form
+"strategies to prevent deadlocks: always acquire locks in a fixed order; avoid holding locks for extended periods; reduce the scope of the lock holding code block; use reentrantlock and similar concurrent lock classes to manage locks, eg using trylock() to acquire locks without blocking; use timeouts when acquiring locks to prevent threads from waiting indefinitely; use non-blocking algorithms and data structures to avoid deadlocks altogether"
+
+
+february 2023 newsletter
+
+we list all the latest java performance related news and articles
+"java 20 large performance changes are all preview features; the small changes are gc and http related"
+all the latest java performance tips extracted in concise form
+"trivially copyable objects (where the majority or entire java object can be copied as a memory copy without any serialization logic) provides optimal efficiency when moving object data across services"
+
+
+january 2023 newsletter
+
+we list all the latest java performance related news and articles
+"performance is naturally chaotic - you should really know and plan to apply chaos testing"
+all the latest java performance tips extracted in concise form
+"metrics give you a numeric value at a point in time and are easily aggregated. they are great for telling you something has happened, but not always what, and not at all why. logs tell you what, and let you determine why. traces tell you where"
+
+
+previous newsletters
+
+all our previous newsletters can be viewed from here
+
+how to use this site
+
+this site has four main information resources:
+
+the uncategorized tips page lists many other web pages with java performance tuning related information. each web page has its performance tuning tips extracted and listed immediately after the url is listed. these tips are being categorized, and the tips page links to those categories currently available. if the performance area you are interested in is not yet categorized, send us an email from this page telling us the categorization you'd like to see. in any of the tips pages, use your browser's "find" or "search" option to identify particular tips you are interested in on the page, and follow up by reading the referenced web page if necessary or desired.
+the resources page lists java performance tuning resources including books, tools, reports, other performance tuning sites of interest, and java performance tuning discussion groups.
+the news pages are monthly newsletters listing any new java performance tuning related information, together with kirk pepperdine's discussion group roundup and javva the hutt.
+the tool reports pages are detailed introductory
+reports on various java performance related tools, for both free and commercial tools.
+
+
+
+
+this site has been designed to download almost as fast as possible.
+(some stylistic markup and required server-side processing has been used in
+preference to absolute speed contraints.)
+the web tree contains very few graphics and almost no complex typesetting markup
+except for very simple tables, and the main pages can be accessed directly from
+the menu.
+
+this line is only to help search engines: java performance tuning java tuning java optimization
+java optimize java optimizing java fast java faster java speedup java performance java high-performance
+
+
+
+last updated: 2025-01-27
+copyright © 2000-2025 fasterj.com. all rights reserved.
+all trademarks and registered trademarks appearing on javaperformancetuning.com are the property of their respective owners.
+java is a trademark or registered trademark of oracle corporation in the united states and other countries. javaperformancetuning.com is not connected to oracle corporation and is not sponsored by oracle corporation.
+url: http://www.javaperformancetuning.com/index.shtml
+rss feed: http://www.javaperformancetuning.com/newsletters.rss
+trouble with this page? please contact us
+
+
+
