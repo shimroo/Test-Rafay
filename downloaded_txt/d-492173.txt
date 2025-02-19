@@ -1,0 +1,1071 @@
+
+
+
+
+
+loresoft.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+loresoft
+
+
+
+
+
+
+
+blog
+
+
+projects
+
+
+archive
+
+
+about
+
+
+
+
+
+
+
+
+
+equatable.generator - source generator for equals and gethashcode
+september  7, 2024
+equatable.generator
+source generator for equals and gethashcode
+
+https://github.com/loresoft/equatable.generator
+https://www.nuget.org/packages/equatable.generator
+
+features
+
+override equals and gethashcode
+implement iequatable<t>
+support class, record and struct types
+support equalitycomparer per property
+comparers supported: string, sequence, dictionary, hashset, reference, and custom
+no dependencies
+
+usage
+add package
+add the nuget package to your projects.
+dotnet add package equatable.generator
+prevent including equatable.generator as a dependency
+<packagereference include="equatable.generator" privateassets="all" />
+
+requirements
+this library requires:
+
+target framework .net standard 2.0 or greater
+project c# langversion 8.0 or higher
+
+equatable attributes
+place equatable attribute on a class, record or struct.  the source generator will create a partial with overrides for equals and gethashcode.
+
+[equatable] marks the class to generate overrides for equals and gethashcode
+
+the default comparer used in the implementation of equals and gethashcode is equalitycomparer<t>.default.  customize the comparer used with the following attributes.
+
+[ignoreequality] ignore property in equals and gethashcode implementations
+[stringequality] use specified stringcomparer when comparing strings
+[sequenceequality] use enumerable.sequenceequal to determine whether enumerables are equal
+[dictionaryequality] use to determine if dictionaries are equal
+[hashsetequality] use iset<t>.setequals to determine whether enumerables are equal
+[referenceequality] use object.referenceequals to determines whether instances are the same instance
+[equalitycomparer] use the specified equalitycomparer
+
+example usage
+example of using the attributes to customize the source generation of equals and gethashcode
+[equatable]
+public partial class userimport
+{
+    [stringequality(stringcomparison.ordinalignorecase)]
+    public string emailaddress { get; set; } = null!;
+
+    public string? displayname { get; set; }
+
+    public string? firstname { get; set; }
+
+    public string? lastname { get; set; }
+
+    public datetimeoffset? lockoutend { get; set; }
+
+    public datetimeoffset? lastlogin { get; set; }
+
+    [ignoreequality]
+    public string fullname => $"{firstname} {lastname}";
+
+    [hashsetequality]
+    public hashset<string>? roles { get; set; }
+
+    [dictionaryequality]
+    public dictionary<string, int>? permissions { get; set; }
+
+    [sequenceequality]
+    public list<datetimeoffset>? history { get; set; }
+}
+
+
+
+
+injectio - source generator for dependency injection
+november  1, 2022
+injectio
+source generator that helps register discovered services in the dependency injection container
+
+https://github.com/loresoft/injectio
+https://www.nuget.org/packages/injectio
+
+features
+
+transient, singleton, scoped service registration
+factory registration
+module method registration
+duplicate strategy - skip,replace,append
+registration strategy - self, implemented interfaces, self with interfaces
+
+usage
+add package
+add the nuget package project to your projects.
+dotnet add package injectio
+prevent dependances from including injectio
+<packagereference include="injectio" privateassets="all" />
+
+registration attributes
+place registration attribute on class.  the class will be discovered and registered.
+
+[registersingleton] marks the class as a singleton service
+[registerscoped] marks the class as a scoped service
+[registertransient] marks the class as a transient service
+[registerservices] marks the method to be called to register services
+
+attribute properties
+
+
+
+property
+description
+
+
+
+
+implementationtype
+the type that implements the service.  if not set, the class the interface is on will be used.
+
+
+servicetype
+the type of the service. if not set, the registration property used to determine what is registered.
+
+
+factory
+name of a factory method to create new instances of the service implementation.
+
+
+duplicate
+how the generator handles duplicate registrations. see duplicate strategy
+
+
+registration
+how the generator determines what to register. see registration strategy
+
+
+
+duplicate strategy
+
+
+
+value
+description
+
+
+
+
+skip
+skips registrations for services that already exists
+
+
+replace
+replaces existing service registrations
+
+
+append
+appends a new registration for existing services
+
+
+
+registration strategy
+
+
+
+value
+description
+
+
+
+
+self
+registers each matching concrete type as itself
+
+
+implementedinterfaces
+registers each matching concrete type as all of its implemented interfaces
+
+
+selfwithinterfaces
+registers each matching concrete type as all of its implemented interfaces and itself
+
+
+
+singleton services
+[registersingleton]
+public class singletonservice : iservice { }
+
+explicit service type
+[registersingleton(servicetype = typeof(iservice))]
+public class singletonservice : iservice { }
+
+scoped services
+[registerscoped]
+public class scopedservice : iservice { }
+
+transient services
+[registertransient]
+public class transientservice : iservice { }
+
+factories
+[registertransient(factory = nameof(servicefactory))]
+public class factoryservice : ifactoryservice
+{
+    private readonly iservice _service;
+
+    public factoryservice(iservice service)
+    { 
+        _service = service;
+    }
+
+    public static ifactoryservice servicefactory(iserviceprovider serviceprovider)
+    {
+        return new factoryservice(serviceprovider.getservice<iservice>());
+    }
+}
+
+open generic
+[registersingleton(implementationtype = typeof(opengeneric<>), servicetype = typeof(iopengeneric<>))]
+public class opengeneric<t> : iopengeneric<t> { }
+
+register method
+when the service registration is complex, use the registerservices attribute on a method that has a parameter of iservicecollection or servicecollection
+public class registrationmodule
+{
+    [registerservices]
+    public static void register(iservicecollection services)
+    {
+        services.tryaddtransient<imoduleservice, moduleservice>();
+    }
+}
+
+add to container
+the source generator creates an extension method with all the discovered services registered.  call the generated extension method to add the services to the container.  the method will be called add[assemblyname].  the assembly name will have the dots removed.
+var services = new servicecollection();
+services.addinjectiotestsconsole();
+
+override the extension method name by using the injectioname msbuild property.
+<propertygroup>
+  <injectioname>library</injectioname>
+</propertygroup>
+
+var services = new servicecollection();
+services.addlibrary();
+
+
+
+
+blazor typeahead control
+august 27, 2019
+overview
+the loresoft blazor controls project contains a collection of blazor user controls.
+
+demo: https://blazor.loresoft.com/
+nuget: https://nuget.org/packages/loresoft.blazor.controls
+source: https://github.com/loresoft/loresoft.blazor.controls
+
+installing
+the loresoft.blazor.controls library is available on nuget.org via package name loresoft.blazor.controls.
+to install loresoft.blazor.controls, run the following command in the package manager console
+install-package loresoft.blazor.controls
+
+setup
+to use, you need to include the following css and js files in your index.html (blazor webassembly) or _host.cshtml (blazor server).
+in the head tag add the following css.
+<link rel="stylesheet" href="_content/loresoft.blazor.controls/blazorcontrols.css" />
+
+then add the js script at the bottom of the page using the following script tag.
+<script src="_content/loresoft.blazor.controls/blazorcontrols.js"></script>
+
+typeahead features
+
+searching data by supplying a search function
+template for search result, selected value, and footer
+debounce support for smoother search
+character limit before searching
+multiselect support
+built in form validation support
+
+typeahead properties
+required
+
+value - bind to value in single selection mode.  mutually exclusive to values property.
+values - bind to values in multiple selection mode.  mutually exclusive to value property.
+searchmethod - the method used to return search result
+
+optional
+
+allowclear - allow the selected value to be cleared
+convertmethod - the method used to convert search result type to the value type
+debounce - time to wait, in milliseconds, after last key press before starting a search
+items - the initial list of items to show when there isn’t any search text
+minimumlength - minimum number of characters before starting a search
+placeholder - the placeholder text to show when nothing is selected
+
+templates
+
+resulttemplate - user defined template for displaying a result in the results list
+selectedtemplate - user defined template for displaying the selected item(s)
+norecordstemplate - template for when no items are found
+footertemplate - template displayed at the end of the results list
+loadingtemplate - template displayed while searching
+
+typeahead examples
+basic example
+state selection dropdown.  bind to value property for single selection mode.
+<typeahead searchmethod="@searchstate"
+           items="data.statelist"
+           @bind-value="@selectedstate"
+           placeholder="state">
+    <selectedtemplate context="state">
+        @state.name
+    </selectedtemplate>
+    <resulttemplate context="state">
+        @state.name
+    </resulttemplate>
+</typeahead>
+
+@code {
+    public statelocation selectedstate { get; set; }
+
+    public task<ienumerable<statelocation>> searchstate(string searchtext)
+    {
+        var result = data.statelist
+            .where(x => x.name.tolower().contains(searchtext.tolower()))
+            .tolist();
+
+        return task.fromresult<ienumerable<statelocation>>(result);
+    }
+}
+
+multiselect example
+when you want to be able to select multiple results.  bind to the values property.  the target property must be type ilist<t>.
+<typeahead searchmethod="@searchpeople"
+           items="data.personlist"
+           @bind-values="@selectedpeople"
+           placeholder="owners">
+    <selectedtemplate context="person">
+        @person.fullname
+    </selectedtemplate>
+    <resulttemplate context="person">
+        @person.fullname
+    </resulttemplate>
+</typeahead>
+
+@code {
+    public ilist<person> selectedpeople;
+
+    public task<ienumerable<person>> searchpeople(string searchtext)
+    {
+        var result = data.personlist
+            .where(x => x.fullname.tolower().contains(searchtext.tolower()))
+            .tolist();
+
+        return task.fromresult<ienumerable<person>>(result);
+    }
+ }
+
+github repository search
+use octokit to search for a github repository.
+<typeahead searchmethod="@searchgithub"
+           @bind-value="@selectedrepository"
+           placeholder="repository"
+           minimumlength="3">
+    <selectedtemplate context="repo">
+        @repo.fullname
+    </selectedtemplate>
+    <resulttemplate context="repo">
+        <div class="github-repository clearfix">
+            <div class="github-avatar"><img src="@repo.owner.avatarurl"></div>
+            <div class="github-meta">
+                <div class="github-title">@repo.fullname</div>
+                <div class="github-description">@repo.description</div>
+                <div class="github-statistics">
+                    <div class="github-forks"><i class="fa fa-flash"></i> @repo.forkscount forks</div>
+                    <div class="github-stargazers"><i class="fa fa-star"></i> @repo.stargazerscount stars</div>
+                    <div class="github-watchers"><i class="fa fa-eye"></i> @repo.subscriberscount watchers</div>
+                </div>
+            </div>
+        </div>
+    </resulttemplate>
+</typeahead>
+
+@inject igithubclient githubclient;
+
+@code {
+    public repository selectedrepository { get; set; }
+
+    public async task<ienumerable<repository>> searchgithub(string searchtext)
+    {
+        var request = new searchrepositoriesrequest(searchtext);
+        var result = await githubclient.search.searchrepo(request);
+
+        return result.items;
+    }
+}
+
+
+
+
+generate asp.net core webapi model with entity framework core generator
+december 10, 2018
+overview
+in this tutorial, you’ll learn how to use the entity framework core generator to create an entity framework core data model for an asp.net webapi.  entity framework core generator (efg) is .net core command-line (cli) tool to generate entity framework core model from an existing database.
+
+nuget: https://nuget.org/packages/entityframeworkcore.generator
+source: http://github.com/loresoft/entityframeworkcore.generator
+documentation: https://efg.loresoft.com
+
+the code for this tutorial is available at https://github.com/pwelter34/entityframeworkcore.generator.demo
+tracker database
+this tutorial will be a database first model.  the database is a simple task tracking database.
+
+the ddl script can be downloaded here.  to create the database on your local sql server, run the following command.
+sqlcmd -s localhost -i tracker.sql -e
+
+asp.net core web api project
+to get started, create a new asp.net core web api project.  you can either use visual studio or a command line.  in this demo, you’ll use the command line
+dotnet new webapi
+
+you’ll need a few nuget packages for the mapper and validation classes.
+dotnet add package automapper
+dotnet add package automapper.extensions.microsoft.dependencyinjection
+dotnet add package fluentvalidation.aspnetcore
+dotnet add package swashbuckle.aspnetcore
+
+
+entity framework core generator
+to use entity framework core generator, you need to install the .net core global tool.
+dotnet tool install --global entityframeworkcore.generator
+
+after the tool has been install, the efg command line will be available.  run efg --help for command line options
+initialize configuration
+entity framework core generator has many options available to customize the generated output.  the initialize command is used to create the configuration yaml file and optionally set the database connection string. update the configuration file to configure the generated output.
+the following command will create an initial generation.yaml configuration file as well as setting a user secret to store the connection string.
+efg initialize -c "data source=(local);initial catalog=tracker;integrated security=true" ^
+  --id "984ef0cf-2b22-4fd1-876d-e01499da4c1f" ^
+  --name "connectionstrings:tracker"
+
+the following is the yaml file created by default
+project:
+  namespace: '{database.name}'
+  directory: .\
+database:
+  connectionname: connectionstrings:tracker
+  usersecretsid: 984ef0cf-2b22-4fd1-876d-e01499da4c1f
+data:
+  context:
+    name: '{database.name}context'
+    baseclass: dbcontext
+    namespace: '{project.namespace}.data'
+    directory: '{project.directory}\data'
+  entity:
+    namespace: '{project.namespace}.data.entities'
+    directory: '{project.directory}\data\entities'
+  mapping:
+    namespace: '{project.namespace}.data.mapping'
+    directory: '{project.directory}\data\mapping'
+  query:
+    generate: true
+    indexprefix: by
+    uniqueprefix: getby
+    namespace: '{project.namespace}.data.queries'
+    directory: '{project.directory}\data\queries'
+model:
+  shared:
+    namespace: '{project.namespace}.domain.models'
+    directory: '{project.directory}\domain\models'
+  read:
+    generate: true
+    name: '{entity.name}readmodel'
+  create:
+    generate: true
+    name: '{entity.name}createmodel'
+  update:
+    generate: true
+    name: '{entity.name}updatemodel'
+  mapper:
+    generate: true
+    name: '{entity.name}profile'
+    baseclass: automapper.profile
+    namespace: '{project.namespace}.domain.mapping'
+    directory: '{project.directory}\domain\mapping'
+  validator:
+    generate: true
+    name: '{model.name}validator'
+    baseclass: abstractvalidator<{model.name}>
+    namespace: '{project.namespace}.domain.validation'
+    directory: '{project.directory}\domain\validation'
+
+generate entity framework core model
+in order to use entity framework core, you need a dbcontext, entity classes and mapping from a table to those entities.  entity framework core generator creates these for you from the database. to generate the files, run the generate command
+efg generate
+
+
+generation output
+the generate command will create the follow files and directory structure by default.  the root directory defaults to the current working directory.  most of the output names and locations can be customized in the configuration file
+data context output
+the entityframework dbcontext file will be created in the data directory.
+entities output
+the entities directory will contain the generated source file for entity class representing each table.
+mapping output
+the mapping directory contains a fluent mapping class to map each entity to its table.
+model output
+entity framework core generator has an option to create view models for each entity.  the output will go in the domain directory by default.
+generated model cleanup
+entity framework core generator supports safe regeneration via region replacement and source code parsing.  a typical workflow for a project requires many database changes and updates.  being able to regenerate the entities and associated files is a huge time saver.
+rename property
+the code generator makes its best attempt to convert names to there plural form using the humanizer library.  in some cases it fails.  the first cleanup to do is to rename the trackercontext.taskextendeds property to trackercontext.taskextended.
+
+when the generate command is re-run, this refactor will be saved.
+identifier interface
+in order to handle entities in a generic way, we’ll need to add some interfaces to them.  we’ll add the ihaveidentifier to all entities and models.
+interface definition
+namespace tracker.definitions
+{
+    public interface ihaveidentifier
+    {
+        guid id { get; set; }
+    }
+}
+
+add the interface to all entities that have an id primary key.  below is an example entity class with the interface added.
+public partial class priority : ihaveidentifier
+{
+    public priority()
+    {
+        #region generated constructor
+        tasks = new hashset<task>();
+        #endregion
+    }
+
+    #region generated properties
+    public guid id { get; set; }
+
+    public string name { get; set; }
+
+    public string description { get; set; }
+
+    public int displayorder { get; set; }
+
+    public bool isactive { get; set; }
+
+    public datetimeoffset created { get; set; }
+
+    public string createdby { get; set; }
+
+    public datetimeoffset updated { get; set; }
+
+    public string updatedby { get; set; }
+
+    public byte[] rowversion { get; set; }
+    #endregion
+
+    #region generated relationships
+    public virtual icollection<task> tasks { get; set; }
+    #endregion
+}
+
+notice the file has some regions like #region generated ....  these regions are what get replace the next time efg generate is called.  since the interface was added outside of those regions, it will not get overwritten.
+read more about regeneration in the documentation.
+web api
+you’ll need to add a few more things to your web api project to get things going.
+application startup
+you’ll need to change the application startup to register the entity framework context as well as register the automapper profiles.
+using automapper;
+using microsoft.aspnetcore.builder;
+using microsoft.aspnetcore.hosting;
+using microsoft.aspnetcore.mvc;
+using microsoft.entityframeworkcore;
+using microsoft.extensions.configuration;
+using microsoft.extensions.dependencyinjection;
+using swashbuckle.aspnetcore.swagger;
+using tracker.data;
+
+namespace tracker
+{
+    public class startup
+    {
+        public startup(iconfiguration configuration)
+        {
+            configuration = configuration;
+        }
+
+        public iconfiguration configuration { get; }
+
+        // this method gets called by the runtime. use this method to add services to the container.
+        public void configureservices(iservicecollection services)
+        {
+            // sharing the user secret configuration file
+            var connectionstring = configuration.getconnectionstring("tracker");
+
+            services.adddbcontext<trackercontext>(options => options.usesqlserver(connectionstring));
+
+            // register automapper profiles
+            services.addautomapper();
+
+            services
+                .addmvc()
+                .addfluentvalidation(fv => fv.registervalidatorsfromassemblycontaining<startup>()) // register validators
+                .setcompatibilityversion(compatibilityversion.version_2_2);
+
+            // register the swagger generator
+            services.addswaggergen(c =>
+            {
+                c.swaggerdoc("v1", new info { title = "tracker api", version = "v1" });
+            });
+        }
+
+        // this method gets called by the runtime. use this method to configure the http request pipeline.
+        public void configure(iapplicationbuilder app, ihostingenvironment env)
+        {
+            if (env.isdevelopment())
+            {
+                app.usedeveloperexceptionpage();
+            }
+            else
+            {
+                app.usehsts();
+            }
+
+            // enable middleware to serve generated swagger as a json endpoint.
+            app.useswagger();
+
+            // enable middleware to serve swagger-ui, specifying the swagger json endpoint.
+            app.useswaggerui(c =>
+            {
+                c.swaggerendpoint("/swagger/v1/swagger.json", "tracker api");
+            });
+
+            app.usehttpsredirection();
+            app.usemvc();
+        }
+    }
+}
+
+base controller
+to make the basic read, create and update endpoints easier, create a base controller class like the following.
+using system;
+using system.collections.generic;
+using system.linq;
+using system.linq.expressions;
+using system.threading;
+using system.threading.tasks;
+using automapper;
+using automapper.queryableextensions;
+using microsoft.aspnetcore.mvc;
+using microsoft.entityframeworkcore;
+using tracker.data;
+using tracker.definitions;
+
+namespace tracker.controllers
+{
+    [apicontroller]
+    [produces("application/json")]
+    public abstract class entitycontrollerbase<tentity, treadmodel, tcreatemodel, tupdatemodel> : controllerbase
+        where tentity : class, ihaveidentifier
+    {
+
+        protected entitycontrollerbase(trackercontext datacontext, imapper mapper)
+        {
+            datacontext = datacontext;
+            mapper = mapper;
+        }
+
+
+        protected trackercontext datacontext { get; }
+
+        protected imapper mapper { get; }
+
+
+        protected virtual async task<treadmodel> readmodel(guid id, cancellationtoken cancellationtoken = default(cancellationtoken))
+        {
+            var model = await datacontext
+                .set<tentity>()
+                .asnotracking()
+                .where(p => p.id == id)
+                .projectto<treadmodel>(mapper.configurationprovider)
+                .firstordefaultasync(cancellationtoken);
+
+            return model;
+        }
+
+        protected virtual async task<treadmodel> createmodel(tcreatemodel createmodel, cancellationtoken cancellationtoken = default(cancellationtoken))
+        {
+            // create new entity from model
+            var entity = mapper.map<tentity>(createmodel);
+
+            // add to data set, id should be generated
+            await datacontext
+                .set<tentity>()
+                .addasync(entity, cancellationtoken);
+
+            // save to database
+            await datacontext
+                .savechangesasync(cancellationtoken);
+
+            // convert to read model
+            var readmodel = await readmodel(entity.id, cancellationtoken);
+
+            return readmodel;
+        }
+
+        protected virtual async task<treadmodel> updatemodel(guid id, tupdatemodel updatemodel, cancellationtoken cancellationtoken = default(cancellationtoken))
+        {
+            var keyvalue = new object[] { id };
+
+            // find entity to update by id, not model id
+            var entity = await datacontext
+                .set<tentity>()
+                .findasync(keyvalue, cancellationtoken);
+
+            if (entity == null)
+                return default(treadmodel);
+
+            // copy updates from model to entity
+            mapper.map(updatemodel, entity);
+
+            // save updates
+            await datacontext
+                .savechangesasync(cancellationtoken);
+
+            // return read model
+            var readmodel = await readmodel(id, cancellationtoken);
+            return readmodel;
+        }
+
+        protected virtual async task<treadmodel> deletemodel(guid id, cancellationtoken cancellationtoken = default(cancellationtoken))
+        {
+            var dbset = datacontext
+                .set<tentity>();
+
+            var keyvalue = new object[] { id };
+
+            // find entity to delete by id
+            var entity = await dbset
+                .findasync(keyvalue, cancellationtoken);
+
+            if (entity == null)
+                return default(treadmodel);
+
+            // return read model
+            var readmodel = await readmodel(id, cancellationtoken);
+
+            // delete entry
+            dbset.remove(entity);
+
+            // save 
+            await datacontext
+                .savechangesasync(cancellationtoken);
+
+            return readmodel;
+        }
+
+        protected virtual async task<ireadonlylist<treadmodel>> querymodel(expression<func<tentity, bool>> predicate = null, cancellationtoken cancellationtoken = default(cancellationtoken))
+        {
+            var dbset = datacontext
+                .set<tentity>();
+
+            var query = dbset.asnotracking();
+            if (predicate != null)
+                query = query.where(predicate);
+
+            var results = await query
+                .projectto<treadmodel>(mapper.configurationprovider)
+                .tolistasync(cancellationtoken);
+
+            return results;
+        }
+    }
+}
+
+task controller
+create a taskcontroller to create, update, read and delete tasks.
+using system;
+using system.collections.generic;
+using system.threading;
+using system.threading.tasks;
+using automapper;
+using microsoft.aspnetcore.mvc;
+using tracker.data;
+using tracker.domain.models;
+
+namespace tracker.controllers
+{
+    [route("api/task")]
+    public class taskcontroller : entitycontrollerbase<data.entities.task, taskreadmodel, taskcreatemodel, taskupdatemodel>
+    {
+        public taskcontroller(trackercontext datacontext, imapper mapper) : base(datacontext, mapper)
+        {
+        }
+
+        [httpget("{id}")]
+        public async task<actionresult<taskreadmodel>> get(cancellationtoken cancellationtoken, guid id)
+        {
+            var readmodel = await readmodel(id, cancellationtoken);
+
+            if (readmodel == null)
+                return notfound();
+
+            return readmodel;
+        }
+
+        [httpget("")]
+        public async task<actionresult<ireadonlylist<taskreadmodel>>> list(cancellationtoken cancellationtoken)
+        {
+            var listresult = await querymodel(null, cancellationtoken);
+            return ok(listresult);
+        }
+
+        [httppost("")]
+        public async task<actionresult<taskreadmodel>> create(cancellationtoken cancellationtoken, taskcreatemodel createmodel)
+        {
+            var readmodel = await createmodel(createmodel, cancellationtoken);
+
+            return readmodel;
+        }
+
+        [httpput("{id}")]
+        public async task<actionresult<taskreadmodel>> update(cancellationtoken cancellationtoken, guid id, taskupdatemodel updatemodel)
+        {
+            var readmodel = await updatemodel(id, updatemodel, cancellationtoken);
+            if (readmodel == null)
+                return notfound();
+
+            return readmodel;
+        }
+
+        [httpdelete("{id}")]
+        public async task<actionresult<taskreadmodel>> delete(cancellationtoken cancellationtoken, guid id)
+        {
+            var readmodel = await deletemodel(id, cancellationtoken);
+            if (readmodel == null)
+                return notfound();
+
+            return readmodel;
+        }
+    }
+}
+
+test endpoint
+you can use the swagger ui to test the end points
+
+
+database change / regenerate
+now that you have the basic web api project setup, you can run efg generate after any database change to keep all your entity and view models in sync with the database.
+
+
+
+entity framework core generator - generating a model from an existing database
+november 14, 2018
+overview
+.net core command-line (cli) tool to generate entity framework core model from an existing database.
+
+nuget: https://nuget.org/packages/entityframeworkcore.generator
+source: http://github.com/loresoft/entityframeworkcore.generator
+documentation: https://efg.loresoft.com
+
+features
+
+entity framework core database first model generation
+safe regeneration via region replacement
+safe renaming via mapping file parsing
+optionally generate read, create and update models from entity
+optionally generate validation and object mapper classes
+
+documentation
+entity framework core generator documentation is available via read the docs
+installation
+to install entityframeworkcore.generator tool, run the following command in the console
+dotnet tool install --global entityframeworkcore.generator
+
+after the tool has been install, the efg command line will be available.  run efg --help for command line options
+generate command
+entity framework core generator (efg) creates source code files from a database schema. to generate the files with no configuration, run the following
+efg generate -c <connectionstring>
+
+replace <connectionstring> with a valid database connection string.
+generation output
+the generate command will create the follow files and directory structure by default.  the root directory defaults to the current working directory.  most of the output names and locations can be customized in the configuration file
+data context output
+the entityframework dbcontext file will be created in the root directory.
+entities output
+the entities directory will contain the generated source file for entity class representing each table.
+mapping output
+the mapping directory contains a fluent mapping class to map each entity to its table.
+initialize command
+the initialize command is used to create the configuration yaml file and optionally set the connection string. the configuration file has many options to configure the generated output.  see the configuration file documentation for more details.
+the following command will create an initial generation.yaml configuration file as well as setting a user secret to store the connection string.
+efg initialize -c <connectionstring>
+
+when a generation.yaml configuration file exists, you can run efg generate in the same directory to generate the source using that configuration file.
+regeneration
+entity framework core generator supports safe regeneration via region replacement and source code parsing.  a typical workflow for a project requires many database changes and updates.  being able to regenerate the entities and associated files is a huge time saver.
+region replacement
+all the templates output a region on first generation.  on future regeneration, only the regions are replaced.  this keeps any other changes you’ve made to the source file.
+example of a generated entity class
+public partial class status
+{
+    public status()
+    {
+        #region generated constructor
+        tasks = new hashset<task>();
+        #endregion
+    }
+
+    #region generated properties
+    public int id { get; set; }
+
+    public string name { get; set; }
+
+    public string description { get; set; }
+
+    public int displayorder { get; set; }
+
+    public bool isactive { get; set; }
+
+    public datetimeoffset created { get; set; }
+
+    public string createdby { get; set; }
+
+    public datetimeoffset updated { get; set; }
+
+    public string updatedby { get; set; }
+
+    public byte[] rowversion { get; set; }
+    #endregion
+
+    #region generated relationships
+    public virtual icollection<task> tasks { get; set; }
+    #endregion
+}
+
+when the generate command is re-run, the generated constructor, generated properties and generated relationships regions will be replace with the current output of the template.  any other changes outside those regions will be safe.
+source parsing
+in order to capture and preserve entity, property and dbcontext renames, the generate command parses any existing mapping and dbcontext class to capture how things are named.  this allows you to use the full extend of visual studio’s refactoring tools to rename things as you like.  then, when regenerating, those changes won’t be lost.
+database providers
+entity framework core generator supports the following databases.
+
+sql server
+postgresql coming soon
+mysql coming soon
+sqlite coming soon
+
+the provider can be set via command line or via the configuration file.
+set via command line
+efg generate -c <connectionstring> -p <provider>
+
+set in configuration file
+database:
+  connectionstring: 'data source=(local);initial catalog=tracker;integrated security=true'
+  provider: sqlserver
+
+database schema
+the database schema is loaded from the metadata model factory implementation of idatabasemodelfactory.  entity framework core generator uses the implemented interface from each of the supported providers similar to how ef dbcontext scaffold works.
+view models
+entity framework core generator supports generating read, create and update view models from an entity.  many projects rely on view models to shape data.  the model templates can be used to quickly get the basic view models created.  the model templates also support regeneration so any database change can easily be sync’d to the view models.
+
+
+
+
+
+
+previous
+
+
+1 (current)
+
+
+2
+
+
+3
+
+
+4
+
+
+5
+
+
+6
+
+
+7
+
+
+8
+
+
+next
+
+
+
+
+
+© copyright 2024 loresoft.com. all rights reserved.
+
+privacy
+terms
+
+
+
+
+
+
+
+
+

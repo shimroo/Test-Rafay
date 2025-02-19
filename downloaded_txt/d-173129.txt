@@ -1,0 +1,469 @@
+
+
+
+
+
+
+
+
+
+
+
+linux terminal server project
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          skip to content
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            linux terminal server project
+          
+
+
+
+            
+              about
+            
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            initializing search
+          
+
+
+
+
+
+
+
+
+
+
+
+
+    github
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    linux terminal server project
+  
+
+
+
+
+
+
+    github
+  
+
+
+
+
+
+
+
+    about
+  
+
+
+
+
+
+
+
+    documentation
+  
+
+
+
+
+
+
+
+
+            documentation
+          
+
+
+
+
+    preparation
+  
+
+
+
+
+
+
+
+    installation
+  
+
+
+
+
+
+
+
+
+            installation
+          
+
+
+
+
+    raspberry pi os
+  
+
+
+
+
+
+
+
+
+    personal package archive
+  
+
+
+
+
+
+    netboot clients
+  
+
+
+
+
+
+
+
+
+
+
+    man pages
+  
+
+
+
+
+
+
+
+
+            man pages
+          
+
+
+
+
+    ltsp
+  
+
+
+
+
+
+    ltsp.conf
+  
+
+
+
+
+
+    ltsp-dnsmasq
+  
+
+
+
+
+
+    ltsp-image
+  
+
+
+
+
+
+    ltsp-info
+  
+
+
+
+
+
+    ltsp-initrd
+  
+
+
+
+
+
+    ltsp-ipxe
+  
+
+
+
+
+
+    ltsp-kernel
+  
+
+
+
+
+
+    ltsp-nfs
+  
+
+
+
+
+
+    ltsp-remoteapps
+  
+
+
+
+
+
+
+
+
+
+
+    guides
+  
+
+
+
+
+
+
+
+
+            guides
+          
+
+
+
+
+    chat room
+  
+
+
+
+
+
+    coding
+  
+
+
+
+
+
+    isc dhcp server
+  
+
+
+
+
+
+    markdown
+  
+
+
+
+
+
+    netconsole
+  
+
+
+
+
+
+    proposed ppa
+  
+
+
+
+
+
+    pxelinux
+  
+
+
+
+
+
+    specifications
+  
+
+
+
+
+
+    snap
+  
+
+
+
+
+
+    versioning
+  
+
+
+
+
+
+
+
+
+    support
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+about¶
+
+linux terminal server project helps in netbooting lan clients from a single template installation that resides in a virtual machine image or a chroot on the ltsp server, or the server root (/, chrootless). this way maintaining tens or hundreds of diskless clients is as easy as maintaining a single pc.
+ltsp has been redesigned and rewritten from scratch in 2019 by alkisg in order to support new technologies like systemd, updated desktop environments, wayland, uefi etc. only the new version is actively developed, while the old one is now called ltsp5 and is in minimal maintenance mode.
+ltsp automatically configures and uses the following tools:
+
+ipxe: network boot loader that shows the initial client boot menu and loads the kernel/initrd.
+dnsmasq or isc-dhcp-server: dhcp server that assigns ips to the clients, or proxydhcp server when another dhcp server is used, e.g. a router.
+dnsmasq or tftpd-hpa: tftp server that sends ipxe/kernel/initrd to the clients.
+dnsmasq: optional dns server for dns caching or blacklisting.
+mksquashfs: creates a compressed copy of the template image/chroot/vm to be used as the client root /.
+nfs or nbd: serve the squashfs image to the network.
+tmpfs and overlayfs: make the squashfs image temporarily writable for each client, similiarly to live cds.
+nfs or sshfs: access the user's /home directory which resides on the server.
+ssh or sshfs or ldap: authenticate users against the server.
+
+what are you waiting for? continue to the installation page!
+
+
+
+
+
+
+
+
+
+      copyright © 2000-2023 the ltsp developers
+
+  
+  
+    made with
+    
+      material for mkdocs
+    
+
+
+
+
+
+
+
+
+
+
+
+

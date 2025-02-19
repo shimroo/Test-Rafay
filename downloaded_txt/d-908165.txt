@@ -1,0 +1,311 @@
+
+
+
+and now it’s all this
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+and now it’s all this
+i just said what i said and it was wrong
+          or was taken wrong
+ 
+
+chit chat about charts
+february 10, 2025 at  9:06 am by dr. drang
+speaking of jason snell, which i was in yesterday’s post, he recently gave an interesting interview to allison sheridan on her chit chat across the pond podcast. the topic was jason’s longstanding series of charts following apple’s quarterly results—the latest of which is here—and a few things stood out to me.
+
+first, while i knew that jason used numbers to make his charts, i didn’t know how he pulled those charts out of numbers to post on six colors. i guess i thought he copied them by right-clicking and saved them as png files using applescript or automator or shortcuts. but no. he has all his charts laid out on a single tab in numbers, saves that tab as a pdf, and then has a script that extracts rectangles from the pdf, one for each chart, and saves those as individual pngs. more automated than i would’ve thought possible when using numbers. (yes, i had forgotten that jason wrote about this several years ago.)
+i was happy to hear, though, that jason’s charts are not fully automated. he still tweaks his graphs by hand when necessary to get them to look right. to me this is a sign of care. it’s virtually impossible to set up a graphing template that always produces good looking charts for every set of data that comes down the pike. experienced graph makers give themselves the leeway to change settings to meet the needs of new data.
+finally, i was surprised to hear that jason’s data table, which he updates by hand whenever a new earnings report comes out, puts each quarter in its own column and all the categories—like mac, iphone, and ipad sales—in rows. this is a violation of table orthodoxy, in which fields are columns and records are rows. this standard method of organization is, of course, arbitrary, but software tools that deal with tables assume that they’ll be laid out this way.1
+but jason doesn’t use software tools like r or pandas to build his charts, so he can organize his table as he sees fit. and after thinking about it for bit, i realized why this transposed table would be easier for him to work with. here’s an excerpt from the most recent apple earnings report:
+
+the figures for the current quarter and the year-ago quarter are in columns and the categories are in rows. by having his numbers table organized this same way, jason can type in the values the way he sees them in the report. it’s much easier to proofread this way. also, he can quickly look back a few columns to make sure his data for the year-ago quarter matches apple’s. affordances like this are invaluable when entering data by hand.2
+even though i’m wedded to using python (and sometimes mathematica) for graphing, it’s alway good to hear how people use other tools. thanks to allison and jason for some topics to chew on the next time i want to make a few charts.
+
+
+
+
+the orthodoxy is not entirely arbitrary. tables tend to grow to have more records than fields, and it’s easier to lay out a long table on paper than a wide one. ↩
+
+
+many many years ago, i had to copy dozens of pages of numbers from a faded printout into a spreadsheet. ocr was out of the question. i made a paper template with cutouts so i could keep my eyes aligned and copy only the columns of interest. it was tedious, but it worked. ↩
+
+
+
+
+gifs, transparency, and pil
+february  9, 2025 at  5:27 pm by dr. drang
+a week or so ago, jason snell asked if i could help with a problem he was having using the python imaging library (pil)1. he wanted to update his e-ink status board with color images, as he now has the color e-ink display that dan moren uses. but he couldn’t get consistent results as he tried to use pil to change the color of black pixels to different colors in a set of gif images that were overlaid on his calendar background.
+the problem jason was having seemed similar to something i had solved before. my old screenshot utility used pil to put images of mac windows on top of a background that mimicked my desktop. but the combination of transparency, recoloring, and different file formats made it considerably more difficult than i expected. this post is essentially me explaining to myself what i learned as i thrashed around. you’re welcome to listen in.
+here’s a sample image i made in acorn. it’s a very small image, just 8 pixels wide and 12 pixels high, blown up greatly so you can see what’s going on.
+
+the white rectangle with a one-pixel black border is offset from the center of the image and is surrounded by transparent pixels, which acorn shows as a checkerboard. the transparent border is one pixel wide along the top and left sides and two pixels wide along the bottom and right sides. i exported it as a gif named rect.gif.
+let’s see how pil treats this image. first, we open it, and do some inquiries:
+python:
+from pil import image
+import numpy as np
+
+rect = image.new('rect.gif')
+print(rect.size)
+print(rect.mode)
+print(rect.info)
+
+the output is
+(8, 12)
+p
+{'version': b'gif87a', 'background': 0, 'transparency': 2, 'duration': 0}
+
+the size is obvious. the mode value of p stands for “palette,” which is pil’s way of saying that there’s an 8-bit color map, and each pixel is assigned one of the 256 colors in the map. that makes sense because that’s how gifs work. finally, the info is a dictionary that tells us the file was saved in gif87a format (there’s also a gif89a format), that its background color has index 0, and that the transparent pixels have index 2. the duration is about how long to display the image if the gif is animated; we don’t need to worry about that for a static image.
+
+update 11 feb 2025 11:50 am
+among all you nerds, only brian ashe thought to email me that transparency was introduced to gifs in the gif89a version; gif87a didn’t have it. so the version above is wrong. pil isn’t wrong. the first six bytes of the file are indeed gif87a. i confirmed that by running xxd rect.gif and got this output:
+00000000: 4749 4638 3761 0800 0c00 9100 0000 0000  gif87a..........
+00000010: ffff ff00 0000 0000 0021 f904 0900 0002  .........!......
+00000020: 002c 0000 0000 0800 0c00 0002 1694 7fa0  .,..............
+00000030: 9ae1 d05e 0cd0 0047 6715 575a bc2d 0c42  ...^...gg.wz.-.b
+00000040: 9646 0100 3b0a                           .f..;.
+
+changing the 7 to a 9 in the signature and resaving rect.gif doesn’t affect any of my code—in particular, the recolor function still works—but now i’m curious why the file had the signature of a format that didn’t support transparency. since the gif was built in acorn, i may ask gus mueller about this. in any event, thanks to brian for bringing this to my attention.
+
+there are at least a couple of ways to get the index values of all the pixels. i like to do it by assigning the image to a numpy array, like this:
+python:
+pdata = np.array(rect)
+
+pdata is now a 12×8 matrix of 8-bit integers:
+[[2, 2, 2, 2, 2, 2, 2, 2],
+ [2, 0, 0, 0, 0, 0, 2, 2],
+ [2, 0, 1, 1, 1, 0, 2, 2],
+ [2, 0, 1, 1, 1, 0, 2, 2],
+ [2, 0, 1, 1, 1, 0, 2, 2],
+ [2, 0, 1, 1, 1, 0, 2, 2],
+ [2, 0, 1, 1, 1, 0, 2, 2],
+ [2, 0, 1, 1, 1, 0, 2, 2],
+ [2, 0, 1, 1, 1, 0, 2, 2],
+ [2, 0, 0, 0, 0, 0, 2, 2],
+ [2, 2, 2, 2, 2, 2, 2, 2],
+ [2, 2, 2, 2, 2, 2, 2, 2]]
+
+(i hope you can see now why i started with such a small image. larger images are unwieldy to display, especially later in the post when we start looking at their rgb values.)
+laid out like this, the matrix sort of looks like the image. the transparent pixels around the border have a value of 2, just as info told us; the black pixels have a value of 0, which is also the background; and the white pixels have a value of 1.
+the interpretation in the previous paragraph was possible because we’d seen the image. if we hadn’t, we could use the getpalette function
+python:
+print(rect.getpalette())
+
+to return
+[0, 0, 0, 255, 255, 255, 0, 0, 0, 0, 0, 0]
+
+this is not a great format, but we can see that the first three values are the rgb values for black and the second three are the rgb values for white. the third set of three are also the rgb values for black, but because they’re transparent we don’t see them. there’s an unused fourth set because the number of colors in a gif has to be a power of two.
+although we could deal with colors using the palette, it’s considerably more work to do it that way, and it’s not 1987 anymore—we have the space to use a whopping four bytes per pixel. so we’ll convert the image to rgba mode and work with colors directly instead via an index.
+python:
+rect = image.open('rect.gif').convert('rgba')
+rgbadata = np.array(rect)
+
+this new array, rgbadata, is 12×8×4, which makes it harder to display, but i think you can see what’s going on. i’ll reduce the font size so you don’t have to scroll horizontally as much.
+[[[  0,  0,  0,  0], [  0,  0,  0,  0], [  0,  0,  0,  0], [  0,  0,  0,  0], [  0,  0,  0,  0], [  0,  0,  0,  0], [  0,  0,  0,  0], [  0,  0,  0,  0]],
+ [[  0,  0,  0,  0], [  0,  0,  0,255], [  0,  0,  0,255], [  0,  0,  0,255], [  0,  0,  0,255], [  0,  0,  0,255], [  0,  0,  0,  0], [  0,  0,  0,  0]],
+ [[  0,  0,  0,  0], [  0,  0,  0,255], [255,255,255,255], [255,255,255,255], [255,255,255,255], [  0,  0,  0,255], [  0,  0,  0,  0], [  0,  0,  0,  0]],
+ [[  0,  0,  0,  0], [  0,  0,  0,255], [255,255,255,255], [255,255,255,255], [255,255,255,255], [  0,  0,  0,255], [  0,  0,  0,  0], [  0,  0,  0,  0]],
+ [[  0,  0,  0,  0], [  0,  0,  0,255], [255,255,255,255], [255,255,255,255], [255,255,255,255], [  0,  0,  0,255], [  0,  0,  0,  0], [  0,  0,  0,  0]],
+ [[  0,  0,  0,  0], [  0,  0,  0,255], [255,255,255,255], [255,255,255,255], [255,255,255,255], [  0,  0,  0,255], [  0,  0,  0,  0], [  0,  0,  0,  0]],
+ [[  0,  0,  0,  0], [  0,  0,  0,255], [255,255,255,255], [255,255,255,255], [255,255,255,255], [  0,  0,  0,255], [  0,  0,  0,  0], [  0,  0,  0,  0]],
+ [[  0,  0,  0,  0], [  0,  0,  0,255], [255,255,255,255], [255,255,255,255], [255,255,255,255], [  0,  0,  0,255], [  0,  0,  0,  0], [  0,  0,  0,  0]],
+ [[  0,  0,  0,  0], [  0,  0,  0,255], [255,255,255,255], [255,255,255,255], [255,255,255,255], [  0,  0,  0,255], [  0,  0,  0,  0], [  0,  0,  0,  0]],
+ [[  0,  0,  0,  0], [  0,  0,  0,255], [  0,  0,  0,255], [  0,  0,  0,255], [  0,  0,  0,255], [  0,  0,  0,255], [  0,  0,  0,  0], [  0,  0,  0,  0]],
+ [[  0,  0,  0,  0], [  0,  0,  0,  0], [  0,  0,  0,  0], [  0,  0,  0,  0], [  0,  0,  0,  0], [  0,  0,  0,  0], [  0,  0,  0,  0], [  0,  0,  0,  0]],
+ [[  0,  0,  0,  0], [  0,  0,  0,  0], [  0,  0,  0,  0], [  0,  0,  0,  0], [  0,  0,  0,  0], [  0,  0,  0,  0], [  0,  0,  0,  0], [  0,  0,  0,  0]]]
+
+the first row and first column are black, but because the a (alpha channel) value is 0, those pixels are transparent. the same goes for the last two rows and columns. the [0, 0, 0, 255] pixels are black and opaque. the [255, 255, 255, 255] pixels are white and opaque.
+so if we want to change a particular color, say black, to another color, say blue, we go through this array and change all the elements that have [0, 0, 0] as their first three values to [0, 0, 255]. in doing so, we’ll be changing the “color” of the transparent pixels, too, but that’s ok as long as we honor the transparency in any other manipulations we do.
+here’s the recolor function i came up with. i learned a lot from this stack overflow discussion, but i generalized the code and made it more array-like by using numpy’s all function to handle the color matching.
+python:
+ 1:  import numpy as np
+ 2:  from pil import image
+ 3:  
+ 4:  def recolor(image, oldcolor, newcolor):
+ 5:    '''return a new rgba image based on image but with
+ 6:    the oldcolor pixels changed to newcolor.'''
+ 7:  
+ 8:    # put the image into an array
+ 9:    data = np.array(image)
+10:  
+11:    # array of booleans, each element depends on whether the
+12:    # rgb values of that pixel match oldcolor
+13:    # we'll use this as a filter when assigning newcolor
+14:    is_old = np.all(data[:, :, :3] == oldcolor, axis=2)
+15:    # change the oldcolor pixels to newcolor; don't change alpha channel
+16:    data[:,:,:3][is_old] = newcolor
+17:  
+18:    # return the new image
+19:    return image.fromarray(data)
+
+it’s a pretty short function, mainly because numpy allows us to handle arrays and slices of arrays as single items. whatever looping is needed is done behind the scenes at the speed of compiled code.
+the is_old array, a boolean array the size and shape of the image, is used in line 13 to filter which pixels get assigned newcolor. only those pixels for which the r, g, and b values match oldcolor get changed.
+notice that the slices in lines 14 and 16 concern themselves only with the first three elements of the color array. if the input image is in rgb mode, that’s everything; but if the input image is in rgba mode, the alpha channel is left untouched. this is what we want, but care must still be taken when combining the result with another image.
+for example, let’s say we want make a new rectangle where the outline is blue instead of black and another new rectangle where the interior is red instead of white. and we want both of these new rectangles placed on a light gray background. here’s one way to do it:
+python:
+ 1:  #!/usr/bin/env python3
+ 2:  
+ 3:  import numpy as np
+ 4:  from pil import image
+ 5:  from recolor import recolor
+ 6:  
+ 7:  # make a gray canvas for placing other images on
+ 8:  canvas = image.new('rgba', (24, 16), (224, 224, 224))
+ 9:  
+10:  # open the rectangular gif and convert to rgba
+11:  rect = image.open('rect.gif').convert('rgba')
+12:  
+13:  # make two new rectangles, one with the black changed to blue
+14:  # and the other with the white changed to red
+15:  blue_rect = recolor(rect, (0, 0, 0), (0, 0, 255))
+16:  red_rect = recolor(rect, (255, 255, 255), (255, 0, 0))
+17:  
+18:  # place the rectangles on the canvas, honoring the alpha channel
+19:  canvas.alpha_composite(blue_rect, (2, 2))
+20:  canvas.alpha_composite(red_rect, (14, 2))
+21:  
+22:  # save as a png and as a bmp
+23:  canvas.save('test1.png')
+24:  canvas.save('test1.bmp')
+
+note that we made the background canvas an rgba image and used alpha_composite to place the two newly colored image onto canvas. by doing it this way, we account for the transparency in the two rectangles and the background gray shows through in the final images. i saved the results as a png because that’s probably the most common format for this type of image nowadays. and i saved it as a bmp because that’s the format jason needed to transfer to his e-ink device. if we look at both the png and bmp images in acorn with the magnification turned way up, they’ll look the same, like this:
+
+to me, this is the expected result. it’s what you’d get if you opened the rectangle image in an editor like acorn, changed the colors, and pasted it onto a gray background rectangle.
+the word paste in the previous paragraph can lead you astray when working with pil. here’s a slightly different script. it still uses rgba mode for the component images, but it uses the paste function instead of alpha_composite to put them together.
+python:
+ 1:  #!/usr/bin/env python3
+ 2:  
+ 3:  import numpy as np
+ 4:  from pil import image
+ 5:  from recolor import recolor
+ 6:  
+ 7:  # make a gray canvas for placing other images on
+ 8:  canvas = image.new('rgba', (24, 16), (224, 224, 224))
+ 9:  
+10:  # open the rectangular gif and convert to rgba
+11:  rect = image.open('rect.gif').convert('rgba')
+12:  
+13:  # make two new rectangles, one with the black changed to blue
+14:  # and the other with the white changed to red
+15:  blue_rect = recolor(rect, (0, 0, 0), (0, 0, 255))
+16:  red_rect = recolor(rect, (255, 255, 255), (255, 0, 0))
+17:  
+18:  # paste the rectangles on the canvas
+19:  canvas.paste(blue_rect, (2, 2))
+20:  canvas.paste(red_rect, (14, 2))
+21:  
+22:  # save as a png and as a bmp
+23:  canvas.save('test2.png')
+24:  canvas.save('test2.bmp')
+
+everything’s the same until line 18. lines 19–20 use paste, and the resulting files are named test2 instead of test1. here’s what test2.png looks like when enlarged in acorn:
+
+well, this is a surprise—it was to me, anyway. in pil, transparent pixels blow through the background image when they are paste‘d. or at least they do if the output format supports transparency. bmp files don’t support transparency, so here’s what test2.bmp looks like:
+
+in blue_rect all the pixels with a black color value were changed to blue, even the ones that were transparent in the original gif. and when we save the result to a file format that doesn’t support transparency, the blue appears in the supposedly transparent areas. a similar argument explains the large black area in the area where red_rect was paste‘d.
+if there’s no transparency in the foreground image, the paste function is just fine. but to me, turning everything into rgba mode and using alpha_composite is the way to go. it does what i want, and i don’t have to think anymore.
+by the way, jason didn’t use my recolor function directly because it didn’t fit in with how the rest of his script (which i didn’t see until later) was structured. but he was able to break it up and inject pieces of it to get his script working, which is all that matters.
+
+
+
+
+the original python imaging library has ceased to be. it’s expired and gone to meet its maker; run down the curtain and joined the choir invisible. but because its replacement, pillow, uses the same terminology, i will refer to it as pil throughout the post. ↩
+
+
+
+
+apple ignorance
+february  6, 2025 at  7:45 pm by dr. drang
+i got in my car a little before noon today to go see my dentist. because the appointment was in my calendar and included the dentist’s address, i expected carplay to bring up the address and ask if i wanted driving directions there. instead, it suggested a location in the opposite direction.
+this puzzled me, but i needed to get going, so i dismissed the suggestion and started driving in the right direction. but i soon realized what was going on. i had gone to whole foods at about this same time yesterday, and whole foods is in the strip mall that carplay suggested. siri, or whatever you want to call the machine learning engine behind this silly suggestion, decided that i was going there again. even though i had just been there. and even though i had a dental appointment in my calendar in just 10-15 minutes.
+carplay’s suggestions are generally better than this, and have been for some time. when i had an upcoming appointment in my calendar, directions to that appointment were its suggestion. when i used to go to the office every weekday, it would typically offer me directions there when i started the car in the morning. whenever i get in the car away from home, carplay suggests directions home, which is a decent guess even when it’s wrong. it even learned that i tend to go to a local bar for trivia night on wednesday evenings and started suggesting directions there.
+but the bar suggestions stopped a couple of weeks ago. maybe because i never used them? and today’s disregard of an appointment was a first. i have a sense that whatever apple is doing to make siri better is, at least temporarily, making it worse. you wouldn’t have thought it possible.
+
+sort of update
+before publishing this, my curiosity—and a sense of fairness—took over, and i looked up my credit card transactions for whole foods. maybe siri was seeing a pattern that i didn’t notice. and yes, my last two visits to whole foods were on jan 16 and jan 2, both thursdays and both in the late morning or early afternoon. aha!
+but the visit before that, in december, was on a wednesday, and the one before that—which really shouldn’t count because it was all the way back in july—was also on a wednesday. so i’m going to stick with my claim that siri/carplay was being stupid for suggesting a trip to whole foods on the basis of just two thursday midday trips. if that even was the basis. and no matter what, it shouldn’t have overridden an appointment in 10–15 minutes.
+
+
+a small note-taking change
+february  2, 2025 at  4:28 pm by dr. drang
+it’s been well over a year since i last wrote about how i’m using a single notebook and making it easy to search. normally, such a gap would mean that i’ve stopped doing whatever it was that had my interest, but that’s not true in this case. i can see a bunch of filled feela notebooks lined up on a bookshelf across the room and there’s one about half full sitting next to me. and my notebook index file is up to date.
+one thing has changed. i’m no longer writing with a pilot razor point. i’ve always preferred pencils to pens, but i used a pen in my notebook because it made a darker line and was easier to keep in the notebook’s elastic loop. but late last year, after reading some reviews at the pen addict and jetpens, i decided to give the pentel kerry a try.
+when paired with pentel’s ain hb leads, the line the 0.5 mm kerry produces is dark enough even for my old eyes. and the ain leads are quite strong. i don’t think i’ve had a single break in the couple of months i’ve been using them.
+
+and it scans well. here’s what the scanner pro app on my phone produces from the right-hand page:
+
+it too is easy to read.
+what i like about pencils is the “bite” they have on the paper. fountain pen people go on about how smoothly they write, but that’s never appealed to me. low friction allows my hand to go out of control, and i end up with letters that wander all over the place.
+generally speaking, i prefer the feel of a wooden pencil, but that isn’t a practical choice for using with the notebook. wooden pencils are too skinny to fit snugly in the notebook’s elastic loop, they’re too long for portability, and they require a sharpener. what attracted me to the kerry was its cap to protect against snag, and a length and barrel diameter that made it a good fit with the notebook.
+
+here’s the kerry in the closed and open configurations: closed for storage and open for writing.
+
+
+the cap goes into both positions with a satisfying click. when it’s open for writing, the button on the cap engages with the button inside to advance the lead. as usual, there’s an eraser under the button, which i’ve found does a good job with no smearing.
+the little cap you see on the left end in the closed photo above it what you remove to load the pencil with leads. it has circumferential grooves that make it easy get ahold of. under it is the tube that the leads go into.
+
+while the look of the kerry and the way it fits in the notebook loop are nice, what’s most important is how it feels in my hand, which is great. the resin sections of the barrel and the cap, which are the parts that come in contact with my fingers and the space between my thumb and index finger, are warm, smooth, and comfortable. i’ve never felt the need to take a break from writing with it.
+overall, the kerry was a good choice. i’ll probably be buying another one soon to have a backup in case i lose this one.
+
+
+
+older posts
+
+ 
+
+site search
+
+
+
+
+
+
+
+
+
+
+
+
+meta
+
+drdrang at leancrew
+blog archive
+rss feed
+json feed
+
+mastodon
+github repositories
+
+recent posts
+
+credits
+this work is licensed under a
+  creative commons attribution-share alike 3.0 unported license.
+© 2005–2025, dr. drang
+ 
+
+
+
+
+
+ 
+ 
+
+

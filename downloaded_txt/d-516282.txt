@@ -1,0 +1,84 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ casa, the common astronomy software applications package, is the primary data processing software for the atacama large millimeter/submillimeter array (alma) and nsf's karl g. jansky very large array (vla), and is frequently used also for other radio telescopes. the casa software can process data from both single-dish and aperture-synthesis telescopes, and one of its core functionalities is to support the data reduction and imaging pipelines for alma, vla and the vla sky survey (vlass).
+
+
+ latest casa release: 6.6*
+
+                  • mac arm: casa builds for mac arm are now available. 
+                  • casa viewer: the casa viewer is no longer packaged with mac os (details here). 
+                  • casa config: addition of a new casaconfig package to handle configuration settings. 
+                  • google colab: pip-wheels for python 3.10 (google colab) are now available.   
+                  • wvrgcal: re-written to be compatible with python3.10. 
+                  • gencal:  new caltype=’eop’ for creating eop (earth orientation parameter) correction tables.
+                  • gencal: new caltype=‘swpwts’ to use ‘swpow’ mode without temperature conversion factors.
+                  • sdbaseline: per spectrum sinusoid fitting for baseline subtraction. 
+                  • sdimaging/tsdimaging: new parameter ‘interpolation’ to specify spectral interpolation rules. 
+                  • setjy: will now exclusively use casaconfig to find the required data tables. 
+                  • plotms: calibration table interface added in parameters and gui. 
+                  • polfromgain: new parameter 'minpacov' to specify minimum parallactic coverage threshold. 
+                  • tclean: new mtmfs-via-cube imaging mode (specmode='mvc') with accurate wideband primary beam correction. 
+                  • getephemtable: posrefsys keyword changed to icrs; support non-alphanumeric characters. 
+                  • setjy: usescratch defaults to true; false no longer allowed with butler-jpl-horizons. 
+                  • fixplanets: removed functionality to attach jpl-horizons ephemeris data in mime format (use getephemtable instead). 
+                  • getephemtable: new task to retrieve jpl-horizons ephemeris data. 
+                  • getcalmodvla: new task to to retrieve flux calibrator brightness distributions and create component lists.
+                  • gencal: new parameter ant_pos_time to limit period for which antenna position corrections are included.
+                  • tclean: algorithmic improvements to the asp deconvolver for large spread of spatial scales. 
+                  • tclean/sdintimaging: now checks for mismatches in column states when given multiple input mss. 
+                  • tclean/sdintimaging: now sorts input list of mses in chronological order. 
+                  • tec_maps: now consistent with new file-naming convention on remote cddis server. 
+                  • simulator: simutil now performs case sensitive comparisons for 'known observatories'. 
+                  • plotms: correlation selection now supports standard stokes parameters and polarization quantities. 
+                • installation: test script added to test the casa installation. 
+                • defintent: new task to modify the scan intents of a measurement set. 
+                • sdimaging: new parameter convertfirst, to reduce the number of direction conversions. 
+                • deconvolve: mtmfs enabled as an algorithm option. 
+                • tclean/deconvolve: return dictionaries added for niter=0 calls. 
+                • image tool: fitsheader function added to return fits header as python dictionary. 
+                • plotms: parameter colorizeoverlay added to better specify overlay colors. 
+                • plotms: better specifies values in the legend when coloraxis is set. 
+                • multiple ms input: clarifications added to the casa logger on how casa handles input of multiple mss. 
+                  • telemetry/crash reporter:  functionality deprecated. 
+                    • casa docs: new casa memo 13 - a guide towards achieving scalable parallelization for imaging large cubes. 
+                  • casa docs: updated community examples on wideband primary beam corrections and custom primary beam models. 
+
+                 for details and more, see  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+casa is being developed by an international team of scientists based at the national radio astronomical observatory (nrao), the european southern observatory (eso), and the national astronomical observatory of japan (naoj), under the guidance of nrao.
+
+
+
+
+
+

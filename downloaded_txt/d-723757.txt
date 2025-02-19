@@ -1,0 +1,2886 @@
+
+
+
+terminal software
+
+
+
+
+
+
+
+
+
+realterm:
+serial terminal
+
+
+realterm 
+is an engineers terminal program specially designed for capturing, controlling and debugging binary and other difficult data streams. it is the best tool for debugging comms.
+
+
+
+
+§
+contents
+
+
+installing
+
+download 
+
+display formats
+
+terminal colors
+
+sync
+
+ports
+
+
+baud rates
+
+rs485
+
+winsock & telnet
+
+
+i2c bus, spi, 1-wire
+
+fonts
+
+hex font
+ 
+pin status
+ 
+capture
+
+timestamps
+
+trace and log
+
+send chars
+ & files
+
+echo to network
+
+monitoring rs232
+
+command line
+
+table of parameters
+
+
+do then quit
+
+controlling a running instance
+
+ini files
+
+
+activex/com
+
+
+browsing
+
+properties & methods
+
+callback events
+
+capture events
+
+data triggers
+
+
+examples
+
+
+from excel
+
+from openoffice
+
+from matlab
+
+from perl
+
+from scilab
+
+lego mindstorms
+
+
+hiding controls
+& display
+
+utilities
+
+ 
+hexcsv2dec
+
+nowstr 
+
+pic programmer
+
+linux
+
+translations
+
+links
+
+who uses it? / what for?
+
+changelog
+
+contact us
+
+
+
+
+
+
+
+
+latest news
+
+
+
+ feed
+
+
+
+sourceforge project page
+
+
+changelog
+
+
+
+
+v3 beta version under development (3.0.0.30). see latest news
+  
+
+
+custom timestamp format
+capture restart and autonaming for long logging.
+post-processing capture files
+
+donate
+: donations pay for delphi, code signing certificates
+, and more realterm for you
+.
+
+
+code signed exe's and installer now for win 7,8,10
+serial ports, usb serial and tcp/ip &  telnet
+i2c bus, spi& 1-wire chip control via bl233b / i2c2pc
+binary viewed as hex, 8,16,32 bit,little/big endian, signed, unsigned, float
+fullscreen, miniterminal, screen scaling
+global hotkeys (system-wide) to send strings
+colorised: rx and tx data are different colors
+ansi/vt100 terminal or plain text or binary modes
+protocol analyser / "portspying" mode
+fixed frame sizes/line lengths
+sync patterns with masks and xors, and display only match data
+timestamps on pattern match or newlines
+full remote control through activex/com
+extensive command-line for batch files and ini files
+can be used for serial i/o component of other programs via activex. full support for minimize,hide,iconize, tooltray
+special ascii+hex font to see hidden control chars
+capture to file, set capture size or capture duration
+timestamping capture files for simple data logging
+capture-restart, auto filenaming, data post-processing
+view and change control lines(cts,rts, dcd etc)
+easy to send binary sequences
+arbitary baud rates
+hideable to run in invisible or on tool-tray
+bluetooth ble support for i2c2pc-ble and hm10,11,15
+reset / power buttons for picprogrammer 
+
+
+
+
+
+read the popup hints carefully! they give lots of information. many controls have hidden functions
+
+
+
+right mouse context menu has many special functions and hotkeys
+
+there is an "examples" directory to see how to use it in scripts and with other programs
+
+
+
+
+help & hints:
+
+press f1
+to bring up the help screen. amongst other things you get a list of the actual commandline parameters that version supports.
+
+tool tips are the primary source of help and explanation
+ when using realterm. take the time to move the mouse over every control, and read the hints that pop up. if you doubleclick on the status bar at the bottom it will toggle to a longer hint string. 
+
+the popup hints are also displayed (and don't timeout) on the status bar. double click the status bar to show them the full screen width.
+
+enter send cr, <ctrl>+enter sends lf, <shift>+enter sends crlf
+
+§
+installing realterm
+
+§
+
+
+download
+
+monitor new file releases
+
+
+download and run the installer. realterm should be installed by an administrator user on xp, vista, win7,8. active x should be registered automatically.
+special termhex fonts should be installed automatically. if you need to, install the font file term_hex.fon from control panel -> fonts. this font is also useful in editors etc.
+example directory will be created with more up to date examples than you will find here.
+make shortcuts with all the configurations you need. (see commandline options
+) eg "port=2 baud=9600 flow=2"
+subscribe to 
+rss news feed
+ for development versions, and documentation changes. this is now the main news notification
+monitor new file releases
+ 
+to be notified of updates. use rss now!
+if you are using an ftdi
+ usb adaptor you need to install the ftdi driver first to use spy mode, or picprog functions, install the separate drivers required. read all the tool tips carefully. check the examples directory for programming examples. f1 brings up the about page with lots of links, and helplinks. project page
+ on
+is the place to find all up-to-date information, make bugreports etc.
+help is here
+
+back to contents
+
+
+§
+display formatting
+reaterm displays data in different ways to suit. "display as" selects the display emulator:
+
+
+
+
+
+
+
+ascii all chars
+ displays all chars including control codes.hex font
+ lets you see non-printable values. special chars like bs,ff,tab are not actioned.
+ansi/vt100
+ is terminal emulation, interpreting ansi escape sequences - best for formatting complex text.
+ascii plain
+ displays only printable chars, and actions control codes
+others (including ascii plain) are hex
+emulators and display binary values in various ways, and do binary sync.
+
+data can be synced with byte/char sequences, or selective displayed on match
+
+data can be in 1 or 2 byte binary and 4 byte int/float views, and big and little endian
+data can be inverted (pager ic's do this)
+timestamps
+ can be added in terminal
+
+
+§
+ ansi/vt100 terminal emulation
+
+this gives a traditional terminal with extensive control codes that navigate the cursor around and clear selected parts of the screen. if you need to format the display use this emulation, not ascii. [the ascii emulator displays all 256 characters, and so will not  even act on backspace
+ or formfeed. it does not properly act on cr and lf, so as to display them best
+]
+
+http://www.termsys.demon.co.uk/vtansi.htm
+
+
+http://wiki.bash-hackers.org/scripting/terminalcodes
+
+notes:
+
+when positioning cursor, {row,col} begins at 1,1 not 0,0
+if using dynamic screen redraw, eg moving progress bars, you need to uncheck lazy display checkbox (3.0.0.27+), so that screen is redrawn after every character
+vt100 codes don't include color commands. (feel free to add them to the apro terminal library)
+§
+terminal colors
+
+colors can be set from the commandline (v2.0.0.64+), or on the misc tab.colors are set by a string of color chars below. the sequence is: kbd,port,sendstr,spytx,spyrx,backgrounddefault is 'rylryk'    'r':  clred;    'g':  clgreen;    'b':  clblue;    'c':  claqua;    'y':  clyellow;    'm':  clfuchsia;    'k':  clblack;    'w':  clwhite;    't':  clteal;    'p':  clpurple;    'l':  cllime; (bright green)    'o':  clolive;    'n':  clmaroon;
+
+tray icon & popup menu
+
+right mouse click on the main window or on the tray icon  tp bring up the popup menu. you can doubleclick the tray icon to hide/show realterm (ie make it disappear from the taskbar)
+
+the tray icon and main icon changes to show a red dot when it is capturing. the dot rotates as data bytes are actually being received. the dot is green for normal chars, red when capturing, 
+
+yellow when data triggers or binary sync matches occur.
+small tablets, high resolutions screens etc, can make the default screen difficult to use. there are several ways to change the size of realterm
+
+scaling:
+the whole ui can be scaled to make all text and controls bigger. see misc
+
+
+fullscreen mode:
+for small tablets, the app can be run in fullscreen mode. see misc
+tab, and right click menu, or command line windowstate param. you can increase the cols to fill the screen by double-clicking cols. use the hotkey to toggle screen mode <ctrl+alt+f>
+miniterminal:
+sets up a small realterm, hides the controls and sets stayontop. both rows and cols are changed when you drag resize the miniterminal.  use the hotkey to toggle screen mode <ctrl+alt+m>
+
+§
+hiding controls / fullterminal
+
+
+
+hide controls
+either from the popup menu, or the commandline
+ or activex
+ interfaces. this is ideal for making a shortcut that sets up realterm for your field staff or users, then hides all the controls, to make it less confusing.  use the hotkey to toggle screen mode <ctrl+alt+h>
+show / hiding everything
+
+
+visible 
+option that will completely hide realterm. unlike minimising, it disappears from the taskbar. only the tray icon is left.
+
+
+if you want it to be totally hidden the activex interface lets you hide even the tray icon. this is ideal if (like us) you have 16 realterms running in the background at once, all the time.
+
+mechanism uses the window name, and this disappears when the window is hidden.
+
+setting rows and columns
+
+
+
+
+
+
+
+rows sets the min
+ number of rows.
+
+drag resizing will increase the actual number of rows (but not change the setting).
+
+cols are not changed by dragging, except in miniterminal mode. double click in cols
+ will set number of cols to fill the screen width. the status bar will show the actual
+ rows & cols during resizing.
+
+bytes
+and check "single". realterm tries to set the actual number of cols, to be multiples of data frame sizes.
+
+you can set the display rows from the commandline
+ to launch it the size you want.
+
+the example shown will be a 80x16 window.
+
+
+
+
+back to contents
+
+
+§
+frame sync
+
+binary data is arranged in frames. these frames are either
+
+
+fixed size n byte frames
+variable length, delimited by a trailing
+byte sequence
+single byte leading sync
+where the first char of the line delimits lines. 
+(of course text is arranged as lines ending with lf or cr  -ie numbers 10,13)
+
+sync starts a new line, and optionally highlights the last sync char, and adds a timestamp
+. sync can also be used to only
+display chars following the sync - n chars, or (n=-1) until next cr/lf
+
+a count of sync matches is shown on the binary sync chars panel. when a sync match occurs, the tray icon square changes to yellow for a few seconds.
+
+
+
+
+
+
+
+fixed size frames are self evident. you will notice that theterminal resizes to always have a whole number of frames across, unless "single" is checked.
+
+unfortunately frames will randomly begin somewhere on the line.gulp swallows a character each time it is pressed. press it until the frames correctly start at the beginning of a line.
+
+
+
+
+
+
+
+
+
+
+delimited frames start a new line when they detect the sync sequence. a sync sequence can be any number of bytes long
+
+here sync is detected when 2 bytes match 0xa55a, or moreaccurately, when 0xa55a xor 0x0000 and 0xffff > 0. ["syncis"should be set to "number"]. if you are syncing off asciichars, then select "synch is: ascii" and put the chars in the top editbox.
+
+you can have as many bytes as you want in the sync word.
+
+the xor term allows you to invert some or all data bits. ($00 is normal $ff is inverted). if you don't need the xor and and fields, just leave them empty to get the defaults.
+
+the and term lets you ignore some of the bits. for example youcould use this to use bit 7 as a sync bit, by setting the and term to $80 $80. (note hex numbers are preceded by $)
+
+
+
+
+back to contents
+
+
+§
+baud rates & ports
+
+baudrates depend on the exact hardware port. realterm accepts anything. some ports complain about invalid baud rates, others just ignore them, some coerce to the nearest rate.
+
+most pc ports accept non-standard values that the chips divider is capable of generating.
+
+realterm can connect to both serial ports (real uarts, as well as usb, and network virtual uarts) or tcp/telnet ports.
+
+
+windows serial port# eg "2"
+port name from registry ifpreceded by "\" eg "\vcp0" or "\serial0" 
+ip_address:port eg 192.168.20.1:23
+port can be a number or servicename eg "telnet"
+server:port eg "server:telnet" or "server:9876" 
+
+usb virtual comports
+
+usb serial ports appear at some port number. look under "my computer->properties->hardware->ports" to find where they are. unfortunately the same device will often appear at different comport numbers when it is on different usb hub ports.
+
+the currently present devices and associated ports are also listed in the registry at  hklm\hardware\devicemap\serialcomm. you can use these device names directly in the port selection eg  "\vcp0" or "\serial0"
+
+for example when you plug in an i2c2pc adaptor it will normally appear as \vcp0, regardless of the comport# that it is assigned, or which usb hub port it is connected to.
+
+on win9x there don't seem to be any special names for devices, and this won't help you.
+
+virtual comports - talking to software.
+
+if you would like to use realterm to interact with software on your pc, not with a physical port as normal, the you need com0com
+. this makes a pair of virtual comports, linked together. you software connects to one port, and realterm connects to the other. now realterm can talk to your software and see what it is sending.
+
+ §
+scanning for ports, startup delay, and bluetooth
+
+version 2.0.0.70 onwards
+
+realterm now uses the registry to find ports rather than trying to open them all. note if you get a registry key error when starting, this is because you do not have any serial ports installed. install one.
+
+exhaustive search by opening
+
+v3.0.0.28+ if you have ports which do not show up (e.g. com0com vcp's) then, at the end of the port dropdown is [exhaustive search by opening] . this scans for ports by trying to open every port number (see below). the scanports commandline option sets the highest port that will be tried.
+
+versions before 2.0.0.70 (and win 9x)
+
+realterm scans by trying to open every comport number.
+
+realterm will scan for ports at startup if an explicit port is not given on the commandline. this can cause long delays where bluetooth is running. the scanports commandline option sets the highest port that will be tried.when starting normally, realterm will try to open the first existent port that it finds. (v2.0.0.57+)
+
+when started as an activex automation server, it does not open the port until explicitly requested.
+
+§
+what baud rates does realterm support?
+
+
+realterm will pass any
+ requested baud rate through to windows. many other applications have a list of baud rates, but realterm does not, it will request anything.
+
+mostly, if a baud rate is not accepted, there is no error or warning - it just does not work. whether a baud rate will be work depends on two things reaterm has no control over:
+
+
+
+
+will the driver and/or windows accept a requested but possible rate?
+
+
+
+
+can the hardware divide its clock down to the requested rate?
+
+
+
+
+microsoft says this
+: "for all other cases, as long as the requested baud rate is within 1 percent of the nearest baud rate that can be found with an integer divisor, the baud rate request will succeed"
+
+
+the most basic pc uart has a maximum baud rate of 115,200. any frequency of 115,200 / n, can usually be requested. more modern pc's and laptops, usually have a higher maximum baud rate of 230,400, or 460,800, or 921,600. actual serial ports usually have a maxium that is a multiple of 115,200. once you have found the maximum, any baud rate of <max baud rate>/n should work.
+
+usb-serial adaptors usually have higher clock rates, and support a wider range of different rates. ftdi's usb-serial adaptors have high maximum rates, and many possible rates. see ftdi info:
+
+
+http://www.ftdichip.com/support/knowledgebase/index.html?whatbaudratesareachieveabl.htm
+
+http://www.ftdichip.com/support/documents/appnotes/an232b-05_baudrates.pdf
+
+http://www.ftdichip.com/support/documents/appnotes/an_120_aliasing_vcp_baud_rates.pdf
+
+
+
+if the actual pc baud rate is within 3% of your actual device baud rate, it will usually work ok. if you are using rs232 connections, modern drivers will usually work at 230kbd for short cable lengths, but are less likely to work at 460kbd, or 921kbd
+
+baud rate multiplier and 16c95x uarts
+
+the16c95x family of advanced uarts are able to support very high baud rates. they have 64byte fifo's, which is a give away that they are in your serial card. when trying to get very high baud rates, there is an option in the hardware configuration of the uart to enable the "baud rate multiplier". this will result in higher than requested baud rates. ie the actual baud rate = requested rate * multiplier
+
+§
+rs485
+microsoft says:
+for all versions of windows > nt asyncpro handles the toggling of rts via the rts_control_toggle flag and the windows setcommstate function. i have found other people complaining about a "significant lag" when using this flag to control rs485 devices from non-asyncpro programs. this seems to be a problem with windows in general and not asyncpro in particular.
+here is a quote from a user in a different forum:
+"i tested the rts_control_toggle mode with rs485 devices, and i noticed that windows has a significant delay between the end of transmission and the control of the rts line, so this mode does not work properly with a rs485 equipment that replies "too fast" for windows, due to a conflict between the rs422 amplifiers simultaneously active on the rs485 line. your best bet might be to get an actual rs485 card for your windows system that handles the rts toggle in hardware.
+
+
+§
+tcp/ip: telnet and raw modes: missing ff's
+
+
+the tcp connections default to using telnet protocol. however if you are connecting to a socket with raw data, you might notice that some characters (eg 0xff)
+ are missing or doubled up. you need to change between telnet and raw modes. this is not a bug!
+the telnet connection lets two copies of realterm talk to each other on the same machine. just set the first to "server:telnet" and the second to "127.0.0.1:telnet". this is very useful for testing and experimentation.
+
+back to contents
+
+
+
+§
+fonts
+
+by defualt realterm should be using the hex fonts (below). the terminal can be changed from terminal font
+ button. only fixed pitch fonts show, and only some of these seem to be satisfactory. lucidas console
+ and fixedsys
+ are good starts. commandline options fontname and fontsize allow you to make a permanent change.
+
+e.g. realterm.exe fontname="lucida console" fontsize=11
+
+
+
+§
+hex font
+
+our hex fonts are included. the installer should install the fonts for you automatically. you can also go to the windows font installer in control panel to install it.
+
+the hex font contains all 8 bit values. the non-ascii values <32 are shown as either hex or control chars, depending on the font you select. (there are 3 different fonts in the .fnt file)
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+this is very useful for seeing control codes, invalid hidden codes and errors, in serial comms. it's equally useful in a programmers editor.
+
+(note that you won't see them in ansi mode, as the control codes will be processed)
+
+you can now get just the fonts from the downloads page. if you can convert these fonts for use with linux or another os, please do! if you would like to add a larger size to the font, please do.
+
+back to contents
+
+
+§
+pins & status
+
+
+
+
+
+
+
+handshake pins and comms status can be monitored.
+
+handshake outputs can be controlled directly (and from the command-line, and via activex)
+
+the error cause is displayed when you hover the mouse over the error light.
+
+
+pin states can be set manually. set means data flow is enabled. note that if cts/rts or dtr/dsr handshaking is enabled, then you cannot control that pin from the buttons.
+
+back to contents
+
+
+
+§
+capture
+
+incoming data can be captured to file. the capture can automatically stop (and restart) after a certain time or number of chars. capture files can be post-processed. realterm can be hidden, and capture controlled from the tray icon.
+, popupmenu, and automation interfaces. combine capture with filesend to make simple datalogging
+ applications. data lines can be timestamped
+. for more about capturing from the commandline see: do then quit
+
+
+
+this provides a very easy way to (say) collect serial data, and graph it live using matlab.
+
+it can either capture "direct" or via the terminal window. when you use direct capture, the terminal window is turned off, and the echo port operation will cease. this means less processor load, screen draws etc. this is best for embedded type uses. (v3.0.0.28+ display checkbox enables terminal in direct mode to check data)
+
+if you want to capture what you are seeing in the terminal, don't use direct capture.
+
+
+char count and cps (chars per sec) are displayed during capture.the tray icon and main icon changes to show a red dot when it is capturing. the dot rotates as data bytes are actually being received.
+
+capture as hex
+
+sometimes it is easier to look at binary data when it is saved as hex. so each received char is converted to two hex chars and saved to file. this option only works with direct capture. for best speed don't do this: capture normally, and use a binary/hex editor to examine the file
+
+restarting, autoname, and long captures
+
+some users leave realterm capturing for long periods. files can grow very large, or be unwieldy to find data in.
+
+restart and autoname (v3.0.0.28+), lets realterm begin a new file, after n secs or bytes, with the datetime appended to the filename. previously this was done via a batch file.
+
+eg to capture temperature data, with a new data file automatically created every day, and the datetime suffix in filename.....
+
+realterm capsecs=86400 capautoname=1 capfile="c:\temp\temperature_log.txt" capture=3
+
+
+post processing
+
+when the capture file is closed, it can be post processed by a batch file. (v3.0.0.28+). this could be used to:
+
+
+
+zip
+
+
+thin/decimate lines using sed
+
+
+convert e.g. hex2csv, bin2hex
+
+
+upload to web ftp, scp,sftp, wget
+
+
+graph or display
+
+
+
+e.g. to capture daily data and compress it:
+
+realterm capsecs=86400 capautoname=1 capfile="c:\temp\temperature_log.txt" capture=3
+capprocess="%programfiles%\bel\realterm\utils\postzip.bat"
+
+
+§
+diagnostic files: trace and log
+
+realterm can also write log and trace files to help debugging difficult serial problems. these are completely separate from the capture function and provided by the turbo async comport component. these are a reports from a dignostic queue. you can clear the queue or dump it to a file. the log buffer is 10000 long and trace buffer 1000 long (v2.0.0.69). select hex
+if you need to see non-printing chars. for more information see the  turbo async reference guide
+, chapter 2, "debugging facilities" (pg 33)
+
+
+back to contents
+
+
+§
+timestamps
+
+(v3.0.0.24+) timestamps can be shown in the terminal, or added into capture file.
+
+§
+terminal display mode timestamps
+the timestamping behaviour is different for different showas emulators
+
+ascii all chars
+ will add timestamps as the first char of a new line is received.
+
+
+ansi-vt100
+ display no timestamps  - they don't make sense
+
+
+hex (all others)
+, the time stamps are triggered by a sync match, and show the time of the last sync match char.
+
+
+custom timestamp
+ format can be set by right-click on timestamp checkbox. (v3.0.0.30+)
+
+capture file timestamps
+
+timestamping is very useful for data logging, or where you want to know when an occaisional string arrived. this is most useful for comma separated (csv) type text data. timestamp is triggered by cr or lf. 
+
+unix timestamps are the number of seconds from 1/1/1970.
+
+matlab timestamps are floating point days since 0 jan 0. matlab timestamps are given to the pc's clock resolution, this should be 10ms for nt and later and 55ms for win98 and earlier. using matlab timestamps should give you finer resolution than 1 second.
+
+unixhex is provided for convenience when all the data being captured is in hex. in this case the whole file including timestamps can be converted to decimal by the hexcsv2dec
+utility that is bundled with realterm.
+
+system format (labelled ymdhs before v3.0.0.30)  timestamps display the time using the system locale formatting function. this means that it varies with your preferences and place to place (month and day will swap with country). (it also has some slightly odd behavious like not including the hms value what it is 00:00:00)
+
+§
+custom timestamp format
+ (v3.0.0.30+) uses a delphi custom format string
+. default is "2016-05-29 15:47:23". this will always be the same from system to system. the format string can be set from the command line by timestamp=<format string>. you can edit it by right-click on the timestamp radiogroup. if you are using the commandline, and double-quotes, note how they are escaped:
+
+    
+timestamp="'""'yyyy-mm-dd hh:nn:ss'""'"
+
+note that unix, matlab, and format yymmddhhnnss will sort (in data analysis). system and other customary date formats do not sort.
+
+timestamping also slows down file capture somewhat, so it is probably not ideal for very fast and dense data streams.
+
+back to contents
+
+
+§
+sending char sequences
+
+read the popup hints carefully. they give lots of information especially in the send tab!
+
+
+often you want to send special chars strings or strings repeatedly, or send them quickly.
+
+both ascii and binary strings can be sent. ascii strings include python escape sequences eg \n for lf. see table below. literal disables the escape sequences and send just the string. sent chars aren't echoed to the terminal.
+
+(v2) if half-duplex is set, then sent strings will be shown on the terminal. this also applies to strings/chars sent via the activex interface.
+
+
+when sending ascii, you can optionally end the line with cr and/or lf. you can also strip spaces from sent data. this is useful for the i2cchip adaptor. while it ignores spaces, they take time, and buffer space, and won't be used in the final application. (but they make it much easier to read!)
+
+(v3.0.0.27+) send ashex, expects just hex, without $, 0x, h, etc. it ignores all chars that aren't hex. you can just enter hex, with commas and spaces if you want.
+
+commandline commands string1 and string2
+push strings into the comboboxes, so you can pre-load them. sendstr
+, sendnum
+, sendhex
+, and sendlit
+will send string directly from the commandline
+
+python escape sequences:
+
+
+
+
+escape sequence
+ 
+
+meaning
+ 
+
+
+
+\\
+backslash (\)
+
+\'
+single quote (')
+
+\"
+double quote (")
+
+\a
+ascii bell (bel)
+
+\b
+ascii backspace (bs)
+
+\f
+ascii formfeed (ff)
+
+\n
+ascii linefeed (lf)
+
+\r
+ascii carriage return (cr)
+
+\t
+ascii horizontal tab (tab)
+
+\v
+ascii vertical tab (vt)
+
+\ooo
+
+ascii character with octal value ooo
+
+
+\xhh...
+
+ascii character with hex value hh...
+
+
+
+
+hotkeys
+
+(v3.0.0.25+) local hotkeys work throughout now. look at the popup menu to see what local hotkeys exist.
+
+
+
+
+
+
+
+terminal copy/paste
+
+
+
+
+
+
+window: fullscreen, miniterminal, hide controls
+
+
+
+
+
+
+sendstrings
+
+
+
+
+
+
+terminal clear, newline
+
+
+
+
+
+
+
+global hotkeys can be enabled from the sendstrings popupmenu. this allows f key to send the strings from anywhere in windows - even when realterm does not have focus or is minimised.
+
+
+
+
+
+loading canned strings, loading sendstring drop-downs
+
+from the activex interface you can prepopulate the send dropdowns with strings by using the addcannedstring function.
+
+the string1, string2 commandline options load strings into the dropdowns. if you want to preload lots of strings, or long strings, then use an inifile. (3.0.0.24+) previous versions used sendstr, this is now used to send strings.
+
+sending ascii with special/non-printable values
+
+when you press "sendascii
+" any valid backslash sequences are converted to special values in the style of python.
+
+if literal
+ is checked, then the string is sent raw. note that the special chars must be lower case
+
+
+
+
+\n
+
+
+
+lf (0x0a)
+
+
+
+
+
+\r
+
+
+
+cr
+
+
+
+
+
+\a
+
+
+
+bel
+
+
+
+
+
+\b
+
+
+
+bs
+
+
+
+
+
+\f
+
+
+
+ff
+
+
+
+
+
+\v
+
+
+
+vt
+
+
+
+
+
+\t
+
+
+
+ht
+
+
+
+
+
+\xxx
+
+
+
+hex value. also accepts \0xxx
+
+
+
+
+
+\ooo
+
+
+
+octal value like python
+ /c. 1-3 digits can be used. (before v3.0.0.30, was decimal, not octal like python)
+
+
+
+
+
+\\
+
+
+
+\ (backslash)
+
+
+
+
+sending non-printable binary chars
+
+you can do this in several ways.
+
+
+in the terminal window you can send most control chars by holding the control key down eg ctrl+m = cr. (you cannot send 0x00 or 0x03 this way)
+
+you can send special chars nul(0x00) and ^c (0x03) using the buttons
+you can enter a string of hex or decimal numbers in the send comboboxes eg "51 0x31 $32" and press "send numbers
+to send a series of binary numbers use the unmarked edit box.type in numeric values here, separated by spaces. when you hitspace, each char will be sent. chars can be decimal, or hex eg "13""$1a" or "0x1a". just keep typing out numbers. 
+crc and checksum
+
+you can add a variety of crc's and checksums to the end
+of the send string. see the drop down list.
+
+modbus binary packets end with a 16bit crc. this can be appended to each string sent.
+
+crc's can be sent as hex-ascii (v3.0.0.30+) , this is useful when they are appended to ascii data. eg nmea.
+
+nmea packages the ascii message string with $ ... *
+
+§
+sending files
+
+you can dump a file directly to the port. files are sent raw
+, 
+the exact bytes in the file are sent out. there is no "protocol" and just sends everything. (versions before 1.14 swallowed ^z / 0x1a). hex values, python/c style backslash sequences etc are not
+
+ converted to anything, just sent literal.
+
+ if you want to send binary values you need to create your file with a binary or hex editor. eg frhed
+ , wxhexeditor
+ , multiedit
+
+
+
+padding file dump with delays
+
+two delay settings are provided to add delays after each char, and at the end of each line. (eol is denoted by cr at present). this affects file dump, but not sending char sequences above.
+
+sending repeatedly
+
+you can set the number of repeats, and the delay after sending the file, .
+
+these are particularly useful from the commandline for data logging, when combined with capture.
+
+for example you can make a simple, one line file that commands a multimeter to read a voltage. set repeats to 0, so it will loop for ever, and delay to 1000ms, and capture. now the data will be read to file every 1 second.
+
+§
+data logging
+
+using capture and sendfile from the commandline, you can log data and control intruments directly from the commandline, without extra software.
+
+realterm.exe senddly=10000 sendrep=0 sendfile=commands.txt capture=results.txt
+
+this will send "commands.txt" endlessly, with a 10sec pause between sends, and capture the replies to "results.txt". this is all you need to do to turn (say) and rs232 multimeter into a datalogger.
+
+(v2.0.0.46) the timestamp
+ option can be used to prepend a timestamp to each line. this is most useful for csv type text data. see capture section
+
+back to contents
+
+
+§
+i2c & spi & 1-wire bus
+
+i2c, spi, 1-wire and other serial buses can be read using the i2cchip
+ products "i2c2pc" and the "bl233b" ic. realterm cannot read i2c without these external devices. it cannot use printer ports, the pc's smbus interface etc.
+
+the  provides a usb/rs232 interface to 3 i2c buses. realterm is an easy way to use it. using the activex interface you can easily send strings from excel or other apps. using the echo port provides a way to make hardware devices that can be controlled over the internet.
+
+common commands you want to send to play with the adaptor are provided by the controls. using this you can quickly try out an i2c adaptor or 1-wire device.
+
+
+write to any i2c address
+read n bytes from an i2c address
+write then read and i2c address. (used to read from i2c devices that have internal registers
+read smbus alert register
+control adaptor pin states directly (bit-bash pins), and read pin states
+read status register
+read a dallas 1-wire id chip 
+write to 4 digit 7 seg led display modules
+control various special i2c chips: bl301, pca9544, pca9545,max127, 
+the main i2c tab has controls to select one of the serial buses.
+
+
+refer to the datasheet for the bl233b
+ chip used, where its commands are detailed.
+
+note that you can use it with spi, dallas 1-wire, and other serial ic's, as well as i2c
+
+the i2c-2
+tab has controls to support a number of common ic's. the max127 12bit precision adc
+ and pca9545 bus switch/multiplexor
+ are available as standard modules fromi2cchip
+
+the tab has support for non-i2c devices:
+
+
+spi chip select pins
+4 digit, 7 segment led and lcd display modules
+ based on mm5451. these are standard modules from i2cchip
+
+dallas 1-wire devices 
+
+§
+echo port: redirect ports across network
+
+the main port can be passed through or echoed to the echo port. this is partcularly useful when the echoport is a tcp port. this allows a real serial port to be aliased across the network. (the echo port can be a real comm port too)
+
+lets say the remote (unattended) machine (192.168.0.99) has a datalogger connected to com1. it runs realterm at startup with a command line like this:
+
+realterm -port=1 -baud=9600 -echo=server:9876 -caption=mirror_multimeter_to_internet
+
+ie realterm connects to the datalogger on com1 at 9600 bd, and presents a telnet server on port 9876 (or any other suitable number).
+
+on the local (attended) machine run a copy of realterm like this:
+
+realterm -port=192.168.0.99:9876
+
+this makes a telnet connection to the remote machine. now you can sit at your desk, and control and monitor the remote serial device.
+
+note that as realterm has a full activex interface, you can use windows remote dcom to start,stop and control the remote realterm, as well as the local copy.
+
+when there is a connection, chars are echoed. when the connection is broken, or the buffers are full for some reason, it simply stops attempting to echo chars. when the connection is broken, the server end just waits for another connection. at the client end, the port need to be manully restarted.
+
+if you are using the activex interface you can check the open property to see if the link is up, and use it to re-establish a dropped link.
+
+the monitor
+checkbox lets the terminal window display both sides of the conversation (ie both the data received through the ain port, and the echo port)
+
+
+signalling winsock connection state to comport
+
+when a telnet/winsock connection is being echoed to a physical comport, we can use one of the comports handshake output lines (dtr,rts) to signal a remote system whether winsock is connected. you must make sure that this doesn't interfere with the operation of the handshake lines. (ie use dtr for signalling if you are using rts/cts handshaking for flow control)
+
+com0com, com2tcp: virtual comports
+
+echo port an connect a physical port to the newtwork. however if you want to connect other software on your pc, you need virtual comports. see http://com0com.sourceforge.net com0com
+. com0com can make vcp's with numbered ports - realterm can use these, and named ports which rt cannot use.com0com can also make 3 and n way connections that can be used to create a tap that rt can connect to, for monitoring.
+
+back to contents
+
+
+§
+monitor rx and tx data: protocol analyser
+
+realterm has two ways to monitor serial communications, and let you see the rxd and txd data interleaved in the same terminal window:
+
+
+"spy" on port tab uses aspecial driver to intercept the comport messages and display them
+"monitor" on echoport  tab uses 2 comports anda special cable to monitor the actual rs232 cable 
+
+spy mode allows you to monitor the communications between a program running on your pc and the com device, by installing a device driver to intercept the port messages,spy mode must be activated before opening the comport, and the comport must be closed before spy mode can be released. spy button is on the port tab.
+
+
+note that you cannot currently capture the spy mode. however you can copy and paste from the terminal window.
+
+monitor mode
+
+monitor mode is useful to monitor communications between external devices by connecting to the rs232 cable.
+
+the echo port can be used to give you a second receiver. the data is put into the terminal screen, in a different color. now you can see both sides of the conversation.
+
+the interleaving on screen, only shows you when the data arrived at realterms handlers. the indeterminate delays in windows mean that you can't rely on the sequence being exactly as it happened. obviously with slow data, or decent gaps between send and receive, it will work better than with very fast data streams.
+
+special monitor cable
+
+you need a special adaptor with 2 plugs for the pc's 2 serial ports. only connect rxd and gnd on those plugs at the pc end.
+
+§
+monitor and echoing
+
+you can select both echo
+ and monitor. now realterm echos as normal, but the terminal window displays the data from both directions.
+
+back to contents
+
+
+
+§
+command line parameters
+
+the command line is morphing into a general purpose command system. you can run inifiles, send commands to running isntances with first, and execute commands from activex/com using docommands. future versions will allow command strings and hotkeys.
+
+
+realterm doesn't save its settings. instead it is set up from either the command line, for basic setups, or using its extensive activex interface. it is also possible to send commands to a running instance
+ of realterm from the commandline. (fix 3.0.0.25+)
+these examples show the command-line params you can use. generally they set the corresponding widgets. for radiobuttons and checkboxes, a number selects the state. for booleans (eg visible) use either 1 or 0. (n.b. no "/" or "-" before parameters). double-quotes enclose values with spaces or other control characters eg \. double quotes inside strings are possible (v3.0.0.30+) eg send1="abc=""def"""
+
+
+for complicated settings, a file of parameters can be loaded using inifile, and settings generated and saved from the "ini file" button on the misc tab. (v3.0.0.18+). when debugging problems, the view params
+ button will show what realterm actually
+ received on its commandline.
+
+§
+inifile dialog:
+
+
+
+
+create an ini file with all current settings in it, and edit that to only keep the ones you want to set
+
+
+save and load ini files
+
+
+execute / test whole infile with execute
+ button
+
+
+execute single lines in editor by double clicking them, or selections with selected
+ button.
+
+
+see the actual
+ last command line with view params
+
+
+go direct to the commandline help for parameters by double clicking a parameter in the all parameters help
+
+
+
+list all paramters actually recognised by the program. (may be more complete than this help list below)
+
+
+
+example command lines
+
+
+realterm.exe baud=9600 port=1flow=2 capfile=c:\temp\junk.dat visible=0 display=5 bigend=1 capcount=9876 framesize=7
+realterm.exe port=server:telnet
+realterm.exe inifile=realterm.ini
+realterm.exe scale=auto windowstate=full
+realterm.exe port=127.0.0.1:21
+realterm.exe rts=1 dtr=0
+realterm.exe tab=send
+realterm.exe echo=server:9876
+realterm.exe capfile=junk.txt capsecs=10 capture
+realterm.exe sendfile=junk.txt chardly=3 linedly=50
+realterm.exe capture=in.txt sendrep=10 senddly=10000 sendquit=out.txt
+realterm send1="abc=""def"""      (loads string abc="def" v3.0.0.30+) 
+
+ §
+table of commandline parameters
+
+
+
+
+
+
+
+§
+baud, bd
+
+
+#
+
+
+
+set the baud rate. non standard baudrates are fine
+
+
+
+
+
+§
+port, pt
+
+port or ip
+
+
+
+sets the port.
+
+
+
+
+
+§
+portquit, pq
+
+
+port or ip
+
+
+
+sets the port, exits if port does not exist or can't open
+
+
+
+
+
+§
+data
+
+
+
+7e1
+
+
+
+sets databits,parity,stopbits. eg data=7e1 databits is 8-5, parity is none,even,odd,mark,space, stopbits 1-2
+
+
+
+
+
+§
+framesize, fs
+
+
+ 
+
+
+
+terminal frame size. interacts with cols. use one or other
+
+
+
+
+
+§
+capfile, cf
+
+ 
+
+
+
+name of the capture file to use
+
+
+
+
+
+§
+capcount, cc
+
+
+ 
+
+
+
+length of capture in bytes (either capcount or capsecs)
+
+
+
+
+
+
+§
+capsecs, cs
+
+ 
+
+
+
+ 
+
+
+
+time of capture in secs. (-ve values makes it quit as soon as idle or until timeout).
+
+if using sendquit, then waits this time after send finishes, before stopping capture. see sendquit. (v3.0.0.17+)
+
+
+
+
+
+
+§
+capture, cp
+
+ 
+
+
+
+0/1/2/3
+
+filename
+
+
+
+capture starts immediately. stops at count or secs. can use capture=filename
+
+capture=0 is off; 1 is on; 2 is append; 3 is restart
+
+
+
+
+
+§
+capautoname
+
+0/1/2
+
+append datetime to filenames. used with restart for logging (v3.0.0.28+)
+
+
+
+
+§
+capprocess
+
+0/<filename>
+
+set capture post-processing batch file (v3.0.0.28+)
+
+
+
+
+§
+capquit, cq
+
+
+ 
+
+
+capture (as above), but program quits when capture ends. if you manually stop capture, then autoquit is cancelled. can use capquit=filename
+
+
+
+
+
+§
+caphex, cx
+
+
+
+
+
+capture as hex ie turns all chars to a 2 char hex value.
+
+
+
+
+
+§
+capdirect cd
+
+
+
+
+
+
+capture direct checkbox
+
+
+
+
+
+§
+tsdelimiter
+
+
+
+delim char
+
+
+set timestamp delimiter eg tsdelimiter=%
+
+
+
+
+§
+timestamp
+
+
+
+0-5, <format
+>
+
+
+
+during capture, prepends a timestamp to each line. only works in text files with eol character. a custom format string
+can be used (v3.0.0.30+)
+
+
+
+
+§
+visible, vs
+
+
+0/1
+
+
+
+starts hidden, only tray-icon is visible. 0=hidden,1=visible
+
+
+
+
+
+§
+display, ds
+
+
+#
+
+
+
+sets the display format (ascii, hex,int etc). eg display=5
+
+put before
+ other display params such as cols
+
+(v3.0.0.30+) -ve values for signed int eg display=-8 for int16
+
+
+
+
+
+§
+bigend, be
+
+
+ 
+
+
+
+set big-endian checkbox
+
+
+
+
+§
+flow, fw
+
+
+0,1,2,3, x, 0-3+4+8
+
+
+
+sets hardware flow control mode. flow=x to enable xon/xoff mode or flow=n+8 for rx-xon, +4 for tx xon or use flow twice flow=1 flow=x. xon/off: +8=tx, +4=rx. eg flow=10 is rts/cts+rx-xon/off. also you can use r or rtscts or d or dtsdsr
+
+
+
+
+
+§
+rts
+
+
+1/0
+
+
+
+sets rts pin
+
+
+
+
+
+§
+dtr
+
+
+
+1/0
+
+
+
+sets dtr pin
+
+
+
+
+
+§
+closed
+
+
+
+1/0
+
+
+
+starts with port closed (default is open)
+
+
+
+
+
+§
+tab
+
+
+
+ 
+
+
+
+selects the opening tabsheet by name or tab number (case in-sensitive)
+
+
+
+
+
+§
+echo
+
+
+
+ 
+
+
+
+sets the echo port, and enables echoing
+
+
+
+
+
+§
+ebaud
+
+
+
+n
+
+
+
+set the baud rate for echo port.
+
+
+
+
+
+§
+edata
+
+
+7e1
+
+
+
+sets echoport databits,parity,stopbits. (not working properly yet)
+
+
+
+
+
+§
+half
+
+
+
+ 
+
+
+
+sets half duplex
+
+
+
+
+
+§
+caption
+
+
+
+ 
+
+
+
+sets window caption (can't accept spaces, use underscores). see caution below if using with first
+
+
+
+
+
+§
+sendfile, sf
+§
+sendfname
+
+ 
+
+sends the file immediately. (capture started before sending starts) just set send filename.(v3.0.0.27+)
+
+
+
+
+§
+controls
+
+1/0
+
+hide controls and expand terminal window to full screen. (depreciated v3) show controls.
+
+
+
+
+§
+monitor
+
+
+1/0
+
+monitor echo port rx onto terminal
+
+
+
+
+§
+chardly
+
+
+#
+
+sets delay (in ms) after each character when sending files and strings
+
+
+
+
+§
+linedly
+
+#
+
+sets delay (in ms) after each line when sending files and strings
+
+
+
+
+§
+rows
+
+
+#
+
+
+
+
+
+§
+cols
+
+
+#
+
+set number of cols. (n.b. framesize interacts with this, use cols last)
+
+
+
+
+§
+senddly
+
+
+#
+
+set delay (in ms) after file is sent, until next send begins. if send delay is set, sendrep will be set to 0.
+
+
+
+
+§
+sendrep
+
+
+#
+
+set number of times file will be sent. 0 sends for ever. should follow after
+senddly
+
+
+
+
+§
+sendquit, sq
+
+ 
+
+quit when sendfile ends.if you manually stop send, then autoquit is cancelled. can use sendquit=filename
+
+
+
+
+§
+sendstr, ss
+
+"string"
+
+depreciated (v3.0.0.23-30) use string1, string2
+. loads "string" into the send string comboboxes. can be called more than once to load more strings. does not send the string unless sent to a running instance using first (see below) changed (v3.0.0.31+) sends to port as escaped ascii. puts in string1
+
+
+
+
+
+§
+sendnum
+
+
+"string"
+
+send string as numbers (see sendstr above)
+
+
+
+
+§
+sendhex
+
+
+"string"
+
+send string as hex (v3.0.0.31+)
+
+
+
+
+§
+sendlit
+
+
+"string"
+
+send string as literal (v3.0.0.31+)
+
+
+
+
+§
+cr
+
+0/1
+
+send cr after string (sets for following strings)
+
+
+
+
+§
+lf
+
+0/1
+
+send lf after string
+
+
+
+
+§
+first
+
+[0/1/2]
+
+
+should be first param
+ with the same caption / window title
+
+if only parameter, stops more than one instance running. brings first instance of realterm to front, and quits. note this finds running instance by the window title (caption) see details below.
+
+
+
+
+§
+lfnl
+
+
+1/0
+
+sets newline mode checkbox. see crlf for enter key
+
+
+
+
+§
+spy
+
+
+1/0
+
+spy mode. port you are spying on must be closed when starting. be sure to specify the port on the command line with port=x
+ when using this.
+
+
+
+§
+scanports
+
+1/0
+
+(obsolete) realterm scans for actual comports by trying to open them all.this can cause problems with bluetooth serial devices, because it takes a while before the os can say that a port is not there. this option can be used to suppress scanning
+
+
+
+
+§
+i2cadd
+
+
+ 
+
+set the i2c address. should be hex string eg "0x40"
+
+
+
+§
+help
+
+ 
+
+same as f1 key
+
+
+
+
+§
+install
+
+ 
+
+only used by installer for post-install special messages and behaviour.
+
+
+
+§
+scrollback
+
+
+#
+
+enable scrollback. just scrollback enables, =0 disables; =n sets scrollback lines=n (-ve disables)
+
+
+
+
+§
+colors
+
+
+string
+
+terminal colors are set by a sting of color chars. the sequence is: kbd,port,sendstr,spytx,spyrx,backgrounddefault is 'rylryk'   see terminal colors
+
+
+
+
+
+§
+hexcsv
+
+
+"format"
+
+sets format string for hexcsv formatting. (when implemented) will set the capture formatting sting to the same.
+
+
+
+
+§
+winsock
+
+
+0,1
+
+sets winsock to raw or telnet
+
+
+
+
+§
+ewinsock
+
+
+0,1
+
+as above for echo port
+
+
+
+
+§
+inifile
+
+<filename>
+
+load commandline parameters from a file. one param per line. (v3.0.0.24+) inifile is loaded after commandline has been processed. inifile can also be passed to a running instance by first.
+
+
+
+
+§
+msgbox
+
+message
+
+show a messagebox, normally at startup. prompt user e.g. "plug in voltmeter"
+
+
+
+
+§
+scale
+
+%,0,auto
+
+scale the whole application (so you can make it bigger on high pixel screens).0 or auto will scale to fill screen (v3.0.0.23+)
+
+
+
+
+§
+windowstate
+
+0-3, full,max,min,norm
+
+set the windowstate normal,minimized,maximized,fullscreen. fullscreen is especially useful for small tablets.
+
+
+
+
+§
+clear
+
+1+2+4
+
+sets the various clearterminalonxxx checkboxes. value is sum of 1=displaychange, 2=portchange, 4=portopen just clear sent from remote will clear the terminal
+
+
+
+
+§
+string1, string2, s1,s2
+
+string
+
+pushes strings into sendstring comboboxes on send tab. can be called more than once to push more strings into the combobox. (v3.0.0.23+). replaces sendstr.
+
+
+
+
+§
+crlf
+
+[0]1
+
+set crlf checkbox. enter key send crlf instead of cr
+
+
+
+
+§
+fontname
+
+name
+
+these are the fontnames shown in the terminal font
+ dialog.
+
+
+
+
+§
+fontsize
+
+size
+
+size will probably need to be set after setting font.
+
+
+
+
+§
+bsyncis
+
+[0],1,2
+
+
+binary sync is
+ select mode. (v3.0.0.29+) put this after dat,and,xor
+
+
+
+
+§
+bsyncdat
+
+string
+
+binary sync data string
+
+
+
+
+§
+bsyncand
+
+string
+
+and
+
+
+
+
+§
+bsyncxor
+
+string
+
+xor
+
+
+
+
+§
+bsynchi
+
+0[1]
+highlight
+
+
+
+
+§
+bsynclead
+
+0[1]
+
+leading sync
+
+
+
+
+§
+bsyncshowcount
+
+n[-1]
+
+show count. num chars to show after sync. -1 is show to end of line
+
+
+
+
+§
+keymapvt
+
+filename
+
+load keymap for vt100/ansi emulation  (v3.0.0.30+)
+
+
+
+
+§
+keymap
+
+filename
+
+load keymap for other emulators (ascii, hex etc)
+
+
+
+§
+crc
+
+-n,0,n
+
+set crc type on send tab. 0=none, -ve=hex. can use twice to set, but turn crc off. eg crc=-3 crc=0 (v3.0.0.30+)
+
+
+
+
+
+
+
+
+
+
+
+
+§
+version
+
+<version>
+
+does nothing. output by ini writer, so you can see what version of realterm made the file. this is useful for debugging when parameter behaviour changes with a new version.
+
+
+
+/regserver /unregserver
+
+ 
+
+register / remove activex com server. done by installer, but you may need to do this when changing versions etc.
+
+
+
+ hints: parameters that put a string into a drop down (eg sendstr, sendnum, hexcsv), can be called multiple times to push more than a single value into the drop down.
+
+eg realterm.exe hexcsv=uv hexcsv=st hexcsv=ab
+
+§
+
+
+if you are doing batch file automation, you will often want realterm to do something (e.g. send a file), then quit.
+realterm has sendquit, capquit, and portquit commands.
+capquit can capture either capsecs seconds of data, or capcount characters, then quit.
+sendquit sends files then quit. when capturing realterm will  continue the capture after the file send for up to 1 second if chars are still coming in.
+realterm port=\vcp0 flow=2 capture=infile.txt sendquit=outfile.txt
+if the return data is going to take longer to complete, then you can use capsecs with sendquit to force the time after sending ends, until capture stops. if capsecs is -ve, then it will keep capturing until the input goes idle, to a max of capsecs.(v3.0.0.17+) note that if nothing is happening it will quit quicker - capsecs sets the capture time, not the idle time.
+so below, the capture will remain open, until the flow stops, (for a max of 5 seconds open):
+realterm port=\vcp0 flow=2 capture=infile.txt capsecs=-5 sendquit=outfile.txt
+and here capture will remain open for 20 seconds regardless:
+realterm port=\vcp0 flow=2 capture=infile.txt capsecs=20 sendquit=outfile.txt
+when you are calling realterm within a batch file, you will normally want the batch file to pause until realterm exits. you must use the batch command start
+ with the /wait
+ parameter for this to happen.
+start "reading i2c eeprom" /wait realterm.exe port=\vcp0 flow=2 capture=infile.srec sendquit=cmdfile.i2c
+when you look at the examples, you will see that i tend to set environment variables for the names of the files, ports, and realterm itself. so it looks more like this...
+start "reading i2c eeprom" /wait %rt% port=%comport% flow=2 capture=%tempfilename%.srec sendquit=%cmdfilename%
+
+
+
+
+
+portquit: waiting for usb ports
+
+when testing usb devices via batch file, there are two problems that arise.
+
+
+faulty devices do not have a port, and so realterm will stay open
+after connecting a device, windows takes a quite variable amount of time to enumerate and connect them  
+
+
+ portquit quits the program with an error code, if the port is not able to be opened. this allows your batch file to retry until the port is open or timeout. see examples
+
+exit codes and errors
+
+in batch files you may need to check for error exits (using errorlevel)
+
+type texitcode=(excnormal=0,
+
+excnosuchport=1,
+
+excportbusy=2,
+
+excfileerror=3,
+
+excuipiblockedmessage=5,
+
+excsendfiletimeout=6
+
+);
+
+§
+controlling a running instance
+
+(v3.0.0.24+). the first instance must be started with first=1 now [security improvement].
+
+if the sending instance shows an error message that it is blocked the try starting the first instance with realterm.exe first=2. this unblocks the uipi protection.(v3.0.0.24+)
+
+
+which has the same caption / window title
+, and the second instance will terminate.  this allows you to pass many of the above parameters (not all will do anything), and some special ones below. note that windows scripting/activex is a better way to do complicated tasks.
+
+
+realterm.exe first lf send1="s42f0"
+
+
+
+
+
+quit
+
+
+
+ 
+
+
+
+quits realterm
+
+
+
+
+
+exit
+
+
+
+ 
+
+
+
+same as quit
+
+
+
+
+capture
+
+
+
+0/1/filename
+
+
+
+start/stop capture. 1 starts capture; 0 stops; filename
+ starts and sets filename
+
+
+
+
+
+sendfile
+
+
+
+0/1/filename
+
+
+
+start/stop send file
+
+
+
+
+
+sendstr
+
+sendnum
+
+sendhex
+
+sendlit
+
+
+"string
+"
+
+
+
+send string out.
+
+(<v3.0.0.31 only when sent to running instance)
+
+
+
+
+cr
+
+
+
+0/1
+
+
+
+send cr after string (sets for following strings)
+
+
+
+
+
+lf
+
+
+
+0/1
+
+
+
+send lf after string
+
+
+
+
+
+
+
+"numeric string
+"
+
+
+
+send numeric string as binary (only when sent to a running instance)
+
+
+
+
+
+caption
+
+
+
+ 
+
+
+
+the caption (window title) is used to find the running instance see caveat below if you use this to change it.
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+when you change the caption of the first instance, subsequently the control instance must be given the same caption.
+
+realterm.exe first caption="new realterm"
+  //now the running instance has a new title
+
+realterm.exe caption="new realterm" first displayas=5
+  //so now we also have to change the controller instance to be able to find it next time.
+
+first
+mechanism uses the window name, and this disappears when the window is hidden (but minimsed windows are ok)
+the best idea is to create a special shortcut for each setup you want to use, and set the params in its properties. if you need other parameters added, contact
+ us.
+
+back to contents
+
+
+§
+activex/com interface
+
+realterm is an out-of-process server. use a property browser (eg from excel or delphi) to see what it can do. (must be registered first run: realterm /regserver)
+
+(v3.0.0.27+) the docommands method makes all commandline parameters
+available to activex/com user.
+
+if the actx lacks a command, check the commandline.
+
+you can launch realterm from another application, eg matlab
+,excel
+, vb,openoffice
+, delphi. alternatively use windows scripting, and write a simple .scp file to launch and control it. you could even launch it from a web page to use as telnet client!
+
+registering the com interface
+
+this should be done automatically when you run the installer. sometimes this fails, or perhaps you don't have the right permissions under xp or vista.
+
+
+to register the activex (onlyneeded if you want to use activex) run: realterm.exe /regserver
+when the type library changes (iewe extend it) you may need to unregister it first, then register it. run: realterm.exe /unregserver if you get eoleerror messages, you need to run the command window (cmd) as administrator.in windows 7, search for cmd in the start menu. ctrl+right-mouse on cmd.exe, and you get an administrator command window.
+why not the microsoft comms ocx
+it has many problems. the best thing about using realterm is that you can see exactly what is happening when you want. save yourself time and headaches. if you don't want people to see realterm, you can completely hide it.
+
+opening ports and errors
+
+(<v3.0.0.20)trying to open a port that is non-existent or has some other problem, results in an error, and realterm exits.
+(v3.21+) errors are trapped, and realterm does not exit. after opening the port, check the portopen
+ property to see if it succeeded. the lasterrormessage
+ property is a multiline string you can examine or display. on the misc
+ tab, the show last error
+ button allows you to display it manually to help with debugging.
+
+sending strings, chars and 0x00
+
+windows has one big problem for users of binary data. strings are null-terminated
+. ie they end with 0x00. amazing as it seems, you can't pass a string containing char 0 (0x00) through the activex interface.
+
+putstring
+can send any 8 bit chars except 0. if you need to send char 0 to an application use the putchar
+function.
+
+(v3+) putstring(string,sendas)
+ has optional sendas parameter so you can send ascii escaped strings (sendas=1) or numeric strings (sendas=2) or hex strings (v3.0.0.27+), the same as the send tab. all of these will send "123 <linefeed>". (v3.0.0.30+) putstring(string,sendas,crctype
+)
+ adds crc to end of string. see crc parameter
+
+
+rt.putstring('123'+char(10));
+
+
+rt.putstring('123\n', 1);
+
+
+rt.putstring('49 50 51 10', 2); //numeric strings
+
+
+rt.putstring('31,3233 0a', 3); //sahex ignores all non hex chars
+
+
+rt.putstring('27.67volts', 0, -1); //add smbus8 crc to end in hex
+
+
+n.b in excel macros note:
+
+rt.clsrt.putstring "dead", sahex   //works
+
+
+rt.clsrt.putstring("dead", sahex)  //does not work
+
+
+ 
+
+from matlab
+  from excel
+
+
+getting data
+
+with the activex interface you can get data in several ways:
+
+
+capture
+ to file. poll properties like capturecount to know when to read thefile.
+
+capture to file. use events to notify your application that the file can be read
+
+
+use
+data trigger
+
+
+ events
+
+
+use
+waitfordatatrigger
+
+
+.
+
+
+
+
+note that the capture file interface is mature, thoroughly tested and reliable.
+
+§
+browsing the com interface
+
+many  languages include a browsing tool to examine the properties and methods of the com interface. many properties and methods have help comments that you can see. use the browser tool.one free tool to do this is activex/com inspector from oakland software
+browsing the interface will show you how it actually is
+, as this page may be out of date.some languages might want the type library (.tlb). if you need it, it is part of the source package in the installer.
+
+§
+properties & methods @ v3.0.0.27
+
+open realterm using a property editor/browser. or open the typelibrary (.tlb) or the realterm_tlb.pas file, which are in the source directory.
+
+(v3.0.0.27+) the docommands method makes all commandline parameters
+available to activex/com user.
+
+
+
+    property timerperiod: integer dispid 1;    property enabletimercallbacks: wordbool dispid 2;     property capturefile: widestring dispid 3;     property capture: enumcapturemode dispid 4;     property baud: integer dispid 5;     property port: widestring dispid 6;     property portopen: wordbool dispid 7;     property capturecountforcallback: integer dispid 8;     property enablecapturecallbacks: wordbool dispid 9;     procedure close; dispid 10;     procedure startcapture; dispid 11;     procedure startcaptureappend; dispid 12;     procedure stopcapture; dispid 13;     property framesize: integer dispid 14;     property displayas: integer dispid 15;     property cps: integer dispid 17;     property windowstate: enumwindowstate dispid 18;     property caption: widestring dispid 19;     property visible: wordbool dispid 20;     property captureend: integer dispid 21;     property captureendunits: enumunits dispid 23;     procedure putstring(const s: widestring; sendas: enumputstringas); dispid 22;     function selecttabsheet(const tabcaption: widestring): wordbool; dispid 25;     function diskfree(drive: integer): double; dispid 24;     property capturetimeleft: integer readonly dispid 26;     procedure putchar(c: byte); dispid 27;     function disksize(drive: integer): double; dispid 29;     property echoport: widestring dispid 31;     property echoportopen: wordbool dispid 32;     property halfduplex: wordbool dispid 33;     property hidecontrols: wordbool dispid 34;     property parity: widestring dispid 35;     property databits: integer dispid 36;     property stopbits: integer dispid 37;     property echoparity: widestring dispid 39;     property echodatabits: integer dispid 40;     property echostopbits: integer dispid 41;     property flowcontrol: integer dispid 42;     property echoflowcontrol: integer dispid 43;     property chardelay: integer dispid 44;     property linedelay: integer dispid 45;     property rows: integer dispid 46;     property sendfiledelay: integer dispid 47;     property sendfilerepeats: integer dispid 48;     property sendfile: widestring dispid 49;     property send: wordbool dispid 50;     procedure clearterminal; dispid 51;     property monitoron: wordbool dispid 52;     property linefeedisnewline: wordbool dispid 53;     procedure newlineterminal; dispid 54;     property dtr: wordbool dispid 56;     property capturedirect: wordbool dispid 57;     function addcannedsendstring(const sendstring: widestring; controlnum: integer): wordbool; dispid 58;     property version: widestring readonly dispid 59;     procedure timestamp(style: integer; delimiter: byte); dispid 201;     procedure enabledatatrigger(
+
+    procedure ontimer; dispid 1;     procedure oncapturestop; dispid 3;     function ondatatrigger(index: integer; timeout: wordbool; data: olevariant; size: integer; 
+
+    property lasterrormessage: widestring readonly dispid 207;
+
+    property scale: integer dispid 208;    property winsock: integer dispid 209;    procedure docommands(const commandline: widestring); dispid 210;
+
+enumerations
+
+there are several special enumerations used, eg for putstring. if you need to explicitly use the number for these (eg some versions of matlab), they are here:
+
+
+  enumcapturemode = toleenum;const   cmoff = $00000000;   cmon = $00000001; 
+  enumwindowstate = toleenum; const   wsnormal = $00000000;   wsminimized = $00000001;   wsmaximized = $00000002;  wsfullscreen = $00000003;
+
+  enumunits = toleenum; const   bytes = $00000000;   secs = $00000001;
+
+  enumputstringas = toleenum; const   saascii = $00000001;   sanumbers = $00000002;   sahex = $00000003; 
+
+
+§
+callback events
+
+(v2.0.0.46+) realterm can send events to an application. from the events
+tab you can manually trigger events, to make it easier to test your software interface. the events
+tab is only visible when realterm started as an activex. (but there is a "show events tab" button on the misc tab)
+
+events usually have an associated property to enable them. by default they are disabled, so you will need to explicitly enable them before anything happens.
+
+the timer is a utility. it does nothing within realterm, ie it only provides callbacks to your application. this exists as some languages do not have a convenient timer arrangement.
+
+datatrigger is new, (fixed: v3.0.0.9+), the interface may change in future. note that when you are capturing a lot of data, or the data rate is high, using the a capture file is probably a better approach than data triggers.
+
+procedure ontimer; dispid 1; procedure oncapturecount; dispid 2;procedure oncapturestop; dispid 3;procedure ondatatrigger(index: integer; timeout: wordbool; data: olevariant; size: integer; reenable: wordbool); dispid 201;
+
+
+there are several properties and methods to control the events:
+
+property timerperiod: integerproperty enabletimercallbacks: wordbool
+
+procedure enabledatatrigger(index: integer); dispid 202;procedure disabledatatrigger(index: integer);dispid 203;
+
+                             const endstring: widestring; packetsize: integer; timeout: integer;                             autoenable: wordbool; ignorecase: wordbool; includestrings: wordbool);
+
+testing events and events tab
+
+when realterm has been started as an activex/com server, there will be an event tab. on this are controls to manully send the various events. this makes testing your code very much easier, as you can getting the event handler going, without having to get the actual serial data working at the same time.
+
+events in excel, ie and some others
+
+(v3.0.0.27+) excel get events, and new example included in examples dir.
+
+for some reasons events are visible to c#, matlab and others, but not to excel, internet explorer and some others. a special wrapper dll has been created that can be used. install realterm_2.0.0.70_signed_wrapper_setup.exe or later, and it will be automatically installed.
+
+v3.0.0.xxx  signed wrapper is not tested with these versions yet - please test.
+
+to see an example of web pages that use the wrapper and v2.0.0.70 from ie10, see:  and the library that calls realterm at http://www.i2cchip.com/i2c_front_panels/commonfunclib.js
+
+(obviously) only internet explorer supports activex interfaces, you cannot control realterm from chrome or firefox.
+
+waitfordatatrigger
+ was provided for programs that cannot use callbacks. see below.
+
+§
+
+oncapturecount and oncapturestop are provided to work with capture.oncapturecount is used with the properties charcount and capturecountforcallback.oncaptureevent is fired when charcount>=capturecountforcallback. at the end of the event handler you should update capturecountforcallback to a new value. otherwise the event will not happen again. alternatively it is possible to clear charcount.
+
+§
+data trigger
+
+the default trigger is a lf character at the end of line. so it is ideal to capture ascii data lines eg from the i2c2pc adaptor.before using data triggers you should enable them. all the methods include an index, to support multiple triggers in future. at present there is only 1 data trigger and index is ignored. index should be set to 1.data triggers can be automatically re-enabled or manually re-enabled. in your ondatatrigger handler you can reenable the trigger by setting reenable.datatriggerset is used to configure the trigger from the com interface. the events tab also has a button to edit these settings.the trayicon changes to yellow when data triggers or binary sync matches occur.
+timeouts
+
+timeout numbers are in "ticks" (18ms)
+
+testing
+
+the events tab will show when realterm is started as an activex/com.you can manually display it using the "show events tab" button on the misc tab. now you can edit and tests the trigger. the light will flash when a trigger is matched.
+
+§
+waitfordatatrigger
+
+this function is provided for convenience. it is a blocking function. this means that your application will completely stall while it waits.this is poor programming practice, and not recommended. but sometimes it is the only way.function waitfordatatrigger(timeout: integer): widestring;
+
+misc notes
+
+don't rely on the defaults when using activex (eg baud rate). these may change with different revisions.
+
+do: close the port, make all changes, open the port, check port open, if not open, check lasterrormessage.
+
+port opening is trapped for errors and won't bring up error dialogs or throw errors. other functions may.
+
+this is only a snapshot when this web page was written. always check your actual version using a browser, as new functions are always being added. if you need other parameters added, contact
+ us.
+
+back to contents
+
+
+§
+utilities:
+
+
+realterm has useful utilities in the utils
+ directory.
+
+these utility files are very helpful adjuncts to testing batch files with realterm.the unxutils
+ package has many command line utils taken from the unix/linux world.
+
+choice  prompts in batch files. also useful to put in a pause, as it can timeout. ctext   colorise text output in batch file. makes test batch files more readable sleep   pause batch files for time cmp     file compare which returns an error code (native windows one does not, so can't be used) sed     modifies/search-replace in files. useful to convert hex files to i2c eeprom programming commands, as well as remving whole lines eg keep 1 of n, remove 1st and last lines etc nowstr
+  returns date/time as a string. used to put date/time into filenames
+cmdow
+  control window states eg batch files used for capture post-processing are launched minimised/hidden, and must be shown before any error messages can be seen. also use to minimise or hide batch files while running.
+
+srecord convert/check/manipulate hex data files, s19, inhex and everything else
+
+postzip.bat  example capture post-processing batch file
+§
+hexcsv2dec
+ utility
+
+this command line utility is installed with realterm and is normally found at:"c:\program files\bel\realterm\hexcsv2dec.exe"with no parameters it will display its help.it converts a file of hexadecimal data values to decimal. unlike some other hex2dec utilitys it converts the binary format of the hex into decimal numbers. it is especially useful to convert a file of hex captured by reading i2c data with the i2c2pc and bl233, into useful decimal numbers.hexcsv2dec v0.3(c)2008 broadcast equipment ltd   http://www.i2cchip.comconverts hex in csv files to decimal csv filescommand line may have these forms:hexcsv2dec <infile> <outfile>hexcsv2dec <infile>hexcsv2dec -<option> <infile> <outfile>uses stdin, stdout if <file> is omittedonly valid uppercase hex substrings will be convertedquoted strings, and non-hex data is passed through unchanged exceptexplicit decimal/bcd strings can be passed though by preceding with "d" eg "d1234" will be passed through as "1234"floats (numbers with a decimal point) will pass throughdefault is big endian, unsignedprecede hex with the special explicit chars to override the default  "s" signed big endian  eg "s8000"  "u" unsigned big endian eg "u8000"  "t"  signed little endian eg "t0080"  "v" unsigned little endian eg "v0080"  "f" ieee floating point big endian (4byte singles only)  "g" ieee floating point little endian  "b" binary (only big endian)  "a" ascii charsthe first parameter can be options -s,-u,-t,-v to set the default format eg hexcsv2dec -s <infile> <outfile>      convert hex as signed bigendian alternatively it can be a series of format chars for each hex substring eg hexcsv2dec -sufbd <infile> <outfile>      convert hex using format string
+
+§
+nowstr
+- date and time string
+
+this returns now as a string. it is useful to make filenames that contain the current date and time. eg to capture data to a file with a unique name including the time of capture:back to contents
+
+
+§
+pic programmer
+
+
+
+
+
+
+realterm can has buttons for reset and power if you are using the bel dual pic programmer
+.
+
+its watches the rb7 line.
+
+this makes it easy to control a serial pic when you are using icp.
+
+if you are using nt/2k/xp you need to install the dlportio driver using its install program.
+
+
+
+
+back to contents
+
+
+§
+compiling realterm
+
+the current source code for your version is in the installer and will be installed in the "source" subdirectory. it is easy to recompile for specific setups.
+
+you will need additional components. async4.07 and systools are on sourceforge. other components are on the download page.
+
+v3.x is compiled with delphi xe2 and apro 4.07
+
+v2.x is compiled with delphi 7 and apro 4.06 library (now free on sourceforge)
+
+version 1.x was compiled with delphi 3 and used the turbopower async 2.11 library. 
+
+
+async pro (windows)
+
+asyncpro clx cross platform
+
+systools
+paul brennermans asyncpro tips
+
+
+§
+linux
+
+realterm has been tested with wine
+ 1.0, opensuse 11.0, realterm 2.0.0.62.a cursory test with com1, running as root, was successful. if you have tried this with a recent version, please report your result.
+
+back to contents
+
+ 
+
+
+§
+translations
+
+the translation component is not currently working, however if you would like to volunteer, i keep a list for the day it is working. translators are wanted for all languages. i am not sure if this version will work with non-european languages.
+
+email if you can help: crun@users.sourceforge.net
+
+
+§
+who uses it? / what for?
+
+if you are using realterm in your company, please drop me a lineso i can include your company below...
+
+
+rakon
+,nz. test machinery runs 16 copies per pc, 24hr/7days, automaticallytesting quartz crystals for most of the worlds gps receivers
+macfab mfg, canada: upload anddownload programs to its cnc mills and lathes, and troubleshootcable runs for new machines.
+c.p. bourg, printing machinery:used to support field technicians
+novell: debugging telnetconnections to mainframe through gateway
+cnc, netherlands: used inlaboratory with inolab conductivity meter
+jasmin plc, uk: collecting datafrom a seimens scoot utc (urban traffic control) system for offlineprocessing.
+institute for lasertechnologies atuniverity of ulm: controlling 2 spectrometers and stepper motorcontrol in a spectral reflection interferometer
+escort memory systems, usa: rfidtags. send intel-hex files to thier systems
+thrane & thrane, denmark:remote debugging
+oculex: collects data from phonesystem
+omitec: test and confirgurebluetooth modules
+ez_arm
+:serial terminal used for debugging and development with arm7 ev kit
+mcsi: setting up custom controlsystems for very large a/v and presentation systems
+thorlabs: test nanopositioningcontrollers during product development
+woehler: debugging pressuremeasuring instruments and flue gas analysers
+smarthome: sdk tool for protocoldevelopment
+ditchwitch
+cinetech: discovering serial strings used in equipment control to develop automation
+sparklike: debugging gassglass devices and automated calibration
+grand river rubber: monitoring and debugging production line scale systems
+
+
+help spread realterm: put a link on your companies web page today!
+
+
+also of interest:
+
+
+i2c
+: chips, modules, i2c-usb/rs232 host adaptor
+
+
+pic programmer
+ 
+windows/linux:
+
+
+
+how to decode rs232 with an oscilloscope, and pinouts
+
+beyondlogic
+:rs232info, and info on most any hardware port on your pc
+serial port central
+: heaps of serial port related links
+the art and science of rs-485
+
+
+
+:programmers editor for windows
+ftdi
+:these make an easy way to convert your serial products to usb
+embarcadero
+: who make it all possible. v3 is built with delphi xe2
+
+§
+code signing:realterm is now code signed, so it can install and run freely, many thanks for the many donations that make this possible.
+thanks to mitchell at ksoftware
+ whose certificates are affordable, and who sorted out authentication difficulties with the obstructive folk at comodo. (ssl certs for your website too).
+(fyi: pdf's can also be signed to tamper-proof them.)
+
+
+§
+books
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+§
+old versions
+
+the latest version of a program isn't always the one you want. sometimes it works differently, or isn't as stable as an older one. if installing an old version you may need to start it as administrator the forst time.
+
+old installers
+
+
+contact us
+
+crun@users.sourceforge.net
+
+
+back to contents
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

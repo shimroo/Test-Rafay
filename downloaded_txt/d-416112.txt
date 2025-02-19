@@ -1,0 +1,383 @@
+
+
+
+
+petit bourgeois | the personal web site of raphaël mazoyer: web building commentary and other digital marketing shenanigans.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+← older posts
+
+
+
+last day at évasion
+
+posted on 16 december 2016 by raphaël mazoyer 
+
+wrapped up a year and a half of hard work today, handing over the final stages of the launch of our taiwan business to a new colleague, and engineering to my friends at dirox and another new colleague who will start on tuesday.
+what’s next, again? after two weeks of holiday, a very exciting new step. more details next year!
+
+
+
+posted in korea, ongoing 
+|
+comments off on last day at évasion
+
+
+
+lg u+ payment gateway compatibility with facebook ios in-app browser
+
+posted on 8 december 2016 by raphaël mazoyer 
+
+we’ve struggled for years with our implementation of the lg u+ payment gateway on the évasion mobile site. it relied on a popup window to process credit cards. the facebook ios in-app browser does support them, unlike some other apps like kakaotalk that have disabled popups altogether in their in-app safari.
+however, lg u+ does not support that particular setup, and an ugly js error alert would throw a non-utf8, illegible message.
+turns out, there are several options for the integration of the payment gateway (which relies on a js library to generate a payment link). this doesn’t seem to be documented, and the support desk didn’t have a solution for us. here is what we found:
+source code   <script language="javascript"  src="https://xpay.lgdacom.net/xpay/js/xpay_crossplatform.js" type="text/javascript"></script><script type="text/javascript">  var lgd_window_type = "submit";  function launchcrossplatform(){    lgdwin = open_paymentwindow(document.getelementbyid('lgd_payinfo'), 'service', lgd_window_type);  }</script>
+in the function open_paymentwindow() provided by lg u+, the third parameter lgd_window_type can be one of:
+
+iframe: overlays a lightbox in which the lg u+ payment takes place, not great for mobile, and breaks badly when the containing page is served over http, but when it works, the overlay closes as the process finishes, and the user is forwarded to your payment confirmation page
+popup: the setup we had before, which works only on user actions (onclick), as a browser-triggered event like onload will likely be blocked by the browser, where your site remains open behind the payment window until it closes as the process finishes, and the user is forwarded to your payment confirmation page
+
+works on android, and in safari on ios, but not in the in-app browser of most ios apps (facebook, kakaotalk, instagram, etc.)
+
+
+submit: the lg u+ payment pages are actually inserted after the caller page, and the user is redirected from the final lg u+ screen to your payment confirmation page
+
+this last option is less fiddly, and supports the facebook in-app ios browser without any complaint. this makes sure that our ads on facebook do not need an additional layer of email marketing or criteo retargeting to actually result in purchases.
+
+
+
+posted in code, korea 
+|
+comments off on lg u+ payment gateway compatibility with facebook ios in-app browser
+
+
+
+google making progress in korea
+
+posted on 26 april 2016 by raphaël mazoyer 
+
+how ironic: my bank, woori, one of the oldest in korea and not the most progressive business ever, is using the google url shortener when sending out sms reminders to activate my new cash card.
+
+in a country where google maps is only partly functional, and where google search brings évasion only about 7% of our organic traffic (to naver’s 80+%), i am impressed.
+this implies some server-side integration, and the willingness to let some customer information transit through google infrastructure.
+
+
+
+posted in korea 
+|
+comments off on google making progress in korea
+
+
+
+korean banks in english and with a mac
+
+posted on 11 august 2015 by raphaël mazoyer 
+
+looking for a bank with which i can do business in english, on a mac, and on my iphone, preferably without installing any plugins or “security” software.
+
+caveats and notes:
+
+shinhan’s mac banking is a downloadable piece of unsigned software that requires overriding macos’s security, and only their ios app “mini” is available in english.
+credit cards evaluated according to the korean airlines payment page, and i haven’t tested the management services yet
+google spreadsheet
+
+this morning i opened an account at woori which was a very simple process (it lasted a small hour tho, but only required my alien card, my employment contract, and my passport), and i walked out of the bank with a passbook and a cirrus cash card, and was able to set up an ios banking account right away.
+might go try keb instead, and get a card from lotte.
+
+
+
+posted in korea 
+|
+comments off on korean banks in english and with a mac
+
+
+
+splandigo
+
+posted on 19 june 2015 by raphaël mazoyer 
+
+it will not do, then, simply to feel disgust. everyone is prone to forgetfulness, even under the most favorable conditions, and in a place like this, with so much actually disappearing from the physical world, you can imagine how many things are forgotten all the time. in the end, the problem is not so much that people forget, but that they do not always forget the same thing. what still exists as a memory for one person can be irretrievably lost for another, and this creates difficulties, insuperable barriers against understanding. how can you talk to someone about airplanes, for example, if that person doesn’t know what an airplane is? it is a slow but ineluctable process of erasure. words tend to last a bit longer than things, but eventually they fade too, along with the pictures they once evoked. entire categories of objects disappear—flowerpots, for example, or cigarette filters, or rubber bands—and for a time you will be able to recognize those words, even if you cannot recall what they mean. but then, little by little, the words become only sounds, a random collection of glottals and fricatives, a storm of whirling phonemes, and finally the whole thing just collapses into gibberish. the word “flowerpot” will make no more sense to you than the word “splandigo.” your mind will hear it, but it will register as something incomprehensible, a word from a language you cannot speak. as more and more of these foreign-sounding words crop up around you, conversations become rather strenuous. in effect, each person is speaking his own private language, and as the instances of shared understanding diminish, it becomes increasingly difficult to communicate with anyone.
+paul auster, in the country of last things, 1987
+
+
+
+posted in miscellaneous 
+|
+comments off on splandigo
+
+
+
+digital thinking
+
+posted on 16 june 2015 by raphaël mazoyer 
+
+a great example of digital thinking applied to real businesses in this story about the new ceo of struggling uk wine shop majestic wines.
+they are reconsidering some of its commercial practices, such as their six-bottle minimum purchase, some staffing policies, such as the near-automatic reduction in staff when store managers quit, alongside improvements to their it infrastructure.
+this strategy is heavy on technology, with planned investments in e-commerce, crm, and tools that will allow shop staff to better interact with visitors.
+however, this demonstrates their digital approach goes beyond the purchase of digital infrastructure:
+
+empathy with the consumers, who have been asked about their experience
+appetite to experiment and iterate, accepting that knowledge is incomplete
+measurement of the eventual results
+
+this probably won’t come as a surprise: the new ceo is founder of online retailer naked wines, acquired in april by majestic.
+
+
+
+posted in commentary 
+|
+comments off on digital thinking
+
+
+
+lacoste japan re-launch
+
+posted on 30 april 2015 by raphaël mazoyer 
+
+on march 3, 2015, the lacoste japan web shop re-launched, based on a shop-plus-brand design supplied by the french headquarters and adapted to the local market, with a dedicated smartphone experience, the local loyalty program, and various online-to-offline shipping options.
+
+the original design was provided by nurun (ex-cythère, where i used to work in 1997…, and now in the process of rebranding to razorfish) and coded by itelios, a french si house that does a lot of demandware implementations.
+at the plant, our team developed the visual execution in japanese (typography is always a bit of a challenge), implemented a few tweaks requested by our local client, developed additional content management components to support the new editorial pages, and integrated all of this on our existing e-commerce platform.
+we’ve been lucky to experience reasonably good commercial performance and almost no technical difficulties, and have also been able to release further improvements at a brisk pace starting days after the launch.
+aside from improving the visual aspect of the japanese web site, and bringing it in line with other countries, this project gives us a great platform for interesting further work. in particular, we’ve got a performance-driven optimization program in place, and several cool crm initiatives.
+
+
+
+posted in sites 
+|
+comments off on lacoste japan re-launch
+
+
+
+pitching qortex at slush
+
+posted on 30 april 2015 by raphaël mazoyer 
+
+last week, i pitched our service qortex at the slush asia event. here’s the video.
+as always, it’s pretty embarrassing to listen to yourself speak in public (do i really sound like this?!), but this was actually fun to do, and i wonder if i’ll have the guts to do such a presentation in japanese sometime soon, as xiaomi ceo lei jun did last week.
+
+
+
+posted in showcase 
+|
+comments off on pitching qortex at slush
+
+
+
+too many oreos (or: i don’t like social media)
+
+posted on 28 july 2014 by raphaël mazoyer 
+
+the famous 2013 oreo superbowl tweet seems to still be making the rounds in digital marketing conferences. i find this quite amazing because its actual, real-world result was in fact quite small:
+
+#lt #adobesymp oreos: all that for just 15k retweets. https://t.co/e28ebtfkae /cc @sushobhan
+— raphaël mazoyer (@raphal) july 24, 2014
+
+now, i don’t want to sound like a bad case of sour grapes, so let me go just a tad beyond the 140 characters to explain why i think brands don’t belong on social media.
+i think oreo’s social media team did a great job on this one: it doesn’t look like the intern did it. timely, funny, giving a prominent place to the product, it’s great material and it speaks volumes about the marketing chops of this $2bn subsidiary of mondelez (a $35bn revenue business).
+however, it was retweeted just short of 16k times, and favorited 6.5k times. it’s huge for any brand’s social media efforts, but it’s pretty lame by twitter standards. in fairness, i haven’t done more than about 90 seconds of “research” on this topic, but i’m unconvinced that anyone has done much better.
+so… social media is an opportunity for customer service, and that’s a challenge in itself. social media may be interesting to source some consumer intelligence, although i doubt anyone still thinks of the data so gathered as unbiased (as opposed to, say, searches, which are simply a much greater pool with — for now — less incentive for massive deliberate skews).
+but a tool for branding? i’m just not convinced.
+social media is a place for people to talk to people. possibly about brands. but with brands? brands aren’t people, my friends!
+
+
+
+posted in commentary 
+|
+comments off on too many oreos (or: i don’t like social media)
+
+
+
+6 years with asics
+
+posted on 2 june 2014 by raphaël mazoyer 
+
+after 6 years looking after the digital activities of japanese sportswear brand asics (first in europe, and since 2011 at global headquarters), i found it was now time for me to explore new activities.
+
+but before i’m fully ready to move on, i’d like to take a quick look back.
+i am immensely proud of my team’s laser focus on runners, and in particular of the my asics running training plans service, but also of the various communication initiatives that are rooted in how people actually practice their sport and engage with it when hanging out online. launching e-commerce was a painful experience, and the resulting sites aren’t quite what i originally had in mind, but they’re nonetheless a major step forward in digitalizing the company and its relationship with consumers. on a personal side, i’ll miss the daily interactions with the awesome people at shibuya office, and the sometimes tough but always nourishing guidance of peers and managers.
+the past 6 years were a blast, and i am thankful to consumers, colleagues and partners for teaching me so much.
+in particular, i’d like to bow deeply to the runners on the get satisfaction support forum for my asics. they’ve stuck with us through the launch of the new platform early 2011, and provided valuable feedback at every turn. and every once in a while, there’s a heart-warming story that makes it all worth it.
+so, what’s next?
+it’s been over a month i’ve left the office, and i’ve already been working with friends and acquaintances on various projects. (one of them was a fairly successful political campaign which couldn’t quite conceal very poor national results.) i’ve also been in talks with several companies in europe, japan and the us to join their operations but nothing has yet resolved itself in a binding contract for full-time employment.
+one big step last week: it’s been confirmed i’ll be staying in tokyo for at least another couple of months, while working on new opportunities. (thanks for the support — you know who you are!)
+stay tuned!
+
+
+
+posted in commentary, ongoing 
+|
+comments off on 6 years with asics
+
+
+
+← older posts
+
+
+
+
+
+
+
+
+
+
+petit bourgeois
+
+
+
+
+
+
+ the personal site of raphaël mazoyer (hello!), freelance digital strategist and occasional troublemaker. into: branding, e-commerce, and designing services that actually work.
+site highlights 
+commentary on web building, information technology and online communication
+web sites launches or updates, news about projects i work on
+
+ tweets by @raphal
+
+
+
+
+search for:
+
+
+
+
+
+recent posts
+
+
+last day at évasion
+
+
+lg u+ payment gateway compatibility with facebook ios in-app browser
+
+
+google making progress in korea
+
+
+korean banks in english and with a mac
+
+
+splandigo
+
+
+recent commentspete on enterprise development works (sort of)raphaël mazoyer on installing hybrissagar on installing hybrisraphaël mazoyer on juniper network connect vpn client messes around with my hosts file [edit]some guy on juniper network connect vpn client messes around with my hosts file [edit]categories
+
+about (7)
+
+china (3)
+
+code (8)
+
+hybris (1)
+
+
+
+commentary (66)
+
+job offers (1)
+
+korea (4)
+
+miscellaneous (14)
+
+ongoing (20)
+
+showcase (59)
+
+documents (9)
+
+sites (48)
+
+
+
+this site (10)
+
+
+blogroll
+
+asics uk
+marathon training from my asics
+onitsuka tiger
+paul baron: aka.me
+tokyo art beat
+
+
+meta
+
+log in
+entries feed
+comments feed
+wordpress.org
+
+ 
+
+
+
+
+
+
+					petit bourgeois				
+
+
+
+		the personal web site of raphaël mazoyer: about this site.
+		contact. web hosting by ouvaton.
+
+	
+
+
+
+
+
+
+
+

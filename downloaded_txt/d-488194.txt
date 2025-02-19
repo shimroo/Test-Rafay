@@ -1,0 +1,370 @@
+
+linuxcnc documentation wiki: linuxcncknowledgebase
+
+
+
+
+linuxcncknowledgebaselinuxcncknowledgebase | recentchanges | pageindex | preferences | linuxcnc.org
+
+bienvenidos en espanol
+welcome to the community maintained website of the linuxcnc project
+notice the wiki password has changed: see basicsteps
+table of contents
+
+ about linuxcnc - description
+
+ hardwaredesign linuxcnc's hardware design model explained
+
+ getting started
+
+ hardware requirements - what kind of pc can you use?
+ linuxcnc supported hardware - hardware that works with linuxcnc
+ latency-test - real-time performance database
+ installing linuxcnc - https://linuxcnc.org/docs/stable/html/getting-started/getting-linuxcnc.html
+ [buildbot -get pre official-release bugfixes]
+ building linuxcnc  from source - http://linuxcnc.org/docs/master/html/code/building-linuxcnc.html
+
+
+
+
+ links
+
+ tutorials - links to tutorials and linuxcnc guides
+ videos - linuxcnc controlled machines in action
+ case studies - example machines run by linuxcnc
+
+
+
+
+ documentation 
+
+ linuxcnc manuals (current, future, older versions) page: http://www.linuxcnc.org/docs/
+ authors - people working on the wiki (hint: we always need more)
+ contributing to formal linuxcnc documentation:
+
+ translation translating linuxcnc documentation
+ internationalization translating po files used by guis
+ documentation about the linuxcnc documentation toolchain beyondwikitoo
+
+ basicsteps shows how to edit the wiki to add new info
+
+
+
+
+ communication
+
+ mailing list for users: [emc-users]
+
+ [sourceforge archive] (unreliable)
+ [gmane.org archive] (better)
+
+ mailing list for developers: [emc-developers]
+
+ [gmane.org archive]
+
+ commit mailing list: [emc-commit]
+ bug and feature trackers
+ irc: #linuxcnc and #linuxcnc-devel on irc.libera.chat
+
+ searchable irc archives: [austria] [russia]
+ occasional meetings are held in #linuxcnc-meet.  see meetingsonirc for more information.
+
+ forums
+
+[linuxcnc forum on linuxcnc.org]
+[cnczone linuxcnc forum]
+[russian linuxcnc forum and wiki]
+
+
+
+
+
+ configuring linuxcnc - how to make it fit your needs
+
+ sample configurations
+
+ tb6560 - cheap stepper boards from china
+ rot4thaxiskins - configuration of a 3 axis machine with an additional rotatory axis
+
+ stepper specific info
+
+ tweakingsoftwarestepgeneration - a good discussion to assist in setting up software stepping
+ stepper drive timing - step and direction timing charts
+ steppers with encoders - jlmjvm's story
+ stepper formulas
+ stepper motor speed limitations
+ mechanical spreadsheet - spreadsheet to assist with choosing steppers
+
+ servo specific info
+
+ tuning linuxcnc/hal pid loops
+ pwm servo amplifiers
+ servo tuning detail how to
+
+ advanced configuration:
+
+ touch screens
+
+ debian wheezy - how to install and calibrate a touch screen with debian wheezy.
+
+ kinematics
+
+ parameters for kinematics - how to pass parameters to kinematics
+
+ homing and limit switch - comparison of different home and limit switch configurations
+ gui tutorial
+
+ [glade3, python tutorial] good to do this tutorial before creating a custom gui
+ [creating a custom gui tutorial] using glade3, gladevcp, python
+
+ gui add-ons
+
+ gladevcpsetup glade virtual control panel setup
+ gladevcpprogramming glade virtual control panel programming
+ halwidgets glade hal widgets
+ actionwidgets glade action widgets
+ pyvcp hal visual control panel in python
+ halui - how to use the hal user interface
+ gtk themes have touchy and gladevcp panels look different then the desktop theme
+
+ control pendants and add-ons
+
+ using x11 joystick driver - make joypad to send hotkeys to axis
+
+ spindleoverride - how to add a hardware quadrature encoder to control spindle speed override
+
+ lxcvisionhandbox a diy pendant with handwheel and touchscreen 
+ adding external controls
+
+ [[hidcomp]] connect complex usb controls to hal
+ hooking up a mpg pendant
+ [adding inputs with usb arcade joystick interface]
+ [hooking up a jogwheel]
+ using a joypad to jog and control spindle speeds
+ super simple method for controlling with a usb joypad
+ a new approach for using joypads with linuxcnc
+ simple remote pendant using halui and hal_input
+ adding more controls to simple remote pendant
+ jogging with buttons on a pendant using halui
+ adding custom mdi buttons
+ one button toggle for flood etc on pendents or pyvcp the easy way
+ one button run/resume to either start a program or resume a paused program
+ parallel port tester to test i/o on the parallel port
+ about charge pumps overview of pump and buckets
+ using a xhc-hb04 wireless mpg pendant
+
+ vismach - fancy 3d machine simulator
+
+ running linuxcnc over network
+
+ running multiple user interfaces
+ emcrsh telnet text interface to linuxcnc
+ halrmt telnet text interface to hal
+
+ classic ladder: adding a software plc
+
+ classicladder -on-line docs for version 7.100 (linuxcnc 2.1 - 2.2.8) 
+ classicladder ver 7.124 - new version includes userspace modbus (linuxcnc 2.3.0 - on)
+ classicladderexamples -examples of ladder and sequential programs such as turret indexing
+ sample hal and classicladder - examples of using classic ladder to control e-stop and lube pump
+ basic ladder logic - discussion of general ladder programming  
+
+ spindle control:
+
+ analog spindle speed control using the mesa 5i20/7i33 to control spindle speed
+ spindleorientation spindle orientation
+ spindleorient spindle orientation chart
+ closed loop spindle speed control
+ vfd modbus using modbus for a vfd
+
+ lubrication:
+
+ centralizedlubricator willey vogel/skf centralized lubricator 
+
+ touch probes:
+
+ preventing probe crashes using hal
+ touch probe - using and building a touch probe
+ [single button touch-off] using a touch-off plate (or probe) for setting z origin.
+ [[accelerometer + fourier transform tool height detection]]
+
+ interface electronics:
+
+ shift register port expander - using shift registers to add additional i/o pins
+
+ gui:
+
+ backtoollathe - changing axis to display for a lathe with back tools.
+
+ tool changing:
+
+ tool changes - installing and using the manual tool changer
+ racktoolchanger - configuring linuxcnc to use rack tool changer
+ manualtoolchangemacro - jogging while paused
+
+ gaining accuracy:
+
+ screw compensation - using a comp file
+ combining two feedback devices on one axis eg a rotary encoder on motor and a linear encoder on machine
+
+ other uses of linuxcnc:
+
+ m5i20 laser - another example of using halvcp and m5i20 board
+ [rapid prototyper cnczone]
+ [linuxcncrepstrap 3d printer]
+
+ camera based edge finder integration
+
+ campy for wheezy
+ adding camview
+ adding digital zoom to camview-emc
+
+ mesa bitfile configuration
+
+editing mesa bitfiles
+editing mesa bitfiles spartan2
+recover corrupt/blank eeprom 5i24,6i24,7i24, 6i25
+
+ remapped g-codes
+
+ mill codes
+ lathe codes
+
+ g74 - peck drilling/face grooving
+
+ common
+
+
+ hal: controlling the world
+
+ hal components - custom realtime components, i.e. and2, or2, not, mux2 etc.
+ contributedcomponents - components add new capabilities to hal
+ contributedhalfiles -- .hal files combine components in useful ways
+ use eagle cad schematics editor to configure hal
+ halitosis a total configuration system creates stepper/servo configs from denavit-hartenberg definitions and pin outputs and create full vismach simulation and machine configs, editor to configure hal
+
+ user configurations:
+
+ millsetup notes on limits, home, work offsets, tool length offsets, and touch off in linuxcnc 
+ kx3 a simple howto for a sieg kx3 mini-mill
+ gantryplasmamachine an example of a trivkins gantry machine
+ jy5300 mhc2 an setup for mini-mill/3d with jy5300-2 controller with mhc2 handwheel pendant
+
+ internationalization - run linuxcnc in your language
+ suppliers - parts and raw materials suppliers
+
+
+
+
+ using linuxcnc - how to properly use it
+
+ one-page [g-code quick reference] [version française (html)]
+ coordinatesystems - understanding coordinate systems and offsets
+ [g code tutorials]?
+
+ [g code tutorial] a step by step tutorial from the beginning.
+ understanding g-code - a tutorial on writing your own g-code
+
+ [simple linuxcnc g-code generators] - facing, pockets, drill patterns etc.
+ gwiz - a gcode wizard framework
+ example g-code programs - some examples of how to do things with g-code.
+ using gedit to aid in creating gcode
+ cam programs
+ converting tools simple pythons to convert your nc-code ex. inchtometric
+
+ linestoarcs convert g1 line segments to g2/g3 arcs.
+
+
+
+
+
+
+ advanced examples of using linuxcnc:
+
+ gcodeinfo - things you might want to know about g-codes
+ oword - g-code owords - loops, conditionals and subroutines
+ mword - g-code relating to m words
+ m100-199 - m codes to call an external program
+ custommcodestohal - custom m codes to hal
+ g12-13 - circular pocketing hass like subroutines for linuxcnc
+ g150 - rectangular pocketing hass like subroutines for linuxcnc
+ hal components - custom realtime components, i.e. and2, or2, not, mux2 etc.
+ electricaldischargemachining
+ plasma - examples of things relating to plasma tables
+ trajectorycontrol
+ lathe advanced features
+ rigid tapping
+ rastering with a laser
+
+ advanced extensions of linuxcnc:
+
+ laserbeamcompensation
+
+ tooltable
+
+
+
+
+ troubleshooting - what to check if something fails
+
+ hardware problems - known hardware with problems and possible fixes
+ latency-test - real-time performance database
+ fixingsmiissues - fixing smi issues that cause high latency
+ stepmotorwireidentification - stepper wire identification
+ diagnosing hardware - diagnosing hardware problems
+
+
+
+
+ linuxcnc development - development related resources
+
+ lncnc 3 idea whiteboard
+ gladevcp custom widgets help with building gtk/glade? widgets for linnuxcnc
+ [source from git] getting the source code for development, see git on how to use it with the linuxcnc repository 
+ contributedcomponents - components add new capabilities to linuxcnc
+ makefiledemystified - info about how to add new source code to compile with linuxcnc
+ spi sub-driver for hostmot2
+ using hal in python sample of using hal in python and creating a custom widget in pygtk
+ gscreen developing a python/gtk/glade based screen
+ gremlin notes on using and modifying this backplot application
+ gmoccapy a gui to be used with touchscreen, based on gscreen
+ buildyourowndebpackages build your own .deb packages
+
+
+
+
+ misc stuff
+
+ list of cam references
+ coders for linuxcnc-compatible cam
+ editors and tips for using:
+
+ highlighting in gedit
+ highlighting in vim
+
+ spi sub-driver for hostmot2
+ linuxcncrunninginsidevirtualbox? linuxcnc runs inside virtualbox 3.2.6
+ jtag boundary scan example for a mesanet 7i43
+ the isolcpus boot parameter and grub2
+ best wiring practices this page describes some best wiring practices when wiring up your cnc machine.
+ example of new page this is an example of how to create a new page
+
+
+
+why won't linuxcnc run on windows?
+
+linuxcnc runs in real-time, to give smooth motion.  this is critical to accuracy and machine life.  hard real-time is not available on windows in a price range many can afford... especially those interested in using a pc-based control.
+linuxcnc is intended to control machine tools.  machine tools are dangerous and reliability/consistent behavior is extremely important.  compared to windows, few viruses affect linux. even without consideration of viruses, linux is far more stable.
+the above also apply to virtual machines (e.g., vmware or virtual box) and emulators.  it may be possible to trick linuxcnc to run on a virtual machine but do so at your own risk!
+the above notwithstanding, one can access a running linuxcnc machine from a windows machine, e.g., by running a windows-based vnc client or x11 server. 
+
+
+(but linuxcnc in "simulator" mode works fine in virtualization products, whether the underlying hardware is linux or another os)
+
+
+
+if you want to add information to this page or add a new page, follow some basicsteps.
+
+linuxcncknowledgebase | recentchanges | pageindex | preferences | linuxcnc.org
+this page is read-only.  follow the basicsteps to edit pages. | view other revisionslast edited april 30, 2024 4:33 pm by pool-108-7-205-216.bstnma.fios.verizon.net (diff)search: published under a creative commons license
+

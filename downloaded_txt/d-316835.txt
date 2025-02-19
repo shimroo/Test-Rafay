@@ -1,0 +1,194 @@
+
+
+
+
+
+
+
+
+danwebb.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hello my name is dan webb
+
+i build things
+mainly engineering teams and software.
+this site is a growing collection of notes that you might find useful if you are also doing that kind
+                    of thing.
+
+
+
+
+on founder mode
+jan 23rd 2025
+if you’ve even been glancing at the startup/tech community you will not have missed paul graham's recent essay, founder mode, and the enormous amounts of surrounding commentary. it makes some sharp observations about the challenges founders face as their companies grow. it’s a great read and, of course, the problems are real but i fear the message to founders reads too much like: you are the founder, you know best, you must micromanage for victory. so, here’s my steaming hot take * - enjoy.
+running a company is bloody hard, especially if it’s your first time
+first, let’s put something pretty important out there: most founders have never led a large organization before. they’re learning on the job, often for the first time, with limited time and the stakes are high. in an ideal world, the founder is able to communicate the company’s vision and goals perfectly, hire the right set of execs to enact that vision and be on exactly the same page as them so they make decisions perfectly in line with that vision.  that doesn’t happen - and this is the source of the pain that paul graham describes.
+leading at the org level requires skills that even veteran execs struggle with—things like clearly articulating vision and goals, giving feedback, performance management, and understanding the health of your organization but founders are thrown into these challenges mostly without prior experience. and, understandably, many of them feel imposter syndrome hard.
+to scale their influence and fill skill gaps, they often hire experienced execs but hiring senior leaders is a skill in itself, and one most founders haven’t mastered yet. without the experience (or even time!) to assess candidates and onboard them in a way that aligns their goals with the founder’s vision—it’s easy for divergence to creep in. you may have hired the greatest cmo in the world and they may confidently believe they are crushing it but if they’ve got a different idea of success you’re going to hit the rocks if you treat that part of the business as a black box. so is the answer to just roll your sleeves up and do it yourself? that’s tempting - but how about another approach?
+founder mode is about the details
+for me, founder mode isn’t about addressing this pain by wrestling the controls out of your team's hands and going full micromanager. it’s about embracing the fact that you are the only one that truly understands your vision and, while you develop the skills to communicate that vision well, you are going to need to find ways to scale the company while keeping it true to your vision and remaining in a position to observe and deal with tactical issues as they arise.
+it’s a balancing act.
+trust your team - if you micromanage and run a low-trust organization, your team will never surprise you—and this is not a good thing. they’ll stick rigidly to your instructions, fear going out on a limb and the company will stall because you’re the bottleneck for every decision. but if you trust your team, they’ll feel safe to experiment, innovate, and bring ideas you’d never think of. this is where your organization becomes more than the sum of its parts. facebook’s early success came from empowering many people in the organisation to go ahead and ship - today, meta still feels like a loosely knit collection of startups which is pretty impressive given its size and org complexity.
+…but never lose sight of the details - trust doesn’t mean treating your business units like a black box. as a founder, you need to stay deeply connected to the details. talk to the people working directly with customers and building the product. ask questions. not to micromanage, but to understand. feed what you learn back into the organization to sharpen how you communicate your vision and goals. you don’t need to do everyone’s job—you just need to understand enough about their challenges to lead effectively.
+vision and goals can often get abstract if you approach them from a top down perspective but can be viscerally highlighted by a founder’s detailed observations of operations on the ground.
+a great example of this kind of leader is will shu, co-founder and ceo of deliveroo. even as the company scaled, will kept himself grounded in the details. he delivered orders, took support calls, chatted with restaurant staff on busy nights, riders on the street, and engineers in the office. by staying connected, he was able to keep refining and communicating his vision, ensuring the whole team moved in the same direction.  however, fundamentally he trusted the team to deliver.
+for instance, will spending a night delivering orders would result in him chatting to our dispatch algorithms team and telling them about how our algorithm would send him up a giant hill but only give him 5 minutes to get to the restaurant before the food gets cold.  this kind of feedback highlighted ways the team can greatly improve the experience for riders and for the end customer but the team ultimately owned the solutions. **  there’s a great interview with him here where he discusses his approach.
+so, in conclusion, i agree with paul - founder mode should not be standard exec manager mode.  you have a unique viewpoint and role in the company - learn to use that wisely.  however, as your business grows, you’ll need to scale your team and a team that scales well is a team that has your trust, so don’t mistake founder mode for micromanager mode - get down in the weeds and use that insight to keep your team on track and react quickly to challenges as they arise.
+* i’m not a founder of a unicorn startup but i have worked with several. my word is not gospel but comes from what i believe is a valuable set of observations.  read the following with that in mind.
+** this exact event may not have happened but this kind of feedback loop was common.
+
+
+
+why is everything p0?
+jan 10th 2025
+while digging around in my notes app i found this old essay from my time at meta reality labs that was originally posted internally.  we were right in the middle of a team wide planning cycle and, as always, things were getting tense.  at the time, we were using the very popular p0, 1, 2, 3, 4 system for prioritisation and, in a way that's probably very familiar to you all, everything was p0...
+everything is p0
+there are always way more things that we should/want to/need to do that we have time for on any project that is worth doing.  in fact, if you are struggling to think of things to improve/fix on your project it’s a very good indication that it's dead. picking the most impactful thing to spend your time on at any point in time is the most important decision we all make every day.
+do we work on this thing or that thing or split our time or put 50% of our time into both? the hard fact here is that this is a zero sum game - if you spend time/money/resources on one thing you are not spending on something else.  making decisions on what to focus on is really hard and there’s often lots of things that add noise to this process; comment from leadership on random workplace thread, partner team loudly requesting help, you like working on a certain problem, the list goes on.
+the tool we often use to make this decision is some notion of priority. given we’re in an okr driven org the definition of priority is pretty clear:
+priority is the amount of positive impact we expect a given item to have on reaching our objectives.
+we’re going through org-wide planning right now and we’re all finding ourselves looking at a hell of a lot of p0s.  to take a planning document that’s open in my browser at random (not picking on this in particular but i think this is representative) there are 342 p0s, 96 p1s, a single p2 and finally, 17 p?s.  here’s a handy pie chart of that to annoy [data scientist on the team who hates pie charts].
+
+here's a handy key:
+
+p0 - we think its valuable and would like to do it at some point in time period x
+p1 - we aren’t completely sure of its value yet and probably won’t do it in time period x
+p2+ - dream on, dreamer.
+
+this system does have some utility.  it points out what a given team thinks is valuable and intends to do in the given time period but it’s got some big limitations.
+it doesn’t help us make decisions as to which p0 to work on now
+what to work on right now is, as i mentioned previously, the most important decision we’re all making day to day.  if there’s more than one p0 (or ~75% of all things are p0!) then you’ve got no extra information to determine what to work on next and worse still, if everything is the same critical priority then you may feel compelled to work on many of them at once.  doing 10% of ten p0s is definitely less impactful than doing 100% of one p0.  p0 can be a focus killer.
+it lets us pretend that we’re not playing a zero sum game
+if you are spending time on one thing then you are not spending time on another thing.  if you are trying to do two things at once they will both end up 50% done (or less - context switching has a cost).  however, we can add as many p0 as we like.  how many p0s is too many p0s?  we can’t know.  the only question we can try to answer is what is the most impactful thing to do next.
+another situation which comes up is the tie breaker. for example, a dependency comes in from another team which would mean that we would spend less time on other team objectives so there’s some discussion as to whether it should get added to the roadmap.  eventually, these kind of tie breaker situations end up with leadership and we ask them “is this dependency really a p0?” and the answer is normally effectively “yes, it is p0 and put it on to the big pile of p0s”. we’re not putting them in a position to answer the question effectively.  there’s no way for them to make a trade off when we don’t clearly present them with that data.
+we need to give ourselves the right tools to figure out what the best thing to do next is.
+so how might we fix that?
+ps out, lists in
+for anything task related in our teams we should discard the ps and use ordered lists. this should include objectives, task boards, roadmaps and everything else where we might spend resources on one thing rather than another.
+why?
+it constantly reminds us that we are playing a zero sum game
+you add a work item to a list.  the other stuff moves down and maybe some stuff drops off the end.  you can’t stop it, that’s how lists work.  no, you can’t put two items on the same line of the list, you scamps :)  this allows us to make very conscious trade-offs between work instead of deferring or even ignoring that thought process.  a new dependency comes in - does it go above or below this other critical item? it forces us to ask the questions to make a real choice every time and helps us explain to others who might be championing a certain work item (eg. a team with a dependency or qa with a bug report) how we have prioritised it and gives them an opportunity to discuss that decision with us. in cases where a tie breaker is required it helps us offer a more crisp decision to leadership: do we work on this first or that first? we can add this item to our roadmap but it increases the chance that some of these other projects might slip this half, are you okay with that?
+it tells us what to do next
+working with lists is simple.  take the work item on the top, “ask can i meaningfully contribute to this” if so, work on that, if not look at the next item on the list and repeat.  there’s a lot of reasons why we might not be able to contribute to the top item. it might be blocked in some way, maybe there are enough people working on it already and you don’t think that you’d be able to help ship it faster, maybe you don’t have the skillset to contribute to it.  that’s fine but the result is that we are broadly working to make sure that we put 100% effort into whatever item is at the top of the list at any point in time and if we’ve ordered correctly that means that we are always put maximum effort into the thing we think has the most impact.  we’re no longer feeling compelled to put 10% effort into the 10 p0s on our roadmap at the same time.
+when do we reorder, add or remove items? all the time.
+we constantly learn new info that changes how we think about the impact of projects and (hopefully) we constantly think of good new ideas.  the list should be living and constantly changing as we learn more.
+so yeah, ps out, ordered lists in.  who's with me?
+
+
+
+how to be a great startup engineer
+dec 16th 2024
+one thing that isn't spoken about enough is that being an engineer at a startup is it's own unique discipline - it's almost completely unrelated to the kind of role you'd have in a company like google or meta.  before you accept a role at a seed or series a startup, it's worth knowing what you are in for and what it takes to really excell at it. having been round this particular merry-go-round more times than is healthy, i thought i'd write a few notes which you might find useful:
+options > salary
+when it comes to rewards, make no mistake - you are here for the stock options (and the learning).  startups are extremely constrained by their cash burn so you'll struggle to get an amazing salary but what startups have a lot of is stock in the company.  it's not uncommon for seed stage companies to be giving you well north of 1% of the company's equity in stock options. it's a big risk but if you believe in this company then you can walk away with a life changing amount of money. negotiate hard on the options - it's good for you and the founders - you're all motivated to make this thing work.
+know the product and customers
+it's blindingly obvious but the lifeblood of a startup is it's product and customers.  it's so tempting, as an engineer, to get wrapped up in some sidequest (choosing the best framework, putting together a state of the art data pipeline etc etc).  get to know the product in detail, get to know your customers - spend time doing support, dig into the data, look at competitors, become a customer! - find a way to become obsessed with the product and if you really can't then consider finding another company.
+you're the expert now - act like it
+one thing i've seen a lot is engineers joining startups having a huge crisis of confidence. you need to realise that this whole company is a group of people who are winging it for most of the things that they are doing - chances are they hired you because you know more than them about a lot of things so don't wait for reassurance and sign offs - just roll your sleeves up and and start shipping stuff.
+be scrappy, really really scrappy
+a successful startup is constantly doing things that don't scale.  don't get caught up building some amazing architecture that encompasses all kinds of invented future possibilities. fixate on what the company needs you to do to get to the next step and just work on that.  don't introduce any tools or processes unless they are solving a present problem. don't solve problems you don't have. put out the fire, then move onto the next thing.
+be a jack of all trades - but prioritise
+you might be surprised to find that you might spend a large proportion of your time at a startup doing things that are not in your job description.  if you are a front end engineer, you'll be writing back end code, but you might also end up being the adhoc network engineer or jumping in on customer support or organising the holiday party or collecting the milk or ... well, anything.  always protect your own time and energy so that you are working on the highest impact thing you can but sometimes that high impact acitivity will not be writiing code - go with it.  don't be a afraid to wing it, just get involved.  on top of that, you'll learn a ton.
+you are all in it together
+when you join a startup, think of it as becoming one of the founders - you all own part of this company after all.  the really exciting thing about this is that you can be a part of shaping everything about this company from the product to the culture and everything in between. own the whole thing - if something is broken, don't wait for someone else to fix it or get all blamey - gather a crew and figure it out.  the thing that always amazed me is, even in a huge company like meta, the imprint of the early employees is still there - fundamental ways of working and thinking haven't just come from zuck and the leadership.
+i got a huge amount out of being part of startups, it's taught me enormous amounts, it's introduced me to amazing people and it's given me the opportunity to achieve some things i'm truely proud of.  however, it's not for everyone.  it's definitely going to hurt - stress, overwork, fear and uncertainty are all a thing.  hopefully, now you have an idea of what it takes to do it well and can dive in and make the most of it if you decide to take the plunge.
+
+
+
+your first days in a new leadership role
+nov 28th 2024
+so, you’ve just got a new job as an engineering leader.  starting any new role can be massively nerve wracking but throw in the fact that you are going to be a bunch of these people’s manager and the stakes get really high.  how do you turn up on the first day being the biggest noob in the company but somehow gain some credibility with your team, your peer leaders and everyone else in the company? ymmv but here’s a few things that have worked for me:
+pre-game
+make time to go for a few lunches/coffees with your new coworkers before you start.  in priority order: your incoming directs, your product and design peers, your manager.  don’t talk shop, get to know each other. keep it to no more than 3-4 of you rather than one of those long table new starter lunches where you can’t chat to everyone properly.
+really get to know the product
+no matter what it is, become a customer of the product as much as you possibly can before day one.  post starting, dig into how the whole company works - doing some customer support is a good place to start, talk to someone from every team (not just the team leads), bust out your sql skills and build some dashboards, **deeply understand the company’s key results **and how they are measured. you need to know why customers choose your product, what success looks like for the company and every step it takes internally to deliver that product successfully. that’s waaay higher priority than anything technical.
+tell your team what you plan to do for the first weeks and stick to it
+being a leader is weird because there’s very little precedent for what you actually do day to day.  even though the team might be cautious of their new manager they’ll probably add you to all possible meetings and expect you to take the reins on everything.  mitigate this by being really explicit about where you will be and what you will be doing. most importantly, stick to it - we’ve all seen that old doozy when a new manager turns up and says “i’m just going to listen” then starts a re-org three days later - don’t be that person.
+actually shut up and listen
+talk to everyone 1:1, sit around the office in lots of different places and earwig, lurk in all the slack threads.  yes, go to meetings but be careful with that - especially if you are senior, your presence is a signal. also, it’s easy to get dragged in to opinionating too early.  try to be the one asking most of the questions but you will be asked what you think about everything - you are in a unique position of having fresh eyes so your feedback is useful but hold those opinions loosely….and don’t, whatever you do, go on and on about your previous job/company. everybody hates that.
+help out, accrue brownie points
+after you’ve done a load of listening you’ll have heard of lots of frustrations, wants, needs etc.  pick something to help with and get it done.  don’t do anything that is at all controversial or requires some decision making/judgement on your part.  find something that someone wishes was a thing, and do it the way they want it doing.  fix a long standing annoying bug, make that tedious spreadsheet, chase that laptop upgrade for a team member, fix that annoyance that came up in a retro.  at twitter uk, i chased the table tennis table people wanted for the lunch room, at deliveroo, i got everyone’s employment contracts updated so they had a more competitive number of pto days - which also later helped recruiting.  you get to learn a bit about how the company works while accruing some low key goodwill.
+don’t mess, even if it looks on fire
+i hear of so many tales of leaders joining a company, telling the team they are “just listening”** **but then discover something that they believe is a fire and could be easily fixed and diving right in.  don’t do it.  every company and team is different - if it was easy they’d have probably fixed it already.  just listen, help out, but keep your greasy mits off the steering wheel for now.
+alright, hope that helps.  i’ll likely follow up with a “what to do in the first few months” post soon.
+
+
+
+guess who’s back?
+nov 27th 2024
+i’ve had danwebb.net since 2000 and in the mid 2000s my old blog even got fairly popular amongst web developer types.  in fact, it was a factor in me getting hired by twitter back in 2010.  since then, like many early noughties personal blogs, it’s fallen silent as we all went to twitter to shout into the void instead. this was all fun and games until the void started shouting back.
+fast forward to 2024 and i’ve been thinking the time is right to get it going again.  i’m lucky enough to have a pretty varied professional life at the moment where i spend equal amounts of time as a startup founder, a polyglot programmer (jack of all trades, master of none, if i’m honest) and a technical leader.  i’ve learnt from some amazing people, i’ve made some mistakes and learned from them and i’ve seen a whole load of crazy tech industry shit.  this all adds up to a certain amount of wisdom/entertaining anecdotes.
+alongside building existent and its team, i spend quite a bit of time advising startups who want to build outstanding engineering teams sometimes as an angel investor, sometimes for friends and sometimes as an independent advisor.  it’s becoming clear to me that i repeat myself quite frequently so i’ve decided to commit some of this stuff to markdown in the hope that someone might find it useful, at the very least, it’ll be useful to me.
+so, the plan is, i’m going to write some bite size posts here on this blog and cross post them to linkedin.  there’s gonna be a lot of tech leadership, a little bit of technical stuff and a smidgen of startup waffle.  if you like it, either follow me on linkedin or grab the feed and put it in your retro hipster feed reader of choice.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+about me
+i'm a london, uk based engineering leader, programmer, angel investor, sneakerhead, boardgame nerd
+                    and music geek. you can find me across the web as @danwrong.
+work with me
+
+
+existent
+                        is an unreal engine 5
+                        based platform for building
+                        physically interactive, multiplayer vr applications.
+                    
+advisory and consulting - i love helping startups build great
+                        engineering teams.
+                    
+angel investing - i angel invest from time to time. i like
+                        picks and
+                        shovels and green tech. if you are at seed/pre-seed and raising let's chat.
+                    
+
+
+
+
+
+© 2025 dan webb | all content licensed under cc by-nd 4.0
+
+

@@ -1,0 +1,83 @@
+
+
+
+
+
+
+business planware - announcement
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+planware
+
+
+announcement - march 2023 
+
+
+
+planware intends to cease trading in the near future due to the owner's retirement. as a consequence, sale of all products has been suspended and access to its website has been removed. to visit the site's archive, you can use the wayback machine 
+                    
+here.
+
+                    if existing users need support, we plan to continue offering help and guidance via email till late 2024.
+                        
+    
+
+                    we would like to take this opportunity to thank all our users in over 120 countries for their business over the past thirty or so years and we wish them every success with their plans and projections for the future. 
+
+                  brian
+
+
+
+
+                the most common support request we receive relates to extending the start year for projections beyond the supplied range. here's how to do this:
+
+
+
+start year running from january to december
+
+		      if your new start year runs from january to december, use the *setup/tools | enter basic model info to set the start month to january (no need to change any other setting in the dialog). then, go to the m_s worksheet and unprotect it, overwrite the formulae for each of the 12 months in the upper date row by entering the new start year as a four-figure year number for the start year e.g. 2023. recalculate.
+		      
+		
+
+		      that's it! save your work and read no further.
+		      
+		
+
+start year not running from january to december
+
+
+
+if your new start year is a split year e.g. from february 2023 to january 2024, you will need to make simple changes to several worksheets as explained below - be sure to unprotect each sheet before attempting changes or use the *protection | unprotect all worksheets option (ignore the request for a password).
+use the *setup/tools | enter basic model info to set the start month to february, march etc. as appropriate (no need to change any other setting in the dialog).
+when inserting a split year, you may need to use an aa-bb format (e.g. 23-24 for 2023-24 and so on). note: you must include an apostrophe (the ' symbol below the @ symbol on most keyboards) immediately before aa-bb. otherwise, excel will interpret your entry as a formula and enter -1 in the cell !! 
+worksheet m_s:
+			    overwrite the formulae for the appropriate year numbers in the upper date row for each of the 12 months by entering years as four-figure year number e.g. as 2023, 2024 etc. for the full-year total(s), overwrite the formulae for full years using the aa-bb format for split year(s) (e.g. enter '23-24 for 2023-24 and so on). calculate and the changes will flow through related worksheets. 
+worksheet m_pl:
+				    for the historic and projected full-year total(s), overwrite their formula using the aa-bb format for the split year(s) (e.g. enter '23-24 etc.). calculate and the changes will flow through related worksheets.
+worksheet q_a1:
+				    overwrite the formulae for year numbers in the upper date row for each of the 12 quarters by entering using the aa-bb format for split year(s) (e.g. enter '23-24 etc.). calculate and the changes will flow through related worksheets. 
+worksheet q_a2:
+				    copy the changes made to q_a1 into q_a2. calculate and the changes will flow through related worksheets. 
+worksheet a_45 (not applicable to all versions):
+				    overwrite the formulae for year numbers for the last two years using the aa-bb format for split year(s). calculate and the changes will flow through related worksheets. 
+worksheet q_pl (q_is for us/canadian edition):
+					      overwrite the formulae for any remaining incorrect year numbers within full-year columns using the aa-bb format for split year(s) (e.g. enter '23-24 etc.). calculate and the changes will flow through related worksheets.
+					      
+		that completes the task. reprotect all worksheets via the *protection menu and save your work !
+ 
+
+

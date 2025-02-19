@@ -1,0 +1,266 @@
+
+
+
+
+
+
+frey demographer – william h. frey
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+		skip to content
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+home
+biography
+books
+reports
+commentary
+
+menu toggle
+
+
+
+
+
+op-eds
+
+
+podcasts
+
+
+census in the classroom
+demographics in the news
+
+menu toggle
+
+
+
+
+
+us census
+
+
+election demographics
+
+
+immigration debate
+
+
+majority-minority trends
+
+
+us migration slowdown
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+main menu
+
+ 
+
+
+
+
+
+
+
+
+
+biographycensus in the classroom 
+
+
+
+
+
+
+
+
+
+  
+
+select   prod_frey_posts.*
+					 from prod_frey_posts  inner join prod_frey_postmeta on ( prod_frey_posts.id = prod_frey_postmeta.post_id )  inner join prod_frey_postmeta as mt1 on ( prod_frey_posts.id = mt1.post_id )
+					 where 1=1  and ( 
+  prod_frey_postmeta.meta_key = 'pub_date' 
+  and 
+  ( 
+    ( mt1.meta_key = 'pub_featured_story' and mt1.meta_value = '1' )
+  )
+) and prod_frey_posts.post_type in ('books', 'op-eds', 'reports') and ((prod_frey_posts.post_status = 'publish'))
+					 group by prod_frey_posts.id
+					 order by prod_frey_postmeta.meta_value desc
+					 
+
+
+percentage of infants under age 1 year who are non-white, 2010
+
+
+
+william h. frey is a ph.d. demographer and sociologist specializing in u.s. demographics.
+this site provides links to publications, demographic issues, media stories, data tools and resources for teachers developed by projects with which dr. frey is associated.
+
+media mentions
+immigration drives the nation’s healthy post-pandemic population growth, new census data show - brookings institutionjanuary 6, 2025
+trump gained some minority voters, but the gop is hardly a multiracial coalition - brookings institutionnovember 12, 2024
+is there a non-white population drop in the greater l.a area? - laistaugust 11, 2024
+most of us population growth post-covid is from hispanic people - bloombergaugust 7, 2024
+kamala harris’ chances in november could hinge on a women’s voting surge - brookings institutionaugust 5, 2024
+census shows big city population improvements, countering predictions of the ‘urban doom loop’ - brookings institutionjune 6, 2024
+big beats small, new beats old - newgeography.comapril 30, 2024
+new census data hints at an urban population revival, assisted by immigration - brookings institutionapril 15, 2024
+an american slowdown - the new york timesmarch 20, 2024
+immigration is driving the nation’s modest post-pandemic population growth, new census data shows - brookings institutionjanuary 4, 2024
+
+
+
+recent
+topics
+
+
+us migration slowdown
+us census
+majority-minority trends
+immigration debate
+election demographics
+
+
+
+
+latest books & reportsjanuary 4, 2024immigration is driving the nation’s modest post-pandemic population growth, new census data showsfebruary 4, 2018can millennials make american’s whole?january 1, 2018the millennial  generation: a demographic bridge to america’s diverse futuredecember 22, 2017sun belt population growth hts modest snag, census data shownovember 20, 2017us migration still at historically low levels census showoctober 2, 2017recent foreign-born growth counters trump’s immigration stereotypesoctober 1, 2017national population growth declines as domestic migration flows riseaugust 4, 2017trump countryjuly 17, 2017how young americans are set to change the us foreverjune 27, 2017census shows nonmetropolitan america is whiter, getting older, and losing populationmay 30, 2017city growth dips below suburban growth, census showsmay 24, 2017race, american identity and the censusmay 18, 2017census shows pervasive decline in 2016 minority voter turnoutmay 2, 2017where immigrant growth matters mostmarch 30, 2017census shows a revival of pre-recession migration flowsmarch 23, 2017a substantial majority of americans live outside trump counties, census showsfebruary 10, 2017trump’s early actions will widen america’s political demographic dividejanuary 5, 2017it’s america’s minority youth that deserve both parties’ attentiondecember 23, 2016u.s. growth rate hits new low as migration to the sun belt continuesdecember 13, 2016white neighborhoods get modestly more diverse, new census data shownovember 10, 2016the demographic blowback that elected donald trumpnovember 4, 2016can white blue-collar workers give trump a victory?october 24, 2016diversity is a reason for optimismoctober 18, 2016the power of the educated white female vote in election 2016october 5, 2016how minority voters could swing the 2016 presidential electionseptember 14, 2016the role of minority voters in the 2016 electionseptember 1, 2016how america’s diversity explosion is changing the political landscapeaugust 16, 2016educated white women could trigger a decisive trump defeatjuly 12, 2016convention cities make exemplary stages to discuss america’s racial dividejanuary 1, 2014diversity explosion: how new racial demographics are remaking americaseptember 1, 2011how america’s diversity explosion is changing the political landscapejanuary 1, 2011investigating change in american society
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+contact info
+
+email
+
+phone: (888) 257-7244
+ 
+
+
+
+
+profiles
+
+brookings
+
+university of michigan
+ 
+
+
+
+
+
+
+
+
+
+
+
+© 2025 william h. frey
+ 
+
+
+
+
+
+
+
+
+
+ scroll to top
+
+
+
+
+
+
+
+
+
+
+
+
+

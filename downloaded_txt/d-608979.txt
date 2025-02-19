@@ -1,0 +1,3759 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+jonstraveladventures
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skip to main  |
+      skip to sidebar
+
+
+
+
+
+jonstraveladventures
+
+
+
+dr shock searches for some enlightenment in the strange world of string theory in the hope that he may stumble across some great food and interesting experiences on this preposterous quest (england - beijing - santiago de compostela - munich - melbourne - cape town)
+
+
+
+
+
+
+
+tuesday, december 12, 2017
+
+
+
+reflections
+
+
+
+
+it's been three years or so since my last post. it would be cliche to talk of all that has changed, but perhaps the more crucial aspects surround what has remained the same. ironically, the changes have often been associated with the realisation of themes and patterns which recur again and again...perhaps it is simply the spotting of these patterns which leads to potential growth, though growth often feels like a multi-directional random walk, where over time you get further from where you started, but the directions only proliferate as you find more corners to turn down. the perpendicular nature of euclidean dimensions is itself probably illusory as here, directions may curve back on themselves and become a lost corridor which you had previously explored and long since left behind, with dust hiding your former footsteps...but the motes still floating reminds you that you've been here before and that there are mistakes still to learn from what may be a narrow and uncomfortable passageway. so perhaps it is all some giant torus, and the trick is counting the closed cycles and trying to find ones which are enjoyable to go around, rather than trying to escape from them all, which is probably futile.
+
+a cycle which recurs is hidden truth, or perhaps, more accurately the hiding of truth...it may be deeper than the hiding of truth from the map as the map-maker himself may be unaware of what is resistance/compromise/expectation/honesty/pain/frustration or joy in a given journey. google maps has to go back to the matrix to find any reality hidden within the neurons, and maybe the reality has been erased long ago...'safe passage', or 'dead end' being all that is left...where in fact it may not be a dead end at all, and the paralysis that ensues would be eased with only the simplest of secret code words being divulged...i don't like that...there is a better way...can you do this for me?
+
+this is not to be read as deep or meaningful, but really as a little gush of words, to ease the fingers into writing some more, which i hope to do. this is a deep breath and a stretch after a long long sleep...
+
+
+
+
+
+
+
+
+posted by
+unknown
+
+
+at
+10:39 pm
+
+
+6
+comments
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sunday, august 17, 2014
+
+
+
+a foray into a new number system - an introduction to imaginary numbers
+
+
+
+
+this is the introduction which i give to my first year mathematics class when they see imaginary numbers for the first time. i thought i'd type it up here as it's received good reactions the two times that i've introduced it in this format. note that this probably isn't the canonical way to introduce complex numbers, but then most of my lectures don't necessarily take the normal route...
+
+complex numbers, a philosophical detour
+
+before we get on to talking about imaginary numbers and complex numbers, let's try and break down our preconceptions about numbers in general.
+
+we look at the world around us and see many things which we categorise. we see a computer, a piece of paper, we see other people, we see our hands. these are labels that we use to categorise the world, but these objects seem very physical and very real. we rarely question their existence, though if one wants to take the cartesian view, we should also question the reality we are in. we are not going to go that far, but let's try and ask about the existence of numbers.
+
+i have definitely seen five pieces of paper, but i have never seen a five. i've seen the number written down, but i can write down anything i want and it doesn't necessarily mean that it exists. i can write down a erga[oeiave21 but that doesn't suddenly bring a erga[oeiave21 into existence. how about a -5? i've definitely never seen a -5 though i understand perfectly well what it means. the integers seem to be very good ways of describing, or more specifically counting objects and the negative numbers are a good way of keeping track the transfer of objects from one place to another. i can also ask you to give me 3 coffees, and here i am really asking you to apply 3 as an operation to the object coffee. 3 is acting almost more like a verb than it is a noun. when i describe that there are 30 people in a class, i am really thinking about this as a description, or an adjective. so in the real world, somehow numbers feel like verbs and adjectives. i certainly wouldn't say that 'heavy' exists, but certainly a book which has been described as heavy does. 
+
+however, there is a world in which numbers really do seem to be more like nouns than they do in the world around us, and that is in the abstract world of mathematics. in the universe of equations, numbers somehow feel much more concrete and i can manipulate them and transmogrify them from one form to another using a set of mathematical operations which become more and more finely tuned and specialised as we learn more and more mathematics. i can take a 5 and i can apply a  the sin function to it to give me another number. i think of this rather as taking an object and putting it in a machine which turns it into another object. here 5 is very real, but so is -5 and so is pi/4 and so are all the numbers that we've ever used. they are simply the objects which are manipulated by our mathematical machinery. whether or not they exist as objects around us isn't very important for our use of them in the mathematical universe.
+
+incidentally, i have here separated the real universe from the more abstract, platonic, mathematical one, but it is fair to say that we have found mathematics as the best language with which to accurately describe the real universe. all of our models and precise descriptions of the universe are built using mathematics, and it acts as an incredible way of describing the laws of nature. which came first, the mathematics or the universe? that is not a question i am going to get onto here, but it's certainly a profound one!
+
+a foray into a new number system
+
+ok, so we have a mathematical world of numbers and we can manipulate them. thus, we should be perfectly happy to have some more ingredients in that world, that don't have such an obvious mapping to the things in the world around us. we will discover that actually they help us enormously in the things that we can do with the mathematical machinery. it's like having a powerful car but not the right fuel to really take it up to top speed. we are about to find out what that fuel is and push the limits of what our car can do!
+
+previously, if we set up a certain type of quadratic equation and plugged it into our machinery to find a solution, the machinery would jam and we wouldn't get an answer out. this was a real shame because it didn't seem to be that much more of a complicated equation than any other that we had studied. we are perfectly happy with solving an equation like:
+
+x^2-1=0
+
+you can plot the graph of y=x^2-1 and see that it equals 0 at two points x=1 and x=-1. that's fine, our mathematical machinery can deal with that fine, but when we ask to solve something so similar:
+
+x^2+1=0
+
+our traditional machinery comes juddering to a halt and we get an error message on the screen - you're not allowed to take the square root of a negative number, says our program. in fact when we plot the graph of y=x^2+1 it's clear that it doesn't cross the x axis, so it can't have a solution...can it? maybe we're not looking hard enough. maybe our machinery is fine, but we've just fed it the wrong fuel. in fact, we can find the solution just fine. the solutions are:
+
+x=√-1 and -√-1          
+
+you might look at this and go "absolutely not!" you can't take the square root of a negative number, but if you plug that into the equation, it works just fine and is a perfectly good solution. what is not true is that √-1 is like the normal numbers that we are used to using. in fact, let's give this solution a name. we'll call it i:
+
+√-1=i
+
+(note that we are actually being mathematically sloppy here, but for a first pass, this will do - we can explain the subtleties later - in particular the domain of the square root is only the positive real numbers and thus we have to say what we mean by this function separately to deal with non integer powers on negative numbers.) 
+
+what is i? it's one of the solutions to the equation above. plug it in, you'll see that it works. there's no funny business going on here. so what if it doesn't correspond to an object in the world you see around you, nor does -76 but we don't have a problem with using that number, do we? i stands for imaginary. so we call i the imaginary number, but in fact it is no more imaginary than most other numbers, it's just a little harder to understand it because we are used to things which represent a size. numbers which are not imaginary are called real, but again, this name is probably not a very good name as -32 is in some sense no more "real" than is i.
+
+once you have defined this new type of number - a number that squares to a negative number, we open up so many new possibilities. things that previously would have driven our machinery to a halt are now very easily accessible. with this new number we've just upgraded our mathematical machinery so that it can handle so many more problems than it could before. 
+
+it might seem that i wouldn't have anything to do with the real world and it's true that any measurement of the real world will give us one of the real numbers that we are used to, but using i makes many things much more natural than they would be without it. this is true in many many fields of science and so having i at hand is absolutely indispensable when you want to describe the real world. very often given a question about the real world, it is much easier to take a detour into the world of these imaginary numbers which gives us a shortcut to an answer, than taking the long route using only the real numbers. 
+
+what we've shown here is that we can deal with √-1 but we can quite happily extend this to the square root of any negative number. from now on √-b where b is a positive number can simply be written as i√b. so i can be multiplied by real numbers. we can take 2 lots of i and 3 lots of i  and add them together to get 5 lots of i: 2i+3i=5i.
+
+how about adding a real number onto this? well it turns out that adding together 3+4i can't be simplified any more. you can't add apples and oranges and get pomegranates. what you end up with are a few apples and a few oranges, and that's as simple as it gets. in fact any number of this form, which has a real part, and an imaginary part is known as complex, and these complex numbers form a whole new domain which will supercharge our mathematical toolkit. we will see the power it gives us in the coming lectures...
+
+
+
+
+
+
+
+posted by
+unknown
+
+
+at
+11:44 am
+
+
+2
+comments
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+monday, july 14, 2014
+
+
+
+dunhuang to jiayuguan to zhangye to beijing
+
+
+
+
+i left you hanging as i failed miserably to steer my way through the cultural peculiarities of after-dinner etiquette in china. we were in dunhang, in the west of gansu province and i'd spent the day with a chinese tour group, riding camels and hiking over sand dunes, seeing the spectacular grottos at the mogao caves and being entirely overfed with lamb skewers and donkey meat.
+
+i woke the next morning feeling distinctly shaky and entirely unable to face breakfast - i am still unsure whether this was due to an equine overdose, or simply the flu. the plan was to take a bus the six hours from dunhuang to jiayuguan, but this turned into one of the most trying journeys i've ever made. sitting in the front of the minibus, i found my legs utterly stuck, rammed up against the plastic dash-board and with no wiggle room. the waves of nausea were already building and i could see my pallid face in the mirror, looking increasingly distressed. 
+
+other than a single stop, i sat for six hours in this agonising position, dehydrated and with spasms shooting through my legs and lower back, trapped with my hands gripping fiercely to the seat, trying desperately not to throw up, or by this point, explode from anywhere else. on arrival in jiayuguan i was pouring with sweat from the effort of control and in a hallucinatory state of exhaustion, able only to speak in short sentences, and stare ahead semi-catatonically. it was hot and i was on the verge of collapse.
+
+the plan was to go to the fort at jiayuguan, but i knew that i was in no state to trip the silk road fantastic, or even to stand up for much longer, so i made my excuses and started along the road, struggling to hold onto my luggage, to find a hotel in which to collapse. after some failed attempts, i took a short taxi ride to a hotel with businessmen shouting and smoking furiously in the lobby, each one trying to speak louder and smoke more voluminously than the others. i paid the deposit and headed to my room to expel and then allow coma to descend. for the next four days i lived in a virtual dreamworld, oscillating slowly from the lobby of the hotel to my bed, buying bottles of water and attempting to eat the occasional pot of instant noodles, sleeping and feeling the endless hours of extreme nausea with podcast after podcast, and pondering whether this was on the verge of becoming a serious situation, alone, virtually unable to eat and wobbly on my feet during my lucid moments. a few moments came and went as i envisioned being found some days later, dessicated and wide eyed, and i pondered what was the appropriate action as i descended from the crest of lucidity.
+
+it took four days to be able to leave the hotel and find something real to eat. my first meal of dumplings was taken with caution but i could feel the energy slowly seeping into my shakey muscles. overall i lost some five kilos in my time in gansu and i presume that most of this was lost in my four days of infirmity.
+
+i managed on that fourth day to make my way the short distance to the famous pass at jiayuguan, the westernmost outpost of the great wall and a very important historical site at the intersection of trade and military power. the sun was beating down as my muscles slowly de-enervated, and i pressed on to look around the structure which i had seen in many photos before. 
+
+it is a feature of many chinese historical sites that the balance of preservation and reconstruction that the west has become used to is not present. the idea, very often, of simply keeping what is left in as good condition as possible is replaced with the rebuilding of the structure to its once present glory. this is true at many of the most touristically popular parts of the great wall and it is true at the fort at jiayuguan. in east asia this practice is not new, as within japan as well, the modus operandi for temples was to rebuild them every 50 years or so, and so there are actually very few temples which retain any of their original pieces. it is hard to quibble with this from a utilitarian point of view, but certainly from the western idea of heritage and the importance of the actual bricks and mortar being the substrates of history, rather than the mere facade, it is quite strange to walk around such a rebuilt fort. i hadn't taken this into account before i visited it, but as i saw parts covered in scaffolding and with fresh concrete being mixed to keep the perfect picture of presentation fresh, i became somewhat despondent that i was merely visiting the disney version of the great fort at jiyuguan. this view it seems is rather a narrow-minded one and in fact the live-action roleplay of traditional gansu costumes, archery, artwork and music have the potential to make the experience rather magical, if one can only get over the prejudice that the walls themselves are not ming dynasty.
+
+
+i left the fort and headed back for a last night in jiayuguan, trying to regain as much strength as i could before the next train ride.
+
+one of the main reasons that i chose gansu as my destination was because of the amazing landforms i'd seen in photos of the south of gansu, on the border with qinghai, at zhangye. these coloured striations in the landscape looked too magical to be real, and so i figured i would just have to check them out for myself, so i took another train, through the day to zhangye, arriving there in the late afternoon. zhangye is a small town of some 1.2 million people, one of the smallest cities i've been to in china, but for such a small place (in chinese terms) it has quite a vibrancy. the taxi system in zhangye doesn't work as in all other chinese cities i've visited, but rather the taxi driver will take as many passengers independently as can fit into the cab. the pricing system was not something that i ever quite understood. 
+
+into my cab came three young chinese travellers, all living in xiamen but hailing from all corners of the country. just as i didn't know where i was going, nor did they and so we decided to find a hotel all together. i had never attempted haggling at a chinese hotel, but the group quickly taught me that it's the done thing, and managed to get a hotel where we were paying a third the price of what i had payed up to this point. having dumped our bags we headed out for dinner and a stroll around the city. we made our way to the drum tower, a monument which you will find near the heart of any chinese city and found ourselves walking through the central parks and meeting points in the heat of zhangye. 
+
+family, and the link between the older generation and the younger one is a pivotal part of life in china. parents are most often both working and rather than leaving a baby or toddler in daycare, the grandparents are usually left in charge. you will find, walking through any city in the mornings and the evenings people in their 60s and upwards pushing prams and holding young kids, playing with them and talking amongst themselves. there seems to be an enormous joy in this connection of the generations which is something which only seems to happen sporadically in most european societies that i've spent time in (though i think that the mediterranean cultures seem to have more of this link). 
+
+in the evenings in any park in any chinese city i've ever been to you will see grandparents and grandchildren out playing, along with group dancing with the elderly, all in unison with flag, or swords, or fans, or bats and balls, perfectly synchronised to music blasting out of crackly speakers. it's interesting that the atmosphere feels warm and joyful yet there tends to be little smiling from the dancers, and it seems that this routine is taken simply as the evening exercise, rather than a moment of taking pleasure in the music, though it may well be that the pleasure simply isn't shown explicitly.
+
+i took this video some years back in beijing as couples danced at the temple of heaven in the heart of beijing:
+
+
+
+we sat down in the park and watched the dancers, the parents and grandparents and children, and they watched us back. i would be surprised if there were more than a handful of westerners in this city at any one time and so the attention i got was pretty intense, though the stares felt more those of intrigue than suspicion. i sat there as a little girl, perhaps five or six, stared at me, then walked up slowly, put her hand on my arm, and her other to my beard and stared into my eyes, transfixed. it was a lovely moment and her mother watched on, smiling and amused at her precocious daughter who simply wanted to discover. i spoke with her and her friends for a few minutes, though they were a little too shy to speak much, and my beijing accent was seemingly not easy for those speakers of the local dialect to understand. the particularly intrigued girl was the one on the right here.
+
+
+we spent a good hour in the park, watching and being watched and chatting occasionally with locals who would wander over to see what i was up to there.
+
+the next day we got up early and went to find a driver for the day. again, i realised that while i have a lot of practice with haggling, i should leave this to the masters and so we quickly got an amazing price for a driver to take us to the two sites that we wanted to visit. the first, was the danxia geological landform and was the place i'd seen in so many surreal and over-photoshopped images but had caught my imagination from the first time i'd come across it.
+
+it was hot, and the air was dry and we were at high altitude. i was still on my way to recovery from my flu and so the day was utterly exhausting, but truly spectacular in terms of the things we saw.
+
+we drove the hour or so to the landforms and took the bus from the entrance into the park. the landscape is as surreal as it is magical, with the most vivid striations of colours i've ever seen. the land looks like dough mix which his been piled up, folded over and kneaded, so that the layers of colour remain perfectly separated but randomly stratified as far as the eye can see. the variations of colour are remarkable, but not at all constant, and we would go from a region with dark browns and virtual blacks to those with layers of what seemed like browns and blues, greys and vivid yellows.
+
+the bus took us from one lookout spot to another, but i struggled soon to have the energy to climb the hills to the highest points, having to stop regularly to catch my breath. we spent a couple of hours hiking up to the lookout points to see the incredible landscapes, and while mine are not quite as vivid as the photoshopped ones you will see online, it was still a spectacular vision.
+
+
+
+
+
+
+
+
+
+
+having spent the morning in the sweltering dry air we headed off again, getting some noodles by a roadside restaurant and headed off for another two hour drive to the mati si (ma-tee-ss) temples, closer to the mountains bordering qinghai province. these are buddhist monasteries built directly into the qian lian hills. the journey there is spectacular as the snow covered mountains loom ahead and you pass through miles upon miles of potholed roads in the arable farmland which takes up most of the usable space in this part of gansu.
+
+i have tried to sum up my experience at these spectacular temples, but fail dismally given my lack of photography or ability to pay enough attention given that by this point i was just about running on empty, just about able to drag my still weary legs around. this site here gives a far better description than i can muster. 
+
+i did get a couple of shots, of the temples and from the temples looking out into the beautiful valley which stretches out below the mountains.
+
+
+
+
+anyway, to draw things to a close, this part of china is generally off the major tourist trail but is well worth exploring. it holds some exquisite countryside, some wonderful food, some very important historical sites, many friendly people and some cities which are very different from those you will find on the east coast. that being said, without being able to speak chinese, this would neither be an easy journey, nor, probably a particularly fun one, but if you have any chance to explore here with someone who does speak the language, i would highly recommend it.
+
+getting back to zhangye, i turned in for my last night before heading back, ready to wake at 5am for my train back to beijing. the train ride was long (getting on for 30 hours), and punctuated by lots of chinese businessmen who wanted to drink with me, but thankfully i seemed to escape these invitations without insulting too many people. on arriving back into beijing where summer had fully arrived with 40 degree temperatures and beautiful afternoon storms, i dove straight into the conference and was back to work...
+
+there will, at some stage soon be a few photos from beijing, and possibly a few from a recent trip to slovenia to a wonderful conference on chaos and non-linear dynamics.
+
+i am about to start teaching again and will be teaching both a first year maths course and a string theory course, for the first time. both of these i am looking forward to a lot and my new routine is something which, after some six weeks on the road, is wonderfully appealing. it's going to be non-stop for the next three months but it should be a good deal of fun too!
+
+
+
+
+
+
+
+
+posted by
+unknown
+
+
+at
+9:24 pm
+
+
+2
+comments
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+saturday, june 14, 2014
+
+
+
+of getting lost in gansu
+
+
+
+
+the mildly alliterative title will have to be taken as artistic license, though my mind did fade into a strange netherworld for a few days during my journey as will become clear soon enough...
+
+it has been almost six months since my last blog post and so much has been happening in the mean time. summer has come and gone in cape town and we are left with a hodge-podge of beautifully chill but sunny days where the blue sky looks to be photoshopped and rainy days where the mountain is hidden behind sheaths of cloud which race down the mountain, laughing at all umbrellas in their path.
+
+toady is a rainy one, but i am sat in my local cafe, o'ways, which serves wonderfully prepared chinese teas and satisfyingly homely vegan food to a host of regulars who nod and smile as we see each other on sweltering saturday mornings as well as the rain-soaked ones. today i have a steaming pot of pu'er tea sitting on a candle and the egg-timer about to tell me that it has reached the perfect brew. memories of sitting in a tea-house in kunming, chatting with the owner for an entire day and tasting some of the most amazing pu'er teas i've ever been lucky enough to sample flood back.
+
+i am now back in cape town after a considerable time in distant lands, and i will be away for another two weeks before racing headlong into teaching towards the end of july. to be honest while the travel has been as satisfying and inspiring as always, and the conference i was at in beijing was productive and fascinating, i am very much looking forward to meeting the new first year cohorts whom i will be trying my best to get through the slings and arrows of mam1000, renowned as perhaps the scariest course in the university, though in reality i know that every one of the 200 plus student in front of me will have the capacity to ace it given the right push. mam1000 i have taught before but i will also be teaching honours string theory this year which is going to be a lot of work, but should also be very rewarding.
+
+before all this starts i will be taking off to slovenia for a one week school and a one week conference on non-linear dynamics which looks like it's going to be utterly fascinating. on my way to the venue in maribor, i will pass through ljubljana which holds powerful and positive memories for me and an overnight stay there will allow for some important moments of reflection.
+
+right, i have gone way off topic, so back to the last month.
+
+back in 2008, just before the olympics in beijing, i went far west, into the heart of northern china to one of the holiest mountains of the daoist religion, kong tong shan, just on the outskirts of the city of pingliang in gansu province to hunt for an eclipse. the ensuing, somewhat farcicle adventures were chronicled here.
+
+i was rather fascinated by gansu on that short trip and vowed to return some day to explore this province which is not, in general, on the tourist trail. the people, on my first trip there, i found to be quiet and reflective, and a lot calmer than their eastern counterparts, the landscapes are desolate and dry, and the culture is a mix of han chinese with strong influences from the western muslim minorities and a history built in large part on the trade along the silk road.
+
+this time i had a little longer to explore, and with only a handfull of city names in my head i booked a train to lanzhou, the capital of gansu province, a city known for its pollution, for the fact that it straddles the yellow river and for its beef noodles.
+
+the train ride from beijing was 18 hours and so i booked myself into a hard sleeper, which means that you have one of 6 bunks in an open compartment with no barrier between you and the corridor where many a sociology major could happily pen their thesis on the comings and goings off the chinese traveler.  the beds are thin and hard and just long enough that my feet poke into the aisle, but i tend to be able to drift in and out of sleep on these far from ideal mattresses.
+
+the journey was a trial by fire, being thrown headlong into so many of the habits of this land which are both trying and fascinating for the foreigner. within a few minutes of heading off, a middle-aged woman in my compartment had taken out her phone and started playing her music full volume. while in the uk, it is likely that nobody would say anything at first, everyone else in the cabin would roll their eyes at each other and make tutting motions until a consensus had been built that this wasn't on, at which point the bravest might, possibly, say something.
+
+i searched around to make eye contact with the others in the near vicinity, waiting for the moment where we would all agree, by silent majority that this behaviour was not acceptable and someone would say anything, but nobody looked up from their games, or from staring out of the window, so i simply rolled my eyes to myself and tried to block out the music.
+
+i took this lack of response to mean that nobody minded the music, and reprimanded myself for judging everybody by my particular yardstick of what i considered good behaviour. this same thing happened frequently on my journey, with people playing phone games, tv shows and music out loud to the train, bus, hotel lobby or restaurant, with nobody showing any sense of disapproval. 
+
+i asked several chinese friends on getting back if my appraisal had been correct and the chinese simply didn't think of this as rude behaviour, and was surprised by the response. it turns out that most people on the train would have been pained by the blasting music, thinking that the woman was very rude and, as is so often used as the excuse, or perhaps the blame, uneducated. however, it simply isn't in the chinese culture (a term which means far more than does the term british culture - see on china, the best book i have ever read on the history of this country) to alter the hierarchy and poke ones head above to dictate what should and shouldn't be done. in this statement i am both misunderstanding and misrepresenting, but this is roughly the conclusion i have made from speaking with a good number of friends on this subject.
+
+we raced on west, and eventually the music came to an end. half hour speeches would echo from the train tannoy every now and then, lecturing us on the benefits of drinking milk. both men and women would hack their phlegm loudly and dramatically and spit either into a corner of the compartment, or, if it was within easy reach, the bin, and smoke would waft through the cabin from those on their way to chain smoke in the spaces between the carriages.
+
+the beginning of this journey may seem negative, but this was really a period of acclimatization for me, remembering those habits which i someone grew more accustomed to when i lived in beijing and had to re-evaluate in terms of how i would deal with them. in the end one simply learns to live with them for, if you allowed them to bother you, you would be constantly on the offensive and constantly getting into confused arguments with those who didn't think that their habits had anything to do with you. i take this as a lesson in patience and a study into another culture and eventually the zen descends and i can live with these practices.
+
+as night drew on and i drifted in and out of sleep, attempting to meditate on the snores of the men and women around me, i listened to podcast after podcast, which to be honest kept me sane through a lot of my time on this trip.
+
+by 5am the cabin was abuzz again and i helped myself to a breakfast as it flew by on one of the trolleys, the woman pushing it shouting out the daily specials for anyone who happened not to have already been woken by the general buzz of those grunting at top volume on their phones and the tannoy advertisements for some other government-advised health practice.
+
+around six thirty i found myself in lanzhou, bleary eyed and ready to explore after finding a hotel not far from the station. on this occasion i had booked in advance but in general i would simply turn up in a city and find somewhere to stay on the spot. i dumped my bags, had a shower and headed off down the street. the noise and smell of a street in china is something which makes me feel truly at home. i would never want, or indeed be able, to live in china again, though i am fascinated and enamoured by the country in many ways, but the pollution and general pace of life in chinese cities is, i am sure, enough to knock decades off one's life. that said, walking through a chinese city, exploring the dumpling stands and the noodle shops, marveling at the styles and smiling back at the stares, brings a certain calm detachment which i don't experience anywhere else.
+
+i made my way towards the yellow river and found myself in lanzhou's waterwheel garden, still early enough in the morning to find old men practicing tai chi and women walking around backwards vigorously slapping their arms to promote both mental fitness and good circulation.
+
+image from http://www.topchinatravel.com/pic/city/lanzhou/attractions/waterwheel-park-7.jpg
+
+
+
+i found a tea garden in the park where i went for the next couple of days, sitting, reading and watching the world go by and drinking litres and litres of a combination of green tea, goji berries and miscellaneous herbs and fruits which seemed to be a local speciality and good, either for my period pains or possibly for renal problems - i could never quite figure this one out.
+
+lanzhou is also famed for its beef noodles, which can be found all over the city.  the noodles themselves are hand-pulled and thrown into a rich beef stock with chunks of meat, plenty of chilli, coriander and cabbage, and with a miscellany of fermented vegetables on the side. while nothing compared to vietnamese pho in terms of subtlety and fragrance, this is a hearty, very tasty dish which is a perfect way to satisfy a stomach fresh off an 18 hour train ride. the fact that the noodles are pulled in front of you, as the soup is boiling adds to the experience and the freshness of this very famous dish. (from austin guidry)
+
+
+
+
+
+my days in lanzhou were both a time to acclimatize, to get my chinese back up to speed, which happened far quicker than i had imagined, and to plan the next part of my journey. i decided to head far west after this, to dunhuang, perhaps the most famous part of gansu province, with the gobi desert at its feet and the mogao grottos nearby. 
+
+another overnight train ride took me a further 1000km away from beijing and right to the most distant corner of gansu, close to the intersection with xinjiang and qinghai provinces. (from travelchinaguide.com):
+
+
+on the way i met a couple from guizhou, who, on seeing that i had nothing planned and was just going to wing it as i arrived there, persuaded me to join the tour they were taking. having been on one chinese tour bus before, i was reticent, but also realised that this was probably going to be the most convenient and cheapest way to see the sights.
+
+arriving in dunhuang we were picked up by a minibus with 20 or so rather bemused chinese folk from all over the country, trying to figure out what i was doing there. to be honest i was also trying to figure out what i was doing there, but having traveled enough in china one realises that sometimes you just go along for the ride and don't ask too many questions. we started off by heading to the desert, and the famous crescent lake, built around a small oasis and with sand dunes hiding it from prying eyes. a short camel ride across the dunes took us up to see the views of the desert, stretching into the distance.
+
+
+
+
+
+the site is very touristy indeed, but still impressive and the crescent lake feels like so many other sites in china, recently rebuilt and without the authenticity of a roman or norman ruin. i think that again my perspective of seeing many partially-destroyed but real historical sites through my life colour my view of such reconstructions and i feel that i have to remove my prejudice somewhat when i come across such chinese versions of historical accuracy. i can see positives to both attitudes but do find myself less moved by a newly reconstructed model of an historical piece of architecture.
+
+
+after a few hours in the desert we were fully dessicated, utterly shaken by the camel rides, and ready to move on. the bus took us next to the mogao caves, a series of hundreds of grottos built into the side of a small mountain and each one holding the buddhist iconography, statuary and relics of families who have, over the centuries made their offerings to buddha for a happier, richer and more peaceful life. unfortunately photography is prohibited within the caves but there are plenty of impressive pictures to be found here. 
+
+at this point my chinese was stretched to breaking point as the two hour tour, in which we visited some two dozen caves, was led by a chinese guide. right now i am fluent in basic chinese but there is a sharp cutoff whereby anything with specialised vocabulary tends to be beyond me. i got the general idea of the use of the caves as family-owned places of worship, but the details were sadly lost on me. in contrast to the crescent lake, the mogao caves have been very well preserved in their original form, and the enormous statues and incredibly detailed illustrations are spectacular, even without the benefit of knowing the significance of every image or the meaning of the particular hand configurations which one buddha might have over another.
+
+we stayed in dunhuang overnight and then next morning started on a six hour minibus trip to jiayuguan. this was the beginning of some of the physically hardest few days i've ever had and, as we started off on our journey and my body started shaking and waves of nausea started overcoming me, it was clear that i was coming down with something. i was sat in the front seat of the bus, my knees up against the dashboard and completely unable to move, trying to stave off the cramps of being stuck in such a confined space while attempting not to let anything escape from any orifice of my body. six hours later, unable to eat, and white as a sheet, though thankfully having not embarrassed myself with any unexpected eruptions, we arrived into jiayuguan. i was shaken from the stress of having to concentrate on every part of my body throughout the journey, and as everyone else started off on the way to the jiayuguan fort, i slipped away and tried to find a hotel. i hadn't been able to eat since the night before when the chinese couple i'd met on the train had taken me for the dunhuang speciality of donkey meat noodles and lamb kebabs.
+
+during the meal the night before we had gone to a number of random restaurants to sample different dishes. at each restaurant the husband had insisted on paying. i had protested, pleading to be able to at least pay at the next place. he of course had agreed, and then reneged on the promise as soon as it came to pay the bill, physically pushing my wallet away. in the last restaurant i got up as the pile of kebabs diminished and headed to the counter to pay the bill. he rushed up, just as i had given the money to check the bill and looked alarmingly at the amount, embarrassed that it was the largest bill of the evening. as we went back to the table, the mood changed and i realised that in trying to be fair, i had really made an enormous faux pas. in attempting equality, i had managed to humiliate this man in front of his wife, and in front of the owners of the restaurant. i have always seen the game played whereby everyone tries to pay the bill after a meal in any restaurant in china, and have often played along, but i realised, all too late on this occasion that it really wasn't a game, and that as a traveler in this man's country, i really should have graciously accepted his payment for everything. the dour look on his face, in contrast to his previous constant shouts of 'gan bei' and beaming smile of being in the company of a foreigner in such a distant place, was enough to make me understand quite how serious a mistake i had made.
+
+on leaving the restaurant he leapt across the street to one of the many stands with vast mounds of the local dried fruit on sale and bought me two enormous bags of apricots and figs, smiling as he handed them to me, showing that with this gift, all was restored and again we could be friends.
+
+though i have been coming to china for almost a decade now i still find myself in these embarrassing situations, still unable to know quite how to play the game, or indeed whether i should be playing the game at all or not. thankfully on this occasion the balance was restored with the gift of dried fruit, but i am sure that i have done things which have humiliated others with a simple action or word that i have unknowlingly let slip. i'm sure that i will be coming back to china for years to come and am certain that i will learn new lessons each time i do.
+
+right, for now that will have to do, as i find myself quickly descending into delirium in jiayuguan and without a hotel to stay in. i shall continue this as soon as possible and recall the tales of being stuck, unable to eat or get out of bed in the middle of the middle of china, of walking around in a daze in the fort by the westernmost edge of the great wall, of the surreal landforms at danxia near zhangye and of my subsequent thoughts as i returned to beijing.
+
+
+
+
+
+
+
+posted by
+unknown
+
+
+at
+11:20 am
+
+
+2
+comments
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+labels:
+china,
+dunhuang,
+gansu,
+gobi,
+jiayuguan,
+lanzhou,
+travels,
+zhangye
+
+
+
+
+
+tuesday, january 14, 2014
+
+
+
+of light and ice over cape town
+
+
+
+
+
+(with apologies for the strange alignment. blogger is playing funny games with me today).
+
+i thought i'd do a bit of a summary of the atmospheric effects i've seen over the last few months as i will be giving a talk tomorrow at northumbria university on atmospheric optics and it seemed an opportune moment. in the six months so far in cape town i've seen some of the most amazing atmospheric optics i've seen anywhere in the world. with such a combination of weather systems in such a small space, this really isn't very surprising, but it's always a wonder to see them interacting in real time.
+
+
+the table cloth is a sight which can be seen so regularly that it's easy to forget quite how unfamiliar to most such a phenomenon must be. when conditions are right, a layer of cloud can be seen literally pouring off the top of table mountain. it's a spectacular sight and the speed, coupled with the diaphanous nature of it is quite beautiful: 
+
+
+
+
+
+
+i took this photo from lion's head on a wonderful full moon hike up to the (almost) summit. this spectacular view can be seen just an hour's walk and a five minute drive from the city centre.
+
+
+
+i live just below devil's peak (one of the main peaks of the mountain), and while i can't see the cloth lying this flat from my balcony, i can still see some wonderful cloud formations due to the airflow patters around the peaks. i came back home a couple of months back and raced home, seeing some incredible lenticular clouds forming over my apartment block. 
+
+
+
+these are somewhat warped lenticular clouds, but the soft edges and dense centre are defining features of this formation.
+
+from my office alone i regularly see wonderful cloud shadows. these are shadows of clouds cast on layers of mist and fog, and quite often the mountain itself casts this shadow as the sun sets behind it. i took this from my office a few weeks back and you can see the lines of crepuscular rays along with the shadow of the peak cast on the thin layer of fog below
+
+
+
+
+
+
+
+
+
+we've had some lovely halos on campus too, this one perhaps the most perfectly placed around jameson hall, the main auditorium on the upper campus of the university: 
+
+
+
+
+
+
+
+
+on a trip down to the cape of good hope just before christmas i was treated to another amazing display, with one of the clearest halos i've ever seen. the cirrus clouds absolutely filling the sky from horizon to horizon made their appearance inevitable. as always i pointed these out to passersby, with varying levels of enthusiasm in return.
+
+
+
+
+
+
+
+
+sun dogs have so far been rather elusive, but this is mostly because at dusk, when you are most likely to see them, the sun is hidden behind the mountain from where i am.
+
+i've seen a couple of green flashes but haven't managed to capture anything very clear so far. i shall be looking at a new lens in the coming months and that should help with getting a lovely crisp image of the flash.
+
+anyway, there have been plenty more amazing sights but these have been the atmospheric highlights so far. in the new year i'm hoping to get out to really remote areas to see some dark skies for a bit of astrophotography and will update as soon as i do. 
+
+
+
+
+
+
+
+
+posted by
+unknown
+
+
+at
+6:46 pm
+
+
+1 comments
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+thursday, january 02, 2014
+
+
+
+of accents and onion rings
+
+
+
+
+i find myself in the north of england for the first time in years, surrounded by accents which i can't quite get a handle on and an england that feels somehow familiar yet foreign. because i come back so infrequently, i tend only to see oxford and london and so my memory of the beautiful diversity of this country fades. it is lovely to be reminded of this again, and having spent christmas in swansea having had a scenic drive through southern wales, i'm getting a good dose of this for the first time in far too long. while i have traveled the world, i feel that i've neglected seeing much of the uk. i don't really understand the idea of patriotism, yet i still find coming 'home' to the uk a rather pleasant sensation, even if i am coming here from a city which i am quickly coming to feel very comfortable in.
+
+i took the train up from king's cross this morning, racing through beautiful countryside and being blessed by the angel of the north as we tore up through york, darlington and gateshead and arriving finally in newcastle. i'm staying with an airbnb host, a woman in her 60s who has a lot of travelers staying with her, often working in the university, as i am. she was arriving home later so i found a barber's shop to give my beard a much needed trim. i realised immediately how hard i was going to have to concentrate to understand the accent up here. many things have happened to my english as i've lived on different continents. while native english speakers think such an idea very strange, i've had perhaps a dozen non-native speakers ask me if i'm irish of late. i think that my accent has simply been softened by being around so many different accents over the years and i've definitely simplified my grammar in order to make myself better understood. living in china also meant that the way that i asked questions changed due to the nature of questions in chinese. i will often ask a question as a statement with an upward intonation at the end (where a question particle would go in chinese). this has confused people greatly over the years, most notably italians for some reason. 
+
+i popped into a cafe to read a little before going to my host and was greeted my a woman behind the counter whose words i truly didn't understand at all. luckily, having bought coffee on a number of previous occasions i knew the protocol but i am a little thrown by not being able to understand my own countryfolk. 
+
+i took a quiet stroll through the streets of the city centre as it grew dark and have so far been very impressed by the beautiful architecture around this part of the city. i jumped on a bus and took it towards wallsend, going over the tyne and past northumbria university, where i will spend the next two weeks in the mathematics department. hopefully i will be able to talk soon about what i will be doing there, but truth be told, i'm not entirely sure myself yet. 
+
+while i feel very safe in cape town, it is part of the way of things there to know where you can and can't go at what time of the day or night, so i found myself asking my host whether it was ok to walk around the area at night. she replied that while the locals might swear quite a bit, they mean no harm and with that i pottered off to a shop to buy some groceries for the coming days. i was greeted by a friendly shopkeeper, perhaps of turkish descent, who regaled me with tales of the enormous onion rings he and his wife were presented with in thailand. come tomorrow if i am lucky he may be able to show me the pictures on his phone, comparing said onion rings with a large glass of coke. i shall certainly be back as to miss such an opportunity would surely be a crime. 
+
+for now i have a little work to be getting on with and so will dive into it before i fall asleep, in a new bed, in a new city. the familiarity of this novelty is an interesting paradox.
+
+
+
+
+
+
+posted by
+unknown
+
+
+at
+9:35 pm
+
+
+0
+comments
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+friday, november 29, 2013
+
+
+
+of oceans and mountains and the land in between
+
+
+
+
+cape town rises from the oceans so quickly that just a ring of land is left between the water and the mountain which sits overlooking us all. i see it above me when i look out of the window of my office and i see it now from the balcony of my apartment, the sun setting on another sunday evening as the weather heats up and the summer activities of the city begin. kirstenbosch gardens, just a short way down the road from here are hosting the first of the summer concerts which will be happening every sunday for the next few months, where people take their picnics and go and sit in probably the most celebrated botanical gardens in the world. today has been steamingly hot so i have spent most of it in the shade of a tree, reading a book and pondering what will come next week.
+
+the last year has seen the happiest times of my life, and some of the hardest, but there are aspects of my life which i have always left off here. i have been in cape town now for around five months and, while i still don't feel settled by any stretch, i am discovering enough nooks and crannies in the city that i can feel that my fingers are digging deeper into the sand of this place. routines are beginning to build up, i have regular haunts, for coffee, for music, for wandering aimlessly, for showing friends when they come to visit.
+
+i taught for most of the first four months here, which was an exceptional experience. taking me on here was a gamble, not only did the faculty know that while i had lectured a lot on my research, i did not have a proven teaching record, but i also didn't know truly how i was going to be as a teacher. i still have a lot to learn, but having now stood and taught the same class every weekday for 60 lectures i know that not only can i teach, but that i enjoy it even more than i had expected to. prior to this, i had only had to try and impart some measure of understanding to my audience. if they got the general gist of what i had published a paper on i was generally happy. now i had the challenge of doing my best to make sure that everybody in the class understood everything of what we had done in the last 45 minutes. i don't claim to have done this by any stretch, but i do know that i got good reactions on the whole from my students and that they did pretty well in the final exams. 
+
+i will be teaching the same course again next year along with an honours course in string theory which i'm very much looking forward to but this will start next july. i have put all of my teaching into a single semester, and while i will have a fair number of administrative duties to do in the mean time, i hope to be able to get my head down and do some research for the next seven months.
+
+on top of teaching and research, i've also been discovering the city, truly a beautiful city with the diversity and culture of a big city and very often the feel of a series of interconnected villages. as you hop into one of the white minivans which drive noisily and dangerously from my place to town you pass by the university in rondebosch, one of the most beautiful campus settings you will ever see, observatory (where there is a small astronomical installation, lots of bars and quaint restaurants) and woodstock, home to the old biscuit mill, the test kitchen and the pot luck club, among many other interesting eateries, cafes, second hand bookshops and strange outlets selling 50s memorabilia, you pass around the mountain, hurtling along main road, passing the ocean, unseen on the right, you witness the strange intersection of gentrification and the homeless, the dispossessed and the well-established, you screech round the corner as you head into the city and the minivan pulls into the taxi station, the hum of a dozen languages, the stench of urine, and the mountain, still dominating, rising above the city as you walk over the footbridge and descend into the square of the city hall.
+
+over the winter i went most thursdays to soak myself in the weekly concerts put on by the cape town philharmonic at the city hall, a lovely venue where i was lucky enough to see some incredible concerts. the highlight of the season was seeing david helfgott exude more life than i have perhaps ever seen before, an exuberance and love of music, people and life that couldn't help but bubble and foam over the surface as he played some truly wonderful pieces.
+
+there has been a lot of exploring the city in the last few months and plenty of interesting places to talk about in detail. this post is really just an attempt to get the ball rolling again on my blogging so for now i will leave it there and get on with being in the city...
+
+
+
+
+
+
+posted by
+unknown
+
+
+at
+12:39 pm
+
+
+0
+comments
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+saturday, october 20, 2012
+
+
+
+machine learning in kyoto
+
+
+
+
+
+
+
+
+the usual excuses get very boring very quickly, but yes, the blog has been sadly neglected for the last couple of months while the world has spun around and i have been getting every more dizzy from trips to all corners. since the last post i've covered around fifty thousand miles, and taken 14 flights. my carbon offset at the end of the year is going to be painful but necessary. 
+
+24 hours after landing in munich from another long-haul flight, and a quick laundry trip later i was back on a flight to osaka, to attend the machine learning summer school in one of my favourite cities, kyoto. i'd spent about six weeks in kyoto before and had found it not only beautiful but also one of the most relaxing cities on earth. i had spent an extremely constructive few weeks working late into the night in cafes and the yukawa institute, where somehow the surrounding temples brought and amazing peacefulness to my work, and while it was feverish at times (waking through the night thinking in code) it was always in a zone which i've achieved on very few other occasions.
+
+this time was also amazing, but not peaceful in the same sense as before. with 300 participants from 50 countries, the machine learning summer school was a boot camp in theoretical machine learning, with 7-8 hours of intense lectures every day. i was there to pick up some new skills to add to my arsenal to solve complex computer problems. it was a fascinating couple of weeks and while the lectures were far less applied than i was hoping, i still picked up a lot of useful new information, many great academic contacts and a few good friends along the way.
+
+kyoto was a balmy 35 degrees most days and cycling around by bike was the best way to tame the humidity and temperature with a good breeze. i was reminded once again how much i love to cycle around unknown streets and i did a good deal of sightseeing at the weekends and in the evenings, when i wasn't simply exploring the food.
+
+having read the hare with amber eyes last year i was keen to see the netsuke museum which was near to the flat of the couchsurfer that i stayed with for the first two days. sadly it was closed, but nearby there was a fascinating gallery detailing the history and techniques behind the kimono,  a more intricate artistry than i had ever imagined, and something that is worth checking out if you're ever there.
+
+the one temple i most wanted to get back to was kinkakuji, the golden temple, nestled into the hills on the outskirts of the city. i'd been there twice before but the sheer ridiculousness of this place requires a good few viewing to really take it in.
+
+i spent a couple of hours happily snapping away as tourist groups piled past. sadly the opening times and sunsets in kyoto didn't coincide but still, the conditions were pretty good for some hdr shots from under the trees:
+
+
+
+
+a serious downpour at one of the hidden temples near the hotel:
+
+
+
+
+
+there wasn't time to see nearly as many temples as i would have liked, 
+but taking a little time out at the weekends gave me a good chance to 
+try and wind down from the intense days during the week. trying to get 
+on with various projects throughout made it a very intensive few weeks.
+
+the end of the summer school saw a rather fine italian/japanese banquet as well as a cultural performance. i was expecting to enjoy it as the traditional artforms i've seen in the past, kabuki in particular, i've enormously enjoyed. however, this was a performance of geiko (geisha from the west of japan) and maiko (trainee geiko). as soon as it started however i felt incredibly uncomfortable. this may partly be that i was projecting my own cultural perspective on it and not appreciating the details of this important part of japanese culture, but the movements and looks felt so incredibly subservient from the women dancing in front of a crowd of mostly men, that i felt immediately wrong to be watching it. i went outside to think for a while as the performance continued but i haven't yet come to terms with quite what was going on. i'd be very interested in hearing the thoughts of a japanese person with a good exposure to western culture for them to be able to tell me how they see it. this time in japan there were a few things that felt very strange, from the incredibly sexualised hello kitty young girls to the immediate hierarchy you feel when going into a shop where everybody greets you and bows to you. i like to be as open to cultural habits and ideas as i can be, but while i love many things about japan, there are some things that do make me feel uncomfortable - this is a strange position for me to find myself in.
+
+after the two week machine learning school it was straight into a few days at the yukawa institute where i was giving some talks about my research (hopefully coming out this week!) and a colloquium on atmospheric optics. a good time talking with shin nakamura and tadashi takayanagi and i was back on the plane to munich again, another couple of weeks in munich and then off to china, but china will have to wait till next time...
+
+
+
+
+
+
+posted by
+unknown
+
+
+at
+4:04 pm
+
+
+7
+comments
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+monday, august 27, 2012
+
+
+
+of air and water and light - solar halos over china
+
+
+
+
+my flight to japan was a remarkably comfortable one. last week saw me in the sky for over 70 hours and thoughts of dvt played heavy on my mind as i got ready for the last leg of a rather mammoth few days. days that i would however repeat, travel included, given the chance. thankfully on changing at amsterdam airport the ground staff took pity on my grizzled face and booked me into a seat with two spares next to it so i could finally stretch out.
+
+i managed a couple of hours sleep on the 11 hour journey which is not a bad proportion for me, given that i normally manage none at all. after a recent flight where, on asking for a whiskey, i was presented with a good half pint of the stuff, i have been staying away from alcohol on flights. the whiskey did knock me out, but it also gave me a horrendous hangover for the waking hours of the journey.
+
+anyway, i was up to watch the sunrise over china and managed to see the faintest of green flashes, though sadly didn't get it on camera this time.
+
+later on in the flight however as we neared japan the air at 30,000+ ft became filled with ice clouds and the interplay of light and ice made for a truly spectacular display.
+
+the conditions were very interesting. around the plane was a thin layer of cirrus clouds, with a high density of ice crystals, and below us where much thicker clouds, also packed full of ice crystals, many of them plate-like. plate-like hexagonal ice crystals like to lie flat in the sky and act like mirrors to the sun. these are the crystals that cause sun pillars:
+
+
+
+and sub-suns (the reflection of the sun off ice crystals in the clouds below):
+
+
+this time however the display was a lot more complex. the column crystals in the clouds around us caused a 22 degree halo while the plate crystals gave a faint sundog (also known as a parhelion). in the thick clouds below however things got more interesting. the plate crystals below gave an effect that i'd never seen before. not only did the light refract as it was passing through the sides of the crystals, but it also bounced off the bottom face, and back up, acting like a mirror to give a so called subparhelion. moreover, because of the high density of crystals in the lower layers there was a strong 46 degree halo coming from a rather rare dynamic of light through the end of column crystals. it seems that this may not have been photographed before.
+
+here is the almost undoctored photo:
+
+
+and here is a rather more doctored one just to enhance the effect to see the different arcs more clearly:
+
+
+
+
+the reason that the circle around the sun is so distorted is because it's from the edge of a very wide-angle lens (sigma 10-20mm at 10mm).
+
+i sent this through to les at atopics who has been my source of knowledge and inspiration in the subject over the last few years and he sent me back a ray-trace computer simulation of what was going on. this is the simulation of the particular conditions so you can compare with the images above (click to view the full image):
+
+
+
+the 46 degree arc in the clouds below seems to be an extremely rare event and the infralateral arc is also something rather special. all in all one of the best halo displays i've ever seen.
+
+i've seen halo displays a few dozen times when flying now. take some sunglasses with you, look out the plane and see if you can spot them next time...they're are there to be marveled at.
+
+now in japan for the next 3 weeks. 2 weeks at a machine learning summer school and then a few days at the yukawa institute where i will be giving a talk and hopefully chatting with some of the experts on entanglement entropy in holography. there are some ideas i need to talk with them about...
+
+
+
+
+
+
+
+
+posted by
+unknown
+
+
+at
+4:49 pm
+
+
+5
+comments
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+labels:
+22 degree solar halo,
+atmospheric optics,
+photography,
+travel
+
+
+
+
+
+wednesday, august 15, 2012
+
+
+
+reboot
+
+
+
+
+i've been silent here for a long time. i've also been in a bit of a reboot phase for the last few months, probably since around the end of june. i have a confession to make, that the reason for this was that the first six months of this year i simply took on too much. i'm not very good at saying no in general and have always loved the buzz of being busy. to be bored is a waste of the incredibly short time we have here and i find myself frustrated by all the other things that i wish i could pack into the hours of the day and of the night.
+
+a couple of posts ago i wrote about the incredible new explosion in online learning tools (take a look for links), from khan academy to coursera and udacity and now with edx in the mix, there are more and more courses online every day, for free, for anybody connected to the web. some of the best teachers in the world offering their services in a fascinating business model to bring highly advanced skills to the masses. on coursera alone there are now over 100 courses, from natural language processing to sociology, from vaccines to computer vision and from automata theory to the study of modern and contemporary american poetry.
+
+the opportunity was too much to miss and i jumped on board in a big way. i signed up to every course that looked interesting, and dove in, head first. i new from the start that it was going to be busy, but didn't know quite what i was taking on or how i wasn't going to be able to say no to finishing the assignments, even if it meant sleepless nights. and that it did. in fact i spent a good few months at the beginning of the year working 18 hour days. i was working in the office during the day, working on assignments and watching course videos at night and then at the weekends working on  other projects, some of which are now finished and some of which are ongoing (working on interdisciplinary areas has been enormously fun!). it was a huge buzz to be doing this and i felt in a great zone. the courses finished off one by one but as they did so a new one started.
+
+south africa came in the middle of all this and i was teaching a course on a subject i'd never taught before, while giving lectures about my work as well as working on the courses at night. it was all a bit too much.
+
+from south africa i came back and went off to denmark, then to the uk then back to germany, then somehow the netherlands crept in and i spent a few days in leiden after a trip through köln and neijmegen. again, more talks, more work, more courses. i don't really remember july, it came and went in a flash with strings at the end
+
+the next week is going to be the most ridiculous of all time in terms of travel, the last piece of it will be a trip to japan in about 8 days to spend two weeks at a summer school before spending a few days at the yukawa institute where i will give a talk and hopefully be able to discuss with some of the world experts on a problem i'm looking at at the moment.
+
+there are also plans afoot for next year but i'm going to keep these somewhat hidden for the moment. when there is any movement i will talk about it.
+
+so, after working for the first six months like crazy, the courses slowly trickled off and my concentration span trickled off with them. i emerged from this intense period in a completely hyperactive state and unable to concentrate on any one thing for more than a fraction of the time i'd normally be able to commit. i found myself easily distracted and even the simple pleasure of reading a book, which is my normal wind-down activity didn't seem to be happening.
+
+a few weeks passed by like this and i knew that i really needed a break, things were not improving, i felt fully burnt out. there are friends around the world that i would love to have seen, but i knew that this time it had to be a holiday of withdrawal, a trip where i could get away from everything and reboot. i wanted to go somewhere with very little to do, with beautiful streets and cafes where i could sit and read. more than anything i wanted somewhere that i didn't have to fly to! after a little searching i settled on ljubljana, slovenia, a mere six hour train ride from munich. i was recommended this by a slovenian friend and at the same time was told of all the fantastic natural wonders to go and visit in the country. normally i would jump at such photo opportunities, but this time i simply wanted a week or so of doing nothing!
+
+and that's what i managed to get. i spent 9 days in ljubljana doing nothing but sitting in cafes and reading, occasionally talking with street musicians who i would see every day as i wandered around, ate some good food and spent the afternoons exercising. it felt like a true retreat. i didn't have to speak to anyone, i didn't have to think about emails or facebook or traveling from one place to another. i read some great books, probably my favourites being the brothers karamazov, religion for atheists and cosmic anger, the biography of abdus salam. i sat in the castle at night under the stars watching the open air cinema, i sat and did nothing, it was perfect!
+
+so, i am back now. now i go away again and and will be gone for a few weeks, but i'm feeling a lot more ready to get my head down and concentrate, to finish the projects that are ongoing and to start some new ones, as well as to try and figure out a bit more what next year may hold.
+
+for now i'll leave you with a photo from ljubljana castle. the city is surrounded by mountains and as the yellow light of the sunset cut through the valleys, this castle was bathed in the glow:
+
+
+
+
+
+
+
+
+
+posted by
+unknown
+
+
+at
+7:12 pm
+
+
+3
+comments
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tuesday, may 15, 2012
+
+
+
+the meal of a lifetime at noma
+
+
+
+
+things are beginning to slow down, with a couple of the major coursera courses coming to an end. i will write up a post when possible about the natural language processing course which has been spectacularly well taught/paced and executed in just about every way.
+
+i've been wanting to write up a post also about my trip to denmark a week or so ago, on a gastronomic pilgrimage which lead us to the best restaurant in the world (whatever that means). a trip three years or so in the making, with all the possibilities for dire disappointment, but eventually a trip which was with out a doubt the highlight of my life's food experiences so far. much of this may seem a little emperor's new clothes, but to be honest i don't mind. if 90% of the enjoyment was in my head, rather than in the tastes themselves, then fine, that still resulted in a great deal of enjoyment.
+
+noma was the destination, and being my first time in denmark i planned on making a few days of the trip. we had booked the table at the beginning of the year, having tried and failed for the last 3 years, ever since it took el bulli's place at the top spot of the gastronomic hierarchy.
+
+i was lucky enough to have hosted a very friendly dane through couchsurfing when i was living in spain and this gave me the perfect chance to crash his place. this worked out fantastically as well as it gave me, as couchsurfing always does, a view of the city which i almost certainly wouldn't have seen had i stayed in a hostel.
+
+having returned from south africa to a very sunny munich, the weather continued to follow me and the first day in copenhagen was a spectacular 25 degrees. we spent the afternoon sightseeing and sitting with a drink in christiania, catching up on the last couple of years of our lives and watching the world go by.
+
+konrad, who had booked the table, turned up on the wednesday evening and we went for dinner and a drink in the centre, sampling copenhagen's only camra rated pub where the price of the pints was as much the cause of weakened knees as the strength. retiring after a couple of pints we cycled back through the city at night, ready for the feast which was to come the next day.
+
+booked for lunch at one, konrad, his friend and i headed at a leisurely pace through the city (having warmed up our stomachs with a fine breakfast), still in full spring haze to the north atlantic house, the ground floor of which houses noma, done up in relatively unpretentious decor
+
+the second you step through the door you are made to feel special. you forget about the fact that the place itself is special, but the waiters are immediately interested in you, asking questions and making you feel like you've just met a best friend of a best friend.
+
+they introduce the concept of the restaurant: nordic inspired cuisine, with nordic ingredients in highly seasonal, frequently unusual combinations. this is not another el bulli, where the food was all about the processes - a lot of incredible molecular gastronomy, but is really about the freshness and purity of flavours and the subtlety of their combinations.
+
+i know very little about music and i wouldn't claim to know all that much about food, but, at a piano concert a few years ago, a friend who really does know a great deal about music told me that the brilliance of the particular performance was not about getting the notes in the right order, or at the right time, but was about the subtlety and exactness of the strength of those notes.
+
+in the same way, at noma you are not going to be blown away by whizzes and bangs in your mouth, there is not the satisfaction of a great steak or burger, or the sugar and fat buzz of a tiramisu that may satisfy for a few moments, but there is an incredible harmony of flavours that are so finely woven together that one follows another follows another, each one creeping up as the other fades, just as the notes of a brilliant piece of music follow in perfectly weighted succession.
+
+for me the pinnacle of this melody was a dish of scallops, sepia ink and biodynamic grains in a pea puree. the sepia ink gives a background platform which carries the first hit of the scallops, which have been processed for around a day, purifying their flavour and turning them almost into caramel wafers, and finds its way into your mouth before the scallop is even there. the flavour of the scallop slowly fades as your mouth habituates to it, at which point the grains and puree are building to a head and take over, the chemical similarities between the scallops and peas allowing this to happen seamlessly:
+
+
+
+the very first dish was actually sitting on the table when we arrived, in the form of malted bread sticks, hidden within the flower pot and dusted with juniper (these are in the back, the strange rather furry looking things sticking through the foliage).
+
+
+along with the 23 courses came 9 incredible wines, all white, bar one rosé, all from europe and there were some outstanding pairings with the meal, including a wine which was almost calvados in its depth.
+
+after almost 4 hours we were left wonderfully satisfied, slightly drunk and enormously happy. konrad and i went to a bar after this and sat in the sun, giggling like little kids about individual bites, about surprise flavours and about the experience as a whole, sipping a cold beer and lapping up the waves of emotion.
+
+the day continued in much the same vein until around 6 o'clock the next morning, when i returned exhausted to collapse asleep for a few hours before having a very easy day the next day.
+
+i shall simply leave you here with a slideshow of the meal. it is an expensive meal, but i can say that for anyone who loves food experiences, this is truly one of the greats, and for me, as a once every few years extravagance, i am willing to forgo a long holiday for a journey like this. 
+
+ 
+
+
+ 
+i should also add as an important postscipt, that i was hugely taken by copenhagen and by the danes in general. i would certainly love to return some time and spent a bit more time exploring that part of the world.
+
+
+
+
+
+
+
+posted by
+unknown
+
+
+at
+11:17 pm
+
+
+2
+comments
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+labels:
+copenhagen,
+denmark,
+food,
+noma,
+photography,
+travel
+
+
+
+
+
+tuesday, may 01, 2012
+
+
+
+an attempt at a cape town catch up
+
+
+
+
+time simply doesn't allow to do all things i want to do, and to write about them. as of the last post my life has been taken over by the online courses i mentioned, and this means working till 2 most mornings to get through the material while having a normal time in the department during the day. i wrote the following when waiting for my plane in cape town, and while it's by no means a polished blog post, i want to post it before i disappear again tomorrow morning for copenhagen. the next 3 days are part of an absurd trip which has been in the planning for several years and will come to its climactic conclusion on thursday with lunch at noma.
+
+-----------
+
+i find myself once again sat in a cafe, in an airport, waiting for another 12+ hours of plane flights. this time i'm in cape town, waiting to go via johannesburg back to munich. another overnight flight, another night of watching others loll in and out of sleep as i wander the aisles trying to get tired enough to ignore the discomfort of folding my frame into a spasm-inducing gap.
+
+anyway, the above sounds a bit negative perhaps and the rest of the post, i hope will not be. i've met enough interesting people on flights now to know that flights have the possibility to be as enjoyable as they are ghastly.
+
+i've spent the last three weeks in cape town, my second time here, and each extra day i spend here makes me realise even more what a wonderful place it is. scenically it is almost unrivalled for a city. with the sea surrounding it and the mountain defining its geography, you are never away from a spectacular view. i've been for a couple of sundowners (a phrase i'd not heard before but means, unsurprisingly, drinks drunk during sunset, generally with a majestic view to accompany them) which have been wonderful evening highlights, a time to really sit back and appreciate.
+
+
+
+
+the city itself is made up of an incredible diversity of populations and cultures, the mixing of which is often not present but always available. i've met some incredible people here, in taxis, in shops, in cafes, from refugees of rwanda to ex-militants who fought in umkhonto we sizwe, the spear of the nation, the group that was the force behind the anc when talks and peaceful action only managed to tighten the grip of apartheid. everyone here seems to have a story to tell and i've met so many people who are actively pushing to make the situation better. in many ways south africa has come a long way since apartheid, but in others it has gotten nowhere. there are many embarrassments of the current social and political situation but there are people out there who are really trying to make a difference in a non political context. one of the taxi drivers i met also worked as a coast guard guarding the local ecology from abalone poachers, who often come armed with guns during the night. this is a man who puts himself in a place of enormous danger because he cares - lessons to take from this, for sure.
+
+i am in no way qualified to make judgement calls on the current situation but i can recommend these books that i've read over the last couple of years to give some picture of south africa's history and recent developments. sadly time does not allow for in depth reviews of any of them but i can say that from the point of view of someone who knew very little about africa or its politics, these are great starters (thanks to ben for all of these recommendations):
+
+the state of africa - a history of the states of africa since independence
+country of my skull - a journalist's eye view of the truth and reconciliation commission
+my traitor's heart - a white man with a difficult family pedigree coming to terms with his place in africa
+the shackled continent (don't read this without reading the state of africa as it will give you a terribly biased view) - a view of why things have not improved since independence. as i say, this does not give anywhere near the whole story and for the reason behind these reasons you have to read more.
+long walk to freedom - mandela's pre-freedom autobiography.
+the autobiography of ghandi also gives some very interesting insights into the relatively recent history of south africa. 
+
+the trip has been as eclectic a mix as the city is and i've been both giving seminars as well as starting some collaborations with the string theory group. i gave my atmospheric optics talk to the undergraduates which is always a pleasure, though i still struggle at times not to include too much material in this talk. after this i gave a series of lectures on a particular method of machine learning as applied to neuroscience. this was my first time lecturing on a non-physics subject and it was a great experience. the subject is fascinating and thankfully there were a huge number of questions which i find always make a lecture course a lot more enjoyable. it also makes me, the lecturer, understand the topic much better when you have a lot of intelligent people giving you questions that perhaps you would never have considered.
+
+some light photo relief: 
+
+
+ the outrageously beautiful university of cape town campus
+
+
+ivydene guest house, where i would sit and work at the weekends under the tree with the dogs and cats resting in the garden. this is without a doubt my favourite guest house having stayed at many over the last decade or so. lucille, who runs it is absolutely fascinating and introduced me to a slew of amazing people while i was there. her daughter jackie and son-in-law rob also make the place feel like family.
+
+and finally i gave a couple of talks about one of my last string theory papers which again was a lot of fun. the group ranges from those working in emergent geometry (how space and time can emerge from some other theory which don't include space and time as input) to ads/qgp - how we can use string theory as a tool to understand the internal constituents of the nucleus in particular conditions. it's always good to have a diverse audience like this because, again, you get a great range of questions, from the abstract to the very practical. the outcome of this was some really nice ideas for future investigations which i hope to continue remotely.
+
+and apart from a little socialising my life has been almost entirely overtaken with the online courses that i discussed in the previous posts. as an information addict these are truly fatal. how can i turn down a perfectly good course on automata theory given by a world expert, even if it means sleeping a few hours less a week. 
+
+the first round of courses on computer science finished a couple of weeks back which i can highly recommend, cs101 for those without much experience in programming and cs373 for the more advanced and those who may be interested in control theory and dynamical programming.
+
+the course on natural language processing (nlp) is now over half way through and is the best taught and most instructive from the point of view of programming assignments and problem sets, of the coursera courses i've been taking. right now i'm struggling, along with most of the rest of the class to write our own english language parser (how do you write a computer program which can work out the logical structure of a sentence - ie. which nouns do which verbs and prepositions relate to - in the sentence "fish people fish tanks" does the word people correspond to a verb or a noun - does the second 'fish' correspond to a very or a noun, etc. these are the sorts of question that an automatic parser would try to answer in a probabilistic fashion (ie. it will find various ways to break down a sentence and give probabilities for each possibility)).
+
+the nlp course also ties in very nicely with material in the automata course and the programming languages course from udacity. the link being finite state machines and markov networks.
+
+probabilistic graphical models is also very good, but it really does need 10-15 hours a week to truly understand the material. this is a large investment and something that i will probably split over two runs through the material.
+
+in other news, the publication i was working on about malaria has now been accepted for publication which is great to have finished. more work is ahead on this front and there are some very exciting possibilities in the pipeline. through the same link that gave me the malaria connection (many thanks victor!) we've started also on another investigation into an area called medical ethnography - a subject whose existence i was unaware of until i dove into some data analysis on a related project. this area is related to the interaction between society, ethnological behaviour and medical practice and is so far very interesting to work on.
+
+so, with the above i have very little time for a normal life right now. i work until late at night including at weekends on these projects and courses, which is great in terms of learning and in terms of the excitement of pursuing new areas of investigation but i am aware that this is not a sustainable pace. i am also aware that i am out of a job in 7 months and am desperately trying to mold a future which will be interesting, sustainable, economically viable and will allow for some constancy in my life. most of these factors are falling into place, it's just the small matter of economics which may be the biggest hurdle. it's easy to find people with whom i can work on interesting projects, it's not so easy to get them to pay me for it. the thinking cap is on and i have a few ideas as to how to construct this rube-goldberg machine of a life out of gaffer tape and fuzzy felt.
+
+
+
+
+
+posted by
+unknown
+
+
+at
+10:19 pm
+
+
+0
+comments
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+labels:
+cape town,
+coursera,
+photography,
+south africa,
+travel,
+udacity
+
+
+
+
+
+
+
+
+older posts
+
+home
+
+
+
+
+subscribe to:
+posts (atom)
+
+
+
+
+
+
+about me
+
+
+
+
+unknown
+
+
+
+
+
+view my complete profile
+
+
+
+my blog list
+
+
+
+
+
+
+
+
+
+
+a blog around the clock
+
+
+
+
+
+
+
+
+
+
+
+
+
+a quantum diaries survivor
+
+
+
+
+
+
+
+
+
+
+
+
+
+aidan brooks: trainee chef
+
+
+
+
+
+
+
+
+
+
+
+
+
+asymptotia
+
+
+
+
+
+
+
+
+
+
+
+
+
+atmospheric optics: opticspod
+
+
+
+
+
+
+
+
+
+
+
+
+
+backreaction
+
+
+
+
+
+
+
+
+
+
+
+
+
+bad astronomy blog
+
+
+
+
+
+
+
+
+
+
+
+
+
+beijing sounds -- 北京的声儿
+
+
+
+
+
+
+
+
+
+
+
+
+
+blog.khymos.org
+
+
+
+
+
+
+
+
+
+
+
+
+
+boing boing
+
+
+
+
+
+
+
+
+
+
+
+
+
+chaotic soliloquy
+
+
+
+
+
+
+
+
+
+
+
+
+
+cocktail party physics
+
+
+
+
+
+
+
+
+
+
+
+
+
+cosmic variance
+
+
+
+
+
+
+
+
+
+
+
+
+
+danwei - media, advertising, and urban life in china
+
+
+
+
+
+
+
+
+
+
+
+
+
+data mining: text mining, visualization and social media
+
+
+
+
+
+
+
+
+
+
+
+
+
+dundee's travels
+
+
+
+
+
+
+
+
+
+
+
+
+
+dynamics of cats
+
+
+
+
+
+
+
+
+
+
+
+
+
+food for design
+
+
+
+
+
+
+
+
+
+
+
+
+
+gladwell.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+god plays dice
+
+
+
+
+
+
+
+
+
+
+
+
+
+good math, bad math
+
+
+
+
+
+
+
+
+
+
+
+
+
+google operating system
+
+
+
+
+
+
+
+
+
+
+
+
+
+gowers's weblog
+
+
+
+
+
+
+
+
+
+
+
+
+
+gyre&gimble
+
+
+
+
+
+
+
+
+
+
+
+
+
+hep-ph updates on arxiv.org
+
+
+
+
+
+
+
+
+
+
+
+
+
+hep-th updates on arxiv.org
+
+
+
+
+
+
+
+
+
+
+
+
+
+high energy phds
+
+
+
+
+
+
+
+
+
+
+
+
+
+information processing
+
+
+
+
+
+
+
+
+
+
+
+
+
+jon's jail journal
+
+
+
+
+
+
+
+
+
+
+
+
+
+jonstraveladventures
+
+
+
+
+
+
+
+
+
+
+
+
+
+laowai chinese 老外中文
+
+
+
+
+
+
+
+
+
+
+
+
+
+learning to walk
+
+
+
+
+
+
+
+
+
+
+
+
+
+lifehacker
+
+
+
+
+
+
+
+
+
+
+
+
+
+lubo motl's reference frame
+
+
+
+
+
+
+
+
+
+
+
+
+
+luca's blog
+
+
+
+
+
+
+
+
+
+
+
+
+
+meiadeleite.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+musings
+
+
+
+
+
+
+
+
+
+
+
+
+
+neqnet: non-equilibrium phenomena
+
+
+
+
+
+
+
+
+
+
+
+
+
+not even wrong
+
+
+
+
+
+
+
+
+
+
+
+
+
+of two minds
+
+
+
+
+
+
+
+
+
+
+
+
+
+pharyngula
+
+
+
+
+
+
+
+
+
+
+
+
+
+physics musings
+
+
+
+
+
+
+
+
+
+
+
+
+
+physicsweb news
+
+
+
+
+
+
+
+
+
+
+
+
+
+retrospectacle: a neuroscience blog
+
+
+
+
+
+
+
+
+
+
+
+
+
+rigorous trivialities
+
+
+
+
+
+
+
+
+
+
+
+
+
+ryan's ridiculous real world
+
+
+
+
+
+
+
+
+
+
+
+
+
+science after sunclipse
+
+
+
+
+
+
+
+
+
+
+
+
+
+scitalks
+
+
+
+
+
+
+
+
+
+
+
+
+
+shores of the dirac sea
+
+
+
+
+
+
+
+
+
+
+
+
+
+shtetl-optimized
+
+
+
+
+
+
+
+
+
+
+
+
+
+single steps
+
+
+
+
+
+
+
+
+
+
+
+
+
+sinosplice: life
+
+
+
+
+
+
+
+
+
+
+
+
+
+skies of blue
+
+
+
+
+
+
+
+
+
+
+
+
+
+skulls in the stars
+
+
+
+
+
+
+
+
+
+
+
+
+
+slashdot
+
+
+
+
+
+
+
+
+
+
+
+
+
+stuck in customs
+
+
+
+
+
+
+
+
+
+
+
+
+
+teacher dude's grill and bbq
+
+
+
+
+
+
+
+
+
+
+
+
+
+ted | tedblog
+
+
+
+
+
+
+
+
+
+
+
+
+
+the blog of author tim ferriss
+
+
+
+
+
+
+
+
+
+
+
+
+
+the everything seminar
+
+
+
+
+
+
+
+
+
+
+
+
+
+the gauge connection
+
+
+
+
+
+
+
+
+
+
+
+
+
+the nonsense network
+
+
+
+
+
+
+
+
+
+
+
+
+
+the online photographer
+
+
+
+
+
+
+
+
+
+
+
+
+
+the peking duck
+
+
+
+
+
+
+
+
+
+
+
+
+
+the physics arxiv blog
+
+
+
+
+
+
+
+
+
+
+
+
+
+the unapologetic mathematician
+
+
+
+
+
+
+
+
+
+
+
+
+
+the weifang radish
+
+
+
+
+
+
+
+
+
+
+
+
+
+the wolfram blog
+
+
+
+
+
+
+
+
+
+
+
+
+
+this week's finds
+
+
+
+
+
+
+
+
+
+
+
+
+
+toomanytribbles
+
+
+
+
+
+
+
+
+
+
+
+
+
+uncertain principles
+
+
+
+
+
+
+
+
+
+
+
+
+
+universe today
+
+
+
+
+
+
+
+
+
+
+
+
+
+we are accidents waiting to happen
+
+
+
+
+
+
+
+
+
+
+
+
+
+weird meat
+
+
+
+
+
+
+
+
+
+
+
+
+
+welcome to the frontpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+what's new
+
+
+
+
+
+
+
+
+
+
+
+
+
+xkcd.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+博客李淼
+
+
+
+
+
+
+
+
+
+
+
+blog archive
+
+
+
+
+
+
+
+
+        ▼ 
+      
+
+
+
+2017
+
+(1)
+
+
+
+
+
+        ▼ 
+      
+
+
+
+december
+
+(1)
+
+reflections
+
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2014
+
+(5)
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(2)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2013
+
+(1)
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2012
+
+(8)
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2011
+
+(31)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(7)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2010
+
+(57)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(5)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2009
+
+(109)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(13)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(13)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(10)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(14)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2008
+
+(148)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(10)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(10)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(13)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(14)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(15)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(14)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(18)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(16)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(9)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2007
+
+(201)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(15)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(14)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(22)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(19)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(22)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(17)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(25)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(17)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(25)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(9)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2006
+
+(135)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(10)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(13)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(15)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(16)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(21)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(14)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2005
+
+(61)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(16)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(19)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(18)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(8)
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

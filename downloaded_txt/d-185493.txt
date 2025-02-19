@@ -1,0 +1,3067 @@
+
+
+
+nonmame
+
+
+
+
+
+
+
+
+welcome to nonmame!
+
+
+
+
+nonmame documents the best open-source emulator for any given system, with priority given to mame due to its comprehensive scope.  this primarily involves arcade, computer, console and handheld systems.
+				
+					this site represents an enormous undertaking involving tons of research with developers, discussions with the user community, and countless hours of testing.  nonmame seeks to broaden understanding of extant emulation resources in the hope that mame developers and users alike may find benefit.
+				
+					bearing in mind that a great deal of information posted here comes from our readers, we strongly encourage any and all comments, questions, suggestions for better emulators etc.  you can reach us via email here.
+			
+
+
+ 
+
+
+what's new
+
+
+
+
+
+2025/01/30: updated amiga section with new information.
+							
+
+
+2025/01/01: happy new year! updated macintosh [powerpc] section with new mame driver information.
+
+
+2024/07/14: updated nintendo 3ds section, changing recommendation to lime3ds.
+						
+
+
+2024/06/20: updated playstation 4 section, changing recommendation to shadps4.
+						
+
+
+2024/06/16: updated macintosh [powerpc] section.
+						
+
+
+
+
+
+ 
+
+
+site information
+
+
+
+
+evaulation criteria for the best emulator of a given system is as follows (in order of importance):
+				
+
+
+open-source status and availability: only emulators that are open-source and run natively in linux (the os behind the nonmame baseline reference system noted below) will be documented
+						
+
+accuracy: the ability to emulate the functions of the target system as faithfully as possible
+						
+
+speed: the ability to deliver an emulated experience at the same speed as the original hardware given the limitations of the nonmame baseline reference system noted below
+						
+
+features: support for certain functions that aren't core to the original experience such as gamepad rumble, shaders, networking, etc.
+						
+
+usability: the ease in which the emulator may be accessed by the "average user" assuming minimal computer knowledge
+						
+
+survivability: the emulator's long-term potential, commonly measured by the frequency in which the emulator is updated
+						
+
+
+mame driver status documented for each system matches actual mame nomenclature as follows:
+					
+
+non-existent: there is no driver for this system.
+						
+preliminary: an early driver exists.  this often represents skeleton drivers under which most software will not run, though some systems may actually launch and load software on a limited basis.
+						
+imperfect: progress has been made, but the driver is far from complete.  software may run under the driver, though some titles may run slowly or with problems.
+						
+good: most software should run with little or no problems.  with a bit more improvement, the driver will reach parity with its "competitors", and if the system is not represented on arcade hardware, it will be documented in the "driven to maturity" section.  the optimal situation, of course, is for no systems to exist in the main section of nonmame - meaning that mame supports all systems as good or better than all other emulators - but don't hold your breath!
+					
+
+specifications of the current baseline reference system used in testing is as follows:
+					
+
+							linux mint 22 x64, kernel 6.8
+						
+
+							intel i7-10870h
+						
+
+							32gb ram
+						
+
+							nvidia gtx 3070m
+						
+
+latest mame version tested: 0.273
+				
+
+
+
+ 
+
+
+driven to maturity
+
+
+
+
+					the following are non-arcade systems which mame emulates as good as, if not better than, any other emulator according to our evaluation criteria. given that there are tens of thousands of systems in mame, with potentially hundreds of thousands to come, only systems that have known "competition" to mame will be cited here.  this is an experimental section and may be removed if people misunderstand its intent. please note this does not mean any of these systems are "perfectly emulated" either - emulation is never truly perfect!
+				
+					please join us in extending thanks to the mame team for their hard work and dedication to this effort, without which such accurate emulation would not be possible.
+				
+
+
+
+
+
+						acorn [series] [computer]
+					
+
+						adam [computer]
+					
+
+						alice32 [computer]
+					
+
+						altair 8800 [computer]
+					
+
+						amstrad cpc [computer]
+					
+
+						apple ii (non-iigs) [computer]
+					
+
+						apple iigs [computer]
+					
+
+						aquarius [computer]
+					
+
+						arcadia 2001 [console]
+					
+
+						archimedes [series] [computer]
+					
+
+						atari 400/800 series [computer]
+					
+
+						atari 2600 [console]
+					
+
+						atari 7800 [console]
+					
+
+						cd-i [console]
+					
+
+						central data 2650 [computer]
+					
+
+						colecovision [console]
+					
+
+						cps changer [console]
+					
+
+						creativision [computer]
+					
+
+						cybiko [handheld]
+					
+
+						dreamcast visual memory system [handheld]
+					
+
+						fm towns marty [console]
+					
+
+						game boy [handheld]
+					
+
+						game boy advance [handheld]
+					
+
+						game gear [handheld]
+					
+
+						genesis [console]
+					
+
+						instructor 50 [computer]
+					
+
+						intellivision [console]
+					
+
+						jr-200u [computer]
+					
+
+						lynx [handheld]
+					
+
+						macintosh [non-powerpc]
+					
+
+						master system [console]
+					
+
+						mc-10 [computer]
+					
+
+						microvision (handheld)
+					
+
+						mo series [computer]
+					
+
+						msx series [computer]
+					
+
+						mz [series] (below 2000) [computer]
+					
+
+						mz-2000 [computer]
+					
+
+						mz-2500 [computer]
+					
+
+						neo geo aes [console]
+					
+
+						neo geo cd [console]
+					
+
+						odyssey2 [console]
+					
+
+						othello multivision [console]
+					
+
+						pc-6001 [series] [computer]
+					
+
+						pc98 [series] [computer]
+					
+
+						pico [handheld]
+					
+
+						pipbug-based systems [computer]
+					
+
+						pocketstation [handheld]
+					
+
+						rx-78 [computer]
+					
+
+						sega computer 3000 (sc-3000) [computer]
+					
+
+						sega game 1000 (sg-1000) [console]
+					
+
+						sega super control station (sf-7000) [computer]
+					
+
+						studio ii [console]
+					
+
+						supergrafx [console]
+					
+
+						supervision [handheld]
+					
+
+						to series [computer]
+					
+
+						turbografx 16 [console]
+					
+
+						turbografx cd [console]
+					
+
+						tv games computer [console]
+					
+
+						vc 4000 [console]
+					
+
+						vectrex [handheld]
+					
+
+						videopac+ g7400 [console]
+					
+
+						wonderswan [handheld]
+					
+
+						x1 [computer]
+					
+
+						x68000 [computer]
+					
+
+						zx spectrum [computer]
+					
+
+
+
+
+ 
+
+
+special notes about retroarch
+
+
+
+
+					ra is not itself an emulator, but rather an open-source framework composed primarily of multiple emulator "cores" commonly ported from independently-written standalone implementations and sometimes enhanced by the ra development team.  ra serves as a reference implementation of "libretro", itself a generic api that allows ra not only to be core-agnostic but to extend beyond emulation purposes as a flexible and powerful instrument of its own right.
+				
+					ra's main benefits include its availability on many host platforms; its support of many "best of breed" emulators under a single framework; its streamlined interface which eschews keyboard/mouse navigation in favor of controllers and other simpler means of input; and its support of cross-platform "shaders" which lend visual authenticity when used properly.
+				
+					that said, ra's primary contribution isn't the preservation of old technology for historical purposes (this site's focus); but rather on broadened awareness and usefulness of such technology to a wide audience across an expanded range of platforms such as personal computers, tablets, and whatever the future may hold.  ra could achieve certain preservation goals indirectly however, given the theory that emulation of individual target systems stands a greater chance of being preserved as part of a collective framework than on their own, as history has shown. this is of course similar to mame in concept, though ra's approach and design differs in several fundamental and obvious ways.
+				
+					while ra may offer its users certain key benefits, we encourage the use of its upstream emulator counterparts wherever possible, given several of ra's negative aspects and limitations:
+					
+
+							several developers of emulators that comprise much of the code within downstream ra cores have become frustrated with the treatment they've received from the ra team, and have aired complaints such as lack of proper attribution and credit, issues with licensing, or other similar matters.  sadly, as a result some of them have chosen to stop collaborating with the ra team, close down their own projects, or in the worst cases, close their source.  this runs counter to nonmame's goal of encouraging the kind of openness and information sharing that leads to more accurate emulation and better system preservation in turn.
+							
+
+
+							ra distributes and promotes old mame builds such as "mame2003" which harm the goals of both the mame team and preservation in general.  while the ra team's stated intent is performance, given that such old builds run faster on older hardware, such builds lack the tremendous progress mame developers have made over decades, not only to improve the accuracy and experience of emulating these old systems, but to add literally thousands of new target systems.  it is not difficult to see how dispiriting and demotivational this has been to the mame team, as their hard work and vast improvements are unrecognized.  furthermore, old mame builds require old rom sets, many of which contain "bad dumps", which are then widely circulated within ra's user community.  this directly conflicts with system preservation goals that demand precision and accuracy in the target system.  with the above in mind, we feel ra should support only the most current mame build.
+							
+
+
+								ra's cores require constant maintenance to keep up to date with upstream code changes.  it's common for development work on a given core to slow or stop altogether, and in such cases the upstream project quickly renders it obsolete.  upstream developers could certainly lend a helping hand, though there seems to be lack of motivation due to the issues stated above.  we believe that with a more friendly, respectful and collaborative working environment between ra and such projects, these kinds of issues could be more efficiently resolved to the benefit of both parties.
+								
+
+
+								ra seems to suffer from "scope creep" that offers little benefit to users while distracting developers from more targeted and valued improvements.  for example, the team expends actual development effort getting ra to run on such archaic systems as windows 95 and the playstation 2, where focus on current desktop and mobile device-based operating systems would promote more efficient development.  ra also supports an enormous volume of emulator cores that only grow over time, when they could instead focus on a pared-down set of key cores with greater effectiveness.  for example, dropping support for all nes cores other than the most accurate would permit greater focus on that core.  other features of questionable benefit have been added to ra over the years as well.  the resulting top-heavy maintenance burden could be significantly relieved to benefit users and developers alike.
+								
+
+
+								many cores lack all the features of the original upstream emulator.  for example, ra cores tend only to emulate computers in a way that lets users play the games available on them, rather than allow full exploration of the system and its associated peripherals as the original upstream emulator does.  this reflects a design philosophy that is at odds with system preservation goals.
+								
+
+
+								if the input of an emulated system doesn't fully conform to ra's generic retropad, keyboard, or mouse mappings, some input parameters are removed in the ra core. ideally, if an ra core's input interface cannot be retroactively mapped using one or more of the three generic ra mappings, users should be allowed to map the missing inputs themselves.
+								
+
+
+								ra's mame core only fully supports mame software lists in limited cases such as the nes, so its usefulness is somewhat limited.  along the same lines, support for proper software dumps, such as the "split-rom" format used by mame's nintendo 64 and super nintendo drivers, would also boost its usefulness and further its accuracy goals.  in fairness, ra recently added support for the mame chd format in many key cores.
+								
+
+
+
+
+
+
+ 
+
+
+32x [console]
+
+
+mame driver status: preliminary
+
+
+best emulator: picodrive
+
+
+
+
+					picodrive is a solid open-source 32x emulator which has finally surpassed it's closest open-source "competitor", genesis plus gx, thanks to heavy development activity.  for example, this video clearly shows picodrive running overdrive 2 (one of the most challenging demoscene titles) better than genesis plus gx.  while this is not specifically a 32x title, the video is a testament to the emulator's overall accuracy.  incidentally, the video also shows "blastem" running even better than both of these emulators; however blastem lacks many other features such as 32x support.  if that ever changes, we'll be the first to let you know.
+				
+			    while a reasonably-equivalent retroarch picodrive core exists, we recommend using the upstream emulator instead.
+				
+					incidentally, this site offers a variety of test roms that can be used to test the overall effectiveness of picodrive vs. others and includes 32x sample programs written by sega themselves.
+				
+					regarding the mame driver, kale stated in his blog dated 12/23/2012:
+					
+						"again, timings are annoyingly strict on this one too, and there might be sh-2 core bugs in a bunch of spots (sangokushi or virtua racing deluxe, for example). games on this system are mostly written in pure asm code, unlike most of the other sh-2 based systems, so there's an higher change of core bugs happening. it's otherwise usable, although it needs a very high end cpu if you want to play anything. a bunch of games (like wwf raw) does illogical stuff like writing to the rom region on the copyright screen. enabling the rom to be writeable makes the background logo to appear (and i think it should), if it's a joke it's a very good one..."
+					
+mame edge case examples:
+
+
+							star wars arcade (doesn't start)
+						
+
+							virtua racing deluxe (graphics problems)
+						
+
+							x-men (black screen before entering game)
+						
+
+
+
+
+
+ 
+
+
+3do [console]
+
+
+mame driver status: preliminary
+
+
+best emulator: retroarch [opera core]
+
+
+
+
+					over the years, 3do emulation has been tectonic in pace but steadily evolving.  retroarch's "opera" core improves upon the upstream but moribund 4do project, adding a far more accurate video display line processor (vdlp) among a bevy of other important features with more on the horizon.  4do itself was based upon freedo's codebase though with its own improvements including accuracy and major system features.  while 4do is an excellent standalone emulator, opera offers an even better overall experience across more platforms, and most if not all 3do games run well under this core.
+				
+					incidentally, the core's authors have published this website dedicated to 3do development, for anyone curious in following along or contributing to the preservation of this historically-significant system.
+				
+			    while we do recommend this retroarch core over its upstream counterpart due to actual emulation improvements, users should nevertheless be aware of its negative aspects and limitations as we've documented here.
+				
+mame edge case examples:
+
+
+							all (software doesn't boot)
+						
+
+
+
+
+
+ 
+
+
+3do-based hardware [arcade]
+
+
+mame driver status: preliminary
+
+
+best emulator: retroarch [opera core]
+
+
+
+
+					thanks to some nice work by trapexit, the retroarch opera core now supports these rare but historically-interesting arcade games powered by 3do hardware.  note that a few other games known to have existed on the system (beavis & butt-head, die alien scum, mazer, and way of the warrior) have not been dumped, so they are not listed below.
+				
+					for further information regarding opera, see our 3do section.
+					
+				    while we do recommend this retroarch core over its upstream counterpart due to actual emulation improvements, users should nevertheless be aware of its negative aspects and limitations as we've documented here.
+					
+software not supported in mame:
+
+
+							mad dog ii: the lost gold
+						
+
+							orbatak
+						
+
+							shootout at old tucson
+						
+
+
+
+
+
+
+ 
+
+
+action max [console]
+
+
+mame driver status: non-existent
+
+
+best emulator: daphne
+
+
+
+
+						the action max had the distinction of being the only home console that exclusively used vhs tapes for its games.  only five games were ever released for the console: .38 ambush alley, blue thunder, hydrosub: 2021, sonic fury and the rescue of pops ghostly.
+					
+						daphne only supports this system through its "singe" plug-in.  please see the laserdisc-based hardware section for further details on daphne and singe.
+					
+
+
+
+ 
+
+
+alto [series] [computer]
+
+
+mame driver status: good
+
+
+best emulator: salto
+
+
+
+
+					the xerox parc-developed alto was the first computer to feature a graphical user interface (gui); and "inspired" steve jobs to develop the apple lisa, the precursor to the apple macintosh.  needless to say, the alto ranks among the most historically significant computer systems.
+				
+					salto attempts to emulate the alto and alto ii systems; and while error-prone, runs well enough to provide the user with a reasonable facsimile of the alto's environment and features.  note that you need to launch the emulator with the disk image as a command-line argument or it will do nothing.  once in the alto executive (its operating system), pressing "?" (or typing "neptune" - the alto's file manager) will return the contents of the disk; and to run a program, simply type its name.
+				
+					mame's alto drivers don't appear capable of loading any floppy disk-based software due to the lack of a floppy drive device - so for now at least, salto is the best available alternative.
+				
+
+
+
+ 
+
+
+amiga [series] [computer]
+
+
+mame driver status: preliminary
+
+
+best emulator: retroarch [puae core]
+
+
+
+
+					there's really no need for anyone to consider any other amiga emulator - the universal amiga emulator (uae) rocks.  it's been in development for many years and has a huge user/fan base worldwide, due in part to the fact that the amiga computer itself was quite an incredible system far beyond its time.  as a downstream port of uae, the retroarch puae core incorporates most of the features and accuracy improvements made over all those years, with the added benefit of a ui.  the standalone cross-platform emulator fs-uae, with its clean ui and full feature set, is also a fine choice.  in fact, it supports some features not currently available in the puae core, such as the ability to create hard drive format (hdf) images; and multiple expansion boards for accelerator (blizzard/cyberstorm), scsi, graphics (uaegfx, picasso ii zorro etc.), sound (toccata) and network (a2065) cards.
+				
+					while we do recommend this retroarch core over its upstream counterpart due to actual emulation improvements, users should nevertheless be aware of its negative aspects and limitations as we've documented here.
+				
+					thanks's to kale's impressive work, the mame driver has seen considerable accuracy and software compatibility improvements, particularly in the 0.242 and 0.274 development cycles.  many of the expansion boards mentioned above are even starting to work.  still, the driver is still in preliminary status with many titles still not working properly, and generally quite far behind the more mature uae base.
+				
+mame edge case examples:
+
+
+							marble madness (can't launch game icon - mouse click not recognized)
+						
+
+							sword of sodan (doesn't boot)
+						
+
+							syndicate (infinite loading screen)
+						
+
+
+
+
+
+ 
+
+
+atari 5200 [console]
+
+
+mame driver status: good
+
+
+best emulator: atari800 emulator
+
+
+
+
+							the confusingly-named "atari800 emulator" is the best of many atari 5200 emulators, due primarily to its accuracy and cross-platform status (though honorable mention goes to kat5200).  other standalone atari 5200 emulators such as kat5200 and altirra support analog controls but lack many of the other benefits that the core inherits from the retroarch framework.
+					
+							while a reasonably-equivalent retroarch atari800 core exists, we recommend using the upstream emulator instead.
+					
+							despite the mame driver's "green" status, it's far from mature, notwithstanding improvements to graphics accuracy during the 0.249 cycle.
+					
+mame edge case examples:
+
+
+								black belt (won't go ingame)
+							
+
+								castle blast (major graphics issues)
+							
+
+								castle crisis (major graphics issues)
+							
+
+								choplifter! (major graphics issues, crashes with keypad button presses)
+							
+
+
+
+
+
+ 
+
+
+atari st [series] [computer]
+
+
+mame driver status: preliminary
+
+
+best emulator: hatari
+
+
+
+
+					there are many mature atari st emulators in existence, including it's nearest "competitor" "steem engine", but this one is more accurate; supports other systems in the series such as the ste, tt and falcon; and just feels less "hacky".
+				
+					the mame driver is far from mature so it will be a while before it comes up to speed.  from kale's blog dated 12/23/2012:
+					
+						"nothing boots at all (apparently disk format used isn't yet supported) and no input seems to work on os screen. (screenshot main bios screen).  edit: according to mike abson of mess forum, .ipf format is actually supported and a bunch of games loads fine, still with no inputs however."
+					
+mame edge case examples:
+
+
+							all (software either doesn't boot or lacks controls)
+						
+
+
+
+
+
+ 
+
+
+commodore 64/128/cbm-ii/pet/plus4/vic-20 [computer]
+
+
+mame driver status: good/imperfect
+
+
+best emulator: versatile commodore emulator (vice)
+
+
+
+
+					the open-source vice is the best emulator of these commodore systems to date.  while "ccs64" is equally accurate, it isn't free nor open-source, and it doesn't emulate commodore systems other than the c64.
+					
+				    while a reasonably-equivalent retroarch vice core exists, we recommend using the upstream emulator instead.
+					
+					despite the "good" status of the mame drivers, they are far from mature so it will be a while before they come up to speed.  from kale's blog dated 12/23/2012:
+					
+vic-20/vic-1001: very slow driver, and inputs are pretty unresponsive most of the time (and no joystick support, so you can't possibly start some games). some games (like a.e.) also sports offsetted gfxs. nowhere near as usable, no... edit: for the joystick support, it was because you needed to actually type -joy1 joy in the command line. i've changed that to be default behaviour.
+						
+c-64: more or less same performance issues as vic-20, but it improved greatly with recent commits (just one month ago it was borderline unusable). carts seems working with a fair share of issue, datassette and floppy devices trims even more the compatibility ratio. if you're lucky and get anything to boot, games are somehow working with some video timing glitches.
+						
+c-128: it's currently under development by curt, it's the very definition of a wip driver, with two screens attached (!) and booting behaviour varies, between chars in the wrong screen, chars in the right screen or no chars at all. it's also very slow and keyboard inputs are inconsistant (i.e. pseudo-randomly works or not), so just like vic-20 it's not really usable.
+					
+mame edge case examples:
+
+
+							commodore 64: aztec challenge (fire button doesn't register)
+						
+
+							commodore 64: bionic commando (doesn't go in-game)
+						
+
+							commodore 64: boulder dash (fire button doesn't register)
+						
+
+							commodore 128: all software (no video)
+						
+
+							pet: all software (doesn't load)
+						
+
+							vic-20: a.e. (video problems)
+						
+
+							vic-20: bandits (video problems)
+						
+
+							vic-20: atlantis (video problems)
+						
+
+							vic-20: cannonball blitz (no video)
+						
+
+							vic-20: capture the flag (video problems)
+						
+
+
+
+
+
+ 
+
+
+discrete circuitry-based hardware: miscellaneous [arcade]
+
+
+mame driver status: non-existent-good
+
+
+best emulator: dice
+
+
+
+
+					as is the case with most standalone emulators, this one popped out of nowhere with little fanfare.  the discrete integrated circuit emulator (dice) is a proof-of-concept for accurate and fast emulation of discrete circuity - a feat which had been under strong doubt prior to its first release.
+				
+					among other games, dice supports pong and space race which, for you history buffs, have the distinction of being atari's first two video games (though the former isn't listed here due to the mame pong driver being equally good).  dice also supports breakout (not listed here due to it running equally well in mame), famously co-designed by steve wozniak, who would go on to co-found apple computer.
+				
+					for anyone curious about emulation history, pong's addition to mame was actually a "second coming" after having been initially dropped; this was because the original driver represented a highly inaccurate simulation of the game.  here is a more detailed explanation of the initial decision to drop it, courtesy of "who wants to know?":
+					
+						"the driver for 'pong' was pretty much an ad-hoc attempt at simulating the circuitry of the original machine, and it wasn't following any tracable path from the original circuitry to the driver (in other words, the writer 'played it by ear,' so to speak). the 'pseudo-cpu' used for timing purposes was a kludge, also. because mame's mission is accuracy, and since the pong driver wasn't sufficiently accurate, the driver was dropped. i've been informed that, should one actually attempt to properly simulate the circuitry (like using the video clock as a timebase), then it would be accurate enough for inclusion in mame.  however, simulation of discrete circuitry involves a jump of thinking over regular emulation programming (involving as it does the simulation of electric components normally overlooked in regular emulation--diodes, transistors, etc.--as well as the emulation of any ics that may still be present.), and we don't know of anyone who has made such a faithful attempt yet."
+					
+software not supported in mame:
+
+
+							anti-aircraft
+						
+
+							attack
+						
+
+							clean sweep
+						
+
+							crash 'n score
+						
+
+							crossfire
+						
+
+							gotcha
+						
+
+							hi-way
+						
+
+							indy 4
+						
+
+							jet fighter
+						
+
+							pin pong
+						
+
+							quadrapong
+						
+
+							shark jaws
+						
+
+							space race
+						
+
+							steeplechase
+						
+
+							stunt cycle
+						
+
+							tv basketball
+						
+
+							wipe out
+						
+
+
+
+
+
+ 
+
+
+discrete circuitry-based hardware: monaco g.p. [arcade]
+
+
+mame driver status: preliminary
+
+
+best emulator: hbmame
+
+
+
+
+					this classic was sega's final game to rely primarily upon discrete analog circuitry - an oddity for a game made in 1979, some three years after microprocessors were introduced to the market.  as this was among the most complex games of its kind, don't bet on seeing it working in mame anytime soon (though a skeleton driver does exist as of mame .153).
+				
+software not supported in mame:
+
+
+							monaco g.p.
+						
+
+
+
+
+
+ 
+
+
+dreamcast [console]
+
+
+mame driver status: preliminary
+
+
+best emulator: flycast
+
+
+
+
+					flycast has a relatively long and storied history.  the project has roots in nulldc, which was once a solid albeit windows-only dreamcast emulator, competing with closed-source dreamcast emulators at a time when information and knowledge of the underlying platform was kept to a small circle of interested reverse engineers and developers.  eventually nulldc's author forked his own project into reicast, with the main objective to widen platform availability to smartphones and tablets.   while wider availability is generally a good thing, this resulted in cutting accuracy corners from the nulldc codebase to achieve the speed goals necessary to run on these platforms.  advancements in mobile hardware should have led to the removal of such "hacks"; however lack of developer resources and interest led to long delays in reicast development, and the codebase remained virtually untouched for years before the retroarch team began working with it as part of a "reicast core".  this core was eventually renamed to "beetle dc", and eventually to "flycast" for licensing reasons.  eventually its lead developer, flyinghead, abandoned work on the flycast retroarch core to focus exclusively on his standalone emulator.
+				
+					that said, flycast is by far the best and most promising dreamcast emulator in existence.  flyinghead dramatically improved reicast in areas such as graphics, input, system clock, and the dreamcast vmu.  atomiswave and naomi sh-4-based arcade systems have also been added to great fanfare, along with support for mame's popular chd format.  even the dreamcast mmu, which is needed to run wince-based games such as "armada", "half-life" and "sega rally championship 2", is supported (anyone following dreamcast emulation over the years understands what a tough nut this is to crack).  aside from some rare issues such as armada running too slowly, this is a highly compatible and accurate emulator and a serious blessing to the preservation of such a historically-significant game console.
+					
+				    while a reasonably-equivalent retroarch flycast core exists, we recommend using the upstream emulator instead.
+					
+					the mame driver has been coming along nicely, though most games don't boot very far, and those that do run nowhere near the speed of the original system.  still, any mame progress is great to see.
+				
+
+
+
+ 
+
+
+game boy color [handheld]
+
+
+mame driver status: imperfect
+
+
+best emulator: gambatte
+
+
+
+
+					gambatte is the most accurate of the many game boy color emulators in existence.  lately we've also seen some impressive showings from the likes of higan and mednafen, and sameboy is always an excellent choice.  however, there are a few edge cases where each fall short. these can be revealed when testing against racketboy's list of gbc edge cases, as well as the excellent tasvideos test suite.
+				
+higan has problems with 3d pocket pool, alone in the dark: the new nightmare, cannon fodder, donkey kong country, dragon's lair, perfect dark, scooby doo: classic creep capers, toki tori and tomb raider.
+				
+mednafen has problems with alone in the dark: the new nightmare, cannon fodder, shantae and wendy: every witch way.
+				
+sameboy runs all the titles on racketboy's list, and even runs pinball deluxe (known as a difficult target), with no problems.  however, while it scored an impressive 78.7% on the tasvideos tests (even though the results aren't published), it doesn't beat gambatte's stellar 89.4% score since it fails five audio tests, possibly due to a known issue with the emulator's timing.  it's also significantly more cpu intensive, and it's harder to build, given that it forces the user to build the bios roms which in turn requies the "rednex game boy development system".
+ 			  
+				 that said, still newer information is starting to surface regarding sameboy's capabilities based on updated testing.  this game boy "shootout" test site shows sameboy performing better than a downstream fork of gambatte called "gambattespeedrun".  as we are unfamiliar with this fork, we currently assume it to be more inaccurate than upstream gambatte based on prior test results noted above.  if anyone can prove otherwise, we will declare sameboy a better game boy color choice, notwithstanding its unique build requirements.
+				
+					while a reasonably-equivalent retroarch gambatte core exists, we recommend using the upstream emulator instead.
+			  
+					regarding the mame driver, kale stated in his blog dated 12/23/2012:
+					
+						"not tried too much, but there are a fair deal of gfx/timing bugs on this one (example: montezuma's return on thq logo). it seems otherwise more or less in a working state, just not extensively tested."
+					
+mame edge case examples:
+
+
+							cannon fodder (no intro video)
+						
+
+							perfect dark (no speech or in-game sound)
+						
+
+							pinball deluxe (gameplay problems)
+						
+
+
+
+
+ 
+
+
+gamecube [console]
+
+
+mame driver status: preliminary
+
+
+best emulator: dolphin
+
+
+
+
+					dolphin is by far the best emulator for this system with scant few alternatives.
+				
+					we attribute dolphin's rapacious progress to its vast open-source development community, which is comprised of many talented programmers and reverse engineers; as well as the accessibility of the code and the loose yet coordinated development model that seems more prevalent than that of any other emulation project we know, with the exception of mame itself. this is the way emulation projects should be run, especially those involving such modern systems as the gamecube and wii. as time passes, projects established with the lofty goal of emulating a complex next-generation system will need to employ dolphin's successful and proven model if any success is to be made.
+				
+					mame's preliminary gamecube "support" is more of a skeleton driver and placeholder for future development.  currently it merely decrypts the ipl and the cpu executes the first few instructions.
+				
+
+
+
+ 
+
+
+ibm mainframes [computer]
+
+
+mame driver status: non-existent
+
+
+best emulator: hercules
+
+
+
+
+					hercules emulates several ibm mainframes; namely, system/370, esa/390, and z/architecture systems.  hercules has a huge (3000+) user community, as these systems were quite special to many people.  note: a gui is available for windows users, and a separate one for linux users.
+				
+
+
+
+ 
+
+
+ios-based hardware [handheld]
+
+
+mame driver status: preliminary
+
+
+best emulator: touchhle
+
+
+
+
+					touchhle emulates devices running 32-bit ios (specifically version 2.x) such as early models of the apple iphone and ipod touch.  while the project does not target modern 64-bit ios versions, support for early ipads and devices running ios versions 3.x and 4.x are being considered.  as ths name implies, this is a high-level emulator, and as such, it re-implements system frameworks such as openal and opengl es.
+				
+					we are also tracking progress of qemu-ios thanks to a suggestion from one of our readers.  unlike touchhle, it cannot launch third-party ios apps at this time, however it focuses on emulation of the entire ios environment and takes a more accurate, low-level approach.  in contrast, touchhle reimplements every syscall independently, leading to widespread incompatibilities among apps.
+				
+
+
+
+ 
+
+
+jaguar [console]
+
+
+mame driver status: preliminary
+
+
+best emulator: virtual jaguar
+
+
+
+
+					virtual jaguar is a solid, open-source jaguar emulator with relatively few compatibility issues.  note that it does not run the game "power drive rally" (one of the few decent jaguar games) properly yet; and while project tempest seems to run this game properly, the latter is closed-source and windows only, and hasn't seen a release in over a decade.
+					
+				    while a reasonably-equivalent retroarch virtual jaguar core exists, we recommend using the upstream emulator instead.
+					
+					the mame driver is far from mature so it will be a while before it comes up to speed.
+				
+mame edge case examples:
+
+
+								defender 2000 (graphics issues)
+							
+
+								doom (graphics issues)
+							
+
+								power drive rally (audio and graphics issues)
+							
+
+
+
+
+
+ 
+
+
+laserdisc-based hardware [arcade]
+
+
+mame driver status: imperfect/preliminary
+
+
+best emulator: daphne
+
+
+
+
+					given that mame doesn't yet emulate many laserdisc-based systems, largely due to indecisions regarding the disc preservation method and format, daphne is your best bet.  of course, you still need both the chipsets and the laserdiscs (not to mention a supported laserdisc player) to play these games.  alternatively, roms and mpeg2 files may be used.  note that while the official daphne project is no longer being developed, this fork has seen more activity lately.  most noteworthy has been the linux x64-bit port of the daphne plug-in "singe" to the project.
+				
+					more games are available through singe, as noted below, however these can barely be called "emulations" as singe uses its own custom interpreter to render game assets and gather input from the player, rather than emulate the original system roms via cpu.  still, we've chosen to document such titles since the laserdisc footage from the original games are used, thus providing a reasonable enough approximation of the original experience.
+				
+					interestingly, the retroarch team has recently added a daphne core, though it currently only works with android-based systems and has audio issues.  we'll give this further attention as these issues are resolved.
+				
+					finally, there have been some interesting new developments in laserdisc preservation thanks to simon inns' domesday project 86, which employs a combination of specialized hardware and open-source software to preserve the discs in a far more faithful manner than ever before.  while this project aims to preserve specific non-arcade discs, mame will almost certainly benefit from its work in the near future.
+				
+software not supported in mame:
+
+
+							astron belt [hitachi]
+						
+
+							astron belt [pioneer]
+						
+
+							badlands
+						
+
+							badlands [prototype]
+						
+
+							bega's battle [revision 1]
+						
+
+							bega's battle [revision 3]
+						
+
+							crime patrol [via singe]
+						
+
+							dragon's lair ii: timewarp [version 2.11]
+						
+
+							dragon's lair ii: timewarp [version 3.00]
+						
+
+							dragon's lair ii: timewarp [version 3.14]
+						
+
+							dragon's lair ii: timewarp [version 3.15]
+						
+
+							dragon's lair ii: timewarp [version 3.16] [european]
+						
+
+							dragon's lair ii: timewarp [version 3.18]
+						
+
+							dragon's lair ii: timewarp [version 3.19]
+						
+
+							dragon's lair ii: timewarp [version 3.19] [european]
+						
+
+							dragon's lair ii: timewarp [version 3.19] [spanish]
+						
+
+							drug wars [via singe]
+						
+
+							esh's aurunmilla
+						
+
+							esh's aurunmilla [alternate 1]
+						
+
+							esh's aurunmilla [alternate 2]
+						
+
+							galaxy ranger [hitachi]
+						
+
+							galaxy ranger [pioneer]
+						
+
+							goal to go
+						
+
+							gp world
+						
+
+							interstellar
+						
+
+							mad dog ii: the lost gold [via singe]
+						
+
+							mad dog mccree [via singe]
+						
+
+							ninja hayate [via singe]
+						
+
+							road blaster
+						
+
+							space ace [enhancement 1.0]
+						
+
+							space ace [european]
+						
+
+							space ace [remake - 1991]
+						
+
+							space ace [revision a]
+						
+
+							space ace [revision a2]
+						
+
+							space ace [revision a3]
+						
+
+							space pirates [via singe]
+						
+
+							star blazer
+						
+
+							super don quix-ote
+						
+
+							super don quix-ote [shortened scenes]
+						
+
+							super don quix-ote [shortened scenes] [alternate]
+						
+
+							the last bounty hunter [via singe]
+						
+
+							time gal [via singe]
+						
+
+							who shot johnny rock? [via singe]
+						
+
+
+
+
+
+ 
+
+
+macintosh [powerpc] [computer]
+
+
+mame driver status: preliminary
+
+
+best emulator: dingusppc
+
+
+
+
+					dingusppc is a modern macintosh powerpc emulator with a functioning debugger, which currently emulates power mac 6100, 7200, and g3 beige systems better than other models.  the emulator is in early stages and is relatively difficult to install and use, primarily as it lacks a ui.  however, powerpc enthusiasts should find it worth the undertaking.
+				
+					as of mame 0.273 mame now supports some powepc macintosh models, albeit in a preliminary state.  stay tuned as this is likely to be developed more in the future.
+				
+
+
+
+ 
+
+
+model 3-based hardware [arcade]
+
+
+mame driver status: preliminary
+
+
+best emulator: supermodel
+
+
+
+
+					this emulator had been moribund for over five years until 2011, when it had about a years' worth of rapid development before slowing down once again.  regardless, anyone who loved the model 3 age of sega needs to check this out.
+				
+software not supported in mame:
+
+
+							daytona usa 2: battle on the edge [japan] [revision a]
+						
+
+							daytona usa 2: power edition [japan]
+						
+
+							dirt devils [australia] [revision a]
+						
+
+							dirt devils [export] [revision a]
+						
+
+							dirt devils [export] [version g]
+						
+
+							dirt devils [japan] [revision a]
+						
+
+							dirt devils [usa] [revision a]
+						
+
+							emergency call ambulance [export]
+						
+
+							emergency call ambulance [japan]
+						
+
+							emergency call ambulance [usa]
+						
+
+							emergency call ambulance [usa] [location test]
+						
+
+							fighting vipers 2 [japan]
+						
+
+							fighting vipers 2 [japan] [revision a]
+						
+
+							get bass: sega bass fishing [deluxe] [japan]
+						
+
+							get bass: sega bass fishing [japan]
+						
+
+							get bass: sega bass fishing [upright] [japan]
+						
+
+							harley davidson & l.a. riders [export] [revision b]
+						
+
+							harley davidson & l.a. riders [revision a]
+						
+
+							l.a. machineguns: rage of the machines [japan]
+						
+
+							le mans 24 [japan] [revision b]
+						
+
+							magical truck adventure [japan]
+						
+
+							scud race [australia] [twin] [dx]
+						
+
+							scud race [export] [dx]
+						
+
+							scud race [export] [dx] [revision a]
+						
+
+							scud race [export] [twin] [dx]
+						
+
+							scud race plus [twin] [dx]
+						
+
+							scud race plus [twin] [dx] [revision a]
+						
+
+							sega bass fishing [deluxe] [usa]
+						
+
+							sega rally 2 [export]
+						
+
+							sega rally 2 [export] [dx]
+						
+
+							sega rally 2 [prototype] [12.08.97]
+						
+
+							sega rally 2 [prototype] [12.29.97]
+						
+
+							ski champ [japan]
+						
+
+							spikeout [export] [revision c]
+						
+
+							spikeout: final edition [export]
+						
+
+							star wars trilogy arcade [export]
+						
+
+							star wars trilogy arcade [export] [revision a]
+						
+
+							star wars trilogy arcade [location test] [16.09.98]
+						
+
+							the lost world [japan] [revision a]
+						
+
+							the lost world [location test]
+						
+
+							the ocean hunter [japan]
+						
+
+							the ocean hunter [japan] [revision a]
+						
+
+							virtua fighter 3 [japan] [revision a]
+						
+
+							virtua fighter 3 [japan] [revision c]
+						
+
+							virtua fighter 3 [japan] [revision d]
+						
+
+							virtua fighter 3: team battle [japan]
+						
+
+							virtua striker 2 [export] [usa] [step 1.5]
+						
+
+							virtua striker 2 [export] [usa] [step 2.0]
+						
+
+							virtua striker 2 [japan] [step 1.5]
+						
+
+							virtua striker 2 [version 98] [japan] [step 1.5]
+						
+
+							virtua striker 2 [version 98] [japan] [step 2.0]
+						
+
+							virtua striker 2 [version 99] [export] [usa]
+						
+
+							virtua striker 2 [version 99] [export] [usa] [revision a]
+						
+
+							virtua striker 2 [version 99] [export] [usa] [step 1.5]
+						
+
+							virtua striker 2 [version 99.1] [export] [usa] [revision b]
+						
+
+							virtua striker 2 [version 99.1] [export] [usa] [revision b] [step 1.5]
+						
+
+							virtua striker 2 [version 99.1] [japan] [revision b]
+						
+
+							virtua striker 2 [version 99.1] [japan] [revision b] [step 1.5]
+						
+
+							virtual on 2: oratorio tangram [japan]
+						
+
+							virtual on 2: oratorio tangram [japan] [revision a]
+						
+
+							virtual on 2: oratorio tangram [japan] [revision b]
+						
+
+							virtual on 2: oratorio tangram [japan] [version 5.4g]
+						
+
+
+
+
+
+ 
+
+
+neo geo pocket / neo geo pocket color [handheld]
+
+
+mame driver status: good
+
+
+best emulator: mednafen
+
+
+
+
+					mednafen's "resurrection" of neopop represents a solid, open-source neo geo pocket emulator with relatively few compatibility issues.
+					
+				    while a reasonably-equivalent retroarch beetle neopop core exists, we recommend using the upstream emulator instead.
+					
+					sadly, this system was removed from the "driven to maturity" section recently since it was discovered that the mame driver doesn't support saving to battery-backed ram as mednafen does. this can be seen in games like metal slug - 2nd mission (upon completing any level).
+				
+mame edge case examples:
+
+
+							metal slug - 2nd mission (doesn't save progress)
+						
+
+
+
+
+
+ 
+
+
+nintendo 64 [console]
+
+
+mame driver status: preliminary
+
+
+best emulator: retroarch [mupen64plus-next core]
+
+
+
+
+					it's certainly been a long and winding road towards accurate nintendo 64 emulation. even today, few emulators outside of the mame driver are terribly accurate, though some can at least run a wide variety of n64 titles (if you can forgive the high-level emulation employed to do so). the best of the standalone emulators are project64 and mupen64plus. considering the negligible title compatibility differences between these two, the fact that the latter runs on more platforms including linux lends greater potential for the target system's preservation than the windows-only project64.  its inclusion as a retroarch core furthers this argument.
+				
+					to improve the situation further, the retroarch development team added n64 three-point texture filtering and native-resolution rendering to its mupen64plus core (currently known as mupen64plus-next), as described here.  next, they added the accuracy-focused "parallel" reality drawing processor (rdp) and reality signal processor (rsp) plug-ins which support vulkan.  these features permit this core to emulate the n64 at a high level of accuracy that affords running games such as "star wars: rogue squadron" that are notoriously difficult to emulate, while faithfully preserving the look and feel of an actual nintendo 64.
+				
+					plug-in systems such as those employed by retroarch's mupen64plus-next core allow independent developers to write their own interchangeable video, audio, controller, and rsp modules. however, as the emulation community is becoming more aware in recent years, plug-ins are widely acknowledged as inferior to more modern and accuracy-focused development approaches that emulate the target system as a single platform.  many developers of such projects have realized that it's better to write improvements directly into the emulator's main codebase, to enforce a discipline of everyone looking at the same piece of code to more rapidly improve its accuracy.  hopefully this core's architecture will change in time accordingly.
+				
+					while we do recommend this retroarch core over its upstream counterpart due to actual emulation improvements, users should nevertheless be aware of its negative aspects and limitations as we've documented here.
+				
+					the mame driver primarily written by mooglyguy is more accurate than mupen64plus; however it is also unplayably slow and does not run many titles yet. given time and speed improvements the mame driver will be a far better alternative of course, but this may be years away - so don't hold your breath.  from kale's blog dated 12/23/2012:
+					
+						"performance varies greatly on this one according to what happens on screen (it ranges between 20% to 100% and above). compatibility isn't great, most games either crashes or throws black screens. former might be due of some silly floating point assert within the gfx system, it's certainly something that's shared (examples: bangai-o, fushigi no dungeon 2, sin & punishment, all with the same assert type). only the bios is supported in 64dd, no work has been done for the disk drive emulation."
+					
+
+
+
+
+ 
+
+
+nintendo 3ds [handheld]
+
+
+mame driver status: non-existent
+
+
+best emulator: lime3ds
+
+
+
+
+					lime3ds is a fork of the now-defunct citra, and is therefore an accurate, feature-rich, open-source nintendo 3ds emulator.
+					
+					mame does not support this system.
+				
+
+
+
+ 
+
+
+nintendo ds [handheld]
+
+
+mame driver status: preliminary
+
+
+best emulator: melonds
+
+
+
+
+					melonds is a solid, open-source nintendo ds emulator with relatively few compatibility issues.
+					
+				    while a reasonably-equivalent retroarch melonds core exists, we recommend using the upstream emulator instead.
+					
+					mame's preliminary nintendo ds "support" is more of a skeleton driver and placeholder for future development.
+				
+
+
+
+ 
+
+
+nintendo entertainment system [console]
+
+
+mame driver status: imperfect
+
+
+best emulator: mesen
+
+
+
+
+					surprised?  man, is competition fierce in the nintendo department.  with so many great emulators to choose from (fce ultra, mednafen, nestopia, nnnesterj, punes, rocknes x and virtuanes to name a few) it can make your head spin.  what's worse - the nes supports 255 "mappers" within their cartridges and none of these emulators support them all.  what's a mapper?  chris covell's nes tech faq describes it well:
+					
+						"the 6502 cpu has only a 16-bit address bus. that means it can only access up to 65536 bytes of either rom or ram at one time. and the nes is designed to access half that much rom. as programmers want to have more complex games, they need a way to spread a game across more than 32k of rom. thus, memory mappers are devices which switch different banks of program code into the 32k window of rom which the cpu can access.
+						
+							after increasing the address space, the more modern memory mappers really improved the amount of character graphics available to the game, and how it can combine them. the first mapper that changed graphics did it 8k at a time. however, the later mappers allowed games to swap in much smaller sections of chr rom, to allow for more animation in the backgrounds. plus, of course, many game companies came out with their own mappers which had irq timers, and allowed tricks to be performed with the ppu. several mappers also had additional sound chips, to add to the complexity of the music in (really only famicom) games.
+						
+							so, in summary, memory mappers allowed programmers to overcome the limitations inherent in the nes/famicom."
+					
+					incidentally a few excellent places to find information on mappers and the games they support are here and here.
+				
+					overall, mesen represents the best nes emulation experience available.  this is proven on the upstream emulator's own website which lists the mappers mesen supports (all but one) and the test roms it passes (all of them).  incidentally, sour (mesen's author) has rightfully called out the tas nes accuracy tests as being inaccurate in places and in need of an update.  his own tests more accurately reflect the nes accuracy status quo.
+				
+				  while a reasonably-equivalent retroarch mesen core exists, we recommend using the upstream emulator instead.
+				
+					for further information regarding retroarch, see our retroarch write-up.
+				
+					mame's own nes driver is edging closer to mesen in terms of accuracy and compatibility.  etabeta once posted that he's hacked around issues with the mmc-5 mapper (famous for "castlevania iii" and many koei games), though a ppu rewrite is still necessary to fix this properly and address many of the issues noted below.  kale stated in his blog dated 12/23/2012:
+					
+						"...ppu mid-frame changes doesn't work too well (off by a bunch of scanlines, generally), and sometimes you get garbled gfxs. it can load famicom disk images too. needs some serious reg-testing and somebody that is willing to rewrite the whole video system from scratch (according to etabeta)."
+					
+
+mame edge case examples:
+
+
+							battletoads (third level shows no video)
+						
+
+							gun sight ~ laser invasion (graphics problems)
+						
+
+							metal slader glory (graphics problems)
+						
+
+							shin 4-nin uchi mahjong - yakuman tengoku (doesn't work)
+						
+
+							skull & crossbones (video and control problems)
+						
+
+							uchuu keibitai sdf (graphics problems)
+						
+
+
+
+
+
+ 
+
+
+nintendo switch [console]
+
+
+mame driver status: non-existent
+
+
+best emulator: ryujinx
+
+
+
+
+					mame does not support this system.
+				
+					unfortunately this emulator is written in microsoft c#/.net and uses the avalonia software framework rather than more vendor-agnostic solutions.  while we would of course prefer c/c++ and qt as they are stardards among emulation projects, ryujinx is open-source and available for linux, so it is documented here.
+				
+
+
+
+ 
+
+
+pc-fx [console]
+
+
+mame driver status: preliminary
+
+
+best emulator: mednafen
+
+
+
+
+					mednafen pc-fx represents a solid pc-fx emulator with relatively few compatibility issues.
+					
+				    while a reasonably-equivalent retroarch beetle pc-fx core exists, we recommend using the upstream emulator instead.
+					
+					regarding the mame driver, kale stated in his blog dated 12/23/2012:
+					
+						"[the mame driver is] very preliminary, it shows a very basic os screen with bad colors and nothing more (it uses a complex yuv calculation). there are issues with v810 cpu irqs, they makes the framework to crash if two happens at the same time (it's also a shared issue with virtual boy). not a single line of cd-rom device code is written at all, but it's a super-set of the one also used by pce/pc-8801 anyway (so using this system as a base for rewriting it might be a good idea)."
+					
+
+
+
+
+ 
+
+
+pcw / pcw16 [computer]
+
+
+mame driver status: preliminary
+
+
+best emulator: joyce
+
+
+
+
+					joyce is the only amstrad pcw and pcw16 emulator available outside of mame.
+				
+
+
+
+ 
+
+
+personal computer [computer]
+
+
+mame driver status: preliminary
+
+
+best emulator: pcem
+
+
+
+
+					if you want to run your pentium-era pc games and other software, pcem is absolutely your best bet, as it's highly accurate, fast, and offers a wide selection of cpus and video cards including the once-mighty 3dfx voodoo 2.  under pcem you can install, for example, windows 98 to a virtual hard drive image and then fill the image with your software.  fantastic!  dosbox is its closest "competitor" besides mame itself, though it's loaded with gross hacks, many of which are intended to pass important i/o functions through to the host platform.  other emulators to watch for are bochs and qemu.
+				
+					the mame driver has made rapid progress lately, especially with respect to 80486-based systems, and is well on its way to matching the efforts above.  kale stated in his blog dated 12/23/2012:
+					
+						"right now the x86 cpu is very solid, so the pc/at can run and install every available windows up tomewith a i486 and several *nix distros. as for the video/sound, some isa cards are emulated, but there are still a fair share of bugs with them (most known one is the horizontal pel shift bug in vga that happens in alien breed and sensible world of soccer. it's basically used for horizontal scrolling, but values doesn't make much sense as per now). some sws also behaves weird (for example: heroes of might & magic hangs once that you go in end turn phase). will see to iron out these issues in the next months..."
+					
+
+
+
+
+ 
+
+
+playstation [console]
+
+
+mame driver status: preliminary
+
+
+best emulator: mednafen
+
+
+
+
+					playstation emulation has been fraught with controversy, from the commercial fiasco/disaster that was bleem to the unapproved hack/project "psxeven". others such as epsxe, xebra and psx have taken turns holding the best-choice mantle for many years; however they are all closed-source.  furthermore, while epsxe is compatible with a wide range of titles, it's a far less accurate emulator to mednafen, and focuses on pointless features such as "upscaling" to resolutions far beyond what playstation game developers originally used during the system's lifecycle, distorting the visuals and ruining the experience of playing on the actual system.
+				
+					while mednafen exhibits a few issues (for example, "monkey hero" and "transformers - beast wars transmetals" are apparently unplayable due to timing issues), the emulator is open-source, supports features such as in-game "cd changing" unlike most other alternatives, wisely doesn't use plug-ins, and is by far the most compatible and accurate playstation emulator to date.  in fact, it came out well beyond others in an exhaustive accuracy test.
+					
+						while a reasonably-equivalent retroarch beetle playstation core exists, we recommend using the upstream emulator instead.
+					
+					while the mame driver has shown significant progress lately, further accuracy improvements are needed; and as the driver lacks dual-shock support due to major mame limitations, it may be a while before the playstation will be cited in the "driven to maturity" section.
+
+				
+
+
+
+ 
+
+
+playstation 2 [console]
+
+
+mame driver status: preliminary
+
+
+best emulator: pcsx2
+
+
+
+
+					with over 150 million units shipped and a library of over 4,000 titles, the playstation 2 is by far the most popular console ever made.  likewise, pcsx2 is by far the most mature emulator for the system, having started in 2002 with a roster of past and present contributers that daunts most other efforts.
+				
+					while the project has been derided in the past for many reasons including its outdated codebase and ui, and favoring playability over accuracy with its focus on "per-game hacks", this is rapidly changing.  past and present contributers have recently added native x64 support, merged plugins into the core, removed many hacks, and are now modernizing its codebase while transitioning from its 90s-era wxwidgets ui towards a more modern qt interface.  the future looks bright indeed for the project!
+				
+					mame's preliminary playstation 2 "support" is more of a skeleton driver and placeholder for future development.
+				
+
+
+
+ 
+
+
+playstation 3 [console]
+
+
+mame driver status: non-existent
+
+
+best emulator: rpcs3
+
+
+
+
+					mame does not support this system.
+				
+
+
+
+ 
+
+
+playstation 4 [console]
+
+
+mame driver status: non-existent
+
+
+best emulator: shadps4
+
+
+
+
+					this is more of a placeholder for a project that aims to emulate playstation 4 hardware in the distant future.  shadps4 currently comes closest, as it can run some commercial titles and features a qt-based ui, making it accessible to the average user.
+				
+rpcsx and obliteration are decent open-source alternatives.  the former holds promise as the developers from rpcs3 are involved, and because they aim to emulate the playstation 5 in time as well (hence the project's name).  however it has not seen any activity in quite some time and has perhaps been abandoned.
+				
+					mame does not support this system.
+				
+
+
+
+ 
+
+
+playstation portable [handheld]
+
+
+mame driver status: non-existent
+
+
+best emulator: ppsspp
+
+
+
+
+					written by hrydgard of dolphin fame, ppsspp is an excellent open-source emulator. while far from perfect, development seems to be moving along at a steady pace.
+					
+				    while a reasonably-equivalent retroarch ppsspp core exists, we recommend using the upstream emulator instead.
+					
+					while nowhere near as mature, jpcsp is perhaps worth a look if only for the fact that it's written in the ubquitous java and seems to do a fairly decent job given the language.
+				
+
+
+
+ 
+
+
+playstation vita [handheld]
+
+
+mame driver status: non-existent
+
+
+best emulator: vita3k
+
+
+
+
+					mame does not support this system.
+				
+
+
+
+ 
+
+
+pokémon mini [handheld]
+
+
+mame driver status: preliminary
+
+
+best emulator: pokemini
+
+
+
+
+					pokemini is the best known emulator for nintendo's smallest handheld system, even supporting interesting original hardware features such as rumble.  on the downside, pokemini only currently recognizes roms in ".min" format which requires extensions to be changed manually from other, more widely-used extensions.
+					
+				    while a reasonably-equivalent retroarch pokemini core exists, we recommend using the upstream emulator instead.
+					
+					the mame driver seems close; however there are video problems, and neither sound nor rumble is supported.
+				
+
+
+
+ 
+
+
+rca-based hardware [arcade] [console]
+
+
+mame driver status: good/imperfect/non-existent
+
+
+best emulator: rca emulator
+
+
+
+
+					this is andy modla's java-based port of paul robson's excellent rca emulator originally written in c.  rca emulator emulates many rca systems including the cosmac, cosmac vip, studio ii, studio iii (monochrome and color) and studio iv.  it also runs the only two rca-based arcade games known to exist, as noted below.  for further information check this forum post.  fun fact: the author was a software developer for rca when these systems were commercially relevant.
+				
+					the mame driver supports cosmac and system ii-based rca hardware though is nowhere near as mature as this emulator.
+				
+software not supported in mame:
+
+
+							bowling
+						
+
+							swords
+						
+
+
+
+
+
+ 
+
+
+saturn [console]
+
+
+mame driver status: preliminary
+
+
+best emulator: mednafen
+
+
+
+
+					though relatively new to the scene, mednafen's saturn emulator is more stable and accurate with relatively fewer compatibility issues than its nearest "competitor" yabause.  it's biggest flaw seems to be its lack of support for mame's chd format which we'd love to see, especially given its recent rise in popularity.  with that said however, mednafen generally supported nearly all games we tested with only minor issues (a comprehensive list of issues are posted here).  we consider this a giant leap forward for open-source (read: non-ssf) saturn emulation after over a decade of inferior attempts.  kudos to ryphecha of mednafen for the hard work and dedication it must have taken to make this happen - and we look forward to future improvements.
+					
+				    while a reasonably-equivalent retroarch beetle saturn core exists, we recommend using the upstream emulator instead.
+					
+					the mame saturn driver has had its share of improvements as well, and apparently some games are now fully playable.  however, a majority of games will not be playable until support for the saturn cd block is added.  kale stated in his blog dated 12/23/2012:
+					
+						"current sw compatibility is more or less at the level of the yabause emulator. the major problem with this system is not that it's too hard to emulate, but rather, the lack of vital information available. for example: there's no info regarding vdp1 opcode timings, that definitely makes a difference on several test cases like night striker or grandia. we also don't emulate the scu dsp at cpu level, and a bunch of games definitely relies on that by keeping it enabled (so it hangs with the current hook-up, example magical hoppers). some later sega games like daytona usa ce or virtual on also uses some exploit in the system to draw their 3d list, no hell of an idea about this one. last one that i do recall as a nasty test case at the moment is the game basic software: it tries to do an illegal dma (from bios rom to vdp1), so the (visually appealing) demos won't display any gfx."
+					
+
+
+
+
+ 
+
+
+sega cd [console]
+
+
+mame driver status: preliminary
+
+
+best emulator: picodrive
+
+
+
+
+					for information on the excellent picodrive emulator, please see our 32x section.
+					
+				    while a reasonably-equivalent retroarch picodrive core exists, we recommend using the upstream emulator instead.
+					
+					the mame driver has been making progress but is far from mature.  as kale observes in his blog dated 12/23/2012:
+					
+						"stock mega cd (the japanese one) doesn't load anything for now (it was working before), you need to use megacd2j if you want to play a jp game. compatibility ratio is otherwise hit or miss, due of the timings that have a huger impact on this than regular md."
+					
+
+
+
+
+ 
+
+
+
+
+sh-4-based hardware [arcade]
+
+
+mame driver status: preliminary
+
+
+best emulator: retroarch [flycast core]
+
+
+
+
+					hitachi's ubuquitous sh-4 cpu powers not only the sega dreamcast, but also a wide variety of early- to mid-00's arcade systems, including aristocrat mkvi gambling machines, capcom medal hardware, the galeco games "atv track" and "smashing drive", sammy atomiswave, sega hikaru, sega naomi and naomi 2, and sega system sp.  while the retroarch flycast core currently only supports the atomiswave, naomi and naomi 2 systems, this is the first time an open-source sh-4 emulator has properly documented such hardware and in a manner playable on modern systems.  these are exciting times for sh-4 arcade hardware preservation indeed.
+				
+
+					history lesson: the sh-4 section was removed from nonmame years ago following our purge of closed-source emulators, as the closed-source demul was the only emulator capable of supporting these systems (though interestingly, the demul team relied upon stefano teso's open-source hikaru emulator "valkyrie" to a degree).
+				
+
+					note that while we recommend retroarch's flycast core given that flyinghead (its upstream author) directly supports it in his codebase, a standalone implementation exists which is also excellent.
+				
+
+					as with the dreamcast, mame support has been coming along nicely, though most games don't boot very far, and those that do run nowhere near the speed of the original system. still, any mame progress is great to see.
+					
+supported nonmame software [atomiswave]:
+
+
+						animal basket [19 jan 2005]
+					
+
+						animal basket [24 jan 2005]
+					
+
+						block pong-pong
+					
+
+						demolish fist
+					
+
+						dirty pigskin football
+					
+
+						dolphin blue
+					
+
+						extreme hunting
+					
+
+						extreme hunting 2
+					
+
+						faster than speed
+					
+
+						fist of the north star
+					
+
+						guilty gear isuka
+					
+
+						guilty gear x [version 1.5]
+					
+
+						knights of valor: the seven spirits
+					
+
+						maximum speed
+					
+
+						metal slug 6
+					
+
+						neogeo battle coliseum
+					
+
+						neogeo battle coliseum [japan]
+					
+
+						net select horse racing: victory furlong
+					
+
+						net select: salaryman kintaro
+					
+
+						ranger mission
+					
+
+						samurai spirits: tenkaichi kenkakuden ~ samurai shodown vi
+					
+
+						sega bass fishing challenge
+					
+
+						sega bass fishing challenge [version a]
+					
+
+						sega clay challenge
+					
+
+						sports shooting usa
+					
+
+						sushi bar
+					
+
+						the king of fighters neowave
+					
+
+						the king of fighters neowave [japan]
+					
+
+						the king of fighters xi [japan]
+					
+
+						the rumble fish
+					
+
+						the rumble fish [prototype]
+					
+
+						the rumble fish 2
+					
+
+						the rumble fish 2 [prototype]
+					
+
+						waiwai drive
+					
+
+supported nonmame software [naomi] [cartridge]:
+
+
+						18 wheeler [deluxe]
+					
+
+						18 wheeler [deluxe] [revision a]
+					
+
+						18 wheeler [deluxe] [revision t]
+					
+
+						18 wheeler [standard]
+					
+
+						18 wheeler [upright]
+					
+
+						airline pilots [japan][revision a]
+					
+
+						airline pilots [world] [revision b]
+					
+
+						akatsuki blitzkampf ausf. achse [japan]
+					
+
+						alien front [revision a]
+					
+
+						alien front [revision t]
+					
+
+						asian dynamite ~ dynamite deka ex
+					
+
+						asian dynamite ~ dynamite deka ex [older]
+					
+
+						cannon spike ~ gunspike
+					
+
+						capcom vs. snk: millennium fight 2000
+					
+
+						capcom vs. snk: millennium fight 2000 [revision a]
+					
+
+						capcom vs. snk: millennium fight 2000 [revision c]
+					
+
+						cosmic smash
+					
+
+						cosmic smash [revision a]
+					
+
+						crackin' dj
+					
+
+						crackin' dj: part 2 [japan]
+					
+
+						crazy taxi
+					
+
+						dead or alive 2
+					
+
+						dead or alive 2 [revision a]
+					
+
+						dead or alive 2: millennium
+					
+
+						death crimson ox
+					
+
+						death crimson ox [revision a]
+					
+
+						dengen tenshi taisen janshi shangri-la
+					
+
+						derby owners club [japan] [revision b]
+					
+
+						derby owners club 2000 [version 2] [japan] [revision a]
+					
+
+						derby owners club ii [version 2.1] [japan] [revision b]
+					
+
+						derby owners club [world edition] [revision a]
+					
+
+						derby owners club [world edition] [revision b]
+					
+
+						derby owners club [world edition] [revision c]
+					
+
+						derby owners club ex [world edition] [revision d]
+					
+
+						dynamite baseball '99 [japan] [revision b]
+					
+
+						dynamite baseball naomi [japan]
+					
+
+						ferrari f355 challenge [deluxe] [no link]
+					
+
+						ferrari f355 challenge [twin] [deluxe]
+					
+
+						ferrari f355 challenge [twin] [deluxe] [preview]
+					
+
+						ferrari f355 challenge 2: international course edition [twin] [deluxe]
+					
+
+						giant gram 2000
+					
+
+						giant gram: all japan pro wrestling 2 [japan]
+					
+
+						giga wing 2
+					
+
+						guilty gear x
+					
+
+						gun survivor 2: biohazard code: veronica [japan] [bhf1] [version e]
+					
+
+						gun survivor 2: biohazard code: veronica [world] [bhf2] [version e]
+					
+
+						heavy metal geomatrix [revision b]
+					
+
+						idol janshi suchie-pai 3 [japan]
+					
+
+						illvelo (illmatic envelope) [japan]
+					
+
+						inu no osanpo ~ dog walkng [japan] [export] [revision a]
+					
+
+						jambo! safari [revision a]
+					
+
+						kick '4' cash [export]
+					
+
+						mamoru-kun wa norowarete shimatta! [japan]
+					
+
+						manic panic ghosts! [usa] [export]
+					
+
+						mars tv
+					
+
+						marvel vs. capcom 2: new age of heroes [export] [korea] [revision a]
+					
+
+						marvel vs. capcom 2: new age of heroes [usa] [revision a]
+					
+
+						mazan: flash of the blade [japan] [maz1] [version a]
+					
+
+						mazan: flash of the blade [us] [maz3] [version a]
+					
+
+						mazan: flash of the blade [world] [maz2] [version a]
+					
+
+						melty blood: actress again [japan]
+					
+
+						melty blood: actress again [version a] [japan] [revision a]
+					
+
+						mobile suit gundam: federation vs. zeon [cartridge version]
+					
+
+						mushiking: the king of beetle [2k3 2nd] [version 1.002-] [world]
+					
+
+						mushiking: the king of beetle [2k3 2nd] [version 1.003-] [world]
+					
+
+						mushiking: the king of beetle [mushiusa '04 1st] [prototype]
+					
+
+						mushiking the king of beetles ~ mushiking ii / iii / iii+ [version 1.001] [world]
+					
+
+						mushiking the king of beetles ~ mushiking ii / iii / iii+ [version 2.001] [world]
+					
+
+						mushiking the king of beetles ~ mushiking iv / v / vi [world]
+					
+
+						mushiking the king of beetles 2004 second [japan]
+					
+
+						mushiking the king of beetles 2005 first [japan]
+					
+
+						ninja assault [asia] [nja4] [version a]
+					
+
+						ninja assault [japan] [nja1] [version a]
+					
+
+						ninja assault [us] [nja3] [version a]
+					
+
+						ninja assault [world] [nja2] [version a]
+					
+
+						oinori-daimyoujin matsuri
+					
+
+						outtrigger
+					
+
+						pokasuka ghost! [japan]
+					
+
+						power stone
+					
+
+						power stone 2
+					
+
+						power stone 2 [bootleg]
+					
+
+						project justice ~ moero! justice gakuen [revision a]
+					
+
+						puyo pop fever [prototype] [version 0.01]
+					
+
+						puyo puyo da! [japan]
+					
+
+						quiz ah megamisama
+					
+
+						radirgy noa [japan]
+					
+
+						rhythm tengoku [japan]
+					
+
+						ring out 4x4
+					
+
+						ring out 4x4 [revision a]
+					
+
+						samba de amigo [japan] [version 2000]
+					
+
+						samba de amigo [revision b]
+					
+
+						samba de amigo [usa] [prototype]
+					
+
+						sega marine fishing
+					
+
+						sega strike fighter [revision a]
+					
+
+						sega strike fighter [revision a] [no training mode]
+					
+
+						sega tetris
+					
+
+						shin nihon pro wrestling toukon retsuden 4 [arcade edition] [japan] [trf1] [version a]
+					
+
+						shooting love 2007 [japan]
+					
+
+						shootout pool
+					
+
+						shootout pool prize [export] ~ shootout pool the medal [japan] [revision a]
+					
+
+						shootout pool prize [export] ~ shootout pool the medal [japan] [version b]
+					
+
+						shootout pool prize [export] ~ shootout pool the medal [japan] [version b] [prototype]
+					
+
+						slashout [cartridge version]
+					
+
+						spawn: in the demon's hand [revision b]
+					
+
+						star horse [live and backup]
+					
+
+						star horse [main screens]
+					
+
+						star horse [satellite]
+					
+
+						star horse 2001 [satellite] [revision b]
+					
+
+						star horse 2002 [sound] [export/taiwan]
+					
+
+						star horse progress [backup data]
+					
+
+						star horse progress [live] [revision a]
+					
+
+						star horse progress [main screens] [revision b]
+					
+
+						star horse progress [satellite] [revision a]
+					
+
+						star horse progress [sound and backup] [revision a]
+					
+
+						star horse progress returns [satellite]
+					
+
+						swp hopper board
+					
+
+						the house of the dead 2
+					
+
+						the house of the dead 2 [export]
+					
+
+						the house of the dead 2 [prototype]
+					
+
+						the house of the dead 2 [usa]
+					
+
+						the typing of the dead
+					
+
+						the typing of the dead [revision a]
+					
+
+						tokyo bus guide [japan] [revision a]
+					
+
+						touch de uno! ~ unou nouryoku check machine [japan]
+					
+
+						touch de uno! 2 [japan]
+					
+
+						touch de zunou [japan] [revision a]
+					
+
+						toy fighter
+					
+
+						virtua athletics ~ virtua athlete [prototype]
+					
+
+						virtua golf ~ dynamic golf [prototype]
+					
+
+						virtua nba
+					
+
+						virtua nba [prototype]
+					
+
+						virtua nba [prototype] [15.11]
+					
+
+						virtua nba [usa]
+					
+
+						virtua striker 2 [version 2000]
+					
+
+						virtua striker 2 [version 2000] [revision c]
+					
+
+						virtua tennis ~ power smash [cartridge version]
+					
+
+						virtua tennis 2 ~ power smash 2 [revision a] [cartridge version]
+					
+
+						virtual on oratorio tangram m.s.b.s. [version 5.66] [2000 edition]
+					
+
+						wave runner gp
+					
+
+						wave runner gp [usa] [revision a]
+					
+
+						world kicks [japan] [wk1] [version a]
+					
+
+						world kicks [us] [wk3] [version a]
+					
+
+						world kicks [world] [wk2] [version a]
+					
+
+						world kicks pcb [japan] [wkc1] [version a]
+					
+
+						world kicks pcb [world] [wkc2] [version a]
+					
+
+						world series 99 ~ super major league 99
+					
+
+						wwf royal rumble
+					
+
+						zero gunner 2
+					
+
+						zombie revenge
+					
+
+						zombie revenge [export]
+					
+
+						zombie revenge [revision a]
+					
+supported nonmame software [naomi] [gd-rom]:
+
+
+						azumanga daioh puzzle bobble [gld-0018]
+					
+
+						border down [revision a] [gdl-0023a]
+					
+
+						capcom vs. snk 2: mark of the millennium 2001 [gdl-0008]
+					
+
+						capcom vs. snk 2: millionaire fighting 2001 [revision a] [gdl-0007a]
+					
+
+						capcom vs. snk: millennium fight 2000 pro [japan] [gdl-0004]
+					
+
+						chaos field [japan] [gdl-0025]
+					
+
+						cleopatra fortune plus [gdl-0012]
+					
+
+						confidential mission [gds-0001]
+					
+
+						doki doki idol star seeker [gdl-0005]
+					
+
+						dragon treasure [revision a] [gds-0030a]
+					
+
+						dragon treasure [revision b] [gds-0030b]
+					
+
+						dragon treasure 2 [revision a] [gds-0037a]
+					
+
+						dragon treasure 3 [revision a] [gds-0041a]
+					
+
+						guilty gear xx [gdl-0011]
+					
+
+						guilty gear xx #reload [japan] [gdl-0019]
+					
+
+						guilty gear xx #reload [japan] [revision a] [gdl-0019a]
+					
+
+						guilty gear xx accent core [japan] [gdl-0041]
+					
+
+						guilty gear xx slash [japan] [revision a] [gdl-0033a]
+					
+
+						ikaruga [gdl-0010]
+					
+
+						jingi storm: the arcade [japan] [gdl-0037]
+					
+
+						karous [japan] [gdl-0040]
+					
+
+						kurukuru chameleon [japan] [gdl-0034]
+					
+
+						la keyboard [gds-0017]
+					
+
+						lupin the third: the shooting [gds-0018]
+					
+
+						lupin the third: the shooting [revision a] [gds-0018]
+					
+
+						lupin the third: the typing  [revision a] [gds-0021a]
+					
+
+						melty blood: act cadenza [japan] [gdl-0028]
+					
+
+						melty blood: act cadenza [version a] [japan] [gdl-0028c]
+					
+
+						melty blood: act cadenza [version b] [japan] [gdl-0039]
+					
+
+						melty blood: act cadenza [version b2] [japan] [gdl-0039a]
+					
+
+						mobile suit gundam: federation vs. zeon [gdl-0001] [gd-rom version]
+					
+
+						mobile suit gundam: federation vs. zeon dx [usa] [japan] [gdl-0006]
+					
+
+						moeru casinyo [japan] [gdl-0013]
+					
+
+						monkey ball [gds-0008]
+					
+
+						musapey's choco marker [revision a] [gdl-0014a]
+					
+
+						naomi dimm firmware update for cf-box [4.01] [gds-0042a]
+					
+
+						naomi dimm firmware updater [2.13] [gds-0023a]
+					
+
+						naomi dimm firmware updater [2.17] [gds-0023c]
+					
+
+						naomi dimm firmware updater [3.17] [gds-0023e]
+					
+
+						noukone puzzle takoron [japan] [gdl-0042]
+					
+
+						psyvariar 2: the will to fabricate [japan] [gdl-0024]
+					
+
+						puyo pop fever [japan] [gds-0031]
+					
+
+						puyo pop fever [world] [gds-0034]
+					
+
+						quiz keitai q mode [gdl-0017]
+					
+
+						radirgy [japan] [gdl-0032]
+					
+
+						radirgy [japan] [revision a] [gdl-0032a]
+					
+
+						sega yonin uchi mahjong mj [update disc] [version 1.008] [japan] [cdp-10002b]
+					
+
+						senko no ronde [japan] [gdl-0030]
+					
+
+						senko no ronde [japan] [revision a] [gdl-0030a]
+					
+
+						senko no ronde special [export] [japan] [gdl-0038]
+					
+
+						shakatto tambourine [revision b] [gds-0002b]
+					
+
+						shakatto tambourine cho powerup chu [2k1 aut] [gds-0016]
+					
+
+						shakatto tambourine motto norinori shinkyoku tsuika [2k1 spr] [gds-0013]
+					
+
+						shikigami no shiro ii ~ the castle of shikigami ii [gdl-0021]
+					
+
+						slashout [gds-0004] [gd-rom version]
+					
+
+						spikers battle [gds-0005]
+					
+
+						sports jam [gds-0003]
+					
+
+						street fighter zero 3 upper [japan] [gdl-0002]
+					
+
+						super shanghai 2005 [japan] [gdl-0031]
+					
+
+						super shanghai 2005 [japan] [revision a] [gdl-0031a]
+					
+
+						tetris kiwamemichi [japan] [gdl-0020]
+					
+
+						the maze of the kings [gds-0022]
+					
+
+						trigger heart exelica [japan] [gdl-0036]
+					
+
+						trigger heart exelica [version a] [japan] [gdl-0036a]
+					
+
+						trizeal [japan] [gdl-0026]
+					
+
+						under defeat [japan] [gdl-0035]
+					
+
+						usagi ~ yamashiro mahjong hen [japan] [gdl-0022]
+					
+
+						virtua athletics ~ virtua athlete [gds-0019]
+					
+
+						virtua golf ~ dynamic golf [revision a] [gds-0009a]
+					
+
+						virtua tennis ~ power smash [gds-0011] [gd-rom version]
+					
+
+						virtua tennis 2 ~ power smash 2 [revision a] [gds-0015a] [gd-rom version]
+					
+
+						world club champion football european clubs 2004-2005 [asia] [cdv-10013]
+					
+
+						world club champion football european clubs 2004-2005 [version 1.1] [export] [cdv-10015]
+					
+
+						world club champion football european clubs 2004-2005 [version 3.22] [export] [cdv-10015p]
+					
+
+						world club champion football european clubs 2005-2006 [export] [cdv-10027]
+					
+
+						world club champion football serie a 2001-2002 [version 2] [japan] [cdp-10001c]
+					
+
+						world club champion football serie a 2001-2002 dimm firm [version 3.03] [cdp-10003]
+					
+
+						world club champion football serie a 2002-2003 [version 2.12] [italy] [cdv-10002]
+					
+
+						world club champion football serie a 2002-2003 [version 2.34] [japan] [cdv-10008]
+					
+
+						world club champion football serie a 2002-2003 drive checker [cdv-10007]
+					
+
+						world series baseball ~ super major league [gds-0010]
+					
+
+supported nonmame software [naomi 2] [cartridge]:
+
+
+						club kart: european session
+					
+
+						club kart: european session [revision a]
+					
+
+						club kart: european session [revision c]
+					
+
+						club kart: european session [revision d]
+					
+
+						club kart: european session [2003] [revision a]
+					
+
+						club kart: european session [2003] [prototype] [set 1]
+					
+
+						club kart: european session [2003] [prototype] [set 2]
+					
+
+						club kart prize [export] [japan] [revision a]
+					
+
+						club kart prize [version b] [export] [japan]
+					
+
+						club kart prize [version b] [prototype]
+					
+
+						driving simulator
+					
+
+						soul surfer [revision a]
+					
+
+						the king of route 66 [prototype]
+					
+
+						the king of route 66 [revision a]
+					
+
+						virtua fighter 4 [world]
+					
+
+						virtua fighter 4: evolution [world]
+					
+
+						virtua striker 3 [world]
+					
+
+						virtua striker 3 [world] [revision b]
+					
+
+						wild riders
+					
+
+supported nonmame software [naomi 2] [gd-rom]:
+
+
+						beach spikers [gds-0014]
+					
+
+						club kart [cycraft] [gds-0029]
+					
+
+						club kart [cycraft] [revision a] [gds-0029a]
+				  
+
+						initial d arcade stage [export] [gds-0025]
+					
+
+						initial d arcade stage [export] [revision a] [gds-0025a]
+					
+
+						initial d arcade stage [japan] [gds-0020]
+					
+
+						initial d arcade stage [japan] [revision b] [gds-0020b]
+					
+
+						initial d arcade stage [version 2] [export] [gds-0027]
+					
+
+						initial d arcade stage [version 2] [japan] [gds-0026]
+					
+
+						initial d arcade stage [version 2] [revision a] [japan] [gds-0026a]
+					
+
+						initial d arcade stage [version 2] [revision b] [japan] [gds-0026b]
+					
+
+						initial d arcade stage [version 3] [cycraft] [export] [revision a] [gds-0039a]
+					
+
+						initial d arcade stage [version 3] [cycraft] [export] [revision b] [gds-0039b]
+					
+
+						initial d arcade stage [version 3] [export] [gds-0033]
+					
+
+						initial d arcade stage [version 3] [japan] [revision b] [gds-0032b]
+					
+
+						initial d arcade stage [version 3] [japan] [revision c] [gds-0032c]
+					
+
+						virtua fighter 4 [gds-0012]
+					
+
+						virtua fighter 4 [revision b] [gds-0012b]
+					
+
+						virtua fighter 4 [version c] [gds-0012c]
+					
+
+						virtua fighter 4: evolution [japan] [gds-0024a]
+					
+
+						virtua fighter 4: evolution [version b] [japan] [gds-0024b]
+					
+
+						virtua fighter 4: evolution [version b] [japan] [gds-0024c]
+					
+
+						virtua fighter 4: final tuned [revision a] [gds-0036a]
+					
+
+						virtua fighter 4 final tuned [version a] [gds-0036d]
+					
+
+						virtua fighter 4 final tuned [version b] [gds-0036f]
+					
+
+						virtua striker 3 [gds-0006]
+					
+
+
+
+
+
+
+
+
+ 
+
+
+super nintendo entertainment system [console]
+
+
+mame driver status: imperfect
+
+
+best emulator: bsnes
+
+
+
+
+					we need to be careful with hyperbole when writing about brilliant emulators - there's so much good stuff out there we imagine it would be easy for you, our readers, to feel jaded by review after glowing review. having said that, it's impossible for us not to rave about bsnes.
+				
+					with so many decent snes emulators that have been developed over the years there's a lot of competition for sure, yet bsnes easily beats them all, demonstrating that system emulation can improve dramatically even after the target system has received years of attention and scrutiny. bsnes accuracy is very close to 100%, with a 65816 cpu core that is - are you sitting down? - accurate to the clock cycle. we're not kidding - bsnes basically is a snes in software. show us any other snes emulator - heck, show us any other emulator period, that can lay that sort of claim (of course there is a speed cost, but it's really not that noticeable if you are running bsnes on any modern computer system). as if that weren't enough, bsnes features bs satellaview and superfx support, and is frequently updated unlike some of its competition.
+				
+					the only true runner-up to bsnes is snesgt. while not quite as accurate, this emulator is also highly compatible, and according to bsnes author near himself, snesgt actually supports some bs satellaview games that bsnes doesn't. as bsnes author near told us at the time, "[snesgt] uses various game-specific workarounds that [bsnes] cannot to achieve even greater bs-x compatibility [than bsnes]."
+
+					sadly, near (also known as byuu) has passed away.  he was a good person, he will be missed tremendously, and his contributions to system preservation can never be overstated.
+					
+				    while a reasonably-equivalent retroarch bsnes core exists, we recommend using the upstream emulator instead.
+					
+					mame development has been progressing slowly but steadily, and there's even efforts underway towards writing a cycle-accurate 65816 core which could rival bsnes, though the driver lacks bs satellaview support and has other issues as noted below.  that said, the mame 0.215 release saw major improvements to superfx-based games, and popular games such as "starfox" and "super mario world 2: yoshi's island" have become fully playable.  kale stated in his blog dated 12/23/2012:
+					
+						"compatibility ratio is decent as per now, it's not yet at [bsnes] level and some extra chips aren't yet supported (example: sa-1). the major problem with this is still the main-sound timings, we're still cycle stealing too much or too little, depending on the situation. it needs a major rewrite of the cpu emulation (that should also take open bus into account). also, video emulation isn't too good either, but the whole thing is currently annoying enough to debug, last time i've fixed a very simple bug (robocop 3 missing sprites, caused by incorrect vram wrap-around) it took me about 3/4 hours. too much."
+					
+mame edge case examples:
+
+
+								doom (flickering graphics in-game)
+						
+
+
+
+
+
+ 
+
+
+symbian-based hardware [handheld]
+
+
+mame driver status: non-existent
+
+
+best emulator: eka2l1
+
+
+
+
+						symbian is an operating system that was designed for and used in arm-based smartphones, most notably nokia's "n-gage".  it was popular in most countries throughout the world (though not as much in north america) until ios and android changed the game.  its final release was in 2012.
+					
+						eka2l1 is the only known symbian emulator but is reasonably accurate and runs most software such as the n-gage game library with relatively few issues.  that said, it can be challenging to configure, largely due to its unintuitive and often confusing ui which is prone to freezing and crashing.  many tutorials exist online to aid the beginner in getting started, however.
+					
+
+
+
+
+ 
+
+
+triforce-based hardware [arcade]
+
+
+mame driver status: preliminary
+
+
+best emulator: dolphin
+
+
+
+
+					while older dolphin builds run "virtua striker 2002" just fine, the latest apparently don't.  also, "mario kart arcade gp 2" currently requires an entirely separate build from the "triforce branch" of the source tree.
+				
+software not supported in mame:
+
+
+							mario kart arcade gp 2
+						
+
+							virtua striker 2002 [gdt-0001]
+						
+
+							virtua striker 2002 [gdt-0002]
+						
+
+
+
+
+
+ 
+
+
+virtual boy [handheld]
+
+
+mame driver status: preliminary
+
+
+best emulator: mednafen
+
+
+
+
+					mednafen vb represents a solid, open-source virtual boy emulator with relatively few compatibility issues.
+					
+				    while a reasonably-equivalent retroarch beetle virtual boy core exists, we recommend using the upstream emulator instead.
+					
+					the mame driver has long lagged behind, though kale's changes during the 0.254 development cycle have greatly improved the situation.  still, the apparent framebuffer issues result in improper rendering of some titles (see below).
+					
+mame edge case examples:
+
+
+								red alarm (graphics issues)
+								waterworld (graphics issues)
+						
+
+
+
+
+
+ 
+
+
+wii [console]
+
+
+mame driver status: non-existent
+
+
+best emulator: dolphin
+
+
+
+
+					while not exactly coming out of the blue, dolphin's advanced support for the wii took everyone by surprise. it'll require a little work to dump the bios from your wii for accurate audio support, and your computer will need bluetooth capability to support the wiimote, but dolphin makes it possible to play your wii games at full speed on most modern computers.  perhaps the most exciting thing about dolphin is the constant improvements that are made almost every day.  for futher information regarding dolphin, see the writeup in the gamecube section.
+				
+
+
+
+ 
+
+
+wii u [console]
+
+
+mame driver status: non-existent
+
+
+best emulator: cemu
+
+
+
+
+					mame does not support this system.  cemu has recently transitioned to open-source with linux support and works quite well on our test system, with improvements rapidly being made to bring the emulator up to feature parity (and beyond?) with windows.
+				
+
+
+
+ 
+
+
+xbox [console]
+
+
+mame driver status: preliminary
+
+
+best emulator: xemu
+
+
+
+
+					while many others have tried and failed in the monumentally difficult task of accurately emulating the original xbox, xemu seems to hold the most promise.  this project began as a fork of xqemu, which in turn leverages qemu's proven technology in its attempt to emulate the console's sophisticated hardware.  xemu adds a basic ui and controller support among many other recent improvements, and is more actively developed than its parent project.  note that while many titles work, they lack sound and run slower than on other emulators such as cxbx-reloaded.  however, the latter's heavy reliance upon hle dramatically impacts its accuracy and faithfulness to the original hardware; while its windows-only status prevents it from being considered as a serious preservation effort.  finally, openxbox holds some promise as an lle-based emulator in its very early stages.
+				
+
+
+
+ 
+
+
+xbox 360 [console]
+
+
+mame driver status: non-existent
+
+
+best emulator: xenia
+
+
+
+
+					quite surprisingly, this emulator seems pretty advanced for its young age, and should quiet anyone believing "last-generation" emulation isn't possible on today's hardware.  still, xenia has a long way to go before documenting the xbox 360's demanding hardware with any degree of accuracy, and preserving its legacy for future generations.  time will tell how far it gets.  we cannot compile this emulator on our test system so it is difficult for us to observe its capabilities first-hand.
+				
+
+
+
+ 
+
+
+zn-based hardware: primal rage ii [arcade]
+
+
+mame driver status: preliminary
+
+
+best emulator: hbmame
+
+
+
+
+					in 2017, an emulator author released mame4rage2 which emulates the arcade game "primal rage ii" by adding timing hacks to mame's official zn1 (sony playstation) code.  unfortunately, we could not compile the mame4rage code as it is based on mame 0.168 and therefore requires dependencies that are deprecated and no longer installed on our test workstation.  however, hbmame supports this game and will compile against the latest mame codebase.
+				
+					the mame development team has stated they do not plan to support this hack officially, offering the reason that hacks are discouraged.  this is somewhat of a surprising stance given that there are already plenty of hacks in mame that were created to bring systems to a working state.  with that said, hopefully the mamedev team will support the game without hacks in the future.
+				
+software not supported in mame:
+
+
+							primal rage ii
+						
+
+
+
+
+
+

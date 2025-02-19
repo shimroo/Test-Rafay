@@ -1,0 +1,246 @@
+
+
+
+
+computer science education lab, umass, amherst
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+        welcome to the edlab!
+the computer science educational laboratory is only accessible remotely (with the exception of discussion sections or office hours).
+        
+the edlab resources are shared by many classes each semester for undergraduate and graduate 
+        level computer science classes, 
+        and are maintained by the computer 
+        science computing facility. the machines are located on the cics network and accessible remotely as well as a small number of mac desktops in the lederle graduate research tower (lgrt) room 223. 
+      
+edlab courses
+the classes below for the spring 2025 semester require the edlab for use. click on any class to access its home page. not
+        sure which class is which? here are the current course 
+       descriptions
+
+
+
+course number
+professor(s)
+email: username at cs.umass.edu 
+
+
+
+ ------------------
+--------------------------
+---------------------------
+
+
+
+cs198c
+joe chiu
+ timothy d. richards
+joechiu 
+ richards
+
+
+
+
+cs230
+joe chiu
+ phuthipong bovornkeeratiroj
+joechiu
+ phuthipong
+
+
+
+
+cs377
+phuthipong bovornkeeratiroj
+phuthipong
+
+
+
+
+cs561
+parviz kermani
+parviz
+
+
+
+
+cs677
+prashant shenoy
+shenoy
+
+
+
+
+cs683
+yair zick
+yzick
+
+
+
+
+
+remote access to edlab hosts
+ the edlab linux machines are connected to the internet and you need to do the following to setup up your access.  instructions are below and detail instructions are linked here.
+
+
+
+1.initial account setup: navigate to https://twofa.cs.umass.edu/eldab/ and input your username and password. you should have been informed of your initial password by your instructor. note that it is -not- your spire password. 
+2.password change: input your current initial password and then what you want your new password to be twice in the new and confirm new password boxes.  please make sure your password meets the complexity standards.  this includes 12 or more characters, with 4 character classes (e.g. upper case, lower case, numbers, and special characters) and it cannot be the same as the previous password.
+3a.setup mfa: next, you should see a window that has two-factor verification. this will have a qr code and a textbox that allows you to input your two-factor code generated from your phone. 
+
+
+
+
+
+
+
+
+
+3b. setup mfa continued: download the microsoft authenticator app if not already installed.  skip to the next step if already installed.open the microsoft authenticator app on your phone.press the + symbol at the top of the app to add an account
+
+3c. setup mfa continued: select work or school account
+
+3d. setup mfa continued:select  scan a qr code, this is used to take an image of the qr code in the next step.
+use your phone to scan the visiable qr code.
+you should see a new account for the qr code in microsoft authenticator app.
+ note: some users have reported the verification code in setup does not work.  this seems to resolve itself if people close their browser and start from the begining.
+
+
+
+
+
+
+
+
+
+
+
+
+
+once you have completed the steps above, please review these instructions for logging in here
+for linux log into machine elnux.cs.umass.edu : this will put you on one of the linux hosts  elnux1.cs.umass.edu, elnux2.cs.umass.edu, 
+     elnux3.cs.umass.edu, or elnux7.cs.umass.edu. 
+please note:
+
+if the class you are taking requires access to elsrv5.cs.umass.edu you will be able to ssh to that host as well.
+if you are in cs561, you will ssh to the caro cluster caro.cs.umass.edu.
+
+
+the ssh protocol is an endpoint-to-endpoint secure connection for remote command-line login,
+        but in order to achieve that security you must start 
+        the ssh client from your local machine. (i.e. the one at which 
+        you are physically typing.) 
+on unix, the ssh protocol is implemented by:
+
+ssh
+this command allows secure remote login into a system 
+          which supports it. 
+        scp
+this command can be used instead of the ftp command (although it does not duplicate ftp's 
+          full functionality, such as its interactive shell environment). 
+	sftp
+sftp is a "secure ftp" protocol. 
+          if both the server and the client support sftp, using it is as simple as 
+          typing "sftp" instead of "ftp" on command line. 
+          unfortunately, most windows clients don't support sftp.
+          a gui interface on top of scp can emulate ftp functionality. 
+          winscp (see below) provides such an interface for windows systems.
+      
+ note: if your username on your local machine is not the same as your edlab username you will need to specify the username when using these commands. 
+         for example:  ssh myedlabname@elnux.cs.umass.edu
+
+
+      note: if you wish to remotely use programs that have a graphical interface, you will need to "tunnel" your x-windows session back to your remote host.
+      if you are connecting via ssh from the command line, you will need to include the "-x" parameter, like so: ssh -x -l username elnux.cs.umass.edu.
+      important:for x-tunneling to work, you must also have either x-windows or xquartz installed on your local machine.
+      where to find ssh client programs:
+
+ on all unix-based cs machines, ssh is located in /usr/bin/.
+ on all macos machines, use the terminal application and call ssh or sftp which are located in /usr/bin/.
+there are free unix/linux implementations available for download in 
+          several places such as www.openssh.com
+ there are free implementations available for other platforms, such 
+          as putty 
+          (for windows).
+winscp is a freeware scp(secure 
+          copy)/sftp client for windows using ssh. it's main function is safe copying 
+          of files between local and remote computers. 
+fetch is a free to students scp/sftp client for macos.
+for x11 on windwos, you can install x-ming, which is a free x11 windows manager. https://sourceforge.net/projects/xming/
+xquartz project is an open-source effort to develop a version of the x.org x-window system that runs on os/x.
+
+
+ 
+edlab software and unix notes
+check the edlab software notes for information on using
+         specific software packages in the edlab.
+please read the edlab user's
+          introduction and guide to unix, and the quota and 
+           storage management guidelines if you have questions on using the edlab unix machines.
+please review these examples of logging in with two factor authentication for ssh, scp, sftp and vscode. 
+	read this for examples of automating a script with two factor authication.
+usernames and passwords: your username will be the same as your umass username. the initial password should 
+be given to you in class or by a ta. if you cannot log in send email to 
+system@cs.umass.edu.
+ 
+ osx machines in the edlab 
+if you log into the console of one of the edmac machines running osx, you will have a different home directory then in linux.
+      the home directory in osx will be accessible from any edlab system booted into osx
+      the ~/linux directory in osx will point to your linux home directory.
+      when logged into an edlab linux system, the ~/osx directory will point to your osx home directory.
+      in either linux or osx your course directories will be accessible as ~/csxxx
+       
+eduroam wireless networking
+eduroam allows umass amherst students, faculty, and staff to obtain free wireless connectivity at participating institutions in the u.s. and abroad.
+         a valid umass account is required for connection.
+getting connected
+follow the umass it instructions for connecting to eduroam. once this is configured you can connect to eduroam in the cs spaces.
+
+student www pages
+students in the edlab may program their own web pages if they choose. 
+        each student has a default web page (from linux): ~/public_html/index.html. edit your 
+        home page and add your personal information.
+the url for a student's home page is: 
+      https://www-edlab.cs.umass.edu/~username
+for information on html programming, please see one of the many tutorials 
+        available on the web, such as the w3schools  html tutorial page. 
+      
+
+
+
+
+back to the manning college of information & computer science home page.
+
+
+    
+         comments: system@cs.umass.edu
+copyright © 2025    
+   this is an official page of the university       of massachusetts amherst.
+  
+
+
+

@@ -1,0 +1,537 @@
+
+
+
+myron johnson - rta information technology
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	               myron johnson - rta information technology
+	               
+computer security, telecommuting, and windows small business server 2003 and 2008.
+
+
+
+about me
+
+name:  myron johnson 
+location:  tempe, arizona, united states 
+rta information technology, a phoenix, arizona-based company, specializes in computer security, telecommuting, and business computing. myron johnson is a microsoft certified systems engineer: security on windows server 2003. 
+
+rta was phoenix's first microsoft certified small business specialist. 
+
+we install and care for servers, networks (wired and wireless), and desktop computers for businesses in the phoenix, arizona, area.
+view my complete profile
+
+
+
+
+
+
+
+
+
+
+microsoft hyper-v introduction
+i think i like it - my new sprint ppc6700 smartpho...
+virtual goodness - virtual pc 2004 now free from m...
+clean up your sbs 2003 server
+microsoft's business contact manager 2.0 - crm on ...
+remote access techniques for business - how to choose
+the "right way" to install sbs 2003
+to ssid or not to ssid - wifi security recommendat...
+part 2 - dangerous spyware - why you shouldn't ass...
+seek and ye shall find - getting found on the inte...
+
+
+
+
+
+december 2005
+january 2006
+february 2006
+march 2006
+april 2006
+may 2006
+june 2006
+july 2006
+january 2009
+
+
+
+
+
+
+monday, january 19, 2009
+
+
+
+                      	 
+                      	 microsoft hyper-v introduction
+	                       
+                          
+
+rta information technology, tempe, arizona http://rtait.com/index.htmi'm back. i haven't posted for a while. i just got microsoft-certified in microsoft's new windows small business server 2008 after having been a beta tester for the past year. as near as i can tell i was the second person in arizona to get sbs 2008-certified. there's only 200 of us in the world so far.while the new sbs 2008 is big news, my personal hot topic of the year 2008 was microsoft's hyper-v. this is very low-level virtualization software to allow multiple operating systems to run in separate "virtual machines" on a single pc or server.for the past year, i've been running windows small business server 2008 inside of hyper-v. doing so allows me to easily restore the operating system if needed. and it allows me to build companionn virtual machines (like xp and vista clients) that can talk to my server and interact with it.i've been using virtualization for several years now. hyper-v is a big improvement over past microsoft virtual server software because it's faster, can run 64-bit software (like sbs 2008), and can accomodate much more memory. and the best news of all: hyper-v software is essentially free.i'll have more to say about hyper-v and sbs 2008 in future posts. right now, i'm concentrating on backups and restores for sbs in hyper-v. because of the complexity of sbs (exchange server 2007 and, often, sql server are running), sbs 2008 requires special backup techniques and solutions that are, right now, a work in progress.later. myuronp.s. catch me at the anandtech forumshttp://forums.anandtech.comwhere i'm been moderator for networking and general hardware for several years. feel free to ask technical questions there. my screen name is "rebatemonger", for my proclivity for finding good deals on computer hardware.
+
+posted by myron johnson | 11:08 pm
+       |
+         0 comments
+ 
+
+
+
+
+wednesday, july 26, 2006
+
+
+
+                      	 
+                      	 i think i like it - my new sprint ppc6700 smartphone and sbs 2003
+	                       
+                          
+
+rta information technology, tempe, arizona http://rtait.com/index.htmi resisted the temptation for a long time, but i finally acquired a pair of sprint ppc6700 smartphones. if you are in the it business, you probably already know all about them. just about every it consultant i run into seems to have one. but they haven't hit the average businessperson. yet.the sprint ppc6700, and its verizon, t-mobile, and other twins, is a windows mobile 5 smartphone/pda. besides being a decent phone, it features full wm5 functionality -* instant synchronization of email, contacts, and calendar with your sbs 2003 server* mobile versions of word, excel, and powerpoint* always-on medium-speed internet connection* built-in windows media player* a windows-centric operating system that windows users find familiarif you spend time away from your office, and if you have an sbs server or an exchange server, you owe yourself a hard look at these phones.i put a $60 2gb minisd storage card into mine, for holding music, videos, and whatever. i also downloaded a wonderful program, siriuce, that lets me listen to my sirius satellite radio channels.http://www.emulamer.com/siriuce.htmland i just ordered a slingbox, to let me watch my dish network satellite tv channels from anywhere in the world, via an internet connection. http://slingbox.comi bought a pair of ppc6700s. i figured that was cheap insurance. plus, i got two of everything, including cases, chargers, and sync cables. i found some vendors on ebay that claim to be selling original (oem) audiovox car chargers and other accessories. one nice thing about the ppc6700 is that the hardware between phone vendors (sprint, verizon, audiovox, etc.) seems to be identical, so you can get accessories from multiple sources.i'm also taking a look at extended batteries. the factory 1350 mah battery is good for a day's use and no more. lion battery http://www.lionbattery.com/description.php?noproduit=321offers a new 2800 mah battery that is getting great reviews and can, apparently, be squeezed into the (sprint) factory leather case and charging base.does this all sound like a commercial? maybe. but it's more a commercial for sbs 2003 and how it works with this great new hardware. without that, the ppc6700 would just be another phone with some fun multimedia stuff.but add an sbs/exchange server, and it becomes a fun toy that also gets real work done. i think i like it.
+
+posted by myron johnson | 10:38 am
+       |
+         0 comments
+ 
+
+
+
+
+wednesday, july 12, 2006
+
+
+
+                      	 
+                      	 virtual goodness - virtual pc 2004 now free from microsoft
+	                       
+                          
+
+rta information technology, tempe, arizona http://rtait.com/index.htmfollowing the lead of microsoft's virtual server 2005, virtual pc 2004 is now available for free download:http://www.microsoft.com/windows/virtualpc/default.mspxvirtual pc, purchased from connectix a few years ago, is an amazing and easy-to-use program that has dozens of uses. some prime uses:1) running older programs that won't work under xp or server 2000 or server 20032) running trial versions of microsoft server software or applications like exchange or isa3) experimenting with "risky" changes to your server or desktop operating system4) learning about networkingwhen i was working on my mcse certification, i spent countless hours running networks of multiple windows servers inside of multiple virtual pc workspaces. if you make a mistake and trash a server, you can close the window and restart the server. no harm done.another common use is if you have an old program that only works under windows 95, 98, or nt. you can load that os into a virtual pc window and then load your program into the new, virtual, os. now you can use your old program, safely, on a modern xp workstation.about the only things you can't do in virtual pc are emulate scsi drive arrays or fibre arrays for clustering. as long as you have enough memory in your desktop pc, you can pretty much run as many virtual pcs (or servers) as you care to. each virtual pc requires real memory to run, though. it can't take advantage of virtual memory. so if want to run four servers and each needs 384mb of memory, you'll need around 1.5gb of ram in your desktop pc.so, download virtual pc 2004 and download a trial copy that os you want to play with (most microsoft server 2003 trials are good for six months). and play to your heart's content for six months for free!
+
+posted by myron johnson | 4:01 pm
+       |
+         0 comments
+ 
+
+
+
+
+monday, june 19, 2006
+
+
+
+                      	 
+                      	 clean up your sbs 2003 server
+	                       
+                          
+
+rta information technology http://rtait.com/index.htmmany people have space crunches on their sbs 2003 servers. it's common to see 12gb (dell oem) or even 8gb c: partitions on sbs 2003 servers. it can be a challenge keeping that c: system drive from overflowing, with drastic consequences. i hate getting an alert email from my sbs server telling me there's only 200mb of free space left on c:!the biggest space grabbers on an sbs server include:a) the exchange storesb) the exchange log filesc) the system page filed) the volume shadow copy filese) user shared foldersf) old "uninstall" files for windows updatesand the exchange stores, exchange logs, user shared folders, and uninstall files keep growing! ask somebody what happens to the c:\program files\exchsrvr\mdbdata\ folder if you don't make frequent backups of your server! it'll grow ever larger until there's zero free space on your partition!it's not all that difficult to make more space on c:, without the need for complex re-partitioning of your drives. microsoft even provides a complete "how-to" here:http://tinyurl.com/9k7vehere's what i did in a couple of hours of work for one client. he went from around 400mb of free space on c: to 3.8gb of free space. this was on a standard dell oem sbs 2003 installation. and, since i moved his user shared folders and his exchange stores and log files, he'll still have (around) 3.8gb free six months from now.1) moved the exchange server log files, public store, and private store to:d:\program files\exchsrvr\mbdataemail mailbox sizes and incoming email will have no effect on your c: drive anymore.2) moved the volume shadow copy of c: (which is done twice a day and allows recovery of accidentally deleted and overwritten data files by users) to d:volume shadow copies, by default, use 10% of your drive space and makes copies twice a day by default.3) enabled volume shadow copy of d:many don't have this feature turned on. by default, this uses 10% of your d: drive and makes copies twice a day by default. this can probably be safely set much smaller. shadow copies will allow instant recovery of accidentally deleted or overwritten shared files on your d: drive.4) moved the user folders (their redirected "my documents" folders) to d:\users shared folders.this will allow user folders to grow without using space on c:note that this is a pretty complex operation. be sure to follow microsoft's directions exactly. and do not rename the "share name" of your new users shared folders! renaming it will make a mess!all new files saved by users in their "my documents" folder should be automatically redirected to d:\users shared folders\xxxxx", where xxxxx is their username.===>>> this should be checked to be sure it's working properly! when somebody saves a file in their "my documents" folder, the files should be redirected to his "d:\users shared folders" directory. please verify this is working!i kept the original versions of all the redirected files are in c:\users shared folders for a while, just in case.... i also checked the copy operation for errors and verified that the c:\users shared folders and the d:\users shared folders contained identical numbers of files and directories.5) modified the disk space quotas for some users. by default, any new users will be allowed 1gb of space on d: or c:you may want to modify these values.if necessary, you can easily move the "c:\client apps" folder, too. this is an easy operation. i'm not sure that moving the pagefile.sys file is a good idea. do this only as a last, desperate, measure.the windows update uninstall files (in c:\windows), are not huge, but you can safely delete all by the very latest files. you can certainly delete anything previous to the last service pack.so, stop fighting the space crunch. clean up that sbs server and stop having to worry about overflowing your c: drive.
+
+posted by myron johnson | 12:53 am
+       |
+         0 comments
+ 
+
+
+
+
+sunday, may 14, 2006
+
+
+
+                      	 
+                      	 microsoft's business contact manager 2.0 - crm on a shoestring
+	                       
+                          
+
+rta information technology, tempe, arizonaeverybody needs crm. if you have a business and don't have a way to manage contacts and correspondence, you are handicapping yourself.what's crm?customer relationship manager (crm) is software to manage your business contacts, leads, mailings, proposals, and billings. microsoft's new crm 3.0 is a leading example, and can be quickly installed on your windows small business server 2003 (premium edition). but crm 3.0 may be a bit pricey for many small businesses. if your livelihood is sales, then you should take a hard look at crm 3.0. but if you can't justify the cost right now, you should look for some kind of crm software.enter outlook 2003 with business contact manager update (bcm version 2)bcm 1.0, which came out two years ago, was a major disappointment to me. i installed it and immediately removed it. it wasn't designed to work with outlook exchange profiles (although there was a patch for sbs 2003 users). and you couldn't share your contacts with anybody else. that was a major problem for most people.but bcm version 2.0 is different. you can share your contact data among five users. you can even put the data on your sbs 2003 server, in an msde database, to make for easy sharing and backups. and bcm integrates nicely with ms's small business accounting (sba) 2006, which can't even be done with full-blown crm 3.0 without add-in connection software. you can enter a billing in outlook 2003 and have it pop out of sba 2006 as an invoice.did i mention free?yes, bcm 2.0 is a free update to outlook 2003 if you own ms office small business edition 2003 or ms office professional edition 2003. you can get more information and download it here:http://tinyurl.com/jzft9want more details?here's the lowdown on business contact manager from microsoft:http://tinyurl.com/jnve3what do i think of bcm?i can't tell you. yet.i've just reinstalled it. i'm going to see how well it works for me, and how well it works with sba 2006. i'd report back here soon.in the meantime, you might want to join a new yahoo group that's been formed to discuss bcm: http://finance.groups.yahoo.com/group/msbcm
+
+posted by myron johnson | 11:40 pm
+       |
+         0 comments
+ 
+
+
+
+
+saturday, april 22, 2006
+
+
+
+                      	 
+                      	 remote access techniques for business - how to choose
+	                       
+                          
+
+rta information technology - tempe, arizonathe wonderful world of remote access keeps expanding. small businesses now have remote access options that were unthinkable ten years ago. in fact, with windows small business server 2003, a small office has much better remote capability than many large corporations.there are four main techniques used for working remotely:1) remote desktop2) vpn (virtual private network)3) sbs remote web workplace4) terminal serviceseach has its pros and cons. each has appropriate and inappropriate uses.1) remote desktopremote desktop (using microsoft's remote desktop or the open-software vnc) lets you work directly on your office pc. your remote pc is nothing more than a video terminal with a mouse and keyboard attached. anything you do on the desktop is actually happening on your office pc. this is a surprising low-bandwidth solution. you can work remotely with only a telephone modem connection.remote desktop is recommended where you are accessing data-intensive applications, like databases. since all the processing and data handling are done on your office pc, remote desktop is much faster than vpn for viewing databases or working with large data files.remote desktop is also quite safe for your office network. because your remote pc is only used as a video terminal, there's no direct connection between your office's network and your remote pc. worms, for instance, can't travel to your office and infect the rest of your network.remote desktop is my recommended access method when you can't be sure that the remote computer is secure and safe from viruses, worms, and other contamination. if employees are logging in from a home computer that others may use, it's by far the safest remote access method.2) vpn (virtual private network)a vpn establishes a direct link between your remote pc and your office network. it's pretty bandwidth intensive. working with large files or databases is quite slow. on the other hand, you have direct access to the network, can perform drive mapping to resources, and data transfers (such as file transfers and directory listings) are much faster than with remote desktop.as mentioned earlier, vpns are a bit of a security risk. if a contaminated remote pc enters your network, your other office pcs are exposed to worm propagation. this risk can be managed in various ways, but it never goes away completely.vpn flavorsvpns come in two flavors: client-to-site and site-to-site. a client-to-site vpn connects single remtoe computers to the office. a site-to-site vpn connects an entire office to an entire office. it doesn't require that each individual pc create a vpn connection.hardware versus software vpnsyou can either use a hardware vpn server (like a sonicwall or netgear vpn box) or a software vpn server (like windows server 2003 or sbs 2003, standard or premium edition). there are advocates for both methods.personally, i use a lot of sbs 2003 servers (with or without isa 2004), and i find that the built-in vpn server works fine. there's no need to maintain separate windows and vpn accounts/passwords, since the vpn uses the same accounts as your windows server. microsoft claims that an isa 2004 server can handle hundreds to thousands of simultaneous vpn connections, so, even if they are exaggerating, microsoft's software vpn should be able to handle most small business offices just fine. note that some hardware vpns can also use ldap to make use of your windows accounts for authentication.alternative vpnsthere are some recent alternative vpn methods. a very recent one is hamachi http://hamachi.cc hamachi requires a special client to be installed on the remote pc and at the office. once installed, hamachi uses a 3rd-party public server to help create the secure link between the systems. hamachi is quick and easy to configure.another interesting vpn method uses web browser technology. sonicwall's ssl-vpn http://www.sonicwall.com/products/ssl-vpn200.html uses the web browser on the remote pc to establish a secure connection to the sonicwall device. it still requires the use of active-x or java on the client pc, as well as ssl, cookies, and javascript.3) sbs remote web workplacealthough it looks pretty much like windows remote desktop, and uses the same technology, sbs remote web workplace offers foolproof remote access to your entire office. no configuration is needed on the office pcs. you just select which pc you want to access, click the mouse, and log in.4) terminal servicesthis is similar to windows remote desktop. the main difference is that terminal services, as run on a windows terminal server, is intended for normal users and terminal services can handle many users at once. remote desktop on xp is limited to a single user (except for remote assistance, which allows two simultaneous logons, but only one active keyboard/mouse).a terminal server gives multiple virtual desktops on a single server. you install terminal services on a windows server, create a terminal services licensing server, and install ts licenses for your users. as each user logs in, he/she gets a unique desktop and program settings. you install programs, such as ms office and other applications, in a special way that allows multiple users to simultaneously use the programs.terminal services is a good way to ensure that all users have identical desktops. but it has its own set of server management challenges. many antivirus applications, for instance, aren't really designed for terminal server use.notes about remote printing and drive sharingboth remote desktop and remote web workplace offer you the chance to print on your remote pc's printer. the only problem is: it ususually doesn't work!the solution is install the drivers for your remote printer on your office pc. if remote desktop can't find identical printer drivers on both the remote pc and the office pc, it'll refuse to print remotely.drive sharing between your remote pc and your office pc is easier. jut click the appropriate checkbox when you open up your remote desktop or remote web workplace connection. you'll get a warning about the potential hazards of drive sharing, which you can accept if you trust both pcs.notes about terminal server remote printingjust like remote desktop, terminal server has known remote printing problems. solving them is tougher, because you have more users and they may have a wide variety of remote printers installed on their remote pcs. you can't possibly install all those printer drivers on your terminal server. besides, installing 3rd-party printer drivers on a terminal server is asking for an unstable server.if you only want to support common printers, like hp laser and injet printers, you can set up terminal server to translate printers to those common drivers. this can work if the remote printers recognize the hp drivers.but if you have samsung or other printers that don't recognize hp drivers, you should take a look at 3rd-party "universal printer drivers". screwdrivers and uniprint are two well-known drivers. licensing is pricey (screwdrivers is about $1500 per server and uniprint around $1000), but these special drivers can make remote printing a breeze.if you aren't currently taking advantage of remote access, you should give it a whirl!
+
+posted by myron johnson | 12:44 pm
+       |
+         1 comments
+ 
+
+
+
+
+monday, april 03, 2006
+
+
+
+                      	 
+                      	 the "right way" to install sbs 2003
+	                       
+                          
+
+myron johnson - rta information technologysbs is an excellent choice for the vast majority of small businesses. it gives the owner and the employees the tools they need to actually run a small business.in my opinion, any company with less than fifty employees that is not using sbs 2003 as its main business server should think seriously if it's being properly served by its it staff. there. i said it.sbs's features:* full remote access via computer, laptop, pda or smartphone* "get your email and appointments anywhere" exchange server* that wonderful, pre-configured sharepoint site* its automated backups and monitoring make sbs 2003 a no-brainer. if your it staff or your it consultant haven't told you about sbs, then they aren't doing their job.although i call this the "right way" to install microsoft windows small business server 2003, there are obviously other ways to do it. and not all of them are "wrong". but unless you already have hands-on experience installing and maintaining sbs 2003, please consider these suggestions. this is how i, and many other, microsoft small business specialists install sbs. it works, and it's supported by microsoft.[opinion mode on] first, although sbs 2003 has wizards for setup and installation, there are some "gotchas" that can cause problems. if you aren't an it professional who specializes in sbs, you should consider hiring an outside sbs specialist for the initial setup. you'll save lots of time, money, and frustration by doing so. you'll minimize any disruption to your business. and a consultant will show you how to take full advantage of what you've purchased. there are dozens of hidden features that could be valuable to your office that you may miss, otherwise. if you are intent on doing your own installation, a common recommendation is to do two (or more) sbs installs: 1) do a practice install and make the mistakes that you will surely make. add a client pc that you don't care about. doing the client pc join to the domain is the hardest part of installing sbs. 2) wipe the box and do a second, real install. frankly, having played computer games and having built a couple of home pcs is not enough experience to install and manage an active directory domain controller and email server. yes, sbs 2003 is simple to install. yes, it has great wizards. yes, it is reliable and trouble-free. but if you start messing with it and don't know what you are doing, you can easily end up with a mess that somebody else is going to have to come in and fix for you. [opinon mode off]the "standard" sbs 2003 setup:1) install the server in a secured area. one of the points of a server is to have security. leaving your server and your company's data in an open area is not a good idea.2) use two nics on the sbs server. that way, sbs can serve as a firewall for all the internal computers. use a static ip address on the "external (internet)" nic and hook it to your router. hook the second nic to your switch. hook the client computers to the switch.3) have the router forward ports 25, 80, 443, 444, 3389, and 4125 to the sbs server's ip address. the your email, web, secure email, remote access, and remote web workplace servers. forward 1723 if you want to vpn into your network. be sure to turn on protocol 47 (gre) forwarding if you are using the pptp vpn protocol.4) be sure to name your domain with a non-internet name, like the suggested "xxxx.local". naming your domain with the same name as your internet domain name will cause problems. i recommend using a ".lan" extension, to avoid an issue with older macintosh clients. also, keep your internal domain name and server name short and simple! "aaa.lan" works great as a domain name, as does "server1" for the server name. a simple, non-specific domain name will avoid a very-expensive domain name change if your business grows and changes names or merges with another business.5) after running through the setup and the "to do" checklist, you should have a working server, with email, internal sharepoint site, and full remote access.6) add user accounts and computer accounts to the sbs server.7) join all your (windows xp professional and 2000 computers only!) clients to the domain using the "connectcomputer" wizard. make sure you understand how to do this properly or you will lose user's profiles on their pcs and will have to search for their old data and desktop files. you want to migrate their profiles over to their new domain profile on their pc.8) sbs will automatically install outlook 2003 on each computer and automatically create new domain email profiles for each user. you'll have to migrate old emails from their old email program to their new exchange mailbox (using .pst migration if they already use outlook).9) set up desired security groups to easily set up who can access what on the server.10) set up required shared folders (for secure sharing of files) on the server and set the desired sharing and security permissions, using the security groups you've created.11) implement and test your backup system. hard drives fail all the time and people make mistakes. sbs makes it really easy to have reliable, automated backups of your server and all your office's important data. don't ignore this capability. and be sure to make offsite storage of backups part of your backup process.i strongly recommend that you host your own email. this requires a business-level internet connection, which doesn't block the required server ports. continuing to use the common pop-3 email accounts that many people use is a constant source of complication to email flow. you'll need to register a domain name ($10 per year) and set the public dns settings to point to your new server.each user will now have his/her own mailbox on the exchange server, and can read that mailbox from virtually anywhere, using outlook, owa, smartphone, pda, etc. this includes personal mailboxes and contacts, as well as shared contacts. to create a shared contact list, you can create it in a public folder in exchange. after giving each user account access to the public folder, they'll all be able to see and modify (if you allow it) the common office contact list.you can also use microsoft's business contact manager (version 2) to create shared contacts. bcm is a free add-in to outlook 2003. sending email, both inside and outside of the office, to each person will be automatically handled by exchange and outlook.there are a couple of books on how to configure sbs. harry brelsford's two sbs 2003 books are popular. microsoft has one, too. there's also a three-day microsoft course and certification on sbs installation and management.security-related recommendations:1) install sbs sp1. install exchange sp2 and configure the imf (spam filter).2) allow sbs to update all xp professional clients to sp2.3) use third-party ip-based spam server block lists for exchange.4) insist (and enforce through sbs) long passphrases.5) insist that everyone use their own account/password for logons. medical practices have hipaa compliance to worry about. financial groups have sox.6) perform monthly patching of the server and all clients.7) don't allow windows 95, 98, or me clients on your network. they are not secure.8) install both server-based and client-based antivirus products. get an email-server-aware antivirus for the server, that will catch viruses before they enter your email system.9)do monthly tests of your backup integrity. do monthly security and patch scanning, using mbsa.
+
+posted by myron johnson | 11:47 am
+       |
+         0 comments
+ 
+
+
+
+
+monday, march 06, 2006
+
+
+
+                      	 
+                      	 to ssid or not to ssid - wifi security recommendations
+	                       
+                          
+
+rta information technology, tempe, azwifi security is a big deal. it's a source of lots of confusion and service calls by consumers and businesses. and lack of wifi security is probably the biggest security hole in your home or office network.let's start with the bad news:if you don't have encryption turned on, anybody within range can read everything sent across your wireless network. that includes:* usernames, account numbers, and passwords (unless the site you log into uses ssl or other encryption)* your wifi-sent email* what you are browsing on the internetwithout encryption, it's definitely possible for your next-door neighbor (or a hacker sitting in his car down the block) to monitor your broadcasts. or join your network and use your internet connection for evil purposes. or to attack your internal computers.have i convinced you to use encryption yet?common security settingsthere are three common security parameters available on wifi networks: ssid broadcast, mac address filtering, and encryption.ssid broadcast: your wifi router or access point can broadcast a name (ssid) that identifies it. some folks say you should turn this broadcast off.mac address filterning: your router or access point can limit its clients to a specific list of mac addresses. mac addresses are 12-character codes (supposedly unique) that are assigned to networking devices. by filtering, you can, in theory, limit which devices can connect to your wifi network.encryption: common forms include wep, wpa, and wpa2. data is encrypted so that, even if intercepted, it can't be decoded.my suggested settings:1) use an innocuous ssid name.don't use the default ssid name. that'll tell a hacker what kind of router you have. don't use your name or your company's name. use something innocuous, like "red" or "blue".2) leave ssid broadcast on.yes, this flies in the face of common security advice. but anybody who wants to find your wifi network can locate it with a wifi detector. and can easily monitor it with netstumbler, or other freely-available wifi cracking software.by turning off ssid broadcast, you make your own life considerably more complicated. if you forget the ssid name, you'll have to access the router to re-discover the name. or you'll have to reset the router and re-configure it from factory defaults. it's too much work for too little security gain.3) use mac filtering at your own risk.i think it's too much trouble. every time you bring a new wifi device into your home or office, you'll have to add it to the allowed-mac-address list. and a determined cracker will, again, find a way around the mac filter, using a spoofed mac address. again, i think you're making a lot of complication for yourself, and not that much complication for a hacker.the big one:4) use (wpa) encryption!wpa encryption is tough to break. as long as you use a good, long, random passphrase. a hacker would have to really want to break into your network to bother with breaking wpa. encryption is the single, necessary key to wifi security. until a hacker breaks your encryption scheme, he's not going to join your network, he's not going to attack your computers, and he isn't going to read your transmissions.even wep encryption (although definitely breakable with enough network traffic) is much better than no encryption at all. but wifi equipment is pretty cheap. get wpa-capable equipment. your entire network has to use the same encryption method, so replace any old wifi cards with recent, wpa-capable, cards.
+
+posted by myron johnson | 12:08 pm
+       |
+         1 comments
+ 
+
+
+
+
+sunday, february 19, 2006
+
+
+
+                      	 
+                      	 part 2 - dangerous spyware - why you shouldn't assume you got it all removed.
+	                       
+                          
+
+rta information technology, tempe, aztwo more examples of why attempting to remove malware isn't a great idea, and how you can re-install windows xp, fully patched, in less than an hour of your personal time.i provide online help on a popular internet technology forum. it's fun to help people in need, and i learn a lot in the process.i recently participated in two malware-related problems that point out some flaws in the "just remove the spyware" philosophy.problem one:a homeowner has a network with six computers. he runs avg antivirus and microsoft antispyware on all of them. he noted that, two weeks earlier, avg had caught and cleaned a virus.shortly after, comcast turned off his port 25 (direct email) traffic, saying that his home was the source of spam. at comcast's request, he downloaded and ran mcafee's free suite that included mcafee antivirus, privacy, my security service, and personal firewall. all of the pcs checked out fine, with no infections. he asked comcast to re-open his port 25 access. comcast complied, and then shut him down again two days later.concerned, he examined the mcafee personal firewall on all his pcs. on his daughter's computer, he found 800 inbound access attempts, while the other pcs were showing none. looking deeper, he discovered there was a windows nt logon process running, with 25 ips attached to it. the ip addresses were from all over the blobe: india, china, russia, etc. running mcafee's personal firewall for three days, he found she'd sent 2.7gb of outbound traffic!he was aghast that all of these tools hadn't caught the perpetrator. so he looked for more tools. he installed f-secure's black light (a rootkit detector). it found nothing. then he installed kapersky antivirus. it found the following programs, that both mcafee and avg had missed:trojan.win32.crypt.oexploit.html.mhthe still hasn't figured out how to get rid of these. they're resisting the combined efforts of all his malware-removal software.effort expended:three antivirus programs downloaded, installed, and scanned.two antispyware programs downloaded, installed, and scanned.one rootkit detection program downloaded, installed, and scanned.phone calls to isp about the problem.end result:problem still exists.problem two: a college student has a severe adware popup problem on his laptop. it makes using the computer a pain. he reports that he goes to school all day, and then works for a legal firm in the evenings. he has almost no free time to spend on fixing his computer. he already had four antivirus programs and three spyware-removal programs installed.he reported that he only uses the laptop for notes and email.i advised him to backup his notes and email and re-install windows xp. if he takes his laptop to his law firm, or if he logs onto the company's email server or onto their vpn, he risks contaminating the entire company or divulging his passwords through a keyboard logging trojan.his response was that he didn't have four hours to waste reinstalling windows. but he continued to spend time posting on the help board, asking others to help him remove his malware. other posters continued to give him the standard malware-removal advice. these included:a) run more spyware scans.b) run a rootkit detector.c) run hijackthis and post the results in a spyware-removal forum.my advice:instead of spending time becoming a malware removal expert, spend the time on making a (necessary) backup and learning how to use your computer safely.the most effective course of action (and least-time-consuming over the long run):1) back up your important data. you should have backups anyway. hard drives fail all the time.2) reinstall your os and your applications.3) install antivirus and a single active antispyware application. i recommend ms antispyware, since it's free and works fairly well. keep your av and a-spyware definitions current.4) if you are using xp, be sure to update to sp2 and keep the firewall on.5) create a limited-privileges account (limited user in windows xp) and use it. do not use your computer with an account that has administrator rights. it's asking for trouble.6) learn the rules of safe web surfing so you wont' have any more problems.the student's response was that he didn't have time for all this, and could someone please show him how to fix his problem.my response:1) bedtime: go to microsoft.com/downloads and download xp sp2 patch. go to bed. time: 5 minutes.2) morning: tell pc to burn xp sp2 patch to a cd or copy it to a usb hard drive. go to school. time: 5 minutes.3) bedtime: run fast wizard in xp and tell xp to back up all your files and settings to another pc or to a usb hard drive. go to bed. time: 5 minutes.4) next morning: insert the xp install cd and tell xp to re-install. go to school. time: 30 minutes.5) evening: arrive home and xp is installed. doubleclick on the xp sp2 patch to install sp2. you can use the pc in the meantime if you want. time: 5 minutes.run fast wizard in xp and tell xp to put all your files and settings back on your new system. time: 5 minutes.total time invested: less than an hour, plus any re-intalls of applications you need to re-install. plus, you end up with a recent backup of your important files.total computer downtime: less than an hour.of course, he isn't going to take my advice.effort expended:three antivirus programs downloaded, installed, and scanned.five antispyware programs downloaded, installed, and scanned.multiple posts on a help forum.end result:problem still exists.update from pc owner: .....at ~6:30 pm, my laptop started acting really funny, and when i checked, all of its memory resources were being used by some unknown program....i went home, woke laptop up (to backup notes), and when i logged into my account everything went nuts.... sounds came out of my speaker like none i have every heard before, the cpu cycled wildly from 0 load to 100% load, hard drive spun like nuts...i powered off the laptop and rebooted in safe mode. everything looks ok, until i try to run any program or open any of my files. as far as i can tell, every one of my non system files is now corrupted and unreadable.....just in case anybody cares to take my advice, let me repeat it:1) back up your important data. 2) reinstall your os and your applications.3) install antivirus and a single active antispyware application. 4) if you are using xp, be sure to update to sp2 and keep the firewall on.5) create a limited-privileges account (limited user in windows xp) and use it.6) learn the rules of safe web surfing so you wont' have any more problems.
+
+posted by myron johnson | 1:34 pm
+       |
+         0 comments
+ 
+
+
+
+
+
+
+
+                      	 
+                      	 seek and ye shall find - getting found on the internet
+	                       
+                          
+
+rta information technology, tempe, arzionamy clients, small business owners, are constantly battling to be discovered by potential customers. one way to be found is by having a public web site. but just having a web site isn't enough. customers have to be able to find your web site.go to msn search or google search and type my name: "myron johnson"in the msn search, half of the first page will be links to my web pages. i'm not nearly as popular on google, but you'll still find me.on the other hand, i've seen clients with web sites that couldn't be found even if you know the name of the company!what's the difference?web site search engine optimization.how do you get found on search engines?there are three steps:1) get indexed by search engines2) have relevant content on your web pages, including titles and descriptions that are appropriate to each web page3) get the search engines to rank your site above all othersget indexed by search enginesfirst, you must be found the by search engine. all the search engines are constantly probing the internet, looking for web sites and changes in sites. the sites are indexed by key words that are stored in huge databases. besides the content of the sites, things like the titles and descriptions of the web pages are indexed.have relevant content on your web pagesthe search engine compares the search term entered, calculates how well each web site matches the search term, and then lists the matches. sites are ranked by how well they match the search term, but in case of a tie, the site with the hightest importance wins.convince search engines that your site is "important"to place high in search rankings, search engines must consider your site to be important. google periodically ranks the importance of web sites. all sites are ranked on a scale from 0 to 10, with 10 being the most important. google's ranking system is a bit fuzzy, and changes periodically, but it's generally agreed that the number of links to your site, especially from "important" sites on the intenet, will greatly affect your site's own importance rating.what does this mean to you, the web site designer?well, you obviously have to get your site listed on the major search engines. there are free submission forms on many sites, including google's. if you can get in one search engine, other engines will usually find you eventually. the discovery process can take a month or two. the number-one search engine is google. more people use it than any other engine. yahoo is next. msn search is next. aol probably follows msn. if you want many people to find your web site, you want to be listed on the most popular search engines.but you also have to have relevant content on your web pages. think about what a searcher would use as a search term. make sure that the most likely search terms are included on at least one web page on your site. be sure that the title and description of your web pages also includes the most important search terms.other rules about web pages:search engines like to see unique content. zillions of links to other sites isn't unique content. neither is a list of repeated search words. most web designers believe that the best policy is to write significant, orginal content for your site.make your pages fairly long. you should have several hundred words on each page.include your most important key words as headers and near the top of the page.if you follow these rules, you should be able to significantly improve your search ranking in msn search. look at how well "myron johnson" does in msn search.google is tougher. first, google hasn't even updated its page rankings in five months. if you create a site today, it could take five more months to get a non-zero page rank. unless your site has very unique content, it'll be hard to show up anywhere near the top in search rankings. expect more like the tenth page of listings until you get a non-zero page rank.how do you know your google page rank?download the google tool bar, http://toolbar.google.com , and set it so you can see the pagerank of each page you browse.some other key information about google page rank:http://www.pagerankprediction.com displays the current page rank of your web page, plus a prediction of its rank after then next google pagerank update.http://www.mcdar.net/q-check/datatool.asp displays the rank of your web page when a specified search term is submitted. google, it turns out, has multiple datacenters. you may find that some datacenters will rank your page higher than other. for a certain search term, my home page ranks between 7th and 200th in the listings!i've left the subject of "backlinks" to last. this is the art of getting other important sites to link to yours. you can pay for links, but google frowns on it and if the paid links come from a "link farm", you may find they don't help your pagerank. the overall best way to get incoming links is to create unique and worthwhile content on your web site. then let other people and web site owners know about your site. you can also create a blog, which may find readers interested in your content.
+
+posted by myron johnson | 1:34 am
+       |
+         0 comments
+ 
+
+
+
+
+saturday, january 28, 2006
+
+
+
+                      	 
+                      	 my raid rules
+	                       
+                          
+
+rta information technology, tempe, azraid arrays (redundant array of inexpensive drives) are being used by more home pc users than ever. many want to speed their hard drive performance. this means raid 0 (striping). others want to keep their data safe using mirrored drives (raid 1). no matter which you choose, consider my four raid rules.my raid rules: 1) raid, no matter what kind of raid array, is not a substitute for backups. if you don't want to lose your data, make a backup. preferably on tape or removable hard drive, where it can be kept safe and away from your computer. even mirrored raid drives don't protect against user error, accidental overwrites, accidental deletion, malicious deletion, drive controller failure, worms, viruses, trojans, fire, theft, or flood.2) raid arrays of all types are subject to hardware and user mistakes that can cause data loss. raid arrays are complex and things can go wrong. see 1), above.3) raid 1 (mirroring) is easy to use and is the safest raid array. it's the least storage-efficient array, but has some big ease-of-use advantages. one advantage is you can pull one of the drives and have an instant full backup of your drive. but, see 1) above. people have lost all their data on a raid 1, mirrored, array.4) raid 0 (striping) is much more likely to lose data than any other raid array. let me put it bluntly:a raid 0 array is a disaster waiting to happen.as long as you realize this and keep ongoing backups, then use raid 0 if it suits you. see 1), above.-----------------------------------------------------------------------summary rule:if you care about your data, have a backup plan. raid 0, raid 1, raid 5, or no raid at all, it makes no difference.
+
+posted by myron johnson | 8:28 pm
+       |
+         0 comments
+ 
+
+
+
+
+thursday, january 26, 2006
+
+
+
+                      	 
+                      	 stop badware! new international group to fight spyware.
+	                       
+                          
+
+rta information technology, tempe, arizonathe new stop badware coalition, http://stopbadware.org , is a group of companies dedicated to exposing the damage that spyware and adware distributors cause our economy and the it industry. harvard law's berkman center for internet and society, oxford's internet institute, and consumer reports' webwatch project sponsor the group, along with google, sun, and lenovo.the group's web site opened for business on wednesday, january 25, 2006. it already has forms for submitting user and technical reports of malware attacks. such infestations reportedly cost home computer owners billions of dollars each year.as an it consultant, i see the effects of these attacks constantly. as the malware has become more clever, i see even experienced users hit. the recent wmf exploit for windows xp and the sony drm rootkit showed that uninvited software can invade a wide audience.i'm dismayed by the destruction that malware causes. i estimate that roughly half of home pcs have a spyware or adware infection of some sort. pick up a newspaper and you'll read of disgusted computer users giving up and buying new computers to fix pcs ground to a near-halt by spyware. but, alas, a month later, that shiny new pc is infected, too.....malware is becoming an albatross around microsoft's neck. i see more linux promoters than ever, correctly pointing out that linux has had few malware attacks. this isn't because linux is bug free or necessarily more secure. in fact, until recently, it was pretty easy to leave security holes in a default linux installation. but windows is such a big target, it's tempting for everyone to try to hit it first. microsoft's internet explorer browser and outlook email client have been other victims of their own popularity.i haven't yet explored vista's claim of enhanced security. i have my fingers crossed. and microsoft's direct involvement in the anti-spyware and anti-virus market are, i think, signs of microsoft's concern for the damage being done to its reputation by the ongoing deluge of malware.stopbadware.org intends to publicize the existence of, the creators of, and the people who profit from malware. by doing so, stopbadware will, no doubt, be the target of numerous lawsuits.hang tight, guys. we're all behind you.
+
+posted by myron johnson | 12:22 am
+       |
+         0 comments
+ 
+
+
+
+
+saturday, january 21, 2006
+
+
+
+                      	 
+                      	 getting through life on a limited user account
+	                       
+                          
+
+rta information technology, tempe, arizonathe day after the windows wmf exploit hit, i decided to live my life on a limited user account. although this wouldn't have prevented a wmf hit on my personal pc, it would have minimized the damage. i've seen the effect of a trojan hit on a user with local administrator rights on his pc, and the results aren't pretty. i always recommend giving limited rights to my clients. but i thought i should live with those same, limited, rights.in the world of windows xp, 2000, and 2003, there are two sets of accounts that we deal with. the first are local accounts. local accounts are created inside the local pc's windows installation. a local account only applies to that pc and the account has no visibility on other pcs or on the business' domain.the second set of accounts are the domain accounts. these are created and stored on the domain controllers (such as small business server 2003). a domain account's properties are valid on any pc in the domain. even if a pc is taken off the network, it will still remember the last version of properties that a domain account possesses (credential caching).when you log onto a pc on a workgroup, the only option is to log into a local account. but when you log onto a pc on a domain, you have the choice of logging in as either a local account or a domain account.within the local computer, you can also set domain accounts to have local rights. you can make a domain administrator, for instance, have the rights of a local administrator. it's common for a domain user with low rights (a domain user) to have local administrator rights on the pc. that combination allows the user to install programs and perform other administrative actions on the local pc, but limits his rights on the rest of the network. but local administrator rights really hurt when a trojan or virus strikes.many common actions on a local pc require local administrator rights. you need local administrator rights to install or remove many programs. you need those rights to change networking properties. you need local administrator rights to delete many files on a pc. these same priviliges also allow a trojan or virus free reign over your pc if you accidentally run them.the lowest (and best, from a safety standpoint) set of user rights is:local user = userdomain user = useras an it consultant, working as a "user" is an especially tough decision. i frequently view and change the networking properties of my pc. i provide help to clients and i need to view the settings control panels. it's impossible to remember every single detail of every control panel. most "normal" users don't need to change these items all day long, like i do.and i install programs on my pc. no, i don't add a lot of junk to my pcs. i stopped doing that many years ago. if i feel the need to install something, i'll do it on another pc if possible. or i'll do it in a virtual pc window, isolating it from my personal pc. but still need to install and remove programs on occasion.right now, i'm evaluating microsoft's business contact manager (version 2). and i'm having problems. for the life of me, i can't get it to run properly without having local administrator rights on my pc. the msde database won't allow me access to create a new contact. i'm waiting for a microsoft bcm expert to get back to me on that one.but i'm deciding that even an it pro can live as a limited user. with some tricks. i'll list some below.my best friend is the "run as....." command. this option is available with a right-mouse-click on many programs. you can use it from the start menu. you can even use it to open a command prompt (dos) window.when you select "run as....", you are given the option to execute a program using user credentials different than those you selected at log on. you can choose to be a local or domain administrator, if you know the account name and the password. or, you can select lower rights than you normally have."run as..." has been a linux staple for years. it's used to give temporary "root" rights to an administrator, while letting him work normally with lower rights on his pc. this same option has been available to windows users for years, but has been pretty much ignored.sometimes, though, the "run as...." command doesn't work as expected. a program install may appear to finish, but may not work as expected. you just have to try it to see what happens.how do you examine and set user rights?well, first, you guessed it.....you have to be an administrator!locally, log in as local administrator and set the local rights of the various accounts.local accounts are best managed in the "user accounts" control panel of your pc.you'll have to give local administrator credentials when you open this control panel.if you examine the properties of a user, you can choose which security groups the user is a member of. the most commonly chosen options are "users", "power users", and "administrators".you can view and change the rights of various local and domain accounts. you can, for instance, give a domain administrator only limited rights on your pc. remember, we are setting the local rights of both local and domain accounts. you can only log onto a pc with either a local account or a domain account, not both. your rights on the domain will be set on the domain controller. you rights on the local pc will be set by the local pc, using this control panel.note that the standard user group is the "power users group", giving access to many system settings and allowing installation of programs that don't affect windows system files.double check your work. it's easy to let an account end up with local administrator rights when you thought you'd turned them off. a quick check is to go into the local "add or remove programs" control panel. if you are a local administrator, you'll have the right to "remove" all of the intalled progams. a local user won't have "remove" rights for many programs.
+
+posted by myron johnson | 3:16 pm
+       |
+         0 comments
+ 
+
+
+
+
+sunday, january 15, 2006
+
+
+
+                      	 
+                      	 easy but secure passwords - think "pass phrases"!
+	                       
+                          
+
+rta information technology, tempe, arizonadon't you hate remembering passwords? i do?most people:1) write them down near their computer.2) make up an easy password. it usually consists of a word from the dictionary, followed by some numbers. often, the password includes the name of family or pets.3) when forced to change a password, they increment the number at the end of the password.if this sounds like you, you're normal! and you are a prime candidate for having your password stolen!don't keep your password near your computer. and, so-called "dictionary attacks" can break your password in minutes! dictionary attacks go through the entire contents of the dictionary, adding numbers to the beginning and end of each word. a dictionary attack will quickly find the right combination, and you've been hacked!what's the solution? pass phrases!what's a pass phrase? it's a long bunch of words, numbers, or characters that's easy for you to remember, but hard to crack. just the fact that it's long means it'll take a lot of guesses to get your password. even if you use all english words, think of how many combinations there are? combine six words together, add a few special characters (^%$[+), and you've made it a near-impossible task for a password cracker.consider the following three passwords:1) "paula11"2) "az7%lv8"3) "consider buying a great business server.""paula11" is what most people use, given a choice. it's easy to remember. it's easy to type. paula is your daughter or wife.it's seven characters long. it'll take a dictionary attack a few minutes to break. if i look up information about you, i can probably guess your password. if you are required to change your password periodically, it may be "paula99" by now. i can guess that one, too.2) "az7$iv8" is what's commonly suggested by the "security-aware" computer system. it's nearly impossible to remember. it's difficult to type. this might be an password assigned randomly by a computer. for sure, nobody would ever voluntarily pick it.it's also seven characters long. it'd take a brute force attack (every possible combination of letters and numbers) a few hours to break. it's hard to remember, hard to type, and easy to break.3) "consider buying a great business server."this is a pass phrase. it's easy to remember. it's easy to type. it means something to me.it's forty characters long. it'll require the world's fasted computer years to do a successful brute force attack. you'll never be able to guess it manually. an even better pass phrase would be "consider buying a xxxxx business server." tha'ts even tougher to crack, and no harder to type or remember.get the idea?my rules for secure passwords:1) it's ok to write down passwords. just keep them someplace safe and not on your desk!2) use more than one password. if a single password somehow gets exposed, you don't want the thief to have access to all your accounts. pick two or three good passphrases and use them on different accounts. write them down some place safe if you don't use them frequently.3) use long, complex, pass phrases. the longer the better. windows server 2003, small business server 2003, windows xp and 2000 allow very long passwords, and they allow special keyboard characters. make your passphrases long and add spaces and a special character or two.your pass phrase doesn't have to be hard to type. make it easy on yourself. just throw in a couple of extra, easy-to-type characters. toss in an extra "space" or two. or four. it doesn't have to be fancy. just long.4) i don't recommend enforcing too-frequent password changes, since most people simply modify their existing password. instead, go for a good passphrase and keep it secret! there's no reason to have to change your password every month. pick a strong password and change it yearly. have a "password day" annually, when you change your passwords. 5) if you accidentally gave your password to somebody, change it wherever you've used it.passwords are the only barrier between thieves and your money and your data. don't skimp on their length. good passwords don't have to be hard to remember. they just have to be long.
+
+posted by myron johnson | 6:07 pm
+       |
+         0 comments
+ 
+
+
+
+
+sunday, january 08, 2006
+
+
+
+                      	 
+                      	 obtaining replacement microsoft oem media
+	                       
+                          
+
+rta information technology, tempe, arizonaif you've lost or damaged microsoft oem installation media, a microsoft partner (system builder) can request a replacement at:http://oem.microsoft.com/script/mr/mediareplacement.aspxthe system builder needs to furnish the coa serial number, or,* "a copy of the original invoice, with software clearly identified"* "a copy of your dated sales receipt"i haven't used this service, but i assume this only applies to oem software that the microsoft partner originally provided to the end user. i'd be surprised if the partner could order replacements for dell oem software, for example.the microsoft customer service number for all this is:866-230-0560 (north america).
+
+posted by myron johnson | 10:37 pm
+       |
+         0 comments
+ 
+
+
+
+
+thursday, january 05, 2006
+
+
+
+                      	 
+                      	 microsoft releases windows update for wmf exploit
+	                       
+                          
+
+rta information technology - tempe, arizonamicrosoft has released its official patch for the wmf exploit at 2:00pm pst, thursday, january 5. employing 200 microsoft employees to develop and test this patch, microsoft has released it five days earlier than planned.rta recommends that all xp, 2000, and 2003 computers be updated with this patch, available through http://update.microsoft.com, or through your normal automatic updates.
+
+posted by myron johnson | 6:03 pm
+       |
+         0 comments
+ 
+
+
+
+
+thursday, december 29, 2005
+
+
+
+                      	 
+                      	 a really scary attack on windows - new wmf exploit infects fully patched windows xp users who browse contaminated web sites - and a temporary fix
+	                       
+                          
+
+rta information technology, tempe, arizonaa brand-new, very dangerous, infection has been seen. you can catch this one by simply surfing to a contaminated web site or even viewing a photograph contained in an email. no other action is required.i've witnessed a video of a user browsing a "safe" web site and being attacked by a banner ad that's coming from an infected site. the malware instantly installs itself, adding numerous desktop links, affecting the screensaver, and lots of other nasties. it makes a mess!http://sunbeltblog.blogspot.com/2005/12/new-exploit-blows-by-fully-patched.htmlthis will infect fully patched xp, sp2 computers running internet explorer, running antivirus and antispyware software! it can also infect computers running other web browsers under some circumstances.as always, damage could be limited if the user isn't an administrator on his pc (either a local or domain administrator). however, about 90% of users still have administrator rights on their pcs, so this infection proceeds with full administrator or system rights.a temporary fix has been published:from the command prompt, type regsvr32 /u shimgvw.dll (include the spaces). a reboot is recommended. (it works post reboot as well. it is a permanent workaround).you can also do this by going to start, run and then pasting in the above command.this disables your ability to view images using the windows picture and fax viewer. you won't be able to preview images in explorer, either.once the exploit is patched, you can simply type “regsvr32 shimgvw.dll” to bring back the functionality.
+
+posted by myron johnson | 9:22 am
+       |
+         0 comments
+ 
+
+
+
+
+tuesday, december 20, 2005
+
+
+
+                      	 
+                      	 a free way to protect your family and your business computers
+	                       
+                          
+
+rta information technology, tempe, arizonamicrosoft's shared computer toolkit for windows xp is a free and little-known way to protect your family's or your business' computers from damage and unauthorized use.don't want your kids or your employees to browse the internet? the toolkit can restrict users, on a per-person basis, from accessing internet explorer, firefox, or other browsers.with the free user restrictions tool, you can:* restrict access to windows system utilities* prohibit access to important data* prevent users from running unauthorized software* simplify the start menuwant to stop your kids or employees from making changes to menus or the desktop, from installing programs, or allowing malware to modify critical system files?with the free disk protection tool, you can:* protect operating system files* clear changes when the computer restarts* automate critical and antivirus updates* choose to save changes to diskthese tools take advantage of the little-known local security policies available on windows xp (both home and professional versions). companies that use a windows server can create group policies to do the same thing. but home users or companies that don't have a server can take easily take advantage of the local security policies with these tools.give these free tools a try. but do it now, before damage is done to your home or business computers. as i've noted in previous blog commentaries, repairing a malware invasion on a pc can cause dangerous leaks of private information and can render your pc useless.
+
+posted by myron johnson | 6:35 am
+       |
+         0 comments
+ 
+
+
+
+
+monday, december 12, 2005
+
+
+
+                      	 
+                      	 part 1 - dangerous spyware - why you shouldn't assume you got it all removed.
+	                       
+                          
+
+rta information technology, tempe, arizonathis is why i recommend that most people simply re-format their pc when contaminated by most spyware. note that all the software and settings listed below happened after two mouse clicks!this morning, i examined a client's xp professional pc. he'd accidentally clicked on and installed some spyware last friday. he was on a domain and had power user credentials (big mistake). the same would happen to a non-domain user who was logged in with administrator rights (like 99.9% of home users).along with the spyware, he got the following:his dns settings were reset to a russian dns server.*backorifice was installed.several trojans that grab passwords were installed.a fake antispyware application (unspypc) was installed.a trojan that installs new spyware was installed.symantec antivirus was disabled by a setting in the registry.multiple spyware and trojan programs were installed as "run at boot" programs in the registry.routine scans caught the following:microsoft's malicious software removal tool caught nothing.microsoft's antispyware caught two (trojan.downloader.small.popcorn64 and pws pinch (password catcher))spybot s&d 1.4 caught (and supposedly removed) 53 items, including coolwwwsearch and a dozen other major adware, spyware, and trojan applications.hijackthis 1.99 showed me the backorifice, plus three or four more trojans.what a mess. yuck.we're copying data files to another pc and re-formatting.==whois results for 85.255.114.50 (the new dns server)==generated by www.dnsstuff.com==location: belarus==inhoster hosting company==ooo inhoster, poltavskij shliax 24, kharkiv, 61000, ukraine----------------------------------------------------------------------------*pay close attention to the resetting of the dns services. this is really nasty. it works this way:the client types in "www.wellsfargo.com" or "www.bankofamerica.com" in his browser (ie or whatever).instead of going to qwest dns server, his computer goes to the russian dns server to resolve the location of "www.wellsfargo.com" or "www.bankofamerica.com".the russian dns server sends the browser to a fake russian site and a fake bank's web site comes up in the browser (any browser) and offers to serve him, stealing his account information in the process.there's no way to know that you aren't in the 'real' site. you manually typed, "www.wellsfargo.com" in the browser, so you figure you are safe.would most people catch the dns reassignment? the only reason i noticed it was that i couldn't access an internal company web site (http://companyweb, hosted by the company's sbs 2003 server). the pc was able to resolve other pcs on the network (via netbios) and the russian dns server pointed to external web sites just fine. but you'd never know it when that russian dns server decided to send your next web request to a fake site.
+
+posted by myron johnson | 8:33 pm
+       |
+         0 comments
+ 
+
+
+
+
+saturday, december 10, 2005
+
+
+
+                      	 
+                      	 the computer backup dilemma
+	                       
+                          
+
+rta information technology, tempe, arizona"what's a mother to do?"that was the question raised by a decades-old television commercial, lamenting the dilemma of getting children to do what they should do to keep heathy and happy. which leads us to computer backups.hard drives fail all the time. the mean-time-between-failure for recent hard drives is about eleven years. more or less. practically speaking, the odds of a hard drive failing are about one-in-ten each year you use it.what happens when your hard drive fails? at a minimum, it means getting the drive replaced and re-installing all your software. if you have any important data (like irreplaceable pictures of you departed grandmother or your family's financial information), then, hopefully, you have backups.at worst, you lose everything. do you have important data? do you have backups of that data? have you ever tested those backups to make sure they are good?how much is your data worth to you? hundreds of thousands of u.s. computer owners have to ask themselves that question every year. their hard drives have failed or their operating system has failed and they have to decide how much they are willing to pay to recover their data.yes, data can often be recovered. the cost and difficulty depend on what failed. recovering data, at a minimum, will involve removing the hard drive, installing it into another computer, and copying the data. that takes hours. frequently, the problem is more serious than that. the drive's electronics have failed. the drive must be taken apart and repaired before data can be recovered. even worse is when the drive's internal platter or head is damaged. data recovery will cost thousands of dollars in that case.two kinds of backupswant to save money and avoid the pain and sorrow of data loss? make backups.in general, you can make two times of backups: system and data. frequent data backups are a must. the frequency depends on how often you change your data and how easy it is to re-create it. in other words, the frequency depends on how valuable the data is to you.system backups allow you to easily recover your operating system, your applications, your settings, and your passwords. for many computer owners, system backups may take up more space than data backups, but need not be done very often. for many of us, a yearly system backup, which makes it easy to recover our basic pc and the applications we use most often, is adequate.how to backupthere are a multitude of ways to backup critical data. copy data across a network to another pc. copy the data to a cd-r or a dvd-r. copy it to an external usb hard drive. or put a memory card into your pc and copy your files to that. the best way for you depends on how much data you have to backup.
+
+posted by myron johnson | 8:37 am
+       |
+         0 comments
+ 
+
+
+
+
+monday, december 05, 2005
+
+
+
+                      	 
+                      	 openoffice 2.0
+	                       
+                          
+
+rta information technology, tempe, arizonai'm trying out openoffice 2.0.i'm running it inside of virtual pc 2004, to avoid any conflicts with my main pc. openoffice, for those not into such things, is open source software. it's free!oo 2.0 includes equivalents to microsoft's access, excel, word, powerpoint, along with a drawing program and a mathematics program. it will open most microsoft documents. even access 2003 tables. it will also do a "save as...." into most microsoft file formats (but not access). the native format for saves is xml, which microsoft is moving towards with ms office 12, to be released in late 2006.i just opened a pre-exisint powerpoint 2003 presentation. it opened fine in "impress", oo 2.0's presentation software. impress looks a lot like ms powerpoint 2003! i was able to do a slideshow without a problem. i was also able to modify the document, save it in ms powerpoint format, and re-open it on my main pc, using microsoft's powerpoint 2003.impressive, so far!
+
+posted by myron johnson | 9:13 am
+       |
+         0 comments
+ 
+
+
+
+
+
+
+
+                      	 
+                      	 vista beta preview
+	                       
+                          
+
+rta information technology, tempe, arizonai saw a first-person demo of vista the other day.one of the obvious gotcha's is that the high-end graphics version of vista will require a 256mb graphics card. there aren't that many 256mb cards around. you can't even buy 256mb versions of some fairly recent, higher-end cards, like the popular nvida 6600gt.the scaling graphics in the folder views is cool. but they've been doing that in linux shells for years. desqview-x, ca. 1993, had scaled graphics in windows.it's too bad that ms didn't get the new winfs file system ready in time. some ar speculating that winfs for vista will be released in the first service pack. whenever that will be.it's unclear (even to microsoft, apparently) exactly how many versions of vista will exist. there will be at least two home versions, a business version, a multi-media version, and who knows what other versions.  not to mention both 32-bit and 64-bit versions. plus the new longhorn server.i do have a beta copy of vista (i'm not sure which version it is), but i haven't gotten around to installing it anywhere. i may put in virtual pc 2004, but i understand there are some work-arounds necessary to do that successfully.
+
+posted by myron johnson | 2:21 am
+       |
+         0 comments
+ 
+
+
+
+
+saturday, december 03, 2005
+
+
+
+                      	 
+                      	 sony drm installs root kit with spyware-like properties
+	                       
+                          
+
+rta information technology, tempe, arizonasony continues to make headlines with its digital rights management (drm) software. the most worrisome (to consumers) version is contained on 52 sony copy-protected music cds. originally outed in mark russinovich's blog, without warning the software installs a root kit on windows pcs, tells sony every time a copy-protected song is played, and can easily act as a camouflage for viruses or other malware.sony has now recalled all cds protected by this "xcp" version of copy protection, promising to replace any customer's cds with non-copy-protected versions.there are currently class action lawsuits against sony in three states. some larger companies have outlawed all music cds from company computers.analysis:there are major issues here, untested in u.s. courts.1) how much disclosure is necessary in an end user license agreement (eula)? is a software maker obligated to inform the purchaser that software being installed:a) is not just a "music player", but is a root kit that modifies key system functions?b) sends out encrypted information across the internet without asking the user?c) runs constantly on the computer, using up cpu cycles.d) cannot be un-installed?e) modifies system properties to hide certain files (possibly introducing a security hazard)?2) how much liability does sony have for damages caused by their software?sony's eula limits damage to a maximum of $5. what if the drm program, which installs as a root kit, directly causes data loss for a company? or requires that a computer operating system be rebuilt?
+
+posted by myron johnson | 3:22 am
+       |
+         0 comments
+ 
+
+
+
+
+
+
+
+
+ 
+		  		
+
+
+
+
+
+
+
+

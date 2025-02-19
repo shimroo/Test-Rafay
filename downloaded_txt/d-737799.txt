@@ -1,0 +1,418 @@
+
+
+
+
+
+
+
+dnssec - the dns security extensions - protocol home page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dnssec: dns security extensionssecuring the domain name system
+
+
+
+
+
+dnssec.net
+
+
+
+
+
+
+
+
+dnssec.net
+bind9.net
+bgp4.as
+honeypots.net
+wardrive.net
+forensics.nl
+securitybooks
+networkingbooks
+
+
+
+securing the domain name system with dnssec
+
+
+dns, bind, dhcp, ldap resource directory
+
+
+border gateway protocol and advanced routing
+
+
+intrusion detection, honeypots & incident response
+
+
+wireless lan (802.11) security and wardriving
+
+
+computer forensics and cybercrime resources
+
+
+the computer security bookstore
+
+
+the networking & sysadmin bookstore
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          all about dnssec    why deploy dnssec
+dnssec papers, articles
+dnssec presentations
+dnssec research
+dns threats & weaknesses
+dnssec news & announcements
+
+          dnssec software & practical    dnssec software & tools
+dnssec projects, testbeds
+dnssec setup & implementation
+dnssec training, workshops
+
+          ietf protocol reference (rfc)    dnssec related rfcs (ietf)
+
+home - about - contact
+
+
+always handy:
+dnssec intro rfc (rfc 4033)
+dnssec records rfc (rfc 4034)
+dnssec protocol rfc (rfc 4035)
+dnssec nsec3 rfc (rfc 5155)
+dnssec + epp rfc (rfc 5910)
+dnssec operational practices
+the rfc archive
+
+
+
+
+
+
+
+
+
+
+
+
+
+** bind & dnssec training **from the experts!
+
+
+
+        internet systems consortium (isc) is excited to announce a new
+        dnssec training.
+
+        the isc dnssec technical workshop covers dnssec implementation and
+        deployment.
+
+        complete international training schedule is available here. on-site trainings are also
+        possible.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          what is dnssec?  
+
+
+the root dnssec design team is pleased to report that the first fully
+validatable production signed root zone, with soa serial number 2010071501,
+was published and began rolling out to the root servers at 2050 utc.
+
+the root trust anchor can be found at the iana dnssec
+website.
+
+here is a first press release from isc, which operates the f-root dns
+servers.
+
+press release from icann, which has a 'coordination' role of the
+internet's naming system.
+
+press release from verisign, which operates two of the dns root
+servers (a+j).
+
+press release from us department of commerce, which is principally
+responsible for advising the us president on communications and information
+policies.
+
+the whitehouse, office of science and technology policy, also
+writes about the dnssec signed root zone.
+
+
+
+dnssec (short for dns security extensions) adds security
+    to the domain name system.
+dnssec was designed to protect the internet
+    from certain attacks, such as dns cache poisoning [0]. it is a set of extensions to dns, which
+    provide: a) origin authentication of dns data, b) data integrity, and c)
+    authenticated denial of existence.
+
+    these mechanisms require changes to the dns protocol. dnssec adds four
+    new resource record types: resource record signature (rrsig), dns public
+    key (dnskey), delegation signer (ds), and next secure (nsec). these new
+    rrs are described in detail in rfc 4034.
+
+    it also adds two new dns
+    header flags: checking disabled (cd) and authenticated data (ad). in
+    order to support the larger dns message sizes that result from adding
+    the dnssec rrs, dnssec also requires edns0 support (rfc 2671).
+
+    finally, dnssec requires support for the dnssec ok (do) edns header bit
+    (rfc 3225) so that a security-aware resolver can
+    indicate in its queries that it wishes to receive dnssec rrs in response
+    messages. by checking the signature, a dns resolver is able to check if
+    the information is identical (correct and complete) to the info on the
+    authoritative dns server.
+
+    dnssec services protect against most of the threats to the domain name
+    system. there are several distinct classes of threats to the domain name system,
+    most of which are dns-related instances of more general problems, but a
+    few of which are specific to peculiarities of the dns protocol.
+
+    note that dnssec does not provide confidentiality of data. 
+    also, dnssec does not protect against
+    ddos attacks.
+
+    ------
+[0] a comprehensive threat analysis of
+    the domain name system can be found in rfc 3833. this rfc attempts to describe some of the
+    known threats to the dns, and --in doing so-- attempts to measure to
+    what extent dnssec is a useful tool in defending against these
+    threats.
+
+    more information (research, publications, links) about dns weaknesses
+    can be found in the dns threats section.
+
+
+
+          
+
+
+          dns security extensions   
+
+    this website is your independent starting point for all dnssec
+    and secure dns related information. you will find all major dnssec presentations, dnssec publications and dnssec research
+    documents.
+
+    the core of the dnssec specification is described in the following 3
+    rfcs, published march 2005:
+
+rfc 4033 -  dns security introduction and requirements
+rfc 4034 -  resource records for the dns security extensions
+rfc 4035 -  protocol modifications for the dns security extensions
+
+
+
+
+    rfc 5155 (march 2008) introduces an alternative resource record, nsec3, which provides additional measures against zone enumeration and permits gradual expansion of delegation-centric zones.
+
+rfc 5155 -  dns security (dnssec) hashed authenticated denial of existence
+
+
+
+    related rfcs, such as rfc 5910, describe how to map dnssec for the
+    extensible provisioning protocol (epp). rfc 4641 describes dnssec operational
+    practices.
+
+rfc 5910 -  domain name system (dns) security extensions mapping for the extensible provisioning protocol (epp)
+rfc 4641 -  dnssec operational practices
+
+
+
+    dnssec key management, including key rollover, is done using specialized
+    dnssec software, which can be standalone tools or add-ons to your
+    existing dns software. all major dns software will have full or partial
+    dnssec functionality built-in within the next years.
+
+    to make deployment of dnssec easier, one can also buy a dedicated
+    "dnssec appliance", which acts as an automated dns signer for dns zones. 
+    several vendors are already offering commercial and non-commercial
+    solutions for signing dns in real time, some of them using external
+    cryptographic hardware such as hsm (hardware security modules),
+    including usb tokens and smart cards.
+
+    general background info on the domain name system (dns) and its
+    workings is available on our companion website bind9.net - in the dns links and dns rfcs sections in
+    particular.
+ related reading dnssec papers, articles dnssec presentations dnssec tools dnssec threats and weaknesses dns links & whitepapers bind howtos and articles domain registration & epp resources
+
+
+
+
+essential reading
+
+
+dnssec deployment at the dns root zone: requirements, policies, and status updates
+  icann & verisign, dec 2009
+
+
+secure domain name system (dns) deployment guide
+  nist special publication 800-81, apr 2010  
+
+
+hardening the internet: the impact and importance of dnssec
+  surfnet, paul brand, rick van rein, roland van rijswijk, david yoshikawa, 2009  
+
+
+7 things you should know about dnssec
+  educause, jan 2010  
+
+
+dnssec in 6 minutes
+  alan clegg, internetsystems consortium,jun 2008  
+the signed root is coming! (and what this means for you)
+  peter loscher, internetsystems consortium,jan 2010
+are you ready for dnssec? and what to ask your vendors
+  michael graff, internetsystems consortium,may 2010
+
+
+dnssec howto 2009
+  olaf kolkman,nlnet labs / ripe ncc, jun 2009
+
+dnssec training course
+  olaf kolkman, ripe ncc,q3/2004  
+
+dnssec deployment at the ripe ncc
+  (part of the reverse dns restructuring project)ripe ncc, jul 2005
+
+dnssec key management tools released
+  olaf kolkman,ripe ncc, apr 2005
+
+
+good practices guide for deploying dnssec
+  enisa, mar 2010  
+
+study on the costs of dnssec deployment
+  enisa, nov 2009  
+
+resilience features in communication networks: ipv6, dnssec and mpls
+  enisa, jan 2009  
+
+stock taking report on the technologies enhancing resilience of public communication networks in the eu member states
+  enisa, may 2009  
+
+
+dnssec deploymentprogramme website
+  isoc deploy360
+dnssec part 1the theory
+  geoff huston, isoc, aug 2006
+dnssec part 2the practice
+  geoff huston, isoc, sep 2006
+dnssec part 3the opinion
+  geoff huston, isoc, oct 2006
+
+
+dnssec training material
+  nlnet labs, oct 2008
+
+
+dnssec: the protocol, deployment, and a bit of development
+  miek gieben in cisco ipj magazine, jun 2004
+
+
+
+
+
+
+
+
+
+
+
+dnssec.net
+
+
+bind9.net
+
+
+bgp4.as
+
+
+honeypots.net
+
+
+wardrive.net
+
+
+forensics.nl
+
+
+securitybooks
+
+
+networkingbooks
+
+
+
+
+
+© 2002-2025 dnssec.net. all rights reserved.
+
+page last modified on wed 26 september 2018 06:35:06 cet
+
+        
+dns security
+
+
+
+
+
+    af183d41d32b8d2060360fbf713dd70a
+    
+
+
+

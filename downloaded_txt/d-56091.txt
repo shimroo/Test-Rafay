@@ -1,0 +1,587 @@
+
+
+
+
+
+
+
+robert w. rose
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skip to content
+
+
+
+
+
+
+
+robert w. rose
+
+  scroll down to content
+
+
+
+
+
+
+
+
+posts
+
+
+
+
+
+posted on april 14, 2024fu pei-mei’s chinese cook book 
+
+fu pei-mei’s (“the julia child of taiwan”) 1969 cook book is a gem. written in traditional chinese and english, it’s fun as a culinary rosetta stone but it is also an exhaustive treatment of traditional chinese cooking. it’s out of print now but is available on the internet archive for free. thank you internet archive!
+
+pei mei’s chinese cook book (300 pages)
+recommendations:
+
+beef stew sze-chuan style (this is as good or better than what you can find in taipei)
+ma-po’s bean curd (this is better than any preparation i’ve ever had in a u.s. restaurant)
+
+
+
+
+
+
+
+posted on march 2, 2024march 8, 2024getting support for california dmv website technical issues 
+
+gethuman is usually pretty good about this kind of thing, but the main california dmv call center doesn’t handle technical issues with the website or other online services. for technical problems call 1-877-563-5213 and say agent.
+
+
+
+
+
+posted on february 11, 2024update x-plane navigation database for free 
+
+in the united states, you don’t need to buy a subscription from a navigation service provider to update the navigation waypoint and procedure database used by x-plane.
+x-plane 11 and x-plane 12 are capable of interpreting the faa’s coded instrument flight procedures databases that are available online for free. these won’t give you the latest terrain elevation charts and obstacle databases, but for basic at-home instrument procedure training this is really all you need to match the latest charts, sectionals and faa procedures.
+
+visit the faa cifp download website, download the latest cifp zip
+extract the zip and copy the file faacifp18 to x-plane’s custom data folder
+rename faacifp18 to earth_424.dat
+restart x-plane
+
+the “navigation data out of date” alert should no longer be present. if this is the first time you’ve done this procedure, you can also verify it worked by checking for the existence of a procedure that’s not in the stock version of x-plane. (for example, try klas rndrz two arrival procedure which was updated 19may22).
+
+
+
+
+
+posted on march 18, 2023february 11, 2024will ai language models make us smarter or dumber? 
+
+i think there’s a reasonable case to be made that language models will not make us smarter or dumber. they will offer no improvement to humanity overall, and this hype train will eventually pass. but part of me worries that they may actually freeze us in time.
+these models are built by sampling a large set of writing (and images) at a fixed point in time. they are then optimized, with human guidance, to return “better” results. what is “better” is in the eye of the beholder(s), and is often determined by a market or economic incentive rather than what is objectively richer or more sophisticated response. there is an incentive with these systems to provide a result that appeals to the most people–it’s a race towards the median in the best case, (or a race to the bottom in the worst case).
+we’ve seen this in many other domains: movies. music. food. as the world has grown more connected and industries strive to serve the most number of people, originality is thrown by the wayside in favor of things that trigger the most user engagement and thus the most sales.
+i have a slightly cynical outlook here based on my own past experience. in 2004 i started a music recommendation company. the idea was to help people explore the long tail, the edge, the art on the periphery that the mainstream wasn’t picking up. i felt that i had created a wonderful system, but what i discovered then was a fundamental truth that apple genius and pandora discovered years later: most people do not want to explore the long tail. there’s comfort in the familiar. if you like 90’s country music then nine times out of ten you probably don’t want to be bothered with a recommendation to listen to a crossover ska-country fusion band, you just want to hear garth brooks.
+given these two forces: consumers wanting to be satiated by the familiar and producers wanting to make things that appeal to the widest audience, my concern is that ai language models will trigger a race towards the median in human knowledge.
+here’s a completely hypothetical example from a potentially not-to-distant future:
+user: who was henry the 8th?
+computer: henry viii was king of england from 1509 to 1547. he had his first wife executed. his disagreement with the pope led to the english reformation. [merchandise] [quotes]
+compare this to what you get from wikipedia today, and you’ll see there’s a lot of nuance left out in this answer and the writing style is far more sophisticated. this hypothetical answer is distilled down to only a few “essential” points, as determined by the optimizer(s).
+in my view, this is already happening today on the internet, even without ai language models. youtube, wikihow and a mess of other search-engine-optimized sites return wasteful, low-information-density garbage. time consuming answers to even the simplest questions. when i read what chatgpt-4 is producing, to me it feels like i’ve fallen into the worst corners of wikihow-laden search results.
+if we increase our reliance on ai generated responses, tuned in ways that appeal to the widest possible audience, it could make it harder for us–as a species–to gain new knowledge. for the future’s sake, i hope my fears prove to be unfounded.
+
+
+
+
+posted on january 29, 2022february 11, 2024passive dismissals and the “impossible” 
+
+this is an internal memo i wrote in the earlier days of reliable robotics. i’m sharing it here publicly in case others find it useful.
+werner von braun has this quote, “i have learned to use the word ‘impossible’ with the greatest of caution.” i’ve gone searching for the context in which he made this comment but haven’t uncovered yet where he said this or what it was in reference to. but having been part of several projects now that many (including myself) thought were impossible i get where he is coming from. when you prove others wrong once or twice in your career you start to become immune to passive dismissals of impossibility.
+possibility vs. impossibility is not just a glass-half-full vs. glass-half-empty, optimistic vs. pessimist issue. the differentiator here is energy, not mental outlook. it takes less energy to passively dismiss something as impossible than it does to dig in and understand how something might be possible. understanding the possibility of something requires focus, thought and action.
+when we started reliable robotics, we heard our fair share of passive dismissals:
+
+it’s going to be impossible to get an aircraft flying itself with a small team…
+it’s going to be impossible to get permission from the regulator…
+it’s going to be impossible to get permission from an insurance underwriter…
+it’s going to be impossible to get a customer…
+it’s going to be impossible to get an investor…
+etc., etc…
+
+these claims often came from a place of intuition, with no rationale or thought placed in them. these are all easy claims to make, and proving them wrong takes time and energy. to be fair, we are yet to prove all of the passive dismissers wrong. but we have, in relatively short order, proven many of these claims to be terribly short-sighted.
+looking back, i credit our perseverance through this morass of negativity to all of the wonderfully successful “impossible” projects we’ve worked on in the past. with success, you build up a certain resistance to passive dismissals. you never become entirely immune, but you do learn to separate the credible objections from the non-credible, and how to objectively address the doubts and concerns without falling prey to the emotional response.
+success only gets you so far however (as those with imposter syndrome can attest)! and when you are starting at the beginning, or following a failure, you still need to be able to bootstrap your own partial immunity to passive dismissals. for me personally, i’ve discovered that i’m actually energized by naysayers. a former colleague once observed, “the best way to get a great engineer enthusiastic about a challenge is to bet them they can’t do it,” and this is definitely true for my personality. the “we’ll prove them wrong” outlook, if properly harnessed, can provide a solid foundation on which to make something possible.
+eventually, you learn to take pity on the doubters, the non-believers, the dismissers. they just haven’t had the good fortune of being part of an impossible project yet, or they are just too busy to dig in and challenge their own assumptions. either way, in a world where we are literally not constrained to this world anymore–a world werner von braun helped create–it does surprise me that anyone would throw the word ‘impossible’ around so lightly.
+
+
+
+
+posted on november 1, 2021february 11, 2024cherish the rigorous job interviews 
+
+three times in my career i’ve rejected job offers because i didn’t feel the interview process was rigorous enough.
+straight out of school, the company did not ask me any challenging interview questions. i walked away thinking: “they’re not going to challenge me. i’m not going to grow working here.”
+another company did not ask me any questions about what i wanted or why i was interviewing with them in the first place. i walked away thinking: “this place has no soul. they’re not going to care about building my career.”
+later in my career, every interview focused on my resume and not much else. i walked away thinking: “everyone here must just get hired based on their resume.”
+
+this meme (above) has been making the rounds lately on reddit, and while i appreciate the sentiment behind it, i personally could not imagine accepting a job offer somewhere after a single interview, especially if i didn’t know anyone at the company. the market for talent is growing more competitive every day, but as a candidate you should consider if the company is looking to just put a warm butt in their seat, or actually help build your career.
+to employers, a rigorous interview process should convey to a candidate a commitment to excellence in both who you let into the organization and how people will be treated once they join.
+to candidates, understand that rigor means the employer cares about mutual alignment and shared success, and not just jumping through arbitrary hoops as the meme suggests.
+originally posted on linkedin pulse.
+
+
+
+
+posted on october 18, 2021february 11, 2024be excellent to each other 
+
+
+ 
+
+
+in california, employers with 5 or more employees are required by law to provide at least one a hour of sexual harassment and abusive conduct prevention training for employees every two years.
+we recently went through another round of this training at the office. a recurring theme from our team during and after the session was, “if you just be a good person you’re going to avoid many of these problems.” i was also impressed by feedback from our team that there are a lot of other types of unwanted behaviors you might encounter in the workplace well before you cross the “legal threshold,” and that we should try and articulate these to make clear to newcomers what is or is not tolerated at our company.
+we thought it would be best to capture the spirit of this through a slogan or simple expression. some companies talk about a “no jerks policy,” but we didn’t feel this was specific enough. we also weren’t sure about expressing it as a negative. we thought a more positive slogan like a “golden rule policy” would work better but this is tricky given the strong history of this expression in religion. (and the fact that some people treat others genuinely the way they expect to be treated but are still acting like jerks)!
+while searching for a better way to capture the type of behavior we wanted to encourage at the company we settled on “be excellent to each other,” as popularized by the cultural cornerstone movie and pinnacle of american cinema, bill and ted’s excellent adventure. it may sound light-hearted, but beneath the surface there is a deep wisdom about life to be learned from these time traveling heroes.
+after some iteration, we came up with a simple scenario-based training module to help capture this for the team. others may find this useful, so i’m making available to the public here: link
+
+
+
+
+posted on july 16, 2021february 11, 2024sodium citrate macaroni and cheese 
+
+recipes abound for sodium citrate based mac and cheese, but the ratios of cheese/water/sodium citrate are all different. having tried several recipes with several different types of cheeses it’s been a bit perplexing that i always end up tweaking the recipe somehow, either by adding more cheese or adding more sodium citrate to help it go into emulsion. i believe the fat content of the cheese is a huge variable that you need to adjust for. because tillamook medium cheddar is plentiful here on the west coast, here’s a combination that works well it. no guarantee it works with other cheeses!
+1lb noodles1.5 lbs tillamook medium cheddar, diced/sliced3 tsp sodium citrate2 cups water
+cook noodles and set aside.
+bring water to a boil, add sodium citrate and stir until it goes into solution. reduce to medium high heat and slowly add cheese to water, stirring vigorously, until cheese reaches a smooth consistency. remove from heat, add noodles and continue stirring to prevent it from burning.
+some recipes recommend you use an emulsion blender to mix the cheese sauce. bad idea. you’ll be removing cheese bits from your blender for months and you’ll never want to make this again. a normal spoon works fine.
+protip: this recipe makes a mess! melt the cheese and combine the noodles in the same pot to reduce cleanup. to quickly clean the pot combine more water and more sodium citrate and return it to a boil. it’s not quite self-cleaning but saves a lot of effort.
+see also my old macaroni and cheese recipe.
+
+
+
+
+posted on june 1, 2021february 11, 2024pellet smoker pulled pork 
+
+this recipe is so simple i feel silly writing it down, but it needs to be written down because so many recipes out on the internet for pulled pork are just wrong. good pulled pork should be tender and juicy. it should almost melt-in-your-mouth. the smoke and pepper flavors should be intense. great pulled pork does not require barbecue sauce. 
+you get tender and juicy by holding the pork at the right temperatures while cooking. like the texas crutch, if you seal the pork from air after smoking it and before bringing it above boiling you’ll retain most of the moisture. a healthy amount of salt will help retain moisture during the smoke.
+this recipe cooks the pork in two phases: low and slow in the pellet smoker followed by a higher-temperature period in a dutch oven.
+start by rinsing the pork shoulder and patting dry with paper towels. cut the pork into 3-4″ chunks. (don’t worry about removing the bone, it will fall out later). then mix equal parts salt and pepper and thoroughly cover the pork with the salt and pepper blend.
+use salt and pepper where the granules are the same size, such as classic table salt and medium grind pepper. this is important, because salt and pepper of different sizes won’t mix together thoroughly and you’ll struggle getting the right balance.
+place the pork into your pellet smoker set to 150°f and let it go for at least 6 hours, i usually just set it up overnight for 8-10 hours. 
+next, move the pork into a cast iron dutch oven and place it in the oven at 225°f for at least 4 hours. (if you have a crock pot large enough it also works to use a crock pot set on high, but more moisture tends to escape with a crock pot vs the dutch oven in my experience).
+after 4+ hours in the dutch oven you should be able “pull” the pork using two regular table forks. if there is still a bone in the meat it should easily separate out. separate all the pork, mixing it back with its own juices.
+if the pork is not tender enough to separate give it another hour and try again. resist the urge to increase the temperature on the oven–this will just dry it out. if you really can’t wait to eat it would be better for you to just eat it, as it’s already well-above a food safe temperature by now. but if you wait you will be rewarded.
+serve straight up on a plate with a side of beans and coleslaw, or serve on a classic white hamburger bun, slaw optional. 
+if your guests asks for barbecue sauce stare at them with an expression of horror on your face, and then calmly assert the pork does not require “sauce”. for extra kick it may be acceptable to add a little cayenne pepper, but i would recommend this be done sparingly and mixed into the dutch oven before serving.
+
+
+
+
+posted on february 13, 2021february 11, 2024bread machine hamburger buns 
+
+
+ 
+
+
+in the spirit of bread machine baguette, here is a simple shortcut recipe that automates most of the work with making hamburger buns from scratch. the extended poolish time isn’t required here (with the milk you don’t want it anyways), so the recipe only takes about 3 hours and requires very little preparation other than shaping the dough.
+the first time i ate one of these i wondered if i would ever be able to go to a store and buy a hamburger bun again. three months later, i still have not been able to buy hamburger buns from the store. i’m not even able to see them in the store anymore–i am almost completely blind to the entire grocery store bread section now. because the bread machine cuts out so much of the preparation work (and cleanup) and the end product is just next-level better than anything you can buy (even at a top-end bakery) you will probably wonder the same thing after you try this. you have been warned.
+place in the bread maker, in roughly this order:
+1/2 cup water1/2 cup milk1 egg2 tbsp sugar2 tbsp vegetable oil1 tsp salt1 tsp dry yeast1 lb (450g) all purpose flour
+using the same programming as bread machine baguette, set the bread machine up to do at least two, preferably three, rise cycles but no baking cycle.
+when the rise cycles are complete, fariner your work surface, roll the dough  and cut into eight equal portions. shape into discs and place on a well greased baking pan (or silicone baking surface). in a separate bowl, whisk together:
+3 tbsp milk1 egg
+and apply to the top of the dough. optionally apply sesame seeds to the top (protip: “everything seasoning”) and bake at 375°f until golden brown.
+shaping the dough might take some practice. treat it like making cookies or biscuits, except you’re shaping the cookie by hand. don’t stress out “over working” the dough–having done this a few times with my kids i concluded it’s pretty hard to screw up. however if you would like guidance on how to shape the buns there are a number of youtubers that go through the technique.
+if you want to go “full brioche” replace all of the water with milk and the vegetable oil with unsalted butter, and perhaps also add a second egg. you can’t go wrong by doubling the butter either, but the further you go down this path the more delicate (and weaker) the bun will be. it depends upon your objective: if you want a hearty bun that can hold up a 1/2 lb burger i would leave the recipe as it stands, but if you’re looking for something to pair with prosciutto, light mozzarella and arugula by all means crank the brioche to 11.
+
+
+
+posts navigation
+page 1
+page 2
+…
+page 47
+next page  
+
+
+
+
+projectsbork 3d games
+m.s. thesis
+computer graphics
+ cooking
+
+management
+
+programming
+
+uncategorized
+
+
+
+recent posts
+
+
+fu pei-mei’s chinese cook book
+
+
+getting support for california dmv website technical issues
+
+
+update x-plane navigation database for free
+
+
+will ai language models make us smarter or dumber?
+
+
+passive dismissals and the “impossible”
+
+
+archives
+
+april 2024
+march 2024
+february 2024
+march 2023
+january 2022
+november 2021
+october 2021
+july 2021
+june 2021
+february 2021
+november 2020
+april 2020
+march 2020
+february 2020
+january 2020
+may 2019
+march 2017
+january 2017
+december 2016
+october 2016
+september 2016
+august 2016
+may 2016
+january 2016
+november 2014
+october 2014
+september 2014
+july 2014
+march 2014
+january 2014
+december 2013
+november 2013
+july 2013
+may 2013
+april 2013
+march 2013
+january 2013
+november 2012
+october 2012
+september 2012
+july 2012
+june 2012
+may 2012
+march 2012
+december 2011
+november 2011
+october 2011
+september 2011
+august 2011
+may 2011
+march 2011
+february 2011
+january 2011
+december 2010
+september 2010
+august 2010
+june 2010
+may 2010
+april 2010
+january 2010
+december 2009
+november 2009
+october 2009
+august 2009
+july 2009
+june 2009
+may 2009
+april 2009
+february 2009
+january 2009
+december 2008
+november 2008
+october 2008
+september 2008
+august 2008
+july 2008
+june 2008
+may 2008
+april 2008
+march 2008
+february 2008
+january 2008
+december 2007
+november 2007
+october 2007
+september 2007
+august 2007
+june 2007
+may 2007
+march 2007
+february 2007
+january 2007
+december 2006
+october 2006
+september 2006
+august 2006
+july 2006
+june 2006
+april 2006
+march 2006
+february 2006
+january 2006
+december 2005
+november 2005
+october 2005
+september 2005
+august 2005
+july 2005
+june 2005
+may 2005
+april 2005
+march 2005
+february 2005
+january 2005
+december 2004
+november 2004
+october 2004
+september 2004
+august 2004
+july 2004
+june 2004
+may 2004
+april 2004
+march 2004
+february 2004
+january 2004
+december 2003
+november 2003
+october 2003
+september 2003
+august 2003
+july 2003
+june 2003
+may 2003
+april 2003
+march 2003
+february 2003
+january 2003
+december 2002
+november 2002
+october 2002
+
+
+
+
+
+
+
+
+		proudly powered by wordpress	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

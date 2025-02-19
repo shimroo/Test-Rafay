@@ -1,0 +1,210 @@
+
+
+
+
+      springdale
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+search:
+
+
+
+
+
+
+loginpreferenceshelp/guideabout trac
+
+
+
+
+
+wikitimelineroadmapview ticketssearch
+
+
+
+
+wiki:wikistart
+
+
+context navigation
+
+start pageindexhistory
+
+
+
+
+
+springdale linux (sdl) / formerly known as puias linux
+
+custom red hat®-based distribution and mirror. a project of members of the computing staff of ​princeton university and the ​institute for advanced study.
+
+
+
+
+
+springdale linux (sdl) / formerly known as puias linux
+
+
+getting started
+
+
+download
+
+
+repositories
+
+
+data directory
+
+
+
+
+introduction
+
+
+faq
+
+
+documentation
+
+
+mailing lists
+
+
+
+
+
+
+
+mirrors
+
+
+news
+
+
+
+
+getting started
+
+to install springdale linux, you have a few options.  you can download a dvd image for completely offline installs, download a boot.iso boot image for online installs, or download pxe boot images.there are currently 4 versions supported, 8 is the latest and 5 the oldest.  they are available in 32 and 64 bit versions.
+
+download
+
+boot/pxe
+
+
+  i386  x86_64 
+ 9.2  tba  ​boot.iso​pxeboot
+ 8.8  tba  ​boot.iso​pxeboot
+ 7.9  ​boot.iso​pxeboot  ​boot.iso​pxeboot
+ 6.10  ​boot.iso​pxeboot  ​boot.iso​pxeboot
+ 5.11  ​boot.iso​pxeboot  ​boot.iso​pxeboot
+
+
+dvd
+
+
+  i386  x86_64 
+ 9.2  tba  tba 
+ 8.8  tba  tba 
+ 7.3/7.9  ​springdale linux-7.3-i386-dvd.iso  5556e36b7c24f58138af5a4b1312a15717d67fb5a071f8d1912116e44aa7ebc9  ​springdale linux-7.8-i386-netinst.iso  sha256sum:170c3b01323d095d6604a7fc1ee162302d087afac1dfa087d0689bd94eb85ad4  ​springdale linux-7.5-x86_64-dvd.iso  sha256sum:f4324776f92ee6f4d8a8fc96ddcb7b346e96a51cbc6eac39b51ac8b485a602ad  ​springdale linux-7.9-x86_64-netinst.iso  sha256sum:364740bf7df45127dcedac323c00a744067b98fc6f7bbf54196c9b9e3045fa65 
+ 6.6 / 6.8  ​springdale-6.6-dvd-i386.iso  md5sum:38a95068129917d377aa52b29caaa547 ​springdale-6.6-dvd-2-i386.iso  md5sum:3f55cf46eb09577c231dde0adabc9cb3  ​springdale-6.8-dvd1-x86_64.iso  md5sum:6346d2f55b9d8ef4aaa6cc08d4861216 ​springdale-6.8-dvd2-x86_64.iso  md5sum:839f5e8b689c9ed7f95ceaee96ba78f4 
+
+repositories
+
+if you are only looking to install some rpms, you can download our repositories on your system.
+
+yum repositories for puias 9
+yum repositories for puias 8
+yum repositories for puias 7
+yum repositories for puias 6
+yum repositories for puias 5
+yum repositories for puias 2
+yum repositories for puias 1/1ws
+data directory
+
+all the files for puias/springdale are held in a /data directory which is available from the following locations.  if you wish to make your own local mirror, you can rsync using the below rsync servers.
+
+​princeton
+​ias
+nfs on princeton university network: lockhart.princeton.edu:/vol/puias
+rsync on princeton university or ias networks: rsync://springdale.princeton.edu::data
+rsync outside princeton or ias networks: rsync://springdale.princeton.edu::puias.world
+introduction
+
+this project was started long before ​centos or other projects were available. even if you do not install the core distribution, the addons, computational and unsupported repositories may be of use to you. the addons repository contains additional packages not included in a stock red hat distribution. the computational repository also includes additional packages, however, these packages are specific to scientific computing. the unsupported repository is a place where one time packages are put, they are unsupported and may change frequently.
+
+faq
+documentation
+building rpms
+princeton ldap authentication on springdale 5
+princeton ldap authentication on springdale 6
+princeton ldap authentication on springdale 7?
+princeton ldap authentication on springdale 8?
+princeton ldap authentication on springdale 9?
+factertweaks
+puppettweaks
+setting up a rubycas server (ldap+mysql+passenger+mod_auth_cas)
+directory structure
+mailing lists
+mailing lists
+
+hosted by ​google groups.
+
+
+mirrors
+​http://mirror.math.princeton.edu/pub/springdale/ princeton university mathematics department (http, https, rsync, 40-gigabit, internet2)
+news
+puias linux is now known as springdale linux. the new logo is the springdale street sign, in honor of the road which runs in between the two campuses. * 32-bit builds are becoming difficult to build & maintain as upstream support drops efforts. expect that after springdale 7, or perhaps even for later releases of springdale 7, full & debugged 32-bit builds will become impossible.
+
+disclaimer
+
+
+
+last modified 5 months ago
+last modified on sep 26, 2024 11:20:24 am
+
+
+
+
+download in other formats:
+
+
+plain text
+
+
+
+
+
+
+powered by trac 1.0.20
+        by edgewall software.
+visit the trac open source project athttp://trac.edgewall.org/
+
+

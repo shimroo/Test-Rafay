@@ -1,0 +1,728 @@
+
+
+
+
+nowsms | sms gateway, sms server software, mms gateway & mmsc | nowsms
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+linux version
+products
+
+now sms & mms gateway
+nowsms mmsc
+nowwap gateway
+nowsms lite
+nowsms cloud edition
+
+
+about
+
+newsletter
+what is nowsms?
+why nowsms?
+sms & mms protocols
+nowsms features
+sms & mms developer apis
+mobile operator mmsc
+how mms works
+what is a gsm modem?
+what is an sms service provider?
+privacy policy
+
+
+support
+
+support forums
+quick start guide
+nowsms nextgen quick install
+nowsms raspberry pi quick install
+developer apis for sms & mms
+mmsc training documents
+
+mms protocol overview
+phone to mmsc protocol (mm1)
+mmsc interconnection protocol (mm4)
+
+
+tech support bulletins
+tech support blog
+software updates
+newsletter subscriptions
+supported gsm modems
+download updates
+contact us
+search
+
+
+documentation
+
+system requirements
+installing nowsms
+
+new customer:  installing free 60-day trial version
+new customer:  applying a purchased license to an existing trial installation
+new customer:  installing a purchased license version
+existing customer:  upgrading a nowsms installation
+existing customer:  moving nowsms to a new computer
+
+
+quick start guide
+configuring smsc connections
+
+gsm modems
+smpp smsc
+http smsc
+ucp/emi smsc
+cimd2 smsc
+additional smsc configuration options
+routing options
+sms routing logic
+
+
+server settings
+
+running as a service
+event log and system alerts
+configuring the web interface and smpp server
+
+configuring the smpp server
+defining sms user accounts
+
+
+high availability environments
+
+
+web menu interface
+
+send text message
+send ems message
+send binary message
+send wap push message
+send mms message
+send mms notification
+send multimedia content message
+send oma ota settings
+send wap ota settings
+send xml settings
+send voice mail notification
+
+
+mmsc messaging server
+
+mms messages
+configuring the mmsc
+e-mail – mms gateway
+configuring mms vasp accounts
+connecting to an operator mmsc
+
+using a gprs modem
+mmsc routing
+
+mmsc routing – mm1 (gprs modem)
+mmsc routing – mm7
+mmsc routing – mm4
+mmsc routing – eaif
+mmsc routing – direct delivery
+convert to wap push with web link
+convert to sms with web link
+convert to sms with web link (direct)
+convert to sms with web link (code)
+block/reject message
+
+
+receiving mms messages
+
+
+operator mmsc considerations – user authentication
+
+mobile number portability (mnp) considerations
+
+
+mms notifications via wap ppg
+mmsc in cdma or cdma2000 environments
+
+
+submitting mms messages
+
+send mms message with php
+send mms message with java
+send mms message from command line
+send mms message with vb .net
+send mms message with c# .net
+nowsms/mms proprietary url submission
+mm7
+mm4
+mm1
+eaif
+
+
+submitting sms messages
+
+sms url parameters
+sending sms text messages
+sending ems messages
+sending binary sms
+sending wap push messages
+sending multimedia content messages
+sending wap ota messages
+sending oma provisioning content ota messages
+sending xml settings documents and objects
+sending mms notifications and content
+sending voice mail waiting messages (mwi)
+send sms text message with php
+send sms text message with java
+send sms from a command line interface
+
+
+2-way sms support
+2-way mms support
+
+receiving mms messages with a php script
+
+
+e-mail to sms/mms connectivity
+
+configuring the smtp server
+using the pop3 server
+
+using pop3/smtp with outlook express
+using pop3/smtp with mozilla thunderbird
+
+
+routing sms messages to e-mail
+routing mms messages to e-mail
+
+
+advanced configuration settings
+
+advanced ini file settings
+sms accounting callbacks
+mmsc accounting callbacks for billing and charging
+query nowsms server status
+digital rights management
+nowsms as a wap push proxy gateway
+provisioning sms and mmsc user accounts via http
+creating mms message files
+
+
+
+
+purchase
+free trial
+ 
+ 
+search
+
+
+
+
+ 
+ 
+ 
+
+
+
+
+what is nowsms?
+
+
+nowsms is a powerful multi-functional content delivery solution for sms & mms messaging. key functionality includes:
+
+multi-protocol sms & mms message hub/switch
+mobile operator mmsc
+e-mail to sms and/or mms gateway
+smpp proxy server
+high performance sms and/or mms gateway
+2-way sms & mms app enabler (http, smpp, mm7, java, php, .net)
+sms & mms gateway for gsm modems + android phones
+
+read more
+ 
+
+ 
+ 
+
+linux version
+
+
+nowsms nextgen is the next generation platform of nowsms, now available for linux, macos and raspberry pi environments.
+nowsms nextgen includes support for clustered server configurations. multiple front-end servers can share their workload via a shared database, offering powerful new options for fault tolerant systems and scalability.
+
+read more
+ 
+
+ 
+ 
+
+why nowsms?
+
+
+the now sms & mms gateway is a scalable solution that is affordable for development, testing, with scalability to support full production mobile operator systems.
+nowsms is an extremely powerful and flexible tool deployed by over 3000 customers in more than 125 countries on six continents and dozens of island territories in between.
+read more
+ 
+
+ 
+ 
+
+nowsms features
+
+
+nowsms supports a wide range of sms and mms protocols, including smpp, http, ucp/emi, cimd2, mm7, mm4, mm3, mm1, eaif and gsm/3g/lte modems, with simultaneous connectivity to multiple smsc and/or mmsc connections.
+applications can use standard protocols such as http, smpp, smtp and mm7 to interface with nowsms, or they can use sample apis provided for php, java and command line interfaces.
+read more
+ 
+
+ 
+ 
+
+sms & mms developer apis
+
+
+need more details on how to interface with nowsms?  in this article we provide links to detailed information on interfacing with nowsms using http, smpp, smtp, mm4 and mm7, and more for sending and receiving sms and mms messages.  we also provide detailed examples of how to interface with nowsms using php, java, and command line interfaces.
+
+read more
+ 
+
+ 
+ 
+
+mobile operator mmsc
+
+
+the nowsms mmsc supports standard mms protocols published by the open mobile alliance (oma), 3gpp and 3gpp2, supporting person-to-person (phone-to-phone) mms messaging, as well as application-to-person and person-to-application mms messaging.
+over 30 mobile operators are using the nowsms mmsc as the primary enabler for multimedia messaging services on their networks, and actively utilizing the mm4 protocol to connect their mmsc to other mobile operator networks.
+the nowsms mmsc is also widely deployed in mobile phone testing labs.
+read more
+ 
+
+ 
+ 
+
+nowsms cloud edition
+
+
+nowsms cloud edition enables android phones to be used as an sms & mms gateway.
+
+authorised users can send and receive sms and mms messages via a web interface or via e-mail.
+
+applications can send and receive sms and mms messages using standard protocols, such as http, smpp and mm7, or with ready-to-use api examples for java, php, vb.net, c#.net, asp.net, or command-line interfaces.
+
+read more
+ 
+
+ 
+ 
+
+free trial
+
+
+all nowsms products are available for a free trial period.server software products are available for download as a free 30-day trial version.
+the hosted service, nowsms cloud edition, offers a free 14-day trial version.
+
+read more
+ 
+
+ 
+ 
+ 
+previous
+next
+ 
+ 
+
+
+
+ 
+
+what is nowsms?
+nowsms is a powerful multi-functional content delivery solution for sms & mms messaging. key functionality includes:
+
+multi-protocol sms & mms message hub/switch
+mobile operator mmsc
+e-mail to sms and/or mms gateway
+smpp proxy server
+high performance sms and/or mms gateway
+2-way sms & mms app enabler (http, smpp, mm7, java, php, .net)
+sms & mms gateway for gsm modems + android phones
+
+ 
+
+ 
+
+linux version
+nowsms nextgen is the next generation platform of nowsms, now available for linux, macos and raspberry pi environments.
+nowsms nextgen includes support for clustered server configurations. multiple front-end servers can share their workload via a shared database, offering powerful new options for fault tolerant systems and scalability.
+
+ 
+
+ 
+
+why nowsms?
+the now sms & mms gateway is a scalable solution that is affordable for development, testing, with scalability to support full production mobile operator systems.
+nowsms is an extremely powerful and flexible tool deployed by over 3000 customers in more than 125 countries on six continents and dozens of island territories in between.
+ 
+
+ 
+
+nowsms features
+nowsms supports a wide range of sms and mms protocols, including smpp, http, ucp/emi, cimd2, mm7, mm4, mm3, mm1, eaif and gsm/3g/lte modems, with simultaneous connectivity to multiple smsc and/or mmsc connections.
+applications can use standard protocols such as http, smpp, smtp and mm7 to interface with nowsms, or they can use sample apis provided for php, java and command line interfaces.
+ 
+
+ 
+
+sms & mms developer apis
+need more details on how to interface with nowsms?  in this article we provide links to detailed information on interfacing with nowsms using http, smpp, smtp, mm4 and mm7, and more for sending and receiving sms and mms messages.  we also provide detailed examples of how to interface with nowsms using php, java, and command line interfaces.
+
+ 
+
+ 
+
+mobile operator mmsc
+the nowsms mmsc supports standard mms protocols published by the open mobile alliance (oma), 3gpp and 3gpp2, supporting person-to-person (phone-to-phone) mms messaging, as well as application-to-person and person-to-application mms messaging.
+over 30 mobile operators are using the nowsms mmsc as the primary enabler for multimedia messaging services on their networks, and actively utilizing the mm4 protocol to connect their mmsc to other mobile operator networks.
+the nowsms mmsc is also widely deployed in mobile phone testing labs.
+ 
+
+ 
+
+nowsms cloud edition
+nowsms cloud edition enables android phones to be used as an sms & mms gateway.
+
+authorised users can send and receive sms and mms messages via a web interface or via e-mail.
+
+applications can send and receive sms and mms messages using standard protocols, such as http, smpp and mm7, or with ready-to-use api examples for java, php, vb.net, c#.net, asp.net, or command-line interfaces.
+
+ 
+
+ 
+
+free trial
+all nowsms products are available for a free trial period.server software products are available for download as a free 30-day trial version.
+the hosted service, nowsms cloud edition, offers a free 14-day trial version.
+
+ 
+
+ 
+ 
+
+
+
+
+
+products
+now wireless is a leading supplier of mms, sms and wap server products to the mobile wireless industry, with the now sms & mms gateway server product powering sms and mms applications for over 3000 customer installations in more than 125 countries on six continents and dozens of island territories in between.
+the now sms & mms gateway server is a powerful multi-protocol content delivery solution for sms and mms messaging.
+
+key product functionality includes:
+
+multi-protocol sms & mms message hub/switch
+mobile operator mmsc
+e-mail to sms and/or mms gateway
+smpp proxy server
+high performance sms gateway
+high performance mms gateway
+2-way sms & mms application enabler (http, smpp, mm7, java, php, .net)
+sms & mms gateway for gsm modems + android phones
+
+read more  
+
+
+support
+product documentation and manual
+the nowsms product manual is available on-line, and is available as a pdf download. learn more…
+technical bulletins
+our technical bulletins describe advanced technical features of the now sms & mms gateway and clarify advanced configuration options. learn more…
+search our web site
+looking for some elusive nuggets of information regarding nowsms? we can help you find it. learn more…
+contact us
+if you have any questions regarding the now sms & mms gateway, and you can’t find the answer on-line, then here’s where you will find our contact information. learn more…
+read more  
+
+
+support forums
+the now sms & mms gateway server software has a 20+ year history. if you’ve got a question, chances are that this isn’t the first time that your particular question has been asked. search the archives of our support forum, or ask us a question now.  the following topic areas are available.
+
+all topics
+nowsms product support – sms issues
+
+nowsms product support – mms & advanced issues
+
+nowsms nextgen product support
+
+nowsms cloud edition product support
+
+nowsms lite product support
+nowwap product support
+
+mms & sms technical issues (unsupported)
+
+wap technical issues (unsupported)
+
+read more  
+ 
+
+
+now sms + mms
+now wireless is a leading supplier of mms, sms and wap server products to the mobile wireless industry, with the now sms & mms gateway server product powering sms and mms applications for over 3000 customer installations in more than 125 countries on six continents and dozens of island territories in between.
+the now sms & mms gateway server is a powerful multi-protocol content delivery solution for sms and mms messaging.
+key product functionality includes:
+
+multi-protocol sms & mms message hub/switch
+mobile operator mmsc
+e-mail to sms and/or mms gateway
+smpp proxy server
+high performance sms gateway
+high performance mms gateway
+2-way sms & mms application enabler (http, smpp, mm7, java, php, .net)
+sms & mms gateway for gsm modems + android phones
+
+nowsms supports a wide range of sms and mms protocols, and simultaneous connectivity to multiple smsc and/or mmsc connections.
+applications can use standard protocols such as http, smpp, smtp and mm7 to interface with nowsms, or they can use sample apis provided for php, java and command line interfaces. (for more information on these interfaces, please see our nowsms apis page.)
+nowsms is a scalable solution that is affordable for development, testing, with scalability to support full production mobile operator systems.
+nowsms is available in four different editions designed to meet different customer requirements.
+
+nowsms mmsc edition: this edition is designed for use as an operator mmsc, and supports full sms and mms functionality, including support for automatic provisioning of mms subscribers.
+nowsms gateway edition: this edition is designed for service providers, corporate customers, developers and testing services. all types of sms and mms connectivity are supported. mms functionality excludes support for automatic provisioning of mms subscribers as required in a mobile operator environment.
+nowsms modem edition: this edition is designed for sending and receiving sms and mms messages via multiple gsm modems or android phones only.  all developer apis, including smpp, http, smtp, and mm7 are supported for client connections only.
+nowsms lite (single modem edition):  this edition is designed for simplified installation and setup. this edition supports sending and receiving sms and mms messages via a single gsm modem or android phone only. nowsms lite can be updated to other editions by purchasing a license upgrade.
+nowsms cloud edition: this is a hosted version of the modem edition. for a small monthly fee, we provision a nowsms server, accessible via a unique secure ssl/tls enabled web address. you configure one or more android phones to connect to this cloud server. all messages are sent and received via the android phone(s). no additional service provider subscriptions are required. the android phone requires a standard sim card that has been activated with a messaging plan appropriate for your messaging requirements. sms and mms messages can be sent and received via a web interface or via e-mail. applications can send and receive sms and mms messages using standard protocols, such as http and smpp, or using api examples for java, php, .net or command-line interfaces.
+ 
+ 
+
+
+
+
+
+tech support bulletins
+nowsms nextgen quick setup: mobile operator mmsc
+
+
+nowsms nextgen: multiple servers for scalability and fault tolerance
+
+
+nowsms nextgen for linux (and mac)
+
+
+selecting mms route when sending mms
+
+
+priority sms message queue
+
+
+limit sms messages sent per day, hour, minute, or second
+
+
+mms notifications: sms sender address & smpp connection choice
+
+
+ucp to smpp converter / proxy
+
+
+send mms message from php script
+
+
+send sms from php script
+
+
+nowsms modem android app – installation
+
+
+nowsms cloud – quick start guide
+
+
+nowsms spring 2017 update
+
+
+now sms/mms android modem – quick start guide
+
+
+nowsms lite android modem – quick start guide
+
+
+mmsc interconnection protocol (mm4)
+
+
+phone to mmsc protocol (mm1)
+
+
+mms protocol overview
+
+
+nowsms spring 2016 update
+
+
+nowsms and windows 10 information
+
+
+2-way sms access to microsoft office, excel and vbscript
+
+
+ssl/tls – sha-1 deprecation and sha-256 support
+
+
+operator mmsc without a wap gateway (icap)
+
+
+android modem – problems receiving sms with 2-way commands
+
+
+new now sms/mms product editions
+
+
+send wap push and binary sms with android phone as modem
+
+
+nowsms compatibility with verizon & sprint
+
+
+nowsms / nowmms update 2014.05.30
+
+
+2-way commands for sms and mms processing (new 2014 features)
+
+
+email to sms & mms gateway with nowsms
+
+
+email to sms & mms gateway with nowsms lite
+
+
+editing distribution lists and address books in nowsms
+
+
+android phone modem support in nowsms (now available)
+
+
+heartbleed ssl/tls fix for nowsms
+
+
+smpp character set issues
+
+
+nowsms / nowmms update 2013.11.15
+
+
+nowsms/nowmms update (version 2013.09.26)
+
+
+smpp tlv optional parameters
+
+
+burst mode licensing support
+
+
+emoticons and emoji in sms text messsages
+
+
+mobile operator mmsc apn & settings (updated)
+
+
+wap push work-around for at&t usa
+
+
+sms hubbing considerations
+
+
+nowsms mmsc diameter mm9 implementation
+
+
+issue receiving mms over gsm modem on orange uk
+
+
+browse tech bulletins by keywords
+
+
+2-way / inbound sms retry error handling
+
+
+understanding sms accounting callbacks for billing and charging
+
+
+provisioning sms and mmsc user accounts via http
+
+
+smpp server adds @ characters to text message
+
+
+read more
+ 
+  
+ 
+ 
+
+
+
+
+© copyright 2002-2024 by now distribution limited
+bourne house, 475 godstone road, whyteleafe, cr3 0bl, uk
+uk tel: +44.1883.621100
+email : nowsms@nowsms.com
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+

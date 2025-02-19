@@ -1,0 +1,279 @@
+
+
+
+
+
+mact.me – dan mactough
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		skip to content	
+
+
+mact.me
+
+			dan mactough		
+
+
+
+
+menu					 
+close					 
+
+
+home
+contact
+ 
+
+
+
+
+
+
+nuxt + nitro + aws lambda + aws x-ray
+
+i’m working on a new app at work for which we decided to use nuxt 3 using universal rendering hosted on aws lambda. what this means is that the app is coded in vue.js, which is primarily a browser-based javascript framework, using nuxt as a layer around that vue.js app. and then when the nuxt… continue reading nuxt + nitro + aws lambda + aws x-ray
+
+
+published january 8, 2023categorized as post  
+
+
+
+two great guides for setting up minio on your synology nas
+
+minio is software you can run on your own servers to give you cloud storage that is compatible with aws s3. a synology diskstation is a kind of server you can run at your home. a common use case is as a home media server, but it is general purpose enough that you can run… continue reading two great guides for setting up minio on your synology nas
+
+
+published december 24, 2020categorized as post  
+
+
+
+typescript without typescript
+
+or: use typescript without transpiling as a colleague and i were planning a new project, we realized there were pain points in our existing projects that we wished very much to resolve (particularly an express api written in typescript that pre-dated both of our start dates at the company). the problem the biggest pain points… continue reading typescript without typescript
+
+
+published december 12, 2020categorized as post  
+
+
+
+move itunes directories
+
+this is probably not too helpful, since macos catalina has broken itunes into an app for every media type, so the details of this post are mostly outdated if you’ve updated to catalina. but i still have pre-catalina (mojave) on my macbook pro, and recently i searched and searched for an easy way to move… continue reading move itunes directories
+
+
+published march 8, 2020categorized as post tagged applescript, bash, itunes, macos 
+
+
+
+node setup for macs
+
+i use macs, and i have a lot of node projects on my macs. those projects don’t all use the same version of node, so i need to have multiple versions installed. i also want to have a “system” version of node installed. i’m really happy with how i have my macs set up to… continue reading node setup for macs
+
+
+published january 14, 2020categorized as post tagged node.js 
+
+
+
+the problem with promises and domains
+
+what are domains? how restify uses domains people have been having problems using promises with restify and people have been having problems with promises and domains in node for a long time maybe it will be resolved in node v8.x in the meantime, one “solution” (a/k/a work-around, a/k/a hack) is to swap out the native promise… continue reading the problem with promises and domains
+
+
+published may 23, 2017categorized as post tagged domains, node, node.js, promises, restify 
+
+
+
+pull requests: assign or request review?
+
+if you’re feeling confused about github’s new review requests feature (as opposed to the existing ability to assign people to issues and pull requests) here’s my take. when review requests were first rolled out, they were not very useful because there was no way to see a list of pull requests you had been requested to review.… continue reading pull requests: assign or request review?
+
+
+published january 26, 2017categorized as post tagged github, open source, programming 
+
+
+
+so you want to keep your cookies secure
+
+at social tables, we have this koa app that needs to read and set a session cookie. we don’t want to send that cookie over an unencrypted connection, though. we use koa-generic-session for session management. that library uses the cookies library under-the-hood, and luckily, there’s a simple configuration option to avoid sending cookies over an… continue reading so you want to keep your cookies secure
+
+
+published september 12, 2016categorized as post tagged aws, cookies, koajs, nginx, node, node.js, security 
+
+
+
+link dump – node.js security
+
+a malicious module on npm the npm meltdown uncovers serious security risks package install scripts vulnerability is guy fieri in your node.js packages? controlling the node.js security risk of npm dependencies one easy way to inject malicious code in any node.js application
+
+
+published september 6, 2016categorized as link tagged node, node.js, security 
+
+
+
+making the correct insanely difficult
+
+tl;dr if you’re trying to configure nginx on elastic beanstalk to redirect http requests to https, here’s what i learned. during deployment, the nginx configuration for your app is located at this file path: /tmp/deployment/config/#etc#nginx#conf.d#00_elastic_beanstalk_proxy.conf via using a container command, you can edit that nginx configuration file right before it gets deployed. i used a… continue reading making the correct insanely difficult
+
+
+published april 28, 2016categorized as post tagged aws, elastic beanstalk, linux, nginx, node, node.js, perl 
+
+
+posts navigation
+page 1
+…
+page 17
+older posts 
+ 
+
+
+
+archives archives
+
+select month
+ january 2023  (1)
+ december 2020  (2)
+ march 2020  (1)
+ january 2020  (1)
+ may 2017  (1)
+ january 2017  (1)
+ september 2016  (2)
+ april 2016  (1)
+ february 2016  (1)
+ august 2015  (1)
+ may 2015  (1)
+ april 2015  (1)
+ march 2015  (2)
+ february 2015  (2)
+ october 2014  (1)
+ september 2014  (1)
+ august 2014  (1)
+ may 2014  (2)
+ june 2013  (1)
+ april 2013  (2)
+ october 2012  (1)
+ september 2012  (3)
+ july 2012  (1)
+ may 2012  (1)
+ april 2012  (4)
+ february 2012  (1)
+ december 2011  (1)
+ july 2011  (1)
+ june 2011  (2)
+ february 2011  (1)
+ october 2010  (2)
+ july 2010  (1)
+ june 2010  (1)
+ september 2009  (1)
+ june 2009  (1)
+ april 2009  (2)
+ march 2009  (4)
+ february 2009  (2)
+ january 2009  (4)
+ december 2008  (4)
+ november 2008  (3)
+ october 2008  (6)
+ september 2008  (1)
+ july 2008  (1)
+ june 2008  (1)
+ march 2008  (3)
+ december 2007  (4)
+ november 2007  (4)
+ october 2007  (4)
+ august 2007  (5)
+ july 2007  (1)
+ june 2007  (3)
+ april 2007  (1)
+ march 2007  (1)
+ february 2007  (1)
+ january 2007  (6)
+ december 2006  (4)
+ november 2006  (3)
+ october 2006  (1)
+ august 2006  (1)
+ june 2006  (4)
+ april 2006  (1)
+ march 2006  (7)
+ february 2006  (5)
+ january 2006  (1)
+ december 2005  (6)
+ november 2005  (2)
+ october 2005  (5)
+ september 2005  (1)
+ august 2005  (3)
+ july 2005  (3)
+ june 2005  (3)
+ may 2005  (7)
+ april 2005  (2)
+
+
+
+
+recent
+
+
+nuxt + nitro + aws lambda + aws x-ray
+
+
+two great guides for setting up minio on your synology nas
+
+
+typescript without typescript
+
+
+move itunes directories
+
+
+node setup for macs
+
+
+meta
+
+log in
+entries feed
+comments feed
+wordpress.org
+
+mastodon 
+
+
+
+																						mact.me																		
+
+				proudly powered by wordpress.			
+
+
+
+ 
+
+
+
+
+
+
+

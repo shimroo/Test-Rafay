@@ -1,0 +1,1769 @@
+postcards from the bleeding edge
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+postcards from the bleeding edge
+
+sunday, july 21, 2024
+ 
+
+new song: log off now
+log off now - mostly to the tune of buffalo springfield's "for what it's worth". 
+
+i've got a couple ever evolving versions on youtube, i welcome new lyrics. ironically, one of my first listeners thought the manifesto i was referring to was the unabomber's , but i was actually referring to marc andressen's tech-optimist manifesto. both are worth reading and thinking about. in the interim, well... i'm no fan of survailence capitalism. 
+
+i am posting this in the light of all the sorry events this past week.
+
+(verse)
+e a
+there's something happening here
+what it is is exactly clear
+there's a man with a manifesto there
+i'm telling you you got to beware
+
+(chorus)
+e d a c
+
+stop! baby, logoff now, get outside and get on down...
+
+(verse)
+
+the ai's hear every tweet
+and they know you are what you eat
+and your kindle logs every page
+i turned off mine, turned to the "days of rage"
+
+(chorus)
+stop! baby, log off now get outside and get on down...
+
+and signal knows who you call (ooh, oooh, ohh)
+and they say they don't hear nothing at all (ooh, ooh, ooh)
+but zoom is a bit more crass (ooh, ooh ooh)
+oh yea we spy, but only on the lower class
+
+stop! baby, install galene, run your code on your own machine
+
+paranoia strikes deep
+into your arms it will creep
+and sometimes i think i made a new friend
+and she turns out, to be, an l,l,m!
+
+outro
+
+stop baby logoff now, get outside and get on ...
+
+stop baby hug someone, all that world can be undone
+
+stop baby logoff now, get outside and get on down
+
+just stop!
+
+[pause]
+
+oh, dear, chatgpt? won't you rewrite this song for me?
+
+
+
+i would like to explain a few of the references. in terms of "getting outside, and getting down", i mean just that.
+just get some sun, meet someone. 
+
+i'd like more people to be turning their phones off all weekend, ceebrating life, and reading books. i referenced "days of rage", which was the ultimate 3-way schism of a formerly peaceful movement. david bowie's song "cygnette committee" has been on my mind a lot.
+
+i think the rest of the song explains itself.  
+   
+   ¶ 10:28 am 0 comments  
+
+sunday, april 05, 2020
+ 
+
+sharing your home network better in a time of covid-19 isolation
+
+advisories from the fcc and elsewhere are encouraging folk to "schedule their time", to "stop using bandwidth hogging applications", and so on, when the root cause of why so many of our home and small business networks share badly is a problem called "bufferbloat". i've been working on solving this problem, worldwide, for a decade now, and while many solutions are now available, very few are configured properly, but when configured properly, you really, really can, do multiple things with multiple people with your home network at the same time.
+
+if you have having issues sharing your network at home with your family, particularly with videoconferencing running simultaneously with anything else, try running a dslreports.com test, and note the bufferbloat grade. see also the worldwide report of the bufferbloat problem they provide, as in an ideal world, no uplink would have more than 30ms of persistent buffering. overbuffered uplinks contribute to the lag and quality of your videoconference, in particular, and any competing traffic can mess it up. 
+
+a metric ton of home routers today have a "qos" or "sqm" (smart queue management) option. if you take a few minutes out to configure it at slightly below your advertised bandwidth settings for up and down from your isp, the overall sharing behavior of your network will probably get much better. if your router doesn't have modern queue management as an option, get one that does. or, reflash an existing router with something more modern, and secure, like openwrt, dd-wrt, etc. (but certainly don't risk your main router doing this for the first time!). all the most bleeding edge code for fixing isp bufferbloat (cake) and wifi (fq_codel) are in these third party firmwares. there are thousands of routers supported by these third party firmwares, and the odds are good you might have one in a junk box somewhere. you can build a pretty good router out of an old x86 box as well, and layer openwrt, ipfire, pfsense or dozens of other firewall distros on top of it.
+
+docsis 3.1 modems have "pie", but it's not universally turned on, but get one if you can. ask your cable provider which ones have pie enabled.
+
+off the shelf, many leading wifi brands nowadays also have some form of sqm, of particular note are evenroute, eero, and ubnt's edgerouter series. most of the time, if your isp bandwidth is below 100mbit you have a major bufferbloat problem there. faster than that, it shifts to the wifi, for which only a few (google wifi, eero) have fixes (outside of the more bleeding edge firmwares like openwrt, which have had them for a long time)
+
+pfsense has an easy to configure fq_codel option (the underlying algorithm for many sqm implementations). preseem is selling a wisp solution, also
+
+we've given a lot of talks, and written a lot of stuff about the bufferbloat problem, (which ideally would be solved by isps supplying correctly configured hardware, in the long run). you'll find more info at www.bufferbloat.net , wikipedia, and by scouring the web, sites like reddit, and the outputs of the ietf aqm working group. perhaps the most comprehensive recent article was by jim gettys, where he put out a call to action that too few have heard.
+
+you can make your network better at every bottleneck point by applying modern sqm techniqueues. we generally don't need "more bandwidth", but better bandwidth.
+
+
+ps:this past week, i've dedicated some time to making the ath10k drivers vastly better in linux, finishing up some work that got cut short due to lack of funding 4 years ago. if you look at plots like that and extrapolate to millions of users in the field with wifi behaving that badly, perhaps you'll want to toss a bit of funding into my patreon for this round... and at least, get sqm running on your existing routers, and cross connects. it would be good if more isp's also told their customers how to go about fixing bufferbloat on their routers, or autoconfigured.
+ 
+   
+   ¶ 11:50 am 0 comments  
+
+thursday, december 26, 2019
+ 
+
+designing for the disconnect
+
+i gave a version of this talk, dramatically cut down in size to the adelaide users group, back in 2008.
+
+i totally forgot i had it in draft here... i lost the accompanying slides (which help a lot) but the video is still in australia. i've been trying to tie it all together for year in some format that will make sense. i'm close. perhaps getting this draft out will help me find a way to pull it together. it's important.
+
+[props] – broom,perfume, nokia, cellphone, laptop, goggles, ball, glasses, bluetoothkeyboard
+
+[tools] – access point, laptop,
+
+i'd stopped being homo sapiens and become google sapiens.
+
+i wanted to be here – [slide showing water scene] - to be ableto spend a productive day – getting in some exercise and sun –but still able to work – unattached to the internet.
+
+this is the first chance i've had to give a talk in about a year,i have a lot of slides to get through, so i'm going to take a 5minute break in the middle. this talk is not particularly technicalin the first half, but it does wax and wane through some deeplytechnical matters in the second.
+
+today's talk was actually inspired by last month's talk here,where [author] showed off all sorts of neat web and linux based toolsfor managing the information in your business.
+
+and several times through the talk, he lost his internetconnection. [disconnect slide]
+
+the presentation... and all coherent thought... ceased. itstopped. cold. i'm really glad our mission critical systems – likethe abs brakes in your car, or the gas valve in your stove - are notreliant on a sla from your isp or a genuine advantage guarantee frommicrosoft.
+
+he got back online after a frenzy of clicking, it was high stress,but we've all been there, and we cut him some slack.
+
+that is what the last year has been like for me. i have beenoffline far more often than i have been on... in some places i'vebeen i haven't even had electric power for days at a time. thefundamental point i'm going to be bashing to death today is that youhave to design for the disconnect.
+
+you need to design around the inevitable disconnect. there's a lotof forms that can take, whether accidental or deliberate.
+
+we have a generation growing up now that has almost never beenoffline, and doesn't know how to function without a connection tosomething. a good name for them, like generation x before them, is“millenial”, and there's all sorts of writings on that generationon the web, i'm not going to go into it.
+
+i'm a dinasour. i believe -
+
+having to be connected all the time is a bad thing. that we need to be able to fly without the net.
+
+we are all getting closer and closer ties to services like thecrackberry. the profits of those businesses, and google, and myspace,and youtube, etc, is measured in stickyness, in talk or hang time, inadvertising pages delivered, not by how more effective you are inconducting your daily business. your traversals of their tollboothsis measured in the stock prices and sale prices of the corporationsthat are making you do it. your dependency on them is not muchdifferent than an addict's dependence on his drug dealer.
+
+everybody wants to be building tollbooths. few want to be buildingnew roads.
+
+[internet roads and the speed of transport]
+
+to get from point a to point b, you have to get through someone'sroad, and go through their tollbooth. it might be faster – or anicer trip – to get to point b via point c, but services like thataren't going to tell you about that, because you won't go throughtheir tollbooth then. other services might advertise on your a-bservice, if possible, but no one is going to tell you about thedelightful trail through the mountain that goes past the waterfall,you have to find that for yourself. they'd rather send you throughtheir big, glitzy tollbooth as often as possible.
+
+if you want to go off the map, a gps helps.
+
+portable gps's are wonderful. rental car agencies are renting themout by the truckfull at 25 bucks a day. they save so much time andstress and worry for someone moving around a strange place that theyare worth every penny, but they have limitations. outsourcing allyour thinking to them is not always a good idea.
+
+i got a gps once that decided that the best way to get where i wasgoing... was right through newark, nj's ghetto at 1 oclock in themorning. i was so focused on the turn by turn directions on that tripwas – that i – almost – didn't notice the prostitutes slouchingin the doorways or the three dudes crouching around a burningtrashcan. i did notice the hulking guy that came up to my car windowand tried to sell me cocaine, but the light changed and i sped awaybefore i could be tempted.
+
+those rental gps costs add up quickly. inside of a few weeks oftravelling around you can pay for one of your own. i was travelling alot so i bought one. it didn't work in new zealand. but it works justfine here in oz.
+
+actually, spending a day figuring out the public transport system,involves even lower costs and less stress, you can outsource thedriving to a cab driver when needed, and read a newspaper, and havingthe gps along, even when walking, means you are generally lost onlyfor a few minutes and meters at a time.
+
+but - what do you do when you are in the middle of a strangewilderness and the batteries to your gps give out? [next slide]
+
+tip for the millenials: if you are in the northern hemisphere, thetopmost star in the little dipper is polaris, the north star. if youare facing that way, east is to your right, west is to your left, andsouth is behind you.
+
+[next slide] if you're in southern hemisphere, the closestequivalent is the bottom star on the southern cross, which is here. ithink. i haven't got lost enough down here long enough to have to trythis one out.
+
+none of these alternatives is a good as a simple compass, whichrequires no batteries, works in darkness and rain, and can be madevery small... not that i've ever seen a cell phone with one. it'srare i see a car with one. i have seen a pocketknife with one –that even had mp3 capability.
+
+now there's a lot of people that think that the distance betweentwo points is measured by the number of highways and subway exitsbetween them. [new slide] this is a picture of ping times between allthe points on the internet taken a few years ago by caida.org. ittakes about 1/3 of a second, max, to get anywhere on the internetthat's up. pretty neat – all this data that is out there...
+
+i've had this happen three times now. i'll have a kid over for aday, and to distract them i'll put them in front of one of mycomputers, a laptop, an olpc, something... and the kid will ask me:can i get on the internet with your computer? why? i want to playtetris. [bring up tetris running locally]. no joke – i'll bring itup here, on my machine, and they are amazed... the idea thateverything interesting exists – out there – not here – is oneof the things i'm trying to combat.
+
+it's not true that in order to be productive and functional, youhave to be online, all the time. everything that's good about yourcomputer can exist on it.
+
+disorganizer
+
+back in the 90s there was a brief trend towards the personalorganizer.
+
+there's a <ahref=http://www.youtube.com/watch?v=6bctc8e2-6u>famous palm pilotad</a>. <a href=palm.mpg>local copy</a> there's twopeople, in different trains, that spot each other - it's love atfirst sight, but they are in two different trains! as their trainspull away, in different directions, in desperation they aim theirpalm pilots at each other, with their contact information, andpresumably ring each other up, and live happily ever after.
+
+i can't do that with these. [point to laptop, nokia, cell] youcan't do that with anything being made today. my physical presencehas shrunk to my physical presence, and that's it. i've had to goback to exchanging business cards and bothering to type them up wheni can.
+
+look, i've got my laptop up on the net here, it's got all mystuff, including this presentation, up at 54mbit, on this address. ifyou want it, logon while i talk for a while and snag yourself a copy.[pause on this slide]
+
+back when i had a personal organiser, all my contacts, all myphone numbers, etc, etc, i could function without the net.
+
+cell phones do much of that now, but not enough, and in some ways,too much.
+
+i was in boston last year, and saw that richard stallman was intown. the gpl has had something of a large influence on my life, so irung him up, and asked to take him to dinner. he insisted on callingmy cell phone a “government tracking device”, and we talked moreabout 14 tone music and art than anything else. some of that musicwas incredible! i love listening to the music brilliant minds listento, to get people like that to play dj for me. but the phrase“government tracking device” stuck with me, and i stoppedcarrying a cell phone a while back, which i hope makes richardhappier. i kind of like not spending 50 bucks a month on it – eversince i got off the regular phone network and switched to sip andskype, my telephony cost has dropped below a fifteen dollars a month,fourteen bucks of which is spent on keeping a regular phone number.if you were to get off the regular phone system and adopt a freeservice like those, my costs would drop to zero, as would yours.
+
+my disconnect from the cell phone network makes my millenialfriends crazy. hi greg.
+
+there is one cellphone out there for every two humans on theplanet, they have far more penetration than the desktop computer everhad, or will have, and they are mostly locked down, fixed functiondevices that could be amazingly useful as an organizer, web tool, andbrain enhancer if only you could get code onto them without having topass through some vendor's tollbooth. easily.
+
+google's android looks like a good start. i'd still prefer a phonethat wasn't a government tracking device, though – but that's theprice of centralization, bandwidth monopolies, and hugeinfrastructure buildouts, i'm not going to rant about that today.
+
+there's one thing that drives me absolutely insane aboutcellphones. voicemail. despite the fact that you have a perfectlyusable data connection on your phone – voicemail requires that youmake a call to a system – to listen, respond, or delete it – itrequires that you be online, and in range. if you are on a fuzzyconnection, tough, you have to listen through it.
+
+voicemail is data. there's enough storage on today's cellphones tostore thousands of voicemails, have the message get transmitted toyou reliably in the background whenever you have a good connect, andlet you listen to it – and even reply – offline.
+
+i transfer my voip voicemail to email – which is great – butconvincing the average carrier to route missed calls to my voicemailsystem is an exercise in frustration.
+
+disconnect
+
+we used to build lans so we could share files. i go to internetcafe's and hotels nowadays only to find that their wireless accesspoints have got local access turned off, so two machines in the sameroom can't talk to each other. now, they do this because it stopsworms dead, but it also means that, for example, i can't play a gamewith someone in the same room without routing the packets over theinternet and back. nor can i connect my 3 wireless devices togetherto sync them up. my computers run linux, which has no issues withworms...
+
+lots of stuff that used to just work between two computers on thesame lan has stopped working... it makes me feel – disconnected –why should all our traffic have to go out to a server located intimbuktu and back because we are afraid to share files with eachother, directly?
+
+[hold up nokia] this is a nokia 810. it's got wireless. i love it– but it doesn't – by default – come with any file sharingsoftware. i'd love it if i could drag and drop files over to it. filesharing used to be what networks were for, now people are debatingabout the legality of it.
+
+one time i was sitting in the san francisco airport, fiddling withthis thing, feeling really disconnected, trying to get online, to getthrough another internet tollbooth, tediously filling out yet anothercredit card form – 10 minutes to fill it out so i could get online,for 2 hours of access – bored off my nut – lonely - and all of asudden a message popped up on my screen – somebody within 30 feetof me, was offering me an mp3 to listen to!! over bluetooth!? cool. idownloaded the file. the song sucked. but it was the thought thatcounted.
+
+somebody still wanted to share...
+
+history
+
+back in the early 90s – and i've been on the net for far longerthan that - i had a very different vision for what the internet wouldbe like today. i thought the net would be an extension of your homeinto cyberspace. your files, your devices, would all be reachablefrom anywhere on the net that had authorized access, that we'd do allthe authorizations with digitally encrypted certificates – neverhave to type in more than one password a day - and that we'd pay forit all with micro-transactions.
+
+i thought that email would come right into your server –directly to your house - just like postal mail – and it would havethe same protections and security of regular mail – in fact –more – it would be encrypted and private all the way up to youreyeballs.
+
+i thought everybody would have a static ip address, and be able toroute back to their homes so they could turn on or off the heat.
+
+i thought that your car would download your favorite music, newsreports, and reminders. your fridge would tell your car that youneeded milk, your mp3 player would flush itself out to your serversand reload itself with new stuff – and that it would all beentirely under your control and easy... your cat would be able to getitself in and out of the house... that that 1/3 of a second latencyon everything i keep mentioning wouldn't exist...
+
+for the record. inever thought we'd be flying biplanes to work. [pic frommetropolis]
+
+it didn't work out that way... in the case of email...
+
+a few bad guys have buggered it up for all of us. to get a singlepiece of email accepted onto my server requires something like 5 httprequests to the various realtime blackhole mechanisms, and seperateruns through a spam filter, and an antivirus filter. and before i canaccept an email from someone for the first time, my server greyliststhat user, delaying that first delivery by 4 hours or so.
+
+all this happens even i'm sending email to the guy the nextcubicle over. and now people are outsourcing their email to gmail.i'm incapable of doing that – my mail is my mail and i don't wantbig brother having his shot at it first.
+
+it's no wonder to me that various im schemes have virtuallyreplaced email in some environments. email is too much hassle, it'stoo slow, and you have to work at it...
+
+i never imagined that vendors would arbitrarily split upload anddownload bandwidth – oh i knew the cable guys basically only wantedenough backchannel bandwidth for a buy button. i didn't think thatthe isps would rate limit transfers within their own country - i didthink a tiered pricing scheme would develop, where you'd pay more forinternational data than national data – those undersea cables areexpensive! and for data off your net than on it – much like how thecell phone biz evolved – but a general bandwidth limitation? neverthunk it.
+
+the incentives are perverse. there's no percentage – aside fromaccess speed – to locate services inside your own country – whenyou can buy hosting in the states for tons less money. unless you areaware of the costs when the undersea cable is cut or those servers godown... there's this built in assumption that servers must existbecause clients must exist, and i'd prefer a world where everybody ismore equal.
+
+sharecroppers by the information superhighway. we get ourinformation from the company store, we accept company scrip, we getpaid in devalued dollars, and we all voted in the first icannelection only to be disenfranchised. i really get grumpy about notbeing able to get a dedicated ip address, and that's why i tend to behot on ipv6.
+
+this isn't so much a disconnect as a purposeful slowing down...that 1/3 of a second is too long...
+
+overclientization = slavery
+
+i've worked primarily on embedded linux applications for the last8 years, and ... [talk about the gap between what you could do thenand what you can do now]
+
+now the consumer mentality is leaking over into linux – ubuntu,which i otherwise like – doesn't install the manual pages ordocumentation for many applications – there's no way – it doesn'tinstall “server” applications like a webserver or windowsfilesharing by default, nor a development system, the search engine,trackerd.
+
+olpc
+
+now when i went to nicaragua for 6 months last year, i didn't havethe ideas i'm sharing today, i was all set, and hyped, to work on theone laptop per child project.
+
+[random fill]
+
+and i got utterly stopped by this: [new slide]
+
+i'm a product of the post literate internet society. i was fat,out of shape, tired, and i really admired the fun that they werehaving with a ball that cost maybe 8 bucks, split 20 ways.
+
+what right did i have to take their ball away, and replace it withsomething else?
+
+i sat on the beach and thought about it a while, and observed thepopulace, how they interacted, what they needed. [ooda slide]
+
+cell phones – ubiquitous. roads – universally terrible.connectivity – bad. electricity – unreliable. garbage –everywhere. food – always fresh. surfing... excellent. people...happy....
+
+[complete riff thats on the video and not written down yet]
+
+memory
+
+how do we remember things? the scent, the place, the time, thewords ...
+
+input vs output
+
+it's like a 1000x1 ratio for me, of input to output.
+
+observe, orient, decide, take action - <ahref=http://en.wikipedia.org/wiki/john_boyd_(military_strategist)>oodaloop</a>
+
+the folk over at olpc, compressed the heck out of wikipedia, a fewmonths ago. it fit into 59gb, heavily compressed – 15 of these orhalf of one of these. [lift 2 ½ inch hard disk]
+
+what doc searls calls the attention economy would collapse, ifnobody was producing. production is more import. you pay forattention, you collect for creation. how do you create stuff?
+
+i have a couple answers:
+
+ipv6 <ahref=http://www.caida.org/analysis/geopolitical/bgp2country/ipv6.xml>courtesyof caida.org</a>
+
+there's a law on the books making it illegal to share.... theres'squite a few people that have forgotten everything they learned inkindergarden, especially over at the riaa.
+
+[back to internet ping times]
+
+that by pushing more and more stuff out into the nether regions ofthe net, we've increased the duration of the quantum between our ownneurons - click on a web page – kerchunk! get it back – sendemail – kerchunk!
+
+executable content was hard. java tried to solve it and thendissolved into a steaming pile of version numbers, specifications,and revisions, just like everything else. css is hard. there'sactually a thing in the spec for handhelds. it bugs me nobody but lwnuses it.
+
+that the only way to speed this up, is to move the data closer tome. you'll note that while
+
+they are using it to build really, really big caches
+
+what i did instead was setup my laptop to only accept email overipv6 , and so far it hasn't been a problem.
+
+d being a dinosaur.
+
+[point at laptop] this is my big external brain. [hold handheld]this is my personal brain [point to head]
+
+i started to realize, was that i'd finally got was enough distancefrom the problems, sitting on that beach, that what i was doing wasactually back on the bleeding edge - i was starting to buildintelligent agents for myself, fragmenting parts of my personality tolive, full time on the internet, where they needed to be, and keepingthe parts that needed to be off it, off it.
+
+relentless tilting towards the center is in itself, that in orderto make further progress the pendulum needs to swing back
+
+it doesn't need to be this hard. we can build autonomy back intothe internet. if we so choose.
+
+you don't have to suffer a stroke every time you disconnect fromthe internet – you can take it with you... you can functionautonomously
+
+the beauty of this talk – to this audience – is that i can gettechnical. i could go on and on to make my point to a more generalaudience, and perhaps will – but that's your job. i have a lot oftechnical stuff i skipped
+
+autonomous
+
+and not have to pay rent or royalty every time i have a newthought.
+
+i don't want anyone – government or corporation or cracker –to hack my brain.
+
+affluenza and autism
+
+a couple months back my cousin and i went to buy some dvds. hepicked up 4, but the store where we were at, had a 2 for 1 special.my cousin then spent the next 20 minutes looking for two more disksso he could get one of those for half price. i know i'm weird. i'dhave put one back. dinner was getting cold.
+
+we as a society are going autistic. maybe we're retreating intosecond life because this life isn't worth living?! i know peopleunable to have an orgasm without two laptops and a cellphone present.
+
+fragrance-free zones. there was a library back in felton, ca,where i used to live, that had declared itself a fragrance free zone– and right outside the door – a lovely hydrangea, and a bed ofroses. i kept wondering when they would pull those out by the rootsand replace them with sterile concrete. what's next, banning flowersbecause they smell? or food because it's too spicy? there's one thingi've really liked about all the australians i've met this month.every last one of 'em supports more immigration – why? becauseevery culture brings in a new cuisine. i keep thinking that americawould be far more supportive of immigration if it meant less mexicanfood...
+
+a trained nose can do tens of thousands more
+
+[open a bottle of perfume]
+
+other senses – smell, taste, touch – pain - are important formemory formation, and none of our internet society is presentingthose sensations to those senses. when we encounter them in the realworld, we recoil...
+
+saving energy
+
+[david rowe cranking the olpc]
+
+i'd love it, if i could have a bicycle wheel tied to a generatorunder my desk.
+
+so if i had to pedal faster to make my drain on the earth moreapparent, i would. if i'd had to crack virtual 30kph just to get thedarn cpu to kick into overdrive and finish my compile... - i used tocompile 9 million lines of code on a regular basis – i'd be buffnow.
+
+im
+
+you'll note that
+
+it's great – it's spam free -
+
+but you can't send a message, unless you are online...
+
+[end of riff]
+
+first half close
+
+do we really want to create a world where the sole musclesdeveloped in the human species are the mind, eyes, and a massivelyoverdeveloped clicking finger?
+
+i'm exaggerating the problems to make a point. and in the winterof my disconnect, i found a few ways to make it better, i'm workingon some more.
+
+i've spent most of the last 8 years working in the embedded space,mostly on devices that sit between you and the internet – routers,voip phones, pbxes, caches, filters...
+
+
+openwrt and nslug are showing the wayfor the devices in the middle... what we have inbetween us andeverything 1/3 of a second out there is a relic of when we didn'thave enough local storage.
+
+
+
+
+
+there are some great trends that aremaking room now for all kinds of neat new services on your firewall,on the router, on the cable modem that we didn't have room forbefore. there's room on your laptop. there's room on your handheld.
+
+
+
+
+these trends have made it possible to move a whole lot of formerlyserver code into the edge of your network or onto your own computer.
+
+and i'll get to that, after the break. thanks.
+
+second half
+
+some of this, i know, is a bit extreme.
+
+i keep going back to this slide:
+
+the only way to break the speed of internet light is to move therelevant data closer to you. and keep it there. and run serviceslocally that do on a small scale what the services out there do onthe large.
+
+fixing search
+
+probably the biggest thing i had to do to get offline on a moreregular basis was find a way to dramatically reduce the amount ofinternet searching i had to do to get my job done. i'm involved in alot of really complex stuff, and every twenty minutes, i had to askgoogle, i had to ask google, i had to ask google, i had to askgoogle... usually finding what i was looking for in the first 4-5entries... i was productive, but i had to be online all the time.
+
+i solved that. using the google api and python toolkit you canwrite a script that not only googles from the command line, but alsomirrors the contents of whatever sites it suggests, so with onecommand you
+
+goog for whatever. it's like having a live human researchassistant doing all the heavy lifting for you. when the data getsback to me, it's indexed by my own local search engine – and bestof all, it's permanently on my machine now until i chose to deleteit. let me show you that. my blog is all on here, so...
+
+sometimes i just say screw it, and mirror the whole websiteinvolved, at one point i had mirrors of ubuntu, and linux-faqs.orgjust lying around. i wish i could mirror all of wikipedia, but that'sa lot.
+
+i fixed search. i've moved to where 95% of the data i need most ofthe time is in a cache nearby, up from nearly 0%. i'm happy aboutthat.
+
+the code is actually, at present, pathetically simple and worksreally, really good. it's as fast as contacting google directly... ican't run it now but it's only a page of python, and the cgi versionis not that much longer.
+
+fixing irc
+
+
+most open source developers don't useservices like msn, etc – they all congregate on irc.freenode.org.irc has one major advantage over other chat servers - peoplecongregate in groups dedicated to their projects – and one majorproblem – it doesn't do reliable delivery of the messages youmissed while offline. irc is probably the most valuable tool to doingproductive development available today – it's an incredible brainamplifier. somewhere, in the thousand + minds i communicate withevery day, is someone with the domain knowledge to solve nearly anyproblem i face. most – nearly all - of the design discussion andprogramming work that i'm involved in is discussed exclusively onirc. and as i said if you aren't on irc – all the time – you aregoing to miss something important.
+
+
+so on my permanent server -toutatis.isc.org i run a bot – supybot – with a name of dtahtbot- that stays up all the time and logs all the conversations that takeplace on the irc channels i care about -
+
+
+#asterisk #ardour #freeswitch #astfin#emacs #gtk #iforgetwhatelse
+
+
+and whenever i get online, i rsync mylaptop or handheld with those channel logs, after a little filtering.these are character files, very short, it only takes a couple ofseconds to sync up with a day's conversations, and another splitsecond for them to be indexed and available to my local searchengine, so i can keep up or help out.
+
+going back to search (probably skip)
+
+there's still a bigger, unsolved problem with search. with google– you always get what you are looking for – even if it's not whatyou need.
+
+we have a lot of web tools for positive reinforcement of how youalready think – the virtual equivalent of yes-men - and not a wholeheck of a lot of tools for challenging how you think.
+
+i've fantasied about this a lot – some sort of anti-oogle – aservice that would give you not what you were looking for but wasappropriate - a white supremacist would be forced to read the worksof martin luther king, a socialist, key market oriented facts, aaustrian economist, some actual history about the development ofcentral america, and so on. it might challenge a few minds.
+
+recently i went through a 4 month period of infatuation withpolitics. although i'd started with an opinion, i forced myself toread sites from all points of view – places like redstate,dailycos, nolanchart, and many others. in the end i'd learned a lot,and changed a few of my own opinions. it was astonishing, though, howvirulent the virtual tribes of the left, right, center, and otherorientations could be, and how intolerant they were of other pointsof view.
+
+if i had one wish for people using the internet today, it would bethat more people would consciously go looking for information andpeople that challenge their point of view, and to try to sort it out.in the long run, it would be a better world.
+
+[someone on the internet is wrong graphic]
+
+if i had a second wish, it would be that babelfish.altavista.comcould translate arabic and hebrew. but all this is offtopic. i notethat babelfish was really popular in nicaragua, though. with thegirls, especially.
+
+filtering out ads from the web
+
+there's all kinds of things out there that can cut down on thekerchunk, that 1/3 second of delay between thoughts that you havewhen surfing the web.
+
+whenever i get to feeling even slightly kind towards advertisingcompanies, i think of the drug rep that slammed down a tissue box –with her company's logo and drug of the day emblazoned all sidesright in the middle of my doc's chess set. drug reps – blond, blueeyed girls – 22, 23 – fresh out of college after studyingvolleyball for four years - flounce into doctors offices across theland bearing gifts of this sort – and encourage physicians toprescribe drugs of dubious value and extreme cost... and gifts likethat really screw with human psychology. it's a gift! you can't moveit! it took us three weeks to recognize the problem before i removedthat glaring tissue box for him so we could resume our game....
+
+and thus i have no pity on the advertisers, and use firefoxadblock plus and privoxy to filter most of their stuff out before ieven see it.
+
+back before i had the filters i do i kept noticing that everylinux related article seemed to have a large flash ad with a sexygirl pimping microsoft in it. is this still going on? this sort ofcognitive dissonance is what normal people have to deal with. idon't.
+
+stripping out ads has huge benefits. ads take up, i don't know,90% of the bandwidth on a typical web page. stripping out the adsmakes up for all the extra mirroring i do to pull down the top 6results from google on every search.
+
+firefox adblock plus and privoxy – install them, you'll love'em. they make browsing the web on this thing a tolerable experience.squid helps cut your bandwidth requirements too, if you have enoughusers.
+
+
+yea, i collectsearchable data like some people collect mp3s – but just the goodstuff...
+
+
+
+
+time and space shifting
+
+i don't have any mp3s except of my own songs, what i do is rip astream using “streamripper” from several of the internet radiostations i like, at night, so i can listen to 14 hours of them in themorning on whatever device i want. this is time and space shifting ofthe purest sort and i sure hope it stays legal - i don't feel anycompulsion to horde the music i get, it's all good, and it all getsdeleted after a couple days.
+
+grabbag solutions (client side)
+
+i run my own dns. i'm old fashioned and tend to run my own copy ofbind. i don't like it when someone elses's dns starts returningresults filled with malware. run a caching server, on your laptop, atleast, you'll cut a tenth of a millisecond off most queries. i run myown database server, too.
+
+skip from here
+
+i run my own name servers with split dns. why? well, statisticsare showing that an increasing number of nameservers are corrupt –delivering ad or malware pages – and it's about 1/30thof a second faster than relying on an external nameserver, and alsoguaruntees when i'm running ipv6 that ipv6 actually works. also –and most importantly – with split dns - i can configurepbx.hm.taht.net to resolve to my internal voip server when at home –and the voip server in the co-lo when on the road – when at homeinternal calls stay internal, never touch the external network –and i never have to change the configurations on my laptop andhandheld. i know it's hard to do the first time, but it's worth it.
+
+skip - in the embedded space, dnsmasq is actually really easy toconfigure, and you can at least.
+
+i run my own database client and server? why? most databases areclient/server – they were designed to operate that way - i likebeing able to type as fast as possible, keep my code on my ownmachine, and just let the connection handle the latency – mostpeople are sufficiently paranoid that i have to connect to thedatabase through a couple ssh tunnels, but it works really good.
+
+i run my own web server...
+
+i run my own pbx. i don't do this for any particular reason, atthe moment – besides the fact i'm working on some code - doesanybody here have a connection to the internet? well, if you – overthere – were willing to share that connection, and offered it up asa viable route, i could get a phone call right now - and since i'm inthe middle of a talk, i'd ignore it - i could let it drop right tovoicemail on my machine and get mailed to me.
+
+to here
+
+the total effect of running all this extra stuff on my laptop isabout 100mb. i've 4gb of ram, i can spare that, for the benefits.
+
+solutions (server side)
+
+avoid dynamitism wherever possible. mask latency with caching.
+
+grabbag:
+
+do set expiry times for as many static files as possible. makesure your clients follow the caching rules.
+
+this file – the one that describes the format of a htmldocument, is in almost every modern web page. it hasn't changed inyears, it's expiry time is set to a week – and yet w3.org isoverwhelmed by 130 million requests a day for it. w3.org is beggingpeople to cache their own copies, and implementing things liketarpitting to slow the abusers down.
+
+i would argue that if you have a website, you should audit it forproper caching, fix it up, and you'll make your user experiencebetter. in particular, most images, javascript and css files arestatic, and almost never change.
+
+example – i was running an rt (request tracker) server at aco-location facility a while back, and it wasn't properly expiringstatic data. to move from one web page to the next, from next door,it was taking 3 seconds and 14 http requests. from overseas, it wastaking 5 seconds. the server was getting pretty overloaded. afterlooking at the data, and convincing apache to mark it properly, i gotit down to 2 http requests and .3 seconds to switch between pages,and i saved almost 100k per page view, saving everybody on time andbandwidth, and i saved them a new server. a day spent doing that cuta lot of people's stress levels down a lot. do it... you can look atit in firefox or with a sniffer or with the head command...
+
+compression and timeshifting 
+
+my dad can get through an entire american style football game,which is 5 hours long in the real world using his tivo's remotecontrol, in 2 hours and twenty minutes flat. he fast forwards –impeccably – from the tackle on one play all the way through thehuddle right into the snap. commercials. hah. he never sees them. mydad's got muscles on his thumb to rival chuck norris's pectorals.
+
+this sort of 2 to 1 compression of every day experience seemshowever to be about the best we can do for football. there areprobably other games that would compress down even better. cricketfor example.
+
+the rest of him is going to hell, but he's got muscles on thatthumb. in some ways this gives me hope, if we can play back life at 2times normal speed, we can get more living in... spend more timedoing stuff rather than consuming it.
+
+modern compression goes both ways though. i watch two minutes ofwhat passes for tv news today, and then spend another 58 minutesanalyzing what i just saw, trying to sort out what the window on thebottom was saying as it scrolled in different directions, with whatthe talking head was saying, what he or she was implying by hisfacial responses, and trying to get a grip on just how expert theexpert on the screen was... i try not to watch the news.
+
+verbal notetaking
+
+my laptop, two years ago, half this speed, could function as awireless access point. my more modern one, twice as fast, with twiceas much storage – can't. this is progress? i can't even convincead-hoc mode to work on it. the special usb cable that the nokia usesto connect? lost it in new zealand. this special micro-sd to sdadaptor? i keep misplacing the teeny little thing in some compartmentof my luggage. my laptop's bluetooth dongle? god knows where thatwent. so i have these two great devices separated by an air gap of afew centimeters – two devices capable of transmitting 54mbit asecond, but not directly to each other.... right now the only way ireliably have to get data from here to here is copy it to this ramcard, using these 2 adapters, to wedge it back into this with another2.
+
+and yet for all my bitching, the nokia is still the closest thingto an auxiliary brain that i've ever had...
+
+for the first time since the invention of the laptop, i can leavethe laptop behind - i can walk around without a heavy backpack. forwhat i've saved in chiropractic bills alone, the nokia's paid foritself. and it could get so much better, the devkit for it is great,i can cross compile any, absolutely anything, for it, in a matter ofseconds, and then transfer it with those 5 adaptors....
+
+here's a device i like. it's an olympus ws-110. the standard aaabattery lasts a really long time. it lasts a lot longer when iactually remember to press the hold button before i put it in mypocket, otherwise i end up recording a lot of random stuff. [toiletflushing].
+
+i'll spend an hour wandering around my house, saying things like –call the plumber. pay the mortgage. get flowers for my girlfriend –and then i can play it back, later at something like 30 to 1compression so i can plan out my day in the car or when i get a sparemoment.
+
+but, even with that level of compression, it's incapable ofrecognizing what's important to my internal monologue.
+
+[recorder says - you idiot. get flowers for your girlfriend!]
+
+
+or reminding me to get new batteriesfor it the next time i'm at the store, because a gps isn't integratedinto it and there's no such thing as speaker independent voicerecognition yet.
+
+
+
+
+
+and, unlike my two otherrecorders, it's standard. you plug it into your usb port, and itlooks just like a hard disk. [ try to plug ws-110 into nokia, fail ]
+
+
+
+
+the ws-110 timestamps everything, and the nokia has a gps builtin, that can keep a log of where i've been and when... if i could tiethe two together i could have an audiological record of everything iwas thinking, where i thought it, and when. i'd be able to point toan otherwise random filename and bring up that amazing conversation ihad with david while we were in that restaurant... or the restaurantand get the same – upload it all to google maps - but in order toconnect it from here to here, i need to build a custom usb otgadaptor, and carry it around. usb did not have to be designed as amaster/slave connector, but it was – and now we have to cope withkluges like that.
+
+
+my point is that this is one of thenegative results of designing for disconnection, on purpose, becauseit generates profits on all the accessories for the makers.
+
+
+
+
+wap
+
+in my mind, owning a wireless access point is no different thanowning a truck. as soon as you buy a truck, anywhere, you become theinstant buddy of everybody that needs to move something. i don't runsecurity on my access point, neither does bruce shneir -
+
+we don't because their aren't sufficiently transparent servicesrunning on most access points to let you divvy up the guest trafficfrom your own, and that's a shame.
+
+ending
+
+back in january at some festival or another i was at a routinetraffic stop in new zealand. the cop shoved a breathalyzer into myface and said – “say your name into the machine!”. i said:
+
+“rip van winkle”
+
+the cop looked at his machine and said: “you can move on”.
+
+taking this past year off has been kind of good. i've seen a lotmore of the world than i've ever seen before, and met more people ina year than i've met in my whole life. also...
+
+a lot of software projects i worked on and was frustrated at –things like lv2, ardour, rosegarden, jack – have all moved along ata nice clip and are shaping up handsomely, without my help. it wasnice to know – this guy here actually has working floating point –that i can slow down.
+
+i didn't think that after a year off that i'd have difficultyfinding work. i am. maybe it's because of this crusade i'm on aboutbypassing tollbooths, eliminating billboards, and battering downcitadels, and my focus on building roads, and saving bandwidth,creating bridges and new ways to operate autonomously, and thingslike that.
+
+a truly western life is hard on me, some things, like fast food,getting on the internet, etc are all too easy to do, and kind of hardon me physically. i'd rather live near the ocean and have theperiodic power failures remind me that there are other things in lifeworth doing. so i'm going back soon, or maybe somewhere else, likechina, to see what else i can learn, or what else i can create...
+
+
+[last side]
+
+
+lastly, i just want to point out that web surfing is nothing likereal surfing. getting pounded flat by the waves really clears themind... and dropping in on one like this is a real rush.
+
+
+thank you
+
+
+
+
+
+labels: internet 
+   
+   ¶ 9:08 am 0 comments  
+
+ 
+
+email lists going down the memory hole
+
+
+once upon a time, email was my primary application, as well as netnews. it was the primary internet application for everybody! not just me. and thus, for decades now, various folk have attempted to supplant or replace it. few under thirty have ever seen a "real" email client, or used email to effectively manage their workflow.  everywhere i've been lately (portugal, central america) whatsapp dominates....
+
+once upon a time, gmane indexed mailing lists, and in turn, google indexed those. of late, especially since gmane died, core reference material to these ongoing conversations has seemingly vanished from the internet. the mailing list is the refuge of puzzled old farts that wonder where the conversation went.
+
+the main lists i interact on, almost never show up in a google query, despite 9 years of history, discussion, theory and code, about fixing the bufferbloat problem, shared by some of the best in the business. i doubt my lists have seen more than 3 new subscribers a year since 2015.
+
+hell, recently, the internet history mailing list dropped off the net... the https  slash slash www.postel.org/internet-history/index.html link is no longer "secure" - and i'm afraid to put a direct link to it in this post because then i might get downgraded by a search engine somewhere... 
+
+
+
+should i mourn the death of email and the mailing list? yes! can i do anything to save them? i don't know. just because i don't like handing control of the conversation to disquis or to facebook, etc, doesn't mean anything. i do know that since g+ died, a lot of my regular "web" correspondents "vanished" into diaspora, and maybe i should check out if the grass is greener there.
+
+
+
+
+ 
+   
+   ¶ 8:57 am 0 comments  
+
+ 
+
+instituting saner, professional source code management for embedded devices
+
+http://www.taht.net/~d/fcc_saner_software_practices.pdf
+
+we advocate: that rather than denying users the ability to make any changes to the router
+whatsoever, router vendors be required to open access to their code (especially code that controls rf
+parameters) to describe and document the safe operating bounds for the software defined radios within
+the wi­fi router.
+in this alternative approach, the fcc could mandate that:
+
+1. any vendor of sdr, wireless, or wi­fi radio must make public the full and maintained source
+code for the device driver and radio firmware in order to maintain fcc compliance. the source
+code should be in a buildable, change controlled source code repository on the internet,
+available for review and improvement by all.
+
+2. the vendor must assure that secure update of firmware be working at shipment, and that update
+streams be under ultimate control of the owner of the equipment. problems with compliance can
+then be fixed going forward by the person legally responsible for the router being in
+compliance.
+
+3. the vendor must supply a continuous stream of source and binary updates that must respond to
+regulatory transgressions and common vulnerability and exposure reports (cves) within 45
+days of disclosure, for the warranted lifetime of the product,
+or until five years after the last customer shipment, whichever is longer.
+
+4. failure to comply with these regulations should result in fcc decertification of the existing
+product and, in severe cases, bar new products from that vendor from being considered for
+certification.
+
+5. additionally, we ask the fcc to review and rescind any rules for anything that conflict with
+open source best practices, produce unmaintainable hardware, or cause vendors to believe they
+must only ship undocumented “binary blobs” of compiled code or use lockdown mechanisms
+that forbid user patching. this is an ongoing problem for the internet community committed to
+best practice change control and error correction on safety ­critical systems.
+this path has the following advantages:
+
+● inspectability: ­ ​skilled developers can verify the correctness of software drivers that are now
+hidden in binary “blobs”.
+
+● opportunity for innovation: ­ ​many experiments can be performed to make the network “work
+better” without affecting compliance.
+
+● improved spectrum utilization: ­ ​a number of techniques to improve the use of wi­fi bands
+remain theoretical possibilities. field trials with these proposed algorithms could prove (or
+disprove) their utility, and advance the science of networking.
+
+● fulfillment of legal (gpl) obligations: ­​ allowing router vendors to publish their
+rf­controlling source code in compliance with the license under which they obtained it will
+free them from the legal risk of being forced to cease shipping code for which they no longer
+have a license.
+
+requiring all manufacturers of wi­fi & 5g devices to make their source code publicly available and
+regularly maintained, levels the playing field as no one can behave badly.
+ 
+   
+   ¶ 7:41 am 0 comments  
+
+saturday, november 14, 2015
+ 
+
+wireless and wifi in 2015 - not what i dreamed of
+
+i will go into the battle with the fcc i'm in in more detail later. click here for some details.
+
+as it was, i had a chance to return to the usa (from my university gig in sweden) for a 10 day whirlwind trip up and down the east coast. i took notes on how wireless technologies worked throughout.
+
+neither supposedly international sim card for my cell phone worked anywhere in the us i went.
+
+
+
+
+
+
+
+my ubuntu phone doesn't do tethering without hacking on it, anyway, and i refused to join the app store.
+
+after wandering around a while in la guardia airport i found good enough wifi signal to get online long enough to figure out where i was going.
+
+my hotel in nyc had good wifi, with hotspot. the aes conference did, ultimately have a place i could sit down, finish writing my talk, and upload it via wifi. it was up against a wall, i had to sit on the floor.
+
+the bookshop i had a meeting in had a nasty password that the owner had to read to me 3 times before i got it right.
+
+i sat in penn station, in nyc, with a few open aps within range, and was unable to get an ip address.
+
+i got off the train in princeton junction to find 4 open aps there, from xfinity, etc - which all demanded a login with one of their tv services, with no means to plug in a credit card if you didn't have an account already, which i don't, neither residing in the us (currently) or an owner of a tv
+(for 3 decades).
+
+so, i got in a cab and said "take me to your wifi!".
+
+the cabbie took me to barnes and nobel where after navigating past the web only hotspot interception screen, i happily swapped the email i needed to get picked up by the person i was visiting. i also browsed a few books, but decided it was saner for me to just get stuff for my kindle, except that all 3 of my tablets had broken this year, and i'd left my main kindle in a hotel in slovenia - where i hope someone else is getting an education from it. i see no signs of any pages being turned though...
+
+my lady friend had working wifi, but had to look up the password on a sticky note, stuck in a drawer,to share it. all her kids spent more time on their tablets than talking to me....
+
+the wifi on the train to dc only worked for the last 30 minutes of the trip. i watched my cell phone register with lte provider after another, with still no actual connectivity.
+
+i stayed at the capitol holiday inn in washington dc, where the local dns server failed late in the evening. it was called, but it was still down by the time i had to leave at 10. thank god for 8.8.8.8!
+
+the air and space museum had working wifi with the ubiquitous hotspot interception screen, making me agree to whatever terms and conditions were required to get on the internet from within this museum of technology.
+
+the exhibits were old, and tired, and almost exactly the same as i remembered from my last visit a decade before.
+
+i went to the fcc, while someone shared the guest password, i was too busy talking to be able to get online. i wondered if i could just share my data via a usb stick, but didn't have one that i didn't trust to not have malware on it,  and i sure wasn't going to take one of theirs - so i decided to wait til i got back to the air and space museum to send my followup email.
+
+i sat by spaceship one to do that, wondering if spaceship two would ever fly.
+
+returned to philly. fell asleep on the train. got woken up so suddenly at 30th street station as to forget to grab my laptop on the way out.
+
+
+went onto malvern. esr's cerowrt box was still awesome (hundreds of days  of uptime), but cloudflare had found ways to break the dnssec in that release, and thus i couldn't get to any ietf sites. disabled dnssec... thought about restarting cerowrt in the face of all that adversity... went back to sleep.
+
+went to philly the next day.
+
+outside the comcast hq there were protestors protesting, begging to be hooked up to the internet in their rural locations. the entire square outside the building was roped off in the drizzle and security guards located well outside deeply quizzed me as to my business therein. inside,  screens showed animated fish all across the back wall, with still no wifi to access, and only a very few "approved guests" to admire them. i got to my meeting there and they told me the one truly open ap had a hidden ssid, and what it was, but it did 10-20kb/sec at best, and timed out long before i could get my email.
+
+i had a chance to look over comcast's hardware and test design for their upcoming "buffercontrol" bufferbloat trial. buffercontrol - shown to be fairly ineffective 3+ years and one docsis 3.1 standard ago.
+
+under trial, finally, on the one modem they could make it work on.
+
+i could say more depressing things about it... but i need the business, and i like getting actual field data for stuff we only proved in simulation. perhaps this coming year we'll get a box in the field that does what cerowrt did 3.5 years back and nearly every third party firmware already does.
+
+went afterwards to atlantic city. wifi in the casino worked in the coffee shop, but not the bar. my brother's apple based wifi was awesome - because - he said - his internet service got tons better when he dumped the pos cable modem he was supplied by comcast for an arris - but he was still paying rent on the one he wasn't using because they wouldn't accept the fact he wasn't using it. he'd run wires for everything he could, throughout the house, also.
+
+he showed me some of the cool rf plotting code he'd written but asked me not to tell people about it because he only had time and budget to support users only in his workgroup.
+
+i got on the next plane to florida, where at least my mom's wifi worked, but there were 5 others sharing the channel, evidently, from 6pm onwards, watching netflix in hd. ssh was nearly unusable from anywhere but a few feet away from the ap. mosh worked ok.
+
+the wifi in rsw, 30th street station,  and phl actually did work reasonably well.
+
+amtrak found my laptop in penn station and sent it to 30th street station after a couple futile phone and productive email exchanges. i picked it up between the flight from florida and the next flight to london with about an hour to spare.
+
+having just a phone for half the trip made me realize just how  crippling and damaging to the mind must be to everybody else using the internet, typing on their thumbs. maybe other people's minds work better at much less than the 120wpm i type at.
+
+all the airplanes home had no connectivity, and while i was offline for nearly 24 hours, the fcc put
+out a press release claiming they were not trying to ban openwrt and dd-wrt, and laid out new guidelines that still appear to do so - all but in name -  protecting 50 weather radars at the expense of billions of wifi users.
+
+i still need to read the details. the devil's in the footnotes.
+
+i got back to the university having forgotten my eduroam password. i plugged in a wire, but had to clear the mac address of my new laptop with it.
+
+did a 2 hour discussion on vuc about where to go next, trying not to despair. i got encouraged to do more politics and less technology, for some reason. i think i'd rather do the technology. there's enough people in politics.
+
+and i sat here until 4am in my new apt in sweden, writing up this wireless report... of 15 aps within listening distance, 5 with strong signals, all  are locked down with wpa, with not one open one within range.
+
+
+not being a resident (yet), i can't order dsl service, and even if i could it would need a year long contract for me to get. even if i got one, it would have bufferbloat. i'd go to the office if i could remember the passcode, or back to sleep if i wasn't so jetlagged. the local coffee shop opened at 9. i got here by 12 to have 30+ emails i had to read in my mailbox. i had to download a youtube downloader to download last nights video.
+
+while offline last night i spent some time editing video and listening to music instead of talking to facebook friends that were still awake somewhere in the world. not a bad thing actually....
+
+we are in an age where bob frankston's (and mine) dream of ubiquitous wireless connectivity was eminently possible, and yet, due to poorly implemented technology, fear, greed, stupidity, and regulation, it feels in many ways worse than the wireless world i left behind in 2006, when i left the usa for the first time.
+`
+back then i could just lean up against a building and make a skype call.
+
+how far we'e come! <sarcasm>we used to use networks to share files, now we're down to usb sticks.</sarcasm>
+
+ 
+   
+   ¶ 5:55 am 0 comments  
+
+friday, october 09, 2015
+ 
+
+saving wifi! fixing bufferbloat! fighting the vendors and the fcc!
+
+
+
+i have been working on fixing bufferbloat now, for 5 years. after we came up with the utterly spectacular solution for it, back in may 2012, we only had the "minor" problem of a few billion devices to upgrade to solve, which is taking far longer than i imagined to do, even on cpe.  bufferbloat remains an epidemic across the internet, even at gige!
+
+
+
+after fq_codel was developed, we wrestled with how to go about incorporating a similar algorithm into wifi, and about this time last year, pretty much fully worked out all the theory for it, but it became engineering problem of a scope our small team cannot handle at any reasonable scale - and, worse, our biggest problem became getting enough access into almost-universally locked down wifi and dsl firmware to apply the fixes, and the fcc's rulings last year, and upcoming this year, have made it almost impossible to even start!
+
+so vint cerf and i - and whole bunch of other people you'll find in wikipedia - have drafted a letter to the fcc explaining how they can make for better/faster/safer home routers if they write better regulations, substituting sane, well understood software engineering practices for handling wifi and binary blobs than what exists today. 
+in part, the letter is fueled by our anger at vw cheating on emissions tests, but it is also driven by our fears of continued network insecurity, and our frustration at the speed at which bufferbloat fixes are rolling out to the real world - if we only had access to some more wifi and dsl firmware, we could be done, in weeks! it's only 1300 lines of code!
+
+so... please consider signing our letter to the fcc before the deadline of 2pm est, today. 
+
+the network you save may be your own.
+
+
+ 
+   
+   ¶ 7:43 am 0 comments  
+
+sunday, march 01, 2015
+ 
+
+virgin media - fixing the epidemic of bufferbloat with a little more truth
+
+ update:  after i made very big stink about this here, on g+, and slashdot and multiple mailing lists, i received a private email this morning from virgin media telling me my access to their community forums had been restored. i hope that one piece of fallout from creating this controversy about the terribly slow isp industry progress towards recognising and fixing their bufferbloat, that now a constructive dialog can now ensue. as in the past, and in the future, i will attempt to do my best to help virgin (and the rest of the cable and dsp and fiber isps, and the makers of their chipsets, and cpe) provide better information about how to fix their bufferbloat to their customers... and continue to help get the fixes more widely distributed - and into more firmware... after i wake up! - yesterday was a very stressful day for me. thank you all for amplifying my concerns and to whoever found the right person at virgin to address my issue - thank you very much! 
+btw, this song, you gotta be loud from the wonderful musical, matilda, ran through my head all day, yesterday. it simply drips with irony and sarcasm in the context of the play. it is very, very british, and i have a lot of empathy for the travails of the main character. if you haven't seen the play, you should. i went to see it each of the last 3 times i was in london.
+
+but! to preserve all the information i put out here originally remains important! so the original post, remains below:
+
+...
+
+
+to whom it may concern at virgin media:
+my ip address is apparently now banned from accessing your site at all, for "advertising", on this thread about bufferbloat... and my post, was deleted. for the record, that url was:
+
+http://community.virginmedia.com/t5/up-to-152mb/bufferbloat-high-latency-amp-packet-loss-when-connection/td-p/2773495
+
+believe me, i understand the degree to which advertising pollutes the internet. and certainly, given the brevity of my post, you could assume that i was just some random guy, selling snake oil. nothing could be further from the truth.
+
+admittedly, it was a short message, it was kind of late, and i was in a hurry, being that i have so many other networks to help fix. to clarify matters: i am the co-founder of the bufferbloat project, and i like to think, a world-wide acknowledged expert on the topic on this thread.
+
+in particular, i worked pretty hard on part of the cable industry's docsis 3.1 standard, which was ratified years ago, and has a specific section on it regarding technologies that can help fix *half* your bufferbloat problem.
+
+i admit to some frustration as to how long it is taking docsis 3.1 to roll out.
+
+the cablelabs study that led up to the pie aqm component in the 3.1 standard - in which i participated and am cited in, is here.
+
+i happen to prefer the fq_codel based solution as that works better on most traffic, but am perfectly happy to see pie get deployed.
+
+if you continue to exist in denial of what your own r&d department for your own industry is saying, ghu help you! after giving this 23 minute talk at uknof, the premier conference for network operators in the uk  over two years ago!!, i met with 6+ technical members of virgin media's staff, who all agreed they had a problem, understood what it was, and they all grokked the various means to fix it. judging from the enthusiasm in the room, i figured you'd be rolling out fixes by now, but i was wrong.
+
+a rather human readable explanation of what has gone into the pending 3.1  standard is in the ietf docsis-pie internet draft here.
+
+sadly, just docsis-pie rolling out on the modems is not enough - you have to somehow, yourselves, fix the dramatic overbuffering on the cmts side, as shown here in tests done on comcast's cablemodems in the usa with typical results in the 240-800 millisecond range.
+
+
+
+these downlink problems have been discussed thoroughly on the bufferbloat.net bloat and the ietf aqm mailing lists, and rather than point at direct links i would encourage more people to join the discussions there, and browse the archives.
+
+as i have seen no visible progress on the cmts front yet... and no acknowlegment or visible understanding that you get it yet...
+
+the best way to fix bufferbloat for your long-suffering customers for the past 3 years, is to help them - and your customer service departments - recognize the latency and bad performance bufferbloat causes when it occurs and propose sane ways to fix it with stuff available off the shelf which includes the free firmware upgrades for thousands of home routers distributed by openwrt, or nearly any linux derived product  available downstream from those manufacturers that have bothered to keep up with the times. 
+
+i have no financial interest in free firmware. i'm just trying to fix bufferbloat on a billion+ devices and nearly every network in the world as fast as humanly possible. furthermore, me and a whole bunch of internet luminaries gave the theory and code away for free also, in the hope that by doing so that might more quickly get the megacorps of the world to adopt them and make the quality of experience of internet access for billions of users of the world vastly better.
+
+fixing bufferbloat was a 50 year old network research problem, now solved, with great joy, several different ways, thoroughly, by some of the best minds in the business, and the answers are now so simple as to fit into a few hundred lines of code, easy to configure for end-users and easily embeddable in your own devices and networks if only you would get on the stick about it.
+
+we have provided the code, are in the standardization process, and have provided free tools to diagnose and fix your epidemic bufferbloat accurately on every kind of device you and your customers have.
+
+here are two actual examples of fixing bufferbloat on cablemodems without needing to upgrade the modem or cmts.
+
+and the *free* tool designed not only to accurately measure bufferbloat, but one that you can setup internally to test your networks and devices for it privately and quietly without publicity - and then fix them! is here:
+
+https://github.com/tohojo/netperf-wrapper
+
+so, now, a rant:
+
+now, if me pointing a customer of yours that might have correctly identified the root cause of his own problems, at the solutions both available now, and pending, on your own forum, is considered "advertising", then there really is an orwellian mixup between the definition of that word, and the truth, on your side of the water.
+
+please, unblock my "dtaht" account and unblock my ip, and allow in better information about how customers of yours can solve the incredibly serious, and incredibly epidemic problem of bufferbloat...
+
+... a problem that is now easy to solve with cheap gear now all over the market so that all your customers suffering can fix it for themselves if they so choose.
+
+and: i would like a public apology for blocking me, and a clear statement from virgin, as to how, when, and where, they will begin to roll out their own fixes to bufferbloat across their subscriber base. and perhaps, you could publish some guidelines - like what accurate up/download settings to use - to help your customers fix your problems for themselves. 
+
+sincerely,
+
+dave taht
+co-founder, bufferbloat.net
+ 
+   
+   ¶ 2:29 pm 0 comments  
+
+sunday, august 11, 2013
+ 
+
+49... and trying to find my navel
+
+wow. my posts here have declined to nearly nothing - in fact, this is my first post in a year. there's a lot of reasons for that.
+
+1) social media has changed. in g+ it is too easy to write something bigger than twitter but shorter than a blog. so i now do the g+ thing. i didn't care for twitter, i didn't like joining the flood of tiny little messages on important topics, now i can do stuff that's more bite-sized...
+
+2) my day-to-day communications in life are mostly talks, email and irc these days. i spent the rest of my writing time coding or writing documentation or correcting stuff on other websites. i haven't done a lick of creative writing in ages... aside from giving about 10 public talks in the last 10 months. writing and giving talks takes a heck of a lot out of me! no matter how natural i might look on youtube, i lose a week under the bed working out what i was going to say. and every time i've tried to write something bigger than that, i've frozen up with terrible, crippling, writers block.
+
+3) i started a different blog only to tire of remembering formating rules of markdown vs textile vs html vs blog-tool-of-the-day. i keep hoping that something better than ikiwiki will show up without much luck... and keep meaning to resume my efforts with ikiwiki only to run out of steam quickly.
+
+4) i don't have a lot to say - sure there's lots of important issues i care about - but while everybody else is off busily "caring" about them (if being noisy on blogs actually made a difference) - i've had a laser like focus on actually *fixing* a problem i care about deeply.
+
+i wouldn't mind if i wrote stuff down more, but i don't feel like sharing much more of myself with the universe than i already do.
+
+and probably my biggest problem has been:
+
+5) a whole bunch of people important to me died last year, and - in particular - after my dad went to the great fishing reef in the sky, i locked down, emotionally, to an extent i've only barely begun to discover, and just took an iron grip on work, and work only, to keep going.
+
+only in the last few months have i begun to open up and heal a bit, and take in bits of life, and i'm grateful very much to those that have reached out to help.
+
+so, i sit, today, 49 years old, wondering how the heck did i get here? professionally, i'm really happy with what i've helped accomplish in fixing bufferbloat. pretty unhappy about the pay scale, but all around, i see signs of adoption and i foresee a much snappier internet in a few years for nearly everyone... but personally... about the only thing i've been feeling semi-positive about is that 14 days ago i smoked what i hope would be my last cigarette, and that even my cravings for the gum are going down. but: i have not been fun to deal with for the last month. and the main reason why i felt i could quit and lose the braincells is that the ietf has stepped up with a wg tackling the problem that i've lost so much sleep on. i'm not as needed anymore; the real experts can step up now. 
+
+today started especially badly, but i don't feel like writing that down right now. trying to remember the previous year...
+
+i totally missed posting last year, and the year before. i have no idea what my state of mind was on those days. i'm mad at myself for letting any form of journal lapse. 
+
+so today, in addition to that rather bad morning, i was feeling like i was making no personal progress, that i'm just as stuck now with my life as i was 10 years ago... so i went and looked up what i'd written 10 years ago today...
+
+wow. reading that cheered me up tons. the space program is so massively back on track... it's freaking wonderful. i'm missing out on being a part of it, but that's ok, so many others care and are doing something about it, and maybe if i can assure myself the internet is in good hands again, i can re-join....
+
+it still doesn't help my "life", per se'...  but seeing mankind make it into space was my childhood dream and earliest professional goal, and it's happening! it's happening!
+
+moving forward a year... well, i solved the exercise problem then, i need to get around to solving it again. outside my yurt now sits the same bike i had then, and unfortunately a much taller mountain. i can't make it anywhere on the thing without gasping for air and walking uphill for what seems like miles.
+
+i spent a few more minutes in my navel looking over that stuff leaping forward to today...
+
+i still don't really have an action plan. maybe i'll write more after i get better focus on my navel... 
+
+1) i need to write more stuff down, but i no longer feel much urge to tell the universe off (as i did for a decade), i just want good backups for whatever's on my mind...
+
+2) i need a viable business model for what i'm doing, or to find a way to reduce it to a background process and do something else. today, i lean towards doing something else that would let me have a life back again. i have no idea what that is. maybe tomorrow i'll return to seeking a business model. it turns out that i really enjoy "fixing the internet". it's not a bad job description...
+
+in looking over that sea of blogs from 2003 to 2009 or so, for most of that time i felt i was washed up, and irrelevant, with skills nobody needed anymore. i don't feel that way at all now! (and i'm so glad i took that timeout to change my life and life in nicaragua, surf, play music, and learn spanish)
+
+i do wish i wasn't pushing 50. everything hurts, from my knees to my hands, to my back, especially. i look forward to being uploaded, or to some form of regeneration. the rest of my life - outside of work - would be more feasible. most people can golf when they retire, i can't manage 3 holes without calling for a massage therapist.
+
+aside from that... well, hell. it's been a while since i looked inside myself and there's some ugly in there that's going to take some time to sort out. but it's looking like clear skies for the perseids tonight, i've got my guitar packed up, and i'm heading somewhere quiet and dark to commune with them again in a few minutes.
+ 
+   
+   ¶ 6:34 pm 1 comments  
+
+sunday, august 05, 2012
+ 
+
+wheels down on mars!
+after all these years i can hardly stand to sit through the last stages of a landing - everything has already happened, all you can wait for is news of success... or await the silence and questions that followed for months on all the unsuccessful missions, like the mars polar lander, and beagle2...
+this time tho, the cheers rang out, in mission control, with the 600+ people in the theaters here tonight, and no doubt on web streams and television rooms throughout the globe, after the mission controller cried out:
+"we are safe on mars!
+... we continue to recieve telemetry from mars. we're safe."
+i've had this song running through my head all night. and...
+
+"we've got wheels down on mars!" 
+   
+   ¶ 10:44 pm 0 comments  
+
+ 
+
+tracking the landing of curiosity, from seattle
+shortly after arriving in seattle, i discovered ray ramadorai had mailed me a link to the live mars curiosity landing event being put on at the museum of flight tonight...
+my cousin aaron and i took one look at each other, unloaded the dogs, and boogied over there.
+the theater was full when we arrived. the overflow theater had overflowed, too. and the air conditioning had failed. the audience sat rapt as the engineers and scientists explained each subsystem, each design, each instrument...
+as i write, the main entrance to the theater is now full, and they've just added a second monitor for the rest of the crowd that keeps flowing in, and in, and in.
+i remember in the time from one presentation to the next, curiosity moved 8,000 km closer to mars, 28k away, about 20 minutes ago, as best as i can remember... maybe it was during the 7 minutes of terror?
+the time continues to fly by. landing in less than 70 minutes! there's people here with their babies, guys with their girlfriends, girls with their guyfriends, nasa employees, members of alt.space, aerojet, planetary resources, mpl, name it, and they all sit with eyes aglow in anticipation and hope...
+##curiosity is an irc chat channel on freenode dedicated to the event.
+and they are about to switch over to the nasa tv feed, on the big screen, in high def.
+chris lewicki is up now, describing the comms systems. 
+   
+   ¶ 9:14 pm 1 comments  
+
+thursday, june 28, 2012
+ 
+
+spotting neos from around venus's orbit
+i gotta say that seeing all the excitement around neo exploration *finally* is rather wonderful.
+
+the b612 foundation is planning on charting the neos from near venus's orbit, which is a good place for energy, and maybe a few interesting rocks on reachable orbits... 
+   
+   ¶ 11:02 pm 0 comments  
+
+sunday, april 22, 2012
+ 
+
+asteroids as lunar orbit resources
+for nearly 9 years, i've had one of my early attempts at a coherent argument for leveraging near earth asteroids in the space program sitting on the right hand side of this blog. i've been meaning to revise that piece for years too (nearby rocks are moving fast and are useful to hit, but not land on), but haven't got around to it.
+
+a few weeks back i learned of a nasa study that costed out how to do a major sample and return mission to lunar orbit. it's cheaper than a moon landing. by a lot.
+
+and today i learned about planetary resources, which with some billionaire backers is aiming to take on asteroid mining on some scale, according to the wsj. 
+
+
+wow.
+
+for the last 4 years i've been watching the successes of spacex, armadillo aerospace, bigalow, xcor, scaled composites and others, thinking that they needed payloads, and places worth going to.
+
+of late, i've been too busy helping fix the internet to pay much attention. i was in florida for the (scrubbed) 3rd launch of the falcon 9, and was hoping to be there for the upcoming one, but that's about it.
+
+i'd still, despite admiring those successes, basically given up.
+
+years ago i'd suggested that google throw 30m into an xprize for asteroid exploration. i didn't expect something as big as what planetary resources might turn out be. i look forward to more detail tuesday.
+
+...
+
+back in the early 90s i tried writing a sf book about the economics and human interactions of what realistic near earth asteroid living would be like, the spectre and the glory of travelling between jupiter and venus every four years. i'd hosted one civilisation on the asteroid "toutatis", in particular. i had fun building the place out with lap pool around the waist, installing plumbing (if you know anything about toutatis's rotation, this is actually an interesting problem) and observatory, and the stuff that would keep settlers alive and happy for long periods of time, and how cultures would exchange people  (much like the american indians) and knowledge (usenet!)
+
+i projected 20-30 years of robotic exploration and then a severely modified humanity, to make it out - legs amputated at birth like the dangerous appendages they are - etc. i never finished writing the book, though. vinge beat me to it with the usenet hook, dang it.
+
+but: along the way, i proved (to myself at least) that using the neos as waystones was the lowest cost/highest payoff starting point for expanding out into the solar system, which has led to countless debates with mars society members. i'd steer people at lewis's "mining the sky", at buzz aldrin's cycler concept, and at the mass requirements for o'neil colonies.
+
+i've kept sort of a low level interest in the subject ever since. i always use examples of spacecraft failures in my talks about reliable embedded software design. it's always a good hook with grad students. i keep up on launches, subscribe to several enthusiast lists, read what little literature emerges and sometimes even make it to a conference.
+
+i was a little non-plussed by the recent nasa study for landing people on an asteroid.  first up, in my mind, was always robotic exploration and extraction.  still: the costs on that looked pretty good, and i knew mars was more expensive...
+
+if bugged about space stuff, i try to explain that the solar system looks nothing like what asimov depicted in "marooned off vesta". exploring the rest of it is far more akin to the age of sailing ships that took years to get anywhere, rather than 1g spacecraft that bop from place to place in days, as all the early sf writers mislead us. the economics of sail apply. except that space is *bent*, in weird ways. the archipelagos move, and the shortest time between two points is never a straight line, and there are keyholes and other interesting gravitational phenomena, and you don't need rockets to get around an asteroid (springs and tethers suffice), etc, etc.
+
+another big problem has been that most people's impressions of the solar system were formed by the apollo program and those aforementioned writers - in stories that predate the discovery of thousands of near earth objects in interesting orbits.
+
+
+over the years i tried dozens of ways to get the points across, trying to educate people about resonance orbits with jupiter, proposing a grand tour of the neos, and talking about replicating deep impact on a grand scale, and various other serious bits like that.
+
+sometimes i seriously tried to be unserious, in trying to find bridges from everyday experience, to space. i went looking just now for the serious stuff i'd written about deep impact and instead stumbled across me channeling howard cosell during deep impact here, here, and here. ah, i'd wrapped it around "the thrilla in the chilla", indeed. in retrospect i'm pretty sure that i missed both core audiences with those pieces...
+
+ 
+i threw a party every four years on feb 29th, called asteroid appreciation day. asteroid appreciation day, this year, i moved to 12/12/12 or so (still haven't planned it out)...
+
+i wrote songs about the challenger and the kt event. the kt event one, "living in the 00ze", well, i have a much better version of it than this, but haven't bothered to lay it down.
+
+as for the other one... i've played "rhysling and me - falling free and flying high" more times and in more venues than i can remember - most recently twice a week for over 3 years, live, in front of unknowing tourists, while i was in nica. i've recorded it with flautista, and in the studio, and a couple other ways, and even wrote a script for the video.
+
+that song got me invited to the heinlein centennial! spider robinson didn't sit in, but what evan and i did went over well - recorded at the heinlein centennial. (evan's song home went over well too, and i just discovered i still have this enormous archive of all the filksongs played that friday night that i should edit down. justin kare, margaret middleton...). i also got a chance to meet a bunch of people that i'd only corresponded with, and a few i'd admired from afar.
+
+
+not a lot of people know the story of the first sax in space that i reference in the song.  
+
+i haven't had much urge to play that song since the last shuttle landed. i'd like to write something happier.
+
+
+i even tried writing a children's book once, in verse, figuring that having lost this generation, i'd try the next.
+"son, your mommy and daddy are both unemployed, and you want to live on an asteroid?" (i still think it was a wonderful story - the kid flits off to dactl and has to be pulled back via tether by his dad - i got a chance to try and explain tethers with a tom lehrer/g&s reference - try finding rhymes for centrifugal! ) 
+
+
+every couple of years, i publish links to lance benner's work on neo asteroid rendezvous and intercepts pages. it's my way of keeping up with the rate of discovery.
+
+i was critical of the dawn mission on two different occasions because they were focused on big bodies, not small, and of new horizons, for the length of the mission and the data rate.
+
+while i look on with admiration at dawn's early mission photos...  not having spacecraft, in the space program, with a reasonable cycle time from design to construction to launch to data, from redesign to *mass construction* to launch to more and more data, to enough raw materials for a sustainable ecosystem, frustrates me.
+
+
+i worry a bit about apohele neos, they are both nearby, frequently, and hard to see. since discovery, 10 have been confirmed. apoheles also strike me as an opportunity. i don't know if anyone's calculated intercept or rendezvous orbits for them yet.
+
+
+my main machine is named cruithne. backup laptop, ida. my kindle? dactl.
+
+
+so like, i dig asteroids. and rockets. and space.
+
+
+please note if the above seems excessive - i've just written up what little i'd managed to accomplish in 30+ years of trying, not hard enough, in my spare time.  i have no idea if anything i've ever said, did, wrote or sung about space ever succeeded in convincing anybody about anything.
+
+
+but i'm really happy with the direction the space program is finally going.
+
+
+all i ever needed was a rocket ship, and the stars to steer her by.
+
+labels: alt.space, asteroids, space 
+   
+   ¶ 1:23 am 0 comments  
+
+
+
+david täht writes about politics, space, copyright, the internet, audio software, operating systems and surfing.
+
+resume,songs,
+         my new blog, nex-6, my facebook page
+orgs i likethe eff - keeping free speech in the world
+musical stuff i like
+jeff, rick, ardour, jack 
+
+
+prior rants  - 
+  
+  
+    new song: log off now
+
+    sharing your home network better in a time of covi...
+
+    designing for the disconnect
+
+    email lists going down the memory hole
+
+    instituting saner, professional source code manage...
+
+    wireless and wifi in 2015 - not what i dreamed of
+
+    saving wifi! fixing bufferbloat! fighting the vend...
+
+    virgin media - fixing the epidemic of bufferbloat ...
+
+    49... and trying to find my navel
+
+    wheels down on mars!
+best of the blog: 
+uncle bill's helicopter - a speech i gave to itt tech - chicken soup for engineers 
+beating the brand - a pathological exploration of how branding makes it hard to think straight
+inside the internet mind - trying to map the weather within the global supercomputer that consists of humans and google
+sex in politics - if politicians spent more time pounding the flesh rather than pressing it, it would be a better world
+getting resources from space - an alternative to blowing money on mars using neas. 
+on the columbia - why i care about space 
+authors i like: 
+doc searls
+where's cherie?
+urbanagora
+jerry pournelle
+the cubic dog
+evan hunt
+the bay area is talking
+brizzled
+zimnoiac emanations
+eric raymond
+unlocking the air
+bob mage
+broadband & me
+spacecraft
+selenian boondocks
+my pencil
+transterrestial musings
+bear waller hollar
+callahans
+
+
+
+if you really want to, you can poke through the below links as well.
+
+
+
+contributors
+
+dave taht
+david täht
+
+
+archives
+06/09/2002 - 06/16/2002 /
+
+    07/28/2002 - 08/04/2002 /
+
+    08/11/2002 - 08/18/2002 /
+
+    08/18/2002 - 08/25/2002 /
+
+    08/25/2002 - 09/01/2002 /
+
+    09/22/2002 - 09/29/2002 /
+
+    11/10/2002 - 11/17/2002 /
+
+    12/15/2002 - 12/22/2002 /
+
+    12/22/2002 - 12/29/2002 /
+
+    12/29/2002 - 01/05/2003 /
+
+    01/05/2003 - 01/12/2003 /
+
+    01/19/2003 - 01/26/2003 /
+
+    01/26/2003 - 02/02/2003 /
+
+    02/09/2003 - 02/16/2003 /
+
+    02/16/2003 - 02/23/2003 /
+
+    03/02/2003 - 03/09/2003 /
+
+    03/16/2003 - 03/23/2003 /
+
+    04/06/2003 - 04/13/2003 /
+
+    04/13/2003 - 04/20/2003 /
+
+    04/20/2003 - 04/27/2003 /
+
+    05/04/2003 - 05/11/2003 /
+
+    05/18/2003 - 05/25/2003 /
+
+    05/25/2003 - 06/01/2003 /
+
+    06/01/2003 - 06/08/2003 /
+
+    06/08/2003 - 06/15/2003 /
+
+    06/15/2003 - 06/22/2003 /
+
+    06/22/2003 - 06/29/2003 /
+
+    06/29/2003 - 07/06/2003 /
+
+    07/20/2003 - 07/27/2003 /
+
+    07/27/2003 - 08/03/2003 /
+
+    08/03/2003 - 08/10/2003 /
+
+    08/10/2003 - 08/17/2003 /
+
+    08/17/2003 - 08/24/2003 /
+
+    08/24/2003 - 08/31/2003 /
+
+    08/31/2003 - 09/07/2003 /
+
+    09/07/2003 - 09/14/2003 /
+
+    09/14/2003 - 09/21/2003 /
+
+    09/21/2003 - 09/28/2003 /
+
+    09/28/2003 - 10/05/2003 /
+
+    10/05/2003 - 10/12/2003 /
+
+    10/12/2003 - 10/19/2003 /
+
+    10/19/2003 - 10/26/2003 /
+
+    10/26/2003 - 11/02/2003 /
+
+    11/02/2003 - 11/09/2003 /
+
+    11/09/2003 - 11/16/2003 /
+
+    11/30/2003 - 12/07/2003 /
+
+    12/07/2003 - 12/14/2003 /
+
+    12/14/2003 - 12/21/2003 /
+
+    12/28/2003 - 01/04/2004 /
+
+    01/11/2004 - 01/18/2004 /
+
+    01/18/2004 - 01/25/2004 /
+
+    01/25/2004 - 02/01/2004 /
+
+    02/01/2004 - 02/08/2004 /
+
+    02/08/2004 - 02/15/2004 /
+
+    02/15/2004 - 02/22/2004 /
+
+    02/22/2004 - 02/29/2004 /
+
+    02/29/2004 - 03/07/2004 /
+
+    03/14/2004 - 03/21/2004 /
+
+    03/21/2004 - 03/28/2004 /
+
+    03/28/2004 - 04/04/2004 /
+
+    04/04/2004 - 04/11/2004 /
+
+    04/11/2004 - 04/18/2004 /
+
+    04/18/2004 - 04/25/2004 /
+
+    04/25/2004 - 05/02/2004 /
+
+    05/02/2004 - 05/09/2004 /
+
+    05/09/2004 - 05/16/2004 /
+
+    05/16/2004 - 05/23/2004 /
+
+    05/30/2004 - 06/06/2004 /
+
+    06/06/2004 - 06/13/2004 /
+
+    06/13/2004 - 06/20/2004 /
+
+    06/20/2004 - 06/27/2004 /
+
+    06/27/2004 - 07/04/2004 /
+
+    07/04/2004 - 07/11/2004 /
+
+    07/11/2004 - 07/18/2004 /
+
+    07/18/2004 - 07/25/2004 /
+
+    08/08/2004 - 08/15/2004 /
+
+    08/22/2004 - 08/29/2004 /
+
+    08/29/2004 - 09/05/2004 /
+
+    09/05/2004 - 09/12/2004 /
+
+    09/19/2004 - 09/26/2004 /
+
+    09/26/2004 - 10/03/2004 /
+
+    10/03/2004 - 10/10/2004 /
+
+    10/10/2004 - 10/17/2004 /
+
+    10/17/2004 - 10/24/2004 /
+
+    10/24/2004 - 10/31/2004 /
+
+    10/31/2004 - 11/07/2004 /
+
+    11/07/2004 - 11/14/2004 /
+
+    11/14/2004 - 11/21/2004 /
+
+    11/21/2004 - 11/28/2004 /
+
+    11/28/2004 - 12/05/2004 /
+
+    12/05/2004 - 12/12/2004 /
+
+    12/12/2004 - 12/19/2004 /
+
+    12/19/2004 - 12/26/2004 /
+
+    12/26/2004 - 01/02/2005 /
+
+    01/02/2005 - 01/09/2005 /
+
+    01/16/2005 - 01/23/2005 /
+
+    01/23/2005 - 01/30/2005 /
+
+    01/30/2005 - 02/06/2005 /
+
+    02/06/2005 - 02/13/2005 /
+
+    02/13/2005 - 02/20/2005 /
+
+    02/20/2005 - 02/27/2005 /
+
+    02/27/2005 - 03/06/2005 /
+
+    03/06/2005 - 03/13/2005 /
+
+    03/27/2005 - 04/03/2005 /
+
+    04/03/2005 - 04/10/2005 /
+
+    04/10/2005 - 04/17/2005 /
+
+    05/29/2005 - 06/05/2005 /
+
+    06/05/2005 - 06/12/2005 /
+
+    06/12/2005 - 06/19/2005 /
+
+    06/19/2005 - 06/26/2005 /
+
+    06/26/2005 - 07/03/2005 /
+
+    07/03/2005 - 07/10/2005 /
+
+    07/10/2005 - 07/17/2005 /
+
+    07/24/2005 - 07/31/2005 /
+
+    07/31/2005 - 08/07/2005 /
+
+    08/07/2005 - 08/14/2005 /
+
+    08/14/2005 - 08/21/2005 /
+
+    08/21/2005 - 08/28/2005 /
+
+    08/28/2005 - 09/04/2005 /
+
+    09/04/2005 - 09/11/2005 /
+
+    09/11/2005 - 09/18/2005 /
+
+    09/18/2005 - 09/25/2005 /
+
+    09/25/2005 - 10/02/2005 /
+
+    10/02/2005 - 10/09/2005 /
+
+    10/09/2005 - 10/16/2005 /
+
+    10/16/2005 - 10/23/2005 /
+
+    10/23/2005 - 10/30/2005 /
+
+    10/30/2005 - 11/06/2005 /
+
+    11/06/2005 - 11/13/2005 /
+
+    11/13/2005 - 11/20/2005 /
+
+    11/20/2005 - 11/27/2005 /
+
+    11/27/2005 - 12/04/2005 /
+
+    12/04/2005 - 12/11/2005 /
+
+    12/11/2005 - 12/18/2005 /
+
+    12/18/2005 - 12/25/2005 /
+
+    01/01/2006 - 01/08/2006 /
+
+    01/08/2006 - 01/15/2006 /
+
+    01/15/2006 - 01/22/2006 /
+
+    01/22/2006 - 01/29/2006 /
+
+    01/29/2006 - 02/05/2006 /
+
+    02/19/2006 - 02/26/2006 /
+
+    03/05/2006 - 03/12/2006 /
+
+    03/19/2006 - 03/26/2006 /
+
+    03/26/2006 - 04/02/2006 /
+
+    04/02/2006 - 04/09/2006 /
+
+    04/09/2006 - 04/16/2006 /
+
+    04/23/2006 - 04/30/2006 /
+
+    05/07/2006 - 05/14/2006 /
+
+    05/14/2006 - 05/21/2006 /
+
+    05/21/2006 - 05/28/2006 /
+
+    06/04/2006 - 06/11/2006 /
+
+    06/11/2006 - 06/18/2006 /
+
+    06/18/2006 - 06/25/2006 /
+
+    06/25/2006 - 07/02/2006 /
+
+    07/02/2006 - 07/09/2006 /
+
+    07/09/2006 - 07/16/2006 /
+
+    07/23/2006 - 07/30/2006 /
+
+    08/06/2006 - 08/13/2006 /
+
+    08/13/2006 - 08/20/2006 /
+
+    09/03/2006 - 09/10/2006 /
+
+    09/17/2006 - 09/24/2006 /
+
+    09/24/2006 - 10/01/2006 /
+
+    10/01/2006 - 10/08/2006 /
+
+    10/22/2006 - 10/29/2006 /
+
+    11/19/2006 - 11/26/2006 /
+
+    11/26/2006 - 12/03/2006 /
+
+    12/03/2006 - 12/10/2006 /
+
+    12/10/2006 - 12/17/2006 /
+
+    12/17/2006 - 12/24/2006 /
+
+    12/24/2006 - 12/31/2006 /
+
+    01/07/2007 - 01/14/2007 /
+
+    01/14/2007 - 01/21/2007 /
+
+    01/28/2007 - 02/04/2007 /
+
+    02/11/2007 - 02/18/2007 /
+
+    02/18/2007 - 02/25/2007 /
+
+    02/25/2007 - 03/04/2007 /
+
+    03/04/2007 - 03/11/2007 /
+
+    03/18/2007 - 03/25/2007 /
+
+    04/01/2007 - 04/08/2007 /
+
+    04/08/2007 - 04/15/2007 /
+
+    04/15/2007 - 04/22/2007 /
+
+    04/22/2007 - 04/29/2007 /
+
+    04/29/2007 - 05/06/2007 /
+
+    05/06/2007 - 05/13/2007 /
+
+    05/20/2007 - 05/27/2007 /
+
+    05/27/2007 - 06/03/2007 /
+
+    06/03/2007 - 06/10/2007 /
+
+    06/10/2007 - 06/17/2007 /
+
+    06/17/2007 - 06/24/2007 /
+
+    07/01/2007 - 07/08/2007 /
+
+    07/08/2007 - 07/15/2007 /
+
+    07/22/2007 - 07/29/2007 /
+
+    07/29/2007 - 08/05/2007 /
+
+    08/05/2007 - 08/12/2007 /
+
+    08/26/2007 - 09/02/2007 /
+
+    09/09/2007 - 09/16/2007 /
+
+    09/23/2007 - 09/30/2007 /
+
+    09/30/2007 - 10/07/2007 /
+
+    10/07/2007 - 10/14/2007 /
+
+    10/14/2007 - 10/21/2007 /
+
+    10/21/2007 - 10/28/2007 /
+
+    10/28/2007 - 11/04/2007 /
+
+    11/04/2007 - 11/11/2007 /
+
+    11/11/2007 - 11/18/2007 /
+
+    11/18/2007 - 11/25/2007 /
+
+    11/25/2007 - 12/02/2007 /
+
+    12/02/2007 - 12/09/2007 /
+
+    12/09/2007 - 12/16/2007 /
+
+    12/16/2007 - 12/23/2007 /
+
+    12/23/2007 - 12/30/2007 /
+
+    01/06/2008 - 01/13/2008 /
+
+    02/03/2008 - 02/10/2008 /
+
+    02/17/2008 - 02/24/2008 /
+
+    02/24/2008 - 03/02/2008 /
+
+    03/02/2008 - 03/09/2008 /
+
+    03/09/2008 - 03/16/2008 /
+
+    03/16/2008 - 03/23/2008 /
+
+    03/23/2008 - 03/30/2008 /
+
+    03/30/2008 - 04/06/2008 /
+
+    04/20/2008 - 04/27/2008 /
+
+    04/27/2008 - 05/04/2008 /
+
+    05/04/2008 - 05/11/2008 /
+
+    05/11/2008 - 05/18/2008 /
+
+    05/18/2008 - 05/25/2008 /
+
+    05/25/2008 - 06/01/2008 /
+
+    06/01/2008 - 06/08/2008 /
+
+    06/08/2008 - 06/15/2008 /
+
+    06/15/2008 - 06/22/2008 /
+
+    06/22/2008 - 06/29/2008 /
+
+    07/06/2008 - 07/13/2008 /
+
+    07/13/2008 - 07/20/2008 /
+
+    07/20/2008 - 07/27/2008 /
+
+    07/27/2008 - 08/03/2008 /
+
+    08/03/2008 - 08/10/2008 /
+
+    08/10/2008 - 08/17/2008 /
+
+    08/17/2008 - 08/24/2008 /
+
+    08/31/2008 - 09/07/2008 /
+
+    09/07/2008 - 09/14/2008 /
+
+    09/14/2008 - 09/21/2008 /
+
+    09/21/2008 - 09/28/2008 /
+
+    09/28/2008 - 10/05/2008 /
+
+    10/05/2008 - 10/12/2008 /
+
+    10/12/2008 - 10/19/2008 /
+
+    10/19/2008 - 10/26/2008 /
+
+    10/26/2008 - 11/02/2008 /
+
+    11/02/2008 - 11/09/2008 /
+
+    11/09/2008 - 11/16/2008 /
+
+    11/16/2008 - 11/23/2008 /
+
+    12/07/2008 - 12/14/2008 /
+
+    12/21/2008 - 12/28/2008 /
+
+    12/28/2008 - 01/04/2009 /
+
+    01/18/2009 - 01/25/2009 /
+
+    01/25/2009 - 02/01/2009 /
+
+    03/22/2009 - 03/29/2009 /
+
+    05/10/2009 - 05/17/2009 /
+
+    05/17/2009 - 05/24/2009 /
+
+    05/31/2009 - 06/07/2009 /
+
+    06/14/2009 - 06/21/2009 /
+
+    06/21/2009 - 06/28/2009 /
+
+    06/28/2009 - 07/05/2009 /
+
+    07/05/2009 - 07/12/2009 /
+
+    07/12/2009 - 07/19/2009 /
+
+    07/26/2009 - 08/02/2009 /
+
+    08/09/2009 - 08/16/2009 /
+
+    08/23/2009 - 08/30/2009 /
+
+    09/06/2009 - 09/13/2009 /
+
+    09/20/2009 - 09/27/2009 /
+
+    09/27/2009 - 10/04/2009 /
+
+    10/04/2009 - 10/11/2009 /
+
+    10/11/2009 - 10/18/2009 /
+
+    10/18/2009 - 10/25/2009 /
+
+    10/25/2009 - 11/01/2009 /
+
+    11/29/2009 - 12/06/2009 /
+
+    12/27/2009 - 01/03/2010 /
+
+    01/31/2010 - 02/07/2010 /
+
+    02/07/2010 - 02/14/2010 /
+
+    02/28/2010 - 03/07/2010 /
+
+    03/07/2010 - 03/14/2010 /
+
+    03/28/2010 - 04/04/2010 /
+
+    04/18/2010 - 04/25/2010 /
+
+    05/16/2010 - 05/23/2010 /
+
+    05/30/2010 - 06/06/2010 /
+
+    06/13/2010 - 06/20/2010 /
+
+    06/20/2010 - 06/27/2010 /
+
+    07/04/2010 - 07/11/2010 /
+
+    07/11/2010 - 07/18/2010 /
+
+    07/18/2010 - 07/25/2010 /
+
+    08/08/2010 - 08/15/2010 /
+
+    08/29/2010 - 09/05/2010 /
+
+    09/05/2010 - 09/12/2010 /
+
+    09/19/2010 - 09/26/2010 /
+
+    09/26/2010 - 10/03/2010 /
+
+    10/10/2010 - 10/17/2010 /
+
+    10/17/2010 - 10/24/2010 /
+
+    10/31/2010 - 11/07/2010 /
+
+    11/28/2010 - 12/05/2010 /
+
+    12/05/2010 - 12/12/2010 /
+
+    12/12/2010 - 12/19/2010 /
+
+    12/26/2010 - 01/02/2011 /
+
+    03/06/2011 - 03/13/2011 /
+
+    03/13/2011 - 03/20/2011 /
+
+    05/22/2011 - 05/29/2011 /
+
+    08/07/2011 - 08/14/2011 /
+
+    08/14/2011 - 08/21/2011 /
+
+    09/18/2011 - 09/25/2011 /
+
+    10/02/2011 - 10/09/2011 /
+
+    10/09/2011 - 10/16/2011 /
+
+    11/06/2011 - 11/13/2011 /
+
+    01/15/2012 - 01/22/2012 /
+
+    04/22/2012 - 04/29/2012 /
+
+    06/24/2012 - 07/01/2012 /
+
+    08/05/2012 - 08/12/2012 /
+
+    08/11/2013 - 08/18/2013 /
+
+    03/01/2015 - 03/08/2015 /
+
+    10/04/2015 - 10/11/2015 /
+
+    11/08/2015 - 11/15/2015 /
+
+    12/22/2019 - 12/29/2019 /
+
+    04/05/2020 - 04/12/2020 /
+
+    07/21/2024 - 07/28/2024 /
+
+			
+
+
+
+
+
+
+

@@ -1,0 +1,421 @@
+
+
+
+
+
+
+kong technology – tech / simplicity / fun
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+skip to content
+
+
+
+
+kong technology
+
+				tech / simplicity / fun			
+
+
+
+
+
+
+
+
+how to access phpmyadmin in aws lightsail 
+
+if you are running wordpress and are migrating from a traditional hosting to aws lightsail instance, you may be wondering “how on earth do i access phpmyadmin to see my database?”
+step 1
+make sure you have your private key and path handy. the private key is sometimes called the .pem file. if you have it already, go to step 2. if you do not have it, in your lightsail dashboard:
+1. go to your account page under the ssh keys tab, click the download link; or
+2. go to manage instance, under the connect tab. in there you will see a link to download the private key from the account page. click there and download.
+keep your private key in a folder where you know the path.
+step 2: create ssh tunnel (for mac users)
+open the terminal window on your mac (eg. “finder -> applications -> utilities -> terminal”). at the command prompt, type in this command and press enter:
+ssh -n -l 8888:127.0.0.1:80 -i /path/key.pem bitnami@publicip
+(replace the path and .pem filename accordingly. replace publicip with the fixed ip address as provided by aws lightsail.)
+sometime you will see this message in your terminal:
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+warning: unprotected private key file! 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+permissions 0644 for ‘/path/key.pem’ are too open.
+it is required that your private key files are not accessible by others.
+this private key will be ignored.
+load key “/path/key.pem”: bad permissions
+permission denied (publickey).
+if you see this message, type in the following command:
+sudo chmod 600 /path/key.pem
+(replace the path and .pem filename accordingly.)
+in your browser, go to: http://127.0.0.1:8888/phpmyadmin/
+if successful, you should be able to see phpmyadmin login page. but you may be wondering…. what is the id and password to login?
+step 3:
+for the user id, try “root” or “bitnami”.
+in order to get the password, go to manage instance in your aws lightsail dashboard under the connect tab. click on the “connect using ssh” button and run the following command:
+cat bitnami_application_password
+and voila! your password appears!
+
+
+posted bypuchongmay 27, 2021june 3, 2021posted inaws 
+
+
+
+how to copy a data table from open office text document to spreadsheet 
+
+open office is one of the best open source alternatives to microsoft office. for those who are still in love with the traditional drop down menu in ms office 97 and before, open office is definitely a solid choice for word processing, spreadsheets and presentation.
+somehow i’m still not getting the feel of those big awful navigation icons came into vogue post ms office 97. somewhere in the mid to late 1990s, microsoft probably lost its plot and packed a whole lot of useless features into office at the expense of simplicity and user friendliness.
+when using open office spreadsheet recently, i was trying to copy a data table from the docs to calc. after trying for more than half an hour, i became frustrated. from the traditional copy and paste, i tried all sorts of other paste special methods but without success.
+i couldn’t believe that it was unable to perform such a seemingly simple task!
+so after tearing my hair out for more than half an hour, the solution finally came.
+so this is how it goes:
+1. in open office calc, highlight the cells you want to copy.
+2. control c to copy the range.
+3. shift + control + v to paste special
+4. paste as unformatted text in open office docs
+5. then ctrl+a to select all the data
+6. go to table – convert -text to table
+7. in “separate text at”, set to “tabs” and click ok
+voila! really so simple!
+i have been using this software for years. personally it has 95% of what i will ever need in an office software suite. one of the top free products out there.
+download open office >>
+tip: another free open source office suite is libre office. it is a bit more feature packed and powerful than open office but i find it slightly less user friendly. like open office, a big plus is the good old fashion drop down menu. download libre office >>
+so why pay a dime for your office suite software?
+
+
+posted bypuchongmarch 16, 2021march 16, 2021posted inuncategorizedtags: best office suite software, copy table from open office calc to doc 
+
+
+
+coronavirus – wear your face mask properly 
+
+let’s take a break from tech and address more serious matters today… the spread of coronavirus. so if you need to wear a face mask, what is the correct mask to wear and how to wear it properly? i decided to do some research and this is what i gathered
+ok this is the typical mask most people wear. it’s a surgical mask which has a “white” (lighter) side and “blue” (darker) side.
+
+apparently this is the most common version floating around…. the white side has the filter. if you are well and don’t want to breathe in germs/polluted air, wear the mask with the blue side inwards and white side outwards. if you are unwell and don’t want to spread your germs to others, wear the mask with the white side inwards and blue side outwards.
+however a more recent version is that there is only one correct way to wear your mask, that is the blue side (the side with the downward folds) has to face outwards. most surgical masks have 3 layers, the blue (outer) layer which serves to repel fluid. the middle layer is a barrier to germs while the inner layer absorbs moisture. apparently the purpose of the blue layer is to prevent germs from sticking onto the mask. but if you wear the mask with the white side facing out, air moisture will stick on it and make it easier for germs to stick around.  more info >>
+searching around, i found that hong kong’s centre for health protection has a good and detailed explanation in support of this. download the document here >>
+so what about n95 masks, do they help? apparently not, according to singapore’s health ministry which is advising the general public to wear normal surgical masks instead of n95. normal surgical masks are more practical and helps block large particle droplets from entering your mouth and nose. however n95 masks are tight fitting and designed to filter small airborne particles. if worn properly, it makes breathing difficult. if not worn properly, you are not protected from the air particles anyway. more info >>
+ 
+
+
+posted bypuchongjanuary 29, 2020january 29, 2020posted inuncategorized 
+
+
+
+how to speed up your wordpress site 
+
+recently i finally took the step to update my wordpress theme to a mobile responsive one. while in the process, i decided the main criteria would  be loading speed, which explains why i ended up with this basic looking no-frills theme. yep this is the stock standard wordpress “twenty nineteen” theme which is clean and no-nonsense. at the same time, i installed an ssl (using free cpanel ssl) and used the really simple ssl plugin which automatically detects and configures all my settings to run in https.
+while doing this, i recalled a recent php upgrade i did for a client from php version 5.4 to php version 7.1. it seemed to have worked well for his wordpress website so i thought i’d do the same for this website. after that i ran optimize website in cpanel (look for it under the software section in cpanel).
+the result in google pagespeed insights has been astonishing. checking it just now, i scored 98 points for both desktop and mobile view! if you find that hard to believe, so do i. in all my years doing website development, i’ve never ever come close to this score.
+so hopefully these screenshots will convince you:
+ 
+now we all know that google pagespeed score is not perfect. and it’s not the be-all-end-all in website speed testing. however just making these small tweaks make all the difference. of course, you first need to have done some basic things like optimizing your images, signing up with a good web host in a good server, avoiding slider animation and cdn content delivery if possible.
+ 
+
+
+posted bypuchongoctober 7, 2019october 31, 2019posted insite update, tips and tricks, wordpress themestags: make wordpress run faster, website speed test, wordpress speed php 7.1 
+
+
+
+adobe flash player update keeps popping up in mac after uninstall 
+
+adobe flash has been on a massive decline in recent times. due to security concerns, tech leaders such as google, microsoft and apple have exited in doves by phasing out adobe flash support in their products.
+recently out of curiosity i decided to install adobe flash player. around 2-3 weeks later i noticed a popup asking me to update adobe flash player. i closed the pop-up but a couple of hours later it popped up again. the popup became more frequent (less than one hour apart). so i went to system preferences and removed adobe flash player. but this is not the end of the story. the annoying pop up continued even after the software was removed.
+after some searching around, i found a simple solution. go to applications – utilities. you will see a file called adobe flash player install manager. just delete it and the annoying pop-up should stop.
+note that adobe will no longer update or distribute flash player effective end 2020.
+ 
+
+
+posted bypuchongseptember 15, 2019september 16, 2019posted inapple and mac, software & technologytags: adobe flash, mac tips, macromedia 
+
+
+
+how to retrieve password in filezilla ftp 
+
+
+in filezilla top menu bar, click file – export.
+select export site manager entries and click ok. an xml file will be exported containing the login info for all your ftp accounts.
+open this file using notepad, atom or some other text editor.
+search for the relevant domain and you will see a line containing the password but in encrypted format (base 64 encryption). you will need to use a base64 decryption tool to decode the password. you can try this website – https://www.base64decode.org/
+
+ 
+
+
+posted bypuchongaugust 7, 2019september 16, 2019posted inweb design and programmingtags: filezilla, ftp 
+
+
+
+outdoor gadgets 
+
+
+are you an adventurous person? are you in love with sweet mother nature? you love camping, jungle trekking or any outdoor activities but afraid that you don’t have the extra tools needed? now you don’t have to worry anymore. these hi-tech gadget will help you get through all those problems.
+continue reading “outdoor gadgets”
+
+
+posted bypuchongaugust 16, 2013posted ingadgetstags: adventurous, cool, gadgets, outdoor gadgets, useful 
+
+
+
+leap motion 
+
+
+have you ever seen in some movies, like iron man, where tony stark (starring robert downey jr) interacts with his super smart computer using only hands and gesture motion. or in some of the television series like csi: miami, where these investigators use their hand motion to interact with the computers. want to have those feeling of excitement?
+continue reading “leap motion”
+
+
+posted bypuchongaugust 2, 2013posted insoftware & technologytags: awesome, future, gadget, leap motion, motion 
+
+
+
+future gaming technology 
+
+
+video games nowadays have become more and more advance. lots of advanced technology have been used in order to fulfill the users’ satisfaction. joysticks, game controllers also plays the important parts in bringing the game to life.
+continue reading “future gaming technology”
+
+
+posted bypuchongjuly 8, 2013posted incomputers and gadgets sales, future, gadgets, gaming and gamestags: cool, gadget, gaming, hardware 
+
+
+
+google has done it… again 
+
+
+everybody knows google, the most famous search engine on the internet. you can search anything on google. when your friend ask you something that you didn’t know the answer, you would easily say, lets google it. google also is the developer for android os, the operating system for smartphones. the latest invention by google is the google glass, the unique glasses that can almost do whatever you want. but is there anything else that google has created beside all these inventions?
+continue reading “google has done it… again”
+
+
+posted bypuchongjune 7, 2013posted insoftware & technologytags: cool, driverless car, google, smart 
+
+
+posts navigation
+1
+2
+3
+…
+74
+older posts 
+
+
+
+
+
+
+
+
+
+search for:
+
+
+
+
+
+recent posts
+
+
+how to access phpmyadmin in aws lightsail
+
+
+how to copy a data table from open office text document to spreadsheet
+
+
+coronavirus – wear your face mask properly
+
+
+how to speed up your wordpress site
+
+
+adobe flash player update keeps popping up in mac after uninstall
+
+
+archives
+
+may 2021
+march 2021
+january 2020
+october 2019
+september 2019
+august 2019
+august 2013
+july 2013
+june 2013
+may 2013
+april 2013
+march 2013
+february 2013
+january 2013
+december 2012
+november 2012
+october 2012
+september 2012
+august 2012
+july 2012
+june 2012
+may 2012
+april 2012
+march 2012
+february 2012
+january 2012
+december 2011
+november 2011
+october 2011
+september 2011
+august 2011
+july 2011
+june 2011
+may 2011
+april 2011
+march 2011
+february 2011
+january 2011
+december 2010
+november 2010
+october 2010
+september 2010
+august 2010
+july 2010
+june 2010
+may 2010
+april 2010
+march 2010
+february 2010
+january 2010
+december 2009
+november 2009
+october 2009
+september 2009
+august 2009
+july 2009
+june 2009
+may 2009
+april 2009
+march 2009
+february 2009
+january 2009
+december 2008
+november 2008
+october 2008
+september 2008
+august 2008
+july 2008
+june 2008
+may 2008
+april 2008
+march 2008
+february 2008
+january 2008
+december 2007
+november 2007
+october 2007
+september 2007
+august 2007
+july 2007
+june 2007
+may 2007
+april 2007
+march 2007
+february 2007
+january 2007
+
+categories
+
+apple and mac
+
+aws
+
+best of the internet
+
+blogging
+
+blogroll
+
+computers and gadgets sales
+
+computing
+
+domain names
+
+fun and funny
+
+future
+
+gadgets
+
+gaming and games
+
+linux
+
+make money
+
+microsoft
+
+mozilla
+
+others
+
+search engine
+
+security
+
+site update
+
+social media
+
+software & technology
+
+sony ericsson p1i
+
+tips and tricks
+
+uncategorized
+
+web design and programming
+
+windows
+
+wordpress themes
+
+
+meta
+
+log in
+entries feed
+comments feed
+wordpress.org
+
+adsense 
+
+
+kong technology,
+						
+				proudly powered by wordpress.			
+
+about us
+free wordpress themes
+easypic
+ 
+
+
+
+
+
+

@@ -1,0 +1,3467 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nozell, rhymes with oh hell
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nozell, rhymes with oh hell
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wednesday, november 9, 2022
+
+
+
+
+
+
+
+now on mastodon! 
+
+
+
+
+
+now on mastodon - https://mastodon.cloud/@marcno or @marcno@mastodon.cloud  
+
+
+
+
+
+posted by
+
+
+
+marcno
+
+
+
+
+at
+
+11:56 am
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+saturday, march 5, 2022
+
+
+
+
+
+
+
+
+blog's 20th birthday
+
+
+
+
+
+it looks like it missed this blog's 20th birthday by a few days -- it started life out as a simple blosxom blog on march 3rd, 2002.  the last few years it as been pretty morbund. 
+
+
+
+
+
+
+
+
+
+posted by
+
+
+
+marcno
+
+
+
+
+at
+
+5:57 am
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+thursday, october 17, 2019
+
+
+
+
+
+
+
+building weechat from source on rhel8
+
+
+
+
+
+i got a new corporate laptop today with rhel8 pre-installed.  weechat isn't in the repos, so it needed to be build from source.  simple:
+
+first, grab the source and unpack it
+
+$ wget https://weechat.org/files/src/weechat-2.6.tar.xz
+$ tar xf weechat-2.6.tar.xz
+
+install the needed development libraries:
+
+$ sudo yum install -y libgcrypt-devel zlib-devel gnutls-devel\
+                      libcurl-devel ncurses-devel php-devel \
+                      perl-extutils-embed
+
+finally built it.  these steps are in the readme.adoc file.
+
+$ cd weechat-2.6
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make
+$ sudo make install
+
+trust, but verify:
+
+$ weechat -version
+2.6
+
+now happily chat with your irc friends!
+
+
+
+
+
+posted by
+
+
+
+marcno
+
+
+
+
+at
+
+12:25 pm
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+thursday, january 10, 2019
+
+
+
+
+
+
+
+podcasts that i like
+
+
+
+
+
+
+
+here is a recent opml list of the podcasts that i listen too -- some more often than others, a few almost as soon as they are available.
+
+<?xml version='1.0' encoding='utf-8' standalone='no' ?>
+<opml version="1.1">
+  <head>
+    <title>beyondpod feeds
+    </title>
+    <datecreated>thu, 10 jan 2019 09:53:23 est
+    </datecreated>
+    <datemodified>thu, 10 jan 2019 09:53:23 est
+    </datemodified>
+  </head>
+  <body>
+    <outline text="uncategorized" />
+    <outline text="news &amp; politics">
+      <outline text="msnbc rachel maddow (audio)" xmlurl="http://podcastfeeds.nbcnews.com/audio/podcast/msnbc-maddow-netcast-mp3.xml" type="rss" />
+      <outline text="stay tuned with preet" xmlurl="http://feeds.wnyc.org/preetbharara" type="rss" />
+      <outline text="on the media" xmlurl="http://feeds.wnyc.org/onthemedia" type="rss" />
+      <outline text="all in with chris hayes" xmlurl="http://podcastfeeds.nbcnews.com/drone/api/query/audio/podcast/1.0/msnbc-all-in.xml" type="rss" />
+      <outline text="open source with christopher lydon" xmlurl="http://radioopensource.org/feed/" type="rss" />
+      <outline text="wbur fm on point with tom ashbrook week in the news podcast" xmlurl="http://www.npr.org/rss/podcast.php?id=510296" type="rss" />
+      <outline text="gaslit nation with andrea chalupa and sarah kendzior" xmlurl="http://gaslitnation.libsyn.com/rss" type="rss" />
+      <outline text="the daily" xmlurl="http://rss.art19.com/the-daily" type="rss" />
+      <outline text="cafe insider" xmlurl="https://bit.ly/secretlink" type="rss" />
+    </outline>
+    <outline text="science">
+      <outline text="startalk radio" xmlurl="http://feeds.soundcloud.com/users/soundcloud:users:38128127/sounds.rss" type="rss" />
+      <outline text="science friday" xmlurl="http://feeds.wnyc.org/science-friday/" type="rss" />
+    </outline>
+    <outline text="thinking stuff">
+      <outline text="rough translation" xmlurl="https://www.npr.org/rss/podcast.php?id=510324" type="rss" />
+      <outline text="the more perfect union" xmlurl="http://www.blogtalkradio.com/moreperfectunion/podcast" type="rss" />
+      <outline text="vox's the weeds" xmlurl="http://feeds.feedburner.com/voxtheweeds" type="rss" />
+      <outline text="media and politics podcast" xmlurl="http://shorensteincenter.libsyn.com/rss" type="rss" />
+      <outline text="hidden brain" xmlurl="https://www.npr.org/rss/podcast.php?id=510308" type="rss" />
+      <outline text="fresh air" xmlurl="https://www.npr.org/rss/podcast.php?id=381444908" type="rss" />
+      <outline text="reveal" xmlurl="http://feeds.revealradio.org/revealpodcast" type="rss" />
+      <outline text="uncivil" xmlurl="https://feeds.megaphone.fm/uncivil" type="rss" />
+      <outline text="hi-phi nation" xmlurl="https://feed.pippa.io/public/shows/hiphination" type="rss" />
+      <outline text="99% invisible" xmlurl="http://feeds.99percentinvisible.org/99percentinvisible" type="rss" />
+    </outline>
+    <outline text="philosophy">
+      <outline text="friendly atheist podcast" xmlurl="http://feeds.soundcloud.com/users/soundcloud:users:126685326/sounds.rss" type="rss" />
+      <outline text="the bart ehrman blog podcast" xmlurl="http://ehrmanpodcast.libsyn.com/rss" type="rss" />
+      <outline text="the thinking atheist podcast" xmlurl="http://feeds.feedburner.com/thethinkingatheistpodcast" type="rss" />
+      <outline text="podcast – religions of the ancient mediterranean" xmlurl="http://feeds.feedburner.com/feedburner/aprp" type="rss" />
+      <outline text="history of philosophy without any gaps" xmlurl="http://hopwag.podbean.com/feed/" type="rss" />
+    </outline>
+    <outline text="history">
+      <outline text="dan carlin's hardcore history" xmlurl="http://feeds.feedburner.com/dancarlin/history?format=xml" type="rss" />
+      <outline text="history unplugged podcast | american history, world history, world war 2, u.s. presidents, civil war" xmlurl="http://historyonthenet.libsyn.com/rss" type="rss" />
+      <outline text="bag man" xmlurl="https://rss.art19.com/bagman" type="rss" />
+      <outline text="my history can beat up your politics" xmlurl="http://mhcbuyp.libsyn.com/rss" type="rss" />
+    </outline>
+    <outline text="nh">
+      <outline text="cheese chat" xmlurl="http://cheesechat.libsyn.com/rss" type="rss" />
+      <outline text="word of mouth radio" xmlurl="http://feeds.feedburner.com/wordofmouthradioshow" type="rss" />
+      <outline text="outside/in" xmlurl="http://feeds.megaphone.fm/ppy5156495451" type="rss" />
+      <outline text="what's your poison?" xmlurl="http://whatsyourpoison.podbean.com/feed/" type="rss" />
+      <outline text="bear brook" xmlurl="https://feeds.megaphone.fm/bearbrook" type="rss" />
+    </outline>
+    <outline text="entertainment">
+      <outline text="radiolab presents: more perfect" xmlurl="http://feeds.wnyc.org/moreperfect" type="rss" />
+      <outline text="the moth" xmlurl="http://feeds.feedburner.com/themothpodcast" type="rss" />
+      <outline text="welcome to night vale" xmlurl="http://feeds.nightvalepresents.com/welcometonightvalepodcast" type="rss" />
+      <outline text="alice isn t dead" xmlurl="http://aliceisntdead.libsyn.com/rss" type="rss" />
+      <outline text="qanon anonymous" xmlurl="http://feeds.soundcloud.com/users/soundcloud:users:492135420/sounds.rss" type="rss" />
+    </outline>
+    <outline text="tech">
+      <outline text="red hat x podcast series" xmlurl="https://rhc4tp.blog/feed/podcast/" type="rss" />
+      <outline text="command line heroes" xmlurl="https://feeds.pacific-content.com/commandlineheroes" type="rss" />
+      <outline text="podctl - containers | kubernetes | openshift" xmlurl="http://www.buzzsprout.com/110399.rss" type="rss" />
+      <outline text="cloudy chat" xmlurl="https://s3.amazonaws.com/grhpodcasts/itunesxml.xml" type="rss" />
+      <outline text="dave &amp; gunnar show" xmlurl="http://dgshow.org/rss" type="rss" />
+      <outline text="open source security podcast" xmlurl="http://opensourcesecuritypodcast.libsyn.com/rss" type="rss" />
+    </outline>
+  </body>
+</opml>
+
+
+
+
+
+
+
+posted by
+
+
+
+marcno
+
+
+
+
+at
+
+7:12 am
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+labels:
+beyondpod,
+listen,
+mp3,
+opml,
+podcasts
+
+
+
+
+
+
+
+
+
+
+
+tuesday, november 20, 2018
+
+
+
+
+
+
+
+
+this is disgusting
+
+
+
+
+
+https://www.whitehouse.gov/briefings-statements/statement-president-donald-j-trump-standing-saudi-arabia/
+
+this is disgusting. 
+
+-----------------------
+
+
+
+statements & releases
+
+statement from president donald j. trump on standing with saudi arabia
+
+
+
+ foreign policy
+
+ 
+ issued on: november 20, 2018
+
+
+
+
+
+
+
+
+
+
+share:
+ 
+
+ 
+
+ 
+
+
+
+
+all news
+
+america first!
+
+the world is a very dangerous place!
+
+the country of iran, as an example, is responsible for a bloody proxy war against saudi arabia in yemen, trying to destabilize iraq’s fragile attempt at democracy, supporting the terror group hezbollah in lebanon, propping up dictator bashar assad in syria (who has killed millions of his own citizens), and much more. likewise, the iranians have killed many americans and other innocent people throughout the middle east. iran states openly, and with great force, “death to america!” and “death to israel!” iran is considered “the world’s leading sponsor of terror.”
+
+on the other hand, saudi arabia would gladly withdraw from yemen if the iranians would agree to leave. they would immediately provide desperately needed humanitarian assistance. additionally, saudi arabia has agreed to spend billions of dollars in leading the fight against radical islamic terrorism.
+
+after my heavily negotiated trip to saudi arabia last year, the kingdom agreed to spend and invest $450 billion in the united states. this is a record amount of money. it will create hundreds of thousands of jobs, tremendous economic development, and much additional wealth for the united states. of the $450 billion, $110 billion will be spent on the purchase of military equipment from boeing, lockheed martin, raytheon and many other great u.s. defense contractors. if we foolishly cancel these contracts, russia and china would be the enormous beneficiaries – and very happy to acquire all of this newfound business. it would be a wonderful gift to them directly from the united states!
+
+the crime against jamal khashoggi was a terrible one, and one that our country does not condone. indeed, we have taken strong action against those already known to have participated in the murder. after great independent research, we now know many details of this horrible crime. we have already sanctioned 17 saudis known to have been involved in the murder of mr. khashoggi, and the disposal of his body.
+
+representatives of saudi arabia say that jamal khashoggi was an “enemy of the state” and a member of the muslim brotherhood, but my decision is in no way based on that – this is an unacceptable and horrible crime. king salman and crown prince mohammad bin salman vigorously deny any knowledge of the planning or execution of the murder of mr. khashoggi. our intelligence agencies continue to assess all information, but it could very well be that the crown prince had knowledge of this tragic event – maybe he did and maybe he didn’t!
+
+that being said, we may never know all of the facts surrounding the murder of mr. jamal khashoggi. in any case, our relationship is with the kingdom of saudi arabia. they have been a great ally in our very important fight against iran. the united states intends to remain a steadfast partner of saudi arabia to ensure the interests of our country, israel and all other partners in the region. it is our paramount goal to fully eliminate the threat of terrorism throughout the world!
+
+i understand there are members of congress who, for political or other reasons, would like to go in a different direction – and they are free to do so. i will consider whatever ideas are presented to me, but only if they are consistent with the absolute security and safety of america. after the united states, saudi arabia is the largest oil producing nation in the world. they have worked closely with us and have been very responsive to my requests to keeping oil prices at reasonable levels – so important for the world. as president of the united states i intend to ensure that, in a very dangerous world, america is pursuing its national interests and vigorously contesting countries that wish to do us harm. very simply it is called america first!
+
+
+
+
+
+
+
+
+posted by
+
+
+
+marcno
+
+
+
+
+at
+
+11:52 am
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tuesday, october 30, 2018
+
+
+
+
+
+
+
+upgrade to fedora 29
+
+
+
+
+
+fedora 29 was released today!  i found instructions on upgrading 27->28, so giving that a try for a 28->29 upgrade.
+
+
+for the impatient, here are the commands:
+
+
+
+
+sudo dnf upgrade --refresh
+sudo dnf install dnf-plugin-system-upgrade
+sudo dnf system-upgrade download --releasever=29
+sudo dnf system-upgrade reboot
+
+
+
+
+
+
+for the more cautious, see the original post in fedora magazine: "upgrading fedora 27 to fedora 28" the instructions abpve are the same, with a minor version change.
+
+
+
+
+
+
+
+full disclosure: i'm a red hat associate, but not working in the fedora space and my upgrade is currently 4585 out of 4597 packages complete.  call me an optimist!
+
+
+
+
+
+posted by
+
+
+
+marcno
+
+
+
+
+at
+
+11:55 am
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+monday, october 29, 2018
+
+
+
+
+
+
+
+ibm to acquire red hat
+
+
+
+
+
+
+fellow red hatters! as a survivor of the dec acquisition by compaq and then compaq by hp, i offer these words of advice on this surprising and stressful day where red hat is being acquired by ibm.
+
+while red hat is a great place to work, great colleagues, we make contributions to oss and beyond, we are more than where we work. take a look at other parts of your life. 
+
+try not to obsess on the news. nothing will happen at red hat in the short term. 
+
+change is the only constant, learn to make the best of it. 
+
+don't rage quit. 
+
+make no mistake ibm bought us and are in the driver's seat. 
+
+if it ever gets unacceptable being here, headhunters will be on the lookout for talent and we'll find other places to make a difference. 
+
+take a minute to vent, breathe and then get back to our customers.
+
+
+
+
+
+posted by
+
+
+
+marcno
+
+
+
+
+at
+
+10:57 am
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+labels:
+associates,
+change,
+denial,
+emotion,
+future,
+ibm,
+red hat,
+red hatter,
+surprise,
+zero-productivity day
+
+
+
+
+
+
+
+
+
+
+
+
+
+older posts
+
+home
+
+
+
+
+subscribe to:
+posts (atom)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+about me
+
+
+
+
+marcno
+
+
+
+view my complete profile
+
+
+
+
+
+
+
+
+search this blog
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+blog archive
+
+
+
+
+
+
+
+
+        ▼ 
+      
+
+
+
+2022
+
+(2)
+
+
+
+
+
+        ▼ 
+      
+
+
+
+november
+
+(1)
+
+now on mastodon!
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2019
+
+(2)
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2018
+
+(8)
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2017
+
+(17)
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(12)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2015
+
+(34)
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(20)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2014
+
+(17)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(13)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2013
+
+(12)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2012
+
+(26)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(5)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2011
+
+(22)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(4)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2010
+
+(35)
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(20)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2009
+
+(22)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2008
+
+(42)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(11)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2007
+
+(54)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(9)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2006
+
+(62)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(9)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2005
+
+(138)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(10)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(10)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(13)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(14)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(19)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(13)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(15)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(14)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2004
+
+(130)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(17)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(29)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(26)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2003
+
+(126)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(10)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(19)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(15)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(14)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(16)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(7)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2002
+
+(72)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(14)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(14)
+
+
+
+
+
+
+
+
+
+
+
+
+my tweets
+
+tweets by @marcno
+
+
+
+
+pages
+
+
+
+home
+
+
+my photos on flickr
+
+
+is your last name nozell?
+
+
+tweets
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+awesome inc. theme. powered by blogger.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

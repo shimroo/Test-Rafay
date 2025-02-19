@@ -1,0 +1,278 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+renderman academy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rendermanacademy.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+renderman academy circa 2003 -2007
+
+
+this web page has been restored from the original website's content and archived as part of the required reading for matt ho's code warriors course for second year computer sciences majors. dr. ho comes to us from the world of digital marketing, where he was responsible for some hugely popular viral campaigns including last year's 1st place winner of the mountain top award for a medical waste disposal client. the campaign used anime and live action to demonstrate the critical services provided to hospitals and research laboratories in safely removing biohazards. as featured in shutter mag, ho created the humorous campaign to make people aware of the very serious plague of disposable plastics, currently contaminating our oceans and even our bodies. this campaign was primarily cgi and used classic japanese art to contrast with the problem. students can obtain the complete syllabus and reading list from dr. ho's office or download from the university's website.
+
+ 
+
+ 
+this website was in no way affiliated or sponsored by pixar
+renderman™ is a registered trademark of pixar animation studios
+
+content is from the site's 2003-2007 archived pages providing just a glimpse of what this site offered its readership/ followers.
+and a shout out of thanks to rudy cortes, the "faculty," and everyone else who made this site so great.
+ 
+letter from the "principal"
+renderman™ for everyone! were the words that kept pounding my brain for hours on-end. i have met so many people who want to learn renderman™ but turn away from it after a couple of attempts. they spend long hours searching through the internet to find only a handful of reference places, three books and a whole lot of “tech talk” that is not aimed at the everyday artist. why? how many great shader writers and rendering td’s we have lost due to the lack of free available didactic material on renderman™? this question usually came hand in hand with another one. how much easier could it have been for me if i had access to more material that was not aimed at those who have a vast experience in programming? and how come no one has created such a place?
+among all this questions came a simple, direct, in-your-face answer: “stop whining and do it yourself stupid!”. yeah! what a bright idea, but there is one slight little problem, i’m not a renderman™ expert. there are plenty of more qualified individuals out there. most of them work in production, which is very time consuming and drains a lot of your energy. i published a couple of tutorials on the net about a month ago and the response was overwhelming. my site went from 200 hits a day to 43000! i made it to the front page of several major 3d news sites. i guess there are plenty of people out there who are interested in the things i already know.
+so here it is. i saved up some money, spent a good number of hours typing and opened the doors of “the renderman™ academy”. this is your website, it is for your use and benefit. my plans are to make out of the renderman™ academy the premier renderman™ learning center on the web. i don’t know whether it will make it or not, but we are here and we will keep on being as long as you drop by to read and chat with your peers.
+the days in which renderman™ was only available to td’s at big studios are behind. there are several good free renderman™ implementations out there, and know you have this site. if you want to learn it, you can. be persistent and be involved, ask questions and give answers. come, learn, play and join us in this movement as we claim from the top of our lungs.
+renderman for everyone!
+cheers
+ 
+
+
+
+intro to renderman™
+by rudy cortes
+what is renderman™?
+renderman™ is a 3d scene description language initially published by pixar and owned by them until now. it subdivides into two areas: the ri api or rib, and the renderman™ shading language.
+the ri api or the renderman™ interface bitestream (rib) is a language that tells a rendering engine what needs to be rendered, not how it needs to be rendered. for instance a renderman™ command might tell the renderer “hey! you need to put two lights here and a sphere there”; one renderer might use raytracing, another reyes and another scanline algorithms. one renderer might position all the objects in relation to a 3d world and another on relation to the camera. the ri api is a c based language that interfaces directly with the renderer. the rib is a more compact (syntax-wise) ascii text file that’s easier to read and manipulate to connect to the renderer. for a more in-depth look please go to renderman™ interface bitestream 101 (rib)(coming soon)
+the rsl is the other key part of renderman™. it is a language who’s purpose is to define the appearance of objects, lights and atmospheric events. in laymen’s terms, rib tells the renderer “render a sphere that has a radius of 2 units and it place it here”, while rsl tells the renderer “ that sphere will be red and reflective with small dings on it”. for a better explanation of rsl go to renderman™ shading language 101 (rsl)
+renderman™ is a standard that was designed to help bridge the gap between animation/modeling packages and rendering engines. why was there a gap since as you might now most animation packages have a rendering engine? well, most rendering engines that ship with animation packages are not as capable, extensible or controllable as standalone renderers. for a long time pixar’s own photorealistic renderman™ was the only implementation of the standard available to the public (it is for this reason that many people refer to prman as renderman™, please avoid doing this, remember renderman™ is the standard, not the renderer). things have changed over the last years and now there are plenty renderers available to choose from. some of them are free and others are very affordable so there is no reason why you can’t learn how to use the rendering technology that the big effects houses use.
+why renderman™?
+in one word? control! in more words? efficiency, adaptability, extensibility, reliability.
+what do i mean by these words? well, as you have read, most renderman™ renderers support programmable shading though rsl. this means that you have complete control over the kind of materials you want to create. you don’t get this with renderers that are included in animation packages, unless you are willing to write a plugin with the sdk wich its usually a lot harder than writing an rsl shader. renderman™ renderers are usually designed to be able to render very large amounts of data using very little memory, especially prman. they are very adaptable to any production pipeline through a good amount of programming or with the use of a plugin.
+not convinced yet? well think about this for a second. everyday more and more people want to get into 3d graphics, tools are more accessible than ever and you can see all over the web many very talented artists. learning renderman™ is a big differentiator; it opens up more doors for you. the industry is going through an explosion right now, but most studios have a hard time filling positions that require both, artistic and technical skills. learning renderman™ is a great investment on your career, even if you don’t want to be a rendering td, it will help you to understand how images are rendered. so are you in? good!
+what you will need
+- a renderman™ renderer
+- a good text editor
+- a modeling program capable of outputting rib files
+- a lot of dedication and patience
+what i assume you know about 3d
+you should have a very strong knowledge of 3d graphics and rendering. if you don’t know what i’m referring to when i speak any of the following words: blinn, phong, surface normal, displacement/bump map, raytracing, motion blur,depth of field. then you need to go back and learn a little more about 3d graphics and rendering, just enough to be familiar with most of the terms and how you use them.
+what i assume you know about renderman™ or programming
+nada, zero, zip, nothing; i pretty much assume you have never typed a line of code in your life. if you have then you can skip the basic programming concepts tutorial. and go straight into rib 101 or rsl 101.
+am i qualified to be "teaching" renderman™?
+i'm pretty sure im not the most qualified person in the world to be doing this, but i have learned enough about renderman™ that i can do certain things that im sure plenty of people out there are wanting to learn. i just keep thinking how much faster i would have learned it if someone took the time to share what they knew, so here i am.for this reason if you read something that is outlandishly wrong, just write me an email and i shall correct it. as i continue to learn things i will continue writing tutorials. i believe the days when renderman™ was an "obscure cult" that only the td's at the big studios where members of are over, if we all work together we can help expand the frontiers of this rendering technology and bring it to anyone who wants to learn it.
+i guess this is all i can fit into an introduction to renderman™ article without going into any specific details. so, considered yourself introduced and buckle up! we are going for a ride!
+ 
+
+
+
+the very basics
+by rudy cortes
+learning renderman will be a long, arduous but extremely satisfying road for most people. you must learn to understand the basics and latter the advanced features of the rib and rsl. but as all long and significant journeys, ours begins with a very small step. if you have never used a renderman renderer before then read this tutorial before anything else.
+most renderman renderers are command line renderers, which means that after you finish your installation and you navigate full of excitement through your folders you will reach a folder called bin with several executable files. no gui, buttons, sliders, checkboxes, nothing, just some executables. as simple and insignificant as those files might look compared to a maya, max or any other 3d applications, they are extremely powerful since the authors could concentrate on just the renderer without worrying about a gui.
+there are several advantages to implementing a renderer as a command line, the most important i believe is that every studio or user can adapt the renderer to work with their pipeline. since its just a system command you can call it using a batch script or one of the high level languages available like perl or python. as useful as this is for big studios it can still be a bit daunting for many users who don't have a programming background.
+most renderman renderers ship with at least 3 executable files, a renderer, a shader compiler and a texture converter. we will proceed to explain how the executables are used and how you can fit them into your production style.
+the rendering program
+this is the program responsible for loading up your rib file, parsing through it, interpreting and executing the calls and generating your final image. this program is executed usually in the following manner:
+renderprog [options] file1.rib file2.rib ...
+where renderprog is the name of the rendering executable of your renderer, the most common are
+
+
+
+prman
+prman win
+
+
+render
+prman unix
+
+
+rendrib
+bmrt
+
+
+renderdl
+3delight
+
+
+aqsis
+aqsis
+
+
+renderdc
+renderdotc
+
+
+air
+air
+
+
+rndr
+pixie
+
+
+
+these command is followed by optional arguments you can pass to the renderer. among these options are statistics reporting, loading information, image control and several other options. note that the keyword here is 'options' so you don't need to use any of them if you don't want to. lets use 3delight as an example. you can read the 3delight's docs and find that it supports the following options (from the 3delight user manual - all rights reserved)
+`-v'    prints 3delight's version number and name;
+`-h'    prints a short help screen;
+`-beep' beep when all ribs are rendered;
+`-beeps' beep after each rendered ribs;
+`-d'    will force a display to the `framebuffer' display driver. note that a `framebuffer' display driver will be added to the displays declared inside the rib so those will still be called. if there is already a `framebuffer' display driver declared in the rib then this options has no effect;
+`-d'    has the same effect as `-d' but will automatically close the framebuffer display driver when finished;
+`-frames f1 f2'   only render the frames between f1 and f2, inclusivly. this options enables you to render some specific frames inside one rib file. frames outside the specified interval are skipped;
+`-crop l r t b'   sets a crop window defined by  (left right top bottom). the values should be given in screen coordinates, which means that all value are between 0.0 and 1.0 inclusively. this command line option will override any cropwindow command present in the rib file.
+`-noinit'   do not read the `.renderdl' file. see section 3.1.2 the `.renderdl' file.
+`-stats'   prints "end of frame statistics". has the same effect as putting the following line in the rib file: option "statistics" "endofframe" 3
+`-progress'   prints a progress status after each bucket. can also be enabled from inside the rib. see option-statistics-progress. 
+based on this info we know what options 3delight supports. for example if you wanted to render an image with 3delight and have the machine output progress information, frame statistics and beep when the file is finished you would use
+3delight -stats - progress - beep myfile.rib
+please read your renderers documentation to learn what options are supported by it. finally at the end of your command you must provide the name of a valid rib file. most renderers support a list of names or wildcard substitution. so if you have 100 rib files named 'myfile.000.rib' to 'myfile.099.rib' you could just use the command
+3delight -beep myfile.*.rib
+and the program should render all of the files in ascending order. note that for this commands to work properly you must provide the right path to the rib files and you must have your renderer's bin folder included in the system path. otherwise you will have to type the whole path for the renderer every time you want to use it (very annoying). to get around typing the whole path for the rib file you could just 'cd' to the directory and then run the commands.
+the shader compiler
+renderman renderers normally require you to compile your shaders from rsl source code *.sl to a proprietary format. when a shader its compiled it gets converted into a more compact piece of code that the renderer can load and execute. the compiled shaders are usually very portable, meaning that if you compiled an rsl shader in linux you can still use it in windows, osx or whatever other platform the renderer is supported on. a shader is compiled with a command similar to the one used for rendering:
+compileprog [options] myshader.sl
+once again where compileprog is the name of the shader compiler provided by your renderer, here is a list of popular ones:
+
+
+
+shader
+prman
+
+
+slc
+bmrt
+
+
+shaderdl
+3delight
+
+
+aqsl
+aqsis
+
+
+shaderdc
+renderdotc
+
+
+sdtc
+pixie
+
+
+
+just like the renderer command the compiling program can take a list of options before the name of the shader source file. the most important of this options is the include path option '-i' (check your renderer's docs to make sure its the same). you use this option when you need to provide the shader a path to any included header files that your shader might need. most compilers by default will search for include files in the same directory where the shader source file is in. to my knowledge most people rather have their header files in separate directory. here is how you would use the '-i' option (using 3delight as an example):
+> shaderdl -ic:/mypath/myshaders myshader.sl
+please take note that most renderers require you to not use a space between the '-i' option and the directory path. another important option is the output '-o' option which allows you to declare the path and name of the compiled shader. by default compiled shaders get saved in the current directory and use the name declared on the shader after the 'surface' call.
+if the shader was compiled you should get a confirmation message. if it failed you should get error messages that lets you know where the compiling failed. use that info to go back to your shader and kill those errors. be aware that some compilers report errors better than others and that sometimes the error might read "error on line 52" but the error is actually in a previous line. so take your time and read the whole area where the error is pointing to.
+the texture converter
+renderman renderers are designed for efficiency and every aspect of the rendering process has been analyzed to be as efficient as possible. texture maps have always been used for rendering images so naturally they have a way to optimize their memory consumption. this is done by converting the images into a proprietary image format that stores the images as mipmaps. mipmaps are stored in a way that within one file there are multiple resolutions of the same image, this way if the object that certain texture is far away, the renderer will load a smaller resolution version from the mipmap image therefore consuming less memory. for this reason is recommended that your image resolution is always a power of 2, like 128 x 128,1024 x 1024 or 1024 x 2048, etc. you should create your maps on an image manipulation or painting program and save the files out as tiffs, then you convert them to the renderer's format by using a command that usually follows the form
+textureprog [options] inputfile outputfile
+the texture converters programs are very different from renderer to renderer so we wont go into too much detail. there are certain options that are important such as options for making shadow maps from depth images and to make environment maps from either one image (spherical) or from 6 images (cubical). please read your renderers docs to find out what are the specific options and usage of your texture converter.
+ 
+
+
+
+renderman™ tools
+renderman™ compliant renderers
+the last two to three years have being very exciting in the rendering community. the whole “concept” behind the creation of the renderman™ scene description language is finally taking off. where there once was only one implementation of renderman™, pixar’s own prman, now there are many renderers to choose from. time couldn’t be better for those looking to embark on the long, but exciting road of high end rendering. here is a list of renderman™ renderers available. there might be more out there. if you know of one that’s not listed, please drop me a line at rmantuts@renderman™academy.com
+photo realistic renderman™ – pixar – win, linux, irix, mac osx - $3500
+the granddaddy of renderman™ renderers. production proven, fast, reliable, extensible and very controllable. this is one strong workhorse, capable of rendering scenes with very large amounts of detail (see the door vault in monsters inc). version 11.5 does raytracing and global illumination.
+renderdotc – dotc software – win, linux, irix, hp-ux - $ 595 to $2995
+renderdotc has been shipping since 1996. it has several films credits under its belt and it has a broadcast edition that is only 595, but only renders up to 768 x 576. version 3.4 will include raytracing.
+air – sitex graphics www.sitexgraphics.com win –linux - $450.
+this is a newer renderer, but its author scott iverson has been writing renderers for a while. fairly priced and includes a lot of extra little utilities that allow you to work faster (only win version though).
+3delight – linux – mac osx - free
+a free renderman™ renderer that runs pretty fast and supports most of the ri specification. it doesn’t include many of the features supported by prman 11 (it does raytrace thought), but hey.... it"s free!!.
+aqsis open source -win – linux - mac osx - free
+another free renderman™ renderer, but this one is open source. so if you ever wanted to get your hands on code to learn how a reyes renderers is put together, this is your renderer to get. still in development.
+pixie by okan arikan -free
+yet another free renderman™ renderer. its also open source and its slowly becoming boys and girls favorite because of the high end features it supports (almost the same as prman 11). still in development.
+jrman - open source - free
+another open source implementation of renderman™, but written in java. still has ways to go, but for those that are into java it should be quite interesting to give it a look.
+
+shader writing tools
+ok. so here you are, anxious to start learning to use the one of the most powerful 3d rendering tools. you get your cold coke, pop in your favorite cd or mp3’s, lay your hands upon the keyboard and you discover one of the ugliest parts of renderman™ shading language: “writing shaders can take a long time”.
+for us who used to be accustomed to having a nice and shiny gui's to generate shaders or materials this is a big shock. many rendering development companies are trying to make this a thing of the past. pixar created the renderman™ artist tools to help speed up the development process and to make the process more artist friendly. here i have put together a list of tools that might be of use for you. some of these tools require a little time to setup, but once they are up and running you will be writing shaders a lot faster.
+
+text editors
+any text editor will do the job, but there are some of them out there that make the job a lot easier. take a peek and choose one that fits you.
+sleditor by alexei puzikov - win free
+a very simple and user friendly shader language editor. designed to work with the always remembered bmrt, this editor offers string searching, color coding and line numbering. very easy to install.
+
+slced by alexei pusikov – win free
+this is sleditor big brother. it allows you to change material properties and render small previews. it also has a color coded text editor and it can compile you shaders with on click. however it only works with bmrt
+xemacs win – linux – unix free
+xemacs is a different version of the very popular unix text editor emacs. it is deceivingly simple but it is extremely powerful. this is a very serious tool that gives you a lot of power to extend the original functionality. to make this editor really worth it for shader writing i have re-written steve may’s rsl-mode. this will allow you to edit rsl files with auto indentation, color coding, file comparison and also quick compiles and test renders,truly an awesome tool. its also good for perl, python, c/c++, java and most mayor programming languages.
+emacs / xemacs rsl-mode original by steve may - updated by rudy cortes - free
+this is a modified version of steve may’s rsl-mode. its updated to support new syntax highlighting packages and to support 3delight, aqsis, bmrt and prman for windows and unix.
+i will eventually update it to support air and pixie.
+cutter - by malcom kesson - runs on any platform supported by java - free
+this is a very nice text editor designed specifically for renderman™ shading language. it also supports programming languages such as tcl, mel, python, vfl, ifd, html, shake, c, cpp and java. very nice!
+shader authoring tools
+these tools are designed to develop shaders by visual means. it’s a lot more artist friendly but make no mistake. to use these programs efficiently you need to learn rsl. many td’s still prefer to write their shaders in a text editor. call them purists, call them crazy, but hand coded rsl shaders are still very popular. for your convenience here is a list of available utilities.
+slim/renderman™ artist tools pixar win – linux $2000
+part of the renderman™ artist tools. this is a shader building program that feels like the 3ds max material editor, underneath works like maya’s hypershade, but at the end you get good ol’ rsl shaders. it is tightly integrated with maya but is also a stand alone. it’s very extensible through the use of tcl\tk.
+
+shadetree cinema graphics win – irix $4995
+i believe this was one of the first shader authoring tools in the market, i've never used it but is seems really powerful.
+vshade - sitex graphics win
+this tool ships with the windows version of air.
+shaderman – by alexei puzikov win free
+another great tool by alexei. its not quite finished but its very usable and very promising. extensible through xm, this is a tool that i would keep my eyes on.
+shrimp - open source - linux - free
+open source shader authoring tool. development is going very slow, but its open source, so if you are a clever programmer, maybe you can finish this baby and release it for all to use.
+utilities
+perl
+a very powerful yet fairly simple scripting/programming language. very strong for parsing and modifying text files. ideal for rib processing or manipulation.
+python
+perl not your thing? try python, very powerful and easy to use.
+cgkit
+the python computer graphics kit is a collection of python modules that contain the basic types and functions to be able to create 3d computer graphics images. the kit mainly focuses on pixar's renderman™ interface, but some modules can also be used for opengl programs or non-renderman™ compliant renderers like pov-ray, for example.
+
+
+
+rendermanacademy.com
+
+
+
+
+
+
+
+
+
+
+
+

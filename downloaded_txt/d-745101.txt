@@ -1,0 +1,190 @@
+
+
+
+
+
+
+
+artech365 – live channels anywhere
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+skip to content
+
+
+menu
+
+
+
+artech365
+
+vita2 live
+old products
+faq
+contact us
+about us
+ 
+
+
+
+
+
+						artech365					
+
+						live channels anywhere					
+
+
+
+
+
+
+
+
+
+
+
+vita2 live
+
+
+
+vita2 helps you watch live tv, optimised for unstable connection.
+why use vita2 live?
+
+performance is optimised for android box, smart tv and handsets, both remote controller and touch screen are supported.
+special measures are used to work with unstable internet connection. vita2 can bring you non-local tv channels.
+vita2 has the unique ability to check/verify all the streams/channels listed in your hls/m3u playlist.
+
+download
+
+
+
+
+
+
+
+
+
+
+
+
+
+android apk version
+
+download apk directly (9m) 
+mirror 1 
+
+system requirements
+
+android 4.4 or higher
+
+key features
+you wouldn’t be frustrated when trying vita2 stream to play hls/m3u playlist, if you had failed to play them due to unstable network connection. 
+
+work with unstable connection. 
+
+
+some key tech schemes are utilised to enable vita2 stream to work with unstable internet connection. also for the better performance, vita2 uses multi-threads to download hls segments.
+
+
+automatically validation
+
+
+vita2 automatically validates streams/urls within the playlist. you will always be shown a playable list even your isp updates the channel list from time to time. moreover, vita2 will rank the streams/channels according to bandwidth rqd, downloading speed and video quality, etc.
+
+
+vita2 supports nested playlist.
+
+
+ yes, since some isp provide the clients with nested playlist, the feature make playing hassle-free.
+
+
+ auto group streams/channels. 
+
+
+vita2 can group the streams/channels according to some predefined tags, e.g. favourite, or tags found in the playlist.
+
+making your own playlist(.m3u)
+what is m3u
+https://en.wikipedia.org/wiki/m3u
+m3u by one example
+vita2 stream supports m3u playlist format. additionally to standard m3u file format it supports extended m3u playlists with custom attributes.
+here is an example of extended m3u playlist:
+extm3uextinf:-1 tvg-logo="http://www.example.com/path/to/images/001.png" group-title="groupa",channel ahttp://www.example.com/path/to/001/main.m3u8 extinf:-1 tvg-logo="http://www.example.com/path/to/images/002.png" group-title="groupb,gourpc",channel bhttp://www.example.com/path/to/002/main.m3u8 extinf:-1 tvg-logo="http://www.example.com/path/to/images/003.png" group-title="groupc",channel chttp://www.example.com/path/to/003/main.m3u8 extinf:-1 ,nested list ahttp://www.example.com/path/to/nested_a/nested_a.m3u
+
+url-tvg – url for epg in jtv (zip) or xmltv (xml, gz) format. several urls may be specified separated by comma
+group-title – title for channels group
+tvg-logo – channel logo name (from internal database) or url to the image that will be used as channel logo
+tvg-name – name of the channel from epg, should be equal to the value of “display-name” tag in xmltv
+tvg-id – xmltv channel id. when both tvg-id and tvg-name are specified for the same channel, tvg-id will be used.
+tvg-shift – shift in hours for epg
+
+within the above attributes, group-title is the most important one.
+nested m3u
+#extm3u extinf:-1 group-title="weather" ,nested list ahttp://www.example.com/path/to/nested_a/nested_a.m3uextinf:-1 group-title="shop" ,nested list bhttp://www.example.com/path/to/nested_a/nested_b.m3u 
+
+
+
+finding existing playlist
+
+google it, possible keywords are: m3u hls playlist iptv
+
+
+find it in github.com
+
+note
+
+hls streams of vod type are currently unsupported.
+ this app does not provide any list of channels. please ask your isp for the specified playlists.
+ this app only work with free channels provided by your isp. it cannot be used to play any paid channels.
+ also vita2 stream does not store or share your playlists. all the playlists which you input only store in your devices or your icloud space.
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+					©2023 artech365				
+
+
+
+
+
+
+
+

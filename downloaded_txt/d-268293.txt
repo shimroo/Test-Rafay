@@ -1,0 +1,338 @@
+
+
+
+
+ben nolan - ben nolan
+
+
+
+
+
+
+
+
+
+
+
+
+ben nolan
+
+
+
+
+
+i like to make software that is fun and good looking.
+
+
+
+
+              july 24, 2017
+              
+
+
+using sse to make things live
+
+last week i stayed up late on a tuesday night and built the prototype of talking, my idea of a forum where you leave voice messages for each other. i decided i wanted to do this as a way to get out all my ideas for a next generation reddit out on one place:
+
+
+
+
+
+              june 08, 2017
+              
+
+
+bonkers - microblogging with html
+
+so i couldn’t sleep last night (thanks jet lag), so i sat in bed and prototyped bonkers, a microblog that lets you paste full html.
+
+
+
+
+
+              june 07, 2017
+              
+
+
+twitter with markdown
+
+this is an idea that keeps percolating up from the back of my mind. i want to build something like twitter (public feeds, follow people, microblogging), except it supports full html. so you can tweet something and use fonts and colors and have links that do stuff. obviously you’d need to sanitise the posts (and probably load them in an iframe as a datauri with no permissions), but i think it’d be fun to be able to post interactive content. you could post a little survey, or a game (maybe you could use something like amp and have a static view of the post, but when you click on it, it can open a sub-iframe and run some javascript). it’d be little tiny bits of the web, streamed to you in realtime.
+
+
+
+
+
+              may 19, 2017
+              
+
+
+porting cpp
+
+so ever since i shut down scenevr, i’ve been free to work on a variety of different ideas. one of the things that was always floating around in the back of my head, was writing something like janusvr, except designed to run on mobile vr instead of desktop.
+
+
+
+
+
+              may 18, 2017
+              
+
+
+clang and android
+
+as my side project, i’ve been working on a c++ renderer for a-minus scenes. this has been a super fun project, using c++11, three.cpp and opengl to make a pretty lightweight and nice and speedy renderer.
+
+
+
+
+
+              may 17, 2017
+              
+
+
+it's on
+
+so it looks like this blog still works. maybe i’ll start blogging again.
+
+
+
+
+
+              may 17, 2017
+              
+
+
+firing up the blog
+
+is this thing still on?
+
+
+
+
+
+              december 10, 2014
+              
+
+
+scenevr, multiuser 3d
+
+scenevr is my node.js + webgl project that lets you easily create 3d scenes that you can experience with multiple people at once. it uses node.js and websockets to provide a server. the server loads html-like scene descriptions and lets you script interactions, so that the scene can respond to people in the scene. the cool thing is, that everything is simulated on the server, so every connected client sees the same thing. this makes it easy to write multi-user experiences (games, demos, toys), just code it once in xml + javascript, and everyone can connect to it and play with it.
+
+
+
+
+
+              september 25, 2014
+              
+
+
+herenow feature requests
+
+i’ve been given a bunch of feedback on herenow. i thought i’d make a blog post to list the main feature requests that my friends and other users have given me.
+
+
+
+
+
+              august 27, 2014
+              
+
+
+working collision map on mapbox
+
+so this is a total hack, but it works. try it out. basically, i’ve exported the json that represents the static polygons in the physics simulation, and hardcoded the translation functions to convert physics-space to world space. i also hacked up box2d to increase the maximum translation speed (i probably need to scale everything down to do it properly). i also made the streets too wide in the physics. i might go back and fix that. but yeah, you can get a feel for how the game engine might work, with being able to walk up and down streets and side streets. i think it could be a pretty cool game mechanic.
+
+
+
+
+
+              august 25, 2014
+              
+
+
+physics simulation of wellington
+
+so i did a bit of work on tuesday today, but also did a good afternoons work on my virtual tourist game. here is the latest.
+
+
+
+
+
+              august 23, 2014
+              
+
+
+walking physics
+
+i’ve done some more work on trying to make a walking simulator on openstreetmap data. i used jsclipper to draw a big rectangle, then extruded the streetlines and cut them out of the rectangle, then turned the polygons into convex hulls and loaded them into box2d. see here for a demonstartion. the code is super ugly at the moment.
+
+
+
+
+
+              august 22, 2014
+              
+
+
+mapbox gl walking game
+
+i discovered mapbox gl for the web the other day. it’s an awesome library by mapbox that renders vector tiles in the browser using webgl. it’s super fast, and allows rotation of the map, which let me prototype something i’ve been trying to do for ages.
+
+
+
+
+
+              august 11, 2014
+              
+
+
+deploying node.js apps
+
+i’ve got a few node.js apps kicking around on my computer that i’ve been wanting to deploy for a while, but i’d never got around to it. happily, i decided to try and deploy the asset-server.
+
+
+
+
+
+              august 08, 2014
+              
+
+
+aoc 4k monitor
+
+i bought one of the new aoc 4k monitors (a u2868pqu). it’s a great monitor, and available for only $800 in new zealand. i ordered mine from mightyape and it arrived the next day.
+
+
+
+
+
+              august 06, 2014
+              
+
+
+oculus sdk and three.js
+
+at work today, i did a demo of some of the vr stuff i’ve been hacking on. it was pretty cool, everyone was way more interested in the 3d / vr stuff than they were in my other projects, which made me think that i need to get my shit together and release some of this stuff.
+
+
+
+
+
+              july 24, 2014
+              
+
+
+physics, hulls and cannon.js
+
+as part of my exploring metaverse stuff lately, i’ve been thinking of ways i could make some cash moneys off the technology i’ve built. one of the first ideas i’ve come across, is to make a walk-through visualizer for architectural models. so as well as providing a global metaverse where anyone can upload art, also have private workspaces where people can place models and walk through them with their clients.
+
+
+
+
+
+              july 23, 2014
+              
+
+
+my model uploader workflow
+
+i’ve been doing quite a bit of work on metaverse.sh (there’s no site there are the moment) lately, trying to get the model uploader workflow going.
+
+
+
+
+
+              may 27, 2014
+              
+
+
+herenow retrospective
+
+i’ve been teaching myself mobile development for the past 6 months, and last week, i decided to put aside my full time project and instead try and build and release something quickly, to get experience with the whole app store submission process, and also to write an app with all the knowledge i’d gained over the previous 6 months (my previous project looks like a total nightmare).
+
+
+
+
+
+              may 20, 2014
+              
+
+
+with - quantified self app
+
+so i’m getting closer to releasing with. i was reading dhhs post about hybrid apps, where you use native navigation and display content using webviews, and since it was slow going trying to write a purely native version of with, i decided to go hybrid.
+
+
+
+
+
+previous
+page: 1 of 12
+next
+
+
+
+
+
+  about me
+
+
+
+
+  the day job
+
+
+ i may be available to work on javascript and rails projects,
+  email or call me to discuss.
+
+
+  current work
+
+
+echt (in private beta)
+fontus
+zoomin
+
+
+  i work with these tools
+
+
+react (redux, mobx, react native)
+node.js (express, websockets)
+three.js (webvr, webgl)
+aws (dynamodb, rds, rekognition, s3, ec2)
+postgresql (postgis, full text search)
+and a little bit of c++11
+
+
+  previous clients
+
+
+trademe
+powershop
+youdo
+lonely planet
+sony los angeles
+copenhagen museum
+new zealand exchange
+autoscout 24 munich
+koziarski software
+travel iq
+zoomin
+sxip
+
+
+  find me online
+
+
+ atom feed
+ github
+ twitter
+
+
+
+
+
+
+
+

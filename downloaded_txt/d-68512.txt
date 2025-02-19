@@ -1,0 +1,178 @@
+
+
+
+
+
+local docker port exposed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+amidst a tangled web
+
+
+
+
+
+
+
+local docker port exposed 
+if you’re using docker with ufw (ubuntu firewall), your local ports may be exposed to the outside world. i recently read about this issue and when i checked, sure enough, the local ports of all of my docker containers were readily accessible.
+it felt like being caught with my fly down. why in the world docker does this by default is beyond me. and it’s not as if they’re not aware of it. this github issue clearly lays out the problem. it’s disappointing the issue has existed for so long and the docker team isn’t willing to fix it. it’s a major violation of the secure by default principle.
+if you too are learning about this, here’s the fix.
+1. create /etc/docker/daemon.json if it doesn’t already exist
+2. add the following content to the file
+{
+  "iptables": false
+}
+3. restart docker sudo service docker restart
+who knows if there are other docker vulnerabilities i’m not aware of, but at least in this case, my servers have zipped up.
+update: i discovered that disabling iptables has the side effect of blocking outgoing network requests from your containers due to ufw’s default behavior. if this creates a problem, you can leave iptables enabled, but bind your ports to localhost. for example, instead of using 3001:3001 for your ports, use localhost:3001:3001. alternatively, you can make ufw allow outbound requests.
+
+
+
+security 
+
+
+
+
+how to speed up ansible playbooks 
+if you’re using ansible to maintain server configurations, you’re probably quite aware that speed is not something often used to describe ansible. but i recently came across a plugin that had an amazing 82% performance improvement. and it took a single command and two lines in the ansible.cfg.
+the plugin is mitogen, more specifically mitogen for ansible.
+on my ubuntu ansible controller server i installed it with pip3 install mitogen, then added these two lines to ansible.cfg:
+strategy_plugins = /usr/local/lib/python3.8/dist-packages/ansible_mitogen/plugins/strategy
+strategy = mitogen_linear
+
+now a simple playbook that used to take 45 seconds takes 7 seconds. and a larger playbook that used to take ~3 1/2 minutes finished in just over 32 seconds. it’s rare to get such a massive performance improvement without any downsides (at least none i’m aware of).
+so if you’re a fellow ansible user, i highly recommend adding mitogen.
+
+
+
+useful, web hosting 
+
+
+
+
+chrome 85 causing login failures 
+google chrome recently updated to version 85.0.4183.83 on my machines, but unlike most updates, there was a rather unfortunate downside to the update. i was no longer able to log in to certain web sites. the problem manifested in two ways that i saw. one, an infinite redirect loop and two, a failed login even though i’d entered valid credentials.
+the fix was not at all obvious, hence this blog post. i had to disable the “samesite by default cookies” flag.
+
+1) open this url in chrome: chrome://flags/#same-site-by-default-cookies
+2) select “disabled” in the dropdown.
+3) restart chrome (the entire browser, not just the tab or window)
+i was able to log in to the aforementioned sites in firefox, so my guess is the chrome team is using their monopoly to push a more restrictive security feature that ends up breaking sites that haven’t gotten the memo. hopefully this is a temporary fix and the flag can be enabled again once sites realize their users can’t log in with chrome.
+
+
+
+web browsers 
+
+
+
+
+cleaning up the web 
+as web pages get more cluttered, even ad blockers don’t cut it. medium.com pages are particularly hard to read with the huge notice they add on the bottom of the page, covering up the content and making it difficult to read.
+my solution has continued to work surprisingly well for the past few years. it’s a bookmarklet that removes all sticky elements (ones that stay visible when you scroll).
+
+the bookmarklet in action on a random medium.com page
+to use it, drag the link below to your browser’s bookmarks bar then click on it whenever a web page looks a little cluttered.
+-sticky
+
+
+
+useful 
+
+
+
+
+free printable weekly and daily planners 
+i searched high and low for free, printable pdf weekly and daily planners for my kids to be able to schedule their days and weeks. i expected to find dozens of options but was surprised to find very few. of those few, some plastered their logos all over or declared the document could only be used by students of a particular university. others wanted you to create an account or trade your email for the document. and others were close to what i wanted, but didn’t have 1/2 hour increments or some other small detail. it all seemed excessive for such a simple document. so i created two planners that can be freely downloaded and used for whatever purposes you can come up with.
+
+
+download weekly planner
+
+
+download daily planner
+happy planning!
+
+
+
+productivity 
+
+
+
+
+
+read more posts »
+        
+
+
+
+
+
+- home
+my projects
+blog archives
+docs
+entertainment
+funny lists
+humor
+tools
+software
+most popular pages
+
+riddles
+brain teasers
+trivia
+pickup lines
+not bright one liners
+
+search blog archives
+
+
+
+
+
+random quote
+it is perspective that determines the veracity of the circumstance not the circumstance itself.
+
+    (see all the quotes)
+
+
+
+
+
+
+      page loaded in 0.0053 seconds
+      | contact
+
+
+
+
+
+
+
+
+
+

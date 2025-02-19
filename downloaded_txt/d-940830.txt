@@ -1,0 +1,509 @@
+
+
+
+
+
+
+
+the cricket indoor location system: an nms project @ mit csail
+
+
+
+
+
+
+
+
+
+
+the cricket indoor location system 
+
+
+
+
+ news
+-
+latest hardware and software release
+
+
+ overview
+-
+cricket project description
+
+
+ technology
+-
+how it works?
+
+
+applications & demos
+-
+what can you do with cricket?
+
+
+ download
+-
+v2 software and user manual
+
+
+people
+-
+who are we?
+
+
+ papers
+-
+cricket documents
+
+
+ data
+-
+collection of some raw cricket data
+
+
+ acknowledgments
+-
+who sponsors cricket?
+
+
+
+
+
+news
+
+
+2006-03-13
+software release version 2.3.2 and firmware 2.3.2
+		add license to the source code
+adjust the distance calculation for some crickets
+
+
+
+2005-09-13
+add a by page schematic download and update the schematics
+
+
+2005-01-26
+software release version 2.3.0 and firmware 2.3.1
+improve ultrasound directionality
+update manual
+various fixes
+
+
+2004-10-29
+added schematics to the download section
+
+
+2004-10-28
+new firmware and software version 2.2.2
+improve ultrasound coverage
+
+
+
+2004-10-15
+new firmware and software version 2.2.1
+add missing source file
+
+
+
+2004-10-13
+new firmware and software version 2.2.0
+change ultrasound back to 53 ms
+fix scheduling bug due to wrong wait time
+add ultrasound gain settings
+various small fixes
+
+
+
+
+overview
+cricket is indoor location system for pervasive and sensor-based  
+computing environments, such as those envisioned by mit's project oxygen.  
+cricket provides fine-grained location
+information---space identifiers, position coordinates, and
+orientation---to applications running on handhelds, laptops, and
+sensor nodes.
+
+ there have been two major versions of cricket to date (july 2004).
+cricket v2, the current version, is substantially more accurate and
+energy-efficient compared to cricket v1.  v2 has a new software stack
+that runs on tinyos, has better support for continuous object
+tracking, has support for various auto-configuration algorithms, etc.
+you can buy cricket v2 units from crossbow
+technologies.  the software for cricket v2 (both embedded software
+and higher-layer software that runs on laptops/handhelds are available
+here.  this software is under an open
+source license and can be used for education, research, and commercial
+purposes as long as the requirements in the copyright notice are
+followed. cricket available from crossbow
+technologies may not be preloaded with the embedded software when 
+shipped individually (to program the crickets you will need a mib510ca 
+programmer).
+
+many applications in pervasive and sensor computing environments
+are context-aware, benefitting from knowledge of their external
+context, such as their location.  location may be specified as a
+coordinate position in some coordinate system, a geographic space such
+as a room or portion of a room, and as the orientation of a device
+within some coordinate system.  examples of location-aware
+applications that can be developed using cricket including resource
+discovery, human/robot navigation, physical/virtual computer games, 
+location-aware sensing, hospital/medical applications (e.g., equipment
+and patient tracking/monitoring), stream
+migration, pose-aware applications like the software
+flashlight/marker, etc.
+
+
+cricket is intended for use indoors or in urban areas where outdoor
+systems like the global positioning system (gps) don't work well.  
+it can provide distance ranging and positioning precision of between 
+1 and 3 cm, so applications that benefit from better accuracy that the 
+cellular e-911 services and gps will also find cricket useful.  
+cricket is designed for low-power operation and can be used as a 
+location-aware sensor computing node (running tinyos), to which a 
+variety of sensors can be attached.
+
+
+
+
+
+technology
+
+the best way to learn about the cricket technology is to check out the 
+cricket v2 user manual.
+
+in a nutshell, cricket uses a combination of rf and ultrasound technologies to
+provide location information to attached host devices.  wall-
+and ceiling-mounted beacons placed through a building
+publish information on an rf channel.  with each rf advertisement, 
+the beacon transmits a concurrent ultrasonic pulse. 
+listeners attached to devices and mobiles
+listen for rf signals, and upon receipt of the first few bits, listen
+for the corresponding ultrasonic pulse.  when this pulse arrives, the listener
+obtains a distance estimate for the corresponding beacon by taking advantage
+of the difference in propagation speeds between rf (speed of light) and 
+ultrasound (speed of sound).  the listener
+runs algorithms that correlate rf and ultrasound
+samples (the latter are simple pulses with no data encoded on them)
+and to pick the best correlation. even in the presence of several competing
+beacon transmissions, cricket achieves good precision and accuracy quickly.
+
+in addition to determining spaces and estimating position coordinates,
+cricket provides an indoor orientation capability via the cricket compass.
+this facility is not yet commercially available (it is a research prototype)
+
+
+
+
+
+a cricket listener attaches to the host device using an rs232 serial 
+connection.  the cricket beacon and listener are identical hardware 
+devices (see picture above).
+a cricket unit can function as either beacon or listener, 
+or can be used in a "mixed" mode in a 
+symmetric location architecture (which may be apporpriate in some
+				 sensor computing scenarios), 
+all under software control.
+you can attach a variety of sensors to a cricket device
+using the 51-pin connector on the cricket.
+
+we also have some research prototypes of crickets with a compact flash (cf)
+interface, which may be a more convenient form factor to attach to handhelds
+and laptops than the rs232 interface.  these devices may become widely 
+available in a few months.  they will be software- and protocol-compatible
+with the rs232 version.  the picture below shows what the current cf device
+looks like; this design is likely to change.
+
+
+
+cricket uses active beacons and
+passive listeners, which has two significant benefits.  first, it
+is not a tracking system where a centralized controller or database
+receives transmissions from users and devices and tracks them. 
+second, it scales well as the number of devices increases; a system
+with active transmitters attached to devices wouldn't scale particularly well with the density of instrumented
+devices.  third, its decentralized architecture makes the system
+easy to deploy. 
+
+we've been deploying cricket. below, on the left, is a 
+picture of its deployment in a room on the 
+9th floor of mit's csail in the stata center 
+(click on the picture for a bigger image).  below, in the middle,
+is a picture of an older deployment in csail's old home in tech square.  on the right is a picture of a deployment from csail's graphics lab in tech square.
+
+
+
+
+
+
+
+demonstrations/applications
+
+various groups at mit have developed  
+applications and systems using crickets.
+the following links are to video clips or pictures of some of these applications.
+these links are roughly in inverse chronological order.
+
+
+tracking a moving train (405 mb) (huge file, but should stream properly; no sound).
+
+screenshot from the train tracking video.  another screenshot.
+
+auto-configuring robots (7 mb).  also see the web page for cricket-enabled moving robots.
+stream-migration demo video (18 mb)
+an oxygen scenario (9 mb)
+pose-aware cricket applications
+indoor navigation (27 mb)
+cricket-based doom (physical/virtual computer game).  another picture of the game.
+cricketnav.  example path generated by cricketnav.  
+
+peoplefinder
+
+
+download
+
+
+cricket software.  note that the license is open source, free for educational, research, and commercial purposes. for more information about the license please look inside the license file in the software package version 2.3.2+.
+
+
+ cricket user manual
+ cricket schematics (full)*
+  page 1
+ page 2
+ page 3
+ page 4
+ page 5
+ page 6
+
+ cricket parts(from digikey and mouser)
+ cricket parts (from mouser)
+* missing components values from the schematics can be found in nissanka bodhi priyantha thesis 
+
+
+
+cricket people
+
+people currently working on the cricket project include:
+hari balakrishnan, 
+dorothy curtis,
+erik demaine, 
+michel goraczko,
+allen miu,
+david moore,
+michael newman,
+bodhi priyantha,
+adam smith,
+ken steele,
+seth teller,
+arvind thiagarajan,
+rui viana,
+jd zamfirescu.
+
+ past contributors to cricket include roshan baliga (meng), anit
+chakraborty (meng), albert lin (urop), nikos michalakis (meng), jorge
+rafael nogueras (sm), kevin wang (meng), mike whitaker (urop)
+
+
+
+papers
+
+these papers are in chronological order.
+
+
+
+nissanka b. priyantha, anit chakraborty,
+hari balakrishnan, the cricket
+location-support system, proc.  6th acm
+mobicom, boston, ma, august 2000.
+
+this is the original cricket (v1) paper describing our first prototype and
+algorithms.
+
+
+
+nissanka b. priyantha, allen miu, hari
+balakrishnan, seth teller, the cricket
+compass for context-aware mobile applications, proc.  7th
+acm mobicom, rome, italy, july 2001.
+this paper describes how cricket can be enhanced to provide
+orientation information, in addition to space and position coordinates.
+
+
+seth teller, kevin chen, hari balakrishnan, pervasive pose-aware applications and infrastructure, ieee computer graphics and
+applications, july/august 2003.
+this paper describes early experience with some applications of the
+cricket compass (done with two or more "standard" crickets, rather than
+with an integrated compass device).
+
+
+nissanka b. priyantha, hari balakrishnan, erik demaine, seth teller,
+anchor-free distributed localization in
+sensor networks, lcs tech. report #892. 
+
+
+hari balakrishnan, roshan baliga, dorothy curtis, michel goraczko,
+allen miu, nissanka b. priyantha, adam smith, ken steele, seth teller, kevin
+wang, lessons from developing and deploying the
+cricket indoor location system, november 2003.  (preprint.)
+this paper describes the lessons learned from cricket v1 and how cricket
+v2's design builds on these lessons.
+
+
+ adam smith, hari balakrishnan, michel goraczko, nissanka priyantha,tracking moving devices with the cricket location system, proc. 2nd usenix/acm mobisys conf., boston, ma, june 2004.  
+
+
+cricket v2 user manual, july 2004.
+
+
+nissanka bodhi priyantha, hari balakrishnan, erik demaine, seth teller, mobile-assisted localization in wireless sensor networks, proc. ieee infocom conference, march 2005.
+
+
+
+theses
+
+
+nissanka bodhi priyantha,
+
+the cricket indoor location system
+
+
+phd thesis, massachusetts institute
+of technology, june 2005.
+[pdf (2.4 mb)]
+
+
+
+
+kevin john wang,
+
+an ultrasonic compass for context-aware mobile applications
+
+
+m. eng. thesis, massachusetts institute
+of technology, june 2004.
+[pdf (4.5 mb)]
+(96 pages)
+
+
+
+
+roshan bantwal baliga,
+
+rapid coordinate system creation and mapping using crickets
+
+
+m. eng. thesis, massachusetts institute
+of technology, june 2004.
+[pdf (1.9 mb)]
+(64 pages)
+
+
+
+
+nikolaos michalakis,
+
+
+
+location-aware access control for pervasive computing environments
+
+
+m. eng. thesis, massachusetts institute
+of technology, february 2003.
+[ps (749 kb)]
+[pdf (1.1 mb)]
+(73 pages)
+
+
+
+
+allen k. l. miu,
+design and implementation of an
+indoor mobile navigation system
+sm thesis, massachusetts institute of
+technology, jan 2002. 
+[postscript
+(3.8 mb)] 
+[ps.gz
+(459 kb)] 
+[pdf
+(1.9 mb)] 
+(60 pages)
+
+winner of a masterworks award, may
+2002. 
+
+
+jorge rafael nogueras,
+a stream redirection architecture
+for pervasive computing environments
+sm thesis, massachusetts institute of
+technology, may 2001. 
+[pdf(577
+kb)] (70 pages)
+
+winner of a masterworks award, may
+2001. 
+
+
+nissanka bodhi priyantha,
+providing precise indoor location
+information to mobile devices sm thesis, massachusetts institute of
+technology, january 2001. [postscript
+
+(1.21 mb)] (54 pages)  
+
+
+anit chakraborty,
+
+a distributed architecture for
+mobile, location-dependent applications
+m. eng. thesis, massachusetts institute
+of technology, may 2000. [pdf
+
+(656kb)] (58 pages)
+
+
+
+
+
+experimental data
+cricket v1 data
+
+some experiments conducted using  cricket v1.  (cricket v2 performs significantly better, so these numbers are unlikely to be useful any more.)
+
+
+distance measurements (zip file 180 kb)
+positioning measurements (zip file
+900kb)
+see detailed experiment description in design and implementation of an
+indoor mobile navigation system
+
+cricket v2 data
+
+some experiments conducted using the second version of cricket.  more data is forthcoming.
+
+
+mobile positioning measurements (zip file 310 kb)
+
+
+acknowledgments
+
+we are grateful to acer inc., delta electronics inc., hp corp., ntt inc., 
+nokia research center, and philips research for their funding of the 
+cricket project under the mit project oxygen partnership.
+
+
+we thank the national science foundation for funding cricket under an itr, 
+"scalable location aware monitoring".
+
+
+we thank ntt inc. for having funded cricket in the past under the 
+ntt-mit research collaboration.
+
+we also thank analog devices, inc. for their kind donation of 
+electronic components and sensor devices.
+
+
+nms homeprojectspeoplepaperssoftwarecsaile e c sm i tm. i. t. computer science and artificial intelligence laboratory · 32 vassar street · cambridge, ma 02139 · usa
+
+

@@ -1,0 +1,271 @@
+
+
+
+
+
+
+
+
+
+the newted community – the home away from home for newton users since 1999.
+
+
+
+
+
+
+
+
+
+
+
+
+
+the newted community
+the home away from home for newton users since 1999.
+
+
+home
+about
+membership
+manuals
+newsletters
+podcasts
+soupbox
+ 
+
+
+march 16, 2024
+well, that was weird.
+for the past couple of weeks, something was amiss with the wordpress installation on this site. stylesheets were not loading, links to various pages were pointing at nonexistent subdirectories, and i wasn’t able to log into the wordpress dashboard to look at where the configuration settings went haywire.
+it appears that after my hosting provider forcibly updated every single one of my sites to php 8.2, something in that process decided to “adjust” the wordpress address and site address settings for site. those settings were no longer pointing at the correct directories, but instead, two completely different wordpress directories also located on the server.
+as mentioned, since i wasn’t able to log into wordpress itself, i ended up accessing the database which stores those settings using the phpmyadmin interface supplied by my dubious hosting provider’s cpanel tools. (my hosting provider is dubious, not the tools.) once those two settings were corrected and saved back into the database, all was well again and could access the wordpress dashboard accordingly.
+what i’d really like to find out is how this whole schemozzle happened in the first place.
+regardless, i plan on moving this site to an entirely different content management system in the near future. everything will migrate over to kirby, which is what powers the newton glossary site.
+author
+grant hutchinson
+categories
+status updates
+2 comments
+
+
+september 12, 2019
+clean underpants.
+well, hello there.
+it’s certainly been a while hasn’t it? nearly ten years have passed since i last posted something on this site. that’s not to say things haven’t been happening during that time, but the online landscape has definitely changed. there are plenty of other sites and resources to support specialized interest groups and fanatic aficionados like newton users. in fact, newtontalk is still one of the most active vintage computing mailing lists around.
+that being said, the newted community is not going anywhere. i still plan on updating and republishing the soupbox article archives and realize my goal of having a one-stop, indexed, cross-referenced newton documentation library on this site.
+the first step was to swap out the cranky old wordpress theme this site has used since switching platforms after the original server took a dive. the current theme is based on tersus, which has been created from the ground up to be clean, responsive, and tweakable.
+there’s nothing like putting on a clean pair of underpants for a fresh start.
+author
+grant hutchinson
+categories
+status updates
+no comments
+
+
+october 29, 2009
+heads up, kids. newtontalk is moving.
+yes, it’s true. the venerable newtontalk mailing list is moving to a new home. i originally posted the following notice to the list, but seeing as the list will be undergoing migration to its new servers over the next week or so, it needed a more permanent home.
+hello list.
+i’d like to notify everyone of some imminent changes to the newtontalk mailing list.
+bill shamam and i will be migrating the newtontalk mailing list and website to a new server within the next several days. this move will also involve switching the mailing list to run on new software. this is a necessary change as the current list software (ecartis) has not been supported or actively developed for several years.
+with any transition that involves technology, data and the aethernets, things are bound to break. we will be doing our best to keep the downtime to a mimimum, but there will be gaps in the availability of the list and the website.
+details regarding the timing of the move will be posted to the list as soon as we have more details.
+during the move, you can follow updates via the newtontalk twitter account:
+http://twitter.com/newtontalk
+thanks in advance for your patience and support.
+grant hutchinson
+newtontalk list dad & web custodian
+author
+grant hutchinson
+categories
+newton news
+2 comments
+
+
+september 13, 2009
+setting up new email accounts.
+i’ve started setting up email accounts for a few old school newted members … folks who have stuck through the trials, tribulations, and other woes of this community. as soon as i have confirmation that these new accounts are working well enough, i will probably open it up to the public. details to follow, of course.
+author
+grant hutchinson
+categories
+membership updates
+no comments
+
+
+september 9, 2009
+taking a test drive.
+well, hi there. i’m just test driving the newted community’s new home on the interwebs — hosted by the good folks at bluehost. if you can read this particular bit of text, that means that the name server updates have propagated and the newted domains are now pointing at the new server. it’s no cobalt qube, but it will give the newted community room to stretch its legs. stay tuned, i think this might just be the start of something good.
+author
+grant hutchinson
+categories
+status updates
+no comments
+
+
+january 24, 2009
+a bad prognosis.
+the cobalt qube’s hard drive was sent off to datacent for review on december 31st. this past week i received word back that the prognosis was bad. really bad. unfortunately, the drive had suffered severe media damage (as illustrated in the photo below) and could not be recovered. to be honest, i didn’t have extremely high hopes for the recovery process in the first place, so i can’t say that i’m surprised by the news. however, i am more than a little disappointed.
+
+as mentioned before, i am still working on reconstructing portions of original site from what backups i do have, as well as utilizing pages captured by the internet archive’s wayback machine. things are indeed moving forward … ever so slowly forward.
+author
+grant hutchinson
+categories
+status updates
+no comments
+
+
+november 23, 2008
+recoverability?
+well, i’ve finally done it. after several fruitless attempts to resurrect the newted community server, i disassembled the cobalt qube and extracted the bothersome hard drive. the drive will soon be winging its way to the good folks at datacent for appraisal and ultimate recovery. hopefully.
+
+the site backups and existing bits of data from the server were not as complete as i had originally thought. yes, i do have a few significant chunks of the site available for republishing, but there are several gigabytes of personal directories and other information that remain buried on the hard drive. this is why i have decided to go ahead with the process of data recovery.
+i would also like to apologize for the radio silence. to be honest, i didn’t really have any news to share. however, now that some action is being taken, status updates should start appearing on a more regular basis.
+author
+grant hutchinson
+categories
+status updates
+no comments
+
+
+february 28, 2008
+next steps.
+over the past few days, i have had several offers of replacement server hardware and drives. the tenacity of this community never ceases to amaze me. i appreciate the support, but currently i’m still focused on trying to resurrect the site data from the previous backup.
+most of the data appears to be intact, but whether or not it’s possible to migrate that information into a fresh qube environment has not been determined at this point. replacement hardware isn’t an issue. i can easily drop a new ata drive into the qube and reinstall a virgin operating system from the original source disc. i could even add a pci scsi card to support an external secondary drive. however, the previous configuration had been updated and patched and tweaked so much over the past several years, that it was only a cobalt system on the surface.
+it may be better to start from scratch.
+author
+grant hutchinson
+categories
+status updates
+no comments
+
+
+february 26, 2008
+offline until further notice.
+i am sad to report that the newted community site will be offline until further notice. this includes all email accounts and web services. the eight year old cobalt qube 2 that served up the newted community site suffered a catastrophic hard drive failure sometime this weekend. until i am able to replace the drive and restore the data to a working state, the site and its services will remain offline.
+here’s hoping that the last backup is actually restorable.
+i have notified the newtontalk mailing list of this problem. however, i realize that not all users of the newted community are on the newtontalk list. unfortunately, i have no way of notifying the other users, as their email addresses are stored only on the dead server.
+if you have any questions, please contact me directly.
+author
+grant hutchinson
+categories
+status updates
+no comments
+
+
+february 13, 2008
+up. down. up. down. up.
+between the weather-related power outages, an underpowered (not necessarily uninterruptible) power supply, and an increasingly cranky server, e-mail and web services for the newted community have been less than reliable this week. i apologize for the unexpected downtime and i have been wishing that it was possible to see these things coming. i am trying to address the server stability by clearing out a pile of older files to give the memory swap a bit more legroom. however, i think this 9 year old cobalt qube may be ready for retirement. that being said, migrating existing users over to a newer server platform will be neither simple or quick. the good news is that everything appears to be running normally this morning.
+author
+grant hutchinson
+categories
+status updates
+no comments
+
+older posts
+
+
+
+
+search
+
+
+
+
+
+
+meta
+
+log in
+valid html5
+valid css
+valid rss
+xfn
+
+
+
+
+
+
+pagesabout
+membership
+manuals
+newsletters
+podcasts
+soupbox
+categories membership updates
+
+newton news
+
+status updates
+
+uncategorized
+
+ archives
+
+march 2024
+september 2019
+october 2009
+september 2009
+january 2009
+november 2008
+february 2008
+june 2007
+march 2007
+january 2007
+november 2005
+september 2005
+june 2005
+april 2005
+march 2005
+january 2005
+december 2004
+november 2004
+october 2004
+september 2004
+june 2004
+april 2004
+january 2004
+december 2003
+november 2003
+october 2003
+september 2003
+august 2003
+july 2003
+june 2003
+april 2003
+march 2003
+february 2003
+january 2003
+december 2002
+november 2002
+october 2002
+september 2002
+august 2002
+july 2002
+june 2002
+may 2002
+april 2002
+march 2002
+february 2002
+january 2002
+december 2001
+november 2001
+october 2001
+
+
+
+
+
+follow us on twitter 
+powered by wordpress 6.7.2
+themed by tersus 0.4.2
+styled by tersus: newted 0.1.4
+
+
+subscribe to all posts (rss)
+subscribe to all comments (rss)
+
+
+
+

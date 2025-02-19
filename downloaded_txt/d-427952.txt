@@ -1,0 +1,304 @@
+
+
+
+form processing cgi script by biz mail form - free forms processor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+home
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   home
+
+
+   download
+
+
+
+
+help
+
+
+
+
+   faq
+
+
+
+   installation
+
+
+
+
+   message board
+
+
+
+   importing data file
+   into goldmine
+
+   into act
+
+
+
+
+other
+
+
+
+   testimonies
+
+
+   custom programming
+
+
+
+
+other favorites
+
+
+   hire a clean comedian
+
+
+   bible search engine
+
+
+   bible in a year
+
+
+   the richer life
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+form processing
+
+
+biz mail form is a forms processor cgi script that sends delimited form data to a data file and to unlimited e-mail addresses. 
+this form processing script also has an auto-response with optional file attachment.
+this feature sends an optional instant email reply, in either plain text or html format, to the person filling out the form.
+ this auto response can be fully personalized with the form data you specify. this form processing cgi script is perfect for those wanting to import their form data into a database. 
+
+
+biz mail form is easy to use form processor because you only have to set a couple of variables in the script, and there is an example form, and success html page included with the downloadable zip file.
+
+the new biz mail form version 3.1.1 is completely scalable and easy to use especially if you have multiple forms using the same form processing script.
+
+new biz mail form version 3.1.1 release - features
+
+mysql support
+write form results to a mysql database in addition to flat file databases. this module also includes a mysql powered personalized success page.
+
+predefined system function
+pull system data into your auto-response and/or form results email as well as mysql and/or flat file databases. the system data can be used in multiple formats and can include the form posters ip address, date and time. this is a very dynamic function that allows increased versatility so you can print this information in the format that you wish and in any place you wish.
+
+enhanced file attachment functionality
+each form can have its own attachment. in addition, attach an unlimited number of files to the auto-reply email.
+
+bcc to & unlimited form result recipients
+there is no limit to the number of recipients to which form results can be sent.
+
+custom results email
+you now have the ability to change and rearrange the format and text that the results appear in instead of only being able to receive the form results email in the default format. you can also limit which fields are written. this results email can be received in either plain text or html format. for added versatility, each form can have its own custom results email.
+
+send results to a cell phone
+send an additional form results email configured exclusively for mobile phone viewing. this feature is in addition to the to, cc, & bcc functions. the purpose is to enable you to send a limited number of field submission results that will be more applicable for an email sent to a mobile phone. in summary, use this feature to send all results submitted or to send just a simple notification of a new form submission.
+
+ip address ban list
+the ip address ban list enables you to create a list of ip addresses you wish to block from submitting the form. these measures are taken to prevent abuse. any individual who fails to post an ip address can be blocked as well.
+
+prevent submission flooding
+occasionally individuals will submit the form a large number of times for the sole purpose of filling up your email box with junk. by limiting the number of form submission per ip address sent in a specified amount of time, this feature prevents this kind of abuse. these limits are configured in the script for added versatility.
+
+easy to follow instructions
+enhanced instruction files are now written in html with a color-coded diagram making it easier to understand how to setup and configure the scripts and the html form. 
+
+
+
+"i liked the new explanation for the form which is online. a real improvement and easier to follow." - wladimier kernkamp
+	
+example script files
+part of the enhanced instructions includes two example pages setup to appear exactly as the two perl scripts to be configured. color has been added to the text to show contrast and define the code. all comments are in gray, with all functional perl code (variables and such) in red. each part of the functional code in red is linked to that particular explanation in the readme.
+
+this release also includes all standard biz mail form features:
+
+database support
+send form results to a flat file database in the delimited format of your choosing. for instance, you could have results written in a csv (comma separated value) format. you can also select what text qualifier to use. therefore, this form processing cgi script is perfect for those wanting to import their form data into any type of database. 
+
+the script also converts double quotes contained in form submissions to two single quotes. thus avoiding conflicts when using a double quote text qualifier for the flat file database.
+
+send form results to a mysql and/or a flat file database, including tab delimited text and csv files.
+
+email features
+supports smtp or sendmail for the sending of all email.
+
+form results email
+for each form posted, results can be emailed to an unlimited number of recipients. 
+
+auto-response email
+this feature sends an optional instant email reply, in either plain text or html format, to the person filling out the form. this message can be personalized with any of the submitted form data you specify. one of the options you can configure is the ability to attach unlimited to this auto-response email.
+
+error & success pages
+each form can have its own uniquely configured, personalized error and success templates for each of the submission forms.
+
+when any of the required fields are not properly filled in, you can send form posters to a template error page.
+
+with the personalization feature, the original form can re-appear, with all the previously inputted values appearing in there corresponding fields (including radio buttons, dropdown select and check boxes). 
+
+this error page prompts them to supply all the missing required data. in addition, visual aids can be added to the form to help the form poster to see what errors need to be corrected. to indicate each missing required field, you have the option of making bold the input field description text and highlighting, in yellow, the background color of the field.
+
+through the flexibility available, your templates can have the same look and feel as the web site posting the form. these pages can include a wide range of custom template personalization tags to be used to create a very dynamic experience for the form poster, giving your company the image received by large, heavily funded firms. 
+
+ignore duplicate posts
+ignore duplicate form submissions, which are determined by the form posters email address. this applies to form submissions sent to either a flat file or a mysql database. 
+
+time zone offset
+if you are located in a different time zone then your web host or server, you can offset the difference in time with this feature. therefore, if needed and implemented, all times and dates can appear correctly in your database entries, form results and auto-response emails.
+
+security & privacy features
+this program has several security and privacy features built in. every form that is submitted will collect the ip address of the person filling out the form, as well as the date it was submitted. 
+
+spam & abuse prevention
+to prevent all your email addresses, used in receiving form results, from being harvested by spammers, biz mail form has you configure all necessary email addresses in the perl script. this also provides the script owner with added privacy by preventing visitors from seeing your email address. however, you still have the versatility of using different email addresses for receiving results, on each of your forms.this works by configuring your form with a hidden field that contains a number that will correspond to the email address to which you want to send results. 
+
+in addition, you have the ability to configure which web sites (urls) or ip addresses that form submissions can originate from. these features prevent any unauthorized people from fraudulently using your form processing script for their own purposes.
+
+there are two new security features with the new premium version 3.1.1; ip blocking and submission flooding prevention, which are explained above. both features give you added protection to prevent fraudulent activities.
+
+
+to download the form processing script click here.
+
+
+need a good laugh? seth is a stand-up comedian that is represented by the clean and funny comedy tour. 
+he also has a musical satire band called no refunds. think you're smart? the no refunds iq test is both funny and enlightening.
+
+
+
+
+
+copyright 2000-2010 seth m. knorr, bizmailform.com forms processor, all rights reserved
+
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+

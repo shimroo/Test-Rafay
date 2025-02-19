@@ -1,0 +1,941 @@
+
+
+
+
+
+
+
+geosoft
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+products
+
+
+
+projects
+
+
+
+team
+
+
+
+about
+
+
+
+
+
+
+
+
+geoscience software.
+software consultancy.
+
+
+
+
+
+
+          for more than 25 years, geosoft has developed cutting-edge geoscience software
+          with focus on innovative, high quality solutions across the geophysics, petrophysics,
+          geology, mathematics and physics domains.
+        
+
+          from back-end modelling to front-end user experience, doing low-level i/o, web services,
+          data analytics, cloud computing and real-time services, we devote ourself to create
+          world-class software that solves complex problems with simple tools.
+        
+
+          the geosoft consultancy business delivers tailored consultancy and software development
+          services to meet the evolving needs of the geoscience community.
+        
+
+
+
+
+        simplicity is the ultimate sophistication
+
+
+
+
+
+products
+
+
+
+
+
+logiq™ - time series server
+
+
+
+
+                the geosoft logiq™ time series server is a versatile product for real-time time series capture,
+                storage, monitoring and analysis.
+              
+
+                time series data typically originates from iot sensors like:
+
+                
+industrial components
+vehicles
+agricultural/environmental surveillance
+medical equipment
+webcams
+cell phones
+sports watches
+etc.
+
+
+                logiq™ defines a standardized interface for such devices using established protocols
+                and open transmit and storage formats (web sockets, json-rpc and timeseries.json).
+              
+
+                logiq™ can run in any private or public cloud.
+              
+
+                to demonstrate the versatility of the server, geosoft has created the sceniq™ platform for
+                real-time data analysis and visualization. sceniq™ is available as a desktop application
+                or a browser-only web application.
+              
+
+
+ github
+                
+
+
+
+
+
+
+
+
+
+
+
+timeseries.json
+
+
+
+
+                timeseries.json is a generic storage and transmission format for time series data.
+                the format is the foundation for the geosoft
+                logiq™  time series server and the geosoft
+                sceniq™  time series visualization and analysis platform.
+              
+
+                timeseries.json is based on the
+                javascript object notation (json)
+                and the
+                iso 8601
+                standard for date and time specification.
+                the format is concise, lightweight and human readable and it has a compact type system
+                with support for established conventions for unit of measurements.
+              
+
+                as time series can be vast, timeseries.json also supports binary representation of
+                bulk data which reduce storage footprint and increase transmission and processing time
+                considerably.
+              
+
+                detailed format specification is found in the geosoft time series
+                github repository
+                where we also provide open source access logic for a variety of technologies.
+              
+
+
+ github
+                
+
+
+
+
+
+
+
+
+
+
+
+json well log format
+
+
+
+
+                most well log and drilling data in the oil and gas industry is trapped within
+                tapes and disk files of ancient and hard to access data formats like
+                dlis, las, lis, bit, xtf, wits, asc and spwla.
+              
+
+                these formats represents orphaned  technologies and are outdated in all
+                possible ways.
+                their syntax is overly complex, convoluted and awkward, available support software
+                is limited, software tools are rare and documentation is poor or non-existent.
+              
+
+                but still: these are the main storage and communication media for well logging
+                information in the 2020s. the amount of data is immense and growing,
+                as is the aggregate cost of maintaining and utilizing this information.
+              
+
+                geosoft has created the json well log format for future requirements
+                of simplicity, compatibility, speed, massive storage, massive transmission, cloud computing
+                and big data analytics. it overcome all of the deficiencies of existing well log formats.
+              
+
+
+ github
+                
+
+                  more information
+                
+
+
+
+
+
+
+
+
+
+
+
+osdu - practical well log standard (pwls)
+
+
+
+
+                the practical well log standard (pwls) is one of the more promising standards to emerge from osdu/energistics.
+                it contains complete lists of well tools, curves, properties, companies, logging methods etc. used in o&g exploration.
+              
+
+                its static nature however makes it rather impractical in use,
+                and to mitigate this geosoft has devised a dynamic, version controlled (git), cloud-based (aws),
+                rest api (json) for this standard.
+              
+
+                the geosoft initiative is a proof of concept of how the pwls process should be set up and maintained.
+                we welcome collaboration from the industry in order to make it production ready.
+              
+
+
+ github
+                
+
+ rest api
+                
+
+
+
+
+
+
+
+
+
+
+
+osdu - unit of measurements standard (uom)
+
+
+
+
+                the osdu units of measurements (uom) is an impressive standard, covering nearly 200 different quantities (length, pressure, temperature, resistivity, etc.)
+                and over 2000 units (m, ft, bar, pa, etc.), complete with conversion factors. this is a great foundation for any scientific software.
+              
+
+                however, the standard has several deficiencies:
+                
+it is not publicly available as it is limited to osdu members only
+the definitions are convoluted, making it awkward for practical use
+it lacks a simple reference implementation
+display units are not supported
+
+
+
+                the geosoft uom open source project addresses all these issues. it includes a single,
+                streamlined json file capturing the entire standard,
+                and which can be easily applied to any programming environment in just a few lines of code.
+                best of all, this json file includes proper display units,
+                allowing the use of symbols like â°c, âµî©, or mâ³
+                instead of the common but less readable degc, uohm, or m3 etc.
+              
+
+                geosoft provides open source reference implementations in java, c# and python,
+                as well as a poc rest api for querying this information.
+              
+
+
+ github
+                
+
+ java api
+                
+
+ c# api
+                
+
+
+
+
+
+
+
+
+
+
+
+sodir i/o - fact pages library and rest api
+
+
+
+
+                the norwegian offshore directorate (sodir) fact pages
+                is an invaluable source of information for the activities in the north sea.
+                it contains real-time metadata and production data for
+                8000 wells,
+                4500 surveys,
+                1000 facilities,
+                800 companies
+                and much more.
+              
+
+                inspecting the information through a web browser is useful,
+                but to really get advantage of this information computerized access is essential.
+              
+
+                the geosoft sodir i/o open source library is created for providing programmatic access to the sodir fact pages.
+                the library is also exposed through a public rest api poc to make the information easily accessible
+                in all possible programming environments.
+              
+
+
+ github
+                
+
+ rest api
+                
+
+ java api
+                
+
+
+
+
+
+
+
+
+
+
+
+logviewer.js
+
+
+
+
+                logviewer.js is a modern fully object oriented ec6 module written in pure vanilla javascript without any html or css.
+                it uses no framework technologies and has no external dependencies. the entire module is a single file of less than 80kb!
+                logviewer.js is easily embeddable in any html5-based e&p application.
+              
+
+                logviewer.js capabilities includes:
+                
+reusable templates track setup based on curve classification, curve names and and units that can be stored and reused for different data sets
+                  single- and multidimensional curves stacked single curves and powerful image log support
+                  powerful styling capabilities colors, lines styles, lithology fills, gradients, transparency, text, symbols, linear/logarithmic scales and much more
+                  fully interactive a set of default interactions and a generic api to define custom ones
+                
+
+
+
+                  try it now!
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+projects
+
+            geosoft actively participates in client projects while also conducting independent
+            research initiatives to explore new technologies and enhance established industry
+            practices and procedures as shown below.
+          
+
+            by developing prototype software, we empower clients to visualize potential solutions,
+            generate new ideas, and accelerate product development.
+            this hands-on approach not only inspires innovation but also streamlines the development process,
+            enabling us to deliver cost-effective and tailored solutions that meet our clients'
+            unique requirements.
+          
+
+
+
+
+
+
+
+witsml
+
+
+                  geosoft has worked with real-time solutions and witsml technology since its start in 2005 and
+                  we possess deep knowledge and experience on all aspects of real-time services, both on server side,
+                  client side and in terms of working with the standards in both energistics and osdu.
+                
+
+
+
+
+
+
+
+
+
+
+wits
+
+
+                  wits is a legacy transmission format that is still used on rigs for low-level communication of log data.
+                  geosoft doesn't do wits because it is trendy (it is not), but because it is actually used and the industry
+                  deserves simple, modern, reliable, secure products with clean and robust apis to handle this technology.
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+innovation friday
+
+            at geosoft, fridays are dedicated to creativity and exploration. the team members are encouraged to pursue personal projects
+            that ignite their passion, from developing innovative software tools to experimenting with new technologies or procedures.
+            the initiative, known as innovation friday fosters collaboration and sparks fresh ideas, resulting in valuable prototypes
+            and insights that enhance our products, processes and team spirit.
+          
+
+
+
+
+
+
+
+glm - geosoft license manager
+
+                  an extremely lightweight distributed license management system.
+                  put your client licenses on github and validate them directly from your software:
+                  github
+
+
+
+
+
+
+
+
+
+
+
+
+
+trackme!
+
+                  a proof-of-concept application for the geosoft logiq™ time series server where
+                  we use the phone gps sensors and track its movements on the map.
+                
+
+
+
+
+
+
+
+
+
+
+
+
+snake
+
+                  a very simple snake game to explore basic javascript graphics and event handling.
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+kock snowflake
+
+                  a geometry paradox to explore javascript graphics and ui capabilities.
+                
+
+
+
+
+
+
+
+
+
+
+
+
+nimatron
+
+                  a simple game of strategy to explore the separation of back-end and front-end logic within web browser programs.
+                
+
+
+
+
+
+
+
+
+
+
+
+
+game of life
+
+                  a tribute to
+                  john conway
+                  who died from covid-19 in 2020.
+                  the program explores event timing and different graphics techniques of javascript.
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wordle
+
+                  the popular game of wordle, in norwegian. exploring different aspects of the javascript language and
+                  keeping a word database on the client side.
+                
+
+
+
+
+
+
+
+
+
+
+
+
+simon
+
+                  the famous game of simon. explores various user interaction techniques and other aspects of javascript.
+                
+
+
+
+
+
+
+
+
+
+
+
+
+java programming style guide
+
+                  one of the most widely referenced style guides on the java programming language originates
+                  from a geosoft innovation friday project. this guideline reflects geosoft's commitment
+                  to code craftsmanship; always producing clean, readable, maintainable and robust code.
+                
+
+
+
+
+
+
+
+
+
+
+
+
+unit testing guidelines
+
+                  one of the most widely referenced guidelines for software development unit testing originates from a geosoft
+                  innovation friday project. the guidelines exemplify geosoft's commitment to code quality and best practices
+                  within software development.
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+software development philosophy
+
+            geosoft has a profound philosophy and well-considered approach towards software development and technology:
+            
+minimize tool usage to stay agile and adaptable
+choose tools that are versatile and well-supported
+maintain consistency across the tech stack
+avoid frameworks where possible in order to reduce dependencies
+prioritize simple, proven methodologies
+emphasize flexibility and long-term sustainability over short-term trends
+
+            note that only through deep knowledge of the technologies
+            we avoid  can we truly stand by the decisions we have made.
+          
+
+
+
+
+tech stack
+
+
+tcsh
+git
+emacs
+gnu make
+jdk + junit
+.net/c# + nunit
+c/c++
+plain vanilla javascript
+amazon aws
+
+
+                yes, indeed possible! 😉
+              
+
+
+
+
+methodologies
+
+
+object oriented programming (oop)
+scrum
+trunk based development (tbd)
+continuous integration and deployment (ci/cd)
+the solid principles
+fail-fast
+yagni
+clean code
+configuration as code (cac)
+
+
+
+
+
+
+        technology must never obscure the problem we aim to solve
+      
+
+
+
+
+
+team
+
+
+
+
+
+
+
+
+
+
+about
+the geosoft history
+
+
+
+
+
+
+
+
+
+1998-2015
+early years
+
+
+
+                  geosoft was founded in 1998 as a pure consultancy company within geotechnical software development.
+                  over the years we have gained invaluable experience and competence through participation in
+                  some of the largest software development projects in the o&g industry.
+                
+
+
+
+
+
+
+
+
+
+
+2015-2022
+building software portfolio
+
+
+
+                  following the energy sector downturn in 2015, geosoft expanded its focus from pure consultancy
+                  to developing its own software portfolio within the geotechnical domain.
+                  this includes open source and proprietary software components and products
+                  within data management, real-time, i/o, mathematics, physics, web services, cloud computing,
+                  data analytics and user experience.
+                
+
+
+
+
+
+
+
+
+
+
+2021
+json well log format
+
+
+
+                  leveraging geosoft's deep expertise in legacy well log file formats and responding to the
+                  industry's growing need for a format optimized for digitalization, we introduced the
+                  json well log format in 2021.
+                  since its launch, much of our focus has centred around expanding and enhancing solutions
+                  related to this initiative.
+                
+
+
+
+
+
+
+
+
+
+
+2023-
+innovation and growth
+
+
+
+                  in 2023 geosoft was converted into a limited liability company to better manage
+                  its software portfolio and intellectual property. our main business is still consultancy
+                  within the geotechnical domain with focus on the geosoft core technologies listed above.
+                
+
+
+
+
+
+
+
+                be partof thejourney!
+              
+
+
+
+
+
+
+
+
+clients
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+geosoft
+
+              geotechnical software services as
+              kong haralds gate 56
+              4041 stavanger
+              norway
+
+   +47 41 16 02 07
+   geosoft.no
+   info@geosoft.no
+
+
+
+
+
+
+
+
+
+
+
+company
+
+about
+team
+philosophy
+clients
+profile
+
+
+
+
+projects
+
+json well log format
+pwls
+uom
+log iq™
+logviewer.js
+log scene™
+
+
+
+
+
+
+
+
+
+
+        copyright © 2024 - geotechnical software services - all rights reserved
+        designed and created by geosoft - simplicity is the ultimate sophistication
+
+
+
+
+
+
+
+

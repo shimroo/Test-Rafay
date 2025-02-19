@@ -1,0 +1,494 @@
+
+
+
+
+
+
+
+
+
+greg reinacker's weblog | musings on just about everything.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+greg reinacker's weblog
+musings on just about everything.
+
+
+menu
+skip to content
+
+homeabout me
+
+
+
+
+
+
+
+
+
+pythonista scripts for ec2
+
+
+
+my last post discussed doing web development with an ipad pro and a vps, and included pythonista scripts for automating the creation/deletion of nodes on linode. today, i’ll show different versions of these scripts that can be used for starting and stopping ec2 instances.
+the scripts assume you have an ebs-backed ec2 instance, which we will start and stop. unlike linode and others, ec2 instances of this type do not incur charges when stopped (other than storage), so our scripts will simply start and stop the instance you’ve already created.
+to get started, first install boto, a python library for accessing aws. the easiest way i’ve found to install it is to run this script, which will install boto in pythonista, in a folder called boto-module.
+then, in a different folder, save the ec2_start.py script:
+view the code on gist.
+modify it to add ec2 instance id you want it to start, and the aws access key you want to use. you’ll be prompted on the first run to enter your secret key, which will be stored in the keychain.
+the script will start the instance, and then poll every couple of seconds waiting for the public ip address to be available, which will be copied to the clipboard.
+if you want to open another app when the script is completed, pass a url as a parameter to the script such as workflow://, and that url will be opened when the script completes.  see the prior post for an example of how to do this with the workflow app.
+to stop the instance, use ec2_stop.py:
+view the code on gist.
+that’s it – pretty simple, and super convenient for starting and stopping ebs-backed ec2 instances from ios!
+
+
+1 comment 
+
+			this entry was posted in development and tagged aws, ec2, ipad, ipad pro, pythonista, vps, workflow on february 10, 2016 by gregr.								
+
+
+
+
+web development with ipad pro
+
+
+
+as i mentioned last week, i’ve recently been doing a bunch of development and other work with the ipad pro. this has generally been going very well – the only thing i have to go back to my mac for, at the moment, is quickbooks. (and yes, i know there is an online version of quickbooks – however, there is one thing in it that didn’t work well for me last time i tried it, so for now i’m still using the desktop version.)
+part of what i do on a day-to-day basis is web development, using ruby and rails. to do this on the mac i use sublime text, and a couple of terminal windows to accomplish what i need. if we break this down a bit, this is what’s needed for development:
+
+an editor for editing source files
+a terminal window of some sort for running specs, deploying code, etc
+a browser for testing changes
+
+there isn’t any requirement that that editor needs to be editing files on your local machine, nor that the terminal window needs to be a session on the local machine, nor that the browser needs to point to the local machine. which forms the basis for a reasonable ipad-based workflow for development.
+i’ve been doing this using a combination of a development vps running linux, and a few tools on the ipad pro. the main tool i’ve been using is coda, which combines an editor, ssh client, and ftp client together in one app. in my experience, coda is sometimes a bit buggy (random crashes, sometimes freezes for a few seconds at a time, sometimes line numbers go haywire), but for the most part it’s quite polished, and definitely worth using.
+and coda has one feature that really ties everything together – it can edit remote files (on my development vps) directly, without having to explicitly transfer them. don’t worry – i’m not editing live files on a production server; rather, i’m editing files live on a development vps, and connecting to that dev machine using coda.
+when i want to make some changes to the site, i simply:
+
+start up a new vps from an image i’ve created
+connect to that image from coda
+make code changes with the coda editor
+test changes with a browser pointing to the vps
+run specs, commit changes, etc. using coda’s ssh client
+
+all in all, this works just as well as making code changes from the desktop – the only real difference is using the coda editor rather than sublime text.
+optimizing the vps workflow for linode
+i could just create the development vps and leave it running all the time, waiting for me to connect and use it. however, it’s almost as easy to start and stop the vps as necessary, and we’ll save a few bucks doing it this way. plus we can have some more fun, with pythonista, which was recently updated for the ipad pro!
+the steps and scripts below are for linode (shameless referral link), but you can do this anywhere you like. here are similar scripts for aws/ec2. but for linode, this is what we need to do:
+
+create a development server vps. install whatever software you need (e.g. ruby, etc.), clone your source code into a folder, and basically get everything up and running.
+create a saved image of that vps, using the linode manager tools. 
+assuming you have the image saved, you can now delete the original vps.
+
+you now have a saved image, that you can create a new vps from any time you like. but that will be a lot of tapping around on the linode manager to do so…so instead, we can use a script (which uses the linode api) to automate this, and run this script in pythonista.
+it turns out this script has to do quite a few things; creating a new node from an image in the linode manager hides some of these steps from you (like setting up a configuration profile), but we must do them all manually when using the api.
+to get set up, first copy the api.py file from the linode-python github repository to pythonista. you can copy down the entire repo if you want, but the api.py is the part we need. then, you can use this script in pythonista to create a new node:
+view the code on gist.
+this script assumes it’s in the same directory as api.py, and further assumes the following:
+
+you have an manually-created image saved, and that image is called “dev image”
+you want the new node to be called “dev01”, and be saved in a group called “dev”
+you want your new node to be in the dallas data center, and you want it to be on the linode 1024 plan; it will be set up with a 22gb main volume, and a 256mb swap volume, with the latest 64-bit kernel.
+
+you can change any of the above assumptions by editing the code on lines 20-26.
+the script will create a new vps, and will copy the public ip of the new node to the clipboard. from there, you can open coda, create or edit a site configuration there, and paste in the new ip. in my experience, by the time you open coda and paste in the new ips, the vps will be booted and ready to connect.
+to make things a bit more automated, i run the script from a workflow in the workflow app; here is a screenshot of the workflow i use:
+
+it’s quite simple – it just runs the pythonista script, sending “workflow://” as the return url, and then opens coda, with the new ip address on the clipboard ready to paste into your site configuration. i add a shortcut to the workflow to my home screen, and i can spin up a new node with literally one tap. but if you want to, you could do the equivalent without using workflow at all in this case.
+we can also delete the node when we’re done, using another script; be careful with this one, and make sure you completely understand what it’s doing before you run it – if it finds a node called dev01 in the dev group, it will delete it without confirmation:
+view the code on gist.
+using these scripts and the apps i’ve mentioned, i’ve found development on the ipad pro (with a keyboard) can be quite similar to the equivalent on a desktop.
+
+
+11 comments 
+
+			this entry was posted in development and tagged coda, ipad, ipad pro, linode, pythonista, vps, workflow on january 25, 2016 by gregr.								
+
+
+
+
+using working copy with 1writer on ipad pro
+
+
+
+over the last month or so, i’ve been doing development and other work with a new ipad pro, and the smart keyboard. i sometimes get incredulous looks from people when i tell them about this, so i thought i’d write about some of the things i’ve been doing. first up, editing markdown files in a github repository.
+working copy (app store) is one of those apps that seems to fly below the radar – but it’s by far the best git client i’ve found for ios. it’s free to try, with a in-app purchase to unlock certain features like the ability to push changes to a remote repository. but my favorite part is the way it implements a document provider, allowing you to edit files in your repo with other applications. so here, i’ll show you how to edit markdown files in your repo using another great app, 1writer (app store).
+first, you need to clone your repository into working copy. once you have it down, it will look something like this:
+
+here, this repository is a set of api documentation that i want to edit. now, we could edit this right here within working copy, but instead we will use 1writer. open 1writer, and click the “+” button in the lower right corner:
+
+the first time you do this, you’ll notice working copy isn’t in the list. click “more”, and you’ll be able to enable it:
+
+after you get it enabled, you’ll see it in the list:
+
+now tap working copy, and you’ll see a list of documents you can open from the repository:
+
+pick the document you want (we’ll edit the readme.md as an example), and make your edits.
+when you’re done editing, go back to working copy:
+
+you’ll see on the left that readme.md is modified, and if you tap on it, you can see the changes that were made. when you’re ready, you can click “commit” to commit the changes you’ve made, and then push to remote repository if you need to.
+
+
+2 comments 
+
+			this entry was posted in development and tagged 1writer, ios, ipad, ipad pro, working copy on january 15, 2016 by gregr.								
+
+
+
+
+zero to postgresql streaming replication in 10 mins
+
+
+
+i’ve found a number of articles on the web for setting up streaming replication in postgresql, but none of them seemed to actually put everything together that i needed, and none of them seemed to use the new pg_basebackup in postgresql 9.1 and later. so with that in mind, here are a set of steps you can use to set up streaming replication, over the internet if you wish, using an encrypted ssl connection. we’re not going to set up log archiving – we’re going to rely solely on the streaming replication for now.
+i’m assuming you have a master server set up on ubuntu 10.04 or 12.04, running postgresql 9.2.x, and you have a new slave server set up on the same os and pg version. the ip of the master is 1.2.3.4, and the ip of the slave is 5.6.7.8.
+first, create the replication user on the master:
+view the code on gist.
+note that we are using replication permissions, rather than creating a superuser.
+next, configure the master for streaming replication. edit postgresql.conf (on ubuntu, this is at /etc/postgresql/9.2/main/postgresql.conf):
+view the code on gist.
+we’re configuring 8 wal segments here; each is 16mb. if you expect your database to have more than 128mb of changes in the time it will take to make a copy of it across the network to your slave, or in the time you expect your slave to be down for maintenance or something, then consider increasing those values.
+then edit the access control on the master to allow the connection from the slave; in pg_hba.conf (/etc/postgresql/9.2/main/pg_hba.conf on ubuntu):
+view the code on gist.
+in this case, 5.6.7.8 is the ip address of the slave that will be connecting for replication, and hostssl means this host can only connect via ssl.
+you’ll need to restart the master after making the above changes.
+now on to the slave. in the slave’s postgresql.conf, add the following:
+view the code on gist.
+then restart the slave. no changes are required in the slave’s pg_hba.conf specifically to support replication. you’ll still need to make whatever entries you need in order to connect to it from your application and run queries, if you wish.
+that’s all the initial setup we need to do. after you’ve done the above configuration, running the following script on the slave will copy the database over and begin replication (1.2.3.4 is the ip of the master):
+view the code on gist.
+that script will stop the slave, delete the old slave cluster directory, run pg_basebackup connecting to the master to copy over the databases (you’ll see the progress as it goes), create a new recovery.conf file, and start the slave. if you look at the logs after this script completes, you should hopefully see messages about it having reached a consistent recovery state.
+be careful – that script is going to delete the old database cluster on your slave, so make sure to read through it and understand what it’s doing.
+at this point, you can try writing data to the master database, and you should see it mirrored over to the slave. to check the replication status, you can run the following on the master:
+view the code on gist.
+if you found this guide handy, you might also find the postgresql 9 high availability cookbook useful as well!
+
+
+79 comments 
+
+			this entry was posted in development and tagged postgres, postgresql, replication, streaming replication on february 16, 2013 by gregr.								
+
+
+link
+
+no one is “forced” into piracy
+[…] if piracy is actually wrong, it doesn’t get less wrong simply because you can’t have the product exactly when and where you want it at a price you wish to pay.
+this. just because you can’t find the content you want in the form you’d like to have it, doesn’t mean it’s ok to steal it. [via marco]
+
+
+november 29, 2012
+
+1 reply 
+
+
+
+link
+
+letterpress
+a new word game from loren brichter (of tweetie fame). if you love casual games, and you’re tired of words with friends, letterpress is a lot of fun!
+
+
+october 24, 2012
+
+leave a reply 
+
+
+
+link
+
+car fox at 90,000 feet
+i love stuff like this. even more, i love that for under a few thousand dollars, anyone can take video that shows the curvature of the earth.
+[via autoblog]
+
+
+october 18, 2012
+
+leave a reply 
+
+
+
+
+
+macbook pro retina pricing
+
+
+
+i usually like reading readwriteweb, but i think this article this morning is just link bait (which obviously worked, because i’m linking to it):
+buying a macbook pro with retina means shelling out at least $2,199 for a notebook with a 15.4-inch, 2880×1800 display. top-end models approach $3,500!
+by comparison, the cheapest 15-inch macbook pro starts at $1,799, with half the resolution and a different but roughly comparable set of features and specifications. (the retina version is smaller and lighter but lacks a dvd drive, and uses expensive flash storage instead of a slower conventional hard drive.)
+anyone who has used an ssd knows there’s nothing “roughly comparable” between the these two computers’ configurations. but we can help them with the math.
+let’s take the cheapest 15-inch at $1799. to get “roughly comparable”, we’ll need to upgrade the ram to 8gb ($100), and upgrade to the same 256gb ssd ($500), for a total of $2399. you could add another $100 to upgrade to the 1680×1050 hi-res screen, but let’s assume you don’t want that.
+to be fair, that machine will have a dvd drive and an ethernet port. so, let’s add those to the base retina macbook pro. base model is $2199, add the usb superdrive ($79), and add the thunderbolt ethernet adapter ($29), for a total of $2307.
+so the retina mbp is actually cheaper – and it comes with 1gb of video ram, vs. 512mb in the classic mbp.
+is the retina mbp expensive for a laptop? yes. but none of the 15-inch macbook pros are cheap. the new model with the retina display is actually quite aggressively priced, imho, as compared with the prior models.
+
+
+1 comment 
+
+			this entry was posted in apple and tagged macbook pro, retina, retina display on july 12, 2012 by gregr.								
+
+
+
+
+on the macbook pro with retina display
+
+
+
+there has been much written about the new macbook pro with retina display. i’ve had one for about a week; i’m not going to write a review, as i’m not sure how anyone could compete with this review…but rather i’ll just mention a few things i’ve noticed in using it for my work.
+first, the retina display is quite striking when you use it with applications that have been updated with retina graphics. most websites that have not updated their graphics don’t look good at all, as i said earlier:
+
+your web site looks like shit on the mbp retina display (for nearly all instances of “you”).
+— greg reinacker (@gregr) june 19, 2012
+
+the “blurry” effect is actually more noticeable on the macbook pro than it is on the ipad. so for the many, many folks i’ve heard saying “my site looks ok on the ipad, so i’m not going to worry about it” – my recommendation is take a look at it on the macbook pro, and make sure you’re comfortable with how it looks. hint: it probably looks worse than you think.
+there are two things that i’ve found a little painful at the moment when using the new macbook pro, as joshua johnson also noticed.
+first, trying to edit 1x artwork on the retina screen is definitely a challenge. at the moment, you just can’t really tell how it’s going to look on a non-retina screen. maybe a future update to photoshop cs6 or pixelmator or some other app will fix this; we’ll have to see.
+and second, taking a screenshot on the retina mbp results in an image that’s twice the size you expect; for example, if you’re running at the “ideal” 1440×900 effective resolution, screen shots will be at 2880×1800. that’s great if you need a 2x screenshot to display on a retina display…but if you need a screenshot to display on a 1x display, you don’t have great options. you can downsize it in photoshop or other editor, but you lose quality.
+my solution to both of these problems has been to connect a regular non-retina screen for those tasks. this also has the advantage of letting me see quickly how things are looking on both retina and non-retina screens side by side, at the cost of being tethered to my desk…
+all in all, the machine is beautiful, the screen is stunning when viewing high resolution content, and the machine is quite fast as compared to my other machines. i think the issues i mentioned above will probably (hopefully!) work themselves out as the software catches up with the display.
+
+
+1 comment 
+
+			this entry was posted in apple, development, reviews and tagged macbook, macbook pro, retina, retina display on july 9, 2012 by gregr.								
+
+
+
+
+glassboard 2.0 and glassbot
+
+
+
+the folks at sepia labs have released glassboard 2.0 this morning. lots of new features in the iphone and android apps…but my favorite part is the new web client.
+when i first started using the web app a couple of weeks ago, it struck me as a game-changer for glassboard. where i would use the mobile apps for casual messages, with the web app i could keep it up on my desktop screen, and send messages and updates much more quickly. i found i was using it for real work.
+which got me to thinking, i’d like a way to automatically post content into a board. for example, maybe i’d like commit notices from github to be automatically added to a board. or maybe new support tickets. or maybe just a way to have some fun with my friends – who doesn’t like seeing a coworker with a huge mustache?
+so i created glassbot – a bot for glassboard…and glassbot_recv, which allows you to post external content into a board.
+if you want to try it, you can either:
+
+join the glassbot playground board with invitation code cfoli – once you’re in, post a message like “@glassbot help” (without the quotes) to see what he can do.
+invite the glassbot to your own board! just invite “glassyglassbot@gmail.com” to your board; he’ll accept within a few seconds, and then enter “@glassbot help” (again without the quotes) to see what he can do.
+
+after you invite the glassbot, you can add a post-receive webhook from github if you want to see notifications – use the url
+http://glassbot-recv.herokuapp.com/github/{boardid}
+as the endpoint url, replacing {boardid} with the id of your board (you can see this in the glassboard web app).
+if you have ideas of things glassbot could do, or you want to run your own, the code is available at glassbot (in ruby) and glassbot-recv (node.js) – add some new actions and let’s have some fun!
+because every board needs a bot.
+update 06/12/2012 – the source code links have been removed at the request of the glassboard team, while they are making changes to their api. the glassbot is still running, though, and you can still invite it to your boards. i’ll put the code back up when i get the ok.
+
+
+4 comments 
+
+			this entry was posted in development, internet and tagged glassboard, glassbot on may 15, 2012 by gregr.								
+
+
+post navigation
+← older posts
+
+
+
+
+
+
+
+search for:
+
+
+
+ follow @gregr
+
+
+rss
+
+
+
+recent posts
+
+
+pythonista scripts for ec2
+
+
+web development with ipad pro
+
+
+using working copy with 1writer on ipad pro
+
+
+zero to postgresql streaming replication in 10 mins
+
+
+no one is “forced” into piracy
+
+
+archives archives
+
+select month
+ february 2016 
+ january 2016 
+ february 2013 
+ november 2012 
+ october 2012 
+ july 2012 
+ may 2012 
+ december 2011 
+ july 2011 
+ june 2011 
+ may 2011 
+ april 2011 
+ october 2010 
+ may 2010 
+ january 2010 
+ october 2009 
+ may 2009 
+ march 2009 
+ january 2009 
+ december 2008 
+ october 2008 
+ september 2008 
+ august 2008 
+ july 2008 
+ may 2008 
+ march 2008 
+ february 2008 
+ january 2008 
+ december 2007 
+ november 2007 
+ october 2007 
+ september 2007 
+ august 2007 
+ july 2007 
+ june 2007 
+ may 2007 
+ april 2007 
+ march 2007 
+ february 2007 
+ january 2007 
+ december 2006 
+ november 2006 
+ october 2006 
+ september 2006 
+ august 2006 
+ june 2006 
+ may 2006 
+ april 2006 
+ march 2006 
+ february 2006 
+ january 2006 
+ december 2005 
+ november 2005 
+ october 2005 
+ september 2005 
+ august 2005 
+ july 2005 
+ june 2005 
+ may 2005 
+ april 2005 
+ march 2005 
+ february 2005 
+ january 2005 
+ november 2004 
+ october 2004 
+ september 2004 
+ july 2004 
+ june 2004 
+ may 2004 
+ april 2004 
+ march 2004 
+ february 2004 
+ january 2004 
+ december 2003 
+ november 2003 
+ october 2003 
+ september 2003 
+ august 2003 
+ july 2003 
+ june 2003 
+ may 2003 
+ april 2003 
+ march 2003 
+ february 2003 
+ january 2003 
+ december 2002 
+ november 2002 
+ october 2002 
+ september 2002 
+ august 2002 
+ july 2002 
+ june 2002 
+
+
+ links to products on this site may be affiliated, and generate a tiny bit of revenue for me.
+ 
+
+
+
+			copyright © 2002-2019 greg reinacker, all rights reserved
+		
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

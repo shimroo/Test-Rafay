@@ -1,0 +1,237 @@
+
+
+
+george's freeware review page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+	george's freeware review page
+	
+  
+i evaluate free software that can be downloaded from the internet.  it is not difficult to find freeware on the internet but finding really good freeware can be a daunting task.  i only post reviews of what i consider to be the best of the best freeware on my web site.  everything i review has no time limits on how long you can use the software and has no forced advertisements.  in other words, it is completely free to use.
+
+
+
+saturday, march 04, 2006
+
+
+
+	 file search tool -- super finder (version 1.5.1 build 1)
+    
+
+
+click here to view videosuper finder is a really good replacement for the windows built-in search tool. it allows you to search by file name, folder name or certain text in a file. there is an option where you can exclude files from your results list by file extensions or by the full or partial name. the results list after you do a search has a right-click contextual menu that is the same as right clicking on a file in your file manager.i also use copernic which i have reviewed previously on my site but its main usefulness lies in its ability to search the content of text files. copernic cannot search for system files. an example of what i am talking about occurred while i was writing my previous review, i wanted to find the file “uxtheme.dll” that is used in visual styles. copernic won’t work for a search like this but super finder works perfectly.although super finder is intended to be launched directly to your desktop from a short cut, i have found it to be the perfect complement to the xplorer2 lite file manager that i reviewed previously. xplorer2 has a “find” option but it defaults to the windows built-in search tool. the windows file search tool is really slow and the user interface is not as clean as super finder. i have revised my review of xplorer2 lite to provide instructions on how to edit the registry to launch super finder when you click on the “find” button in xplorer2. my review used to have similar directions to launch copernic but decided to change it based on my comments in the previous paragraph.super finder uses two dos expressions that will probably be intuitive to most of you. the first is the asterisk which is a symbol (*) commonly found above the "8" key on the keyboard. the asterisk widely is known as a “wild card”. the asterisk represents any group of characters or no characters. for example, when typing in the “file name” field, the computer would look for any file ending with .txt. if you wanted to search for all file names containing “help”, you would enter *help*.* into the “file name” field. super finder does have a “smart search” option so you don’t need to enter asterisks into the “file name” field. the other dos expression is the question mark (?). it functions in a manner similar to the asterisk. instead of representing groups of characters, the question mark represents any single character. for example, if you enter sm?th into the “file name” field, it would retrieve "smith" and "smyth" in the results list.i have found the author is receptive to bug reports. during the course of reviewing super finder, i encountered a minor bug. in order to make the search work properly, i found i had to separate words with a question mark instead of a space when i used the “smart search” option. i sent a bug report to the author on 3/4/06. on 3/7/06, i received an e-mail from the author saying the bug had been found and solved that there should be a new release in a few days. on 3/12/06, i received an e-mail from the author that the new released had been published. i have since downloaded the new release and verified the bug had been corrected. i was impressed that the author resolved the bug so quickly. if you find a bug, i encourage you to report it. i reported the bug by going to the super finder home page linked below and clicked on “contact” to find an e-mail address.the new release not only fixed the bug i mentioned above but also includes the first release of a user guide. in the video that i recorded (see the link to it above), i mentioned that the question mark icon didn’t actually link to anything. well, it does now! i found the “advanced guide” listed in the contents especially helpful, particularly the section that explains the “setup” tab.the main reasons i like super finder is that it responds quickly to searches and it is easy to use. those of you that are familiar with freeware might find it curious that i am selecting this program over another popular program called agent ransack. to my thinking, super finder has an easier to use interface. agent ransack has a viewer that shows the content of text files that super finder does not have. the problem is that microsoft office documents like word and excel contain text formatting information that display as gibberish in the file content viewer. copernic has a very good file viewer that does not show the gibberish and is the tool of choice when searching for text files, including e-mail. if you don’t want to install copernic, agent ransack would be a good choice although it is much slower than copernic when searching the content of files. i have found that it works best for me to search for files containing text with copernic and other non-text files with super finder. super finder is reportedly compatible with windows 98, me, nt 4.x, 2000, xp and 2003 server and requires no installation.  the download consists of a single compressed file, superfinder.zip. when unzipped, a folder named superfinder is produced that contains three files, superfinder.lng, superfinder.chm and superfinder.exe.  to install it, you simply save the superfinder folder and its contents to c:\program files. then, you can follow my directions in my review of xplorer2 lite to make the “find” button open super finder. if you want super finder to be a stand alone application, you can simply create a short cut to c:\program files\superfinder\superfinder.exe.  super finder home page download super finder
+
+
+
+posted by george @ 3:24 pm  
+
+      
+         3 comments
+
+
+
+
+
+
+thursday, november 24, 2005
+
+
+
+	 desktop visual styles -- uxtheme multi-patcher (neowin edition 4.0)
+    
+
+
+click here to view video that showcases two visual styleswhen i had first gotten windows xp, i became thrilled with desktop themes. when i found the neowin freeware patch for windows xp, i discovered a whole new world of totally cool ways of changing the appearance of my desktop that go far beyond desktop themes. if you like desktop themes, you will love visual styles. the neowin patch allows you to use styles that others have created that are much like the “windows xp style” that is included on the “appearance” tab of the “display” option in the “control panel”. i created the video above to show you two different visual styles that i installed on my computer.  windows xp has the ability to use “visual styles” that use a *.msstyles file on your hard drive. unfortunately, microsoft didn’t set up windows xp to allow others to create them. the code name for the “windows xp style” was "luna" when xp was developed. if you look in your “c:\windows\resources\themes\luna” folder, you will find a file called "luna.msstyles". this is the "skin" that is known as the "windows xp style". the neowin patch allows you to install visual styles created by others. i was a little concerned about installing a patch for windows that was not created by microsoft (some folks might call this a “hack”). the fact is that microsoft does not provide visual styles other than the xp style that is included with windows xp. since the patch has provisions to restore windows back to original configuration, i felt more inclined to try it. another concern i had, was the potential that the patch might contain malware because i was not familiar with the web site where i downloaded the patch. after i installed the patch, i ran my spyware scanners (ad-aware, spybot and microsoft antispyware), trojan scanner (ewido) and antivirus scanner. all of the scans came up clean so i consider the patch to be safe. there are other programs that perform similar functions to visual styles, like windowblinds, aston and style xp, but none of these are free. the neowin patch is the only freeware method that i have found of being able to use visual styles. unfortunately, the neowin patch can only be used on windows xp and windows server 2003.    one thing that is lacking in the patch download is step by step directions on how to install and remove the patch. i’ve written directions that should get you through the installation of the patch; as well as, directions to remove it if you decide to do that.  installing the patch  be      sure you are using windows xp, service pack 1, service pack 2 or windows      server 2003, service pack 1. download      uxtheme multi-patcher      (neowin edition) 4.0.after      you download it, you will need to unzip the file (nw_uxpatcher.zip).after      you unzip it, double click on the file “uxtheme multi-patcher (neowin      edition) 4.0.exe” with your file manager. click      on the “patch” button.you will get a message that warns you that you will get a “windows file protection” message and to not insert your windows xp setup cd. click on “ok”.on the      “windows file protection” message, click on “cancel” and do not insert      your windows xp setup cd. (note      that this message may appear behind the message to restart your computer      that is discussed on step 9.)“windows      file protection” will then ask, “are you sure you want to keep these      unrecognized files versions?” click      on “yes”.now      return to the other “install” message. it will say your computer needs to be restarted. click on “ok”. your computer will be restarted.   restoring windows back to the original configuration  using your file manager, double click on the same file that you used to install the patch “uxtheme multi-patcher (neowin edition) 4.0.exe”. click      on the “patch” button.you      will get a message that asks, “…do you want to restore your uxtheme.dll?” click on “ok”. you      will then get a question that asks, “do you want to enable or disable      themes service?” click on the “enable”      button.you      will then get a message that says it is necessary to restart your computer. click on “ok”. your computer will then restart with all      the original settings restored.   there are many visual styles that can be downloaded from the internet. the file that you download for a visual style usually consists of a *.zip file (or other compressed format like *.rar) which when unzipped contains other files and possibly folders. the download will include a *.msstyles file and possibly a folder named “shell” that has *.dll files to produce different color options for the style. visual styles that have only one color will not have the “shell” folder. visual styles can specify fonts which the author may include in the download, although you can usually elect to not install them. the author will typically include wallpaper which you can choose to not use. the author may also include “skins” or themes for other programs that match the visual style. i’ve found skins for rainlender (a calendar programs that opens to the desktop, which is sometimes abbreviated as “rainy”), winamp (a media player), sysmetrix (a clock, weather conditions monitor and cpu monitor) and y’z dock (a program launcher).  if you want the short version of how to install a visual style, just unzip the contents of the download file and double click on the *.msstyles file with your file manager. i created an msstyles folder in my c:\windows\resources\themes folder where i save the unzipped visual style files. after you double click on the *.msstyles file, the “appearance” tab of the “display” option in the “control panel” will open where you can click on “apply” to open the style to your desktop. i created a tutorial below that provides more information about how to install a visual style. in the tutorial, i use the xplorer2 lite file manager that i have reviewed on my web site.  click here to view the tutorial on how to install visual stylesyou should be aware that if you create an msstyles folder as i mentioned in the previous paragraph and in the tutorial that your visual styles will not appear in the “windows and buttons” dropdown list on the “appearance” tab of the “display” option in the “control panel”.  i just use a file manager to launch a style by double clicking on the *.msstyles file name. if you want them to appear in the dropdown list, you will need to adopt a different folder structure. for the style to appear in the list, the folder name in which it is residing must correspond to the name of the *.msstyles file. for example, “elegant.msstyles” must be in its visual style folder named “elegant” in the correct directory (c:\windows\resources\themes) and it will appear. the path for the file would then be: c:\windows\resources\themes\elegant\elegant.msstylesif the visual style has a shell folder, it needs to be in the same “elegant” folder:  c:\windows\resources\themes\elegant\shell i have found some web sites that have visual styles that you can download:tss 2000gstudio  getskinned.org skinz.org skinbase.org deviant art web site customize.org belchfire crystalxp     lightstar winmodify.net (not many recent ones but quite a few old ones) wulfert.com (this site intermixes visual styles with skins for windowblinds, which is not free) some of the web sites that i listed above may say that you need a program called stylexp by tgtsoft in order to use the style. that is not really true if you have installed the neowin patch. you can use a search engine to find other web sites where you can download visual styles. i recommend that you not use the web site “http://www.themexp.org” because they bundle their download files with spyware. in fact, you need to be suspicious of any download of a visual style or desktop theme that has an *.exe extension. visual styles and desktop themes consist of files that require no installation. downloads that have the *.exe extension may contain spyware. the only exceptions to this are self extracting zip files.   the neowin patch is compatible with service pack 1 and 2 of windows xp and windows server 2003, service pack 1.  the download consists of a single compressed file, nw_uxpatcher.zip. when unzipped, one file is produced, “uxtheme multi-patcher (neowin edition) 4.0.exe”.  follow the directions above for installation.   update 12/4/05 – i’ve found that finding and downloading visual styles can be addicting. i’ve downloaded over 120 so far. i’ve added three more sites to the list of sites where you can download visual styles. some of the sites i list above do have a few downloads with *.exe extensions which might contain spyware but all of the sites do have some downloads with *.zip extensions. i’ve installed the neowin patch on three windows xp computers without mishap but there is a different method of installing a similar patch if you have trouble (though i have not tried this method). you can get the modified uxtheme.dll file for sp2 final here and then replace the uxtheme.dll file using replacer.update 5/11/08 - if you have trouble getting the multi-patcher to work, i suggest using the tutorial at the following web site:how-to: use unsigned themes on windows xpif you install sp3 for windows xp, there are directions to manually replace the uxtheme.dll at the following link.  i have also added a link to a uxtheme theme patcher that i haven't tried:manually replace uxtheme.dll on sp3sp3 theme patcher uxtheme multi-patcher (neowin edition 4.0) home page download the neowin uxtheme multi-patcher
+
+
+
+posted by george @ 10:12 pm  
+
+      
+         39 comments
+
+
+
+
+
+
+friday, september 09, 2005
+
+
+
+	 software presentation tool -- camstudio (version 2.0 -- last freeware version)
+    
+
+
+click here to view videoif you have been reading my reviews, you may have noticed a progression. i started out by adding screen shots of the programs i review. then i started adding macromedia flash files using wink (previously reviewed). now i am adding video files. after i had been using wink for awhile, i happened to find camstudio that also does software presentations. both programs record movies of your computer desktop as you demonstrate a computer program.  both are primarily used to create tutorials on how to use software in a visual presentation. i normally use these programs in a slightly different capacity in that i demonstrate the features of a program without providing directions on how to use it. camstudio has an advantage over wink in that it records your voice where wink does not. it will also record your image from a camera while you are demonstrating a program (although i haven’t used this capability).    i had some difficulty setting up the microphone on my computer. it wasn’t a problem with camstudio but my own ignorance. i kept getting something that sounded like static in my recordings. the microphone plugs into a pink jack on the back of the cpu. little did i know that i had two pink jacks! i have a sound blaster card which produced the best sound. the jack for it was positioned along the same row of jacks as the ones for my speakers. to resolve the problem, i switched to the pink jack on my sound blaster card. the sound improved considerably. later, i discovered yet another jack that i haven’t tried that is next to my modem line that is labeled “mic” (although it not pink like the other jacks). anyway, if you have bad sound quality, try looking for another microphone jack on the back of your cpu.      my first recording using camstudio was 7 ½ minutes long and a whopping 157 megabytes in size. camstudio comes with another program called “swf producer” that takes the *.avi files produced by the program and converts them to macromedia flash *.swf files. after using swf producer, my recording ended up being a 35 megabyte flash file. after adjusting the settings on swf producer to produce the smallest possible file, i still ended up with a 30.6 megabyte file. (i found out later that camstudio has a problem with flash files that i discuss below). although the flash file was considerably smaller than the original *.avi file, it was still much too big for streaming video on the internet. streaming video files for the internet should be less than 5 megabytes so that your visitors don’t have to wait so long to download the files. at this point, i thought that camstudio might not work out for me. then i decided to check out the free vlog web site. in their tutorials, they recommend compressing video using windows movie maker. movie maker comes with windows xp service pack 2 and should already be installed on your computer. it is usually opened by clicking on your windows start button, selecting “all programs”, then “accessories”, then “entertainment” and then “windows movie maker”. if it is not there, try looking in other options in “all programs”. unfortunately, the tutorial provided by free vlog is for a version of movie maker that i don’t have. i am using version 2.1 but figured out how to use it. i ended up with a video that is 5 megabytes in size which was acceptable for streaming internet video. i decided to create a tutorial on how to use movie maker to compress your video. if you don’t use windows xp, the free vlog web site should help you compress your video using other programs. the site also has tutorials on how to do other things as well.    click here to view tutorial on how to compress videowindows movie maker will convert the *.avi file produced by camstudio to a *.wmv file. this is actually a good thing because it is possible to select codecs for *.avi files that visitors to your site may not have (see my review of the k-lite mega codec pack for an explanation). the *.wmv file type will play fine with the windows media player that comes preinstalled with just about every version of windows. for this reason, the *.wmv file type is probably a better choice for streaming video for the internet because anyone that has windows should be able to play it without any problem.    you need to know that camstudio will allow you to create any size of a screen capture area; however, the video must be in a 4:3 aspect ratio when using windows movie maker. if you use windows movie maker to compress a video that is not 4:3, it will squeeze your video to make a 4:3 shape which will result in distortion of the image. i normally use a 320 x 240 screen capture area in camstudio.  if you want to use a different capture area, just multiply the screen height times 1.333 to get the screen width.    camstudio includes two different versions of media players though they don’t have all that many features. a feature that i do like is the video will play back automatically after you save the file. another great feature is “autopan” that i use all the time. it makes the video capture area follow the cursor to wherever it goes during the recording. it is possible to record the entire screen, but the file size of the video will be much larger.      there is a known bug with viewing flash *.swf videos generated by camstudio.  the video cannot be viewed with netscape or firefox. when i tried to view a flash file using firefox, i found that audio was produced but there was no video. the same flash file worked file with internet explorer. when a flash file is created, camstudio also creates a companion html file. camstudio’s home page (link below) says the problem is with the companion html file and provides a way to edit it so it works correctly. instead of using the flash options, i prefer to compress the *.avi files produced by camstudio and convert them to *.wmv files using windows movie maker.      other than this bug, i found camstudio to be free of problems with one small exception. screen annotations are saved in a layout to a fixed location on your screen. i would have preferred that the annotations would follow the movements of the screen capture area when using the autopan feature. as it is, you can make a screen annotation appear in a location on your screen that is not even being picked up in your recording. i consider this to be a minor problem that can be overcome by some advanced planning.    the program includes a very good help file that is accessed through the program’s help menu option. it is very comprehensive. anyone should be able to read it and understand how to use the program.    if you don’t especially like talking over a microphone, wink is the software presentation tool for you. wink also produces much smaller file sizes than camstudio. wink produces flash files of ½ a megabyte in size or less. camstudio’s files that are usually 4 or 5 megabytes in size after being compressed. i have to admit, however, that i find camstudio to be more fun to use.   camstudio is compatible with windows 95, 98, me, nt4, 2000 and xp.  the download consists of a single compressed file, camstudio.zip. when unzipped, two files are produced, camstudio20.exe and camstudiocodec10.zip.  unzipping the latter file produced the files camcodec.inf, camcodec.dll and some text files.  right clicking on the file camcodec.inf and selecting “install” will install the camstudio lossless codec v1.0 onto your computer. double click on camstudio20.exe with your file manager to install the camstudio program.  after installation, the executable for camstudio is recorder.exe.    camstudio home page   download camstudio
+
+
+
+posted by george @ 8:52 pm  
+
+      
+         31 comments
+
+
+
+
+
+
+thursday, september 01, 2005
+
+
+
+	 trojan and spyware tool -- ewido security suite (version 3.5)
+    
+
+
+click here to view videoi counted the scanners on my computer and found that i actually have five different scanners installed. three of them are spyware scanners; spybot, ad-aware and microsoft antispyware. one of them is my virus scanner (one that i have purchased). the final one is ewido. i installed it mainly because it scans for trojans. having five scanners may seem a bit extreme but they are not really that much trouble because all the scanners can be started and run at the same time. i do a scan once a week. when i do it, i launch each program, select the option to perform updates and minimize it. i then do the same thing to each scanner. after performing the updates, i turn off my screensaver clicking on screen saver toggle (reviewed previously), start the scans and leave it alone for about an hour.  a screensaver uses system resources which can slow the scans, so i use the screen saver toggle to turn it off easily.    my main purpose behind installing the ewido scanner is to be able to find trojan horses. a trojan horse is a program that infects your computer and allows a hacker to take control of it without you knowing. a trojan infection allows a third party to remotely access your computer. technically, a trojan is not actually a virus so your virus scanner may not detect it. trojans do not replicate themselves like viruses so you must download them on onto your computer. typically, they are disguised as something else (which is the basis of the name trojan). most people tend to think of trojans as a virus; however, a virus scanner may catch only some trojans but not all of them.      i decided to keep ewido when it found a trojan on my computer that none of the other scanners found, including my virus scanner. it also scans for spyware. i have found that it often finds spyware cookies for the firefox web browser that are not picked up by the other scanners. it also has frequent updates to the definition files.      the first two weeks that you use the program, ewido will have options for real time protection and automatic updates. these options will be disabled after two weeks when the program reverts to the freeware version (which is what i use). the scanner will continue to function identically to the commercial version.    ewido is compatible with windows 2000 and xp.  the download consists of a single file, ewido-setup.exe, which you double click to install.    ewido home page   download ewido
+
+
+
+posted by george @ 10:04 pm  
+
+      
+         6 comments
+
+
+
+
+
+
+sunday, august 21, 2005
+
+
+
+	 video player with codecs and tools -- k-lite mega codec pack (version 1.37)
+    
+
+
+click here to view videoafter i had gotten my new computer that has windows xp installed, i decided to download some video from the internet. i found that some of the files didn’t play back properly. the audio portion of the files would play but there was no video. i noticed that the file type that had this problem most often was the *.avi file type. after i had done some searches on the internet and going through a bit of a learning curve, i determined that i didn’t have the codec installed that i needed to play the video. i ended up finding one of the tools that comes with the k-lite mega codec pack that is called the g-spot codec information appliance (as best i can tell the name “g-spot” is derived from the name of the program author, steve g). with it, i was able to determine the codec that i needed to play back a video. then i could perform a search on the internet for the codec where i could download and install the codec. i didn’t know about the k-lite mega codec pack back then but i wished i did. it provides a much simpler alternative in that it already includes most of the popular codecs all in a single package that you install one time. in fact, i would say it includes about 95% of the codecs that you will ever need to play back video. the author also provides regular updates to the codec pack and provides support on a forum that is available on a link from the k-lite home page.    if you don’t know what a codec is, it is short for "compressor-decompressor" or "coder-decoder". in order to make video files smaller, all video is compressed in a manner comparable to *.zip files. in order to play the video back, you must have the same the codec that was used to compress the video. microsoft provides codecs for the media player that comes with windows, although they don’t provide codecs of other vendors. the *.avi video file type is capable of using numerous codecs that microsoft does not provide with windows.    the k-lite mega codec pack actually has more than just codecs but also comes with the following:       media player classic    video player similar in appearance to version 6.4 of the   windows media player but not affiliated with microsoft.      bsplayer    video player named after the first author, boris; hence, boris   software player.     real alternative   allows you to play realmedia files (usually *.rm or *.ram)   without having to install the official real player.     quicktime alternative   allows you to play quicktime files (usually *.mov) without   having to install the official quicktime player.     sherlock    tells you what codecs you have installed on your computer.     gspot codec information appliance    a tool that can tell you exactly which codecs are needed to play a certain video file. this is very helpful when you have trouble playing a video file.     numerous codecs   the download has most of the codecs you will need, including   the popular divx and xvid.       one of the nice things about the download is that you can select items that you want to install. i tried the bsplayer but didn’t like it and it does not work with the real and quicktime alternatives. however, the media player classic does work with the real and quicktime alternatives and is my favorite media player for video. i have it set as my default player for all video. if you don’t install it, you won’t be able to watch streaming video with the real alternative. the real player has some obnoxious characteristics that are explained well on another site.  realmedia files are quite popular for streaming video on the internet, so i consider the real alternative to be quite valuable. the quicktime player is a good player and doesn’t have the obnoxious characteristics of real player but i decided to uninstall it because i prefer having as few media players as possible. with the combination of media player classic, real alternative, quicktime alternative and the codecs in the download, you can eliminate the need for the three players, divx, real and quicktime. to my surprise, the media player classic will even play back macromedia flash (*.swf) files. you will however, still need to keep the windows media player that microsoft provides with windows. it will play a few file types that media player classic won’t.    in addition to the versatility of the media player classic, one of the main things i like about it is that when you select full screen during playback, the player controls disappear. the controls appear when you move your cursor to the bottom of the screen. pushing the “esc” button while in full screen mode returns the player to the small version and pauses it. the visual appearance of the player is very much like the version 6.4 of the windows media player that microsoft used to provide with windows; however, the media player classic is not affiliated with microsoft. it is interesting to note that all windows distributions still include the old windows media player v6.4. you can run it by clicking start, run and entering mplayer2.exe. i think you will find that the media player classic is actually a much better media player than the old windows media player v6.4.     what is the future of streaming video on the internet? will the internet take over tv? i think internet television will require much more bandwidth than even today’s high speed cable modem. certainly a step toward internet tv is the development of “wi-fi” wireless internet connections. from what i have read, today's wi-fi systems are limited to about 100 megabits of data a second, a rate that will support no more than a single high-definition television video stream in the home. if wi-fi systems catch on, i would expect developments that would increase bandwidth. it is apparent that cbs news sees a future in streaming video. they have dramatically increased their streaming video content recently. to watch the video, just click on the little tv cameras on their site but expect to be required to watch an advertisement when the video starts.    the k-lite mega codec pack documentation does not say what systems that it runs under but i read reports that it is compatible with windows 98, me, 2000 and xp.  the download consists of a single file, klmcodec136.exe, which you double click to install.    k-lite mega codec pack home page   download k-lite mega codec pack
+
+
+
+posted by george @ 4:21 pm  
+
+      
+         17 comments
+
+
+
+
+
+
+
+
+
+
+
+
+all my reviews
+
+
+audio editing tool -- audacity
+
+ desktop visual styles -- uxtheme multi-patcher (neowin edition)
+
+dictionary lookup tool -- wordweb
+
+file management -- xplorer2 lite
+
+file search tool -- copernic desktop search
+
+file search tool -- super finder
+
+printing from dos programs -- dosprint and printfile
+
+screensaver -- moviescreensaver
+
+screensaver -- picture and sound show
+
+screensaver tool -- screen saver toggle
+
+software presentation tool -- camstudio (last freeware version)
+
+software presentation tool -- wink
+
+ spyware tool -- ad-aware se personal
+
+spyware tool -- spybot - search & destroy
+
+spyware tool -- spywareblaster
+
+trojan and spyware tool -- ewido security suite
+
+video player with codecs and tools -- k-lite mega codec pack
+
+wallpaper desktop tool –- wallpaper changer
+
+web browser -- mozilla firefox
+
+web site for free -- blogger.com, part 1 -- introduction
+
+web site for free -- blogger.com, part 2 -- adding images to your blog
+
+web site for free -- blogger.com, part 3 -- promoting your blog
+
+provide feedback to george’s site
+
+george’s home page
+
+
+
+subscribe to my rss feed!
+
+
+about me
+
+name:  george 
+location:  arkansas, united states 
+after i bought my computer, i discovered freeware. i got hooked ever since, trying various software packages that can be downloaded from the internet. i am not a programmer and not affiliated with any software companies. i don’t have a hidden agenda. i started this web page to help others find free software that is useful to them. of course, i cannot be held responsible for any problems or damage that may occur as a result from installing any of the programs that i recommend. all i can say is that i use them myself and find them useful. you may add comments by clicking on the “comments” link at the end of the article, then click on “post a comment” and then “or post anonymously” if you don’t have a blogger account.  in the area below where you type your comments, you will need to type the characters you see in a picture in a field called “word verification”.  only five reviews are posted on my home page.  the rest are available in the “all my reviews” section on the right side my page.
+view my complete profile
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+this site is a member of webring. 
+to browse visit 
+here.
+
+
+
+ 
+
+

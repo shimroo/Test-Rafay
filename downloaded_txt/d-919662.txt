@@ -1,0 +1,550 @@
+
+
+
+
+
+
+dualis - a ds emulator
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+home
+
+download
+screenshots
+tech info
+faq
+links
+forum
+blog
+
+
+
+dualis is a plugin-based ds emulator for x86/win32 computers. it is written	in x86 assembly and c++.
+
+important information:
+
+dualis is not able to run dumps of nds cartridges. do not ask me if/when it will be able to run said dumps. also, do not ask me how/where to get non-public material concerning the ds.
+if you didn't understand the last three sentences then get the f*** out. thanks.
+
+
+
+
+2007-05-27
+
+
+
+cpu: fixed a bug in the division swi
+cpu: improved irq handling a bit
+cpu: added emulation of getcrc16, getsinetable, getpitchtable and getvolumetable
+gpu: fixed a bug in the backdrop color selection that would sometimes occur
+gpu: fixed a bug in the rendering of 256-color r/s bgs (mode 4)
+gpu: modfied palette offset calculation for 256-color textures
+gui: fixed a bug where the emulator would occationally freeze for a couple of seconds
+gui: fixed a bug where cflash initialization would sometimes fail when loading a rom through the file menu
+gui: cflash emulation is now automatically disabled when a compressed rom is loaded (.zip/.7z)
+gui: added a dummy sound emulation mode that works on computers with no directsound (emulatesound=2 in dualis.ini)
+gui: fixed a bug related to loading a rom by double-clicking it in explorer
+gui: added a "recent" menu
+gui: fixed some bugs in the map viewer
+mmu: fixed an lz77 decompression bug
+
+
+the full source of emulator is available (i use vs2005, but vs6 might also work), so if you're unhappy about some feature that is missing/broken, feel free to fix it yourself.
+
+
+
+
+
+
+2006-05-03
+
+
+
+cpu: fixed a bug in the division swi
+gpu: fixed some tile flipping bugs
+gpu: optimized rendering of extended palette bgs a bit
+gpu: disabled rendering of obj windows
+mmu: the fat is now writeable
+inp: the keyboard layout can now be configured in dualis.ini
+gui: improved the texture viewer
+
+
+fat write operations are fairly restricted at this point, see the readme section on gbamp emulation for more details.
+
+
+
+
+
+
+2006-04-30
+
+
+
+cpu: fixed updates of some function pointers after changing the itcm size
+mmu: added support for send fifo flushing
+mmu: added support for send fifo empty irqs
+mmu: added support for ipcsync irqs
+mmu: fixed a bug in the handling of fat long filename entries
+mmu: fixed some bugs in the fat emulation that would occur if a directory contained more than 256 directory entries
+gui: modified cpu synchronization
+
+
+
+
+
+2006-04-21
+
+
+
+gpu: fixed some texture transparency problems
+gpu: fixed some bugs when rendering 16-color rotoscale objs
+gpu: fixed some bugs when rendering extended palette rotoscale bgs
+mmu: added experimental spi touchscreen handling
+mmu: fixed some bugs in the handling of long filenames in the fat
+gui: improved timer event handling a bit
+gui: fixed .zip loading
+gui: added support for .7z loading
+
+
+the spi touchscreen handling is not perfect yet and only works somewhat, so the old faked method is still used as a fallback for homebrew roms using libnds.
+
+
+
+
+
+
+2006-04-13
+
+
+
+cpu: fixed some problems with mode changes after subs
+cpu: fixed some problems with swi 6
+cpu: fixed some problems with address writeback for ldm instructions
+cpu: modified interrupt return address handling a bit
+cpu: added a few missing ldm/stm instructions
+cpu: added the thumb blx instructions
+gpu: fixed alpha blending for extended palette bgs
+gpu: added the possibility to turn off 3d emulation
+apu: added support for adpcm audio
+mmu: fixed some destination address control bugs in dma transfers
+mmu: fixed some problems with the ipc fifo
+mmu: added support for ipc fifo interrupts
+mmu: added support for virtual itcm resizing (up to 32 mb)
+mmu: added support for 64bit/64bit->64bit operations to the hardware divider
+gui: fixed some problems with the keyboard shortcuts when using the debugging windows
+
+
+when running the demos from e3 2005 you should generally use the gdi renderer and disable 3d emulation in the video settings. it should also be noted that touchscreen input does not work in those demos at this point.
+
+
+
+
+
+
+2006-03-28
+
+
+
+gpu: added support for the a3i5 and a5i3 texture formats
+gpu: fixed some errors in color selection for paletted textures
+mmu: upped the fat limits to max 32768 files/directories with a total size of 256 mb
+mmu: added support for long filenames in the fat
+gui: gbamp emulation can be turned off (on memory tab, or in dualis.ini)
+gui: switched from wm_timer to a multimedia timer callback
+
+
+note that the max number of directory entries at the root level still is 512, and that the max total number of files/directories will be lower than 32768 if there are files that uses long filenames.
+
+
+
+
+
+
+2006-03-24
+
+*update: the original version of dualis 19 would freeze if you loaded a rom by double-clicking it in explorer. this should now be fixed.
+
+cpu: added the lz77uncompvram swi (callbacks are ignored)
+apu: added support for psg noise
+mmu: fixed a problem with the irq flags sometimes being set when they shouldn't be
+mmu: added some support for atapi and fat16 (gbamp)
+gui: screenshots are saved in the same directory as the rom file
+gui: various small changes to allow the fat emulation to work
+
+
+some current limitations of the fat emulation: only read operations are supported, max number of files/directories: 256, max combined file size: 32 mb, only 8.3 format filenames.
+
+
+
+
+
+
+2006-03-20
+
+
+
+cpu: added the lz77uncompwram swi
+cpu: fixed a typo in the swi 3 emulation that caused single cycle waits
+gpu: added the option to display only one of the ds' screens (useful in fullscreen mode if only one of the screens are used)
+gpu: added support for texture alpha bits (for 16-bit textures)
+apu: optimized the resampling filter a bit, and applied filter to pcm16 samples as well
+apu: added psg emulation (rectangle waves only)
+gui: added fullscreen support (toggle with alt+return)
+gui: added a couple more registers to the i/o register viewers
+
+
+the preferred fullscreen resolution can be specified in dualis.ini.
+some new keyboards shortcuts have been added: ctrl+shift+1..ctrl+shift+3 to select which of the screens are displayed, and ctrl+shift+f to toggle on-screen fps display while in fullscreen mode.
+i've also written a little psg demo that plays 3-channel rectangle wave music - you can find it here.
+
+
+
+
+
+
+2006-03-17
+
+
+
+cpu: modified the code for swi 3-6 a bit
+apu: reduced sound latency. if this causes problems on slower computers you can enable a larger buffer in dualis.ini
+apu: corrected sound looping in most cases
+apu: improved resampling quality a bit (pcm8 only)
+apu: added a sampling rate option in the .ini file
+mmu: added support for the timer registers on the arm7 side
+mmu: corrected mirroring at 0x3800000-0x3ffffff on the arm9 when wram is split
+gui: added a viewer for the arm7 i/o registers
+gui: added support for .ds.gba files (the 512-byte loader is skipped so they are effectively treated as .nds files)
+gui: fixed problems with reading from the upper 32kb of arm7 ram in the disassembler
+
+
+
+
+
+
+
+2006-03-15
+
+*bleep bleep blop*
+
+apu: added rudimentary sound emulation
+mmu: added handling of sound registers
+gui: added a sound master enable option on the audio tab
+gui: fixed a bug where multiple instances of the same dialog window could be opened at once
+
+
+only the pcm8 and pcm16 audio formats are handled right now. sound mixing is currently fixed at 32khz mono, so panning doesn't work. if it becomes too painful to listen to you can disable sound altogether through the gui or in the .ini file ;)
+
+
+
+
+
+
+2006-03-14
+
+
+
+cpu: added a few missing ldm/stm instructions
+cpu: added mrs/msr spsr
+cpu: swi 3 emulation is more accurate
+mmu: fixed some timer bugs
+mmu: fixed some vram mapping bugs
+mmu: fixed handling of out-of-bounds rom accesses
+gui: fixed some bugs in the disassembler and memory viewer
+gui: added an auto update mode to the i/o register viewer
+gui: dma transfers can be logged to the debug console
+
+
+the cpu plugins is this release are not compatible with earlier versions of the mmu and gui.
+
+
+
+
+
+
+2006-03-11
+
+
+
+gpu: fixed some errors in the opengl and direct3d renderers when alpha blending was used
+mmu: added the 64 kb of gba cart save ram
+mmu: fixed mirrored 8-bit writes to wram
+gui: added an auto update mode to the disassembler
+gui: fixed some minor bugs in the disassembler and palette viewer
+
+
+
+
+
+
+
+2006-03-03
+
+
+
+cpu: added swi 3 and 6
+cpu: fixed some problems with swi 5
+cpu: modfied msr a bit
+gpu: added support for the vtx_diff command
+gpu: fixed some bugs with rotation parameters on the sub core
+gpu: fixed the gl_invalid_operation error that could occur when switching back and forth between different renderers
+mmu: fixed accesses by the arm7 in the 0x02100000-0x023fffff memory range
+mmu: changed initial value of wramcnt to 3
+mmu: fixed a typo that lead to bad 16/32-bit wram writes from the arm7
+gui: added a few more thumb opcodes to the disassembler
+gui: added a "turbo swi" option on the cpu tab for arm7 binaries that mainly sit and wait for vblanks
+
+
+
+
+
+
+
+2006-03-01
+
+two are better than one.
+this release features the addition of the second cpu (arm7tdmi). touchscreen access is still faked in the same manner as in earlier versions, and not all parts of arm7 memory are handled correctly yet.
+note that earlier versions of the plugins are more or less incompatible with this version.
+
+cpu: added emulation of the arm7tdmi
+gpu: modified the hblank/vblank code to handle both processors
+mmu: added the arm7tdmi memory space (incomplete)
+mmu: added some support for the wram control register
+gui: the disassembler can now be used for both processors
+gui: the disassembler now shows the cpsr mode bits
+gui: fixed overwriting of program code for programs loaded at 0x02000000
+
+
+
+
+
+
+
+2006-02-25
+
+due to some technical problems the site has been down on and off during the past 24 hours. but now it's up again, and with a new release.
+
+gpu: fixed rendering of transparent areas on 256-color bitmap bgs
+gpu: fixed background color in the opengl renderer when luma effects are used
+mmu: added support for 64bit/32bit operations to the hardware divider
+mmu: fixed 32-bit reads from the if register
+mmu: modified irq handling a bit
+
+
+
+
+
+
+
+2006-02-25
+
+
+
+cpu: changed cpsr bits when entering irq mode
+mmu: fixed some bugs introduced in dualis 14.1
+mmu: fixed writes to the dma0 registers
+gui: .nds files are now entirely loaded into memory (for romfs/gbfs)
+gui: fixed some bugs in the disassembler (clz, register-specified shifts)
+
+
+
+
+
+
+
+2006-02-23
+
+
+
+cpu: added swi 11 (cpuset)
+gpu: added support for some paletted texture formats
+gpu: added support for some more vertex formats (vtx_xy, vtx_xz, ...)
+gpu: added support for multiple textures
+gui: improved the texture viewer
+
+
+
+
+
+
+
+2006-02-21
+
+
+
+gpu: added support for texture wrapping
+gpu: added support polygon alpha and wireframe rendering
+gpu: added support for material commands
+gpu: added polygon depth comparisons
+gpu: fixed opengl errors that occured when vtx_begin/end pairs spanned across more than one frame
+gpu: fixed mtx_mult_4x4 (missing break)
+
+
+
+
+
+
+
+2006-02-20
+
+
+
+cpu: added one of the missing cp15 operations
+cpu: fixed flag updates for mvn instructions
+gpu: added preliminary support for lighting
+gpu: fixed rendering of extended palette objs in the d3d renderer
+gpu: added support for display lists
+gpu: added support for viewport commands
+mmu: fixed a bug with fixed destination dma transfers
+mmu: fixed some bugs when writing to vramcnt_*
+gui: fixed some bugs in the disassembler
+gui: fixed some bugs in the texture viewer
+
+
+
+
+
+
+
+2006-02-17
+
+three bloodclot dee.
+today marks the one year anniversary of the dualis project. and what better way to celebrate that than with another release? this installment features much improved 3d emulation.
+
+gpu: fixed some matrix operation bugs (ogl only)
+gpu: modified 3d layer rendering (ogl only)
+gpu: added limited texture mapping support (ogl only)
+gpu: fixed capture source blending in the d3d renderer
+gpu: added support for luma effects on extended palette objs (non-scaled)
+gpu: master screen/char offset is now supported for rotoscale bgs
+
+
+
+
+
+
+
+2006-02-13
+
+
+
+gpu: added partial support for capturing
+gpu: added support for luma effects on bitmap objs
+gpu: fixed luma increase for bgs
+gpu: fixed a bug with luma decrease enabled and no target layers selected
+gpu: corrected the master brightness algorithm
+
+
+
+
+
+
+
+2006-02-11
+
+
+
+gpu: added support for flipping of bitmap objs
+gpu: fixed a clipping bug for rotoscaled bitmap objs
+mmu: fixed a bug that would sometimes result in bad 32-bit reads from vram
+gui: added support for zipped roms (only .nds)
+gui: added support for the master char/screen offsets in the map viewer
+gui: tile information is now diplayed when clicking on the map in the map viewer
+gui: added a texture viewer (supports only 15-bit textures at this point)
+
+
+
+
+
+
+
+2006-02-09
+
+
+
+gpu: fixed rendering of rotoscaled 1d bitmap sprites
+gpu: added support for the master char/screen offset setting (text bgs)
+gui: map viewer and oam viewer now support extended palettes
+gui: map viewer now supports tile flipping
+gui: map viewer now supports viewing of vram banks in lcdc mode
+gui: fixed rendering of 16-color objs with palette number >=8 in the oam viewer
+gui: fixed rendering of 1d bitmap objs in the oam viewer
+
+
+
+
+
+
+
+2006-02-08
+
+some updates today..
+
+cpu: fixed crashes when using swis in thumb mode
+gpu: fixed colors of extended palette objs in opengl mode
+gpu: added emulation of the master brightness setting
+gui: improved the map viewer
+
+
+
+the updated components are available individually, or as a complete package with all the latest components.
+
+
+
+
+
+
+2006-02-07
+
+
+
+cpu: optimized thumb emulation
+cpu: added support for mode changes on movs
+cpu: the intrwait swi can now be interrupted even when ime=0 (as it would on a real ds)
+gpu: added support for main memory (fifo) display mode
+gpu: modfied reference coordinate calculation for rotoscale objs
+gpu: fixed vertical obj clipping
+gpu: fixed a problem with 1d bitmap obj mapping
+gpu: fixed a bug where bgs would not be drawn if the vram selection bits in dispcnt were non-zero
+mmu: fixed 16- and 32-bit writes to vramcnt_*
+mmu: vram banks mapped to extended palettes are no longer accessible
+gui: added an obj viewer
+gui: added a map viewer (does not yet support all types of maps)
+gui: improved the tile viewer (vram bank selection)
+gui: changed the screenshot keyboard shortcuts to ctrl+1..ctrl+3 so as to not interfere with dialogs were entering numbers is needed
+
+
+
+
+
+older news..
+
+
+
+design, content and whatnot © mic 2006 - micol972<theatsign>gmail.com
+
+
+
+

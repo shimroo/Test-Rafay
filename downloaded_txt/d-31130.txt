@@ -1,0 +1,324 @@
+
+
+(ig): a guide to internet access
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(ig): a guide to internet access
+
+
+ introduction
+
+
+the internet is a loosely-organised collaboration of computer networks that 
+    voluntarily communicate and interconnect via open procedures and protocols 
+    defined by internet standards. the internet protocol suite (tcp/ip) consists 
+    of the core communications protocols that are used by these computer networks 
+    to interconnect and become interconnected networks. during the 
+    development of tcp/ip (1974), carl sunshine, vinton cerf and yogen dalal coined 
+    the term 'internet' in rfc 675. the most important protocol of the internet 
+    protocol suite is the internet protocol (ip): it creates a datagram format 
+    and numbering (address) system that enables packet-switching networks to interconnect. 
+    no single individual is credited with inventing the internet, but a small 
+    group of individuals, named the 'internet pioneers', are credited with designing 
+    the core technical architecture of the internet in the 1970s and 1980s. while 
+    there have been other terms used to describe the internet -- cyberspace and 
+    the information superhighway -- the internet is the name that has stuck. some 
+    of the most important organizations that manage the development and use of 
+    the internet are the internet society (isoc), internet architecture board 
+    (iab), internet engineering steering group (iesg), internet engineering task 
+    force (ietf), internet research steering group (irsg) and internet research 
+    task force (irtf).
+
+
+
+early history
+
+
+the early history of the internet is mostly located in the united states 
+    of america: this is because the backbone computer networks that evolved into 
+    the internet, and the open procedures and protocols developed for these networks, 
+    were located and funded by either: departments of the federal government of 
+    the united states; independent agencies of the united states federal government; 
+    or american nonprofit advocacy organizations.
+arpanet (advanced research projects agency network) was one of the first 
+    'wide area' computer networks and was one of the first computer networks to 
+    feature packet switching. packet switching underpins how the internet works 
+    and arpanet is viewed as a forerunner to the internet. arpanet allowed the 
+    u.s. military, research laboratories and universities to connect, communicate 
+    and exchange data. the first successful message sent on arpanet was "login" 
+    and it was transmitted by charles s. kline at 10:30pm on the 29th of october 
+    1969. when arpanet was launched it consisted of four nodes, with each node 
+    featuring an interface message processor (imp). the four nodes were located 
+    at: university of california, los angeles (ucla) - (sds sigma 7 computer) 
+    (sign extend software); stanford research institute (sri) - (sds 940 computer) 
+    (nls software); university of california, santa barbara (ucsb) - (ibm 360/75 
+    computer) (os/mvt software); and the university of utah - (dec pdp-10 computer) 
+    (tenex software). the first authority created for arpanet was the network 
+    information center (nic) and it was created to manage the assignment of hostnames. 
+    by 1973 arpanet contained over 25 nodes in north america and had its first 
+    international nodes in norway and england. arpanet was slowly decommissioned 
+    from 1985 to 1989: due to the creation of nsfnet and the federal internet 
+    exchange (fix).
+due to the mansfield amendment of 1973, the department of defense was directed 
+    to no longer fund the development of science projects. arpanet was split into 
+    a military and a research network, and the research network of arpanet was 
+    slowly phased out from 1975 onwards. due to the need for a wide area computer 
+    network for scientific research a new wide area computer network was funded 
+    by the national science foundation (nsf) in the mid-1980s. the network they 
+    created was nsfnet 'national science foundation network'. the original nsfnet 
+    backbone consisted of six supercomputer locations, located at u.s. universities 
+    and research institutions, and used the tcp/ip protocol suite to connect and 
+    transport data across the network. the location of the original six supercomputers 
+    are as follows: princeton university (john von neumann center); university 
+    of california, san diego (supercomputer center); university of illinois 
+    (national center for supercomputing applications); cornell university 
+    (cornell theory center); university of pittsburgh (pittsburgh supercomputing 
+    center (psc)) and national center for atmospheric research (ncar). 
+    by 1987-1991 the nsfnet backbone was connected to a variety of regional and 
+    federal computer networks. to name but a few: barrnet (bay area regional research 
+    network), esnet (energy sciences network), michnet (michigan network), midnet 
+    (midwest network), milnet (military network), nsn (nasa science network), 
+    northwestnet (north west network), nysernet (new york state education and 
+    research network), sesquinet (sesquicentennial network), suranet (south eastern 
+    universities research association network) and westnet (west state network). 
+    due to the success and popularity of nsfnet (originally developed for non-commerical 
+    use) there began to be issues over commercial access to it, which eventually 
+    led to the u.s. government deciding that the internet backbone network should 
+    evolve to consisting of autonomous commercial computer networks. in the early 
+    1990s network access points (naps) were created to replace the nsfnet backbone. 
+    naps exchanged data between commercial backbone networks. the four original 
+    naps were: ameritech, mfs datanet, sprint, and pacific bell. network access 
+    points were a strategic 'steppingstone' and were eventually replaced by internet 
+    exchange points. nsfnet was decommissioned on the 30th of april 1995 and ushered 
+    in the internet era of commercial networks.
+
+
+
+internet era
+
+
+the networks that formed the early internet were as follows: tier one: typically, 
+    long-distance international telecom companies who are viewed as 'backbone' 
+    networks; tier two: typically, large regional internet service providers; 
+    and tier three: small isps who pay for upstream transit from tier two networks. 
+    tier one, two and three networks create 'interconnect agreements' with one 
+    another: these agreements decide how data is transferred and routed on the 
+    internet. there are two types of interconnect agreement: 1) transit agreement: 
+    data transfer is charged; 2) peering agreement: data transfer is free. tier 
+    one networks tend to be telecom companies who own national and international 
+    fiber optic trunk lines. the data routes of the internet are like the thoroughfares 
+    of a country: motorways are the primary route that cars travel upon, and likewise, 
+    tier one networks are the primary route that data travels upon the internet. 
+    tier one networks typically connect to the entirety of the internet via peering 
+    agreements and do not pay for their access. some recognised tier one networks 
+    are at&t, verizon, and sprint. tier two networks are networks that must 
+    pay for upstream transit of data (access to tier one networks). tier two networks 
+    also use internet exchange points (ixp) to reduce their upstream transit costs 
+    and faults, and to improve latency and bandwidth. some examples of tier two 
+    networks are: bt, deutsche telekom and france telecom. finally, we have tier 
+    three networks: these networks pay for upstream data transit from tier two 
+    networks. tier three networks can be standalone single-homed networks or can 
+    be multihomed networks. multihoming is where a tier three network purchases 
+    upstream access from multiple tier two networks: this helps to improve the 
+    reliability of their service in the scenario of a (spof) single point of failure. 
+    internet service providers and internet exchange points (ixp) typically place 
+    their most important network equipment at colocation centre's: these are facilities 
+    that are secure and provide protection against a multitude of natural and 
+    man-made threats. in the uk, telehouse (london) and telecity (manchester), 
+    are two of the most important colocation centre's in the uk. 
+
+
+
+development of the uk's internet access
+
+
+the first uk node to connect to arpanet was ucl (university college of london) 
+    at a speed of 9.6 kbps. by 1975 the ucl link was being used by several ministry 
+    of defense (uk) installations and it was also used to test the development 
+    of tcp/ip in the mid-1970s. the testing involved sending data packets via 
+    radio from a car traveling across the golden gate bridge in san francisco 
+    to a terminal at the royal radar establishment in malvern. ucl scholars, paal 
+    spilling and peter kirstein, played an important role in the development of 
+    tcp/ip and kirstein is sometimes referred to as a 'founding father of the 
+    european internet'. in 1988 members of the cern networking group were present 
+    at a meeting of the coordinating committee for intercontinental research network 
+    (ccirn). vint cerf encouraged these europeans to create an organisation that 
+    would be responsible for allocating internet ip blocks in europe. the result 
+    was the creation of ripe (réseaux ip européens). by the late 
+    1980s more and more european networks, such as the european network (eunet), 
+    began to switch from x.25 protocol to tpc/ip. by 1991 tcp/ip became the dominant 
+    networking model when the ebone (standing for european backbone) consortium 
+    was established to transition european networks from osi to ip. during this 
+    era telehouse europe was founded and opened the telehouse docklands datacentre 
+    in london. telehouse docklands became the primary hub for the internet in 
+    the united kingdom. telehouse europe has expanded across london and europe 
+    and has described itself as a "backbone for the global internet network". 
+    the following internet exchange points (ixp) have operated out of telehouse 
+    docklands: linx, napafrica, decix, france-ix, packet exchange, jp-ix, lipex, 
+    nyiix, laiix and lonap. some of these ixp's have provided provide services 
+    for dns root nameservers, such as for the k.root-servers.net.
+the commercial organisations that sell access to the internet in the uk are 
+    commonly referred to as internet service providers. customers who purchase 
+    access from isps are referred to as subscribers. before 1988 the internet 
+    was funded publicly and restricted commercial access. therefore, most uk internet 
+    service providers were founded in the early 1990s. the first uk isp is usually 
+    claimed to be @theworld, who sold access in 1989. some other early isps include: 
+    compuserve, earthlink, aol, psinet and uunet, but these were headquartered 
+    in the united states of america. the first uk based isps were: pipex (1990), 
+    demon internet (1992), exnet (1992), pavilion (1993), zetnet (1994), easynet 
+    (1994), and flexnet (1995). these isps only offered dial-up access but were 
+    crucial in developing the current infrastructure of the uk's internet. pipex 
+    was involved in helping to develop the london internet exchange (linx), operated 
+    one of the first transatlantic leased lines (64k), was one of the first commercial 
+    isps to connect to janet (an important research ip network in the uk), and 
+    hosted the early bbc online services. the first uk isp to come to national 
+    prominence was freeserve (1998): founded by dixons group plc it was promoted 
+    on television, print media and dixons electrical stores. freeserve were the 
+    first uk isp to offer internet access without a monthly subscription fee. 
+    in the 1990s there was a wide selection of isps, but the service quality provided 
+    by them varied wildly, some quickly 'folded' and left subscribers stranded 
+    without access. by the noughties, smaller isps were being purchased by larger 
+    telecoms companies. for example, pipex were purchased by tiscali in 2007 and 
+    tiscali were purchased by carphone warehouse in 2009. this evolution of smaller 
+    isps being 'eaten up' by competitors has resulted in there only being a handful 
+    of big isps. while smaller isps still exist, as do niche isps (satellite and 
+    radio), most isp subscribers (roughly 20 million subscribers) are customers 
+    of the four big uk isps: bt (plusnet, ee), sky broadband, virgin media and 
+    talktalk. many isps do not own their own network infrastructure, but instead 
+    rent access from other operators. most isps sell access on a monthly or annual 
+    contract and provide a limited or unlimited download limit (but contain a 
+    fair usage policy). 
+an alphabetical list of uk isps, valid as of 2019, included: ai networks, 
+    air broadband, airband community internet, airfibre, alncom, andrews & arnold, 
+    aquiss, ask4, b4rn, b4b networks, badenoch broadband, beacon broadband, beeline 
+    broadband, big blue rocket, bitstreme, bigblu, bluewave, box broadband, breathe 
+    internet, bridge fibre limited, broadband wherever, bt, call27, cambridge 
+    fibre networks, cerberus networks, cix, cloudscape connect, community fibre 
+    limited, conxdigital, corespeed, country connect, county broadband, cyber 
+    ware, derbyshire broadband, direct save telecom, distant voice, ee, elite 
+    limited, entanet, exa networks, exascale, fastnet international, fibrecast, 
+    fibrenest, fluidone, freedomsat, freeola, full fibre, g.network communications, 
+    gamma, gigaclear, glide, gradwell, grain, green isp, greennet, herefordshire 
+    community network, hyperoptic, idaq networks, idnet, i need broadband, jibba 
+    jabba, kcom, leetline, lingen community broadband, luminet, m12 solutions, 
+    m247, merula, netservers, notspot, novatech connect, now broadband, oakford 
+    internet services, onebill telecom, onestream, optanet, optify, orbital net, 
+    origin broadband, pine media, post office, plusnet, pulse8broadband, purebroadband, 
+    scotnet, sse, seethelight, shell energy broadband, shetland telecom, sky, 
+    spectrum internet, speednet scotland, spitfire, supanet, surrey hills internet, 
+    sw internet, talktalk, the phone coop, toople, trooli, uk broadband, unchained 
+    isp, uno, village networks, vispa, virgin media, vodafone uk, wave internet, 
+    wessex internet, wifinity, wightfibre, wispire, xln telecom, york data services, 
+    and zen internet.
+
+
+
+ access technologies
+
+
+the following access technologies have been provided or are available.
+ wireless
+      - satellite: vsat, tdma, scpc
+      - mobile (mobile / cellular networks): 2g, 3g, 4g, 5g
+      - wimax (fixed wireless): ieee 802.16 (802.16/d)
+      - wifi (fixed wireless): ieee 802.11 (802.11a, 802.11b, 802.11g, 
+      802.11n, 802.11ac, 802.11ac-2013, 802.11ad)
+ wired (broadband)
+      - dsl (digital subscriber line):  (adsl , sdsl)
+      - cable (cable television infrastructure etc): docsis
+      - fiber optic: fttc (fibre to the cabinet), fttp ( fiber to the 
+      premises), fttb (fiber to the building), ftth (fiber to the home)
+      - leased line (private data line): t-1 (t1) and e-1 (e1)
+      - broadband over power line (bpl): poe, pdsl, pln 
+ wired (narrowband)
+      - dial-up: v.22, v.27, v.32, v.34, v.90, v.92
+      - integrated services digital network (isdn)
+since the advent of the first commercial isps in the early 1990s a wide variety 
+    of technologies have been used to facilitate access to their networks. from 
+    1990-1998 most internet users connected to isps using wired narrowband technologies, 
+    sometimes referred to as a 'fixed internet service'. the most popular wired 
+    narrowband access technology was dialup: restricted to a download speed of 
+    40-56 kbit/s, the dialup technology established an internet connection by 
+    dialing a telephone number on the public switched telephone network (pstn) 
+    and could not be used at the same time as the telephone. another early wired 
+    narrowband access technology was the integrated services digital network (isdn): 
+    isdn was expensive and only marginally faster than dialup (64 kbit/s or 128 
+    kbit/s), it was mostly used by medium-large business subscribers.
+from 2000-2004 dsl broadband -- and to a lesser extent cable broadband -- 
+    slowly replaced narrowband technologies (dialup and isdn) as the dominant 
+    access technology. broadly speaking, broadband is a technology that is defined 
+    as supporting multiple signals, so that the telephone service can be used 
+    at the same time as the internet connection. described as always 'on' it provided 
+    a download speed that was at least ten times faster than dialup. broadband 
+    is not a clearly defined term and the criteria that define a broadband internet 
+    connection have changed. from 2000-2017 the most popular broadband access 
+    technology has been the digital subscriber line (dsl) service which includes 
+    the following dsl technologies: vdsl, isdn, sdsl, hdsl and adsl. dsl's weakness 
+    and strength are its reliance upon the standard copper line telephone network: 
+    that provides excellent accessibility but has a limited data capacity. the 
+    quality and speed of dsl is measured by signal to noise ratio (snr), sync 
+    speed and line attenuation. 
+due to its drawbacks -- data capacity and line quality over distance -- the 
+    dsl technology has slowly been replaced by fiber optic access technologies: 
+    fiber optic provides a faster speed and improved reliability when compared 
+    to any fixed wired technology. the fiber optic access technology is a glass/plastic 
+    cable that is superior to copper cable in a number of ways: it's more reliable; 
+    the cable has a longer lifespan; it carries more data; higher speed at a long 
+    distance (8km+); it does not corrode; electromagnetic interference does not 
+    occur; and it is resistant to crosstalk. most developed countries have partially 
+    implemented a 'superfast' fiber optic infrastructure and most urban areas 
+    in the uk have access to a fiber optic network. how fiber optic networks are 
+    implemented varies: rarely are they "full fibre" and they're typically 
+    a hybrid mix of aluminum/copper/fibre systems. in 2012 the uk government formed 
+    an organisation called broadband delivery uk (bduk) whose ambition was two-fold: 
+    1) provide superfast broadband to 90% of homes in the uk; 2) universal access 
+    to standard broadband (download speed of 2mbps).
+while fiber optic is currently (2020) the pinnacle of fixed internet services, 
+    the advent of smartphones has resulted in mobile/wireless broadband technologies 
+    'eating up' a greater share of the internet service market. while smartphones 
+    are not capable of accessing every service available on the internet, their 
+    processing power is increasing and for many subscribers the smartphone has 
+    replaced the computer as the primary device to access the internet. early 
+    mobile/cellular telecommunications technologies (2g: gsm and cdpd) were restricted 
+    to a slow download speed of between 56kbits to 115 kbits, but the speed of 
+    current mobile access technologies (3g/4g/5g: umts, hspa, hspa+, imt-2020) 
+    has increased massively: with download speeds of up to 100 mbits. mobile broadband 
+    is not the only type of wireless internet access, the other type is referred 
+    to as fixed wireless access (fwa) and the companies who provide a fwa service 
+    are called: wireless internet service provider (wisp). fwa services use a 
+    frequency on the radio spectrum to provide internet access and have been implemented 
+    in rural areas that are not covered by fixed broadband internet services. 
+    fwa technologies can be either: 1) wide area (4g and wimax); 2) short area 
+    (hotspot) (wifi). wisps can use security technologies like wep to ensure that 
+    only authorised persons can access their network.
+
+
+
+terms 
+    and conditions - contact us - privacy policy
+  copyright © 2002-2024 (ig) internet-guide.co.uk
+
+
+
+

@@ -1,0 +1,355 @@
+
+
+
+the oracle sponge blog -- an oracle data warehousing resource
+
+
+
+
+
+
+
+
+.comment-link {margin-left:.6em;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+	oracle sponge -- now moved to wordpress
+	
+  
+please use http://oraclesponge.wordpress.com
+
+
+
+
+monday, june 12, 2006
+
+
+
+	 
+	 moving to wordpress
+	 
+    
+
+
+blogger irritates me. let's see if wordpress makes me happy.http://oraclesponge.wordpress.com/i've used the supplied import functionality to move over posts and comments, and it seems to have gone pretty well. internal links need to be resolved to the new ur, and some text formatting has gone astray, but i can work my way through that.the category functionality is great, and the interface is much more snappy, so i'll probably stick with it.
+
+
+
+posted by david aldridge @ 3:31 pm
+2 comments
+
+
+
+
+
+
+friday, june 02, 2006
+
+
+
+	 
+	 modelling of condominiums
+	 
+    
+
+
+a condominium in this case being a geographical area of which two of more sovereignties agree to share dominium, but that title ought to do wonders for my statistics.anyway, i was thinking about the mapping between cities and zip codes today, which is a many-to-many relationship, and the thought popped into my head, "i wonder if there are any cities which belong to multiple countries?" in other words, are there any cities which are part of a condominium?so i went looking for one, not expecting to find any, and i was right -- there appear to be none. probably a good job too.in fact the only decent example of a condominium currently in effect seems to be that of pheasant island, which is a condominium of france and spain. it apparantly is shared on a six-monthly basis between the two nations, which leads to an interesting modelling problem -- a cyclic time-dependent relationship between geography and sovereignty. in other words, it's a time-share! (stats again).anyway, i'll leave that as "an exercise for the reader".it also raises anther question: back when one needed a passport to cross between the two countries, was a crime commited if a passport-less person was present on the island at the time that sovereignty changed? perhaps none -- perhaps the condominium agreement allowed people of either nationality to be present on the island at any time, regardless of which state currently was in charge of it. but if the agreement did not allow this then could you charge a person with crossing a border if they were stationary at the time the offence occured?these thoughts usually turn-up on fridays, oddly enough. must be something to do with blood sugar.
+
+
+
+posted by david aldridge @ 1:45 pm
+9 comments
+
+
+
+
+
+
+monday, may 22, 2006
+
+
+
+	 
+	 the prime number few
+	 
+    
+
+
+i was chasing links through wikipedia the other day, which always leads somewhere interesting.in this case i fell into the deep waters of linguistics and learned about garden path sentences. they caught my eye in particular because the article includes one of my favourite jokes, albeit with a slightly different construction to my usual one."if time flies like an arrow, do fruit flies like a banana?"now that i've read a deconstruction of the joke, it seems a little less funny though.
+
+
+
+posted by david aldridge @ 3:08 pm
+2 comments
+
+
+
+
+
+
+thursday, may 18, 2006
+
+
+
+	 
+	 the three pillars of oracle data warehousing
+	 
+    
+
+
+introductionthis is a basic topic for oracle data warehousing beginners, based on some ideas that i'm hoping will stop buzzing round in my head if i commit them to virtual paper.there are three oracle features that provide a foundation for successful data warehousing: partitioning parallelism psummary tables (the "p" is silent)  here are the benefits that they bring to the system.partitioningin a data warehouse we are interested in accessing large numbers of rows that are identified through some common attribute. very often the same small numbers of attributes are used over and over again to filter the data. the most common is some form of date filter ("give me sales for this january"), and there are often others that are used very commonly ("give me inventory levels for repairable items", "give me backorders for california").in an oltp system we would use an index or a full tablescan to get this subset of data, but that can be inefficient if we are selecting a large number of rows representing a subset of the total table data because of the high number of logical i/o's required and the single block reads that are used to access the table.in a data warehouse we can partition according to attributes commonly used as filters by the users, or according to logical child attributes of them (eg. users commonly filter by month but we partition by day).  this achieves two important aims. rows of data that are commonly used together are physically co-located. the optimizer can treat each partition as a table and can perform fast scans of multiple partitions to access the data ("partition pruning"). we can also use multicolumn or composite partitioning to partition by multiple attributes, so that we can partition both by date and by location and get partition pruning on either or both.there are also benefits to manipulating bulk data -- we can use partition-based ddl operations to load and unload data from a table (a partition exchange) or to delete old data (partition drop or truncate).parallelismin a parallel query operation the physical locations in which the required rows are held are subdivided into a number of ranges, each of which is then scanned by a different process(a parallel query slave). the processes that read the data then pass it on to either a single query coordinator process or to another set of slaves which themselves pass the results to the query coordinator.insert, update and delete operations can also be parallelized to provide faster bulk data changes.one of the key differences between serial and parallel queries are that the parallel queries read data directly from disk instead of checking for the required blocks in the sgas block buffer area, and pass the result set directly to the user's pga, thus completely bypassing the sga. read consistency is maintained through the query coordinator requesting a checkpoint to have commited dirty buffers of the scanned object written to disk before the pq slaves start reading.the coordination required in creating and controlling query slaves leads to an overall increase in resource usage which can easily overload a system, but when correctly implemented spare system resources can be used to improve the response time of queries that access or manipulate a large amount of data.you probably need a lower degree of parallelism than you expect.psummary tablesok, "summaries" then.the static nature of data warehouse data allows the results of some frequently executed queries to be pre-computed and cached as summary tables. these are often created through the oracle materialized view object type, although the use of an mv is not mandatory.the query rewrite function of the cost-based optimizer can use the metadata stored in materialized view definitions or through declarations of query equivalence made through the dbms_advanced_rewrite package (10g+ only)  to redirect queries against large base tables (typically data warehouse fact tables) to the smaller summary tables. in most cases the summary table does not have to be an exact match for the query.the major challenge in using summary tables is in finding an efficient mechanism for maintaining consistency between the summary and its base table(s).the major benefit is that almost any end-user query can be executed extremely quickly with the correct use of summary tables.psummary partitioning allows efficient access to relatively large subsets of data and efficient bulk manipulation of data. parallelism allows the work of a single user process to be shared among multiple slave processes, leading to faster completion time but higher resource usage. psummaries provide extremely fast performance, but their maintenance  and monitoring can require non-trivial efforts.  now, hopefully these thoughts will leave my head alone.
+
+
+
+posted by david aldridge @ 7:00 am
+12 comments
+
+
+
+
+
+
+
+
+
+	 
+	 strange thing to carry
+	 
+    
+
+
+my kids (3, 4 & 6) intercepted and detained a pedestrian passing our house the other evening on the grounds that he was in public possession of dogs, and they needed to subject him to the usual line of questioning: "names?", "ages?", "boys or girls?", "do they bite?" etc..strangely none of them noticed what i saw immediately, which was the holstered handgun on his hip. i'm sure he had a license to do so, but what he was expecting might happen to him in our nice suburban neighborhood is anyone's guess.on the other hand one of my wife's co-workers reported a sighting of a mountain lion about two miles southeast of us a couple of years ago. i'm inclined to wonder whether *ahem* alcohol was a factor in that case because we're definitely on the wrong side of the city for that kind of wildlife -- antelope, deer, foxes and the occasional coyote maybe, but how a lion would pass unnoticed around colorado springs from the mountains on the west to the plains on the eastern side is a mystery to me.however the mountains to the west of us aparantly have the highest density of mountain lions throughout the rockies, which leads to some basic precautions when hiking with the kids -- don't let them straggle or walk too far in front is all it really amounts to. (that link contains other interesting information on bubonic plague, hanta virus, avalanches etc. by the way). sightings and other less fortunate encounters seem to be pretty common up around boulder though.here's a prime example of the kind of plump, tender morsel that a lion would enjoy most.it's amazing how fast those legs will carry him if he's told that there's a lion behind him!
+
+
+
+posted by david aldridge @ 6:00 am
+4 comments
+
+
+
+
+
+
+thursday, may 11, 2006
+
+
+
+	 
+	 getting the (sub)partition name for a row
+	 
+    
+
+
+adapted from a response to a question posted on oracle-l, here are three methods for finding out what partition or subpartition a table row is stored in, or which partition or subpartition a row will be stored in.logical inferencefor range-based or list-based partitioning or for range-list composite partitioning it is often feasible to infer the partition or subpartition name from the values of the partition and subpartition key columns, as long as a sensible partition naming convention has been chosen.for example, for a range partitioned table defined in part by ...create table t (col1 date ...)partition by range (col1)(partition y2006_m01 values less than (date '2006-02-01'),partition y2006_m02 values less than (date '2006-03-01'),partition y2006_m03 values less than (date '2006-04-01'),...)...we can use a sql function to provide the partition name:to_char(col1,'"y"yyyy"_m"mm')note the use of double-quotes in the above formula to identify literal strings in the date format.this is a fast and simple method, although an historically varying granularity on the partitions or a complex partitioning scheme could make it difficult to maintain.dbms_mview.pmarkerin cases where it is difficult or impossible to do perform the logical inference (hash partitioning, for example, or with complex multicolumn range/list partitioning) there are a couple of other techniques that you can use.in the dbms_mview package there is a pmarker function that returns the data_object_id for the object in which the row resides, and you can join to user/dba/all_objects using that.here's a funky example script using variable numbers of hash subpartitions ...drop table t/create table t (col1 , col2 , col3 )partition by range (col1)subpartition by hash (col2)(partition p1 values less than (2) subpartitions 2,partition p2 values less than (3) subpartitions 4,partition p3 values less than (4) subpartitions 8)asselect mod(rownum,3)+1,      floor(dbms_random.value(1,256)),      floor(dbms_random.value(1,10))from   all_objectswhere rownum < 101/with   obj as      (select --+ materialize              data_object_id,              subobject_name       from   user_objects       where  object_name = 't' and              object_type = 'table subpartition')select subobject_name,      col3from   t,      objwhere  data_object_id = dbms_mview.pmarker(t.rowid)order by 1/my unsubstantiated guess is that this uses the file#/block# of the rowid to perform a look-up on the extent that contains the row. it therefore also ought to be possible to "hand-roll" a similar method based on extracting the file# and block# from the rowid's and joining to the dba/user/all_extents view (or a materialized subset of it, for performance reasons) to get the segment properties. i don't know if i'd care to go that route myself.tbl$or$idx$part$num()the tbl$or$idx$part$num() function gives you the appropriate partition number for a table value or set of values. it's an undocumented (except through metalink, if that counts) function with a couple of magic numbers in it, but the general format to use is ...tbl$or$idx$part$num("partitioned_table_name", 0, d#, p#, "column_name")the easiest way to get the appropriate format and magic numbers to use for this function is to run a trace on a "with validation" partition exchange against the table of interest, and you'll pretty much get the complete sql that you need.so you might end up with something similar to ...with   utp as      (select --+ materialize              partition_position,              partition_name       from   user_tab_partitions       where  table_name = 'my_table')select utp.partition_name,      last_name,      first_namefrom   my_table,      utpwhere  utp.partition_position = tbl$or$idx$part$num("my_table", 0, 0,65535, "part_col")/this method has the advantage that you can just supply it with arbitrary values for the partition key column(s) and you will get the appropriate partition number/name. therefore you can use it to answer the question "which partitions will these rows go into?". if you use partition exchanges "without validation" then you can also use it to run periodic checks on whether your etl process has been putting rows in the wrong partitions.the disadvantage is that it is undocumented and has those pesky magic numbers, or course.summarymy preference is to use the method of logical inference, if possible.the other two are evidently based on very different methodologies -- one being based on the physical location of the row and the other on values of the partition key column(s), so they can be applied to different situations. the tbl$or$idx$part$num method is rather more amenable to performance tuning by pre-aggregating the table data based on distinct partition keys prior to applying the function call.
+
+
+
+posted by david aldridge @ 11:14 am
+10 comments
+
+
+
+
+
+
+wednesday, may 03, 2006
+
+
+
+	 
+	 machine music
+	 
+    
+
+
+oooh, this is nice.http://video.google.com/videoplay?docid=-5503582578132361295
+
+
+
+posted by david aldridge @ 9:28 am
+0 comments
+
+
+
+
+
+
+monday, may 01, 2006
+
+
+
+	 
+	 a day without immigrants
+	 
+    
+
+
+so today is apparantly "a day without immigrants" and i just realised that this means me as well, technically speaking. does it not seem strange that so immigrants should be held to be the source of so many problems in america, of all countries? and people in the southern border lands appear to be particularly prone to that finger-pointing, when they are living on land that was originally part of a mexico too weakened by its own war for independence to be able to defend it from the young states to the north.i'm coming up to the eighth anniversary of my "stepping off the boat" as it were -- it's easy to work out as i just add on one year and a couple of days to my wedding anniversary, which is how long it took for my permanent resident visa to come through, plus a couple of weeks to get the last things packed and get a flight. i missed my first wedding anniversary by just five days i think. from the visa (and later job) interview questions i was asked i was apparantly suspected of being an economic migrant, which made the enormous paycut that i took to move from london, uk to dayton, ohio rather ironic.on the other hand, i don't really think of myself as an immigrant. i'm think i'm really someone who is just hanging out here for a while ... seeing the sights, doing a bit of shopping, being married, having kids etc..  on the other hand i've only been back to england once in all that time, for my brother's wedding in cambridge last year.  with my parents living in spain and my parents-in-law living near rome we tend to pay fleeting visits to heathrow every now and then just to see if they've finished building it yet (which they haven't) and to stock-up on the few goodies that are available there and not from our local fine imported goods emporium -- ie. the commissary at peterson afb. they sell flakes, crunchies, milk chocolate hobnobs etc, although they fly off the shelves because everyone panic-buys them apparantly.so anyway i get itchy feet everytime i see oracle blogsters writing of their travels, and we're regularly overcome by an urge to move back to europe. any part of it at all will do. we were recently thwarted in an attempted move to slovenia or romania, and now we're trying for germany. my brother tells me we should be moving to denmark -- in fact a friend of a friend ended up there after some kind of incident involving rowing to iceland in a replica of a viking longboat, during which voyage he apparantly had an affair with the wife of the group leader which must have involved either extraordinary levels of discretion or some extraordinarily tense mealtimes -- but frankly it's probably hobson's choice where we land. if the usaf doesn't have positions for a developmental engineer at least available then it's not on the list.so where was i?ah yes, the immigrant day thing. well it turns out that most of my work colleagues will be in a customer acceptance test for most of the day so they wouldn't notice me not being here (here being 1,200 miles from them) anyway. however, i applaud the priniciple and i may go down the monica's taco shop for a breakfast burrito to show support for the cause.
+
+
+
+posted by david aldridge @ 6:39 am
+4 comments
+
+
+
+
+
+
+
+
+
+
+about me
+
+name:  david aldridge 
+
+view my complete profile
+
+spongeworthy links
+
+oracle technology network
+asktom
+dbasupport.com forums
+dizwell informatics
+pete-s random notes
+mark rittman's oracle weblog
+shark tank
+empoweredholdings (informatica forum and more)
+
+some articles
+practical guide to oracle data warehousing
+
+series introduction
+part i
+part ii
+part iii
+part iv
+part v
+part vi
+
+best of the sponge (imho)
+
+writing good sql
+using histograms on evenly distributed values
+update on "using histograms..."
+response times: what the user thinks
+what i look for in good information
+why temp tablespace != large block size
+exceptions into
+
+materialized view articles
+
+a list: things that materialized views can be (philisophically) similar to
+optimizing materialized views part i: principles for analysis
+optimizing materialized views part ii: the direct path insert enhancement
+optimizing materialized views part iii: manual refresh mechanisms
+the mysterious benefit of completely redundant materialized views
+ora-12034: materialized view log younger than last refresh
+optimizing materialized views part iv: introduction to holap cubes
+
+sponge lists
+
+things that materialized views can be (philisophically) similar to
+ways to scan a table faster
+accessing part of a table quickly
+sql features you've probably never used in production
+
+spongeworthy documentation
+version 9i
+
+documentation index
+list of books
+concepts
+data warehousing guide
+sql reference
+supplied pl/sql packages and types reference
+
+version 10g
+
+documentation library
+list of books
+database upgrade guide
+concepts
+data warehousing guide
+sql reference
+pl/sql packages and types reference
+
+previous posts
+
+moving to wordpress
+modelling of condominiums
+the prime number few
+the three pillars of oracle data warehousing
+strange thing to carry
+getting the (sub)partition name for a row
+machine music
+a day without immigrants
+welcome
+whoops, security breach.
+
+archives
+
+april 2005
+may 2005
+june 2005
+july 2005
+august 2005
+september 2005
+october 2005
+november 2005
+december 2005
+january 2006
+february 2006
+march 2006
+april 2006
+may 2006
+june 2006
+
+  
+  
+statcounter pageloads:
+  
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+join the blue ribbon online free speech campaign!
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+

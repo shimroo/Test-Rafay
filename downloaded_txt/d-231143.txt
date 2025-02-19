@@ -1,0 +1,115 @@
+
+
+
+
+
+apache tomcat
+
+
+
+
+
+
+
+
+
+
+
+apache tomcat
+
+
+
+
+
+
+
+
+
+
+
+
+
+administration
+
+
+
+status
+tomcat manager
+                     
+                  
+
+
+
+
+
+documentation
+
+
+
+release notes
+change log
+tomcat documentation
+                     
+                    
+
+
+
+
+
+tomcat online
+
+
+
+home page
+faq
+bug database
+users mailing list
+developers mailing list
+irc
+                     
+                  
+
+
+
+
+
+miscellaneous
+
+
+
+servlets examples
+jsp examples
+specifications
+                         
+                  
+
+
+
+ 
+
+
+if you're seeing this page via a web browser, it means you've setup tomcat successfully. congratulations!
+as you may have guessed by now, this is the default tomcat home page. it can be found on the local filesystem at:
+$catalina_home/webapps/root/index.html
+where "$catalina_home" is the root of the tomcat installation directory. if you're seeing this page, and you don't think you should be, then you're either a user who has arrived at new installation of tomcat, or you're an administrator who hasn't got his/her setup quite right. providing the latter is the case, please refer to the tomcat documentation for more detailed setup and administration information than is found in the install file.
+note: for security reasons, using the manager webapp
+            is restricted to users with certain roles such as "manager-gui".
+            users are defined in $catalina_home/conf/tomcat-users.xml.
+included with this release are a host of sample servlets and jsps (with associated source code), extensive documentation, and an introductory guide to developing web applications.
+tomcat mailing lists are available at the tomcat project web site:
+
+tomcat-users for general questions related to configuring and using tomcat
+tomcat-dev for developers working on tomcat
+
+thanks for using tomcat!
+
+             
+
+            copyright © 1999-2017 apache software foundation
+            all rights reserved
+            
+
+
+
+
+

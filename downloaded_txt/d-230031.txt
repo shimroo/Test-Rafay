@@ -1,0 +1,455 @@
+
+
+
+jay ponder lab home page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+jay ponder lab
+
+
+
+
+
+
+
+
+
+
+welcome to the home page for the jay ponder lab in the
+department of chemistry
+at washington university
+in saint louis, missouri. we are located in the louderman chemistry
+building on the danforth campus.
+
+
+our group is primarily interested in computational chemistry, especially
+the development of new models and algorithms, and their application to
+problems in structural biology and organic chemistry. we develop, maintain
+and distribute several software packages which are described below.
+publications and doctoral dissertations from the lab are available from
+jay ponder's home page.
+
+
+
+
+
+software distributed by the lab
+
+
+
+
+tinker:
+a complete package for molecular mechanics, dynamics and modeling of
+molecules, especially biomacromolecules. tinker has the ability to use
+any of several common parameter sets, such as amber (ff94, ff96, ff98,
+ff99), charmm (19, 22 and 22-cmap), allinger mm (mm2-1991 and mm3-2000),
+opls (opls-ua, opls-aa and opls-aa/l), as well as our amoeba polarizable
+atomic multipole force field. tinker implements a variety of novel
+algorithms including distance geometry with fast metrization and
+gaussian trial distances, elber's reaction path method, global
+optimization via our potential smoothing and search algorithms,
+molecular dynamics with simulated annealing and stochastic dynamics
+options, particle mesh ewald summation, monte carlo minimization,
+atomic multipole treatment of electrostatics with explicit dipole
+polarizability, eisenberg-mclachlan asp and gb/sa continuum solvation
+models, and truncated newton tncg local energy minimization.
+
+
+force field explorer:
+a java-based gui for tinker, which includes molecular visualization
+as well as the ability to launch tinker calculations from a graphical
+interface. ffe uses a socket mechanism for communication between the
+gui and tinker programs, allowing local monitoring of jobs running on
+remote machines. the program can also download organics and drugs from
+pubchem and the nci, and biopolymer structures from the pdb.
+
+
+sleuth:
+a small set of programs that allow creation of pdb file summaries and
+searching of a dataset extracted from the pdb for structural motifs. for
+example, sleuth can find all examples of type i turns that match some
+generalized sequence pattern. an additional program implements the
+eisenberg 3d profile algorithm. the /data subdirectory contains a set of
+summary files with dihedral angle values, secondary structure and solvent
+exposure data by residue for many of the current pdb structures.
+
+
+propak:
+a program to attack the "inverse" protein folding problem
+via modeling of the side chain packing in proteins. allows the user to
+redesign a portion of a known structure using a library of side chain
+rotamers. provides a list of the amino acid sequences that are predicted
+be compatable with an input tertiary fold. the propak algorithm was one
+of the first attempts to attack this general protein design problem.
+the original program, although still useful, has not been under active
+development for some time and is largely superceded by methods from
+the labs of steve mayo, david baker, and many others.
+
+
+qsar:
+a program to derive qsar models via regression analysis. the analysis
+can be performed by ordinary least squares (ols), principal components
+(pcr) or partial least squares (pls). "leave-1-out"
+cross-validation is performed for all three types of analysis. for ols
+and pcr, variable selection can be performed via simulated annealing on
+predictive power. in all cases, the final qsar model can be used to make
+predictions for a test set distinct from the training set. several training
+set data tables, including garland marshall's validate set for prediction
+of binding in macromolecular complexes, are provided as examples.
+
+
+
+
+
+teaching & course information
+
+
+
+
+
+chemistry 261: organic chemistry i
+
+
+
+chemistry 430: simulation in chemistry & biochemistry
+
+
+
+chemistry 478: molecular modeling
+
+
+
+biology 5325: protein structure & function
+
+
+
+biology 5357: chemistry & physics of biomolecules
+
+
+
+biology 5476: modeling biomolecular systems i
+
+
+
+biology 5477: modeling biomolecular systems ii
+
+
+
+
+
+group presentations
+
+
+
+
+host-guest ligand binding systems (jay ponder, december 03)
+
+[pdf]
+
+water diffusion in nacl/csi solutions (zhi wang, june 11)
+
+[pdf]
+
+why the sulfinyl group is special in dmso (chao lu, june 04)
+
+[pdf]
+
+strange case of enthalpy-entropy compensation (jay ponder, may 28)
+
+[pdf]
+
+protein structure from correlated mutations (brooke husic, may 16)
+
+[pdf]
+
+
+
+
+principal investigator
+
+
+
+
+
+jay ponder
+professor, chemistry, biomedical engineering,
+and biochemistry & molecular biophysics
+washington university, st. louis, mo
+ponder@dasher.wustl.edu
+
+
+current group members
+
+
+
+
+
+moses chung
+medical scientist training program, and physics
+washington university school of medicine, st. louis, mo
+kchung25@wustl.edu
+
+zhecheng he
+postdoctoral associate, chemistry
+washington university, st. louis, mo
+hzhecheng@gmail.com
+
+
+
+
+former group members
+
+
+
+
+
+nick hatzis-schoch
+graduate student, chemistry
+yale university, new haven, ct
+h.nicholas@wustl.edu
+
+
+
+zhi wang
+research scientist
+bytedance, bellevue, wa
+wangzhi@wustl.edu
+
+roseane dos reis silva
+research scientist, computational chemistry
+qubit pharmaceuticals, boston, ma
+roseane@wustl.edu
+
+
+
+ryan miller
+graduate student, computer science
+university of california, irvine, ca
+ryan.miller@wustl.edu
+
+chris ho
+senior research scientist
+qubit pharmaceuticals, boston, ma
+cho@newdrugdesign.com
+
+
+
+yuanjun "sherlock" shi
+graduate student, chemistry
+yale university, new haven, ct
+yuanjun@wustl.edu
+
+borna novak
+medical scientist training program
+washington university school of medicine, st. louis, mo
+bnovak@wustl.edu
+
+
+
+marie laury
+bioinformatics scientist, gtac
+washington university school of medicine, st. louis, mo
+majkutml@gmail.com
+
+josh rackers
+machine learning scientist
+prescient design, new york, ny
+joshrackers@gmail.com
+
+
+
+aaron gordon
+software engineer
+boeing, seattle, wa
+aarongordon@wustl.edu
+
+chao lu
+lead, force field development
+bytedance, new york, ny
+chaolupersonal@gmail.com
+
+
+
+kailong mao
+back-end software engineer
+allscripts healthcare solutions, raleigh, nc
+kailong.mao@gmail.com
+
+brendan mcmorrow
+staff software engineer
+deepmind technologies limited, london, england
+mcmobc2@gmail.com
+
+
+
+brooke husic
+sigler scholar, center for physics of biological function
+princeton university, princeton, nj
+brookehusic@gmail.com
+
+pooja suresh
+biophysicist & data scientist
+cytotronics, inc., boston, ma
+pooja.suresh@ucsf.edu
+
+
+
+laura watkins
+data scientist, kemper
+chicago, il
+lcwatkins21@gmail.com
+
+justin xiang
+chief investment officer
+syno capital, new york, ny
+justin.xiang@synocapital.com
+
+
+
+chris mejias
+fellow, abdominal radiology
+university of washington, seattle, wa
+mejiasc@wusm.wustl.edu
+
+tyler ponder
+software engineer, aws cloud security
+amazon web services, new york, ny
+tponder11@gmail.com
+
+
+
+jeffrey bigg
+lead cyber engineer
+mitre corporation, bedford, ma
+jbigg.2012@gmail.com
+
+victoria wang
+gyn onc fellow, brigham & women's hospital
+boston, ma
+victoria.wang.912@gmail.com
+
+
+
+yong huang
+senior manager, software deveolopment
+charter communications, st. louis, mo
+yhuang01@gmail.com
+
+dave gohara
+consultant, biochemistry
+st. louis university, st. louis, mo
+dgohara@slu.edu
+
+
+
+chuanjie wu
+research leader
+schrodinger, new york, ny
+chuanjiewu@gmail.com
+
+sergio urahata
+institute of physics
+university of sao paulo, brazil
+surahata@gmail.com
+
+
+
+mike schnieders
+professor, biomedical engineering, and biochemistry
+university of iowa
+michael-schnieders@uiowa.edu
+
+pengyu ren
+professor, biomedical engineering
+university of texas, austin
+pren@mail.utexas.edu
+
+
+
+alan grossfield
+associate professor, biochemistry & biophysics
+university of rochester medical school
+
+alan_grossfield@urmc.rochester.edu
+
+peter bagossi (deceased 2011)
+associate professor
+biochemistry & molecular biology
+university of debrecen, hungary
+
+
+
+enoch huang
+vice president, machine learning & computational  sciences
+pfizer r&d, cambridge, ma
+enoch_huang@cambridge.pfizer.com
+
+reece hart
+chief technology officer, myome
+palo alto, california
+reecehart@gmail.com
+
+
+
+rohit pappu
+professor, biomedical engineering
+washington university, st. louis, mo
+pappu@wustl.edu
+
+yong kong
+associate director, bioinformatics
+w. m. keck foundation laboratory, yale university
+yong_kong@yale.edu
+
+
+
+megan fedders
+director, analytics & value management
+evernorth direct health, hartland, wi
+meganfedders@yahoo.com
+
+mike dudek
+founder & chief scientist
+hexadecapole, san diego, ca
+mdudek@hexadecapole.com
+
+
+
+margaret goodman
+professor, biology
+wittenberg university, springfield, oh
+mgoodman@wittenberg.edu
+
+uma kuchibhotla
+chief scientific officer, biotechnology
+eli lilly and company
+kuchibhotla_uma@lilly.com
+
+
+
+
+
+
+last update: november 11, 2024
+maintainer: ponder@dasher.wustl.edu
+(send mail)
+
+
+
+
+
+

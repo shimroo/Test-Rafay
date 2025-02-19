@@ -1,0 +1,974 @@
+
+
+
+jacq - virtual herbaria
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+home
+database
+collections
+reference systems
+
+
+
+
+
+
+
+
+jacq is the jointly administered herbarium management system and specimen database of the following herbaria: admont, b, bak, batu, beou, boz, bp, brnm, brnu, cbh, cher, dr, ere, ft, gat, gjo, gzu, hajb, hal, hbg, herz, je, kfta, kiel, kl, kufs, lagu, lecb, lw, lwks, lws, lz, mhes, mjg, mnvd, nbsi, ns, nsk, old, pav, pi, piagr, pr, prc, ropv, sarat, siena, spp, szu, tbi, tgm, tgu, tmrc, to, tub, ubt, ulm, upa, w, wu and wup.
+listed acronyms follow the index herbariorum abbreviations. for requests and comments on specimens like identifications, typification, and comments please contact the corresponding director/curator listed in the index herbariorum.
+
+
+
+external resources identifiers and links
+
+the jacq system has been populated with identifiers from external resources for people and scientific names. on the basis of these identifiers external portals can be reached directly by clicking on the respective icon(s) for a given entity.
+scientific names
+
+ ipni - international plant names index / royal botanic gardens kew - richmond, enland
+ plants of the world online / royal botanic gardens kew - richmond, england
+ index fungorum / royal botanic gardens kew - richmond, england
+ euro+med plantbase / botanischer garten und botanisches museum - berlin, germany
+ tropicos / missouri botanical garden - saint louis, mo, usa
+ reflora flora do brasil 2020 / jardim botânico do rio de janeiro - rio de janeiro, brasil
+ gbif / global biodiversity information facility - copenhagen, denmark
+ spermatophyta and pteridophyta of cuba / botanischer garten und botanisches museum - berlin, germany
+ florabase the western australia flora / western australian herbarium - kensington, australia
+
+persons
+
+ wikidata / wikimedia foundation - san francisco, ca, usa
+ harvard university herbaria - botanists / harvard university herbaria - cambridge, ma, usa
+ virtual international authority file - viaf / oclc, dublin, oh, usa
+ orcid / washington, dc, & columbus, oh, usa
+ bionomia / david shorthouse - ottawa, on, canada
+
+
+
+
+
+
+other virtual herbaria & aggregators
+
+europe
+
+aau / aarhus university - aarhus, denmark
+bm / nhm - london, england
+bp / hungarian natural history museum - budapest, hungary
+br / botanic garden - meise, belgium
+e / royal botanic garden edinburgh - edinburgh, scotland
+k / royal botanic garden kew - richmond, england
+l, u, wag / bioportal naturalis - the netherlands
+p & pc / mnhn - paris, france
+z, zt / zürcher herbarien - zurich, switzerland
+
+north america
+
+a, ames, econ, gh / harvard university herbaria - cambridge, ma, usa
+f / field museum - botany collections, chicago, il, usa
+mo / missouri botanical garden, st. louis, mo, usa
+ny / new york botanical gardens - new york, ny, usa
+us / smithsonian institution - washington, dc, usa
+
+
+south america
+
+col / herbario nacional - bogota, colombia
+
+asia
+
+hk / hong kong agriculture, fisheries, and conservation department - hong kong, pr china
+pe / chinese academy of sciences inst. botany - beijing, pr china
+
+║→ aggregators ←║
+
+australia & new zealand / avh the australasian virtual herbarium
+brasil / inct - herbário virtual da flora e dos fungos - cria
+brasil / reflora - jbrj
+pr china / chinese virtual herbarium of china
+germany / virtual herbarium germany
+india / indian virtual herbarium
+sweden / sweden's virtual herbarium
+usa / integrated digitized biocollections (idigbio)
+
+
+
+
+
+
+acknowledgements
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+database search 
+
+
+
+search tips
+
+the search is not case sensitive.
+fields are automatically linked by and
+for partial strings the % sign can be used as a wildcard
+queries for a genus can be sent as "genus name" "blank space" and the "%" sign:
+                        searchstring "oncidum %" yields all data for oncidium.
+typing the initial letters for "genus" and "epithet" are sufficient as search criteria:
+                        "p bad" yields all taxa where genus starts with "p" and epithet starts with "bad". results include e.g. p badia hepp, peziza badia pers. or poa badensis haenke ex willd.
+search on synonymy has been implemented for nomenclatural and taxonomic questions. if the "incl. syn." checkbox is activated (default), known nomenclatural and taxonomic synonyms will be returned with the search result
+
+
+
+close
+
+
+
+
+
+
+
+
+
+ scientific name
+
+
+
+ family
+
+
+
+
+all herbaria
+admont - herbarium benediktinerstift admont
+b - herbarium berolinense
+bak - herbarium bak
+batu - herbarium batu
+boz - herbarium naturmuseum südtirol / erbario museo scienze naturali alto adige (boz)
+bp - herbarium bp
+brnm - herbarium brnm
+brnu - herbarium brnu
+cbh - herbarium cephalonia botanica
+cher - herbarium cher
+dr - herbarium dresdense
+ere - herbarium ere
+ft - herbarium ft
+gat - herbarium gat
+gjo - herbarium gjo
+gzu - herbarium gzu
+hajb - universidad de la habana, jardín botánico nacional
+hal - herbarium hal
+hbg - herbarium hbg
+hdrogmusat - herbarium drogistenmuseum österreichs
+herz - herbarium herz
+hguterm - gutermann walter
+hpilsl - herbarium peter pilsl
+htunceli - herbarium university tunceli
+hwilling - herbarium rita & eckhard willing
+je - herbarium haussknecht je
+kfta - herbarium kfta
+kiel - herbarium kiel
+kl - herbarium kl
+kufs - herbarium kufs
+lagu - herbarium lagu
+lecb - herbarium lecb
+lw - herbarium lw
+lwks - herbarium institute of ecology of the carpathians
+lws - herbarium lws
+lz - herbarium lz
+mhes - herbarium mhes
+mjg - herbarium mjg
+nbsi - herbarium biologische station illmitz
+ns - herbarium ns
+nsk - herbarium nsk
+pi - herbarium horti botanici pisani (pi)
+piagr - herbarium agrariae pisa (piagr)
+pr - národní muzeum praha
+prc - herbarium prc
+sarat - herbarium sarat
+siena - herbarium siena
+szu - herbarium szu
+tbi - herbarium tbi
+test - test institution
+tgm - herbarium tgm
+tgu - herbarium tgu
+tmrc - herbarium tmrc
+to - herbarium to
+tub - herbarium tubingense (tub)
+ubt - herbarium ubt
+ulm - uni ulm
+upa - herbarium upa
+w - herbarium w
+wu - herbarium wu
+wu-myc - herbarium österreichische mykologische gesellschaft
+wup - herbarium wup
+
+search in
+
+
+
+ herbar #
+
+
+
+ collector
+
+
+
+ collector #
+
+
+
+
+
+extended search
+
+
+
+
+
+ident. history
+
+
+
+
+collection date
+
+
+
+
+all subcollections
+admont-italien
+admont-obersteiermark
+b-algae
+b-bridel
+b-bryophyta
+b-carpotheca
+b-dna bank
+b-fungi
+b-hortus botanicus
+b-lichenes
+b-mixta
+b-phanerogamae
+b-pteridophyta
+b-texta
+b-udi
+b-willdenow
+b-willing
+b-xylotheca
+bak
+batu
+boz
+boz-gefäßpflanzen
+boz-huter
+bp generale
+bp-carpato-pannonicum
+brnm
+brnu
+brnu-alg
+brnu-bryo
+brnu-lich
+brnu-myc
+cbh
+cher
+collectio grunow
+collectio reichenbach fil.
+collectio reichenbach fil. icones
+dr
+dr-algae
+dr-bryophyta
+dr-fungi
+dr-lichenes
+ere-armenian collection
+ere-fungi
+ere-general collection
+ere-lichens
+ft
+gat
+gjo
+gjo-carpology
+gjo-wood
+gzu
+gzu ethnobotanische kollektion
+gzu holz-kollektion
+gzu karpologische kollektion
+gzu studienherbar
+gzu-arbesser
+gzu-brunner
+gzu-conrath
+gzu-czegka
+gzu-degener
+gzu-dolenz
+gzu-eberstaller
+gzu-ecklon & zeyher
+gzu-eggler
+gzu-ettingshausen
+gzu-evers
+gzu-fritsch
+gzu-hachtmann
+gzu-heider
+gzu-heske
+gzu-höpflinger
+gzu-hoppe
+gzu-huber & dietl
+gzu-husak
+gzu-karl
+gzu-kerner
+gzu-krašan
+gzu-lemperg
+gzu-maurer
+gzu-melzer
+gzu-mulley
+gzu-nees ab esenbeck
+gzu-nemetz
+gzu-nevole
+gzu-palla
+gzu-pernhoffer
+gzu-petrak
+gzu-pilhatsch
+gzu-pittoni
+gzu-poelt
+gzu-rechinger
+gzu-rössler
+gzu-rosthorn
+gzu-salzmann
+gzu-schaeftlein
+gzu-schmarda
+gzu-schulz
+gzu-schwimmer
+gzu-starmühler
+gzu-stippl
+gzu-stolba
+gzu-teppner
+gzu-thwaites & wallich
+gzu-troyer
+gzu-untchj
+gzu-vončina
+gzu-widder
+gzu-wight
+gzu-witasek
+gzu-woynar
+gzu-zenker
+hajb
+hal
+hbg
+hbg-hortus botanicus
+herb drogmus at
+herb gutermann walter
+herb pilsl peter
+herb willing
+herb. dr. a. zahlbruckner
+herz
+htunc
+je
+kfta
+kiel
+kl-bp
+kufs
+lagu
+lecb
+lindenb. hepat.
+lw
+lwks
+lwks-b
+lws
+lz
+mhes
+mjg
+mjg-fruchtsammlung
+mjg-fungi
+mjg-herbarium garganicum
+mjg-rheinland pfalz
+mus. palat. vindob. schott aroideae
+nbsi
+ns
+nsk
+pi
+pi-arc
+pi-car
+pi-citt
+pi-ferr
+pi-guad
+pi-pass
+pi-pell
+piagr
+piagr-ros
+poeppig icon
+pr
+prc-algae
+prc-bryophyta
+prc-fungi
+prc-lichenes
+prc-myxomycetes
+prc-phanerogamae
+reichenbach herb. orchid.
+sarat
+siena
+szu
+szu-tissue
+tbi
+test
+test
+tgm
+tgu
+tmrc
+to-crypt-lichenes
+to-generale
+to-pedemontanum
+tub
+ubt
+ulm
+upa
+w
+w carpotheca
+w cecidiologica
+w herbarium schottenstift
+w krypto
+w-bauer
+w-boos
+w-buchenau
+w-e. khek
+w-endlicher
+w-erzherzog rainer
+w-f. wimmer
+w-fenzl
+w-hackel
+w-herb.bras.
+w-hirth
+w-host
+w-jacq.
+w-jacq. fil.
+w-neilreich
+w-pittoni
+w-portenschlag
+w-putterlick
+w-ronniger
+w-sabransky
+w-stella mat.
+w-trattinnick
+w-wołoszczak
+w-wulfen
+w-zoobot
+wu
+wu-algae
+wu-bryoph-hepaticae
+wu-bryoph-musci
+wu-carpotheca
+wu-dörfler
+wu-fungi-generale
+wu-grabherr
+wu-halácsy-europ.
+wu-halácsy-graec.
+wu-hbv
+wu-keck
+wu-kerner
+wu-lichenes
+wu-liquor
+wu-melk
+wu-microscopic slides
+wu-mycol.-mappen
+wu-mycologicum
+wu-pteridophyta
+wu-schönbeck
+wu-vogel
+wu-wendelberger
+wu-witasek
+wup
+
+search in
+
+
+
+
+collection #
+
+
+
+
+series
+
+
+
+
+locality
+
+
+
+
+country
+
+
+
+
+state/province
+
+
+
+
+habitat
+
+
+
+
+habitus
+
+
+
+annotation
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    only display type records
+                    
+
+
+
+
+
+
+
+
+
+
+
+                    only display records with images
+                    
+
+
+
+
+
+
+
+
+
+
+
+                    incl. synonym search
+                    
+
+
+
+
+
+
+
+
+
+search
+reset
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+afghanistan
+
+
+kufs // kabul university
+
+
+
+
+armenia
+
+
+ere // institute of botany of the national academy of sciences of armenia
+
+
+
+
+azerbaijan
+
+
+bak // academy of sciences of azerbaijan
+
+
+
+
+austria - herbaria
+
+
+admont // benediktinerstift admont, naturhistorisches museum
+gjo // center of natural history, botany, universalmuseum joanneum, graz
+gzu // karl franzes university of graz
+! new ! kl // kärnten museum
+nbsi // biologisches forschungsinstitut für burgenland, biologische station neusiedler see, illmitz
+! new ! szu // paris lodron university; salzburg
+w // natural history museum vienna
+wu // university of vienna, [former] institute for botany
+wup // department of pharmacognosy, universität wien
+
+
+
+
+austria - botanical gardens
+
+
+hbv - hortus botanicus vindobonensis
+bundesgärten schönbrunn
+botanischer garten der universität salzburg
+die garten tulln
+
+
+
+
+czech republic
+
+
+! new ! brnm // moravian museum; brno
+brnu // masaryk university; brno
+pr // national museum; pagrue
+prc // charles university; prague
+
+
+
+
+georgia
+
+
+batu // batumi botanical garden
+tbi // georgian academy of sciences
+tgm // georgian national museum
+
+
+
+
+germany
+
+
+b // botanischer garten und botanisches museum berlin
+dr // institut für botanik, technische universität dresden
+gat // leibniz-institut für pflanzengenetik und kulturpflanzenforschung (ipk), gatersleben
+hal // martin-luther-universität halle-wittenberg
+! new ! hbg // universität hamburg
+je // friedrich-schiller-universität jena
+kiel // christian-albrechts-universität zu kiel
+lz // universität leipzig
+mjg // johannes-gutenberg-universität mainz
+! new ! mnvd // museum für naturkunde und vorgeschichte dessau
+old // carl von ossietzky universität oldenburg
+tub // eberhard karls universität tübingen
+ubt // universität bayreuth
+ulm // universität ulm
+
+
+
+
+greece
+
+
+cbh // cephalonia botanica, focas cosmetatos foundation
+! new ! spp // society for the protection of prespa
+! new ! upa // βοτανικό μουσείο τμήματος βιολογίας, university of patras
+
+
+
+
+hungary
+
+
+bp // hungarian natural history museum
+
+
+
+
+
+
+
+
+iran
+
+
+tmrc   //  department in traditional medicine and materia medica research center affiliated to shahid beheshti university of medical sciences
+
+
+
+
+italy
+
+
+ft // centro studi erbario tropicale, università degli studi di firenze
+pav // università di pavia
+pi // herbarium horti pisani, università di pisa
+piagr // scienze agrarie, alimentari e agroambientali, università di pisa
+! new ! ropv // crea-consiglio per la ricerca in agricoltura
+! new ! siena // botanical museum (botanical garden, herbarium) simus, università di siena
+to // università di torino
+
+
+
+
+montenegro
+
+
+tgu // university of montenegro; podgorica
+
+
+
+
+russia
+
+
+herz // alexander herzen pedagogical university (st. petersburg)
+kfta // saint petersburg s. m. kirov forestry academy
+lecb // saint petersburg university
+ns // central siberian botanical garden (novosibirsk)
+nsk // siberian central botanical garden (novosibirsk)
+sarat // herbarium saratov state university
+
+
+
+
+el salvador
+
+
+lagu // asociación jardín botánico la laguna, urbanización plan de la laguna
+mhes // herbarium botánica, museo de historia natural de el salvador
+
+
+
+
+serbia
+
+
+beou // university of belgrade
+
+
+
+
+turkey
+
+
+university tunceli
+
+
+
+
+ukraine
+
+
+cher // yu. fedcovich chernivtsi state university
+lw // ivan franko national university of lviv
+lwks // institute of ecology of the carpathians; lviv
+lws // museum of natural history (lviv)
+
+
+
+
+personal herbaria
+
+
+herbarium walter gutermann (wien, at)
+herbarium peter pilsl (salzburg, at)
+herbarium norbert sauberer (niederösterreich, at)
+herbarium eckehard willing (brandenburg, de)
+
+
+
+
+herbaria of society
+
+
+österreichisches pharma- und drogistenmuseum im stiftungshaus für drogisten" herbarium des drogistenmuseums (wie, at)
+
+
+
+
+
+
+
+
+
+reference systems
+
+
+
+nikolaus joseph von jacquin (* 1727-02-16 leiden / † 1817-10-26 wien)
+
+
+ipni author jacq.
+viaf author / wikidata person / gnd - deutsche national bibliothek normdatensatz / huh botanist
+bionomia profile
+österreichisches biographisches lexikon (german) / biography due to his role as rector of the university of vienna (german)
+
+
+
+
+nomenclature / taxonomy / phylogeny / floras
+
+
+international code of nomenclature for algae, fungi, and plants - icn
+international code of nomenclature for cultivated plants (icncp), 9th ed., 2016
+international plant names index - ipni
+
+
+
+w³tropicos
+vascular plant families and genera - brummit
+index nominum genericorum - ing @ us national museum of natural history - smithsonian institution - botany department; u.s.a.
+linnaean plant names db @ nhm london, uk
+
+
+
+algaebase
+world ferns
+index fungorum - cabi / kew
+mycobank
+
+
+
+angiosperm phylogeny @ mo botanical garden
+
+
+
+euro+med plantbase @ bg berlin-dahlem; germany
+florenliste von deutschland - k.p. buttler et al, de
+tela botanica, fr
+infoflora, ch
+pladias - flora and vegetation, cz
+anthos, es & pt
+flora • on, pt
+flora ionica, gr
+mountain flora of greece, gr
+liste der gefäßpflanzen mitteleuropas - ehrendorfer 1973
+flora del cono sur
+
+
+
+
+authors, botanists, collectors, scientists
+
+
+bionomia
+virtual authority file - viaf
+index to botanists @ harvard university herbaria; u.s.a.
+taxonomic literature ed. 2 - online
+taxonomic literature ed. 2 online resource tl-2 vault by anton savchenko 
+
+regnum vegetabile @ international association of plant taxonomists
+stafleu & cowan 1976 ff. - vols. 94, 98, 105, 110, 112, 115, 116;
+                        stafleu & mennega 1992 ff. rv vols. 125, 130, 132, 134, 135, 137
+                    
+orcid
+
+
+
+
+literature
+
+
+botanico periodicum huntianum @ hunt institute for botanical documentation; u.s.a.
+kvk — karlsruher virtueller katalog @ karlsruher institut für technologie; germany
+biodiversity heritage library - digitized biodiversity literature
+biblioteca digital del real jardín botánico madrid
+
+
+
+
+geography
+
+
+geonet names server @ us geological survey
+geonames
+austrian map @ bundesamt für eich- & vermessungswesen
+
+
+
+
+herbaria
+
+
+index herbariorum @ ny botanical garden; u.s.a.
+
+
+
+
+
+
+
+
+
+
+imprint | citation | privacy
+
+
+
+
+
+
+

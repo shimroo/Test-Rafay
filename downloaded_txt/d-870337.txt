@@ -1,0 +1,498 @@
+ï»¿
+
+
+
+
+
+
+visualgps, llc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+visualgps™
+
+
+                    software and services
+                
+home
+
+
+
+
+
+
+
+
+
+
+
+products
+articles
+contact
+
+
+
+
+products
+
+
+
+
+
+visualgpsview
+a free tool to monitor gps output
+
+
+
+
+
+nmeatime2
+an advanced pc gps time synchronization tool
+
+
+
+
+
+visualgps™ (legacy)
+legacy visualgps application
+
+
+
+
+
+nmeatime (legacy)
+a pc gps time synchronization tool
+
+
+
+
+
+visualgps xp (legacy)
+legacy visualgps application
+
+
+
+
+
+clock maze screen saver
+a free screen saver that solves a maze and shows the time
+
+
+
+
+
+visualgpsview
+
+free download
+
+if you like our software, please donate! suggested donation: $5usd
+
+
+
+
+
+
+
+visualgpsview (freeware) incorporates many advanced features that show the status of the gps receiver via the nmea 0183 protocol. its sole purpose is to display graphically specific nmea 0183 sentences for gps and position analysis.
+
+features:
+
+
+
+
+
+nmea/glonass - supports gps nmea and glonass nmea
+azimuth and elevation plot - view all satellites that are in view. each satellite identifies its pseudo random number (prn) and its azimuth and elevation.
+scatter plot - the scatter plot shows individual position samples referenced to several type of reference types, next sample, average or user defined.
+signal quality/snr window - monitor satellite signal to noise ratios and see them graphically on the screen. the signal quality window will grow or shrink to accommodate number of satellites in view
+position plot - monitor latitude, longitude and altitude averages. 
+nmea command monitor - view nmea sentences as they are received 
+nmea recording and playback - record nmea directly to a file or read nmea from a file. nmea files consists of standard nmea sentences in text ascii characters.
+
+
+
+
+
+
+requirements:
+
+gps receiver connected to a rs-232 port or usb with nmea 0183 output
+windows 7 to window 10
+
+                                    visualgps decodes the following nmea 0183 sentences:
+                                    
+gpgga and glgga
+gpgsa and glgsa
+gpgsv and glgsv
+
+
+
+
+
+
+screen shots
+
+
+
+
+
+
+
+
+nmeatime2 - pc gps time synchronization
+
+
+
+download
+                            free for 30 days.
+                            
+                                (version: ) release notes
+
+
+
+beta version 2.0 available - click for more information.
+
+*** please uninstall any old versions before installing new version ***
+
+
+the price for nmeatime2 is $20.48usd if you purchase nmeatime2, we will send you a registration key via email within 48 hours.
+
+
+
+
+
+
+
+
+
+nmeatime2 is pc time synchronization software that synchronizes the pc clock to the time from a gps receiver.
+nmeatime2 is set up as a system service where the pc clock is disciplined to the nmea string from the gps. the control loop uses the same techniques in disciplining ocxo oscillators and atomic rubidium clocks. by charactering the arrival of nmea messages, nmeatime2 uses advanced digital filters to minimize communication jitter and achieve the best reference to train the pc clock to.
+because of this, there are some requirements that need to be met. specifically, the rate output of nmea message gpgga and gprmc.
+itâs getting more difficult to find a pc with a native rs-232 serial communication port, most gps receivers that interface to a pc use a usb. the majority of the usb gps receivers will look to the pc as if it is a serial port. however, the modern usb gps looks to the pc as a usb to serial driver that emulates the serial port. in the usb world, itâs referred as a cdc (communication device class) device.
+nmeatime2 will use the nmea string (gpgga) transmitted from the gps, time tag the first character of the that command and use this as a timing reference. as you would expect, there are delays between the 1pps epoch and the rs-232 causing software jitter. the delay can be calibrated out. nmeatime2 will use digital filtering (the red line you see in the time difference plot - see below) and discipline the pc clock to this reference.
+
+read more information here
+
+requirements
+
+supports windows 7, 8, 8.1 and windows 10
+
+the minimum nmea sentence requirements matter. the most important is that the gpgga and gprmc message output once per second.
+
+gpgga - must be once/second
+gprmc - must be once/second
+gpzda - must be once/second (nmeatime will use this sentence for time. if not available, then nmeatime will use gga & rmc for time.)
+gpgsa - every two seconds
+gpgsv - every two seconds
+
+screen shots
+
+
+
+
+
+
+
+visualgps™ (legacy)
+
+download
+
+if you like visualgps and would like to support more products like these, please donate. suggest donation $5 usd
+
+
+
+
+
+
+
+currently visualgps is over 10 years old! nmea support is only limited to gps nmea strings (not glonass or galileo). we recommend that you download visualgpsview.
+visualgps (freeware) incorporates many advanced features found in professional programs.  its sole purpose is to display graphically specific nmea 0183 sentences and show the effects of selective availability (sa).
+features:
+
+
+
+
+azimuth and elevation graph - view all satellites that are in view. each satellite identifies its pseudo random number (prn) and its azimuth and elevation. also plot and print  the physical mask angle.
+survey - the survey window displays both position and xdop (hdop and vdop) parameters. the ability for user selectable hdop/vdop color thresholds for position averaging make a great utility. also monitor standard deviation and effects of selective availability. that's not all - print the results graphically.
+signal quality/snr window - monitor satellite signal to noise ratios and see them graphically on the screen. the signal quality window will grow or shrink to accommodate number of satellites in view
+navigation - monitor latitude, longitude and altitude
+nmea command monitor - view nmea sentences as they are received
+
+
+
+
+requirements:
+
+gps receiver connected to a rs-232 port with nmea 0183 output - nmea demo file included for those who do not have a gps receiver
+windows 2000 sp4, windows xp, vista or windows 7
+486 100mhz or higher microprocessor
+svga at least 1024x768 resolution
+16 megabytes of ram
+6 megabytes of disk space
+one available rs-232 port (or captured nmea text file - included)
+
+                                visualgps decodes the following nmea 0183 sentences:
+                                
+gpgga
+gpgsa
+gpgsv
+
+
+
+download
+download a free copy of visualgps program. it is a 32 bit program written for both the windows 2000, xp and vista  environments. this software is freeware and cost is free.
+download
+
+
+
+nmeatime (legacy)
+
+as of january 1st 2018, nmeatime (legacy) will no longer be supported. please use nmeatime2 as an alternative.
+download
+
+purchase nmeatime v5.8.100 - to purchase this product please contact visualgps llc.
+
+
+
+
+
+
+
+
+
+currently nmeatime is over 10 years old! it only supports gps nmea string (not glonass or galileo). we recommend that you download nmeatime2
+nmeatime will automatically set your pc clock using a gps receiver connected to the serial port of a pc or to  the national institute of standards and technology (nist) time servers over the internet. using network time or the time from a gps receiver, nmeatime will keep your computer referenced to an atomic time standard. 
+
+
+
+
+
+
+                                    also
+                                    included with nmeatime is a nasa type desktop clock configurable to show day of
+                                    year, 24 hour time or local time, color and size.
+                                
+
+
+
+
+
+features
+
+digital desktop time code clock - like nasa has!
+
+                                analog
+                                desktop clock
+                            
+uses gps time to set your pc clock
+nmea 0183 v2.20 - 3.01 compatible
+
+software generated irig-b output
+                                (requires sound card)
+                            
+
+two network time protocols - daytime nist acts compatible and sntp
+                                compatible
+                            
+programmable time setting rate
+selectable gps nmea message for time reference
+random time server select mode from an editable server list
+
+                                accepts
+                                1 pulse per second (1pps) input in to  rs-232 dsr or cts port
+                            
+
+bonus screen saver! (clockmaze)
+                            
+transparent clock! see what is behind the clock (xp and win2000 only).
+
+requirements
+
+for gps time: gps receiver connected to a rs-232 port with nmea 0183 output
+for network time: access to the internet
+windows 95/98, win2000/xp, winnt4.0 or higher with internet explorer 4.0 or higher
+pentium 166mhz or higher microprocessor
+svga at least 800x600 resolution
+16 megabytes of ram
+2 megabytes of disk space
+one available rs-232 port (for gps time)
+sound board for irig output
+
+nmea (gps)
+
+
+                                nmeatime decodes the following nmea 0183 sentences:
+                                
+gpgga or gprmc or gpzda
+gpgsa
+gpgsv
+
+
+compatible with nmea 0183 version 2.01 - 3.01
+
+
+
+
+visualgps xp (legacy)
+
+download
+as of january 1st 2019, visualgpsxp (legacy) will no longer be supported.
+
+purchase visualgpsxp for $9.95 usd
+
+
+
+
+
+
+
+
+welcome to the visualgpsxp multipurpose gps utility. please note that visualgpsxp uses specific nmea sentences to display data graphically.
+visualgpsxp is a general purpose utility for monitoring the output of a gps receiver. using the nmea data from the gps receiver, visualgpsxp will display various statuses graphically. tools such as a survey utility average the position and shows accuracy of the gps receiver in a static application. other features such as analog gauges show altitude, speed, vertical speed and direction. one additional feature is the capability to connect and share a gps receivers data over the internet. 
+
+features
+
+
+
+user definable window sizes and positions
+
+                                            multiple connection paths to a gps receiver
+                                            
+connect using an rs-232 port
+connect using the network/internet
+connect or read data directly from a nmea text file
+
+
+
+                                            analog display instruments
+                                            
+altimeter
+speedometer
+compass
+vertical speed
+
+
+
+                                            graphical gps status
+                                            
+signal quality
+azimuth/elevation plot
+
+
+
+                                            gps analyses
+                                            
+monitor nmea data
+static position averaging and statistics
+antenna mask determination
+nmea 0813 version 2.0 - 3.01 compatible
+
+
+
+
+
+
+
+
+
+clock and maze screen saver
+
+download
+
+if you like our software, please donate! suggested donation: $2usd
+
+
+
+
+
+
+
+clockmaze is a simple screen saver that creates a maze, solves it, and shows the current time. you can set up items such as solve color, maze color, and solve speed. it's free. enjoy.
+
+features:
+
+
+
+screen saver is digitally signed
+multiple monitor support
+custom colors
+free
+
+
+
+
+
+screen shots
+
+
+
+
+
+
+contact
+visualgps is located in anaheim california, usa. if you have any questions or comments or simply send us a email or twitter.
+info @ visualgps.net. 
+twitter @visualgps
+
+
+
+here you will find miscellaneous articles and code snippets. if you have any question, please donât hesitate to contact me. you can find the contact information on the contact page.
+--- monte variakojis
+gps week rollover
+
+every 19.7 years, gps suffers a time rollover similar to the y2k problem but a but more complicated. click below to find out more.
+gps time armageddon â should you worry?
+
+nmeaparser
+
+
+                            the nmeaparser article will show you how a typical nmea string is constructed and parsed. the article resides on github and the code documented and supports c++. the source code supports windows, mac and linux. as a bonus, iâve included a qt project that makes use of the nmeaparser and shows satellite signal quality, position and satellite signal to noise (snr).
+                        
+nmeaparser article on github
+nmeaparser source code on github
+
+
+
+
+
+
+application end user license
+visualgps, llc.
+"[thesoftware]" software application will be referred as âsoftware applicationâ through the remainder of this document. you should carefully read the following terms and conditions before using this software. unless you have a different license agreement signed by visualgps, llc your use, distribution, or installation of this copy of this software application indicates your acceptance of this license.
+if you do not agree to any of the terms of this license, then do not install, distribute or use this copy of software application. if you paid visualgps, llc for this copy individually, you may return it unused, within thirty (30) days after purchase, for a full refund of your payment.
+this copy of software application may either be used by a single person who uses the software personally on one or more computers, or installed on a single workstation used non-simultaneously by multiple people, but not both. this is not a concurrent use license.
+you may access this copy through a network, provided that you have obtained an individual software application license for each workstation that will access software application through the network. for instance, if 8 different workstations will access software application on the network, each workstation must have its own software application license, regardless of whether they use software application at different times or concurrently.
+this software, and all accompanying files, data and materials, is distributed "as is" and with no warranties of any kind, whether express or implied. good data processing procedure dictates that any program be thoroughly tested with non-critical data before relying on it. the user must assume the entire risk of using the program. this disclaimer of warranty constitutes an essential part of the agreement.
+any liability of visualgps, llc will be limited exclusively to refund of purchase price. in addition, in no event shall visualgps, llc, or its principals, shareholders, officers, employees, affiliates, contractors, subsidiaries, or parent organizations, be liable for any incidental, consequential, or punitive damages whatsoever relating to the use of software application, or your relationship with visualgps, llc.
+in addition, in no event does visualgps, llc authorize you to use software application in applications or systems where visualgps, llc failure to perform can reasonably be expected to result in a significant physical injury, or in loss of life. any such use by you is entirely at your own risk, and you agree to hold visualgps, llc harmless from any claims or losses relating to such unauthorized use.
+this agreement is the complete statement of the agreement between the parties on the subject matter, and merges and supersedes all other or prior understandings, purchase orders, agreements and arrangements. the laws of the state of california shall govern this agreement. exclusive jurisdiction and venue for all matters relating to this agreement shall be in courts and located in the state of california, and you consent to such jurisdiction and venue.
+all rights of any kind in software application which are not expressly granted in this license are entirely and exclusively reserved to and by visualgps, llc. you may not rent, lease, modify, translate, reverse engineer, decompile, disassemble or create derivative works based on software application. there are no third party beneficiaries of any promises, obligations or representations made by visualgps, llc herein.
+disclaimer
+in no event shall visualgps, llc be liable for any loss of profit or any other commercial or private damage, including but not limited to special, incidental, consequential or other damages, resulting from or in any way connected with the use of this software. visualgps, llc specifically disclaims any other warranties expressed or implied, including but not limited to the implied warranties of merchantability and fitness for a particular use.
+warning
+do not operate software application while driving a vehicle. software application is not designed as a primary navigational aid. failure to pay full attention while operating the vehicle and road conditions while operating the vehicle could result in an accident or collision with property damage and personal injury.
+
+
+copyright â© 2020 visualgps inc. all rights reserved - visualgps™ is a trademark of visualgps, llc anaheim, ca 
+
+
+
+...
+
+
+

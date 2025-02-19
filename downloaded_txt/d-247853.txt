@@ -1,0 +1,501 @@
+
+
+
+
+
+
+
+bluebones.net – adventures in computer programming – bakert@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		skip to content	
+
+
+
+ 
+
+
+
+bluebones.net
+adventures in computer programming – bakert@gmail.com
+
+  
+			scroll down to content		
+
+
+
+
+
+
+
+
+posts
+
+
+
+
+
+posted on december 22, 2024pipenv no longer chokes on `python_requires=”==3.*”` 
+
+as of version 2024.04 this bug that i investigated earlier in the year has been fixed. hurray!
+
+
+
+
+posted on september 15, 2024september 15, 2024nord light theme 
+
+i like my terminal to change theme when i ssh into another machine. i have been using solarized light and solarized dark to facilitate this for some time. but now i have gotten hooked on nord which has no light version. so i made one, just for terminal for now at least.
+
+there are notes about a “bright ambiance” version of the theme in the nord docs but no actual themes available. the official terminal.app theme actually deviates from the core 16-color palette but i didn’t do that here. i just chose the most appropriate color from the 16 color palette for each option in a terminal theme.
+
+
+
+
+posted on september 2, 2024september 2, 2024avoid trailing comma when emitting lists in mustache templates 
+
+in pure mustache there’s no (simple) way to avoid a trailing comma on a list:
+
+{{#items}}{{.}}, {{/items}}
+
+which produces something like: “first, second, third, “
+there are various ways around this. if you’re working in html i think the nicest is to model your list as an actual html list and use css:
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>lists</title>
+    <style>
+      .list {           
+        margin: 0;      
+        padding: 0;
+      }
+      .list li {           
+        display: inline;             
+      }
+      .list li:not(:last-child):after {
+        content: ", ";               
+      }
+    </style>
+  </head>
+  <body>
+    <ol class="list">
+      <li>first</li>
+      <li>second</li>
+      <li>third</li>
+    </ol>
+  </body>
+</html>
+
+which produces: “first, second, third”.
+
+
+
+
+posted on july 23, 2024python types for a decorator that is agnostic about the wrapped func’s return type 
+
+import randomfrom typing import callable, paramspec, typevart = typevar("t")p = paramspec("p")def some_global_condition() -> bool:    return random.choice([true, false])def my_return_type_preserving_decorator(val: t) -> callable[[callable[p, t]], callable[p, t]]:    def decorator(func: callable[p, t]) -> callable[p, t]:        def wrapper(*args: p.args, **kwargs: p.kwargs) -> t:            if some_global_condition():                return val            return func(*args, **kwargs)        return wrapper    return decorator@my_return_type_preserving_decorator((true, true, true))def my_func(n: int) -> tuple[bool, bool, bool]:    return n > 10, n > 100, n > 1000x = my_func(5)for r in x:    print("yes" if r else "no") 
+
+
+
+posted on june 19, 2024june 19, 2024format percentage for display in javascript 
+
+
+
+input
+output
+
+
+0.12
+12%
+
+
+0.0012345
+0.12%
+
+
+0.0
+0
+
+
+2 significant digits but locale-sensitive, strip meaningless trailing zeroes and decimal dividers.
+
+const formatpercentage = function (value) {
+    return new intl.numberformat(
+        undefined, // use browser locale
+        // choose the options that get us closest to our desired style – a percentage that tells you enough to be useful but no unnecessary decimal places or trailing zeroes.
+        {
+            style: "percent", // treat decimals as percentages, multiplying by 100 and adding a % sign.
+            minimumsignificantdigits: 2,
+            maximumsignificantdigits: 2
+        }
+    )
+        .format(value)
+        // \d here is the locale-agnostic decimals separator.
+        .replace(/(\d[0-9]*?)0+%$/, "$1%") // get rid of trailing zeroes after the decimal separator.
+        .replace(/\d%/, "%") // clean up the scenario where we got rid of everything after the decimal separator and now have something like "4.%.
+        .replace(/^0%$/, "0"); // replace literal "0%" with "0" as zero is unitless.
+};
+
+
+
+
+
+posted on may 27, 2024force pipenv to use charles proxy 
+
+
+export charles-ssl-proxying-certificate.pem from charles proxy
+requests_ca_bundle=/path/to/charles-ssl-proxying-certificate.pem pipenv {cmd} {args}
+
+
+
+
+
+posted on may 5, 2024python types for union of string literal and other type 
+
+i wanted to add a single special value to another type for a union type, something like this:
+
+from typing import literal
+                                                                            
+unmeasured = "unmeasured"                                                    
+unmeasured = literal[unmeasured]
+resource = int | unmeasured
+
+notes: dict[resource, str] = {1: "foo", 2: "bar", 3: "baz", unmeasured: "quux"}
+resources = [1, 2, 3] + [unmeasured]
+for resource in resources:
+    print(notes[resource])
+
+this works, but mypy complains: ‘error: parameter 1 of literal[…] is invalid  [valid-type]’. so to make this pass mypy typechecking you have to repeat “unmeasured” as a literal. even if you do that:
+
+from typing import literal
+
+unmeasured = "unmeasured"
+unmeasured = literal["unmeasured"]
+resource = int | unmeasured
+
+notes: dict[resource, str] = {1: "foo", 2: "bar", 3: "baz", unmeasured: "quux"}
+resources = [1, 2, 3] + [unmeasured]
+for resource in resources:
+    print(notes[resource])
+
+mypy will complain: ‘dict entry 3 has incompatible type “str”: “str”; expected “int | literal[‘unmeasured’]”: “str”  [dict-item]’ and also ‘invalid index type “str | int” for “dict[int | literal[‘unmeasured’], str]”; expected type “int | literal[‘unmeasured’]”  [index]’
+
+eventually i came up with:
+
+from enum import enum
+from typing import literal
+
+class aspect(enum):
+    unmeasured = "unmeasured"
+
+resource = int | aspect
+
+notes: dict[resource, str] = {1: "foo", 2: "bar", 3: "baz", aspect.unmeasured: "quux"}
+resources = [1, 2, 3] + [aspect.unmeasured]
+for resource in resources:
+    print(notes[resource])
+
+which both produces the same result, and passes the typechecker. i don’t love the weird enum hanging out on its own but it does at least put the magic string in one place only and pass. i wonder what would be better.
+
+
+
+
+posted on april 24, 2024automatially activate venv when found in directory 
+
+
+# function to activate virtualenv if present                                    
+auto_activate_virtualenv() {                                                    
+  if [ -f "bin/activate" ]; then                                                
+    source bin/activate                                                         
+  fi                                                                            
+}                                                                               
+# add the function to chpwd hooks                                               
+add-zsh-hook chpwd auto_activate_virtualenv
+
+
+
+
+
+posted on april 8, 2024how to indicate that a single file module is typed to mypy 
+
+you can’t. repackage your module as the only module in a package.
+mypy needs a py.typed in the package’s directory and if you have a single module at the top level of your repo there’s no way to get setuptools to package that in such a way that the wheel will contain the py.typed in a useful place.
+example of the changes needed: github.com/wheerd/multiset/pull/127/files
+
+
+
+
+posted on march 14, 2024march 14, 2024remember the milk alfred workflow 
+
+this uses rtm-cli which you can install with npm.
+
+query=$1
+logfile="/users/bakert/u/scratch/rtm.log"
+rtm=/opt/homebrew/bin/rtm
+max_lines=1000
+
+# log the query
+echo "[$(date)] $query" >> "$logfile"
+
+# ensure the logfile does not grow beyond $max_lines
+tail -n $max_lines "$logfile" > "$logfile.tmp" && mv "$logfile.tmp" "$logfile"
+
+# send the task to remember the milk
+"$rtm" add $query
+
+if [ $? -ne 0 ]; then
+  echo "something went wrong! please check that rtm-cli is installed: npm install -g rtm-cli"
+else
+  echo "[added] $query"
+fi
+
+
+
+
+posts pagination
+page 1
+page 2
+…
+page 33
+next page  
+
+
+
+
+
+recent posts
+
+
+pipenv no longer chokes on `python_requires=”==3.*”`
+
+
+nord light theme
+
+
+avoid trailing comma when emitting lists in mustache templates
+
+
+python types for a decorator that is agnostic about the wrapped func’s return type
+
+
+format percentage for display in javascript
+
+
+force pipenv to use charles proxy
+
+
+python types for union of string literal and other type
+
+
+automatially activate venv when found in directory
+
+
+how to indicate that a single file module is typed to mypy
+
+
+remember the milk alfred workflow
+
+
+
+
+
+
+
+
+
+		proudly powered by wordpress	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

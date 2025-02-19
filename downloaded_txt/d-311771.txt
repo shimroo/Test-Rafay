@@ -1,0 +1,78 @@
+
+
+
+
+word embedding analysis
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+menu
+
+
+
+
+
+
+
+
+
+
+word embedding analysis website
+
+
+
+
+
+
+
+
+
+
+
+
+welcome lsa.colorado.edu users! this is an updated website that encompasses all of the old lsa.colorado.edu functionality and more.
+
+overview
+semantic analysis of language is commonly performed using high-dimensional vector space word embeddings of text. these embeddings are generated under the premise of distributional semantics, whereby "a word is characterized by the company it keeps" (john r. firth). thus, words that appear in similar contexts are semantically related to one another and consequently will be close in distance to one another in a derived embedding space. this approach has served as the basis for a number of widely used word embedding methods.
+approaches to the generation of word embeddings have evolved over the years: an early technique is latent semantic analysis (deerwester et al., 1990, landauer, foltz & laham, 1998) and more recently word2vec (mikolov et al., 2013). lsa performs a singular value decomposition on a sparse word type to document matrix to obtain lower dimensional vectors of each of the types. word2vec uses a neural network-based word embedding model trained on a large corpus of text to predict either a word given its context (continuous bag of words; cbow) or the context surrounding a given word (skip-gram). contemporary examples of word embedding techniques include elmo, bert, gpt-3, xlnet.
+the analysis tools available on this website harness lsa, word2vec, and bert word embeddings. others may be provided later.
+
+
+quick links
+
+
+information
+first time user? see the informational page on word embedding analysis for an overview of word embeddings. for information on how to perform word embedding analyses using this website, see the how to page.
+see the papers page for references to recommended reading, for technical information on the embedding techniques harnessed in this website as well as for examples of the application of semantic comparisons in various domains.
+
+                see the faq page for answers to frequently asked questions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

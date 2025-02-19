@@ -1,0 +1,222 @@
+
+
+
+
+
+
+
+
+
+geobytes | – because everybody's somewhere
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+geobytes
+
+
+					search				
+
+
+primary menu
+
+					skip to content				
+city distance tool
+ip address locator
+simple solutions
+free services
+einstein’s agent
+buy now
+ 
+
+
+
+
+
+search for:
+
+
+
+ 
+
+
+
+
+
+
+
+
+simple solutions
+geobytes has been providing ip geolocation solutions since 1999 and is one of, if not the oldest provider in the industry.  leveraging off this experience we have refined and developed our solutions to meet the needs of the industry.  our most tried and tested, and for that matter, most popular solutions are naturally enough, also the simplest.  take our javascript based geodirection service – it is now used on tens of thousands of web sites across the net and can fetch and set an array of javascript variables to the browser’s location in a single line of code –
+<script src="http://gd.geobytes.com/gd?after=-1&amp;variables=geobytescountry,geobytescity"></script>
+or our geoif service where you insert a single line of javascript at the bottom of your page, and then it searches and replaces your page for any geographic place-holders with your site visitors geographic details –
+<script src="http://gd.geobytes.com/geoif">
+or our free get city details api that can fill a json object with the details of the user’s location –
+$tags=json_decode(file_get_contents('http://gd.geobytes.com/getcitydetails?fqcn='. getip()), true);
+
+which you can then use to set a php variable to the browser’s location in a single line of code –
+print_r($tags[geobytescity]);
+or use it to pre-populate a form from  javascript
+jquery.getjson(
+"http://gd.geobytes.com/getcitydetails?callback=?&fqcn="+cityfqcn,function (data) 
+{
+  jquery("#geobytesinternet").val(data.geobytesinternet);
+  jquery("#geobytescountry").val(data.geobytescountry);
+  jquery("#geobytesregionlocationcode").val(data.geobytesregionlocationcode);
+  jquery("#geobytesregion").val(data.geobytesregion);
+  jquery("#geobyteslocationcode").val(data.geobyteslocationcode);
+  jquery("#geobytescity").val(data.geobytescity);
+  jquery("#geobytescityid").val(data.geobytescityid);
+  jquery("#geobytesfqcn").val(data.geobytesfqcn);
+  jquery("#geobyteslatitude").val(data.geobyteslatitude);
+  jquery("#geobyteslongitude").val(data.geobyteslongitude);
+  jquery("#geobytescapital").val(data.geobytescapital);
+  jquery("#geobytestimezone").val(data.geobytestimezone);
+  jquery("#geobytesnationalitysingular").val(data.geobytesnationalitysingular);
+  jquery("#geobytespopulation").val(data.geobytespopulation);
+  jquery("#geobytesnationalityplural").val(data.geobytesnationalityplural);
+  jquery("#geobytesmapreference").val(data.geobytesmapreference);
+  jquery("#geobytescurrency").val(data.geobytescurrency);
+  jquery("#geobytescurrencycode").val(data.geobytescurrencycode);
+}
+);
+or our database solution where you can download and install our ip location database – geonetmap in to your mysql database with a single script:
+mkdir geobytes
+cd geobytes
+curl https://geobytes.com/downloads/geonetmaploader.tar > geonetmaploader.tar 
+tar -xvf geonetmaploader.tar
+./install.sh
+while our competitors may try to make it sound complicated to justify elevated prices, our years of experience tell us to keep it simple and affordable.
+almost everything is completely free
+our reasonable usage limits are so high that it is very unlikely that you will ever encounter even one of them.
+for example, the reasonable usage limit for our getcitydetails api is over 16,000 lookups per hour – that is,  you can access the service to resolve the location of ip addresses – over 270 times per minute, and not pay us a cent.  if you do need more than that, then you’ll be please to know that our rates for excess usage – at 1/100th of a cent per lookup, are the lowest in the industry.
+previously many people would have preferred to use our ip locator service, but instead used our geodirection service because it was less expensive.  however, with the new pricing and the greatly increased number of free look-ups,  you can now choose the service based on your operating requirements, rather than the price.
+be a vip
+if you require ssl access or you just want to insure against the risk of exceeding one of our reasonable usage limits, then get yourself some mapbytes and become a vip.   for $100 you get 1,000,000 mapbytes – which in the case of the previous example, is enough to cover 1 million excess or ssl lookups.
+getting started
+the first two solutions listed above – geodirection and our ip locator service provide a free mode that allows you to implement, evaluate, and start using them straight away.  when your requirements exceed that of the free access mode, then you can purchase “pay as you go access” via our mapbytes micro-payment system. (access works out at around $1 per ten thousand look-ups.)
+with regards to the third solution – geonetmap – licenses start from us$500 per year (up to 10,000 lookups per day) and includes all database updates for 12 months. once you have completed your purchase then our system will send you an email containing your access credentials, which you can then use to download the entire geonetmap data set. geonetmap is the raw ip address location data, you don’t need any special software components to access it – just import it as you would any other data and then use standard sql queries to access it.
+
+
+
+
+
+ 
+
+
+
+
+
+
+– because everybody's somewhere
+
+geobytes ip location apis
+ajax autocomplete list cities json-p api
+city moving calculator
+geophrase & geoflag
+
+templates
+
+
+geo tags & headers
+georemote
+geodirection
+geonetmap
+geoif
+geoworldmap
+get city details
+get nearby cities api
+lamp solution
+storage cost calculator
+vip access
+where am i
+faq
+ 
+
+
+
+search for:
+
+
+
+status
+ 
+
+
+
+
+
+
+username 
+
+
+
+password 
+
+
+ remember me 
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+ 
+
+
+
+					proudly powered by wordpress				
+
+
+
+
+
+
+
+
+
+
+
+
+

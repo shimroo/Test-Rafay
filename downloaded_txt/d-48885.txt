@@ -1,0 +1,366 @@
+ "1");
+$g_reparse = 1;
+
+function emit($text) {
+	global $g_txt;
+	$g_txt .= $text;
+}
+
+function addkeywords($words) {
+	global $g_keywords;
+	$kwords = explode(",",$words);
+	foreach($kwords as $k) {
+		$k = trim($k);
+		$g_keywords[$k] = 1;
+	}
+}
+
+function printkeywords() {
+	global $g_keywords;
+	print implode(", ",array_keys($g_keywords));
+}
+
+function walkdir($path,$recurse) {
+	global $artnum2id,$artid2name,$artid2path;
+	$articledir = opendir($path);
+	while($fname=readdir($articledir)) {
+		if(is_dir($path . $fname) && ($recurse != 0)) {
+			if (($fname != ".") && ($fname != "..")) {
+				walkdir($path . $fname . "/",1);
+			}
+		}
+		if(preg_match('/^([0-9]+)-([^.]*)(\.txt)$/',$fname,$match)) {
+			$id=$match[1];
+			$artid2name[$id]=preg_replace("/_/"," ",$match[2]);
+			$artnum2id[] = $id;
+			$artid2path[$id]=$path . $fname;
+		}
+	}
+	closedir($articledir);
+}
+
+function rstrcmp ($left,$right) {
+	return (-strcmp($left,$right));
+}
+
+function indexarticles($paths,$recurse) {
+	global $artnum2id;
+	$n = count($paths);
+	for ($cnt=0;$cnt<$n;$cnt++) {
+		walkdir($paths[$cnt],$recurse);
+	}
+	usort($artnum2id,"rstrcmp");
+}
+
+function printarticle($id,$tstamp) {
+	global $artnum2id,$artid2name,$artid2path,$g_title,$g_desc,$g_reparse ;
+	$g_title=$artid2name[$id];
+	$article_title=$artid2name[$id];
+	$icon="generic.png";
+	# add error checking
+	($fh = fopen($artid2path[$id],"r"));
+	$l1 = fgets($fh,16384);
+	if (ord($l1[0]) == 0xef) {
+		$l1[0] = ' ';
+		if (ord($l1[1]) == 0xbb) {
+			$l1[1] = ' ';
+			if (ord($l1[2]) == 0xbf) {
+				$l1[2] = ' ';
+			}
+		}
+		$l1 = ltrim($l1);
+	}
+	if(preg_match("/^",$l1))) {
+			$l1=fgets($fh,1024);
+			if(preg_match("/^([a-z][a-z0-9_-]*)\s*=\s*(.+)\n/",$l1,$kv)) {
+				$v = $kv[2];
+				switch ($kv[1]) {
+					case "title":
+						$article_title = $v;
+						break;
+					case "description":
+						$g_desc = $v;
+						break;
+					case "keywords":
+						addkeywords($v);
+						break;
+					case "reparse":
+						if(($v == "yes") || ($v == "yes") || ($v == "y") || ($v == "y")) {
+							$g_reparse = 1;
+						}
+						break;
+					case "icon":
+						$icon = $v;
+						break;
+				}
+			}
+		}
+		$l1 = "";
+	}
+	emit("\n");
+#	emit("\n");
+	emit("" . $article_title . "\n");
+	emit("\n");
+	emit($l1);
+	while(!feof($fh)) {
+		$l1=fread($fh,16384);
+		emit($l1);
+	}
+	fclose($fh);
+	emit("\n\n");
+	emit("permalink\n");
+	emit( "posted ");
+	if(strlen($id) == 8) {
+		emit( date("l f j, y",$tstamp) . "\n");
+	} else {
+		emit(date("l f j, y h:ia",$tstamp) . "\n");
+	}
+#	emit("\n");
+	emit("\n");
+}
+
+function id2ts ($id) {
+	preg_match("/^([[:digit:]]{4})([[:digit:]]{2})([[:digit:]]{2})([[:digit:]]{4})?/",$id,$dbreak);
+	$dbreak[4].="0000";
+	preg_match("/^([[:digit:]]{2})([[:digit:]]{0,2})/",$dbreak[4],$tbreak);
+	$tstamp=mktime($tbreak[1],$tbreak[2],0,$dbreak[2],$dbreak[3],$dbreak[1]);
+	return $tstamp;
+}
+
+function showarticle($id) {
+	$artdirs[]="/var/www/html/articles/";
+	indexarticles($artdirs,1);
+	printarticle($id,id2ts($id));
+	# if the referrer is another page on our server, enable a back link
+	# otherwise put a home link in place of it.
+	if((array_key_exists('http_referer',$_server)) && ereg("^http://library.beau.org/",$_server['http_referer'],$r)) {
+		emit(" back\n");
+	} else {
+		emit("home\n");
+	}
+}
+
+function showpage($page,$pagesize) {
+	global $artnum2id,$artid2name,$g_title;
+	$artdirs[]="articles/archive/";
+	indexarticles($artdirs,1);
+	$first=($page-1) * $pagesize;
+	$last=$page * $pagesize;
+	$pages=floor((count($artnum2id)-1) / $pagesize) + 1;
+	if(count($artnum2id) < $last) {
+		$last=count($artnum2id);
+	}
+	emit("\n");
+	for($a=$first ; $a < $last ; $a++) {
+		ereg("^([[:digit:]]{4})([[:digit:]]{2})([[:digit:]]{2})([[:digit:]]{4})?",$artnum2id[$a],$dbreak);
+		emit("" . $dbreak[1] . "-" . $dbreak[2] . "-" . $dbreak[3]);
+		if ($dbreak[4] != "") {
+			ereg("^([[:digit:]]{2})([[:digit:]]{2})",$dbreak[4],$tbreak);
+			emit(" " . $tbreak[1] . ":" . $tbreak[2] . "");
+		}
+		emit("" . $artid2name[$artnum2id[$a]] . "\n");	
+	}
+	emit("\nhome   pages: ");
+	if ($page > 1) {
+		emit("prev ");
+	}
+	emit("< ");
+	for($p=1;$p<=$pages;$p++) {
+		if ($p == $page) {
+			emit(" " . $p . " ");
+		} else {
+			emit(" " . $p . " ");
+		}
+	}
+	emit(" >");
+	if ($page < $pages) {
+		emit(" next ");
+	}
+	$g_title = "article index: page $page of $pages";
+}
+
+function shownode($base,$name) {
+	global $g_title,$g_desc,$g_reparse ;
+	if(preg_match("/^([-a-za-z0-9_\/]*)/",$name,$m)) {
+		$name = $m[0];
+	} else {
+		emit("error, $name is bogus\n");
+		return;
+	}
+	$article_title=$name;
+	$fh = fopen($base . $name . ".txt","r");
+	if (!($fh)) {
+		emit("could not open $name\n\n");
+		return;
+	}
+	$l1 = fgets($fh,16384);
+	if (ord($l1[0]) == 0xef) {
+		$l1[0] = ' ';
+		if (ord($l1[1]) == 0xbb) {
+			$l1[1] = ' ';
+			if (ord($l1[2]) == 0xbf) {
+				$l1[2] = ' ';
+			}
+		}
+		$l1 = ltrim($l1);
+	}
+	if(preg_match("/^/",$l1))) {
+			$l1=fgets($fh,1024);
+			if(preg_match("/^([a-z][-a-z0-9_]*)\s*=\s*(.+)\n/",$l1,$kv)) {
+				$v = $kv[2];
+				switch ($kv[1]) {
+					case "title":
+						$g_title = $v;
+						break;
+					case "description":
+						$g_desc = $v;
+						break;
+					case "keywords":
+						addkeywords($v);
+						break;
+					case "reparse":
+						if(($v == "yes") || ($v == "yes") || ($v == "y") || ($v == "y")) {
+							$g_reparse = 1;
+						}
+						break;
+				}
+			}
+		}
+	}
+	$l1 = "";	
+	emit($l1);
+	while(!feof($fh)) {
+		$l1=fread($fh,16384);
+		emit($l1);
+	}
+	fclose($fh);
+	emit("");
+}
+
+function shownew() {
+	global $artnum2id,$g_title,$g_desc;
+	$artdirs[]="articles/";
+	indexarticles($artdirs,0);
+	$now=time();
+	$n=count($artnum2id);
+	for($a=0;$a<$n;$a++) {
+		$tstamp=id2ts($artnum2id[$a]);
+		if(($tstamp<$now) ||
+			(((array_key_exists('future',$_get)) && ($_get['future']=='now')))) {
+			printarticle($artnum2id[$a],$tstamp);
+		}
+	}
+	$g_title = "beauregard parish library civic net";
+    addkeywords("merryville, doll museum, agriculture, main street project");
+	addkeywords("library, local history, civic network, downtown restoration");
+	$g_desc = "beauregard parish public library network - databases - email - more";
+}
+
+if (isset($_get['article'])) {
+	showarticle($_get['article']);
+} elseif (isset($_get['page'])) {
+	showpage($_get['page'],$_get['pagesize']);
+} elseif (isset($_get['node'])) {
+	shownode("/var/www/html/", $_get['node']);
+} elseif (isset($_get['nexus'])) {
+	shownode("/var/www/html/", $_get['nexus']);
+} else {
+	emit("
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+          resource of the day
+          
+".
+#           
+#          
+#             
+#          
+#          online version of the renowned encyclopedia.  available in french and spanish. -->
+#          file_get_contents('resources/resource'.sprintf('%02d',(date('d') + date('m') + date('y')) % 55).'.txt').
+          file_get_contents('resources/resource55.txt').
+"          
+
+");
+}
+
+# 
+
+?>
+
+
+
+
+beauregard parish library civic net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
+    ?>
+    
+
+
+";
+    include '/var/www/html/quicknotice.php';
+    echo ""; };
+?>
+    
+
+
+' . $g_txt . '\n";
+	}
+} else {
+	print $g_txt;
+}
+?>
+    "
+    ?>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

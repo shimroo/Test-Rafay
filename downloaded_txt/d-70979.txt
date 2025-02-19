@@ -1,0 +1,302 @@
+
+
+
+
+
+waldo jaquith – open source, procurement, and gov tech.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+waldo jaquith
+
+
+about
+contact
+speaking
+
+
+
+
+
+search for:
+
+
+
+ 
+
+
+
+
+embracing agile implicitly means a major shift in project control.
+
+february 10, 2025
+
+
+ 
+
+agile isn’t just a thing you tell your vendor to do. it’s not fairy dust that gets sprinkled on top of a project. shifting projects to an agile delivery model requires a change to the projects’ control model. this requires a huge shift in the acquisition strategy and how the agency oversees the work.
+here’s our status quo, the process by which we control waterfall projects:
+
+here we see that government is responsible for only one thing—identifying the tasks that the vendor will perform, in the form of requirements in the rfp—and the vendor is on the hook for everything else. (except user research. nobody does that.) this is the model that government has spiraled into over decades, as project after project failed, each failure causing the vendor to say it wasn’t their fault, and each time government declaring that next time they’ll put everything on the vendor so the vendor can’t blame anybody else when it fails. so government puts together the solicitation with a million pages of shall statements, nobody ever talks to users, and once a single vendor gets the contract, they write the code, create automated tests, ensure that the functionality meetings the requirements, deploy the software, and perform any needed system integration.
+does this approach work? well, no. but does it feel like it should work? absolutely, yes, and that’s why it’s the standard approach.
+and then there’s the control model that is implied by the use of agile, and necessary for agile to work:
+
+this is a radical shift, and an alarming one to a lot of folks on the government side. let’s take these one at a time.
+
+identifying tasks: here government uses a statement of objectives instead of a statement of work, not bothering with the million pages of requirements, allowing the “requirements” to emerge in the form of user stories. in this way, government and the vendor work together to identify the tasks to be performed.
+user research: the user research will be overseen by the government product owner, and it’s likely that the research subjects will include government employees who use the software, though the actual user research will be performed by the vendor; in this way, both government and the vendor participate in user research.
+writing code: writing code is the one thing that the vendor is solely on the hook for. i discourage agencies from “helping” by contributing to writing code. this is the one area where the vendor needs to be left alone. if the agency has developers who want to contribute, they should do so on a parallel effort that supports the overall project, but doesn’t involve mucking around in the vendor’s code.
+testing: government is responsible for testing the software to ensure that it is technically sound. this doesn’t mean writing unit tests, but it does mean reading the unit tests. this doesn’t mean building the testing portion of the ci/cd pipeline, but it does mean inspecting the testing portion. and this means reading through the code, at the end of every sprint, to ensure that it complies with the contract’s quality standards.
+quality assurance: verification that the work is meeting the needs of the end users is performed continuously by the vendor’s user researchers, but it’s on the government product owner to ensure that this is being done right. this requires constant communication with the end users, constant awareness of the work that the vendor is doing, and total control over user stories and their acceptance criteria.
+deployment: the vendor is responsible for writing deployment scripts, but government should run them to deploy to a government-controlled environment. the contract’s quality standards should call for single-command deployment, ideally upon accepting a pull request, so this is a trivial task for government. this ensures that government retains understanding and control over deployment, which helps to prevent lock-in.
+system integration: to the greatest extent possible, the vendor hired to build new software should not be required to integrate that software with other systems. this doesn’t actually mean that government employees perform system integration, but rather than government may want to have one or more other vendors handle this. for example, if an agency is procuring a new custom benefits application system, and has an existing mainframe that stores records at the conclusion of the application process, the vendor should be given specifications for the api endpoint that will record that application in the mainframe, rather than requiring that they actually be given access to the mainframe. if changes are required to the mainframe to accommodate this new input, that’s a task to be assigned to the vendor who maintains the mainframe.
+
+this is a big shift. but there is no escaping that this is the shift that is required to facilitate the procurement of agile software development services, done right. is there a middle ground? sure, it’s called “agilefall”—waterfall, but with annoying meetings and buzzwords. and you could do that, i guess, but it won’t yield better results than the status quo.
+if this sounds impossible for your agency, then agile is probably not right for you. if this sounds difficult for your agency, then you’re being realistic, and that’s good. this is all difficult. but this is also the approach that is required to take control, reduce the risk of failure, and ensure that agencies can control technology, instead of the other way around.
+
+
+
+
+avoiding the “past performance” trap.
+
+february 4, 2025
+
+
+ 
+
+central to the procurement process is ensuring that proposing vendors know what they’re doing, but the way that we do that gets us the same vendors over and over again. if you’re happy with the results you’re getting, keep that up i guess, but in the custom software space, that’s contributing to the decades-long price spiral, and we should stop.
+“past performance” is an important evaluation criterion—it’s how we make sure that the bidders have actually done this thing before. you don’t want to award a contract for asbestos remediation or sewer pipe replacement or software development to a vendor who has never done that before. evaluating past performance lets us know if they have done this work before, if they’ve done it well, and if they’ve done it in the way that we need it to be done.
+in the software space, the problem comes from being too specific. “must have prior experience working on the irs’s business master file.” “must have prior experience building software for u.s. air force’s logistics operations.” “must have prior experience building software for processing student loan applications.” this sort of specificity is normal. under narrow circumstances, it can be appropriate, but as a matter of course, it is both unnecessary and restricts competition to the incumbents.
+it is alarmingly common for agencies to tell me a) they need to attract new vendors and b) they must have vendors who have experience working on their exact system. obviously, only one of these things can happen.
+the solution is to open up the definition of “prior experience” to something more reasonable. maybe it’s not actually important to have experience with student loans application systems, specifically—maybe it’s sufficient to have experience building public-facing case management systems generally. maybe it’s not important to have experience working on the irs’s business master file, but more important to have experience modernizing financial systems running on cobol and alc. and so on.
+(a weirdly large percentage of the systems that i work on are basically just case management systems. it feels like government should stop reinventing case management systems and create a single, open source, flexible, modular case management system that we can standardize on, instead of building the same 90% of a case management system over and over again.)
+broadening the definition of prior experience will allow better competition, admit new ideas, and get out of the rut of awarding contracts to the same few vendors over and over. we can’t get different results unless we do something different.
+
+
+
+
+don’t ask for references—seize them.
+
+january 30, 2025
+
+
+ 
+
+when you’re procuring custom software, asking bidders for references is nearly always a waste of time.
+i’ve never found those reference checks to be useful, and i’m suspicious of anybody who says otherwise. a vendor is only going to direct you to their happiest customers, and i am not interested in talking to the happiest customers. would you go to this restaurant on the strength of the 5-star reviews?
+
+lots of state agencies will refuse to serve as a reference, as a matter of policy (despite requiring references themselves, absurdly), while others have policies of not saying anything negative, for fear of being sued. i once saw a major consulting firm touting a project with a state, despite that the state was currently suing the vendor over the failed project. the formal reference process is a potemkin past-performance verification process. it is a way to check a box, not a way to ensure that a vendor can perform.
+so what’s the alternative?
+actual market research! 18f’s agile solicitation soo template includes this bit:
+
+in considering an offeror’s similar experience, the agency may also consider information from any other source, including offeror’s prior customers and public websites.
+
+the review team needs to do exactly that. review the vendors’ websites to see who their past clients are. trawl through search results for their name to see who they’ve worked for that they aren’t touting on their website. talk to colleagues with experience running this same type of procurement—especially if you’re with a state or municipal government and have dozens or hundreds of counterparts—and learn what they thought of the responding vendors or the winning vendor. once you find vendors’ past clients, use your social network to arrange frank conversations with some of them.
+so eliminate the requirement that vendors provide references. put in some time to track down their past customers and check references usefully.
+
+
+
+
+agile and igs don’t have to be opposed.
+
+january 28, 2025
+
+
+ 
+
+every few months, somebody at a government agency tells me that they feel great about moving to agile, user research, etc., but that they’re nervous about oversight. that is, when the state auditor or the inspector general’s office or legislature or whatever says “ok, prove that you spent your money effectively,” they don’t have a requirements traceability matrix to point to. and that rightly worries them, because they know they’re going to get in trouble for that.
+so here’s what i tell them.
+first, they’re right to be worried. i don’t know of opportunities for oversight staff to learn best practices in software development. they don’t know from user research. if they know about software development, they know about waterfall. they want to see the artifacts that they see everywhere else—gantt charts, requirements traceability matrices, all that stuff. “user stories”? a government product owner “prioritizing a backlog?” this means nothing to them. so what if the project succeeded? the important thing is those charts.
+this oversight approach has the effect of encouraging waterfall software development. an agency attorney would reasonably balk at a project that didn’t adhere to the guidelines laid down in the last scathing ig report about a failed software project.
+to be fair, oversight staff at all levels of government do not have many opportunities to learn how software should be made. so when a project fails, they say that the problem was that the agency needed more requirements, they needed to load up their contract with even more of the project scope. this is completely wrong, and is a continuation of 30 years of giving this advice, the very approach that has put us in the death-spiral where government can’t procure tech.
+here’s the good news: oversight is so much easier if you’re building software using best software development practices!
+let’s start with the question of “what has the vendor been delivering?” well, that’s easy—just look at the user stories completed in each sprint. “in sprint 1, we addressed these 6 user needs. in sprint 2, we addressed these 9 user needs.” and so on. the user stories functioned as requirements, and the product owner’s acceptance of the completed stories indicates that the requirements were met.
+well, what about those user stories? how did we know to do those things, specifically? easy—we can connect them to the underlying user research that led to writing the stories.
+whatever issue tracker you’re using (jira, github issues, trello, azure devops boards, whatever), if you’re using it right, will let you connect all of these dots. if you’re working in the open, anybody can connect all of these dots.
+ok, well what about work quality? how do we know the vendor’s work is good?
+that’s easy, too. the contract should have a quality assessment surveillance plan (qasp) prescribing code coverage, linting standards, accessibility requirements, inline documentation, security standards, etc. the lion’s share of that can be monitored and enforced within the devops pipeline. if the agency is verifying compliance at the end of each sprint, coupled with that automation, we know the work is good.
+so, that’s great, but what about the vendor team’s efficiency and truthfulness? how do we know that folks are pulling their weight? that they’re billing for folks’ time accurately? easy: the agency product owner will have spent exhausting amounts of time with this team. the daily standups alone are enough know who is doing what. also, the git commit histories make it possible to see which developers were doing what when, all connected back to particular user stories, sprints, and underlying user research.
+this is all a goldmine for oversight! it’s vastly more detailed than a requirements traceability matrix …but almost no oversight bodies will know what to do with this information. this wealth of information is a huge, square peg that does not fit in their round hole.
+but that is no reason to stick to broken waterfall practices. it’s reason for agency leadership to push oversight to allow them to center user needs, and recognize the rightness of that tack.
+
+and then there’s the really good news: there’s a guide to point oversight to! that’s because  the u.s. government accountability office is actually very good at agile oversight. every oversight body would do well to learn from the gao. carol c. harris, gao’s director of information technology and cybersecurity, entirely understands how this should work, and in 2020 published “agile assessment guide: best practices for agile adoption and implementation,” their guide to overseeing agile software projects. it says what i’ve said here, but in lots of detail, saying things like this:
+
+in a waterfall development, traceability is demonstrated through a requirements traceability matrix. in lieu of a requirements traceability matrix, agile development requirements can be traced through agile artifacts, such as the backlog.
+gao agile assessment guide, page 91
+agencies are right to be concerned that agile software development will be out of compliance with the practices that oversight staff want to see, but that is not a reason to take a failed approach. by using best software development practices, and evangelizing the gao-blessed approach oversight, agencies’ relationship with oversight bodies can be improved with an agile approach, instead of threatened.
+
+
+
+
+what if iv&v was actually useful?
+
+january 27, 2025
+
+
+ 
+
+in order to keep high-dollar government software projects from going off the rails, projects are often required to undergo an “independent verification & validation” (iv&v) process. the theory is that if government is incapable of evaluating the quality of software being built by a vendor, they can pay another company to review it, and they can say if it’s any good.
+in the abstract, this is not a terrible idea. unfortunately, in reality, it is. but what if it wasn’t?
+fundamentally, i think that full-time government employees should be ensuring that procured software is up to snuff, and that doing so is an inherently governmental function. that’s a north star for me. but i also recognize that’s often implausible, and it would be good to have a middle ground available.
+iv&v, as it stands now, is not that backup option. i don’t want to say that iv&v is always useless, but i have only ever seen it be useless, and i have never heard of an instance where it’s good. (i am not interested in hearing from iv&v vendors about how iv&v is good, but i would be happy to hear from government employees if they have found it valuable.)
+in my experience, the work of iv&v vendors is mostly concerned with whether the requirements have been met, and the requirements are things like “there shall be a login form,” “there shall be a password recovery function,” “passwords shall be no less than 8 characters,” etc. those requirements are useless garbage, so enforcing those more rigorously is only going to result in getting rigorously defined useless garbage. this is not iv&v vendors’ fault! governments are demanding this service, and vendors are dutifully providing it. federal agencies that provide technology grants to states often require iv&v, because it provides the glossy sheen of oversight (i’m looking at you, cms).
+but what if iv&v vendors—and this sounds wacky but hear me out—actually read the code written by the vendor? what if they ensured compliance with the quality assurance surveillance plan at the end of each sprint? what if they read through every test carefully, to ensure that they’re all well-written and testing the right things? what if they reviewed the user research to ensure that it’s being done well? what if they provided an agile coach to observe sprint ceremonies to ensure that the vendor team is working effectively?
+i have no idea if federal funders would go for iv&v that actually helps. i have not looked into relevant legal and regulatory language to see how hard it would be to improve this. but i’d love to see both demand for good iv&v, and vendors getting into the space of providing good iv&v. if that could be done without any change in regs—just slipping good work into the place of bad work—it could be a great lever for change.
+
+
+
+
+
+“customized cots”: when government demands to be lied to.
+
+january 24, 2025
+
+
+ 
+
+once upon a time, government had an exception for onerous procurement rules for software you could walk into a store and buy. if you wanted copies of windows, fine, just buy copies of windows. they called it “cots”: commercial off-the-shelf software.
+and that became a big loophole.
+within a short time, cots wasn’t just $100 software licenses, it was also $10 million software products that certainly had never been on a shelf. highly specialized stuff that might have 3–5 customers in the world. but, hey, it had the cots label, so it was able to use that simplified procurement process.
+then these same vendors realized that nobody was checking what was and wasn’t cots, so they started reselling custom software as “customized cots.” so if e.g. deloitte made a custom $50m medicaid management information system for ohio, they might call it cots, resell it to texas for $10m, and charge $40m for “customization.” cots!
+it took a while, but contracting officers eventually figured out this software was by no means cots, and they started to get wary about the phrase “customized cots.” but the vendors are no dummies, so they invented a new term: “configurable cots.” it’s…the exact same thing actually.
+my colleague sean boots has a test for the legitimacy of cots that has become a standard: “if you can get a software solution to successfully meet your needs in one day, it’s a real cots product.” i love this! i’ve preached it for four years. 
+here’s my test for the legitimacy of the “configurable” bit of “configurable cots”: do you have to pay the cots vendor to do the configuration, or can you pay another vendor or do it yourself? if you have to pay the cots vendor, it is not “configurable,” it’s just custom software.
+actual cots is great. linux is cots. apache? cots. google suite? cots. django? cots. microsoft word? famously cots.
+fake cots is a scourge on government technology. i dislike how vendors pull this trick on government, but the real fault lies with government.
+when agencies publish an rfp with a literal 100 pages of detailed requirements for software and also require that it be cots, they’re asking for something that does not exist. they’re asking vendors to lie to them. so vendors obligingly lie, because only liars can get contracts. sure, i blame the vendors, but as with just about anything wrong with procurement, it’s ultimately government’s fault.
+remember: it’s only cots if you can use it the next day and configure it yourself, otherwise it’s just sparkling custom software.
+
+
+
+
+the frankenstein of theseus.
+
+january 23, 2025
+
+
+ 
+
+one of my favorite requests for help is from government agencies that need to replace the janky old software that undergirds their entire mission. just about every state and local agency has some core system that they depend on utterly, often cobbled together over decades out of a half-dozen different technologies, and they’re terrified to make changes to it. they always call it something like “frankenstein’s system,” find it embarrassing, and think that they need to spend a bajillion dollars on a single contract for a big vendor for a big-bang deployment of a fancy new system. but they do not! and i get to deliver that happy news.
+their janky old system isn’t a curse, it’s a blessing. the fact that the core of it runs on cobol but the middleware is in java and the front end is divided between coldfusion and partially in c# on .net is actually great, because each of those boundaries are natural cleavage points. this is vastly better than having a big monolith, because this way they can replace one bit of the system at a time. that’s so much easier.
+but the really happy news is the very concept that it’s possible to take an existing system and overhaul it so completely that, at some point, the old system is gone, and you have a new one. they’ve been told that they need to hire a vendor who will toil in the dark for years, and one day the vendor will flip a switch and the old system will be replaced by the new system. but, no, instead they can use a ship of theseus development model. nobody ever told them about this possibility! they thought it was all or nothing!
+from wikipedia:
+
+in greek mythology, theseus, the mythical king of the city of athens, rescued the children of athens from king minos after slaying the minotaur and then escaped onto a ship going to delos. each year, the athenians would commemorate this by taking the ship on a pilgrimage to delos to honour apollo. a question was raised by ancient philosophers: if no pieces of the original made up the current ship was it still the ship of theseus? furthermore, if it was no longer the same, when had it ceased existing as the original ship?
+
+replacing a major system in one fell swoop is high risk, expensive, and means that the agency experiences no benefits until the whole thing is done. this takes years. doing this one sprint at a time means that they get improvements every two weeks. immediate relief! it first strikes them as implausible that their entire system could be replaced by building one little piece at a time, but that’s exactly what a vendor would be doing if they went away and built something for a big-bang deployment at the end. it’s just that under this model, the improvements are delivered as they’re built, instead of waiting until everything is done.
+so i get to show up when the agency feels scared, unhappy, and out of control, and show them how they can drive down risk and take charge. they can control spending, they can control outcomes, they can control their users’ experiences. and then they’re happy!
+the ship of theseus model is great for major software modernization projects, especially for “frankenstein’s system.” i recommend it as a null hypothesis for any such project.
+
+
+
+
+why government software costs hundreds of millions of dollars.
+
+january 22, 2025
+
+
+ 
+
+here’s the biggest reason that custom software for government costs hundreds of millions of dollars: government simply doesn’t know better.
+government employees have spent decades looking into a funhouse mirror, and have lost sight of normalcy. “sure, $100m is an ok price for a computer program!”
+one yardstick government uses to figure out the cost of software is to look at their last project (which failed), and figure it’ll cost x% more. we’re 30 years into a failure cycle wherein every project costs more than the last one, so that this time there will be the money to be successful.
+issuing rfps and awarding contracts is such a pain in the ass that government combines lots of unrelated needs into a single contract. one contract is to build software, host it, run the help desk, write documentation, maintain it, prepare reports about it, bake cookies, etc. these aren’t related things!
+when you combine all those things into a single contract, uncertainty multiplies, and as a result, the cost multiplies. (vendors respond to uncertainty with higher prices, to cover their potential losses.) the bids can’t be interrogated—they’re basically black boxes labeled “$100m.” (see “budgeting for software projects in ‘scrum team years’” for how to ensure that bids are interrogable.)
+government also insists on “firm fixed price” (ffp) contracts, meaning there is an agreed-on price to receive software of detailed, agreed-on specifications. now, i have lots of complaints about this approach, but my concern here is that ffp bids further hide what the bid’s dollar value is comprised of. it’s a mystery. 
+an additional problem is that very few companies are actually capable of doing (or even outsourcing) this grab bag of tasks of software development plus the kitchen sink. a half dozen companies make most of the bids and get most of the contracts. they’re not good at doing the work, they’re just good at getting contracts. because that’s what government has optimized for.
+constrained market, little competition, excessive complexity, uninterrogable pricing, no government subject matter experts, a one-way ratchet on pricing…it’s all a recipe for adding an extra zero to the price tag of every big project.
+
+
+
+
+explaining the risk of major software projects.
+
+january 21, 2025
+
+
+
+
+
+an important part of my work is helping government leaders understand that the status quo of major software systems development is extremely risky. this is hard, because it doesn’t actually feel risky.
+our brains are really bad at understanding what is dangerous! objectively, driving is vastly more dangerous than flying, and yet it is common for people to be nervous about flying, and regrettably rare for people to be nervous about driving. we have acclimated to the dangers of driving, as we have acclimated to the dangerous of covid, despite that both have killed enormous numbers of people.
+major government software projects fail as a matter of course. procurement and oversight processes are set up with the reasonable assumption that the projects will fail. so it can be a challenge to get leaders to see the water that they swim in. i have a standard ten-minute presentation that’s the government tech equivalent of “scared straight!” once they understand how bad things are, that’s when they’re receptive to a better approach: incremental delivery, ongoing user research, tight oversight of the work…in short, agile software development.
+in november, i addressed the national association of state procurement officials’ annual procurement law training conference, which forced me to sharpen how i talk about this, especially for folks way up the chain. the words that i used are less important than the visuals.
+first, the value delivered over time with an agile approach versus a waterfall approach:
+
+second, the risk of failure over time with an agile approach versus a waterfall approach:
+
+neither of these are original observations! they’re not even conceptually original graphs. but they’re valuable in helping government leadership—people who have lots of responsibility but very little actual control—understand why they’d want to institute a wholesale shift in how they budget for, procure, and oversee major software projects.
+no reasonable leader would choose a delivery strategy that concentrates risk and makes oversight impractical, and this data visualization helps them to arrive at the conclusion that the status quo is far too dangerous to be permitted to continue.
+
+
+
+
+agencies must not outsource compliance to their vendor scrum team.
+
+june 4, 2024
+
+
+ 
+
+there’s a lot about an outsourced scrum team that is attractive to government agencies, but the most appealing bit is usually this: instead of writing a bunch of requirements up front, you can write them as you go, in the form of user stories. that’s an easy sell. a harder sell, though, is another change that must accompany this: you cannot pass your agency’s legal, regulatory, and policy requirements straight through to vendors and say “you execute these”—the agency needs to understand those needs and express them in the form of acceptance criteria. this shift is frightening to agencies, and can be a deal-breaker.
+under an outsourced agile model, the vendor’s scrum team performs user research, which results in user stories. the product owner (a government employee) edits and prioritizes the user stories in the backlog, writing acceptance criteria for each user story, which gives the agency constant oversight and control over the exact work being done. then each sprint starts with the vendor’s scrum team pulling user stories from the prioritized backlog.
+we take this approach to have lowercase-a agility in our work. after all, if we put all of these tasks into the contract, then the vendor would have to complete them, regardless of whether they turn out to be valuable to users. an agile model gives us the flexibility to adjust work as we go based on what we learn. in fact, we put as few requirements in the rfp and contract as possible, because if any work is specified in the contract, it has to happen. so the requirements that we include are generally non-functional requirements like documentation, durability, and quality, plus a few like the programming language to be used or the cloud hosting environment that the software will live in. that list of requirements should require just a few sentences.
+but if the contract includes any specific tasks that the vendor has to do, now we’ve got a mess on our hands. that’s because now the vendor will have to, at times, ignore what the product owner says, ignore the backlog, ignore user stories, and just do some other stuff because that’s what’s in the contract. if the contract says “the vendor shall integrate the new system with the legacy system,” and the vendor isn’t confident that there will be user stories that direct them to do that, then the scrum team will, at some point, declare “sorry, we’re going to completely ignore all user stories for as long as it takes us to perform the integration required by the contract.” that may not come at a time that is convenient for government, and that work may not be done in the way that the agency would choose, but it doesn’t matter because the vendor must comply with the contract. when you put such requirements in the contract, you’re tying your hands, not your vendor’s.
+my interest here is not these specific tasks, though—it’s instead in the practice of incorporating complex policy documents by reference and saying “oh, also do all this stuff.”
+it’s normal for agencies’ rfps and professional services contracts to require that the software comply with agency-specific, local, state, and/or federal policy documents about privacy, security, and technical practices. often these are arcane, agency-specific policies that would be meaningless to anybody but the vendors already performing work for that agency.
+more often these documents are so vague as to be useless. what does it mean for software to “comply with hipaa”? what does it mean for software to be “in compliance with nist 800-53”? such requirements are meaningless nonsense, but the larger problem is that passing along these binder-sized sets of requirements necessitates that the scrum team become experts in those binder-sized sets of requirements, instead of actually doing the work that you hired them to do. then, after they become experts in those, they will have to apply this knowledge by ignoring what the agency product owner tells them to do, and instead doing what they think the binders say to do.
+the user research might make clear that the system’s users (say, unhoused people) cannot reliably have access to a consistent mobile phone, but if the agency’s policy documents say “the vendor shall use sms-based two-factor authentication,” then that’s what the vendor has to do, because the contract says that they must follow the agency policy documents. incorporating these policy documents into the contract means that whenever there’s a conflict between user needs and the policy documents, the vendor must resolve them in favor of the policy documents; the agency will have no say over this. “vendor must comply with agency’s technical standards document” requires that the vendor be an expert in your agency’s legal, regulatory, and policy requirements, which is a waste of the scrum team’s time, it’s expensive, and it’s profoundly anti-agile.
+this whole process is terrible. but what’s to be done?
+the solution is straightforward: have the agency incorporate the relevant bits of the various policy documents in the acceptance criteria of user stories, not the contract. when the product owner encounters a user story that implicates medical privacy, she should pull in the agency’s hipaa expert to figure out what acceptance criteria are needed to ensure that the user story is in compliance. when the product owner encounters a user story that implicates security, she should pull in a representative from ocio who can figure out which nist 800-53 controls are relevant, and turn those into acceptance criteria. and so on.
+the bottom line: if you’re going to hire a vendor to bring an agile development methodology to a project, you cannot expect to both have fine-grained control over the work they’re doing and also hand them a pile of policy that they’re obliged to untangle and implement. if you make your agile vendor be an expert in how your agency does stuff, you will only get the exact same vendors that you’re getting now. and how’s that working out for you?
+
+
+
+
+
+1
+2
+3
+…
+565
+next » 
+
+
+
+copyright 2025 waldo jaquith, but it’s possible
+        i’ll let you reproduce this somewhere if you ask nicely.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,96 @@
+
+
+
+
+
+
+print head
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+softwareexpendableportreservepycupspysmbcsystem-config-printerxmltolibieee1284patchutilsrfb proxyrfb play macroarticlesdisclaimer
+
+
+
+
+
+
+
+
+journal-brief now in fedora
+the journal-brief package is now available in fedora (22+)! also, the 1.1.2 release adds a ‘systemd’ output format to report on failed systemd units: $ journal-brief -o systemd failed systemd units: 7 x networkmanager.service 33 x abrtd.service 1 x configure-printer@usb-001-008.service 1 x dnf-makecache.service […] for more about journal-brief visit the github page. 
+november 3, 2015
+
+
+using journal-brief to watch for errors
+it’s pretty easy to see what error messages have been logged on a machine with systemd installed: just run journalctl -p err. but this will show you all of the messages of priority “err” or higher, starting from the beginning of the log. what if you only want the most recent ones? again, that’s pretty… 
+october 19, 2015
+
+
+headless encrypted boot with fedora server
+here is a recipe for using encrypted boot on a fedora server system that does not have a monitor or keyboard attached during normal use. i’ll use fedora 21 server, and will have a dedicated encrypted volume group for data but leave the main operating system volume group unencrypted. the encryption key will be stored… 
+april 9, 2015
+
+
+patchutils now on github
+patchutils now lives here. that is all. 
+december 22, 2014
+
+
+fewer auth dialogs for print settings
+the latest version of system-config-printer adds a new button to the main screen: unlock. this is a gtklockbutton attached to the “all-edit” polkit permission for cups-pk-helper. the idea is to make it work a bit more like the printing screen in the gnome settings application. to make any changes you need to click unlock first,… 
+july 30, 2014
+
+
+
+older posts→
+
+
+
+
+
+print head
+
+		proudly powered by wordpress 
+
+
+
+
+
+

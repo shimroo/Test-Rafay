@@ -1,0 +1,299 @@
+
+
+
+myphysicslab home page
+
+
+
+
+
+
+
+
+
+
+
+
+
+physics simulations
+
+
+english
+german
+
+previous
+next
+
+
+
+click on one of the physics simulations below... you'll see them animating in real time, and be able to interact with them by dragging objects or changing parameters like gravity.
+
+
+single spring
+
+double spring
+
+pendulum
+
+pendulum withdirection field
+
+chaotic pendulum
+
+two chaoticpendulums
+
+moveablependulum
+
+double pendulum
+
+moveabledouble pendulum
+
+invertedvibrating pendulum
+
+inverteddouble pendulum
+
+2d spring
+
+double2d spring
+
+colliding blocks
+
+cart + pendulum
+
+dangling stick
+
+rigid bodyforces
+
+rigid bodycollisions
+
+rigid bodycontact forces
+
+roller coaster
+
+roller coasterwith spring
+
+roller coasterwith two balls
+
+roller coasterwith flight
+
+rigid bodyroller coaster
+
+brachistochrone
+
+billiards
+
+hanging chain
+
+newton's cradle
+
+do nothinggrinder
+
+pendulum clock
+
+car suspension
+
+double pendulumwith physics engine
+
+cart + pendulumwith physics engine
+
+mars moon
+
+curved objects
+
+pile
+
+pile attract
+
+polygon shapes
+
+string
+
+rigid double pendulum
+
+comparedouble pendulums
+
+molecule 2
+
+molecule 3
+
+molecule 4
+
+molecule 5
+
+molecule 6
+
+chain of springs
+
+collide springs
+
+reaction forcependulum
+
+mutual attraction
+
+customize and share
+there are several ways to reproduce a particular experimental setup. the easiest way is to click the "share" button.
+
+
+modify the simulation by changing parameters such as gravity, damping,
+    and by dragging objects with your mouse.
+click the "share" button. copy the url from the dialog.
+paste the url in an email. or save it in a text file for later use.
+
+when the recipient clicks the url, the easyscript that is embedded in the url will
+replicate the conditions that you set up.
+see
+customizing myphysicslab simulations for how to customize further with javascript or easyscript.
+
+getting numbers
+
+to get numeric data from a myphysicslab simulation
+
+
+getting numbers with varshistory
+
+
+getting numbers with javascript
+
+
+getting collision data
+
+
+stop simulation at a certain time
+    and other useful scripts to customize running a simulation.
+  
+
+open source software
+myphysicslab is provided as open source software under the
+apache 2.0 license.
+source code is available at
+https://github.com/myphysicslab/myphysicslab.
+online documentation is available.
+
+there are around 50 different simulations in the source code, each of which has an
+example file
+which is for development and testing. there are also
+downloadable versions
+which be used to show simulations offline (when not connected to the internet).
+
+how does it work?
+most of the simulation web pages show how the math is derived. see for example the
+single spring simulation.
+
+
+a physics simulation starts with a mathematical model whose variables
+define the state of the system at a given time. each variable represents the position
+or velocity of some part of the system.
+
+the heart of a physics simulation is the
+set of differential equations
+that describe how the variables evolve over time. the forces and geometry determine
+the equations.
+
+the next step is getting the computer to solve the equations, a process
+that goes by the name numerical analysis.
+the runge kutta method is a popular choice.
+
+for simulations that involve collisions there are additional steps:
+we need to detect the collision and then
+back up in time to the moment before
+the collision to modify the velocities.
+
+finally, there are lots of programming details about
+how to represent objects on the
+computer display, how to
+handle user input, how to
+synchronize with real time,
+and so on.
+
+
+the rigid body physics engine is the most
+sophisticated simulation shown here. it is capable of replicating all of the other more
+specialized simulations. the physics engine handles
+collisions and also calculates
+contact forces which allow objects to push against each
+other.
+
+see also links to other physics websites.
+units of measurement
+the myphysicslab simulations do not have units of measurements specified such as
+meters, kilograms, seconds. the units are dimensionless, they can be
+interpreted however you want, but they must be consistent within the
+simulation.
+
+for example if we regard a unit of distance as one meter and a unit of time
+as one second, then a unit of velocity must be one meter/second.
+
+see the discussion
+about units of measurement
+in the myphysicslab documentation.
+
+about the author
+
+hi, my name is erik neumann, i live in
+seattle, wa, usa, and i am a self-employed software engineer. i started developing this
+website in 2001, both as a personal project to learn scientific computing, and with a
+vision of developing an online science museum. i grew up in chicago near the
+museum of science and industry which i loved
+to visit and learn about science and math.
+
+i got a ba in mathematics at oberlin college, ohio, 1978, and an mba from univerity
+of chicago, 1984. my first software jobs were using the language
+apl which i
+enjoyed for its math-like conciseness and power.
+
+i was fortunate to get involved in the macintosh software industry early on in 1985,
+joining
+macromind, which became
+macromedia. i led the software
+development at macromind as vp of engineering for 5 years. our most significant product
+was videoworks, which was renamed director, and lives on today as
+adobe director. in the
+1980's, the interactive multimedia concepts that are so common today were new and being
+developed. videoworks was mainly an animation tool, but also incorporated programmable
+interactivity. our main competitors at that time were hypercard, supercard, and
+authorware. director was used in many different ways; i am most proud that it became
+the preferred way to prototype software user interfaces for a time during the 90's.
+director was also used to develop the introductory "guided tour" tutorial that came
+with the macintosh in the early years. and of course, director was used for all sorts
+of art, design, and marketing projects.
+
+i went on to work at apple computer on new multimedia and user interface concepts
+involving digital agents, animated user interfaces, speech recognition and distributed
+information access. in 1991, there was a sudden flurry of activity when apple and ibm
+were trying to set up a strategic partnership. i became involved in the super-secret
+negotiations, and made the suggestion that what the world needed was a standard for
+multimedia that multimedia content creators could rely on to publish to (ultimately
+this is what html became). based on these suggestions,
+kaleida labs was founded. our
+work there developed a product called
+scriptx,
+which turned out to be very similar to sun's java which was being developed at the same
+time. scriptx had goals of supporting all forms of multimedia: text, images, audio,
+video, animation; being cross-platform (mac and windows), interpreted, object oriented,
+with a garbage collector to manage memory.
+
+i then moved to seattle and turned my attention back to mathematics and science. i
+relearned calculus by doing all the problems in my old college text book and took
+further math classes at the university of washington. i started developing this website
+as a way to practice what i was learning. i am now happy to use excellent tools such as
+html and javascript, and leave their development to others. i continue to work on
+physics simulations, with several new ones in development.
+
+archive of older projects.
+
+  this web page was first published april 2001.
+
+
+
+  © 
+  erik neumann,  2004-2021
+revised dec 19 2023 9:56
+
+previous
+next
+
+
+
+
+
+
+

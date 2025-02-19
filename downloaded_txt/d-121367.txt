@@ -1,0 +1,889 @@
+
+
+
+
+
+
+
+
+scottstuff.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+scottstuff.net
+
+
+posts
+tags
+about
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+scottstuff.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              cancel
+            
+poststagsabout
+
+
+
+
+
+
+
+
+
+scottstuff.netscott laird's writing on technology and nerdery.
+
+
+
+routing with vyos on a minisforum ms-01, part 7: route table size
+
+    scott laird published on 2025-01-17 included in  vyos-performancepart 7 of a series on vyos routing performance on a minisforum
+ms-01 mini-pc. maybe start with part 1
+for context.
+routing
+performance as routing table size changes
+so, after yesterday it was clear that firewall rules really slow down
+routing; 256 rules reduced our peak mpps rate by around 36%, clearly
+indicating that linux processes firewall rulesnftable entries, specifically.
+
+ linearly. doubling the number of rules makes rule
+handling take twice as long.
+but what about routes? does linux really care about small-ish numbers
+of routes? there’s no way that any half-competent ip stack
+would do linear route lookups, but larger tables take up more memory and
+cache and presumably impact performance at least somewhat.
+so i repeated the same basic procedure that i did for firewall tests,
+where i added entries for 16.x.y.z/32 mirroring the
+existing 16.0.0.0/8 route. this shouldn’t change how any packets are
+routed, but it makes the routing table bigger. i stopped with 256
+entries for firewalls, but continued a bit further here, up to 2 million
+routes:specifically, routes for 16.{0-31}.*.*/32.
+i should add that it took 34 minutes to add 2m routes one at a time via
+ip route add in a shell loop. i originally tried adding
+routes via set protocol static in vyos, but that was a
+terrible idea – it could only add ~15 routes per second this way.
+
+
+it’s pretty clear that adding routes this way doesn’t make any
+performance difference at all:
+
+
+for this test, there’s no real performance difference between 0 /32
+routes and 2m /32 routes, with or without flowtable offloads
+enabled.
+the interesting part here is that a routing table with 2m entries
+probably takes up at least 32 mb of ram, and this machine only
+has 18 mb of cache. so it’s clear that linux isn’t even touching the
+bulk of the routing table here.
+i don’t see a ton of information (short of reading the
+source code) on how recent linux releases handle their fib internally.
+the best explanation that i see is current with linux 4.0, from vincent
+bernat. i know that there were major routing changes somewhere in
+the middle of the linux 3.x rangelinux used to have a route cache, for instance, but it
+vanished around 3.6.
+
+, but i’m not aware of anything as drastic since 4.0, but
+i’m sure that there’s been some progress somewhere.
+in any case, the article points out that linux is especially
+good at dense /32 routes, what is what i’m generating here. a slightly
+earlier article
+of his explains why; linux uses a level-compressed trieoooh, it’s like computer science 201 all over
+again!
+
+ for storing routes in the fib, and the implementation is
+basically able to map dense /32s directly.
+looking at /proc/net/fib_triestat, it looks like the
+generated trie has a max depth of 4 (for 2m entries!) and an average
+depth of 2. on the other hand, the trie is apparently 229 mb in
+totaltotal size: 229379 kb
+
+, so that’s not going to fit into the cache in
+its entirety.
+in other words, my contrived example is probably falling down because
+it’s too contrived and all of my traffic is hitting a small
+enough part of the fib that it’s fits in the cache. probably. the first
+article linked above shows 25ns lookups on dense /32s and 35ns lookups
+on a real 500k routing table in a i5-4670k (haswell) vm. i’m seeing
+packets being handled at (6.3 mpps / 16 threads ) = 2500 ns per packet
+here; adding an extra 35 ns for route lookups wouldn’t dramatically
+change the performance.
+retrying this with a larger number of source and destination
+addresses and a more complex routing table would be interesting, but
+given the max 35ns performance hit seen in 2018, it’s unlikely to really
+make a big difference today.
+read morenetworkingvyosroutingminisforumms-01performance
+
+routing with vyos on a minisforum ms-01, part 6: firewall performance
+
+    scott laird published on 2025-01-16 included in  vyos-performancepart 6 of a series on
+vyos performance on a minisforum ms-01 mini-pc. you might want to start
+with part
+1
+i’m almost done with vyos performance testing for now, but i wanted
+to get a feel for how much firewall rules impact vyos performance. this
+set of tests are from vyos 1.5-rolling-202501060800 on an
+minisforum ms-01 with an i5-12600h, the same hardware and software as
+the past few entries in the series.
+as with the previous set
+of tests, these are generated using trex with its
+stl/bench.py test script. i adjusted the transmitted mpps
+up until i started losing traffic (that is, tx mpps != rx mpps), then
+adjusted the tx mpps rate down 0.1 mpps at a time until it was
+just showing packet loss. then i recorded the rx mpps here.
+
+
+this takes a bit of explanation.
+
+to start, i disabled flowtable offloading (in this case via
+set   firewall ipv4 forward filter rule 10 disable, see the
+config below) and ran a test with no firewall rules at all. this is the
+“no fw rules” result.
+then i added 3 forward rules that allowed traffic to
+16.0.0.0/8 and 48.0.0.0/8, and then denied
+everything else. this the the “base rules” set. this didn’t cause a
+significant decrease in throughput.
+then i added 4 additional forward rules allowing
+traffic to 16.0.0.0/32, 16.0.0.1/32, and so
+forth. this is the “+ 4 /32 rules” result. note that traffic was
+slightly slower, but at the edge of being significant given the
+margin of error that i saw over time.
+next, i added forward rules allowing traffic for all
+256 addresses in 16.0.0.x/32 individually. this is the “+
+256 /32 rules”. this caused a major hit in throughput, dropping from
+~7.3 mpps to ~4.6 mpps.
+finally, i re-enabled flowtable offloading and tested with and
+without the 256 /32 rules. as expected, there was no performance
+difference with or without the added rules, and flowtable offloading was
+substantially faster than offload-less forwarding.
+
+adding 256 rules caused performance to drop by about 36%, from 7.29
+to 4.61 mpps. looked at the other way, it means that we went from 2.2 μs
+to 3.47 μs per packet per cpu thread.
+entertainingly, the cpu ipc rate reported shot way up when
+evaluating all 256 rules. it was doing about 1.44 instructions per clock
+until i added the extra rules, then it spiked up to 1.97 or so. so it
+was easy code to run, at least.
+note that all of these /32 rules could have been trivially
+optimized away, as they were covered by a rule also allowing their
+entire /8. it’s clear that that’s not actually happening under the hood,
+however. it’s also not clear if it really matters if flowtable offloads
+are enabled, as that moves packets from existing flows onto a fast path
+that bypasses all of the firewall rules. the rules (presumably) get
+evaluated once when the flow is created and then skipped. that’s why
+adding 256 rules didn’t change flowtable performance at all.
+to make some of this clearer, i ran a set of tests at 4 mpps and
+recorded average cpu mhz and ipc rate for each:
+
+no flowtable offloading, only base rules (as above)
+no flowtable offloading, 5 /32 rules
+no flowtable offloading, 256 /32 rules
+flowtable offloading, only base rules
+
+here’s mhz * ipc * 16 / mpps, or the average number of instructions
+per packet on each cpu:
+
+
+without flowtable offloading or firewall rules, it takes around 8,330
+cpu instructions per packet. adding 256 rules bumps that up to 17,169
+instructions, or an extra 35 instructions per rule.to be fair, the ipc rate is much higher here, so these
+are relatively cheap instructions, presumably mostly in the cache with
+branch prediction working well.
+
+
+the fun thing is that the connectx-5 nic is (in theory) able to
+offload flowtable handling entirely in hardware, but i’ve never found an
+example of anyone getting that to work. every time i’ve tried i just get
+an error telling me it’s not supported. vyos has syntax for it – just
+say set firewall flowtable default offload hardware,
+
+
+vyos base config (for reference)
+
+firewall {
+    flowtable default {
+        interface "eth0"
+        interface "eth1"
+        offload software
+    }
+    group {
+        interface-group connectx {
+            interface "eth0"
+            interface "eth1"
+        }
+    }
+    ipv4 {
+        forward {
+            filter {
+                default-action accept
+                rule 10 {
+                    action "offload"
+                    inbound-interface {
+                        group connectx
+                    }
+                    offload-target default
+                }
+            }
+        }
+    }
+}
+interfaces {
+    ethernet eth0 {
+        address 10.250.1.254/24
+        disable-flow-control
+        ipv6 {
+        }
+        offload {
+            gro
+            gso
+            hw-tc-offload
+            rfs
+            rps
+            sg
+            tso
+        }
+        ring-buffer {
+            rx 8192
+            tx 8192
+        }
+    }
+    ethernet eth1 {
+        address 10.250.0.254/24
+        disable-flow-control
+        ipv6 {
+            address {
+            }
+        }
+        offload {
+            gro
+            gso
+            hw-tc-offload
+            rfs
+            rps
+            sg
+            tso
+        }
+        ring-buffer {
+            rx 8192
+            tx 8192
+        }
+    }
+    ethernet eth5 {
+        address dhcp
+    }
+    loopback lo {
+    }
+}
+protocols {
+    static {
+        arp {
+            interface eth0 {
+                address 10.250.1.1 {
+                    mac e4:1d:2d:af:60:6c
+                }
+            }
+            interface eth1 {
+                address 10.250.0.1 {
+                    mac 98:03:9b:77:95:e6
+                }
+            }
+        }
+        route 16.0.0.0/8 {
+            next-hop 10.250.0.1 {
+            }
+        }
+        route 48.0.0.0/8 {
+            next-hop 10.250.1.1 {
+            }
+        }
+    }
+}
+service {
+    lldp {
+        interface eth5 {
+        }
+        snmp
+    }
+    ssh {
+        disable-host-validation
+        port 22
+    }
+}
+system {
+    config-management {
+        commit-revisions 100
+    }
+    conntrack {
+    }
+    option {
+        performance network-throughput
+    }
+    sysctl {
+        parameter net.core.rmem_default {
+            value 134217728
+        }
+        parameter net.core.rmem_max {
+            value 536870912
+        }
+        parameter net.core.wmem_default {
+            value 134217728
+        }
+        parameter net.core.wmem_max {
+            value 536870912
+        }
+    }
+}
+
+read morenetworkingvyosroutingminisforumms-01performance
+
+running t-rex on ubuntu 24.04 with a mellanox nic
+
+    scott laird published on 2025-01-15cisco’s open-source trex
+network load-testing tool is pretty much the standard for testing
+routers and other network equipment, but it’s not very well
+maintainedcase in point – their ssl cert is currently
+expired
+
+ and it’s tricky to get working on modern machines.
+i’m far from an expert on this, but i just jumped through a
+bunch of hoops to get it working on ubuntu 24.04 with a mellanox nic as
+part of my vyos testing
+series, and i figured that i’d share my process.
+read morenetworkingperformancetrexubuntu
+
+routing with vyos on a minisforum ms-01, part 5: more performance
+
+    scott laird published on 2025-01-14 included in  vyos-performanceapparently i just can’t end this series. it’d probably be easier if i
+didn’t keep learning more about performance and discovering that a lot
+of my earlier results we’re quite as accurate as i’d thought
+they were.
+spectre/meltdown and
+router performance
+vyos’s page
+on vpp performance includes a few additional tuning settings that i
+hadn’t tried; most of those are specific to their hardware (numa tweaks,
+disabling hyperthreading, adjusting nic rx/tx queues to fit the reduced
+number of cores available, etc), but there was one setting that
+might be useful, at least for performance testing. they added
+mitigations=off to their kernel command line. this disables
+all of the spectre/meltdown/etc
+mitigations in the kernel. these are security fixes, but they’re
+mostly important when you’re running untrusted code on the same
+machine as sensitive data. for older cpus, the mitigations can be really
+expensive. generally, there are fewer mitigations for current chips, so
+it’s less important.
+i’m not sure how i’d feel about running with this off in production,
+but it’s an interesting benchmark test, so i rebooted with
+mitigations=off and re-ran the flowtable imix test. it went
+from a steady-state of 8.18 mpps to 8.98 mpps (23.78 to 26.08 gbps). the
+no-drop rate climbed from 7.4 to 8.2 mpps.
+
+
+it’s not an enormous boost, but it’s certainly
+noticeable.
+unfortunately, while analyzing the results from this, i discovered
+that this, as well as most of my previous results aren’t quite
+right.
+peak throughput
+so, i made an interesting mistake yesterday – to compute peak
+throughput, i ran the transmitter at 100%, then watched to see how what
+the peak throughput achieved was both initially and after 60s.
+so, it turns out that that’s not a great way to measure throughput,
+at least on this hardware. at 100% load, linux ends up wasting effort
+trying to handle packets that it ends up dropping due to overload. the
+peak throughput actually happens with a much lower input rate. here’s
+what imix throughput looks like with flowtable offloading and
+power-save mode:
+
+
+notice that the steady-state throughput is around 9mpps, but the peak
+is 12.2 mpps!
+read morenetworkingvyosroutingminisforumms-01performance
+
+routing with vyos on a minisforum ms-01, part 4: udp performance
+
+    scott laird published on 2025-01-13 included in  vyos-performanceafter finishing part 3
+of my series on routing with vyos on a minisforum
+ms-01 mini-pc, i wasn’t entirely happy with the benchmark
+results. sure, they showed that you can send 40 gbps of http traffic
+through a small pc running linux on a laptop cpu, but i had no data at
+all on small-packet performance and i didn’t know how it scaled past 40
+gbps.
+conventional wisdom holds that linux’s kernel isn’t all that great at
+large amounts of small packets, so i figured i’d pull out bigger guns
+for testing. so i installed trexsort of the standard high-end open-source traffic
+generator, from cisco. it’s a little crufty, but it works.
+
+ and spent a couple hours trying to figure out how to get
+it to work with mellanox nics on ubuntu 24.04.i’ll probably write that up soon.
+
+ then i did a series of tests with a ms-01 to see how much
+udp traffic it could really take.
+read morenetworkingvyosroutingminisforumms-01performancetrex
+
+minisforum ms-a2 announced with 16-core amd 7845hx cpu
+
+    scott laird published on 2025-01-13so, as soon as i start writing up
+how impressive i find the minisforum
+ms-01 mini-pc, they just had to come along and announce a
+new member of the family, the ms-a2.
+this is very nearly the same as the ms-01, with the same network
+options2x 2.5 gbe, 2x 10 gbe, and a low-profile pcie slot that
+will take an extra nic.
+
+, but it swaps in an amd
+7945hx instead of the intel i9-13800hthere’s an existing ms-a1
+in the same form-factor, but with a desktop amd cpu, no 10 gbe, and no
+pcie slot. nice for a lot of uses, but mostly useless for mine.
+
+.
+the 7945hx is probably 2024’s fastest low-power (“laptop”) cpu – it’s
+a 16 core, 32 thread beast of a cpu. it has almost twice the threads of
+the i9-13900h, over 3x the cache, 40% more pcie lanes, at about the same
+clock speed, all for about 10w extra tdpit’s mostly impossible to see how tdp translates into
+actual power usage without having a device in-hand, so take that with a
+grain of salt.
+
+. random benchmarks online make it look like the two chips
+are similar in single-core performance, but the amd is about 80-100%
+faster in multi-core workloads.
+other than the cpu, there are only minor differences from the ms-01;
+it swaps the ms-01’s usb4 ports for usb-c 3.2, and the 2nd and 3rd m.2
+slots each double in speedfrom pcie 3.0x4 and 3.0x2 in the ms-01 to 4.0x4 and
+3.0x4 in the a2.
+
+. the pcie slot is still only 4.0x8 electricaljust barely enough for full-duplex 100
+gbe.
+
+.
+pricing and availability aren’t really set, and minisforum hasn’t
+listed it on their website yet, but rumors say the pricing is similar to
+the higher-spec ms-01 and it’ll probably ship this quarter.
+i still want pretty much this exact configuration (or the
+rare-as-hens-teeth 7945hx3d)
+in a 1u chassis with slightly better cooling, but i really don’t expect
+that to ever happen.
+i’m looking forward to these shipping; i’d love to get one and test
+it out as a router to see how fast it’ll go. i mean, i don’t
+really need a router that can handle 100 gbps of large-packet
+traffic, but it’d be amazing to see what it can really do.
+minisforumms-a2hardware
+
+routing with vyos on a minisforum ms-01, part 3: http performance
+
+    scott laird published on 2025-01-12 included in  vyos-performancethis is part 3 of a series on running a vyos router on an minisforum
+ms-01 pc. see part 1
+(background) and part 2
+(hardware) for additional details.
+to help compare my old xeon e5-2683v4 router with the new ms-01-based
+model, i ran a bunch of controlled tests to measure throughput, latency,
+and power consumption, along with cpu load, cpu speeds, cpu
+temperatures, ipc rates, and any other metrics that seemed potentially
+easy.
+since this is primarily a home router, i’m really most concerned with
+my ability to move bulk data and less concerned with a flood of
+minimum-sized packets. i ended up re-using my previous work on http load testing as a
+base, and measured load-balanced http (not https) throughput through the
+router as my primary metric. if anything, this probably
+understates the performance of vyos on the hardware, as this is
+a slightly more demanding job than just routing packets, but not
+enough harder to cause real problems.
+methodology and setup
+for these tests, i’ve set up a virtual server on the router via
+set high-availability virtual-server, and i’m sending
+traffic through the router to a pair of http servers.
+here’s the rough layout and traffic flow with requests in blue and
+responses in red:
+12345678910test server2x 100 gbe switches2x 40 gbe switchesrouter2x target servers
+bandwidth:
+
+the router (both old and new) has 2x40 gbe to the 40 gbe switches,
+for a total of 80 gbps.
+the test server has 2x 100 gbe to the 100 gbe switches.
+the 100 gbe switches have ~120 gbps of connectivity to the 40 gbe
+switches.
+the target servers have 2x 10 gbe to the 40 gbe switches.
+
+to summarize, test server to router is 80 gbps, but router to target
+server is only 20 gbps per target server. for these tests, i
+had 2 target servers, so i was limited to 40 gbps of test traffic. in
+many cases, the target servers appear to have been the main limit on
+throughput; if i’d had time to build a couple more then i probably could
+have pushed slightly more traffic, but likely less than 10 gbps
+extra in most cases.
+read morenetworkingvyosroutingminisforumms-01performance
+
+routing with vyos on a minisforum ms-01, part 2: hardware
+
+    scott laird published on 2025-01-12 included in  vyos-performancein part 1,
+i discussed why i’m moving my home router from vyos on an old 1u xeon
+e5-2683v4 to a minisforum
+ms-01 mini-pc. i’m largely looking to save power (and money, noise,
+and heat) by switching to a more efficient platform. my main concerns
+are (a) how should i actually configure the ms-01 and (b) how will it
+perform?
+this article will cover configuration and migration, and part 3
+will cover performance.
+read morenetworkingvyosroutingminisforumms-01performance
+
+routing with vyos on a minisforum ms-01, part 1: background
+
+    scott laird published on 2025-01-12 included in  vyos-performancethis is new router weekend at home, and i’m going to write up the
+whole process because i’ve learned a few things that others may find
+useful. there aren’t a whole lot of good benchmarks out there for what
+linux routers can do, or how much power they draw while doing it.
+hopefully this will help fill a few gaps.
+this is the first of at least 3 parts.
+background
+for the past couple
+years, i’ve been using vyos on a
+repurposed supermicro 1u serverspec: intel xeon e5-2683
+v4 (16 cores), 64 gb ram, 2x mellanox connectx 4 nics
+
+ as my home router. it’s been very solid and fast; i’ve pushed over
+56 gbps through it including stateful firewall rules, nat, and
+vxlan. i don’t think
+it’s crashed (other than power outages) the whole time i’ve been using
+it.
+it’s been great. except for one little issue: it draws a lot of
+power. that costs money, produces a lot of heat, and requires noisy fans
+to keep cool. with vyos tuned for latencyusing
+system option performance network-latency, for historical
+reasons.
+
+, it draws between 136w and 144w under normal
+circumstances. our power is fairly cheap here, but that’s still around
+$15/month. even worse, it’s sitting in a closet 20 feet from my desk,
+and there isn’t enough ventilation in the closet to cool all of the
+network gear in there without cracking open the door and letting the fan
+noise out. in addition, my wiring closet ups is running at over 95%
+load. so i have several incentives (money, noise, power reliability) to
+reduce my router’s power draw.
+the problem is that i have a beefy network and need a fairly big
+router. i have 10 gbps home internet access and i routinely copy
+multi-terabyte video projects around over the network. i can’t exactly
+just go to best buy and pick up whatever is cheap this week. at a bare
+minimum i need something with 2x 10 gbe10 gbe -> 10 gigabit ethernet.
+
+ links, and 2x 40/100 gbe links would be better. there
+aren’t a lot of commercial routers that you can buy for less than the
+price of a used car that fit those requirements while using less than
+100w at idleor any price, really – there aren’t a lot of $5k+
+routers that draw under 100w.
+
+.
+so, i’m going to need to build my own again. which is fine – i’m
+generally happy with vyos running on a pc. i just need a lower-power pc
+to run it on.
+read morenetworkingvyosroutingminisforumms-01performance
+
+linux not balancing output traffic over ecmp?
+
+    scott laird published on 2025-01-11so, i ran into a fun problem when doing some more benchmarking for a
+future post: my router isn’t actually distributing traffic evenly across
+its two outbound interfaces. the router is a linux system running vyos, with a pair of 40 gbe links, one to
+each of a pair of arista 7050qx l3 switches. these are l3 interfaces,
+each with its own /30, and i’m using ospf and bgp over the top of them,
+all configured for ecmp.
+the problem is that it’s not balancing outbound http response traffic
+across the pair of 40g links. in theory, roughly half of the traffic
+should go onto one link and half onto the other, depending on how
+linux’s ecmp hash is configured. instead, all traffic for a given client
+goes out the same link, no matter where the traffic comes from.
+at this point i think that this is an artifact of the way
+that linux’s ipvs load balancer (used by vyos’s
+high-availability virtual-server feature) is implemented,
+but i can’t find anyone else with the same problem or any real way to
+debug it further without spending way more time than this is worth to
+me.
+read morenetworkinglinuxvyos
+
+minisforum ms-01 power use
+
+    scott laird published on 2025-01-08a few months ago i
+mentioned that i was serving this site from a pair of minisforum
+ms-01 mini-pcs. the ms-01 is a smallish pc with an intel laptop cpu,
+2 gigabit ethernet interfaces, 2 10 gbe sfp+ interfaces, and a
+low-profile pcie slot.
+i was able to get amazingly good performance–almost 60 gbps–
+using a single ms-01s as a web server, but it required adding a 2-port
+mellanox 100 gbe nic to the pcie slot. unfortunately, the nic drew more
+power than the rest of the machine combined and needed
+forced-air cooling to stay working. it was fun to see how fast a
+glorified laptop could go, but it’s time to yank the nics and save a bit
+of power and heat. my wiring closet is running close to its power and
+heat limit, and i’d like to trim 100-150w out of there over the next few
+weeks.
+read morepcspowerminisforumms-01
+
+hdmi 2.2 is almost a requirement for 8k monitors
+
+    scott laird published on 2025-01-06according to the
+verge, hdmi 2.2 was announced at ces today, doubling the peak
+bandwidth from 48 gbps to 96 gbps. the verge’s author wasn’t very
+impressed by that in general, since hdmi 2.1 can already do 8k at 60 fps
+and 4k at 120 fps. in their view, hdmi 2.2’s extra bandwidth isn’t
+particularly useful.
+when using an 8k display for a tv, that’s probably reasonable, but
+the higher bandwidth is critical for 8k monitors. sure, in an
+ideal world everyone would be using displayport for
+monitors, not hdmi, but no one sells any 8k devices with displayport
+todayat least according to b&h.
+they have a handful of 32” 6k monitors and a single curved double-4k
+monitor listed at 8k, but it still only has half of the pixels.
+
+. if you want the largest number of pixels possible for
+your computer (and i do),
+then you’re stuck with hdmi and an 8k tv for the forseeable future.since 8k tvs don’t really make a lot of sense as
+tvs today, this might actually be the only really useful use for 8k
+at all, so it’s weird that you can’t buy an 8k monitor (which would be
+useful) but can buy an 8k tv (which is not).
+
+
+read morehdmi8k
+
+networks still awe me sometimes
+
+    scott laird published on 2024-12-18sometimes the sheer speed of modern networks still manages
+to leave me surprised.
+$ ping -4 router1 -a -c 1000 -q
+ping router1 (10.0.0.6) 56(84) bytes of data.
+
+--- router1 ping statistics ---
+1000 packets transmitted, 1000 received, 0% packet loss, time 1998ms
+rtt min/avg/max/mdev = 0.024/0.055/0.150/0.022 ms, ipg/ewma 1.999/0.062 ms
+
+
+$ ping -6 router1 -a -c 1000 -q
+ping router1 (2600:a801:30:300::6) 56 data bytes
+
+--- router1 ping statistics ---
+1000 packets transmitted, 1000 received, 0% packet loss, time 2008ms
+rtt min/avg/max/mdev = 0.024/0.055/0.134/0.023 ms, ipg/ewma 2.009/0.031 ms
+
+so, pings from my file server to my router take as little as 24 μs
+round trip. ipv4 and ipv6 are effectively the same.
+the thing is, though, this isn’t just a single hop – it goes through
+2 layers of intermediate l3 switches. so the whole process is:
+serverl3 switch 1l3 switch 2router
+that’s 6 hops in around 4 μs each, and there’s a good chance that the
+bulk of this latency is actually in either the sender or the ping
+target; arista claims that all of the switches involved can process
+packets in under 550ns.
+networkinglinux
+
+more notes on notes (sidenotes, endnotes, footnotes, etc)
+
+    scott laird published on 2024-12-17so, yesterday’s
+article on sidenotes in hugo led me down yet another rabbithole, and
+i’m still not quite sure where it leads.
+i want to add notes to my bloglike this.
+
+ and have them usually displayed in the right margin
+alongside the text. i’d like them to be usable on mobile devices, which
+don’t really have a right margin. i’d like them to be easy to
+write, without a lot of extra work or friction. and i’d like them to be
+supportable long-term, not needing a pile of bad hacks or a complicated
+processing pipeline to get them to render.
+read moresidenotesblogtypography
+
+i'm speaking at srecon 2025
+
+    scott laird published on 2024-12-16i’m going to be giving a talk at srecon
+americas 2025 in santa clara in march. i’m going to discuss how i
+approached a giant performance problem in a service that i knew almost
+nothing about; the slightly-less-technical version of the story is on figma’s
+blog.
+this is less a talk on “how i made things go fast”, and more a talk
+on how you approach unknown problems. what do you know? what
+don’t you know? what can you measure? how can you perform
+experiments? who can you reach out to for expertise, and what happens if
+no one really understands the problem in context?
+sreconfigmaopensearchmonitoringperformance
+
+sidenotes in hugo with the fixit theme
+
+    scott laird published on 2024-12-16i spent a bit of time over the weekend trying to add sidenotes to this blog. this is a
+fairly common thing to want; tufte makes great
+use of them, and there’s an entire package for
+creating tufte-styled sites. there are no shortage of examples for
+adding sidenotes to copy from. the problem is that none of them actually
+look right with the rest of this theme.
+read morehugoblogsidenotestypography
+
+it's not a "homelab" it's a home production environment
+
+    scott laird published on 2024-12-16the term “homelab”
+has always annoyed me. generally, it’s used to mean something like
+“having a pile of servers at home” with the implication that they’re
+mostly used for learning and experimentation.
+so, er, i certainly meet the “have a pile of servers” at
+home definition (see this post
+from last year, for example), and a certain amount of experimentation does in
+fact occur, but that’s not really what it’s all for. to me at least,
+it’s home production, not a home lab. admittedly, it’s a
+somewhat flaky flavor of production, without a lot of users or a huge
+cost for minor outages, but it still needs to stay running and it still
+needs maintenance and upgrades over time.
+rantnetworking
+
+proxmox backup service and ubuntu 24.04
+
+    scott laird published on 2024-12-15like everyone else in the known universe, i haven’t been doing a
+great job of home data backups. i used crashplan for quite a while and
+was mostly happy with it, but they pivoted away from home backups as a
+product years ago. since then, i’ve tried a number of different systems
+and none have really worked well enough. i really wanted to
+like bacula for linux backups, but it
+never really worked quite right for me. the deeper i looked at it the
+less happy i was with what i saw. it just had too much technical debt
+and was just too old. for instance, it couldn’t really use modern lto
+tape drives at full speed because it had a hard cap on how big of a
+buffer it could use for writing, because buffer sizes over 1mb were
+used as magic numbers at various points in the software. i also had
+a ton of issues with the way it was configured, and in general i’m
+uncomfortable running network services that have access to everything
+that are based on 20+ year old c code with design issues.
+read moreubuntulinuxproxmoxpbsbackups
+
+cursed nvidia shield power settings
+
+    scott laird published on 2024-11-24we’ve mostly standardized on nvidia shields
+for streaming tv at home since they first came out almost a decade ago.
+they’re starting to get a little bit long in the tooth these days, but
+they still work fine, even when streaming 4k content, and they’re still
+getting software updates.
+we’ve just had one little problem that until today i didn’t even
+realize was a problem with the shield; i thought it was a problem with
+my tv. my lg c1 tv would power off sometimes when switching hdmi inputs,
+and i couldn’t figure out why. i’d assumed that it was a weird tv bug,
+but then it happened repeatedly while trying to open the tv’s own web
+browser and i realized that no one would ship a tv that powered
+off when switching to an internal app like that. that’d just be
+weird.
+so maybe it was related to the nvidia shield’s power settings? after
+hunting around, i found this cursed configuration menu and settings:
+
+
+
+
+
+
+	
+	cursed settings
+	
+	
+
+
+collectively, these pretty much mean that your tv is only
+for watching the shield, because it’s going to turn the tv off if you
+try to use it for anything else. the shield will go to sleep whenever
+you change inputs, and it’ll turn off the tv whenever it goes to
+sleep.
+turning off the highlighted entry (“turn off tv when shield sleeps”)
+seems to have completely fixed the problem. i’m fine with most of the
+other settings (the tv is primarily for use with the shield,
+but not exclusively), but that setting is just asking for
+trouble.
+so, if you’re having similar problems, this is probably the
+cause.
+nvidia shieldhdmitv
+
+adding an ubuntu system to an evpn-vxlan fabric
+
+    scott laird published on 2024-11-24i mentioned
+last year that i’m using vxlan and evpn in my home network, and
+since there isn’t nearly enough documentation out there on any
+of this with linux, i figured i’d expand a bit.
+read morenetworkingvxlanevpnnetplanfrrbgp
+
+
+
+1
+
+
+
+2
+
+
+
+3
+
+
+…
+
+
+39
+
+
+powered by  hugo | theme -  fixit
+
+2003 - 2025
+scott lairdcc by-nc 4.0
+0%
+
+this website works best with javascript enabled.
+
+
+

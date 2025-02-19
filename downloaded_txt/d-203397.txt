@@ -1,0 +1,433 @@
+
+
+
+
+discriminator uitgang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ontvangers
+uniden bearcat
+		 
+
+bct15(x)
+ubc30xlt
+ubc50xl
+ubc60xlt
+ubc60xlt-1
+ubc60xlt-2
+ubc65xlt
+ubc68xlt
+ubc69xlt
+ubc72xlt
+ubc73xlt
+ubc75xlt
+ubc80xlt
+ubc92xlt
+ubc100xl
+ubc100xlt
+ubc120xlt
+ubc125xlt
+ubc142xlt
+ubc144xlt
+ubc145xl
+ubc175xl
+ubc180xlt
+bearcat 200
+ubc200xlt
+ubc220xlt
+usc230
+ubc244clt
+ubc245xlt
+(u)bc250d
+ubc278clt
+ubc280xlt
+ubc355clt
+ubc360clt
+bc700a
+ubc760xlt
+ubc780xlt
+ubc800xlt
+ubc855xlt
+ubc860xlt
+ubc2500xlt
+ubc3000xlt
+ubc3300xlt
+ubc3500xlt
+ubc8500xlt
+ubc9000xlt
+
+
+
+realistic
+		
+
+pro-26
+pro-30
+pro-32
+pro-35
+pro-37
+pro-38
+pro-41
+pro-44
+pro-50
+pro-57
+pro-62
+pro-70
+pro-136
+pro-163
+pro-2001
+pro-2002
+pro-2006
+pro-2010
+pro-2014
+pro-2021
+pro-2022
+pro-2025
+pro-2029
+pro-2032
+pro-2035
+pro-2036
+pro-2042
+pro-9200
+
+
+commtel
+    
+
+com101
+com102
+com103
+com104
+com106
+com112
+com202
+com204
+com205
+com207
+com212
+com213
+com214
+com215
+com216
+com217
+com225
+com307
+com610
+
+
+albrecht
+			
+
+ae50h
+ae55h
+ae60t
+ae65h
+ae66m
+ae67h
+ae69h
+ae72h
+ae75h
+ae92h
+ae95h
+ae100t
+ae355m
+ae600h
+ar106
+
+
+aor
+	
+
+ar950
+ar1000
+ar1500
+ar2002
+ar3000
+ar8600
+ar8000
+ar5000
+ar8200
+
+
+atron
+		 
+
+compu 2000
+compu 5000
+compu 8000
+
+
+gre
+		 
+
+psr-214
+psr-225
+psr-244
+psr-250
+psr-255
+psr-275
+psr-282 
+
+handic
+		
+
+handic 008
+handic 0016
+handic 0050
+handic 0060
+handic 0080
+
+
+icom
+		 
+
+ic-m1euro v
+ic-m3euro
+ic-m80
+ic-m601
+ic-m602
+ic-pcr1000
+ic-pcr1500
+ic-pcr2500
+ic-r2
+ic-r5
+ic-r10
+ic-r20
+ic-r1500
+ic-r2500
+ic-r7000
+ic-r7100
+ic-r8500
+
+
+maycom
+		 
+
+ar-108
+fr-100
+
+
+netset
+	  
+
+zie realistic
+
+
+regency
+		 
+
+polaris 88
+touch m100
+touch m400
+
+
+scooper
+		 
+
+airspy 007
+galaxie
+space shuttle
+
+
+yupiteru
+		 
+
+mvt5000
+mvt6000
+mvt7000
+mvt7100
+mvt8000
+
+
+marifoons
+		
+
+apelco vxl501
+dancom rt925
+dantronik rt408
+dantronik rt5000
+debeg 6310
+demek rs8000
+icomic-m1euro v
+ic-m3euro
+icom ic-m80
+ic-m601
+ic-m602
+itt marine str-12
+kelvin hugheshusun 55
+kelvin hugheshusun 70
+regency polaris 88
+sailor rt2048
+sailtron r/t 80
+shipmate rs8000
+shipmate rs8100
+shipmate rs8300
+skanti trp 2500 nl
+standard horizonexplorer ii
+zodiac seacom 80
+
+
+pagers
+		 
+
+apollo
+br802
+ccf-6000
+galaxy
+jupiter
+pageboy ii
+proone+
+'pagebox'
+
+
+overige
+		 	  
+
+ascom se-550
+astrid blackbox
+baofeng uv-5r
+bj-200mkiii
+camnis hsc-200
+condor 16/46
+condor 3000
+elec 127 f/v
+flexbox
+flexbox gold
+flexbox naar usb
+motorola jt1000
+puxing px-888
+sony air-7
+trident tr2200
+winradio 3500i
+yaesu frg-9600
+
+
+ontvanger-ic's
+frequenties
+nl/b
+software
+pdw paging decoder
+pdw logbrowser
+pdw support
+interfaces
+rs232
+usb
+2-level fsk
+4-level fsk
+bestelinformatie
+systemen
+paging
+ais
+mobitex
+ais/ads-b monitoring
+overig
+contact
+laatste wijzigingen
+c2000 gekraakt?
+links
+faq
+
+
+
+
+
+inbouw van een discriminatoruitgang
+waarom een discriminatoruitgang?
+
+als je digitale signalen wilt decoderen die gebruik maken van fsk of psk (bijvoorbeeld pocsag, flex, mobitex en ais en dmr), krijg je de beste resultaten met het
+ongefilterde audio uit je ontvanger. dat signaal kun je vinden op de discriminator. een discriminator is het hart van een fm-ontvanger. 
+daarna volgen audiofilters en -versterkers die het digitale signaal kunnen vervormen. wanneer je serieus wilt 
+meelezen met fsk en psk datasignalen, is een discriminatoruitgang een must.
+
+een discriminatoraansluiting is meestal niet standaard op een ontvanger aanwezig. er is een 'operatie' nodig 
+om het discriminatorsignaal in je ontvanger te verbinden met de buitenwereld. op deze site kun je beschrijvingen 
+met foto's vinden van meer dan 200 scanners, ontvangers, marifoons, pagers en mobilofoons die ik heb voorzien van een discriminatoruitgang.
+
+
+paging
+
+
+
+systemen die van fsk gebruik maken zijn het pagingnetwerk p2000
+     (flex) en de het pagingnetwerk van kpn(pocsag). de tegenhanger van p2000 in belgië is
+      astrid, dat gebruik maakt van de pocsag-standaard.
+      
+      op deze pagina kun je lezen op welke manieren je mee kunt lezen met pagingsignalen
+    
+
+ais
+
+
+in de scheepvaart wordt gebruik gemaakt van ais (automatic identification system). met de geschikte 
+   software kunnen bijvoorbeeld de posities van ontvangen schepen op een kaart worden geplot. 
+op deze pagina kun je lezen hoe je de ais-signalen kunt bekijken.
+
+
+
+andere systemen
+
+andere systemen waarvoor een discriminatoruitgang noodzakelijk is, zijn bijvoorbeeld:
+
+mobitex
+digital mobile radio (dmr)/mototrbo. steeds meer gebruikers van portofoons en mobilofoons gaan over op dmr.
+
+
+tot slot..
+
+succes met het inbouwen van een discriminatoruitgang. wees voorzichtig bij het solderen. een scanner bevat gevoelige elektronica die makkelijk 
+beschadigd wordt. laat de modificatie door iemand anders doen als je weinig soldeerervaring hebt. je kunt daarvoor ook bij mij terecht.
+
+reacties kun je sturen via het contactformulier.  
+
+
+
+
+© 2003-
+2025 discriminator.nl
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+english version   
+deutsche einleitung
+
+
+
+
+
+
+

@@ -1,0 +1,111 @@
+
+
+
+
+
+
+dating diversions ♥ online dating advice, services, quizzes, and more
+
+
+
+
+dating diversions - advice, quiz, jokes, stories on dating
+dating advice | 
+dating stories | 
+dating jokes | 
+geographical dating tips | 
+great gift ideas
+
+
+take the famous dating profile quiz:
+
+  i am a malefemale 
+  seeking a malefemale 
+  my age is 
+
+
+
+
+
+local advice for:
+
+new york city
+los angeles
+chicago
+houston
+philadelphia
+phoenix
+san diego
+san antonio
+dallas
+detroit
+san jose
+indianapolis
+more...
+
+
+
+intransaction())
+    $trans->begintrans();
+echo getad($_cookie['mystic'], '120x90', 'f', $trans->getpdo());
+?>    
+    
+
+
+bringing you the best in online dating
+welcome, kind internet visitor, to dating diversions - a growing site for all things dating.  
+    new advice and content are added daily, so check back often (all visitor-submitted advice 
+    and stories are manually approved by a dating diversions editor).  if you came 
+    for the famous dating profile quiz, you can begin by entering your information in the form above. :)
+
+
+
+
+new: take the compatibility test
+wonder how well you match with your crush or significant other?  our new 
+    compatibility test uses a number of factors 
+    to see how well two people match up.  you could even match yourself with celebrities, 
+    or match your friends!
+dating strengths and weaknesses quiz
+the sister quiz to the dating profile quiz is now complete.  be one of the first to take the 
+    dating strengths and weaknesses quiz and discover your 
+    personal strengths and weaknesses. you may also be interested in our other quiz, the 
+    loneliness quotient test.
+great idea for this winter
+plan a getaway trip for you and your significant other.  escape the cold by exploring exotic, sun-drenched 
+    locales.  need more convincing?  read 10 
+    reasons to treat yourself to a cruise.
+today's articles of interest
+
+getpdo();
+     $stmt = $pdo->prepare('select article_path, title, blurb from article order by last_display desc limit 4');
+     $stmt->execute();
+     while ($myrow = $stmt->fetch(pdo::fetch_num))
+         printf("%s%s\r\n", $myrow[0], $myrow[1], $myrow[2]);
+?>
+    
+most-recently-added advice by a dating diversions visitor
+
+prepare('select a.tip_id, a.body, a.name, a.location, c.loc_path, c.parent_path, c.country_path, c.loc_type, b.cat_path from tip a, location_cat b, location c where a.admin_flag = \'a\' and a.location_cat_id=b.location_cat_id and b.loc_path=c.loc_path order by a.tip_id desc limit 1');
+     $stmt->execute();
+     while ($myrow = $stmt->fetch(pdo::fetch_num)) {
+         $path = '';
+         if ($myrow[7] == 'country')
+             $path = $myrow[8] . '-' . $myrow[4];
+         else if ($myrow[7] == 'state')
+             $path = $myrow[8] . '-' . $myrow[6] . '-' . $myrow[4];
+         else if ($myrow[7] == 'city')
+             $path = $myrow[8] . '-' . $myrow[6] . '-' . $myrow[5] . '-' . substr($myrow[4], 0, strlen($myrow[4]) - 3);
+         printf("\"%s\" -%s, %s (more from this area)", $myrow[1], $myrow[2], $myrow[3], $path);
+     }
+?>
+    
+first comes love, then comes marriage, then comes...
+the owner of this site has had a baby and started a dad's baby blog you might be interested in.
+
+
+copyright 2010. privacy policy
+
+commit();
+$trans->disconnect();
+?>

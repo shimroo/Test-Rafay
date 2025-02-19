@@ -1,0 +1,586 @@
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+welcome to python.org
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+notice: while javascript is not essential for this website, your interaction with the content will be limited. please turn javascript on for the full experience. 
+
+
+
+
+
+
+skip to content
+
+
+▼ close
+                
+
+
+python
+
+
+psf
+
+
+docs
+
+
+pypi
+
+
+jobs
+
+
+community
+
+
+
+▲ the python network
+                
+
+
+
+
+
+
+
+
+
+donate
+
+≡ menu
+
+
+search this site
+
+
+                                    go
+                                
+
+
+
+
+
+a a
+
+smaller
+larger
+reset
+
+
+
+
+
+
+socialize
+
+linkedin
+mastodon
+chat on irc
+twitter
+
+
+
+
+
+
+
+
+
+
+about
+
+applications
+quotes
+getting started
+help
+python brochure
+
+
+
+downloads
+
+all releases
+source code
+windows
+macos
+other platforms
+license
+alternative implementations
+
+
+
+documentation
+
+docs
+audio/visual talks
+beginner's guide
+developer's guide
+faq
+non-english docs
+pep index
+python books
+python essays
+
+
+
+community
+
+diversity
+mailing lists
+irc
+forums
+psf annual impact report
+python conferences
+special interest groups
+python logo
+python wiki
+code of conduct
+community awards
+get involved
+shared stories
+
+
+
+success stories
+
+arts
+business
+education
+engineering
+government
+scientific
+software development
+
+
+
+news
+
+python news
+psf newsletter
+psf news
+pycon us news
+news from the community
+
+
+
+events
+
+python events
+user group events
+python events archive
+user group events archive
+submit an event
+
+
+
+
+ 
+
+
+
+>_
+                        launch interactive shell
+
+
+
+
+
+# python 3: fibonacci series up to n
+>>> def fib(n):
+>>>     a, b = 0, 1
+>>>     while a < n:
+>>>         print(a, end=' ')
+>>>         a, b = b, a+b
+>>>     print()
+>>> fib(1000)
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987
+functions defined
+the core of extensible programming is defining functions. python allows mandatory and optional arguments, keyword arguments, and even arbitrary argument lists. more about defining functions in python 3
+
+
+# python 3: list comprehensions
+>>> fruits = ['banana', 'apple', 'lime']
+>>> loud_fruits = [fruit.upper() for fruit in fruits]
+>>> print(loud_fruits)
+['banana', 'apple', 'lime']
+
+# list and the enumerate function
+>>> list(enumerate(fruits))
+[(0, 'banana'), (1, 'apple'), (2, 'lime')]
+compound data types
+lists (known as arrays in other languages) are one of the compound data types that python understands. lists can be indexed, sliced and manipulated with other built-in functions. more about lists in python 3
+
+
+# python 3: simple arithmetic
+>>> 1 / 2
+0.5
+>>> 2 ** 3
+8
+>>> 17 / 3  # classic division returns a float
+5.666666666666667
+>>> 17 // 3  # floor division
+5
+intuitive interpretation
+calculations are simple with python, and expression syntax is straightforward: the operators +, -, * and / work as expected; parentheses () can be used for grouping. more about simple math functions in python 3.
+
+
+# for loop on a list
+>>> numbers = [2, 4, 6, 8]
+>>> product = 1
+>>> for number in numbers:
+...    product = product * number
+... 
+>>> print('the product is:', product)
+the product is: 384
+all the flow you’d expect
+python knows the usual control flow statements that other languages speak — if, for, while and range — with some of its own twists, of course. more control flow tools in python 3
+
+
+# simple output (with unicode)
+>>> print("hello, i'm python!")
+hello, i'm python!
+# input, assignment
+>>> name = input('what is your name?\n')
+what is your name?
+python
+>>> print(f'hi, {name}.')
+hi, python.
+
+quick & easy to learn
+experienced programmers in any other language can pick up python very quickly, and beginners find the clean syntax and indentation structure easy to learn. whet your appetite with our python 3 overview.
+
+
+
+
+
+python is a programming language that lets you work quickly and integrate systems more effectively. learn more
+
+
+
+
+
+
+
+
+
+get started
+whether you're new to programming or an experienced developer, it's easy to learn and use python.
+start with our beginner’s guide
+
+
+download
+python source code and installers are available for download for all versions!
+latest: python 3.13.2
+
+
+docs
+documentation for python's standard library, along with tutorials and guides, are available online.
+docs.python.org
+
+
+jobs
+looking for work or have a python related position that you're trying to hire for? our relaunched community-run job board is the place to go.
+jobs.python.org
+
+
+
+
+
+latest news
+more
+
+
+2025-02-11
+python 3.14.0 alpha 5 is out
+
+2025-02-04
+python 3.13.2 and 3.12.9 now available!
+
+2025-01-15
+psf newsletter: awards, grants, & pycon us 2025!
+
+2025-01-14
+python 3.14.0 alpha 4 is out
+
+2025-01-14
+powering python together in 2025, thanks to our community!
+
+
+
+
+
+upcoming events
+more
+
+
+2025-02-20
+workshop: creating python communities
+
+2025-02-21
+django girls koforidua
+
+2025-02-22
+djangocongress jp 2025
+
+2025-02-22
+pyconf hyderabad 2025
+
+2025-02-22
+python weekend abuja
+
+
+
+
+
+
+
+success stories
+more
+
+
+to simplify the adoption of fhe, which involves a complex and resource-intensive technological stack, zama developed tools that streamline the integration of fhe into applications. since python is the de facto standard for building machine learning (ml) applications, it was an obvious choice to create an open-source fhe library in python.
+
+
+
+
+zama concrete ml: simplifying homomorphic encryption for python machine learning by andrei stoian and benoit chevallier-mames
+
+
+
+
+
+
+
+
+use python for…
+more
+
+web development:
+        django, pyramid, bottle, tornado, flask, web2py
+gui development:
+        tkinter, pygobject, pyqt, pyside, kivy, wxpython, dearpygui
+scientific and numeric:
+        
+scipy, pandas, ipython
+software development:
+        buildbot, trac, roundup
+system administration:
+        ansible, salt, openstack, xonsh
+
+
+
+
+
+
+
+>>> python software foundation
+
+the mission of the python software foundation is to promote, protect, and advance the python programming language, and to support and facilitate the growth of a diverse and international community of python programmers. learn more 
+
+become a member
+donate to the psf
+
+
+
+
+
+
+
+
+
+▲ back to top
+
+
+about
+
+applications
+quotes
+getting started
+help
+python brochure
+
+
+
+downloads
+
+all releases
+source code
+windows
+macos
+other platforms
+license
+alternative implementations
+
+
+
+documentation
+
+docs
+audio/visual talks
+beginner's guide
+developer's guide
+faq
+non-english docs
+pep index
+python books
+python essays
+
+
+
+community
+
+diversity
+mailing lists
+irc
+forums
+psf annual impact report
+python conferences
+special interest groups
+python logo
+python wiki
+code of conduct
+community awards
+get involved
+shared stories
+
+
+
+success stories
+
+arts
+business
+education
+engineering
+government
+scientific
+software development
+
+
+
+news
+
+python news
+psf newsletter
+psf news
+pycon us news
+news from the community
+
+
+
+events
+
+python events
+user group events
+python events archive
+user group events archive
+submit an event
+
+
+
+contributing
+
+developer's guide
+issue tracker
+python-dev list
+core mentorship
+report a security issue
+
+
+
+▲ back to top
+
+ 
+
+
+
+help & general contact
+diversity initiatives
+submit website bug
+
+status 
+
+
+
+
+copyright ©2001-2025.
+                             python software foundation
+                             legal statements
+                             privacy notice
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

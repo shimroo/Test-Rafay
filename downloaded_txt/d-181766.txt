@@ -1,0 +1,117 @@
+
+
+
+
+
+content server error
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skip navigation bar.
+
+
+
+you currently have javascript disabled for this web site. you must enable scripting in your browser for the content server to function properly.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+content server request failed
+
+
+must be in contribution mode to access node '23003' on site 'uow_main'.
+				
+
+
+[ details ]
+				
+intradoc.common.serviceexception: !csssfailedaccesscontribonlysection,23003,uow_main
+	at sitestudio.ssfileservicehandler.dogetpageerror(unknown source)
+	at sitestudio.ssfileservicehandler.getpage(unknown source)
+	at sun.reflect.generatedmethodaccessor31.invoke(unknown source)
+	at sun.reflect.delegatingmethodaccessorimpl.invoke(delegatingmethodaccessorimpl.java:43)
+	at java.lang.reflect.method.invoke(method.java:498)
+	at intradoc.common.idcmethodholder.invokemethod(classhelperutils.java:617)
+	at intradoc.common.classhelperutils.executemethodreportstatus(classhelperutils.java:293)
+	at intradoc.server.servicehandler.executeaction(servicehandler.java:79)
+	at intradoc.server.service.docodeex(service.java:490)
+	at intradoc.server.service.docode(service.java:472)
+	at intradoc.server.servicerequestimplementor.doaction(servicerequestimplementor.java:1360)
+	at intradoc.server.service.doaction(service.java:452)
+	at intradoc.server.servicerequestimplementor.doactions(servicerequestimplementor.java:1201)
+	at intradoc.server.service.doactions(service.java:447)
+	at intradoc.server.servicerequestimplementor.executeactions(servicerequestimplementor.java:1121)
+	at intradoc.server.service.executeactions(service.java:433)
+	at intradoc.server.servicerequestimplementor.dorequest(servicerequestimplementor.java:635)
+	at intradoc.server.service.dorequest(service.java:1707)
+	at intradoc.server.servicemanager.processcommand(servicemanager.java:359)
+	at intradoc.server.idcserverthread.run(idcserverthread.java:197)
+
+
+
+
+
+
+
+
+
+
+
+
+

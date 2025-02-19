@@ -1,0 +1,3378 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document imaging talk
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document imaging talk
+
+
+
+this site is designed to be a forum for news on in the document imaging, information capture, and enterprise content management industries. it's edited by ralph gammon, publisher of the document imaging report, and an analyst of these markets. after almost 20 years, the document imaging market is finally reaching maturity and being subsumed into the world of more general it applications. this makes it a very exciting time to be involved with the industry.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wednesday, february 12, 2020
+
+
+
+
+
+
+
+why not bundle textract with a network scanner?
+
+
+
+
+
+
+i was doing an interview recently with a scanner vendor which was planning on introducing a new soho model, for which they expected amazon to serve as the primary marketplace. amazon sells a lot of document scanners. this got me thinking, why not bundle some aws textract services with scanners being sold through amazon?
+
+introduced in 2018 and released for general availability last year, amazon describes textract as a "service that automatically extracts text and data from scanned documents." what more could you ask for with a document scanner? there are different flavors of textract, from full-page ocr and layout recognition, to forms extraction, to table extraction. here is a link to an article i did on textract in 2019, and here's a link to amazon's textract site. did i mention textract is cheap?
+
+one drawback to textract, which we have discussed, is that unless a user specifically requests that their images are deleted, amazon basically reserves the right to utilize them going forward to improve textract, as well as "other amazon 
+machine-learning/artificial-intelligence technologies." that can be a non-starter for some, but adoption of the bundled service would be optional or a vendor could limit the bundling of aws ocr services to single sku.
+
+so, if i am a scanner vendor, why wouldn't i look at including a year's worth of textract services with the purchase of the scanner from the amazon marketplace? maybe the issue is that textract is more of an aws/b2b play than a b2c play like you get more commonly with the amazon marketplace. but, for a vendor selling their scanners to the soho market, maybe there's a fit. and i'm not sure if amazon works like this, but could you think of a better way to get good positioning with the world's largest e-tailer than supporting one of their up and coming aws services initiatives, which are a major growth area for amazon?
+
+so, my proposition is for a scanner vendor to create a sku, probably for some type of scanner with a network connection, that offers a free year of textract services. amazon already offers a three-month free tier of textract, so introducing some sort of trial with a scanner would not be that much of a stretch for them.  if anyone does take advantage of this idea, if you'd just give me credit, i'd appreciate it.
+
+
+
+
+
+
+posted by
+
+
+
+direditor
+
+
+
+
+at
+
+5:00 am
+
+
+
+41 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+labels:
+capture,
+channel,
+cloud services,
+scanners
+
+
+
+
+
+
+
+
+
+
+
+tuesday, october 22, 2019
+
+
+
+
+
+
+
+age of intelligent robots approaching
+
+
+
+
+
+
+a couple weeks ago, i noticed that when my 13-year old son and his friends were insulting each other, they used the term "bots." i thought this was interesting, because in our industry, we have typically  considered bots to be a good thing -as in you can deploy "a bot" to automate a process. in fact, the rapidly growing billion-dollar rpa industry has been built on bots.
+
+i asked, "why do you call each other bots as a put down?"
+
+"because in video games when you play against the computer, even the 
+highest level is dumber than playing against the worst real person," my son answered . "you're playing against a bunch of 'bots.'" 
+
+that made perfect sense to me. in fact, a few months back, i realized that despite many people thinking that robots are intelligent, the way they have been deployed in rpa doesn't really manifest that. sure, rpa 'bots' can copy repetitive human tasks, but when it comes to anything outside of that, well that just hasn't been happening. and it seemed to me that the promise of rpa (especially as it has risen in parallel with ai) is that is should be more intelligent.
+
+well, this seems to be on the minds of rpa vendors as well. in a recent interview i did with chad gailey, vp, channels and isv partners, americas, for rpa market leader blue prism, he said, "rpa is today, but it’s really simple processing. the future is leveraging machine learning and computer algorithms to mimic and behave in a human manner. we want to infuse vision from ai and cognitive learning platforms into our rpa software to move to our next generation."
+
+then, a couple weeks later, we found ourselves interviewing kashif mahbub, vp, product marketing and global head, rpa for another market leader, automation anywhere. he was briefing us on automation anywhere enterprise a2019, the isv's next-generation rpa platform.  it includes, "infused ai skills and capabilities throughout the platform."
+
+so, rpa is getting more intelligent. interestingly, document capture has already embraced ai. as their ability to capture data from structured documents became commoditized, document capture vendors introduced ai to help them deal with capture from a wider variety for forms. for some rpa vendors, capture has actually been their first step towards "cognitive automation." automation anywhere, for example, markets a product called "iq bot" that was presented to me at aiim as a document capture platform.
+
+so, it seems that as rpa moves toward intelligent automation, there are even more synergies with capture that can be realized. in addition, workflow vendors like hyland are also looking to leverage ai to automate more processes within their platform, which should definitely create some more crossover and possible synergies with rpa.
+
+we know one thing: that rpa leaders like blue prism, automation anywhere, and uipath certainly have a lot of funding to invest in ai technology if they choose to, and it sounds like they are choosing to. there seems to be a bit of an intelligent automation arms race beginning - as part of the larger digital transformation market as whole. and as ai more deeply enters into this fray, maybe the idea of "dumb bots" will become archaic. in fact, there is already a well known story about an ai program that beat a champion of the chinese board game "go." wait 'til madden gets ahold of that technology. thirteen-year-olds will have to most certainly adjust their lexicons and come up with a new insult for dumb. perhaps something like "paper user," will be in vogue next.
+
+
+
+
+
+
+
+
+
+
+
+
+posted by
+
+
+
+direditor
+
+
+
+
+at
+
+4:42 pm
+
+
+
+9 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+labels:
+capture,
+rpa
+
+
+
+
+
+
+
+
+
+
+
+monday, february 11, 2019
+
+
+
+
+
+
+
+kofax being opportunistic with capture acquisitions
+
+
+
+
+
+
+
+is kofax doing a capture roll-up? it may look that way, but i would describe it more as an opportunistic short-term play in order to fund a more strategic plan around intelligent automation.
+
+
+
+"kofax is in a unique position in that we are trying to protect our base while also funding the future growth portion of our business," explained chris huff, kofax's chief strategy officer, during a recent call to discuss the isv's acquisition of top image systems (tis). "the consolidation play (including recent acquisitions of both tis and nuance document imaging) protect our base in the capture market where we now command (a greater than 25%) share. our position there provides us with cash flow to fund the future."
+
+
+
+after the recent acquisitions, kofax is now a $600 million a year entity, with the good majority of that coming from capture, although rpa is acknowledged as the fastest growing part of the business. in addition, kofax has technology in areas like digital signatures, customer communications and business process management. these originally were assembled  to be part of kofax's "first-mile" of customer interaction strategy for connecting systems of engagement with systems of record. it doesn't necessarily seem like this strategy has changed, as the intelligent automation platform offers similar functionality and addresses similar problems.
+
+
+
+as far as building the capture business, in nuance, kofax picked up an operation with $200 million in annual revenue and historically high margins (37% in its fiscal 2017 and 32% in 2018) for less than two times its annual revenue. with tis, it picked up a $25-$30 million per year business for well less than one-time revenue (by our calculations at least, as the official purchase price was only announced on a per share basis). and both businesses have technology and customer bases that fall into kofax's market-leading capture wheelhouse. 
+
+
+
+so, while we didn't necessarily expect kofax to acquire capture companies when ceo reynolds bish told us in early 2018 that, with the backing of thoma bravo, kofax was getting back in the acquisition game, we can see certainly see the strategy here. per our conversation with huff, we expect kofax to continue to be aggressive in m&a, but not necessarily with more capture vendors. 
+
+
+
+nuance and tis were fairly unique situations. nuance had gone through a change at the top and the new ceo didn't have the same connection to document imaging as long-time ceo paul ricci did. nuance's main focus is speech technology and quite frankly, we had been predicting for some time that they were going to spin off di in some manner. it seems like a really good buy for kofax.
+
+
+
+and tis also seems like a good buy. tis has a relatively blue chip customer base, between its capture and hosted remittance processing businesses. but, the company has historically had a tough time turning a profit, has consistently been losing money and was down to like a million and a quarter in cash as of mid-year 2018. sure, there was financing in place to keep it in business, but tis has done plenty of financing deals over the years, also, the company had recently revamped the cloud capture strategy is had invested a lot of r&d in, so it didn't sound like us they would be turning things around anytime too soon. bish has a fairly good track record of turning profits, so rolling tis' into kofax's infrastructure should be a positive in that sense. in addition, perhaps some of the extensive cloud work that tis has done (in addition to the saas infrastructure it picked up when it acquired egistics's payment processing operation) can help kofax as it develops a more cloud services oriented architecture for its intelligent automation platform.
+
+
+
+the bottom line here is that we think kofax's recent capture acquisitions were opportunistic, as well as strategic, but might not be part of some greater capture roll-up plan. they do represent the type of strategic play you can make when you have are backed by a strong financial partner like thoma bravo. we next expect kofax to flex that muscle in some sort of ai-related buy, not another capture acquisition.
+
+
+
+
+
+
+posted by
+
+
+
+direditor
+
+
+
+
+at
+
+3:48 pm
+
+
+
+7 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+friday, october 26, 2018
+
+
+
+
+
+
+
+
+the importance of mobile on the future of scanning
+
+
+
+
+
+
+it seems we have somewhat forgotten about the potential impact of mobile document scanning and capture. back in 2011, when only 35% of americans identified themselves as owning a smart phone, harvey spencer associates projected that by 2015, there would be $1.5 billion worth of software sold related to mobile capture, up from $200 million in 2011.
+
+
+
+
+
+
+
+since then, while smart phone usage has more than doubled, hsa's projected revenue growth for mobile capture software has not been realized. the study identified several potential use cases including field service, transportation, scan-to-the-cloud, home healthcare, assessment/survey/audit, onboarding and mobile check deposit. of these, while we've seen some traction in markets like transportation and onboarding, the real killer app has been check scanning, which mitek has made a $60 million-a-year business out of. 
+
+
+
+there have certainly been a lot of efforts at developing document scanning apps for mobile devices. a quick search in the google play store reveals hundreds--most of them offering some basic functionality, like pdf creation, for free. the challenge has been monetizing this technology.
+
+
+
+at the recent abbyy tech summit, vp of marketing bruce orcutt acknowledged that it's very hard to make money off mobile capture as a standalone app, but stressed that mobile is vital to the future of the company, as complementary technology to its capture platform. "mobile is the preferred channel of end users," he said, meaning that people want to use their smartphones to capture documents. as phones' cameras and processing power continues to improve, this preference will only become more prevalent. 
+
+
+
+mobile is even more vital in less developed markets outside the u.s. during the recent harvey spencer associates capture i had dinner with claudio chaves, jr., the cto of icapt, an isv jointly based in brazil and orlando, that has developed a cloud-based capture service. chaves also has extensive experience working with service bureaus in brazil. 
+
+
+
+he explained that in brazil, legal requirements call for mortgage documents to be printed on paper, which creates a good business for capturing them. however, he noted that one of challenges is that the images are often poor quality because people use their phones to capture them
+
+
+
+according to my infosource data, there were approximately
+26,500 document scanners sold in brazil last year compared to 875,000 sold in
+the u.s. that's 33 times as many scanners being sold in the u.s. than brazil,
+which has a population of 209 million, which is more than 60% of the u.s.
+population of 325 million. obviously, brazil is underserved when it comes to
+document scanner sales. 
+
+
+
+but not when it comes to mobile phones. in 2017, it was
+estimated that there were almost 200 million smartphones in use in brazil, giving it a
+penetration rate of close to 100%, considerably higher than the u.s. smartphone
+penetration rate of 77% (at the beginning of 2018). like many countries with
+emerging economies, brazil seems to be somewhat skipping the desktop era (at
+least for scanners) and moving right to the mobile era.
+
+
+
+i don't think brazil is unique in this transition. the
+question is how do we best address it? i think the continued development of
+better mobile capture technology is the primary way. abbyy, for example, has shown
+us some very cool video streaming technology that enables users to capture
+multiple images of a document and utilize abbyy's algorithms to determine the
+best one. i recently saw a commercial for google's new pixel 3 phone that
+offers similar functionality for photographs.
+
+
+
+sure, i know that everyone in the hardware market likes to
+say that scanning one or two pages might be fine with a mobile device, but i
+think the market is moving beyond that. i think the market would like to do
+batch scanning with mobile devices. there is of course the option of using
+mobile devices to drive scanners, but it doesn't seem
+like there has been much uptake in that area yet. no, the preference seems to be utilize
+the smartphone camera. and with memory increasing and the cameras improving, we
+think this demand will only increase in the future.
+
+what does this mean for the future of scanners? well, we
+have already started to see a decline in sales of personal (<$400) scanners in the americas, according to our infosource data, while sales of higher end workgroup, departmental, and low-volume production scanners grow or at least remain steady.
+
+
+
+
+
+
+
+
+
+
+
+
+
+of course, this could be attributed somewhat to former personal leader neat exiting the market for scanners to focus on software, but part of the reason neat stopped selling scanners is that they launched a mobile app that they expect people to utilize as on on-ramp. 
+
+
+
+
+
+
+it will be interesting to watch how this plays out over the next few years. will better scanning apps enable users to better capture multi-page documents with their phone? will the evolution of twain direct and similar "driverless" scanning technologies enable users to take full advantage of document scanners and mfps for scanning with smartphones? how will the introduction of more ai, nlp, and machine learning into capture and bpm apps affect the market for scanning?
+
+
+
+all of this is on the table. let's just remember that mobile will have a major impact on the scanning and capture markets going forward.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+posted by
+
+
+
+direditor
+
+
+
+
+at
+
+2:14 pm
+
+
+
+5 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+labels:
+capture,
+mobile,
+scanners
+
+
+
+
+
+
+
+
+
+
+
+wednesday, september 12, 2018
+
+
+
+
+
+
+
+capture and rpa: who's the horse and who's the cart?
+
+
+
+
+
+
+is document capture a subset of robotics process automation (rpa) or vice-versa? this question came up at the recent harvey spencer associates capture conference - an annual meeting of top executives in the document capture software industry. hsa's mike spang presented rpa as a $200 million-plus branch of the $4.1 billion capture industry. that said, by our calculations, just three of the market leading rpa companies, uipath, automation anywhere, and blue prism, have a combined market capitalization of $4.4 billion, or more than the whole capture market is producing annually in revenue.
+
+and most accounts we hear have rpa implementations pulling through capture sales when the processes being roboticized run into documents, which seems to be a considerable amount of the time. earlier this year, boris krumrey, the chief robotics officer for uipath, estimated that about 70% of the rpa vendor's 700 customers were likely candidates for capture. uipath has a partnership with abbyy to provide these services and was looking to partner with other capture isvs as well.
+
+it's also been conjectured by no less than reynolds bish, ceo of kofax (which offers both capture and rpa technology) that there is opportunity for bpa/workflow/case management integration with rpa for better managing processes where human intervention is required. so, there seems to be quite a bit of synergy between the rpa and ecm markets. going one step further, recently ecm vendors digitech and hyland have each announced rpa initiatives that seem to primarily built around automating the entry of information from their applications into third-party applications. so, in these cases ecm is pulling through rpa!
+
+this whole situation kind of reminds me of the web content management vs. ecm division we dealt with around the turn of the century. at that time, i remember there was talk of wcm leader vignette merging with ecm leader filenet. there was a similar disparity between market caps and revenue (filenet with the higher revenues but much lower multiple) to what you are currently seeing with rpa and capture. filenet (and ceo lee roberts) could not come to grips with this disparity and thus never consummated the merger. not too much later, in 2001, the web technology bubble burst and vignette was eventually sold to opentext in 2009.
+
+i'm not saying the rpa technology bubble is going to burst, but digitech ceo h.k. bain recently told me that he felt the development of rpa was a step back from the advanced technology his company was working on related to information management. so, what's it going to be? are capture isvs going to be acquired by/merge with rpa companies while their valuation is high? or, are the ecm companies going to wait it out and see if they can catch the rpa vendors on their way down?
+
+
+
+
+
+
+
+posted by
+
+
+
+direditor
+
+
+
+
+at
+
+6:45 pm
+
+
+
+9 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+labels:
+capture,
+ecm,
+rpa
+
+
+
+
+
+
+
+
+
+
+
+tuesday, june 12, 2018
+
+
+
+
+
+
+
+insights into current ecm market from docuware's president
+
+
+
+
+
+
+
+today, docuware announced the first two applications in its kinetic solutions program. kinetic solutions are pre-configured to manage specific business processes and sit in the docuware cloud. the first two iterations are for accounts payable and human resources.
+
+these are not surprising places to start - as they are two of the most popular areas for businesses to begin their ecm implementations. docuware is a germany-based ecm vendor that has been successful in the u.s. through a strategy of first buying one of its early u.s.-based solution providers (alos) and then focusing on recruiting mfp dealers to form the bulwark of its reseller channel.
+
+docuware was also one of the first traditional ecm vendors to recognize the significance of the cloud. in 2010, the company earmarked one million euros for web-based and saas initiatives, which eventually led to the launch of the docuware cloud in 2012. cloud adoption ramped up gradually but by the end of 2017, the isv was projecting the over half its new customers would be choosing the cloud - a high rate compared to most legacy ecm vendors. 
+
+so, to us it seems that docuware's leadership has proven to have some keen insights when it comes to ecm adoption trends. and, in its latest press release announcing the first two kinetic solutions, president juergen biffar offered his views on three current trends he is seeing. “we are seeing three signals in the market,” he said. "first, because of its attractive economics and
+simplified it impact, there is escalating demand for cloud services versus
+traditional on-premises software. second, functional utility is not enough –
+clear, intuitive usability is now expected. third, companies are more inclined
+to deploy a narrow, departmental solution versus trying to configure
+complicated, legacy software. enterprise-focused software that requires lengthy
+and complicated professional services is witnessing softer demand."
+
+there has been a lot of talk in the ecm market about the emergence of "content services" and breaking down monolithic ecm solutions into "microservices" that can be consumed in smaller bits and used to assemble process-specific applications. with its kinetic solutions, docuware has kind of taken this approach, but instead assembled the microservices on its own into "micro-solutions" designed to be more manageable than a traditional ecm platform. this makes perfect sense for the mid-market businesses that they target who probably want something more "out-of-the-box" than a series of configurable ecm services.
+
+this seems to be a good approach on docuware's part and should help the isv continue to increase its percentage of cloud sales, which should also lead to continued success into the foreseeable future.
+
+
+
+
+
+
+
+
+posted by
+
+
+
+direditor
+
+
+
+
+at
+
+2:35 pm
+
+
+
+4 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+labels:
+a/p,
+cloud computing,
+ecm,
+hr
+
+
+
+
+
+
+
+
+
+
+
+friday, february 02, 2018
+
+
+
+
+
+
+
+adding substance to the style in the age of digital transformation
+
+
+
+
+
+
+
+
+
+digital transformation sounds sexy. it’s about taking all
+your manual and paper processes and making them faster and electronic. the
+impetus behind this transformation is that everybody is connected today, though
+wi-fi, satellite networks, mobile devices, and even laptops and pcs. a lot of
+work has been spent on enabling the uis on these devices to help users to have
+a top notch digital experience. however, it seems that back-end systems, where
+information coming in from these uis is processed, are still not up to speed.
+at least this is what we were told when putting together stories for our last
+[jan. 26] issue. 
+
+
+“a lot of companies have mobile apps and digital interfaces,
+and they are very fast at pre-approving a loan,” alan swahn, vp of marketing at
+isv and systems integrator ai
+foundry, told us. “but, to actually issue that loan, they are still dealing
+with a lot of paper and armies of people keying in data. so, while the ui may
+have gone through a digital transformation, everything else is old school.”
+
+added, ralf göbel, coo of data capture software and
+crowdsourcing specialist scalehub,
+“the problem is that the back-end systems used to process this input are not
+fast enough. the apps and web sites might be flexible and fast enough to
+provide a great experience on the front-end, but the back ends at many big
+companies have not kept up, and they are too slow.”
+
+this is not a new problem. it was back in 2010 that aiim,
+with the help of noted technology author and consultant geoffrey moore, first started talking about connecting systems of
+engagement (the front end) with systems of record (the back-end). since then it
+seems the disconnect has only widened, as investments have tilted toward
+improving mobile apps and uis, and, as usual, back-end improvements in areas
+like ecm,  have been often pushed (no pun intended) to the back burner.
+
+obviously, this would seem to create opportunity for savvy
+capture and ecm vendors and integrators who know how to package their software
+and services as part of a total digital transformation solution. that said,
+their systems need to be architected correctly to integrate with multi-channel
+front-end input avenues, as well as other back-end systems that are driving
+business decisions.
+
+rpa is an interesting avenue for achieving some of this
+integration. as we also went over in last week's issue, when kofax first
+purchased kapow, it was presented as application integration software. this
+capability (as well as the ability to learn by example) seems to be one of the
+core tenets of products in the emerging rpa space. and indeed, while kofax has
+yet to see much crossover between capture and rpa, there are rpa vendors like
+uipath, which, through a partnership with abbyy, have added document
+processing to their rpa portfolios. 
+
+kofax has seen a parallel between the capture and rpa
+markets in the desire by users to introduce workflow automation to data being
+gathered to rpa and data being captured from documents. this makes absolute
+sense within the landscape of the digital transformation, where the desire is
+to get things done faster and in a more automated way. so, if you look at it
+from a process management standpoint, ui, capture, and rpa all should be
+connected, along with automated workflows and back-end systems. that seems to
+be the holy grail of digital transformation.
+
+i'll leave you with one more analogy. let's go back to my
+first statement about the digital transformation being sexy. unfortunately,
+more often than not, however, today it seems to be like the beautiful person
+you meet at the bar whose conversation might only go as deep as reality tv.
+introducing capture, rpa, and workflow could be akin to sending this person to
+college (and even grad school), where they learn to discuss business, politics,
+philosophy and all sorts of other interesting topics. of course, the question
+is, do you have the budget for that? it's my hunch that if you look at the rois
+for college, and you look at the rois for completing the digital
+transformation, they might be similar. at least i'm hoping their both positive,
+with two teenagers in school and a business heavily invested in the capture and
+ecm markets.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+posted by
+
+
+
+direditor
+
+
+
+
+at
+
+3:06 pm
+
+
+
+5 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+labels:
+capture,
+digital transformation,
+rpa
+
+
+
+
+
+
+
+
+
+
+
+
+
+older posts
+
+home
+
+
+
+
+subscribe to:
+posts (atom)
+
+
+
+
+
+
+
+about me
+
+
+
+
+
+direditor
+
+
+editor/publisher of a business and marketing newsletter focused on the maturing document capture and imaging industry.
+
+view my complete profile
+
+
+
+
+
+
+dir premium free trial
+
+
+
+
+
+
+dir partner
+
+
+
+
+
+
+
+my blog list
+
+
+
+
+
+
+
+
+
+zia consulting
+
+
+
+
+the power of partnerships in technology: driving innovation and growth
+
+
+
+1 day ago
+
+
+
+
+
+
+
+
+
+
+
+the hyland blog
+
+
+
+
+introducing the hyland customer innovation awards!
+
+
+
+1 year ago
+
+
+
+
+
+
+
+
+
+
+
+ephesoft inc.
+
+
+
+
+kofax launches ephesoft transact 2022.1.01
+
+
+
+2 years ago
+
+
+
+
+
+
+
+
+
+
+
+tsg blog
+
+
+
+
+alfresco content accelerator and alfresco enterprise viewer – improving 
+user collaboration efficiency
+
+
+
+4 years ago
+
+
+
+
+
+
+
+
+
+
+
+document management, news, resources & more | docuware blog
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+followers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+t
+
+
+
+
+blog archive
+
+
+
+
+
+
+
+
+        ▼ 
+      
+
+
+
+2020
+
+(1)
+
+
+
+
+
+        ▼ 
+      
+
+
+
+february
+
+(1)
+
+why not bundle textract with a network scanner?
+
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2019
+
+(2)
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2018
+
+(5)
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2017
+
+(1)
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2016
+
+(9)
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2015
+
+(16)
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(5)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2014
+
+(55)
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(10)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(12)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2013
+
+(48)
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(5)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2012
+
+(106)
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(15)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(16)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2011
+
+(106)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(17)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(9)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2010
+
+(127)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(13)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(14)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(14)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(18)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(10)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2009
+
+(68)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(6)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2008
+
+(19)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(3)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2007
+
+(55)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(2)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2006
+
+(110)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(10)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(10)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(15)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(14)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(16)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2005
+
+(74)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(7)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2004
+
+(26)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(13)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

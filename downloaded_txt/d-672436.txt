@@ -1,0 +1,731 @@
+
+
+
+
+
+
+
+jonathan riddell's diary
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skip to content
+
+
+
+ 
+
+
+
+jonathan riddell's diary
+
+
+
+
+
+
+
+
+    menu	
+contact
+about me
+talks
+links
+edinburgh linux consultancy
+
+  scroll down to content
+
+
+
+
+
+
+
+
+posts
+
+
+
+
+
+posted on 12/9/202412/9/2024git revert name and akademy 
+
+i reverted my name back to jonathan riddell and have now made a new uid for my pgp key, you can get the updated one on keyserver.ubuntu.com or my contact page or my launchpad page. 
+here’s some pics from akademy
+
+
+
+
+
+
+
+
+
+
+
+posted on 10/9/202411/9/2024openuk awards 2024 
+
+https://openuk.uk/openuk-september-2024-newsletter-1/
+https://www.linkedin.com/feed/update/urn:li:activity:7238138962253344769/
+our 5th annual awards are open for nominations and our 2024 judges are waiting for your nominations! hannah foxwell, jonathan riddell, and nicole tandy will be selecting winners for 12 categories. ?the openuk awards 2024 are open for nominations until sunday, september 15.. our 5th awards again celebrate the uk’s leadership and global collaboration in open technology!nominate now! https://openuk.uk/awards/openuk-awards-2024/up to 3 shortlisted nominees will be selected in each category by early october and each nominee will be given one place at the oscars of open source, the black tie awards ceremony and gala dinner for our 5th awards held at the house of lords on 28 november, thanks to the sponsorship of lord wei.
+
+
+
+
+
+posted on 25/2/2024plasma pass 1.2.2 
+
+plasma pass is a plasma applet for the pass password manager
+this release includes build fixes for plasma 6, due to be released later this week.
+url: https://download.kde.org/stable/plasma-pass/sha256: 2a726455084d7806fe78bc8aa6222a44f328b6063479f8b7afc3692e18c397cesigned by e0a3eb202f8e57528e13e72fd7574483bb57b18d jonathan esk-riddell <jr@jriddell.org>https://jriddell.org/esk-riddell.gpg
+
+
+
+
+
+posted on 21/2/202421/2/2024oxygen icons 6 released 
+
+oxygen icons is an icon theme for use with any xdg compliant app and desktop.
+it is part of kde frameworks 6 but is now released independently to save on resources.
+this 6.0.0 release requires to be built with extra-cmake-modules from kf 6 which is not yet released, distros may want to wait until next week before building it.
+distros which ship this version can drop the version released as part of kde frameworks 5.
+sha256: 28ec182875dcc15d9278f45ced11026aa392476f1f454871b9e2c837008e5774
+url: https://download.kde.org/stable/oxygen-icons/
+signed by e0a3eb202f8e57528e13e72fd7574483bb57b18d jonathan esk-riddell <jr@jriddell.org>https://jriddell.org/esk-riddell.gpg
+
+
+
+
+
+posted on 21/2/202421/2/2024kdsoap ws-discovery client 0.4.0 
+
+this project is creating a ws-discovery client library based on the kdsoap library.
+the name is short for klarälvdalens datakonsult ab simple object access protocol web services addressing discovery client.
+it is used by the smb kio worker from kio-extras.
+kio-extras will have two releases as part of kde’s 6th megarelease, one for qt 5 and one for qt 6. distros should build and ship both versions of kio-extras but the qt5 build should use the internal static copy of kdsoap-ws-discovery-client so does not need to be built separately. the qt 6 build of kio-extras does need this external build of kdsoap-ws-discovery-client. distros will need an up to date copy of kdsoap library.
+there are no changes compared to 0.3.0 but this one is released as stable ahead of kde gear 24.02.
+sha 256: 2cd247c013e75f410659bac372aff93d22d71c5a54c059e137b9444af8b3427aurl: https://download.kde.org/stable/kdsoap-ws-discovery-client/signed by e0a3eb202f8e57528e13e72fd7574483bb57b18d jonathan esk-riddell <jr@jriddell.org>https://jriddell.org/esk-riddell.gpg
+
+
+
+
+posted on 9/2/2024ruqola 2.1.0 
+
+ruqola 2.1.0 is available for packaging.
+ruqola is a chat app for rocket.chat. this release can build with qt 5 and frameworks 5.  it can also build with qt 6 and the soon to be released frameworks 6.
+url: https://download.kde.org/stable/ruqola/sha256: 65295cc39f24f046305bc73df4bcc6e561bd8b8b125537290ce5b5b62488fffd
+signed by e0a3eb202f8e57528e13e72fd7574483bb57b18d jonathan esk-riddell jr@jriddell.orghttps://jriddell.org/esk-riddell.gpg
+
+
+
+
+posted on 17/1/202417/1/2024ruqola 2.1 beta 
+
+ruqola 2.1 beta (2.0.81) is available for packaging and testing.
+ruqola is a chat app for rocket.chat.  this beta release will build with the current release candidate of kde frameworks 6 and ktextaddons allowing distros to start to move away from qt 5.
+url: https://download.kde.org/unstable/ruqola/sha256: 2c4135c08acc31f846561b488aa24f1558d7533b502f9ba305be579d43f81b73
+signed by e0a3eb202f8e57528e13e72fd7574483bb57b18d jonathan esk-riddell jr@jriddell.orghttps://jriddell.org/esk-riddell.gpg
+
+
+
+
+posted on 16/1/202416/1/2024openuk’s 2024 new year’s honours list 
+
+
+it’s a pleasure to be on the openuk new year’s honours list for 2024. there’s some impressive names on there such as richard hughes of packagekit and other projects at red hat, colin watson who was at ubuntu with me and i see is now freelance, mike mcquaid was previously of kde but is now trying a startup with mac packager workbrew for homebrew.
+openuk run various activities for open tech in uk countries and kde currently needs some more helpers for a stall at their state of open con in london on feb 6 and 7 february, if you can help do get in touch.
+kde’s 6th releases will happen next month bringing with it the refresh of code and people that a new major version number can bring, i think kde’s software in the coming year will continue to impress.
+my life fell apart after some family loss last year so i’ve run away to the end of the world at finesterre in galicia in spain for now, let me know if you’re in the area.
+
+
+
+
+
+posted on 11/1/2024ktextaddons 1.5.3 
+
+ktextaddons is a library with various text handling addons used by ruqola and kontact apps.  it can be compiles for both qt 5 and 6 and distros are advised to compile two builds for each until ruqola is ported to qt 6.
+url: https://download.kde.org/stable/ktextaddons/
+sha256: 8a52db8abfa8a9d68d2d291fb0f8be20659fd7899987b4dcafdf2468db0917dc
+changelog
+drop unused kxmlgui dependencyadapt to new kconfiggroup apias we exclude emojis we need to remove it from list and not exclude ituse proxymodel when exclude emoticons were updatedallow to exclude some specific emoticons (need for ruqola)exclude mock engine => it’s for testremove generate pri support (removed in kf6)
+
+
+
+
+posted on 8/1/2024kdiagram 3.0.1 
+
+kdiagram 3.0.1 is an update to our charting libraries which fixes a bug in the cmake path configuration.  it also updates translations and removes some unused qt 5 code.
+url: https://download.kde.org/stable/kdiagram/3.0.1/
+sha256: 4659b0c2cd9db18143f5abd9c806091c3aab6abc1a956bbf82815ab3d3189c6d
+signed by e0a3eb202f8e57528e13e72fd7574483bb57b18d jonathan esk-riddell jr@jriddell.orghttps://jriddell.org/esk-riddell.gpg
+
+
+
+
+posted on 18/12/2023xwayland video bridge 0.4 
+
+an updated stable release of xwayland video bridge is out now for packaging.
+https://download.kde.org/stable/xwaylandvideobridge/
+sha256 ea72ac7b2a67578e9994dcb0619602ead3097a46fb9336661da200e63927ebe6
+signed by e0a3eb202f8e57528e13e72fd7574483bb57b18d jonathan esk-riddell <jr@jriddell.org>https://jriddell.org/esk-riddell.gpg
+changes
+also skip the switcherdo not start in an x11 session and opt out of session management
+
+
+
+
+posted on 13/12/202313/12/2023british canoeing surf kayak leader assessment 
+
+i did my surf kayak leader assessment with paul bramble in south west wales and pleasingly i passed. i booked on not quite knowing what to expect, there wasn’t much pre course information and it was mostly because because the date was convenient.  turns out wales is beautiful and has great surf beaches, the geography allows for some more access to the atlantic waves and it feels like there’s more of a community down there than in scotland where surf can be so sporadic.
+i had not done any formal training as none seemed to be available, this discipline is such a niche you just have to take your changes when you get them.  but in the past i’ve done uncertified safety days with folks in scotland as well as slsgb training and of course whitewater leading is very similar you just have to be aware of the differences.
+for revision it’s worth reading the slsgb beach environment training aid available online.
+i had one other person being assessed and together we reviewed the nearby beaches and picked the best one where the forecast was good, the weather was fine, the tides known, the parking available.
+we had three students who were all sea kayakers but had done occasional surf and interested in more which is just the sort of person needed for this.  i lead with introductions, experience, abilities, motivation, moving kit around, safety protocols.  there’s not much safety protocols available in surf kayaking, generally if there’s a problem then folks need to get into the beach which can be hand signal, waving paddle in the air or single whistle.  otherwise if a paddler thinks they might crash into another person then they should capsize.  we checked all boats had buoyancy bags in them and i did a warm up.
+fellow candidate fran accompanied the students onto the water at first while i watched from the beach.  i had suggested staying in the white waves at first but the students didn’t seem to want that and were happy going behind the waves straight away which was fine but i guess clearer discipline there would be better.
+i took photos (the most important role) and watched for any swimmers but everyone seemed able to roll fine as needed.
+i did run a brief mini-coaching session talking about take off on the waves, it’s supposed to be a lead day without coaching but all days will include some chat about what we’re doing and how to improve.
+i did a rescue from the beach of an unconscious paddler from behind the waves which is very hard work.  i chose to jump in my kayak for this which is risky as you might not do a smooth launch but i did and it allowed me to bring him back some of the way dragging with my sling and carabiner before i jumped out my boat to drag him back in and up the beach.
+i did a deep water rescue of a swimmer, this is very tricky with surf kayaks which tend to be low volume.  i managed it with having the swimmer step over my boat into his then two of us hold the front of his boat down to stop water entering his boat from the back.  
+at one point a confusing scenario happened where a student had a dislocated shoulder and we brought them in, it wasn’t expected and we didn’t manage it very well but it was sprung on us without any warning, although i suppose that’s real life.
+i failed to bring my first aid kit or phone onto the beach which was a mistake.  i also had lost my watch which was poor leadership although i worked out my camera could tell the time and nobody else seemed to have a watch.
+a lovely day’s paddling for sure.
+
+
+
+
+
+
+
+
+posted on 29/11/2023kdiagram 3.0.0 
+
+kdiagram is two powerful libraries (kchart, kgantt) for creating business diagrams.
+version 3.0.0 is now available for packaging.
+it moves kdiagram to use qt 6.  it is co-installable with previous qt 5 versions and distros may want to package both alongside each other for app compatibility.
+url: https://download.kde.org/stable/kdiagram/3.0.0/sha256: 6d5f53dfdd019018151c0193a01eed36df10111a92c7c06ed7d631535e943c21
+signed by e0a3eb202f8e57528e13e72fd7574483bb57b18d jonathan esk-riddell jr@jriddell.orghttps://jriddell.org/esk-riddell.gpg
+
+
+
+
+posted on 29/11/202329/11/2023kweathercore 0.8.0 
+
+kweathercore is a library to facilitate retrieval of weather information including forecasts and alerts.
+0.8.0 is available for packaging now 
+url: https://download.kde.org/stable/kweathercore/0.8.0/sha256: 9bcac13daf98705e2f0d5b06b21a1a8694962078fce1bf620dbbc364873a0efessigned by e0a3eb202f8e57528e13e72fd7574483bb57b18d jonathan esk-riddell <jr@jriddell.org>https://jriddell.org/esk-riddell.gpg
+this release moves the library to use qt 6.  it is not compatible with older qt 5 versions of the library so should only be packaged when kweather is released or in testing archives.
+
+
+
+
+posted on 8/11/20238/11/2023qqc2-breeze5-style 6 alpha 
+
+qqc2-breeze5-style is a theme used by plasma mobile.  this alpha release is a re-bundling of the plasma/5.27 branch of qqc2-breeze-style.  it is for use by distros shipping alpha releases of plasma 6 so that qt 5 apps continue to be themed appropriately.
+url: https://download.kde.org/unstable/qqc2-breeze5-style/
+sha256: 813f9da4861567e70d1eccf3a3a092d802ac9475a91070fb47fa8766f3c1e310
+signed by e0a3eb202f8e57528e13e72fd7574483bb57b18d jonathan esk-riddell <jr@jriddell.org>https://jriddell.org/esk-riddell.gpg
+
+
+
+
+posted on 8/11/202310/11/2023oxygen icons 6 alpha released 
+
+ oxygen icons is an icon theme for use with any xdg compliant app and desktop.
+it is part of kde frameworks 6 but is now released independently to save on resources.
+this is the first (and likely only) pre-release, versioned 5.245.0, and it will have a stable release alongside kde frameworks 6 in february.
+distros which ship this version can drop the version released as part of kde frameworks 5.
+sha256: b082a1a9a6d06cdeee2863555951609e95dd499f133035d04719a16f8500497f
+url: https://download.kde.org/unstable/oxygen-icons/
+signed by e0a3eb202f8e57528e13e72fd7574483bb57b18d jonathan esk-riddell <jr@jriddell.org>https://jriddell.org/esk-riddell.gpg
+
+
+
+
+
+posted on 7/11/20239/11/2023kdsoap ws-discovery client 0.3.0 
+
+this project is trying to create a ws-discovery client library based on the kdsoaplibrary.
+the name is short for klarälvdalens datakonsult ab simple object access protocol web services addressing discovery client
+it is used by the smb kio worker from kio-extras.
+kio-extras will have two releases as part of kde’s 6th megarelease, one for qt 5 and one for qt 6.  distros should build and ship both versions of kio-extras but the qt5 build should use an internal static copy of kdsoap-ws-discovery-client so does not need to be built separately.  the qt 6 build of kio-extras does need this external build of kdsoap-ws-discovery-client.  distros will need an up to date copy of kdsoap library https://github.com/kdab/kdsoap/tags.
+sha 256: 5007747f1ce607639bb63244f8894c03a15194c0a891b8d85e10d76dbdf79188url: https://download.kde.org/unstable/kdsoap-ws-discovery-client/signed by e0a3eb202f8e57528e13e72fd7574483bb57b18d jonathan esk-riddell <jr@jriddell.org>https://jriddell.org/esk-riddell.gpg
+
+
+
+
+posted on 3/11/2023xwayland video bridge 0.3 
+
+# xwayland video bridge  (xwaylandvideobridge)
+the first stable release of xwayland video bridge is out now for packaging.
+https://download.kde.org/stable/xwaylandvideobridge/
+sha256 f8da6e8fe0ec3bd5ea797af8aad8fe1daab36fc3c77e2d36bb7443832cdfcffa
+signed by e0a3eb202f8e57528e13e72fd7574483bb57b18d jonathan esk-riddell <jr@jriddell.org>https://jriddell.org/esk-riddell.gpg# aboutby design, x11 applications can’t access window or screen contents for wayland clients. this is fine in principle, but it breaks screen sharing in tools like discord, ms teams, skype, etc and more.this tool allows us to share specific windows to x11 clients, but within the control of the user at all times.# how to usexwaylandvideobridge should autostart on login.  it will run in the background. next time you try to share a window a prompt will appear.the previously selected window should now be available for sharing. the title will always be “wayland to x11 bridge” no matter what window is selected.the system tray icon provides finer control.# use outside plasmathis should work on any desktop that supports the xdg desktop portals and pipewire streaming and have a working system tray.# futureideally this should be more automatic, but this tool aims purely to serve as a stop-gap whilst we wait for these clients to get native wayland support and for the surrounding wayland protocols to be better. how much more it gets developed depends on feedback and how the surrounding ecosystem evolves.
+
+
+
+
+posted on 2/11/20232/11/2023kuserfeedback 1.3.0 
+
+kuserfeedback is a library for collecting user feedback for apps via telemetry and surveys.version 1.3.0 is now available for packaging.
+this version adds the option to build it for qt 6.  it can also be built for qt 5 and distros may want to package it twice, however this will mean handling some overlapping files and most apps which use it will be ported to qt 6 as part of the kde 6 megareleases in february so distros may prefer to drop qt 5 builds then.
+sha256 252308b822dd4690ea85ab1688c9b0da5512978ac6b435f77a5979fc1d2ffd13
+url https://download.kde.org/stable/kuserfeedback/
+signed by e0a3eb202f8e57528e13e72fd7574483bb57b18d jonathan esk-riddell <jr@jriddell.org>https://jriddell.org/esk-riddell.gpg
+* new release 1.3* add cc0-1.0 license* do not look for qthelp if docs are disabled* remove unneeded setting of cmake policies, implied by requiring 3.16* add flatpak ci* bump minimum cmake version to 3.16* add explicit moc includes to sources for moc-covered headers* remove designer&#39;s &quot;.&quot; normaloff file data from icon properties in .ui files* use latest-kf6 branch for qt6* in qt6 plugin name is kuserfeedbackqmlqt6* php 8 compatibility* fix qt 6 build of php-dependent unit tests* categoryaggregationmodel* fix include form (use &quot;&quot; instead of &lt;&gt;) for provider.h* remove forward declaration as include is already defined* fix debug message* autogenerate debug categories* create logging_p.cpp directly* fix show headers in qtc6* compatibility is not necessary now* kuserfeedback_version.h was not installed* fix compatibility (install temporary include in kuserfeedback too)* add warning about removing compatibility* show all headers in includes* kuserfeedbackconsole is an internal static lib too* not necessary here as it&#39;s an internal static lib* fix install target file* allow to co-install* port to new syntax* add qt 6 android ci* typos–* add qt6 windows ci support* hide finding docs dependencies behind enable_docs* install translations* qtversionsource: fix qt 6.5 build* avoid invalid lastx times* .gitlab-ci.yml: enable static builds* add it to ci qt6 bsd* fix cmakename in metainfo.yaml* tell no data has been sent if no data has been sent* give the dialog an actual title* remove duplicate header between cpp/h files* add windows ci
+
+
+
+
+posted on 2/11/20232/11/2023libqaccessibilityclient 0.5.0 
+
+libqaccessibilityclient 0.5.0 is out now. the release adds qt 6 support. libqaccessibilityclient is used by kmag and kwin both of which have forthcoming releases that are ported to qt 6 so there should be no need for distros to build two versions.
+https://download.kde.org/stable/libqaccessibilityclient/libqaccessibilityclient-0.5.0.tar.xz
+signed by e0a3eb202f8e57528e13e72fd7574483bb57b18d jonathan esk-riddell <jr@jriddell.org>https://jriddell.org/esk-riddell.gpg
+
+* new release: new version and new ecm url* bump min required qt6 to 6.5* port away from deprecated operator+(qt::modifier modifier, qt::key key* port away from deprecated qvariant::type* add explicit moc includes to sources for moc-covered headers* use ecmdeprecationsettings* have export macros header include version header (qt6-only)* use qaccessibilityclient6 as package name for qt6 version* use variable to hold cmake config name, also targets file name* install headers into qaccessibilityclient/ visibility layer* move version setup into src/ subdir* use generic target name for generated library* move library target property setting next to declaration* move cmake config template file into src/ subdir* remove unimplemented methods* use ecm master when building for qt6* use camelcase includes* fix finding the unit test helper executable* add freebsd qt6 ci support* add gitlab ci* remove duplicate header between cpp/h files* we depend against qt5.15* use -qt6 when we build against qt6* fix find_package* fix signals* adapt build system for building against qt6* it&#39;s already define in ecm* make compile with strict compile flags* make building without deprecated methods* fix some compile error* add ci definitions information for seed job* use more target-centric cmake code* use generateexportheader* remove module prefixe from qt includes* do not use deprecate qflatgs(nullptr) constructor* fix member init order to match definition order* clean up include dirs* convert license statements to spdx expressions* add support for accessibleid property* update readme.md a bit* support api documentation generation with kapidox* remove the references to projects.kde.org* fix qstring minor optimization* port setmargins* use only undeprecated kdeinstalldirs variables* kdecmakesettings already cares for cmake_automoc and build_testing* fix use in cross compilation* q_enums -> q_enum* more complete release instructions
+
+
+
+posts navigation
+page 1
+page 2
+…
+page 18
+next page  
+
+
+
+
+
+recent posts
+
+
+git revert name and akademy
+12/9/2024
+
+
+openuk awards 2024
+10/9/2024
+
+
+plasma pass 1.2.2
+25/2/2024
+
+
+oxygen icons 6 released
+21/2/2024
+
+
+kdsoap ws-discovery client 0.4.0
+21/2/2024
+
+
+ruqola 2.1.0
+9/2/2024
+
+
+ruqola 2.1 beta
+17/1/2024
+
+
+openuk’s 2024 new year’s honours list
+16/1/2024
+
+
+ktextaddons 1.5.3
+11/1/2024
+
+
+kdiagram 3.0.1
+8/1/2024
+
+
+xwayland video bridge 0.4
+18/12/2023
+
+
+british canoeing surf kayak leader assessment
+13/12/2023
+
+
+kdiagram 3.0.0
+29/11/2023
+
+
+kweathercore 0.8.0
+29/11/2023
+
+
+qqc2-breeze5-style 6 alpha
+8/11/2023
+
+
+oxygen icons 6 alpha released
+8/11/2023
+
+
+kdsoap ws-discovery client 0.3.0
+7/11/2023
+
+
+xwayland video bridge 0.3
+3/11/2023
+
+
+kuserfeedback 1.3.0
+2/11/2023
+
+
+libqaccessibilityclient 0.5.0
+2/11/2023
+
+
+archives
+
+september 2024
+february 2024
+january 2024
+december 2023
+november 2023
+july 2023
+may 2023
+april 2023
+march 2023
+november 2022
+october 2022
+august 2022
+june 2022
+april 2022
+february 2022
+january 2022
+november 2021
+october 2021
+september 2021
+may 2021
+april 2021
+march 2021
+february 2021
+december 2020
+november 2020
+september 2020
+august 2020
+july 2020
+june 2020
+may 2020
+april 2020
+march 2020
+february 2020
+january 2020
+december 2019
+november 2019
+september 2019
+august 2019
+june 2019
+may 2019
+april 2019
+march 2019
+february 2019
+december 2018
+november 2018
+september 2018
+august 2018
+july 2018
+may 2018
+march 2018
+february 2018
+october 2017
+september 2017
+august 2017
+july 2017
+june 2017
+april 2017
+march 2017
+february 2017
+january 2017
+december 2016
+november 2016
+october 2016
+september 2016
+august 2016
+july 2016
+june 2016
+may 2016
+april 2016
+march 2016
+february 2016
+january 2016
+december 2015
+november 2015
+october 2015
+july 2015
+june 2015
+may 2015
+april 2015
+march 2015
+january 2015
+december 2014
+november 2014
+august 2014
+may 2014
+february 2014
+january 2014
+december 2013
+october 2013
+june 2013
+april 2013
+march 2013
+december 2012
+february 2012
+december 2011
+november 2011
+september 2011
+february 2011
+december 2010
+november 2010
+august 2010
+may 2010
+april 2010
+march 2010
+december 2009
+november 2009
+october 2009
+june 2009
+may 2009
+april 2009
+march 2009
+january 2009
+november 2008
+september 2008
+july 2008
+june 2008
+may 2008
+april 2008
+march 2008
+february 2008
+december 2007
+november 2007
+october 2007
+april 2007
+january 2007
+october 2006
+august 2006
+april 2006
+january 2006
+december 2005
+september 2005
+august 2005
+july 2005
+may 2005
+april 2005
+february 2005
+january 2005
+december 2004
+november 2004
+october 2004
+september 2004
+august 2004
+july 2004
+
+
+
+
+
+
+
+
+		proudly powered by wordpress	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

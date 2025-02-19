@@ -1,0 +1,532 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+the eudora™ email client source code - chm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+donate
+tickets
+
+
+menu
+
+
+
+
+
+
+
+explore
+
+overview
+collections
+timelines
+blogs
+stories
+playlists
+podcast
+activities & resources
+ 
+
+
+visit
+
+overview
+plan your visit
+exhibits
+tours
+group visits
+events
+venue
+ 
+
+
+about
+
+overview
+this is chm
+awards
+programs
+news
+leadership
+ 
+
+
+join & give
+
+overview
+membership
+ways to give
+donor recognition
+institutional supporters
+volunteers
+ 
+
+
+
+
+
+
+
+
+
+search 
+
+
+
+
+
+
+donate
+
+
+tickets
+
+ 
+
+
+
+
+hours & admission
+
+
+subscribe
+
+ 
+
+
+
+
+
+
+
+search for:
+
+
+
+
+or search the collection catalog
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+home  chm blog  from the collection
+the eudora™ email client source code
+by leonard j. shustek |
+                may 22, 2018
+
+
+
+
+
+
+
+
+
+
+
+
+
+share
+
+
+
+
+
+software gems: the computer history museum historical source code series
+
+electronic mail is one of “killer apps” of networked computing. the ability to quickly send and receive messages without having to be online at the same time created a new form of human communication. by now billions of people have used email.
+email has a long and storied history, dating back to mit’s compatible time sharing system (ctss) and the us government’s autodin in the early 1960s. these early systems, which often used propriety communications networks and protocols, were generally incompatible with each other; you could only exchange mail with people using the same system.
+the first email on the arpanet (the predecessor of today’s internet) was sent by ray tomlinson in 1971, and mail formats became standardized (rfc 524, rfc 561) soon thereafter. in the 1980s, the post office protocol for tcp/ip codified the communication between email clients (which run on the user’s computer) and the email server (where messages are received from other systems and stored), so that there could be independent implementations of both on different computers and operating systems.
+eventually many email clients were written for personal computers, but few became as successful as eudora. available both for the ibm pc and the apple macintosh, in its heyday eudora had tens of millions of happy users. eudora was elegant, fast, feature-rich, and could cope with mail repositories containing hundreds of thousands of messages. in my opinion it was the finest email client ever written, and it has yet to be surpassed.
+i still use it today, but, alas, the last version of eudora was released in 2006. it may not be long for this world. with thanks to qualcomm, we are pleased to release the eudora source code for its historical interest, and with the faint hope that it might be resuscitated. i will muse more about that later.
+how eudora came to be
+in the 1980s, steve dorner was working at the computer center at the university of illinois at urbana-champaign.
+vf9eurzznww
+
+“i started eudora in 1988, at the university of illinois, about four years before i came to qualcomm. we began it because the internet was a growing and burgeoning place, but email was not really established on the desktop computers that people were using at the time. it was something that you logged in to some mainframe computer to do, and with the ease of use that the desktop operating systems brought, that just wasn’t the right way for people to do email anymore.”
+
+it took dorner just over a year to create the first version of eudora, which had 50,000 lines of c code and ran only on the apple macintosh. like many university-produced programs, it was available to anyone for free.
+why did he call it eudora? dorner explained for a 1997 article in the new york times cybertimes that it was because of a short story he had read in college: “why i live at the p.o,” by mississippi writer eudora welty. working intently on an email program, dorner said “i felt like i lived at the post office.”
+in 1991, qualcomm, a communications company in san diego famous for cdma cellular communications technology, licensed eudora from the university of illinois. dorner was eventually hired by them to continue to develop it, working remotely from his home in illinois.
+qualcomm’s motivations were several. they knew that the internet would fuel the need for wireless data, and they thought that email would be one of the drivers. they also thought it prudent to diversify beyond ics for wireless technology into software applications.
+
+but eudora as a mac-only product wouldn’t cut it. qualcomm project manager john noerenberg assigned jeff beckley and jeff gehlhaar in san diego the task of making an ms-dos and then a windows version of the program. “the style of the company was to put an ms-dos or macintosh computer on each employee’s desk—whichever most suited their needs and their personal preference,” he said. “we required email software that was internet-savvy, and platform agnostic. there wasn’t anything commercially available that satisfied either of those goals, much less both.”
+initially eudora was only used internally at qualcomm. it was well-received. noerenberg heard one financial executive at qualcomm saying, “i used to hate email. but i love eudora!!” and observed, “it was at that moment i realized we were on to something.”
+the company later said, “as a leader in developing and delivering digital communications, qualcomm recognized email as an important communications tool for the future,” and they released it as a consumer product in 1993. the eudora team at qualcomm expanded quickly from the initial four to a moderately large product group, and at its peak was over 50 people.
+the rise of eudora
+the qualcomm version of eudora was originally available for free, and it quickly gained in popularity. to get a feel for the user community, beckley called it “postcard-ware” and asked people to send him a postcard if they liked it. “i got thousands of postcards from all over the world. . . . there was this great feeling about the software, and everybody really loved it.”
+“but,” noerenberg recalls, “postcards don’t pay the bills.” he faced management pressure to stop spending money on a free product. “in 1993 i hatched the idea that if we could somehow convince qualcomm there was money in an internet software business, we could turn this into a product and we’d get to keep doing what we loved.”
+eudora was soon commercialized as a paid version for $19.95. there was still a free version, now supported by advertisements. by 2001, over 100 person-years of development had been invested in the windows and macintosh versions. the paid version eventually sold for as much as $65, and it was aggressively marketed by qualcomm.
+  
+the demise of eudora
+after 15 years, qualcomm decided in 2006 that eudora was no longer consistent with their other major project lines, and they stopped development. a likely factor was the increasing adoption of microsoft outlook as an email client for corporations. outlook was preloaded for free on many pcs, and companies often standardized on it along with the rest of the microsoft suite of office productivity products. other free email clients were also available. so regardless of how successful eudora was, it was never going to be a business big enough to “move the needle” for a company of qualcomm’s size.
+the last qualcomm versions of eudora, 7.1.0.9 for windows and 6.2.4 for macintosh, were released on october 11, 2006.
+to provide a “soft landing” for the millions of eudora users, qualcomm generously sponsored the creation of a new compatible open-source version based on mozilla thunderbird. for some time they paid the salaries of the programmers working on it, which included steve dorner, jeff beckley, dale wiggins, geoff wenger, matt dudziak, and mark charlebois.
+a beta of the new version 8.0 was released in august 2007. but it was panned by the eudora faithful, in part because it had both a different look and feel and an incompatible mailbox data format. the production version 1.0 of what was renamed “eudora ose” (open source edition) was released in september 2010, but fared no better.
+jeff beckley mused that “classic eudora had many years of very detailed design and implementation in it. there are a lot of little things that go on behind the scenes, or at least very subtly visible to the user. users come to depend on those subtle interactions, and, when they aren’t there, it just feels different.”
+after a few more years of intermittent work, the project for an open-source eudora collapsed.
+the last qualcomm windows version of eudora continues, with some glitches, to work well under windows 10. the apple macintosh version, unfortunately, did not survive the transition to the modern mac processors and operating systems, and can now only run using emulators.
+eudora’s legacy
+it’s hard to overstate eudora’s popularity in the mid-1990s. the april 22, 1996 infoworld article announcing the release of eudora pro 2.0 called it qualcomm’s “best-selling product,” and said that “according to international data corp. (idc), qualcomm claimed 64.7 percent of all e-mail software revenues in 1995.” a later exhibit about eudora in qualcomm’s company museum observed that “by 1996 eudora had 18 million users, making it the world’s most widely used internet email software at the time.”
+even though it has mostly faded away, eudora had a lasting impact. as dorner says, “it had a great effect on how people do email even today. there are concepts that we introduced, which we were the first to do, that are now a standard part of any email client out there.”
+the eudora source code
+the discussion with qualcomm for the release of the eudora source code by the museum took five years. in the end, they decided not to simply grant a license, but to transfer ownership of the code, the eudora trademarks, the copyrights, and the eudora domain names to the computer history museum (chm). the transfer agreement allows us to publish the code under the very liberal bsd open source license, which means that anyone can use it for either personal or commercial purposes.
+the source code we are distributing is what we received from qualcomm, with only the following changes:
+
+addition of the chm copyright notice and the bsd license
+sanitization of “bad words”, mostly in comments, as requested by qualcomm
+removal of third-party software that neither the museum nor qualcomm has the right to distribute
+
+the windows version of eudora is written in c++. the source tree consists of 8,651 files in 565 folders, taking up 458 mb. there are both production (“eudora71”) and test (“sandbox”) versions of the code.
+the macintosh version of eudora is an entirely different code base and is written in c. the source tree consists of 1,433 files in 47 folders, taking up 69.9 mb.
+view license agreement and download source code
+the license for the code allows you to use the code for free, with or without modifications, for personal or commercial use, as long as the copyright notices, the list of conditions, and the disclaimers are retained in the code. the license does not allow you to use any of the trademarks or domain names related to eudora, including eudora™, www.eudora.com, and www.eudora.org.
+reviving the windows version of eudora
+although eudora became unsupported as of 2006, some of us are in denial and still use it as our primary email client. i have over 350,000 archived messages in the windows eudora format going back to 1997, along with 28,000 embedded images and 33,000 saved attachments. i run it with only minor problems under windows 10.
+i know of no other email client that can manage repositories that large and search them so quickly. i spend hours each day using eudora to read and send email. i can do a complex search for anything in the 20 years of archived email in under a minute. it will be a sad day when i have to give it up.
+are there others like me? we have no way of knowing how large the community of current eudora users is. if you would like to contribute to a short informal poll about your current and past eudora usage, please fill out the survey here.
+are you a eudora user, past or present? participate in our survey!
+[flash: see the section at the end for preliminary survey results.]
+i do hope that someone, or some group, or some company, will adopt the windows eudora source code and revive it as a supported program. the computer history museum cannot do that. only the eudora fan base can.
+it won’t be easy. the tasks in reviving the windows version include replacing several third-party libraries for isolated tasks, like spell-checking. the html rendering engine should be replaced with something more modern. the handling of unicode and other special character encoding needs to be improved.
+also, the windows version uses a qualcomm-modified version of roguewave software’s stingray package of extensions to mfc, the microsoft foundation class library for c++. after more than three years of discussion, we finally secured an agreement with roguewave, giving us permission to distribute a binary linkable library compiled from the 20-year-old source code, but only for noncommercial use. that library is not currently part of this release, but we will build and distribute it if there is credible interest in rebuilding a noncommercial windows version of eudora. but it will take some effort to make the changes to the roguewave source code necessary to compile it in a modern development environment, and we could use help in doing that.
+reviving the macintosh version of eudora
+the macintosh version, because it is based on an older processor and operating system, would be harder to resuscitate. it would have to be substantially rewritten for the current mac environment. but not much is beyond the capability of motivated and clever programmers. have at it.
+long live eudora!
+acknowledgements
+
+thanks to qualcomm, wintertree, and roguewave their various permissions.
+thanks to grady booch, steve jasik, and jennifer stanley of fenwick & west for their help.
+thanks to steve dorner, jeff beckley, and john noerenberg for their encouragement and participation in this multiyear odyssey to release the code, and for creating eudora in the first place. you should be very proud of what you did.
+
+preliminary survey results
+we received about a thousand survey entries in the first two weeks. here are some highlights:
+
+40% of respondents (401) are using eudora now; 85% windows and 21% mac. (so 6% use both?)
+most are long-time users: 10-20 years or more
+many users have huge archives: “tens of thousands”, “over 300,000″, “billions” (?!)
+only 6% are experienced and interested c++ programmers (2/3 windows, 1/3 mac)
+about 95% of responders (not surprisingly) used eudora at one time, about 50/50 windows vs mac
+the reason for stopping to use it vary widely: not supported, won’t run on macos x, problems with gmail, html issues, character set issues, company uses outlook, lack of security, webmail is more portable, wanted linux version, apple mail got better, it began to feel dated.
+the requested changes are mostly fixes or evolutionary improvements: modern os support, html, character sets, ssl certificate handling, new header handling, links to attachments, archiving of embedded images, encrypted email, calendar integration
+the majority of responders are in the us, but we also had responses from an amazing 36 different countries: canada, england, scotland, japan, italy, switzerland, portugal, malaysia, germany, thailand, australia, finland, israel, the netherlands, belgium, argentina, hong kong, greece, mexico, cuba, norway, south africa, lithuania, spain, russia, sweden, colombia, denmark, new zealand, czech republic, chile, nicaragua, hungary, croatia, romania, indonesia
+
+there were many exuberant comments about using eudora; here are a few samples:
+
+it was, and always has been my favorite e-mail client. i would use it in a heartbeat, if it were to come back to life!
+please, i want the old eudora back…
+an awesome email client
+i loved eudora for nearly 15 years, and would love to see it reincarnated. today’s email clients are still inferior in comparison
+eudora’s one of the very few bits of software i use every single day.
+there is nothing to be changed. it is the best software ever, ever, ever. i don’t need the crap about groups and social media associations and other high tech sharing stuff. i want eudora the way it has always been and especially the ability to look up an email from 1999 in 2 seconds with part of a keyword!
+this is a very old love affair with eudora.
+i loved eudora
+i haven’t used it in a number of years, but can’t think of anything i’d change.
+it’s basically perfect.
+don’t know how to improve upon an already amazing program that i dearly wish was still available.
+i just would be happy if it continued to work as i knew it in the past!
+it’s what it had that i miss that bothers me, not what it didn’t have that i wanted.
+
+historical source code releases
+
+macpaint and quickdraw source code, july 18, 2010
+apl programming language source code, october 10, 2012
+adobe photoshop source code, february 13, 2013
+apple ii dos source code, november 12, 2013
+microsoft ms-dos early source code, march 25, 2014
+microsoft word for windows version 1.1a source code, march 25, 2014
+early digital research cp/m source code, october 1, 2014
+xerox alto source code, october 21, 2014
+electronic arts deluxepaint early source code, july 22, 2015
+
+recent developments
+as of september 2024 we know of only one ongoing effort to resuscitate eudora on the base of the released eudora 7 source code: eudoramail by hermes, which is currently undergoing alpha testing and is being sold on a pay-what-you-want basis.
+https://www.indiegogo.com/projects/hermes-eudoramail-8-0-the-final-stretch#/
+https://hermes.cx/
+we think well over a thousand people are still running eudora 7, the last qualcomm windows version. there are now several resources available that help mitigate the difficulty it has with changes in the networked email environment over the last 18 years.
+https://maclean.com/downloads\qcssl_update.zip (ssl fixes)
+https://github.com/lenshustek/eudora_fix_mbx (various patches and utilities)
+https://github.com/simonrob/email-oauth2-proxy (oauth2 proxy to authenticate with gmail and hotmail/outlook)
+mailto:join-eudora-win@hades.listmoms.net?subject=gazelle (to join a eudora version 7.1 email list)
+ 
+
+about the author
+
+
+
+
+len shustek is the founding chairman emeritus of the board of trustees of the computer history museum.
+
+
+
+
+
+
+join the discussion
+
+
+
+please enable javascript to view the comments powered by
+              disqus.
+
+
+
+
+
+
+
+
+
+related articles
+view all articles
+
+
+
+
+
+
+
+
+
+chm blog
+memories of lisa
+january 30, 2025
+
+
+
+
+
+
+
+
+
+
+chm blog
+hearing tech history
+october 22, 2024
+
+
+
+
+
+
+
+
+
+
+chm blog
+neural network chip joins the collection
+august 09, 2024
+
+
+
+
+view all articles
+
+
+
+
+share
+
+
+
+
+
+
+
+
+
+
+
+chm is a registered 501(c)3 organization. your donation is tax-deductible to the extent permitted by law.
+
+
+tax id 77-0507525.
+
+
+terms of use
+
+
+privacy
+
+
+© 2025 computer history museum
+
+ 
+
+
+
+
+
+
+press
+
+
+careers
+
+
+venue
+
+
+
+
+
+
+events
+
+
+exhibits
+
+
+donate
+
+ 
+
+
+
+hours and directions
+hours & directions
+1401 n. shoreline blvd.
+mountain view, ca 94043
+(650) 810-1010
+ 
+more contact info
+
+
+
+
+ 
+
+
+
+
+
+now showing! chatbots decoded: exploring ai. buy tickets now
+
+
+
+
+			x			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

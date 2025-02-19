@@ -1,0 +1,524 @@
+
+
+
+
+open source advocacy | mojavelinux.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mojavelinux.com: open source advocacy
+
+
+mojavelinux.com serves as a digital workplace for the thoughts, programs and ideas of an open source advocate, visionary and teacher, dan allen, so that they may be shared with the world. more »
+seam in action
+skip navigation
+
+home
+about
+archives
+articles
+projects
+portfolio
+reading
+wiki
+contact
+
+
+
+
+
+
+
+seam in action translations
+january 02, 2012
+a long overdue post, i'm still excited to share that seam in action was translated (in 2010) into korean and simplified chinese--two languages i can't even pretend to understand. it's pretty strange to see words that you spend countless hours revising look complete foreign to you. but exciting at the same time!
+
+these books arrived in a box that clearly looked like it came out of a shipping container that was aboard an ocean carrier. my goal is that sometime soon (2012 perhaps?) i'll get to travel to where these texts originated :) (but hopefully on an airplane).
+i have a whole stack of these books, so if you are in the dc area (or the us for that matter) and you want one of these books, just let me know. i'll mail it to you, free of charge.
+
+				posted at 03:00 pm in seam in action
+				|  permalink
+
+				| 
+comments (1)
+
+
+
+open letter to the jcp executive committee calling for jcp reform
+november 01, 2010
+seizing the opportunity of a new executive committee (ec) under a new regime, i'd like to issue a call for reform of the java community process (jcp) to allow it to produce more iterative and timely technology and live up to it's name as a "community process", rather than acting as the "corporate process" many believe it is today [1].
+goals and current problems
+the goal and of this call to action parallels a statement made by mark little, cto of jboss and member of the ec, in response to questions for the 2010 ec candidates [2].
+we believe that the ec still has an important role to play in the future of java, and working within the ec is the best place to push for change and improvements. java is certainly more "open" now than it was a decade ago, but it's not as open as [...] other standards bodies [omg, oasis, w3c and ietf]. we would like to see that change.
+indeed, the central problem with the current jcp is lack of transparency and openness. although the jcp defines itself as "the open, participative process to develop and revise the java technology specifications, reference implementations and test suites", it's not very open nor participative in practice. the community is almost entirely excluded when developing so called "open standards".
+the root cause of this problem is that the expert group (eg) mailinglists are not open to the public (save a few exceptions, notably jsr-303 and jsr-311). the mailinglists are where the bulk of the technology design takes place. the private mailinglists don't merely close the doors to the general public. eg members from one jsr can't even read the correspondence of another jsr.
+feedback is one directional, from community to eg. all the general public can see are the drafts of the jsrs. they don't know how the eg arrived at that draft, meaning they aren't able to study the discussions that went into it. the eg may reciprocate by publishing another specification draft, with or without the feedback incorporated.
+while companies and major java leaders are involved in the jcp, individuals from the java community have to really fight to be included or provide feedback. let us not forget the significance of their participation, as mark little points out.
+a strong jcp and a strong ec should be to the benefit of the entire java community and not just to a select few.
+the jcp also fails to respect the nature of software development. instead of following an iterative process, jsrs target big-bang releases that have no clear continuum to the next generation. these major shifts in the platform make it increasingly harder for consumers to carry out migrations. smaller releases would be easier to adopt. there are also huge lapses between releases, which is time for the technology to fall out of date.
+how can we expect to define a unified and consistent platform that integrates well if the technologies bundled are created in different campuses at different times? the decisions that occur behind close doors effectively turn off would be participants and consumers. the community becomes frustrated because they don't know what's going on.
+it's true that progress can emerge even from even a crippled process.  there's no doubt that java ee has been experiencing a revival since the release of java ee 6, but with no clear target for ee 7, how long can the honeymoon last? bill burke cites how a small company like red hat has been able to make a big impact on the jcp standards [3]. he provides this evidence to make the point that the jcp is salvageable. great, so let's salvage it and get it moving again.
+the call for reform
+i propose that the jcp redefine itself as:
+
+"an open, community-oriented standards organization that produces standard technical specifications for java technology in order to keep it competitive and to bring value and choice to businesses worldwide. these goals are achieved by honoring the nature of software development, which means fostering a collaborative, evolutionary process where change of all types (addition, revision and deprecation) is inevitable and standards are snapshots in a timeline along that evolution.
+standards produced by this process are published under and open, non-clickthrough license, which applies to the specification documents, the apis, the reference implementations (ris) and the compatibility test suites (tcks). a fair voting system is used to maintain a balance of power and there is complete openness of process and membership.
+the goal of this organization, above all else, is to produce timely, iterative, high-quality standards, which means never standing in the way of progress nor precluding proposals or ideas that may lead to a better way forward."
+
+to make it very clear what changes i'm calling for, i've itemized them below, ranging from "must have" to "nice to have".
+must haves:
+
+specifications must be published under and open, non-clickthrough license, which covers the specification documents, the apis, the reference implementations and the compatibility test suites
+specifications should be free to use and implement (no tck fees)
+specifications must provide a non-clickthrough specification document, stored in an open vcs system and easily viewable online by anyone (a nightly build of the spec would be sufficient of the document is created by for-pay software)
+specifications should be required to publish api binaries, sources, and javadocs to maven central
+specifications must have public issue trackers, open source tcks and public mailinglists for all jsrs, and require information about these resources to be public and easy to find
+expert groups (egs) should not be automatically disbanded after a final release of a spec (maintenance releases are an extremely important part of a jsr's evolution)
+maintenance releases should be easier to initiate (and get approved); the software process should be iterative
+names of individual representatives, and the company they represent, should be listed on the specification page; it should be clear who the representatives are
+there should be an official process for deprecating or removing a technology; old technologies currently die a slow unused death, dragging the platform down, and leaving complexity in its wake as vendors are required to pass the tcks; let's not hide behind the term "pruning"
+all specification communication must be considered public, and should be archived, unless initiated privately by a member of the community
+
+for accessibility:
+
+specification documents should be made available in html format for easy web access; pdfs should merely be one viewing option, not the only one
+specifications should provide end-user, user-case driven documentation for a technology (for instance like the first half of the weld reference guide and the java ee tutorial)
+decent and familiar social business software should be used for jcp.org to make it truly a community (jcp.org is extremely difficult to use and poorly organized)
+jcp.org should host all the specification artifacts (specification document, api, reference implementation and tck) (there is currently too much burden on developer to find them)
+specification artifacts should require no more than two clicks to begin said download, with no login required
+
+nice to have:
+
+periodic ec meetings should be open to the public
+platform releases (i.e., java ee) should occur at regular, scheduled intervals, every 6 months or so, with clear paths for ratification and deprecation of jsrs.
+the jcp should be an independent organization, similar in structure to the eclipse foundation; it should be run and funded by donations/investments rather than petty membership fees
+jsrs must be allowed to compete with each other, or standards evolution merely excludes and fragments participation within the java community (for instance, one view technology is not sufficient)
+
+support and endorsement
+the evidence of a general call for jcp reform is widespread.
+earlier this year, mark little, red hat's representative on the ec, called for a more open process, with everyone acting as peers. [4] he reinforced those statements in his follow-up to questions posed to the ec candidates. [2] ibm states on their standards page that they will "begin or end participation in standards bodies based on the quality and openness of their processes, membership rules, and intellectual property policies." [5] bob sutor has said that ibm expects to see "long needed reforms in the jcp [...] to make it more democratic, transparent, and open." [6] in an open letter from the cto of sap, vishal sikka, he calls for more openness in the jcp, saying "to ensure the continued role of java in driving economic growth, we believe it is essential to transition the stewardship of the language and platform into an authentically open body that is not dominated by an individual corporation." [7] darryl k. taft published an editorial in eweek outlining 15 guidelines for making java better, one of which included setting the jcp free. [8] doug lea made a firm statement a few weeks ago that the jcp is no longer a credible standards organization [9]. and we cannot forget the long-standing open letter from the apache software foundation to sun asking to have the ip rights restrictions on the java se tck removed. "[f]ailure to comply with your contractual obligations poses serious risk to the credibility of the jcp as an open standards organization, and the reputation of java itself as an open technology." [10]
+there are numerous other public statements on the web of calls for jcp reform.
+summary
+i'm calling for reform of the jcp. i want the jcp to be accountable to its namesake, a "community process." the fact that the jcp claims to be open but does not uphold this promise tarnishes it and causes people to lose trust. it's a tragedy that the technology is way ahead of the process.
+but hope is not lost. a few fundamental changes would drastically improve the effectiveness and credibility of the jcp. as mark little has said, "we would like to see the jcp continue to evolve and address those issues which we all know tarnish it."
+i hope that the new ec is brave enough to rise to this challenge.
+signed,
+
+dan allen
+lincoln baxter, iii
+this call to action represents my personal viewpoints. i am not speaking on behalf of my current employer, red hat.
+refer to the corresponding entry on petitiononline to find a count of the signatures.
+references
+
+http://www.javalobby.org/java/forums/t103921.htmlhttp://ocpsoft.com/java/why-doesnt-jpa-jma-jta-ejb-jsf-cdi-work-jee-is-too-complicated
+http://wiki.jcp.org/boards/index.php?t=5396
+http://bill.burkecentral.com/2010/10/26/jcp-is-salvagable
+http://www.computerworld.com/s/article/9171838/what_users_want_from_oracle_s_java_community_process?taxonomyid=63
+http://www.research.ibm.com/files/standards_wikis.shtml
+http://www.sutor.com/c/2010/10/ibm-joins-the-openjdk-community
+http://www.sdn.sap.com/irj/scn/weblogs?blog=/pub/wlg/16648
+http://www.eweek.com/c/a/application-development/15-ways-oracle-can-make-java-better-and-improve-its-stance-with-developers-271933/
+http://gee.cs.oswego.edu/dl/html/jcp22oct10.html
+http://www.apache.org/jcp/sunopenletter.html
+
+
+				posted at 02:32 pm in java
+				|  permalink
+
+				| 
+								comments off
+
+			
+
+
+curious how jsf loads without requiring a listener in web.xml?
+october 07, 2010
+i always wondered how mojarra (the jsf reference implementation) managed to initialize without requiring a servlet lifecycle listener entry (using the <listener> element) in web.xml. i figured it was either initializing on the first request or otherwise relying on some container integration. people would have likely complained already if the first approach was used, and the second doesn't make sense because mojarra boots even in a servlet container.
+i finally discovered the secret while trying to get jsfunit to work in jetty from an arquillian test. mojarra wasn't loading. i switched to myfaces and it also failed to start. but this time, i got an interesting error message along with it:
+java.lang.illegalstateexception: no factories configured for this application. this happens if the faces-initialization does not work at all - make sure that you properly include all configuration settings necessary for a basic faces application and that all the necessary libs are included. also check the logging output of your web application and your container for any exceptions!
+if you did that and find nothing, the mistake might be due to the fact that you use some special web-containers which do not support registering context-listeners via tld files and a context listener is not setup in your web.xml.
+aha! that's the ticket. the jsf implementations are using a tld file in the jsf  implementation to register the listener so that it doesn't need to be setup in web.xml!
+that prompted me to take a look at the javadoc for myfaces' startupservletcontextlistener. there, the full strategy is laid out.
+this context listener is registered by the jsp tld file for the standard jsf "f" components. normally, servlet containers will automatically load and process .tld files at startup time, and therefore register and run this class automatically.
+some very old servlet containers do not do this correctly, so in those cases this listener may be registered manually in web.xml. registering it twice (ie in both .tld and web.xml) will result in a harmless warning message being generated. very old versions of myfaces core do not register the listener in the .tld file, so those also need a manual entry in web.xml. however all versions since at least 1.1.2 have this entry in the tld.
+that prompted me dig into the documentation for the listener element in tld files. i learned that this capability was first introduced in jsp 2.0, part of java ee 5. the java ee 5 tutorial explains the function of the listener element as follows:
+a tag library can specify some classes that are event listeners. the listeners are listed in the tld as listener elements, and the web container will instantiate the listener classes and register them in a way analogous to that of listeners defined at the war level. unlike war-level listeners, the order in which the tag library listeners are registered is undefined. the only subelement of the listener element is the listener-class element, which must contain the fully qualified name of the listener class.
+the reason jsf wasn't loading in my arquillian jsfunit test was because i inadvertently left out the tld processor (taglibconfiguration) from the jetty context in the arquillian container adapter. i guess i now have motivation to add it back in ;)
+so now you know.
+
+
+				posted at 11:56 am in javaserver faces
+				|  permalink
+
+				| 
+comments (2)
+
+
+
+don't overlook this framework
+june 10, 2010
+during my long flight to frankfurt last month, i responded to an interview by jan groth about seam for the german java magazin. in the interview, i reflect on the value of open source, how i got involved in seam and where we are headed with weld and seam 3. i ended up writing so much (surprise, surprise) it had to be split into two parts. i justify my thoroughness in my first response:
+i'm going to be a little long-winded [...], but i think it's important to communicate what led me to seam because it says a lot about the software itself.
+the full, 2-part interview is available online at the jaxenter magazine website:
+
+part 1: i didn't want others to overlook this framework
+ part 2: cdi and seam 3 are the future of both the seam community and red hat
+
+in part 1, i share the thoughts i had after reading the seam reference documentation the first time:
+it's like the seam developers were reading my mind. [...] i felt like a kid in a candy store. i started banging out applications in no time and i was happy with how they looked.
+i go on to explain that it wasn't just enough for me to know about it. i wanted other to benefit too.
+i didn't want others to overlook this framework given how much it helped me. while the manual made sense, i knew it wasn't enough. [...] i decided to yell from the mountaintops by writing a series about it for ibm developerworks.the overwhelming feedback from that series made it pretty clear, someone needed to write a book about it (a higher mountaintop) that was going to explain every last detail. i took on that challenge (and believe me, it was quite a challenge.) [...]i quite literally immersed myself in hibernate, jpa, ejb 3, jta, jsf and java ee 5 in general. i came to appreciate the value of the platform, the remaining limitations and what seam had to do to fill in the gaps.
+i squeeze in a short review of the art of community at the end of the first part because it really sums up my vision of this project:
+the art of community is a truly inspiring book and it reminded me why i love doing what i do...it's really about the people and the ideas. we are not just writing software for the community and publishing it as open source. it's the community's software, solutions to problems that come from the real world. we want to support and foster that engine and the seam community liaison is the spark plug of the engine and ensures it's properly greased.
+part 2 dives more into the technical details and where we are headed.
+cdi and seam 3 are the future of both the seam community and red hat.
+i explain our standards strategy as a defender of choice:
+red hat is strong when the java ee platform is strong. our strategy does not depend on the platform remaining weak to justify the existence of our projects. it's quite the opposite. if we make one of our own projects obsolete, or some part of it, that's progress.
+to quote jay balunas, it's cyclic:
+find a void. fill the void. standardize the fill.
+i liken seam modules to jsf ui component libraries and explain how we will ensure portability:
+seam 3 is primarily built on the cdi portable extension spi, insulated from handling low-level concerns that run a high risk of breaking portability.one of the principal requirements of seam 3 modules is portability.the arquillian in-container test framework allows modules to be continuously tested against an array of application servers.
+but with the improvements to java ee, the question comes up whether seam is still needed:
+is java ee 6 a solid platform? yes. will you still need extensions? yes. and cdi was designed specifically to be able to root and foster such an ecosystem. you can even write your own extensions, which really wasn't possible with seam 2. now we just need a plug-in site ;)
+i'm very excited about all the innovation that is taking place in the jboss community right now and i encourage you to become a part of it. you never know where it will lead, but i can guarantee you it will open doors for you.
+this post is syndicated from my jboss community blog.
+
+				posted at 12:19 pm in java, seam, seam news, seam in action
+				|  permalink
+
+				| 
+comments (3)
+
+
+
+a concise and eloquent look at seam
+march 30, 2010
+despite all that i have written, explained and presented about seam, i often find myself struggling to sum it up in a few short breaths. fortunately, matt campbell does an superb job of defining the essence of what seam provides eloquently and concisely in his blog series an honest look at seam. (and i'm not just saying that because he credits seam in action as being his guide in his exploration of seam).
+
+an honest look at seam - part 1: how seam builds on spring
+an honest look at seam - part 2: the conversation
+an honest look at seam - part 3: learning seam
+
+in part 1, matt explains how the attention to scoping of components is what sets seam apart from spring and makes it more suited for the web environment. in my talks on java ee 6, i often say that jsr-299 (cdi) considers the scope of a bean (where it's stored) to be just as important as the component instance itself. speaking of java ee 6, matt does some comparisons of his own between seam and cdi.
+having established the importance of context, matt opens part 2 introducing the conversation scope. he quickly delves into the symbiotic relationship between this scope, the persistence context and the multi-request use case (which is just about any use case on the web). he raises the ever important issue of manual flush mode in hibernate and how it enables use of an optimistic transaction.
+matt takes a break from the theory in part 3 to address the developer's first experience with seam. he calms the anxiety a typical newcomer might have the first time the developer observes seam-gen churn out application. while some may appreciate the huge boast that a fully-functional application provides, the shear number of artifacts is daunting for those expecting "hello world". but as matt clarifies,
+there is a lot to seam, but not becuase seam itself is vastly huge and complex, but because seam integrates so many things together.
+so take your time and explore it all. use what parts you need and skip the parts you don't.
+in the future, rather than struggling to find the words to describe seam on a trip in an elevator, i'm just going to hand the interested listener a card with the url to these blogs on it ;)
+it's important to zero in on what seam 2 provides, especially as we look ahead to java ee 6 and the development of the seam 3 portable extension library. so regardless of where you are in your adoption of seam 2 or java ee 6, take a moment to read through these entries.
+
+				posted at 01:05 am in seam, seam news, seam in action
+				|  permalink
+
+				| 
+no opinions?
+
+
+
+why you didn't know the unified el is being updated
+august 02, 2009
+information about the proposed unified el update slated for java ee 6 is hard to come by, so i decided to put together a blog entry with some useful links.
+if you haven't heard yet, which is understandable given the lack of publicized information, the unified el is getting an update for java ee 6. the update consists of functionality we have all wanted for a long time. most notably, literal method names in value expressions for more flexible data retrieval and method arguments for both value and method expressions. to see examples of these feature enhancements, take a look at this blog entry by kim-man chung. (if you are using seam or spring web flow, you are already enjoying these enhancements courtesy of the jboss el).
+but you probably don't just want to take my word for it. you want to know where these enhancements are officially documented. that's the point of this entry :)
+let's start by looking at the big picture. the unified el is defined in part ii of the jsr 245: javaserver pages 2.1 specification, lead by kim-man chung. the maintainence release 2 of jsr 245 is the one on the ballot for java ee 6.
+i'll pause in anticipation of your pressing question. no, there is no dedicated specification for the unified el. (i'm lobbying for one, though). the unified el evolved out of jsp (where it was just the el) and was later adopted by jsf. it's just as much a part of jsf as it is a part of jsp, which is why the situation is so awkward right now.
+to find the proposed changes for the unified el, you have to look at the jsr 245 mr2 change log. specifically, focus your attention on the expression language page. believe it not, that's as official as it gets. trust me, the absence of process disturbs me too.
+great, so what about the implementation? can you try this stuff out? i had some difficulty finding that information too, but alas, i have more links for you.
+the reference implementation of the unified el is hosted at java.net. the project is named uel, short for unified el. there are several tags corresponding to beta releases in the subversion repository and the artifacts (jars) for most of the beta releases have been published to the java.net maven repository (el api, el impl). however, i can't find any announcements about these releases.
+the version of the unified el you are looking for is 2.1.2. "how did the version jump from 1.1 to 2.1.2?" you may ask. i happen to know the answer to this question because i was in the eg meeting at javaone in which kim-man chung gave a status update of the jsr 245 mr2 spec. he said that the version was bumped to align it with the jsp version, which will also be 2.1.2. given that the unified el should be it's own spec, this makes absolutely no sense, but at least you know the reasoning behind it (and don't think you missed a haf-dozen versions in between). i'm also not happy at all about the closed-door decision, but i digress.
+at some point, the unified el update will show up in glassfish v3. as far as i can tell, it is not bundled today (but could be by the time you read this). how can you tell if it's there or not? the el api can be found in the glassfish/modules/javax.servlet.jsp.jar file and the implementation is glassfish/modules/web/jsf-impl.jar. extract the jars and look at the meta-inf/manifest.mf or the pom.xml file to determine which version it is. you could also look for the presence of the javax.el.valuereference, which is a new class in the api.
+in case you were wondering, jboss el 2.0 is not (yet) and implementation of the unified el 2.1.2 api. stay tuned.
+so there you have it, information about the unified el update. i'm sorry this information is so hard to piece together. i think this would all be a lot simpler if el was its own spec and/or there was decent information published about jsp. oh, if the spec were actually open. the thing is, i don't give a care about jsp and frankly i want to divorce that spec in every way.
+update: i put together a formal list of proposed enhancements requested by the seam community on seamframework.org .
+update: ryan lubke also blogged about the unified el update for java ee 6. he included tips on how to update glassfish with the latest el build.
+update: the el spec document has been updated, making the changelog i cited above official. grab the el spec document from the "for evaluation" link on the jsr-245 maintenance release download page.
+
+			
+				posted at 01:46 am in java
+				|  permalink
+
+				| 
+comments (5)
+
+
+
+a game-changing maven 2 plugin you absolutely must use
+may 04, 2009
+ever since i first started using maven 2, i envisioned having a console in which i could execute life-cycle goals without having to incur maven's startup cost between every run. it just seemed to me such a waste for maven to build up the project object model (pom) from the pom.xml only to run a single sequence of goals and immediately shutdown. it also gives the impression that maven is slow. in fact, it's extremely slow when it's used in this way, especially multi-module projects. but it doesn't have to be if you take advantage of...
+the maven-cli-plugin
+today my vision has come true thanks to mr. don (and the ease of collaboration made possible by git). having a similar vision to mine, he wrote the maven-cli-plugin, hosted at github.com. this plugin uses the jline library to create an execution console for maven 2 (i.e., command shell), shown here:
+
+maven2>
+at the prompt you can issue maven 2 life-cycle phases or plugin goals. the console even supports tab completion of commands! in this entry, i'll explain how you setup and use this console to put maven into hyperdrive.
+technically, the plugin has two consoles. one is for executing maven 2 life-cycle phases, including all prerequisite phases, and the other is used to only run plugin goals (the life cycle is not executed). those are the same two ways you use maven 2 from your normal shell. in this entry, i'll be focusing on the execute-phase console.
+a fork in the road
+i was thrilled when i first discovered the plugin, but after giving it a shot i was disappointed to discover that it wasn't honoring profiles, which are a critical piece of the build (see issue 2). i didn't give up hope though. since mr. don had done most of the legwork in creating the plugin, i figured it wouldn't be that difficult for me to figure out why the profiles weren't working. sure enough, in under an hour i discovered the source of the problem and was able to apply a fix. that left me with the dilemma of how to distribute my changes. i wanted to be able to use the plugin in the seam 3 examples, so i couldn't just maintain a hacked version on my computer. github.com (and git) saved the day.
+following the process for creating a fork on github.com (for which they practically spoon feed you the instructions), i forked the code and committed my changes to a publicly accessible repository. you can access both the master tree and my forked tree. you'll need the version from my tree to use all the features i cover in this entry. hopefully mr. don will merge my changes into the master tree soon, but the fact that you can get my code today is a true testament to the influence git can have on open source collaboration.
+now let's "git" on with the presentation.
+getting started
+to get started, add a plugin repository where the maven-cli-plugin is hosted as a top level element in your pom.xml. i recommend using the jboss maven repository because it hosts my forked version.
+<pluginrepositories>
+    <pluginrepository>
+        <id>repository.jboss.org</id>
+        <name>jboss repository</name>
+        <url>http://repository.jboss.org/maven2</url>
+    </pluginrepository>
+</pluginrepositories>
+alternatively, you can publish the plugin to your local or company repository. grab the source from github.com or the binaries from the jboss maven repository. remember, you need my forked version until my features get merged in. follow the project at github.com to find out when that happens.
+next, define the maven-cli-plugin inside the build > plugins element in your pom. this just allows you to use the plugin prefix from the commandline, which is cli. you're also going to use this section to add some configuration options later.
+<plugin>
+   <groupid>org.twdata.maven</groupid>
+   <artifactid>maven-cli-plugin</artifactid>
+</plugin>
+with the setup out of the way, i'm going to demonstrate three reasons why this plugin is game-changing. by the end, i guarantee you'll be jumping out of your chair.
+#1 - speed
+let's face it, maven is dog-slow. that's because it has to parse that heap of xml the maven developers call a pom. then it has to figure out what it's supposed to execute. then it pings the internet for updates. then it enforces constraints. then it runs through all the precursor phases (likely including tests). and finally it arrives at the phase you really want it to execute.
+of course, some of those steps can be trimmed using various flags, switches, and properties. but that means having to type, and remember, a ridiculously long command that is just something no human should be expected to do. more on that later. let's deal with this startup cost once and for all.
+we'll begin by firing up the maven-cli-plugin phase executor console. you run it just like you would any other maven plugin:
+mvn cli:execute-phase
+after maven goes through it's normal loading process, you are presented with a command prompt:
+maven2>
+from here you can type any of maven's life-cycle phases, such as package, or a plugin goal (more on plugins later). give it a try:
+maven2> package
+the first time the life cycle executes, you'll see a noticeable improvement in speed. by the second execution, it's blazing fast! you can just feel years being added back to your life. power up!
+now it's time to extend the build with...
+#2 - profiles
+one of the most powerful features of maven is profiles. in fact, i think maven is pretty useless without them. that's because in maven, you really only have one "command" you can execute, the maven 2 life cycle. there must be a way, then, to instruct that execution pass to perform different steps along the way. that's what profiles are for. with a profile, you can hook additional plugins to a phase as a way to weave that extra behavior into the build.
+but we have a dilemma. profiles are typically activated from the commandline either explicitly using the -pprofile flag or through an activation, typically by assigning a property such as -dproperty=value. how can we set the profile once we are in the command console? this is where my contribution to the maven-cli-plugin comes in.
+the commands typed in the console are processed by the jline consolereader from the maven-cli-plugin, not by maven. that means we can allow any command we want, including flags like -p and -d. fortunately, maven was designed in such a way that an execution is isolated internally from parsing the pom. so it's possible to execute a life-cycle phase with a different set of profiles and properties, or even put maven into offline mode for a single execution, without having to start the console again.
+i hacked up the maven-cli-plugin to support the following flags:
+
+-p activates the profile specified immediately after the flag (no spaces); this flag can be used multiple times
+-d assigns a property specified immediate after the flag (no spaces) in the form name=value; this flag can be used multiple times
+-o puts maven in offline mode for a single execution; if not specified, will inherit the setting used to start the console
+-n instructs maven not to recurse into projects in the reactor
+-s skip tests, an alias for -dmaven.test.skip=true
+
+here's an example of a command you can issue:
+maven2> clean package -prun-integration-tests -o
+that would activate the run-integration-tests profile, run the clean plugin and the life cycle up to the package phase, all while executing maven in offline mode (to avoid checks for missing pom files, snapshots, and plugin updates).
+in addition, the maven-cli-plugin already supported specifying individual projects by artifactid. this allows you to execute a phase on a sub-project without having to descend into that project or use the -f flag.
+let's say you are working with an standard ear project and you want to build the war. to package just the war, you would either have to change into the war directory and execute maven or use the -f flag as follows:
+mvn -f war/pom.xml package
+with the maven-cli-plugin, you can accomplish the same thing using this command (note that "seam-booking-war" is the artifactid of the module):
+maven2> seam-booking-war package
+ah, the simplicity! and now, for the grand finale!
+#3 - aliases
+aliases are the holy grail of maven 2. when i switch people from ant to maven, the first thing they get annoyed about is the ridiculous commands they are required to type. to put it simply, if you want to run clean and package, there is no way to specify that with a single command. you have to type:
+mvn clean package
+things get worse with plugins. all plugin goals must be namespaced. that's because maven 2 technically supports any command in the world, as long as there is a plugin to execute it. to run jetty on a war project, for instance, you have to type:
+mvn run:jetty
+if you want to run clean, package, and then start jetty, you have to type:
+mvn clean package run:jetty
+let's say that you also need to expand the war in-place and you want to run offline. then the command becomes:
+mvn -o clean package war:inplace run:jetty
+i think you can see where this is going. when i first setup the booking examples for seam 3, the record for the longest commandline in the readme went to this command, which undeploys, packages, and redeploys an ear to jboss as:
+mvn -o -f ear/pom.xml jboss:undeploy && \
+  mvn -o package && \
+  mvn -o -f ear/pom.xml jboss:deploy
+uuuuugly! that's why the aliases feature of the maven-cli-plugin is absolutely game-changing (perhaps even life changing). in fact, combined with the other two features i have covered, they make maven 2 better and faster than ant, hands down. i'll go so far as to say that there has never been a faster, more convenient way to execute builds.
+so what is an alias? quite simply, a string of commands you would otherwise have to type in the console, aliased to a single word. you define them in the plugin configuration. here's an alias i put together to deploy an exploded ear archive to jboss as in the seam booking example:
+<plugin>
+   <groupid>org.twdata.maven</groupid>
+   <artifactid>maven-cli-plugin</artifactid>
+   <configuration>
+       <useraliases>
+           <explode>package -o -pexplode</explode>
+       </useraliases>
+   </configuration>
+</plugin>
+after starting up the console, the user only has to type one word:
+maven2> explode
+it's no longer even necessary to prefix commands with mvn (or ant in the old days). just one command. one word.
+the execute-phase console also supports direct execution of plugin goals. that means you can include them in the alias command. the only limitation is that when you include one in an alias, you have to specify the fully qualified name of the plugin (groupid:artifactid) before the goal rather than just it's prefix (e.g., org.codehaus.mojo:jboss-maven-plugin rather than jboss). this next alias invokes the harddeploy goal of the jboss-maven-plugin after packing the project.
+<useraliases>
+   <deploy>seam-booking-ear package -o org.codehaus.mojo:jboss-maven-plugin:harddeploy</deploy>
+</useraliases>
+you can even mix aliases with regular commands. perhaps you want to clean first:
+maven2> clean deploy
+i find it nice to alias commonly used built-in maven goals too, such as the one that lists the active profiles:
+<useraliases>
+   <profiles>org.apache.maven.plugins:maven-help-plugin:active-profiles -o</profiles>
+</useraliases>
+the maven-cli-plugin also provides a handful of built-in aliases.
+if this plugin isn't game changing, i don't know what is. all i can say as hell yeah!
+see the seam 3 booking example to see this plugin in action and read additional commentary.
+update: there is also a cli client for intellij idea that can invoke builds remotely. of course, the plugin supports this from the commandline too.
+update: i should also mention that this is a great way to debug maven since you get an opportunity to attach a debugger before executing a command. first, set the maven_opts environment variable:
+maven_opts="-xdebug -xnoagent -djava.compiler=none -xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n"
+then run cli:execute-phase, attach a debugger (port 8787 in this case) and execute a command.
+
+				posted at 02:18 pm in java, programming, usability
+				|  permalink
+
+				| 
+comments (38)
+
+
+
+30 certainly was something
+april 02, 2009
+what a year! there's no question that year 30 was the most eventful and life changing year of my life to this point. i truly feel like i have grabbed life by the horns and got it steered in the direction i really want it to head.
+by far, the biggest accomplishment of the year was getting seam in action published. but writing my first book was the catalyst for many of the other events that took place. from start to finish of year 30, i presented for the first time at a software conference, which led to a half a dozen speaking engagements, more travel than i've ever done in one year, including my first ever trip to europe, and the chance to meet a lot of prominent industry leaders. writing the book also helped me be more prolific. i passed my 100th blog entry and posted 1000 tweets on twitter, which i began using just before javaone. the gutsiest and most permanent decision i made all year was deciding to get lasik, and in the words of tiger woods, "the results were fantastic". what follows is an account of this passage into my 30 somethings, most of which can be found in my tweet archive.
+[ continue reading » ]
+
+				posted at 10:27 am in personal, seam in action
+				|  permalink
+
+				| 
+comments (2)
+
+
+
+chariot tech cast: seam interview part 2
+march 17, 2009
+i didn't expect ken rimple for chariot solutions to be so quick in getting up part 2 of my seam interview, which i introduced in a previous entry, so you get two posts in one day. if you had itunes or your rss feed reader working, you'd already be in the know. 
+in the second part of this two-part interview, we focus on the future of java ee 6, including jsr-299, formerly known as web beans, and how seam will change as the java ee specification evolves.  we also discuss varying front-end technologies such as flex and ajax, and a bit about workflow.
+resources we mentioned in the talk include:
+
+granite ds - a flex remoting framework that includes support for seam as well as other platforms such as guice, spring and pojos
+flamingo - another flex (and javafx) remoting framework that exposes seam and spring services using a variety of protocols including amf and hessian.
+jsr-299.  i emphasize that it is well worth your while to read it and something i think every java ee developer needs to be aware of at some point in the near future.
+web beans - the namesake of the reference implementation (ri), which is being developed by red hat and its community as an open source project.
+
+thanks again to ken for the hard work that i know went into publishing this interview.
+
+				posted at 11:22 am in java, seam, seam news
+				|  permalink
+
+				| 
+comments (1)
+
+
+
+maturing your application's security with seam security
+march 17, 2009
+i'll be speaking at two conferences back-to-back in march, which is about as much madness as i can handle. first i'll be traveling to vegas to speak at theserverside symposium at caesar's palace on my birthday (march 20th). it's interesting to note that just over 6 months ago i was near caesar's real palace, or what's left of it. then i'll be coming back home and speaking at emerging technologies for the enterprise in nearby philadelphia the following friday. in both cities, i'll be speaking about seam security.
+always wanting to put on a good show (i mean, it is vegas after all) i put together a fresh application that leverages seam's new identity and permissions management api. it's a design comp manager that allows a designer to share designs with clients. the application showcases how seam security blends acls and rules in a truly unique and revolutionary way to provide a powerful and expressive security model.
+while creating an application like that may sound difficult to achieve, my talk demonstrates that it's shockingly simple setup and start using. like poker, though, it does take time to perfect. authoring complex rules are not always easy. i spent nearly two days getting a feel for the api. but then again, i've got a killer app to show for my labor.
+the full abstract of the talk is below.
+security is the cornerstone of your application's integrity and, consequently, you need to weave it throughout each layer, often in diverse ways. seam security allows you to evolve the security model of your application over time, keeping pace with the development cycle. you can start with a very simple configuration that applies an exclusive security blanket over the application to keep out guests and establish a basic identity for the user. you can then mature the security infrastructure gradually by adopting seam's declarative approach to authentication or defining fine-grained authorization rules that enforce contextual restrictions at the level of database records, database fields, object fields and ui fragments.
+
+seam's security module, a central aspect of the seam framework, offers a significantly simpler alternative to jaas - the monolithic and cumbersome security model in java ee. the talk begins with some definitions to sort out what we mean when we say "security". the talk then switches to a tutorial style, showing you first how to get your foot in the door by setting up a jsf form-based authentication routine in seam using either a custom authentication method or a declarative approach where the authentication is handled by the framework. you are then presented with the numerous authorization styles that seam supports ranging from binary, role-based, rule-based (drools), and acls. examples are presented to help you differentiate the four styles of authorization and when it is appropriate to use each one. in the process, you learn to appreciate that seam's authorization is able to take the context (the target) of the restriction into account, a feature than many security frameworks overlook. finally, the talk zooms out to show how to bring authentication under one roof using seam's open id module.
+see you at the tables...er, i mean conferences!
+
+				posted at 05:26 am in java, seam
+				|  permalink
+
+				| 
+comments (4)
+
+
+
+
+
+
+featured article
+
+speed up your jsf-based seam application by two orders of magnitude | mar 2009
+in this two-part article, you'll be presented with a series of four lessons for eliminating performance problems in a jsf-based seam application one-by-one until you have observed a remarkable, two orders of magnitude improvement in performance.
+
+recent blog entries
+
+seam in action translations
+open letter to the jcp executive committee calling for jcp reform
+curious how jsf loads without requiring a listener in web.xml?
+don't overlook this framework
+a concise and eloquent look at seam
+why you didn't know the unified el is being updated
+a game-changing maven 2 plugin you absolutely must use
+30 certainly was something
+chariot tech cast: seam interview part 2
+maturing your application's security with seam security
+
+latest comments
+
+emexo  technologies said:
+		
+june 08, 2019
+
+good post! thank you so much for sharing this pretty post, it was […]
+sunil said:
+		
+september 16, 2013
+
+do you know whether maven could be installed in the server with n […]
+dan allen said:
+		
+august 23, 2013
+
+thomas,
+
+i strongly encourage you to post these ideas either the  […]
+thomas zimmermann said:
+		
+august 23, 2013
+
+so the problem is that the jsessionid cookie is shared between br […]
+mike miller said:
+		
+march 04, 2013
+
+hi,
+
+we are testing a migration of our application from h2 to h3  […]
+
+blog categories
+
+business (entries: 3)
+css & design (entries: 3)
+general (entries: 4)
+java (entries: 41)
+javascript (entries: 4)
+javaserver faces (entries: 3)
+linux (entries: 16)
+music (entries: 1)
+open source (entries: 15)
+personal (entries: 4)
+programming (entries: 6)
+seam (entries: 17)
+seam in action (entries: 17)
+seam news (entries: 10)
+technology (entries: 10)
+usability (entries: 5)
+
+news feeds
+
+ (blog entries)
+ (blog entries)
+
+you might also enjoy
+
+seam in action
+mirage (photoblog)
+"our pile of dirt"
+
+blogroll
+
+raible designs
+in relation to...
+the disco blog
+
+site credits
+
+
+
+
+
+copyright © 2001-present dan allen · forged with valid xhtml and css · powered by movable type 2.661
+
+
+

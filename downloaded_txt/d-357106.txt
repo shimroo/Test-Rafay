@@ -1,0 +1,340 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pgadmin - postgresql tools
+
+
+
+
+
+
+
+
+
+fork me on github
+
+
+
+ pgadmin
+
+
+
+
+
+
+
+home 
+
+introduction
+faq
+features
+news archive
+
+contributing
+licence
+privacy policy
+
+
+
+
+development 
+
+introduction
+resources
+style guide
+translations
+
+team
+
+
+
+
+documentation 
+
+introduction
+screenshots
+blog posts
+videos
+pgadmin 4:
+version 9.0
+version 8.14
+version 8.13
+version 7.8
+version 6.21
+development
+
+
+
+download
+
+
+support 
+
+introduction
+mailing list
+issues
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pgadmin
+postgresql tools
+
+                    pgadmin is the most popular and feature rich open source administration and development platform
+                    for postgresql, the most advanced open source database in the world.
+                
+pgadmin may be used on linux, unix, macos and windows to manage postgresql and edb advanced server 11 and above.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+quick links
+download
+faq
+latest docs
+get help
+screenshots
+
+
+
+
+
+
+
+latest videos 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+want to see your pgadmin video here? email webmaster@pgadmin.org.
+
+
+all videos
+
+
+
+
+
+latest blog posts 
+customising your pgadmin 4 workspace - part 1: browser
+author: anil sahoo, date: aug. 24, 2023
+if you are reading this then you are probably using pgadmin as a tool to help in your day to day database management activities with postgresql. but, did you know there are a variety of ways you can maximise your productivity by customising the pgadmin workspace using the preferences dialog’s various options? 
+
+this article will show you some of the options for customising  the workspace using the browser node of the preferences tree control.
+read more 
+pgadmin user management in server mode
+author: aditya toshniwal, date: aug. 24, 2023
+pgadmin can be deployed as a web application by configuring the app to run in server mode. one can check out server deployment on how to run pgadmin in server mode. in this blog, we will discuss how to manage the pgadmin users when running in server mode.
+read more 
+pgadmin ci/cd
+author: dave page, date: aug. 24, 2023
+almost exactly three years ago i wrote a blog on my personal page entitled testing pgadmin which went into great detail discussing how we test pgadmin prior to releases. back then, all of the automated testing was performed using jenkins, with a number of jobs that ran various test suites whenever new code was checked in. all of this infrastructure ran in a virtual private cloud on aws consisting of a large number of virtual machines and other resources, hosted for the project by edb.
+
+i recently undertook a project to move the testing infrastructure to our github project, using github actions.
+read more 
+
+
+want to see your pgadmin blog post here? email webmaster@pgadmin.org.
+
+
+all blog posts
+
+
+
+
+
+
+
+news 
+2025-02-06 - pgadmin 4 v9.0 released
+the pgadmin development team is pleased to announce pgadmin 4 version 9.0. this release of pgadmin 4 includes 25 bug fixes and new features. for more details please see the release notes.
+note:(windows only)
+in this release, the 'vx' suffix has been removed from the application name. you will now see 'pgadmin 4' as the app name. starting from version 8, we also removed the 'vx' folder from the default installation path, allowing users to seamlessly upgrade to major versions.
+
+as a result of this change, if version 8 is already installed on the machine, the uninstaller will first run, followed by the installation of version 9.
+notable changes in this release include:
+features:
+
+enhanced pgadmin 4 with support for workspace layouts.
+starting with this release, pgadmin introduces two layout options: the classic layout, a familiar design users know well, and the new workspace layout, which provides a streamlined, distraction-free environment with dedicated areas for the query tool, psql, and schema diff tools. the workspace layout is set as the default, but users can easily switch to the classic layout through the preferences.
+in the workspace layout, the query tool, psql, and schema diff tabs are organized and opened within their respective workspaces for a more focused experience.
+added the maintain privilege for postgresql version 17 and above.
+add support for oauth2 profile array response, which handles the github private email id issue.
+change button labels and color in the delete confirmation dialog for all objects to improve ux.
+
+bugs/housekeeping:
+
+fixed an issue where pgadmin cannot install into the path with non-ascii characters.
+fixed an issue where filter dialog save fails when the postgresql server/database connection is lost.
+fixed an issue where an error message from the database server needs space between two sentences.
+fixed an issue where the query tool throws utf-8 decode error when using a cursor with binary data.
+fixed an issue where the option key was not registering in the psql tool.
+fixed an issue where copying query tool output cell is not working if any sql text is selected.
+remove the option "with no data (concurrently)" from the refresh materialized view context menu.
+fixed an issue where default privileges and privileges not working correctly.
+fixed an issue where quotes were missing in the create script for the tablespace.
+change the logic of the setval function, so that the next nextval of sequence will return exactly the specified value.
+
+download your copy now!
+2024-12-12 - pgadmin 4 v8.14 released
+the pgadmin development team is pleased to announce pgadmin 4 version 8.14. this release of pgadmin 4 includes 23 bug fixes and new features. for more details please see the release notes.
+notable changes in this release include:
+features:
+
+added support for adding tags on a server node.
+allow setting null ordering for columns in view/edit data filter dialog.
+show auto-complete column names in filtered rows dialog of table and filter options of view/edit data tool.
+allow the use of a pgpass file in the pgadmin container via docker secrets.
+add support for passing connection details as placeholders in the passexec command.
+add support to deploy pgadmin in a container with readonlyrootfilesystem to true.
+added support for a builtin locale provider in the database dialog.
+
+bugs/housekeeping:
+
+fixed an issue where ctrl/cmd + a was not selecting all data in query tool data grid.
+fixed an issue where querying a foreign table gives the error 'foreigntablecommand' object has no attribute 'auto_commit'.
+fixed an issue where pgadmin crashes on accessing the dashboard state tab when database is super busy.
+fixed an issue where a column name change in the edit dialog of the table node does not show the updated column name.
+ensure the crypt key is retrieved correctly on backend server restart.
+fixed an issue in schema diff where an error message popup was showing some garbage without any info.
+add a user preference to enable/disable alternating row background colors in the data output of query tool.
+fixed an issue where doing ctrl/cmd+c on a selected text in a cell editor of data output in the query tool copied the complete text.
+fixed an issue where auto-width of wide columns in data output is incorrectly calculated.
+ensure correct custom ssl certificate passed in connection string.
+
+download your copy now!
+2024-11-14 - pgadmin 4 v8.13 released
+the pgadmin development team is pleased to announce pgadmin 4 version 8.13. this release of pgadmin 4 includes 25 bug fixes and new features. for more details please see the release notes.
+notable changes in this release include:
+features:
+
+replace infinite scrolling with pagination in query tool data output for better ux and performance.
+add an object menu option to disconnect all server and database connections.
+alternate the background color of rows to enhance readability.
+allow to pass pgadmin_config_config_database_uri from docker secrets.
+format dashboard graph metrics for better readability.
+added support for auto-detecting and setting the end-of-line character (lf/crlf) in the query tool editor.
+make the background color for the serial number and header cells distinct.
+
+bugs/housekeeping:
+
+updated the react-menu library from v2 to v4.
+fixed an issue that allowed the enter key to save data in the result grid text editor.
+move 'about pgadmin 4' to the app menu on macos.
+fixed an issue where the query tool was crashing when an empty geometry was being rendered.
+fixed an issue where the dashboard tab showed 'something went wrong'.
+fixed an issue where cursor selection is not visible in the psql tool.
+allow oauth2 params oauth2_name, oauth2_display_name, oauth2_icon, oauth2_button_color to be optional.
+add appropriate minimum width and height settings for desktop apps to avoid apps accidentally going below visibility levels.
+fixed an issue where the graphical explain kept the node details open even after the plan changed.
+fixed an issue in the debugger where the character data type function arguments were being truncated.
+
+download your copy now!
+
+
+all news
+
+
+
+
+
+
+
+
+the current version of pgadmin 4 is
+                                    9.0
+
+
+
+
+
+
+
+                                postgres, postgresql and the slonik logo are trademarks or registered
+                                trademarks of the postgresql community
+                                association of canada, and used with their permission.
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

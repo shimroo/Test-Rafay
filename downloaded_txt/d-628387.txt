@@ -1,0 +1,237 @@
+
+
+
+
+dan's shorts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dan's shorts
+musings of a coldfusion coder
+
+
+
+about me
+
+
+
+
+
+refinding your voice
+i've lost mine, and am trying to find it again. i loved when i was blogging regularly, and being an active part of a thriving community. over the last few years, that has slipped away from me. i haven't made a blog post in ages, and don't feel like i'm much a part of any community at all.
+i'm going to make an effort to get back into that community. i'm going to try to blog more regularly, get back on the social networks where you guys are hanging out, and generally be a part of the conversation. i need to feel like this is something that i can still enjoy (programming, problem solving, and camaraderie with a great group of developers).
+so here's to hoping that i can kick it up a notch, and find the voice i've lost.
+
+0 comments | posted by daniel short on sep 30, 2013 at 12:57 pm |  categories: 
+					 blog development -  coldfusion -  rambling - 
+              
+
+easy thread throttling in coldfusion
+i do a lot of large processing tasks at landsofamerica, and in order to get these scheduled operations to complete in any reasonable amount of time i use the <cfthread> tag to spin off multiple processing threads at a time. unfortunately, some of these threads take longer to complete than it does to spin up another 5,000 threads in the queue. once you break that thread limit, coldfusion to stop accepting new threads and will throw an exception. so i use the method below to make sure that i don't spin up too many threads at one time.
+so the trick is to create each thread with a unique name, keep track of those names, and wait for each batch of threads to finish before starting the next batch. and here's your sample code:
+/*
+	we need to keep track of the names of our threads
+	in order to make sure that we limit our processing
+	appropriately.
+*/
+listingthreadnames = "";
+
+/*
+	and just for fun, we'll create a variable to keep
+	track of how many threads we want to spin off at any
+	one time.
+*/
+numberofthreads = 10;
+
+/* loop and start creating threads */
+for(i = 1; i lte 100; i++){
+	/*
+	create a thread name that we'll use to create
+	the thread and keep track of it. make sure that
+	this is unique, or you'll get errors with duplicate
+	thread names
+	*/
+	threadname = "mythread_#i#";
+	listingthreadnames = listappend(listingthreadnames, threadname);
+
+	thread
+		name = threadname
+		action = "run"
+		id = i {
+			//do some amazing stuff here
+			sleep(5000);
+		}
+
+	/* if we've reached the number of defined threads, wait until they all finish. */
+	if(
+		listingthreadnames neq ""
+		and listlen(listingthreadnames) eq numberofthreads
+	){
+		writeoutput("waiting on the following threads to finish: #listingthreadnames#<hr />");
+		/* join up the threads, which will cause a pause until all the threads are done */
+		thread
+			action="join"
+			name="#listingthreadnames#";
+
+		/* clear out the thread names for use in the next iteration of the loop */
+		listingthreadnames = "";
+	}
+
+}
+
+
+
+2 comments | posted by daniel short on may 10, 2013 at 9:55 am |  categories: 
+					 coldfusion - 
+              
+
+meet me at cf.objective()
+today i posted on twitter that i would need to re-evaluate my friendship with anyone who couldn’t make it to cf.objective(). but alright alright… i’ll still be your friend, even if you don’t make it to cf.objective. but you should… i just finished working up my schedule, and i’m once again excited to attend a conference. i’ve been “meaning to attend max again” for years, but the last few times i’ve been it’s seemed more a social event, and less an “inspire me to build great things” event. but i still remember hanging out with jared, sean, simeon, and “the rest of the gang” after the first cf.objective() conference i attended. 
+after that first cf.objective() conference is when i first started digging deep into oo development, and when i feel i really started becoming a “programmer” and not just a “developer”. the last few years have been very stagnant for me, since i’ve spent almost all of my time maintaining and attempting to improve or refactor legacy applications. well it’s time to throw my hat back in the ring and go get some smarts.
+so here’s a list of everything i’m currently set to attend at cf.objective(). if you’re able to make it, please find me and say hello.
+
+undocumented and off script: coldfusion & ehcache
+code deployment shouldn’t only be ftp - using ant to automate your build process
+coldbox platform 3.0
+forms that don’t suck (quick, easy, & clean forms and data)
+refactoring a legacy application to an mvc framework
+designing for scalability in coldfusion
+write a test once; repeat forever – you don’t have to be a unit testing guru
+replace your iron with a cloud
+holistic program quality and technical debt
+database performance tuning
+pinpointing and resolving coldfusion performance issues
+application intrusion, detection and tracking
+just mock it! : leveraging mock objects
+aop for you and me
+intro to angularjs, javascript done right
+
+at the time that i’m writing this there are still 8 sessions still listed as tba, so things may change. however, you can already see that there is an extremely diverse range of topics, from unit testing, to javascript frameworks, and automated deployment.
+check out the schedule and then register to get your own heavy dose of awesomeness.
+looking forward to seeing you there!
+
+0 comments | posted by daniel short on mar 15, 2011 at 3:33 pm |  categories: 
+					 coldfusion - 
+              
+< previous entries
+
+
+categories
+
+blog development
+books
+coldfusion
+css
+dreamweaver
+max
+mura cms
+music
+.net
+newsgroup
+rambling
+sql
+transfer
+vbscript
+(x)html
+
+
+pages
+
+about me
+
+
+monthly archives
+
+september 2013 (1)
+may 2013 (1)
+march 2011 (2)
+december 2010 (2)
+june 2010 (1)
+march 2010 (1)
+december 2009 (3)
+november 2009 (2)
+october 2009 (3)
+september 2009 (3)
+july 2009 (1)
+may 2009 (1)
+april 2009 (1)
+march 2009 (7)
+february 2009 (23)
+january 2009 (3)
+december 2008 (1)
+november 2008 (2)
+september 2008 (9)
+august 2008 (1)
+july 2008 (10)
+november 2007 (1)
+january 2007 (2)
+october 2006 (1)
+june 2006 (3)
+march 2006 (3)
+february 2006 (10)
+january 2006 (1)
+december 2005 (2)
+november 2005 (10)
+october 2005 (1)
+august 2005 (2)
+july 2005 (1)
+june 2005 (1)
+may 2005 (4)
+april 2005 (3)
+march 2005 (6)
+february 2005 (3)
+january 2005 (1)
+november 2004 (3)
+october 2004 (6)
+september 2004 (4)
+july 2004 (3)
+june 2004 (4)
+may 2004 (5)
+april 2004 (6)
+march 2004 (12)
+february 2004 (17)
+january 2004 (3)
+december 2003 (3)
+november 2003 (7)
+october 2003 (6)
+september 2003 (7)
+august 2003 (4)
+july 2003 (6)
+june 2003 (14)
+may 2003 (3)
+april 2003 (7)
+march 2003 (19)
+february 2003 (8)
+january 2003 (9)
+december 2002 (5)
+november 2002 (12)
+october 2002 (25)
+september 2002 (12)
+august 2002 (23)
+july 2002 (25)
+
+syndication
+
+feeds
+
+
+design by super j man ported to mango blog by asfusion
+
+
+
+

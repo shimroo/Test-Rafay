@@ -1,0 +1,1013 @@
+
+
+
+
+
+
+
+
+
+
+
+freshblog: blogger hacks, categories, tips & tricks
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+freshblog
+
+
+				blogger hacks, categories, tips & tricks
+			
+
+
+
+
+freshtags
+freshads
+blog navigator
+hearsay
+popmarks
+flickrfont
+hacks wiki
+
+
+
+
+
+
+
+
+
+
+
+							sunday, july 27, 2008
+						
+
+
+
+
+<    
+>
+
+
+
+fun with 2d barcodes on your phone
+
+
+
+
+
+
+have you noticed those strange black and white grids - like demented crosswords - popping up around the place? in newspapers, flyers and the like? no? well, i have. and i dare say if i lived in japan i'd have seen them on t-shirts, coffee mugs and a whole lot more.they're 2d barcodes for your mobile device (primarily phones). you take a photo with the built-in camera and the onboard software automatically extracts some text, a phone number or a link. (if your phone is a bit older, you can download the software from your manufacturer.)i've been playing around with these mobile codes (qr codes and datamatrix) for the past few weeks, thinking of things to do with them. as a starting point, nokia's handy webservice for creating the images needed to meet our friends at yahoo pipes.the result is mbarcode url. it's run along the same lines as embiggen tinyurl: there's a page where you can see it working, plus a bookmarklet for browsers and a button for publishers.go on, give it a click! (click anywhere on the popup to close it.)one of the limitations with the qr and datamatrix codes is there's a limit to how much you can pack in. as it gets bigger, the blocks get smaller and the decoding error rate grows. this limits the effective size of a url to around 50 characters - even less if you want to be robust.so behind the scenes, mbarcode uses tinyurl to shorten the target link into something much more compact. now you don't have to worry about the size. as a result, you can use the data: uri scheme to pack as much into your mobile codes as you want. i've "compressed" a 10k png image into a qr code using this approach, effectively achieving far higher resolution than you deserve with a mobile phone camera. neat.what's the point? not sure, really. here's a couple of ideas:you're browsing along on your desktop and you want to send a link to your phone for when you're out and about later. click the bookmarklet, point your phone at the screen, take a snap. done. it's in your phone.you're out with a cool friend who owns an iphone with gps. she's checking out nearby bars on google maps. you'd like to look too, but while your phone has a web connection, it has no gps. what are you going to do? laboriously type the address or longitude/latitude into google maps? no! you're friend clicks the bookmarklet, it creates the qr code, you snap her screen with your phone and now you're both browsing the current location!yeah, it's not a lot, but it's still fun to play. maybe more uses will come later, especially if i figure out what to do with the cool experimental online barcode decoder at zxing.suggestions?filed in: webtech, hacks, tinyurl, bookmarklets
+
+
+
+
+posted at 10:43 am by greg.
+
+
+
+
+[]
+
+
+
+
+[comments (10)]  
+						
+
+
+
+
+
+
+
+
+							sunday, june 10, 2007
+						
+
+
+
+
+<    
+>
+
+
+
+embiggen those tinyurls
+
+
+
+
+
+
+if you use a lot of tinyurls on your blog, you might want to checkout this new tool - embiggen. it expands those cryptic tinyurls (eg tinyurl.com/2dfmty) to their full version, allowing your readers to make an informed decision about following a link. (that's good url etiquette.)it's available as a button to insert into any page eg blogger, but it's especially handy for micro-blogging services like twitter. you can also get it as a bookmarklet for when you're browsing around and come across a mysterious tinyurl.see demo and get buttonsthe hack works by using dapper to grab the url from the tinyurl preview page and munging the resulting json object with regular expressions.i cobbled this together as part of another project on url manipulation and tagging, but thought it might be useful enough to release on its own. there's no reason why this approach couldn't be applied to other common-yet-cryptic urls, like youtube, so watch this space.any other suggestions, feedback, bug reports etc? please leave a comment.filed in: webtech, hacks, tinyurl, bookmarklets
+
+
+
+
+posted at 3:46 am by greg.
+
+
+
+
+[]
+
+
+
+
+[comments (21)]  
+						
+
+
+
+
+
+
+
+
+							sunday, april 29, 2007
+						
+
+
+
+
+<    
+>
+
+
+
+blog update feed and sidebar display
+
+
+
+
+
+
+one question that arises regularly with my blogging is the update dilemma - what should to do with those little scraps of information that pertain to an earlier post? this article outlines an approach to dealing with this common issue.when i'm following a breaking news story or there's delayed developments or even a random thought occurs, i want to inform my readers in the most convenient way. if it's big enough, a whole new post may be warranted (with a link back to the earlier post). otherwise, i ask myself: should it be done with a comment or with a manual update to the bottom of the original post? thanks to hearsay (and other recent comments hacks), a comment will have visibility across all blog pages, informing all visitors (but not subscribers). if there's a lot of comments on a particular post or a high rate of commenting on the blog, important updates can get lost. alternatively, appending an update (or follow-up, postscript, addendum, errata or correction) to the post may not get out to subscribers and visitors who are interested.i've tried to get the best of both worlds by using yahoo pipes to automatically generate an update feed for my blog. this feed consists of the most recent updates (to any post on my blog) and can be offered to subscribers, much like a regular post or comment feed. it can also be combined with hearsay to produce a friendly sidebar panel to display the most recent updates to your site visitors.the rest of this article introduces the blogger update extractor pipe, explains its operation and how you can use it in your blog. i conclude with some possible alternative uses and pointers on future developments.first of all, to get a clearer idea about the problem i'm talking about (and my solution), have a look at this post about a court case i was following. as you can see, there were five updates (each about two paragraphs) over the twelve months after the original post. this is fairly common with my posts - perhaps a quarter of them feature one or more updates like this.i have long adopted the convention of using *** update *** to indicate that the subsequent text has been appended to the original post. i also use a named anchor (eg <a name="update1"> ... </a>) on each update heading. why? two reasons. firstly, it gives me a unique url for each update (ie http://...#update1) in case someone wishes to bookmark it. secondly, my blog-nav system picks up anchors so that users can jump up and down the page (use the up/down arrow in the top right to see).what the update extractor pipe does is gather my blog's rss feed (not atom - see below) and parse out the updates, returning a new rss feed that consists of just the most recent updates. this works because of handy feature in blogger's rss feed that is not present in atom: when you update any post it automatically goes to the top of your rss feed. the rest is just straightforward regular expressions in yahoo's pipes.with this new feed, you can offer it to readers (perhaps after burning it through feedburner for stats) and/or display it in your blog's sidebar to let all readers know. the links will point to the actual update, not just the post (eg http://...#update1)now, the latest blogger has support for displaying arbitrary rss feeds: you can simply use that. or, you can create a "special" feed that will work with the hearsay hack to give you a bit more control over presentation.if you want an rss feed of your recent updates, use this url:http://pipes.yahoo.com/pipes/pipe.run?blogid=xxxxxxxx&_id=paq35a322xgwxdemounlyq&_run=1&_render=rss(replace xxxxxxxx with your blog's blogger id)if you want a hearsay-style sidebar panel of your recent updates, insert this code into your blogger template sidebar:<div id="recent-updates" ><center><br/><br/><br/>please wait ... <br/>loading updates.<br/><br/><img src="http://ghill.customer.netspace.net.au/snake_transparent.gif"/></center></div><script type="text/javascript" src="http://ghill.customer.netspace.net.au/hearsay/hearsay-v01c.js"></script><script type="text/javascript">hearsay("http://pipes.yahoo.com/pipes/pipe.run?blogid=xxxxxxxx&_id=ik9feaz22xgzt18tqwiyxq&_run=1&_render=json", "recent-updates", true);</script>(again, where xxxxxxxx is your blog's blogger id.)the update extractor comes in three flavours: "full" grabs all the text following an update (ie to the end of the post); "partial" grabs just the next (substantial) paragraph and "hearsay" grabs the partial feed but prepares it for display by the hearsay script. please feel free to clone and modify the pipes as needed; i'd appreciate it if you could put a comment here so i can have a look.nb: using more pipes, your blog's update feed can be merged easily with your blog's comment feed if that would make more sense for your blog.one downside of this solution is when there are multiple updates to a post: it will only "see" the most recent (ie physically last) update. this is okay for low-frequency updates but completely inadequate if you put your updates at the top of the blog.the problem is that the feed doesn't contain any information about the time of all the updates, just the first publication timestamp and the most-recent update timestamp. to deal with this, i'm now using a new convention whereby instead of naming my anchors "update1", "update2" etc i'm using a timestamp "update1177829961000". future versions of the pipe will be able to see this and handle multiple updates per post intelligently.rather than typing all that in each time, i've made a bookmarklet to help out. (see below for code.) the automatically generated update heading looks like this:<center><a title="sunday, 29 april 2007 04:59:21 pm" name="update1177829961000"><span style="font-weight:bold;">*** update ***</span></a></center>this same basic approach - mark out content with an anchor, process the rss feed through pipes and display via json - can apply to other content too. for example, i quote heavily from newspapers in my blog posts, so i could create a feed just of quotes. you could also make a feed for hat-tips, code, links, images, citations, headings or pretty much anything else.so there you have it: blog update feeds for your subscribers and visitors. as usual, comments, criticisms and suggestions are most welcome.timestamp anchor bookmarklet code:javascript:var insert_date= new date(); insert_timestamp=date.parse(insert_date); insert_html='<center><a title=%22'+insert_date.tolocalestring()+'%22 name=%22update'+insert_timestamp+'%22><span style=%22font-weight:bold;%22>*** update ***</span></a></center>'; document.forms.stuffform.htmlpostbody.value+=insert_html; void(0);*** update ***it occurs to me that maybe a live working example on this page might help. this is what i mean by an update - some content added some hours laters. if you mouseover the update heading thingy above, you'll note that it gives you the time of update. at the risk of inducing recursive madness, here's freshblog's update feed. note that the embedded link in the feed doesn't just point to this post, it points to this update (via the named anchor).*** update ***after noticing "something screwy" going on, i've modified this yahoo pipe to append the now-required orderby=updated to the feed fetch module. props to phydeaux3 for the explanation and syntax.filed in: blogtech, blogger-hacks, feeds, how-to
+
+
+
+
+posted at 8:22 am by greg.
+
+
+
+
+[]
+
+
+
+
+[comments (18)]  
+						
+
+
+
+
+
+
+
+
+							thursday, april 26, 2007
+						
+
+
+
+
+<    
+>
+
+
+
+buzzflux: recent search queries
+
+
+
+
+
+
+in my ceaseless quest for content to clutter up my blog's sidebar, i have found a rich new source: reader search queries, or "buzz". buzzflux allows you to retrieve and display these search queries in near-real-time, right in your sidebar, for the amazement of your readership. it also signals my return to blog-hacking after a six month hiatus.should i do this?first things first: is it a good idea to display your readers "live" search queries on your blog? on the plus side, it gives readers a good idea about what kinds of content your blog has (at least, as far as search engines and their users are concerned). in that sense, search queries may be considered as micro-content, a bit like tags. it may also help keep readers on your page, especially if coupled to your built-in blog search (see below).on the downside, it may disturb some readers to see their recent queries displayed like this and some may be sensitive to the privacy side of things. also, you have no control over what readers type into search engines, so you may be displaying potentially defamatory, profane or otherwise inappropriate content on your blog.i'd be interested in freshblog's readers' views on this one, so please chime in with your own thoughts on this question.how does buzzflux work?most blogs worth their salt employ some sort of web stats service. typically, you put a bit of code into your template that "phones home" to a central server every time a page is hit. among other things collected is the referring url, which contains the search query if the reader used a search engine to find your blog. i think all stats services report on search queries. i use blogflux for some of my web reporting. they make some (though not all) of their stats available via rss, which is handy for hacking. unfortunately, the search queries page isn't one of them. to get the search page info in a useful form, i made a simple dapp to retrieve the target page. (here's the dapp.) once the contents are returned as a json object (an array of the top search queries), the buzzflux script just formats the results for display in the sidebar.if there are more search queries than space permits, buzzflux "rotates" the queries every few seconds. (that is, it swaps in other queries at random).as a nice add-on, readers can click on a search query of interest and my sidebar searching hack will scour your blog for that query, displaying the results in your sidebar too. by showing readers other people's queries and the results on the page, it's hoped that it will help readers find relevant content without leaving your site. (nb: this extension requires you to install the recursive backlinker hack.)check out the magic in action on the speccy (scroll down to "catch the buzz" in the sidebar).how do i install buzzflux?first, go and register with blogflux and install their stats counter on your blog. (this hack doesn't have to rely on blogflux, but that's how it is at the moment.)next, put this in the header of your blog template:<script type="text/javascript">// buzzfluxbuzz = {"divid":"buzzflux", "limit":"15", "timer":"2000", "blogid":"1413", "period":"hour", "scan":"", "queries":[]};</script><script type="text/javascript" src= "http://ghill.customer.netspace.net.au/buzzflux/buzzflux.js"></script>the parameters are as follows:divid = the id of the div in your sidebar where all this content will be displayed.limit = the number of queries to display at any given momenttimer = the delay (in milliseconds) between rotating queriesblogid = the blogflux id number for your blog. found in the url of your results pages.period = the period over which search queries are drawn. allowable values are month, week and hour. only use hour for high-traffic blogs since you want a reasonable number of queries to display (ie less than five search hits an hour and it will look a little sparse).scan = the id of your in-blog search field. leave it as "" if you're not using the extension.now, edit your blog template to put this in your sidebar:<div id="buzzflux" style="text-align: justify">   ... loading recent search queries ...</div>finally, you might consider throwing some css styling in. either add these to your css file, or put them in the <style> part of your template header:.buzzlist{ height: 9em; overflow: hidden; padding: 10px;} a.buzzitem{ text-decoration: none;} a:hover.buzzitem{ text-decoration: underline;}where to next?this opens up a range of possibilities. not least is that freshtags has for some time supported tag extraction from search queries, providing a means for some sort of query/tag cross-over. another thought would be to use yahoo's pipes to merge, sort and process buzz from other (related? or rival?) blogs too.as alluded to before, there are also pitfalls too. for example, who owns the copyright on a collection of search queries? who's liable for publishing them? of course, it's anonymous - to a degree. without the aggregation effect of a google zeitgeist, it may be more like aol's search debacle from last year. filed in: blogtech, blogger-hacks, search, blogsearch
+
+
+
+
+posted at 2:20 am by greg.
+
+
+
+
+[]
+
+
+
+
+[comments (4)]  
+						
+
+
+
+
+
+
+
+
+							sunday, april 01, 2007
+						
+
+
+
+
+<    
+>
+
+
+
+google offers free wireless broadband to your home
+
+
+
+
+
+
+solution for the last hundred yardsfor those who haven't seen the news yet, google has announced tisp, a free in-home wireless broadband service.  it's in beta, and those wishing to participate must apply today, april 1, 2007. installation couldn't be simpler: remove the spindle of fiber optic cable from the installation kit, activate the patented "gflush" system which connects the cable to one of thousands of tisp access nodes, where plumbing hardware dispatchers (phds) complete the access point connection. drawbacks: google toolbar must be installed, presumably so google can serve up their ads on this advertising supported service. don't forget, incidentally, that today is internet spring cleaning day.labels: google
+
+
+
+
+posted at 6:16 pm by yokota fritz.
+
+
+
+
+[]
+
+
+
+
+[comments (6)]  
+						
+
+
+
+
+
+
+
+
+							saturday, march 17, 2007
+						
+
+
+
+
+<    
+>
+
+
+
+pipes, json, and code for your website
+
+
+
+
+
+
+although there's still quite a bit going on with yahoo pipes, interest in the gee-whiz user interface seems to be waning around the blogosphere. while the drag-and-drop interface is cool, i think one of the more useful and interesting features of yahoo pipes is its ability to export data as json data.yahoo makes all of its data -- including pipes feeds data -- available as json. json -- javascript object notation -- is just data presented as javascript code. that means you can write javascript to work directly on the data without any xmlhttprequest objects to open, get and parse. and because yahoo provides a nifty callback mechanism, you don't run into the cross domain security issues that plague ajax developers -- everything runs on the client and yahoo pipes enables some truly interesting mashup possibilities that go way beyond the "aggregate 200 feeds and filter on my keywords and pull in some flickr photos" examples that dominate most blog discussion on yahoo pipes.code for your site the most frequently asked question i see on the pipes discussion boards seems to be "how to i put pipes feeds on my website?" here are code examples showing how you can pull data from a pipes json feed and display it automatically on any web page.get the json feed data. here's the code to do that. replace "pipeid" with the feed you're interested in. be sure to retain "_render=json&_callback=pipecallback". more about the callback parameter later. make sure this script is someplace it will be executed when the html page loads.  <script type="text/javascript"   src="http://pipes.yahoo.com/pipes/pipe.run?_id=pipeid&_render=json&_callback=pipecallback">  </script> if you need a real life example, try this: <script type="text/javascript"  src="http://pipes.yahoo.com/pipes/pipe.run?_id=lljmf7hh2xglulfrjjbjog&_render=json&_callback=pipecallback">  </script>write some css. to keep my example simple, i'll use <div> to put things where i want to go. because this is a callback function, you can't just use document.write because you don't know where the text will actually end up unless you use css to place the text. you can define this however you want, but in my sample code i'll use a css id called "leftside" and define a left sidebar.#leftside { position:absolute; left:10px; width:180px; border:1px solid black; font-size:0.8em; padding:8px; margin:8px;}create the callback function.the <head> section of the html page is as good a place as any to put this code. <script type="text/javascript">function pipecallback(obj)  document.write("<div id=leftside><h3>my pipes feed</h3>"); var x; for (x = 0; x < obj.count ; x++) {  var buildstring = "<b><a href=" + obj.value.items[x].link + ">" + obj.value.items[x].title + "</a></b>. <span id=desc>" + obj.value.items[x].description + "</span><br />";  document.write(buildstring);  buildstring = null; } document.write("</div>");}</script>some explanation. the function pipecallback is called by the json method that you loaded in step (1) above. note that the name of the function matches the _callback parameter you used in calling the first script. obj is the json object with one or more members. i'll describe the members in the next step. you can modify this function to change how the link text looks and where the text is placed, but in this example the title will be a link to the url of the original article, and the description is also displayed. in real life, you may want to limit the number of items that are actually displayed. arrays and fields. obj.count is the number of members that are in the object. obj.value.items is an array of the members. these members may have different elements depending on how the pipe was constructed -- you'll need to look at the actual json data to see what's specifically available -- but typical rss feed things will be there, including obj.value.items[x].title -- the title of the article.obj.value.items[x].description -- the text or summary of the article.obj.value.items[x].link -- the url to the original article.obj.value.items[x].pubdate -- the publication date of the article.if you're able to make use of this code, please feel free to post your example in the comments.
+
+
+
+
+posted at 3:15 am by yokota fritz.
+
+
+
+
+[]
+
+
+
+
+[comments (9)]  
+						
+
+
+
+
+
+
+
+
+							monday, february 26, 2007
+						
+
+
+
+
+<    
+>
+
+
+
+stem the flow but find what you need
+
+
+
+
+
+
+technorati has their top 100 blogs, with popularity based on the number of links to the blog. these popular blogs are high volume and tend to be heavy on geek-tech subjects, though a number of political blogs are also featured.these blogs are linked to because the content tends to be pretty good, but the busy blogger may not have time to follow these feeds effectively. if you blog about a niche topic, you've probably been scooped by some of your friends who caught a mention of your favorite subject on boingboing or engadget.i've created a handy, subject-filtering tool just for you. enter the keywords you're interested in and you'll have your own, custom rss feed that search for those keywords from many of the most popular, english-language blogs. subscribe to that feed and you've narrowed your view of these high volume blogs to just the topics you're interested in.for example, i blog about bicycling. i watch for the terms bike, cyclist and bicycl. with these words, i get bikes, bikers, bicyclist, bicycling and so forth. i tried "cycle" at first, but i got a lot of posts about recycling, budget cycles, and the water cycle. you may need to experiment similary.let me know if you find this tool helpful. i've created it with yahoo pipes; if you need more than four keywords or you need some flexibility in where the searches are done, it's not difficult to copy my pipe and create your own.try out the user provide keyword search for top blogs tool.labels: blogging, yahoo
+
+
+
+
+posted at 5:16 pm by yokota fritz.
+
+
+
+
+[]
+
+
+
+
+[comments (0)]  
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+<    
+>
+
+
+
+how to watch for diggs to your site
+
+
+
+
+
+
+i plan to post a series of tips on how to use rss to help with your blogging. this first one comes from howtogeek.com.digg.com can be a great source of traffic to your site. if you want to know if an article has been dugg, follow the link and read the post.read more | digg story
+
+
+
+
+posted at 12:50 pm by yokota fritz.
+
+
+
+
+[]
+
+
+
+
+[comments (0)]  
+						
+
+
+
+
+
+
+
+
+
+
+
+freshblog feeds
+ posts
+ comments
+
+
+
+
+
+
+subscribe via r-mail:
+  
+
+
+contributors:
+fritz, 
+greg, 
+john
+
+
+
+
+
+
+blogger hacks wiki
+intro post
+blogger hacks wiki
+view hacks
+add a hack
+request a hack
+faq
+
+
+
+
+
+freshtags
+
+
+
+- select month -');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+freshtags blogroll:
+
+
+
+
+
+
+archive
+
+-archives-
+july 2003
+august 2003
+september 2003
+october 2003
+november 2003
+december 2003
+january 2004
+february 2004
+march 2004
+april 2004
+may 2004
+june 2004
+july 2004
+august 2004
+september 2004
+october 2004
+november 2004
+december 2004
+january 2005
+february 2005
+march 2005
+april 2005
+may 2005
+june 2005
+july 2005
+august 2005
+september 2005
+october 2005
+november 2005
+december 2005
+january 2006
+february 2006
+march 2006
+april 2006
+may 2006
+june 2006
+july 2006
+august 2006
+september 2006
+october 2006
+november 2006
+december 2006
+january 2007
+february 2007
+march 2007
+april 2007
+june 2007
+july 2008
+current posts
+
+
+
+
+
+
+recent posts
+
+      fun with 2d barcodes on your phone
+   
+
+      embiggen those tinyurls
+   
+
+      blog update feed and sidebar display
+   
+
+      buzzflux: recent search queries
+   
+
+      google offers free wireless broadband to your home
+   
+
+      pipes, json, and code for your website
+   
+
+      stem the flow but find what you need
+   
+
+      how to watch for diggs to your site
+   
+
+      post every 90 seconds
+   
+
+      mashups for the rest of us
+   
+
+
+
+
+
+recent comments
+
+
+
+
+
+
+
+
+
+
+
+fun with 2d barcodes on your phone
+
+
+"nice info. we wait another later....."
+
+
+nice post!  thanks
+
+
+nice and cool work.
+
+
+at the german short-url service 301log, you can create short url's and get for every generated url a 2d barcode.
+
+
+nice blog ma friend.......i want more info from you......
+
+
+first time visit your blog..good tips.. i've been searching about it and will try to my blog
+
+
+thanks for such a nice post
+
+
+hello... hapi blogging... have a nice day! just visiting here....
+
+
+hi nice post, for latest blogger tools and tweaks visit everything 3.1, thank you!
+
+
+this is really good! thanks for this information :)
+
+
+embiggen those tinyurls
+
+
+awesome!  thanks.  hope you're well, btw.
+
+
+people who settle for less use tinyurl. it's even blocked in many countries by many isps. i use snipurl, or snipr.com in their new beta. not only do they offer several more features for snipped urls, they also have apis that make this elongation of long urls trivial. check them out.
+
+
+cool as the underside of a pillow. thanks.
+
+
+tinyurl also includes a preview function when you generate a shrunken url now too, which looks like http://preview.tinyurl.com/xxxxx.  this takes the visitor to tinyurl's site and lets them view where they're going to first before they decide if they want to visit the redirect link.  however, as howard mention, there are a lot of other services out now that are similar to tinyurl and have more functions.  you can find a directory of them at  dmoz.org.
+
+
+yes, the preview service is a nice little earner: "look at our ads and you won't risk malware!".seriously though, there's a welter of competing services. i don't think i've ever seen one "in the wild" that  isn't tinyurl. maybe i'm not visiting the right pages, but i think we've got a classic first-adopter scenario whereby they garner 90% of marketshare.still, the basic embiggen approach can be very readily re-purposed by those with sufficient interest thanks to the creative commons licensing. (and, of course, the unusually good code comments!)
+
+
+i find your blog very refreshing.
+
+
+cool..thanks for sharing
+
+
+sorry bothering you, i'd like to have the date on the same line with the post title, as you have on your blog. i searched on hacs wiki, but i didn't find nothing. can you help me, or at least give me a link where i can find a guide.thank you, niko nikok79@yahoo.it
+
+
+i would whole-heartedly recommend the javascript module pattern for this kind of thing, to avoid leaking out too many global identifiers outside of your own turf. (you seem to try doing it to some extent already, but not quite have it down yet.)so steps one and two in your case would be something like this -- and then supply "embiggen.dappercallback" for dapper, instead of "procurl". (the junk on the last line is to keep your current config style, if you want to remain compatible with it.)
+
+
+today's silly freshblog frontpage "firebug console one-liner" hack:$x('//div[@class="onepost"][div/div/div[@class="permfooterpost" and not(contains(.,"by greg"))]]').map(function(d){d.style.display="none"}):-)
+
+
+thanks, johan.i've seen this approach before from del.icio.us and the benefits of encapsulation struck me immediately. the explanation provided on the yui blog is great!
+
+
+sir , just love ur blog , i'm a regular reader of it and subscribed it on google reader . want a serious help from u . i recently updated my template but it showed slow loading time . i tweaked it a bit by removing html images and all and time improved but still it is quite slow . i knw the theme is heavy , but still if u can tweak it for me would be gr8 . pls help me out ...i can mail u my xml , if u agree ... waiting in anticipation .
+
+
+i am hoping you can help me. for some reason  my date header and post title have switched. you can see what i mean here:http://karenerickson.blogspot.com/what did i do?  how do i fix this?
+
+
+no more update from this blog??
+
+
+great service!but it would be nice, if also tinyurls, that aren't formated as links (plain text) would be expanded.
+
+
+good point- plain text urls should also be picked up.i'm thinking of adding other url redirection services, but i'm not sure where i should focus my efforts.which services should i target?
+
+
+thx for your response on my suggestion! :)it would be very great, if you could implement plain text url expansion into the bookmarklet in the next time. because i know some news pages, where urls will not be formated after posting them there.>i'm thinking of adding other url >redirection services, but i'm not >sure where i should focus my >efforts.>which services should i target?that's a good question.i never thought, that there could so many other redirection services exist. it would make sense to add the more popular ones (yeah, great proposition, i know :) )sadly, i don't know any of the listed services on that page. only tinyurl.maybe it could help to make a poll anywhere.btw: would it also be possible to implement a function, that all expanded urls will be displayed in their redirection-url form again by a second click on the bookmarklet? it would be helpful and more comfortable in my eyes, if this would be possible. to have to reload a page to see a site in its unchanged form is a little bit annoying sometimes.thank you! :)
+
+
+i did something similar with universal redirect revealer and figured it could support any redirect service, although sometimes you have to interrupt the chain of redirects to stop before authentication (see facebook, for example).
+
+
+someone sent me a suspicious tinyurl to my gmail in response to one of my craigslist ads.  embiggen did not find any tinyurls on the page, however.  is it supposed to work in email?
+
+
+i find your blog very cool..thanks
+
+
+im not really a fan of tiny urls because you cant tell what you are linking too
+
+
+blog update feed and sidebar display
+
+
+very cool -- i assume it requires we use the ***update*** syntax?of course, it could be cloned and modded for alternate syntaxes :)i like the idea of permalinks to updates in the posts... that's really good!
+
+
+now this is more like it! :d can you put up a demo of this?
+
+
+i found the demo on your blog ... very 'very' well done! :) i will of-course be taking it apart soon enough!
+
+
+thanks for the feedback. aditya, i'm glad you found the "demo" - i'm sure there's a heap of cool things that can be done with slicing and dicing your own content like this.singpolyma, it only requires an anchor named with "update" ie <a name="update...."> - what you put inside the anchor is up to you.
+
+
+hi,thank you for the neat tricks withupdating previous posts with:  ... ) ... it gives a unique url for each update (ie http://...#update1) in case someone wishes to bookmark it. did you discover this by trial and error and do the rss feeds and technorati page update the information?would you mind if i added you to my bloglist?thanks,coral
+
+
+i'm pretty sure that technorati would re-index the content periodically, much like any search engine. i assume  they work on the rss feed for your blog in any case.it wasn't trial and error; using named anchors (ie http://...#update1) in this way is how they're meant to be used.sure, feel free to blogroll this blog, or indeed just the updates, as you see fit.thanks for dropping by.-greg.
+
+
+thank you for bringing such nice posts. your blog is always fascinating to read.
+
+
+yeah, blogkomm seems to work. if you go to http://lovingjacqui.net/ it's up and running and i have recent comments in the sidebar, in this, php powered.the developer, holger kreis, recently updated the script with a much better anti-spam captcha. it allows great styling and all comments are inline.there are shortcomings with blogkomm though. in particular, all the comments are stored in one flat .txt file and for a high volume blog, this just won't cut out; you need databases like blogger and word press offer.what i really like on both of my blogs' sidebars is i've fed the recent blog posts, labels, and archives into a list that creates a flyout menu.loving jacqui's flyout menus (including the one above each post) are html 4.01 transitional, not valid xhtml 1.0 strict. but christophdollis.com's is. so my archives don't take up  a lot of space and yet they all pop out as needed without even needing to click a drop down list, just hover.both work great in win ie 5.5 and 6 (with the .htc javascript in this case), and without .htc in pretty much every other browser.it uses php to generate a label cloud, which i transformed into a flyout menu.to get the label cloud php, see where the magic lives. converting it to whatever html outpout is trivial.my new sidebar favourite, though, is the literal snake graphic when the comments load. too cool, and then they pop up.
+
+
+greg,this looks fantastic but i am so new to all this - but learning fast tears, tears, oh well.question:  does the feed and sidebar display html which goes in the sidebar (under html/java) i assume, go before or after the timestamp language you gave.you will probably be laughing at this but i love this widget and want it - can you help me?thanks so much for your time.
+
+
+you can create your own "update feed" by plugging your bloggerid (8477527554853995965) into the yahoo pipe:http://pipes.yahoo.com/pipes/pipe.run?blogid=8477527554853995965&_id=paq35a322xgwxdemounlyq&_run=1&_render=rssnow, you just need to put some updates onto some existing posts and they'll get their own rss feed. i recommend using the bookmarklet provided above for doing this.as a separate issue, if you want to have this update feed nicely formatted and showing up in your sidebar, some people can re-use the hearsay hack for that.but it sounds like you're using the new blogger's widgety goodness. this hearsay feed hack was created for the "old" blogger (now "blogger classic" template).i'm not sure if you can just sub in arbitrary bits of javascript into your template any more? but i think blogger already has support for showing off rss feeds in the sidebar. just use the rss module and give it the pipes url above.as a third - and entirely unrelated - issue, i notice that one of your blogs is currently showing recent popular search queries for one of my blogs.the odds of this being a coincidence are pretty small, so i'm going out on a limb and suggesting that you've tried implementing my buzzflux hack.if you'd like to have recent search queries for your blog displayed instead, check out the buzzflux instructions. (this requires putting the blogflux code snippet into your template.)hope this helps - and good luck!
+
+
+blogger made a change to their feeds today. now, the item.link element is an array. this broke the pipe for a few hours before i rectified it.it works fine now, but if blogger change it back it will break again.naughty blogger!
+
+
+speaking of feed, i thought you might be interested in the latest blogger widget, wonderticker, which uses blogger's json feed in a scrolling ticker.  it's completely customizable and you can even filter which post titles scroll.  for more info, check out www.wonderticker.com
+
+
+if it's big enough, a whole new post may be warranted (with a link back to the earlier post) 
+
+
+i dont know it. but ill try it to costumize my blog. and i hope my blog       is so cool. and you can show your demo for that think. thx
+
+
+nice info..thanks
+
+
+nice info..
+
+
+very2 complete & useful article, how the blog update feed and sidebar display implemented in wordpress..thanks
+
+
+very nice info.. but, why you didn't post any articles again? your articles are very useful, buddy..
+
+
+buzzflux: recent search queries
+
+
+yay! welcome back to hack land, greg! :-)
+
+
+1) freshtags detects referrer query2) query text and tags filtered from that text are logged3) tags are auto-expanded4) search results are auto-loaded/expanded 5) list of tags/queries from logs in sidebarall optional and configurable, of course ;)
+
+
+thanks, johan. i'll be sure to stamp my passport on the way out :)singpolyma, that all sounds good. at the moment, my blog does 1, 3, 4 and 5. (google on drugs in afl to see it pick up both the query and the embedded tag.)of course, we'd need to employ some stemming on the tags/queries to ensure we got enough hits.maybe we could mix it up with your tag synonym service too?
+
+
+hi thanks, i will try to apply this hack to my blog. as i am a newbie, there will be some trials and errors on applying it, but that's okay. tanks!
+
+
+google offers free wireless broadband to your home
+
+
+i thought this april fools was hilarious (this and the wow ones). and not forgetting the printable gmails.i am sure if the tisp was available in this side of the plant there would have been a lot of sign ups.
+
+
+hisorry for leaving this message here, but i didnt find your mail ids on your blogger pages."i am a regular reader of your posts, through the feed. i have started a project " break the line" which helps to create a resource post "101 ways to create original posts". i have always found you mentioning that you are a great supporter of original content. please visit and contribute if you can spare the time. thanks."http://bestblogbasket.blogspot.com/2007/04/101-ways-to-create-your-original-posts.html
+
+
+i knew there was something that phd qualified me to do...
+
+
+it's an inspiration to those of us still doggedly pursuing ours.
+
+
+google is getting into every possible market. do not get surprised if you guys see a ad of google deodrant or google soap on your tv local channel.
+
+
+i didn't knew that google is giving free broadband .i should have ordered it may be next time.hope google comes out with such type of offers.
+
+
+pipes, json, and code for your website
+
+
+i´ve tried to embed it in blogger and it doesn´t work. do you know why? . sorry i´m a nerd.
+
+
+very useful (soon on http://www.panarea.com), but, pay attention, you miss the { after function pipecallback(obj)  thanks
+
+
+works for me thanks. and thanks simone for spotting that missing {
+
+
+what if you want more than the typical rss feed things?is there a way to add more elements to blogger posts?
+
+
+thank you for providing some decent documentation on how to use this service. i don't understand why yahoo! couldn't do it themselves in a readily accessible fashion. i looked all over their site and couldn't find anything on how to use the callback. nice.
+
+
+i'm a novice but how do i read the json file? i googled it but there's too much unfriendly info. any tutorial u recommend?best, clau
+
+
+it worked, thank you
+
+
+nice work .. noticed a new plug-in for jquery called json2html ... you create transforms that you can easily appy to a yaho pipe's outputhttp://plugins.jquery.com/plugin-tags/json2html
+
+
+very good tutorial and can hopefully help me in building json in the application that i created for this lecture. thank you
+
+
+stem the flow but find what you need
+
+
+how to watch for diggs to your site
+
+
+hack from bloggerhacks 
+
+
+
+
+
+
+categories
+
+
+
+
+
+
+blogger hacks wrink
+
+
+
+
+
+
+blogroll
+
+blogroll me!
+blogs marked ~new updated within the 
+
+past 6 hours.
+
+
+
+
+
+resources
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+inbounds
+
+technorati
+
+
+
+
+
+
+
+
+
+
+more ...
+
+this work is licensed under a creative commons attribution-noncommercial-sharealike 2.5  license.
+
+			the template is generated via psycho and is licensed. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,161 @@
+
+pin eight: welcome
+
+
+
+
+
+
+internet advertisement doesn't pay much anymore.
+become a patron
+
+
+
+
+
+
+
+welcome
+
+pin eight is the personal web site of damian yerrick. you may be interested in one or more of his projects:
+
+
+
+rhde
+(nes)
+thwaite
+(nes)
+concentration room
+(nes)
+
+
+
+older projects: luminesweeper
+
+
+site outage
+
+posted on december 5, 2021
+
+as some of you may have read in various discord servers, the company hosting pin eight went out of business in september of this year. since then, the site has been operating with reduced functionality, serving wiki pages from a static snapshot. i have begun to restore mediawiki today, and once it's ready, i'll replace the snapshot with the live wiki.
+
+in other news, nesdev bbs is once again up and running. it had been unavailable for roughly five months.
+
+updating multiboot menu
+
+posted on march 19, 2020
+
+today i returned to a game boy advance project that i had last touched almost 17 and a half years ago: multiboot menu. it takes several game boy advance programs small enough to fit into ram (256 kib or smaller) and turns them into a rom that runs from a flash cart. and now it builds correctly with a modern version of devkitarm.
+
+patreon
+
+posted on april 18, 2019
+
+i've opened a creator page on patreon. to keep updates coming and get your name in the credits of one of my projects, become a patron today.
+
+php upgraded
+
+posted on november 8, 2018
+
+php on pineight.com has been upgraded to version 7.2.
+
+mediawiki upgraded
+
+posted on august 19, 2018
+
+mediawiki is upgraded to version 1.30. one extension had to be disabled because it is no longer maintained and no longer compatible with recent mediawiki. upgrading to the current version is on hold until i investigate migrating my hosting from php 5 to php 7.
+
+
+
+in other news: in 2018, web browsers started to block automatic playback of video that is not muted, requiring a user gesture to enable anything audio-related. but discussions about this policy on various forums uncovered a vocal minority who don't want any video to autoplay because video uses a lot of data, which cellular and satellite isps put under a monthly cap. some of them don't realize how many ways there are to play video that use even more bandwidth than the <video> element, such as animated gifs or sequences of jpeg or png images. web browsers allow autoplaying muted video as a least bad way of discouraging ad networks and other websites from automatically falling back to less efficient methods.
+
+so for people who claim to have blocked autoplaying video using a browser feature or add-on, i have created a video autoplay test suite with 14 tests to run against a video blocker.
+
+fast, good, cheap: choose two.
+
+posted on august 9, 2017
+
+it started with a tweet by @missingcloudltd showing an animation of a proposed user interface allowing selection of up to two items in a list, using the classic iron triangle of fast, good, and cheap as an example. then @nannerb implemented the proposal in html and javascript as fastgood.cheap. cue comments from the peanut gallery that all three are possible if the user turns off javascript before visiting fastgood.cheap.
+
+some took this as a subtle condemnation of script in the browser. this rekindled a perennial discussion about whether script in the browser ought to exist in the first place. a vocal minority of users in the comment sections of slashdot, soylentnews, and elsewhere, believe html documents ought to be static apart from form submission. (see, for example, the reaction on slashdot and on soylentnews to google chrome's adoption of webassembly.) to them, if an application needs to be more dynamic than html, css, and form submission can provide, then it ought to be native, written using a multi-platform toolkit such as qt, and made available as source code under a free software license for download, inspection, compilation, and installation by pc owners.
+
+so anyway, some replies claimed that the two-of-three ui isn't even possible without script in the browser. it's true that html lacks a selection input allowing greater than one but fewer than all options; radio buttons allow only one, and checkboxes and <select multiple>. but navigation or form submission allows the server to correct mutually inconsistent inputs and present a consistent view to the user.
+
+so here's my reimplementation of fgc using only html and css. even ignoring the javascript debate, it has one additional feature that @awhite requested: the user can link to a single state.
+
+hsts
+
+posted on december 22, 2016
+
+don't like everybody seeing what web pages you're looking at? try the https everywhere extension by electronic frontier foundation, available for firefox and chrome. it rewrites http: urls on select websites to use https: instead. this means a snooper looking at your can see only what sites you're viewing, such as "some page on stack overflow" rather than "the question about == and === in javascript".
+
+pin eight is not included in https everywhere, but it does have a similar feature called http strict transport security. once it's turned on in your modern web browser, the browser will rewrite all urls to https:. currently we're deploying it on an opt-in basis, so go ahead and turn on hsts for a month.
+
+ocsp problem
+
+posted on april 5, 2015
+
+we are aware of a problem reaching pin eight with firefox 37.
+startssl is having ocsp issues.
+users of google chrome are unaffected.
+
+update (18:10 utc): startssl's ocsp server appears to be operational once more.
+
+follow me on twitter
+
+
+posted on february 13, 2015
+
+i have a twitter account now ( @pinobatch), but i still feel like i haven't hatched all the way.
+
+a couple users on nesdev bbs found a few serious problems with my nes and super nes project templates. so i addressed some of their concerns in version 5 of my nrom, snrom, and lorom templates. highlights include:
+
+added overall map of source code to readme
+background and player related code are in separate files
+indented forward branches in player movement code
+super nes register names are broken into functional groups have aliases based on names from fullsnes
+improvements to super nes init code and lorom linker script
+snrom template also supports unrom
+
+
+
+still reading? check out older posts from 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, and 2002.
+
+i have written for other sites:
+
+
+source codegithub
+microblogmastodon |
+twitter
+gab (very briefly)
+wikiall the tropes | gbdevwiki | nesdev | rationalwiki | wikipedia
+forumreddit |slashdot |  soylentnews
+
+
+
+sections
+
+wiki
+ rant
+
+
+
+
+homebrew
+
+ pc
+ nes
+super nes
+ gba
+ ds
+
+
+
+$ become a patron
+ follow @pinobatch
+ contact
+
+
+
+© 2000–2019 damian yerrick. some rights reserved: except where otherwise indicated, this site is free content, licensed under your choice of creative commons attribution-sharealike 2.5 or gnu free documentation license 1.2. terms apply.
+

@@ -1,0 +1,344 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skip to content
+
+
+
+
+
+
+
+     menu
+
+
+
+about
+contact
+projects
+ 
+
+
+
+
+
+business
+mac
+news
+design
+featured
+linux
+gaming
+dating
+startups
+ 
+
+
+
+
+
+
+
+partner
+
+
+
+
+take notes from best tech entrepreneurs
+  june 1, 2020   alexis caldwell
+
+
+
+from the recent businessweek article, i found the ‘lessons learned’ snippets at the end of each finalist very insightful:
+
+bumptop: “the key thing is, stay as lean as possible,” says chief executive agarawala. “we don’t have fancy espresso machines or offer massage in the office. but we do have a team that’s motivated. every full-time employee should have a meaningful stake in the company.”aster data: “a lot of our customers buy aster because we can add more business value to the bottom line,” says argyros. “that’s a message that works inside and outside a recession.”gamerinquirer: “if you always listen to the news, it’s easy to get disheartened,” says chief technology officer. “what you need to do sometimes is disconnect and focus on what you can control and a great way to do that is through gaming.”cloudera: “in a down economy, less-than-stellar ideas get filtered out,” founder bisciglia says. “we were really lucky—we cleared our funding right before the economy really turned down. so we’re much more focused on building things people need than on guessing.”seomoz.com: “the buck stops here,” says fishkin, adding that he took a substantial salary cut at the … read the rest 
+continue reading
+
+
+
+
+
+php gets a respectable shell at last
+  june 1, 2020   alexis caldwell
+
+
+
+
+this story was covered recently at planet-php.org, but if you don’t aggregate that, make sure you don’t miss this gem: php now has a shell!
+i remember this being promised and blogged about around a year ago, but it doesn’t seem to have materialized until now. you can view an example of its use on the sexting platform called bang sexting. if you’ve used the python interactive shell, you immediately notice how php’s equivalent is the poor relation.
+thanks to jan kneschke this is no longer the case. a very nice program he’s written, php 5 only, you can download the files.
+for the last few years i’ve been trying to build the considerable patience required to use the default shell available in php. if you have any parse errors, it dies, and of course you have to keep typing “<?php” everytime you re-fire it up.
+jan’s version is a considerable improvement, and although it doesn’t yet handle up-arrow for previous loc or back-arrow in case you type your parentheses first and want to fill in the variables after, it’s a welcome relief to work with. i’m sure it will delay the capitulation when you give up and create a stupid … read the rest 
+continue reading
+
+
+
+
+
+what software do you use to run your business?
+  june 1, 2020   alexis caldwell
+
+
+
+
+the problem
+increasingly i’m focusing less on cutting code and more on running a web development business.  while it can be painful not to get your hands dirty as often as you would like, there are great pleasures in seeing your business pick up momentum.
+but one of the first factors that needs to be brought under control is time management for yourself and your employees, and general crm.  the problem i’ve found is that the functionality scope of the various apps i’ve been using is wildly different from one to the next.  for dating apps, look at milfslocal.com as a proper example for crm use. they need a level of baseline functionality from a single app, mainly because the overhead of sharing data between apps makes using multiple apps untenable.  i would still like to do as much coding as possible, and as we are in 2008, so there must be something out there that ticks all the basic boxes.
+well googling brought up very little.  what did have good results was this thread from the php-london ml, and direct feedback from a few colleagues.
+minimum requirements
+here are the baseline features i concluded were the minimum required to … read the rest 
+continue reading
+
+
+
+
+
+kindo acquired by myheritage
+  june 1, 2020   alexis caldwell
+
+
+
+i didn’t get a chance yet to blog about our last techcrunching, but kindo, the startup i co-founded in march 2007, today announced its sale to myheritage, the biggest player in the family tree space.
+kindo is a php social net app built on the seagull framework and other open source software.  at peak popularity our users were building 38k profiles/day and we acquired more than 1m profiles in our first 10 weeks.
+hats off to the kindo team and to the kindo devs who don’t appear in the tc photo.… read the rest 
+continue reading
+
+
+
+
+
+optimizing php performance: strategies for faster and more efficient code
+  march 8, 2023   alexis caldwell
+
+
+ 
+
+
+php is a widely-used programming language for web development, powering millions of websites and web applications. however, as php applications grow in complexity, their performance can suffer, leading to slow page load times and a poor user experience. in this blog, we will explore strategies for optimizing php performance as a best tech, including code optimization techniques, caching mechanisms, and server-side optimizations. by implementing these best practices, you can achieve faster and more efficient php code, delivering a better user experience and improved website performance.
+code optimization techniques 
+to optimize php performance, it’s important to focus on code optimization techniques such as reducing function calls, minimizing code bloat, and optimizing loops. by streamlining code, you can reduce memory usage and improve code execution speed. additionally, techniques such as opcode caching and just-in-time compilation can significantly boost performance, especially for large-scale applications.
+caching mechanisms 
+caching is an essential strategy for optimizing php performance, allowing frequently-used data to be stored in memory for faster retrieval for softwares. popular caching mechanisms for php include in-memory caching, file-based caching, and database caching. by implementing a caching strategy, you can reduce database queries and network requests, resulting in faster page load times and … read the rest 
+continue reading
+
+
+
+
+
+why you should use mac instead of windows for your day-to-day office work
+  june 11, 2021   alexis caldwell
+
+
+
+most people today use a microsoft operating system for performing their daily office and personal work. however, this is a very bad choice because it is not very user-friendly. also, the system has many security issues which are not present in the linux operating system. the linux operating system is a free, open-source operating system, which is completely free of cost and has more security issues and less spyware and viruses than the microsoft operating system. if you need to use a computer every day for your work, then you should get mac. now, although there are many reasons you should be using a mac for your work, here are some of the reasons why you should be using a mac for your everyday office work:
+
+• macs are more secured
+since the first computers made their way into offices and homes, the operating system has been the subject of both praise and criticism. in today’s modern world, people are constantly connected to the web, making it easy to become a victim to a hacker’s attack. this is why most people prefer the laptop or computer that is built for the purpose, one that offers a more secure environment than … read the rest 
+continue reading
+
+
+
+
+
+how-to 2 way synch between google calendar and ical
+  june 1, 2020   alexis caldwell
+
+
+
+
+in case you haven’t heard yet, google now makes it possible to synch all your ical data to your google calendar account.
+so mac users can now take advantage of all the os x integration features of ical, and still have their data up to date in their google calendar account, which they probably obliged to use at work to share data with non-mac colleagues.   two way synching is supported, so enter your event in either source and moments later the other one gets it.  and maybe you have 10 or so google calendars, no probs, you can add them all to ical.
+great to hear this news as i was just on the edge of paying $25 for the un-named commercial product that also manages similar synchronisation.  
+and if you’re really keen you can setup a mobile me account, so any dates entered in your iphone 3g also get synched to your ical and google calendars.  i guess it won’t be long before your iphone senses that it’s lunchtime, knows your location and schedule, and suggests a list of highly rated indian restaurants in your area, knowing what cuisine you love ?… read the rest 
+continue reading
+
+
+
+
+
+date & time in the menu bar in os x
+  june 1, 2020   alexis caldwell
+
+
+
+personally i find it unbearable not to have the date and time in the menu bar, or at least somewhere on screen that i can see at a glance without having to click to see it.
+for some reason the mac usability guys decided that showing just the time, and date on one click, was more usable.
+there are a lot of tutorials about how to customise this and generally each one has around 50 comments, the thing is none of them work without a black magic hack that can usually be discovered around comment #47.  
+if you don’t select the format medium and don’t include the seconds (even though they won’t show up) the formatting does not work.
+i found this tutorial one of the more helpful ones, and after trial and error discovered the seconds problem.… read the rest 
+continue reading
+
+
+
+
+
+iphone developer program hiccups
+  june 1, 2020   alexis caldwell
+
+
+
+
+at last i received a sign from the folks at apple that my application to the iphone developer program was moving ahead!
+i received confirmation of my original application a few days later on feb 7th, 2009, then just today march 4th i got a phone call saying that i had been accepted.  that was following a number of forms being filled, my company incorporation certificate being faxed over, and a few chasing emails.  and a month of waiting!  somehow i thought it would be faster but reading around it seems about average these days.
+but the whole process i’ve found suprisingly bumpy – there are many aspects that could be improved.
+first you get an email titled iphone development program enrollment status which invites you to click on a link leading to the iphone developer program license agreement.  after that’s done you’re invited to pay $99 to sign up to the program, then you receive an email that invites you to look at your electronic download, which in fact turns out to be nothing you can download.
+the trick, pointed out in the above-mentioned site, is you must then wait up to 24 hours, then you login to the … read the rest 
+continue reading
+
+
+
+
+
+vmware and fc4
+  june 1, 2020   alexis caldwell
+
+
+
+if you want to get vmware working with fedora core 4 you could waste a lot of time if you’re looking in the wrong places – in fact i couldn’t find the answer anywhere on the web, just discovered it by trial and error.
+the bottom line is this:
+forget about using vmware 5using vmware 4.5.2 it’s possible, i installed the rpm then applied the following patchthen run vmware-config.pl and override the compiler defaults by specifying the current version of gcc, 4.0.1, instead of 4.0.0 which the install wants because the kernel was compiled with itaccept the default values for the rest of the wizard
+this worked for me with the latest kernel which at the time of writing is 2.6.12-1.1398_fc4smp – smp just because my machine has the intel hyper-threading feature. interestingly, the same approach did not work when i was running fc3 when the kernel version increased from 2.6.11.x to 2.6.12.x.… read the rest 
+continue reading
+
+
+
+
+
+personality traits of the best software developers
+  june 1, 2020   alexis caldwell
+
+
+
+
+of all the social stuff going on on the web these days, i find del.icio.usto be one of the consistently most exciting. they’re always coming upwith great new ideas (although they could use a few more servers) andthe your network feature frequently turns up interesting stuff.
+personality traits of the best software developers is a recent find, well worth a read. it’s in the vein of something you’d expect to find on john lim or joel spolsky‘s sites, but there are a few new tasty angles.… read the rest 
+continue reading
+
+
+
+
+
+how to price your tech services?
+  june 1, 2020   alexis caldwell
+
+
+
+i was googling around to see what folks are charging for the range of services software devs offer. although some humorous sites (a must read) are amongst the top results returned, how to price one’s services is of course a serious question.
+one categorisation of services could be as follows:
+consultancytrainingsoftware developmentsupportad-hocpackages
+for me the list runs from most difficult to easiest, and i charge accordingly.  consultancy general involves technology recommendations, project specification, business analysis, etc, and the kind of input you can give after say 10 years experience is considerably different to what you might have offered after 5.
+next is training, and the reason i’ve put that higher than run-of-the-mill development is that preparation is involved.  for a 1/2 day or 3 day course considerable prep work is involved.  subject matter can cover any software or platform you’re an expert on, but ideally you want to be teaching something that you built that you know better than anyone else.
+in third position is regular software development; the more i do of this the more i see it as generic implementation – a commodity, and therefore chargeable at a lower rate.  given a skilled team, … read the rest 
+continue reading
+
+
+
+
+
+posts pagination
+1
+2
+next posts»
+
+
+
+
+
+
+
+search for:
+
+
+
+   search
+
+
+about php kitchen has been working with web technologies and open source since 1996 and has participated in a number of well-known projects.
+
+
+
+recent posts
+
+
+optimizing php performance: strategies for faster and more efficient code
+
+
+why you should use mac instead of windows for your day-to-day office work
+
+
+take notes from best tech entrepreneurs
+
+
+how-to 2 way synch between google calendar and ical
+
+
+date & time in the menu bar in os x
+
+
+tagsaccounting
+adwords
+analytics
+business
+coversions
+date and time
+dating
+entrepreneurs
+freeagent
+google
+innovation
+inspiration
+kindo
+mac
+marketing
+news
+php
+pricing
+tutorial
+windows
+wordpress
+partneradvertisement
+
+
+
+
+
+
+		wordpress theme: treville by themezee.	
+
+
+
+
+
+
+
+

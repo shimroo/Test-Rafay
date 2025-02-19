@@ -1,0 +1,300 @@
+
+
+
+
+
+
+
+
+unixguide.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skip to main content
+
+
+
+
+
+
+
+
+unixguide.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+navigation
+
+forums
+recent content
+ 
+
+
+
+
+search form
+
+search 
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+recent comments
+
+    no comments available.  
+
+
+new forum topics
+
+джанна майклс милые фото
+чип тюнинг nissan сервис красное гомель
+кура бройлер лучшие картинки
+стиль одежды как у хакамады картинки
+бежево пепельный цвет волос красивые фото
+more 
+
+
+user login
+
+
+username *
+
+
+
+password *
+
+
+create new account
+request new password
+
+
+captchathis question is for testing whether or not you are a human visitor and to prevent automated spam submissions.
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tweet
+
+  
+
+
+
+
+unixguide
+
+unixguide.net ( aix, freebsd, hp-ux, linux, solaris & tru64)
+
+ © 2000 unixguide.net, all rights reserved. hermelito go 
+ 
+» read more about unixguide
+log in or register to post comments
+
+
+
+openldap: allow users to change their password with the unix passwd command.
+
+if you run into this ldap error below, this is the correct way to fix it.
+ 
+
+[litogo@sge4 ~]$ passwd
+changing password for user litogo.
+(current) ldap password:
+new password:
+retype new password:
+password change failed: insufficient access
+passwd: authentication token manipulation error 
+the issue here is that ldap server is not allowing the user password to be changed without the ldap manager's credential.
+you need to add an acl to allow this password change by the user. 
+» read more about openldap: allow users to change their password with the unix passwd command.
+log in or register to post comments
+
+
+
+ovmcli: oracle vm manager command line interface
+
+ovmcli: oracle vm manager command line interface
+ 
+oracle virtual machine manager (ovmm) is an excellent tool.  it's a gui that can help you get your system up and running.
+since it's a gui you can't use it to automate your environment.  the ovm command line interface is there to address that issue.
+in a nutshell it's just shell that you use to communicate with the ovmm. you connect to it by ssh on port 10000 with the ovmm server. 
+» read more about ovmcli: oracle vm manager command line interface
+log in or register to post comments
+
+
+
+chef workstation and client installation
+
+first we install chef development kit package. 
+» read more about chef workstation and client installation
+log in or register to post comments
+
+
+
+why my stop script is not being executed?
+
+i recently got a question on why his linux script is not executed when the system is rebooted or shutdown.
+the script runs fine when run manually.
+# service cleanscript stop
+cleanscript:  cleaning up the directory!
+
+my quick response was maybe your script is not configured correctly for systemd. upon further inspection the 
+server is running a redhat 6 update 10 os. this was still using the old init scripts.
+here is the script in question. 
+» read more about why my stop script is not being executed?
+log in or register to post comments
+
+
+
+chef server installation
+
+i wrote this study notes in the point of view of a system administrator on what to expect and any issues that can trip up your installation.
+the original standallone installation instruction can be found at https://docs.chef.io/install_server.html
+ 
+server checks and preparations.
+ 
+first thing to check is the if the ports http (80) and https (443) are open.
+if not then enable the ports for access. 
+» read more about chef server installation
+log in or register to post comments
+
+
+
+running mysql in a docker container.
+
+first thing we do is to pull the mysql image and then inspect it and look for the volume location.
+[root@centos7 ~]# docker pull mysql
+using default tag: latest
+latest: pulling from library/mysql
+be8881be8156: already exists
+c3995dabd1d7: pull complete
+9931fdda3586: pull complete
+bb1b6b6eff6a: pull complete
+a65f125fa718: pull complete
+2d9f8dd09be2: pull complete
+37b912cb2afe: pull complete
+54242fcd8eaa: pull complete
+0a9d4d211511: pull complete
+270ae5bd02c2: pull complete
+9b55b8e72e70: pull complete
+68083f7985cd: pull complete
+digest: sha256:d39a8ab7679df309e7eff6ddba434ad5747cc2a2acee2d7c60d8221c9acedcad
+status: downloaded newer image for mysql:latest
+ 
+» read more about running mysql in a docker container.
+log in or register to post comments
+
+
+
+solaris:  could not obtain address of ai server from dhcp server
+
+error:  could not obtain address of ai server from dhcp server
+when you are running an oracle vm or virtualbox you may encounter the error above.
+as a work around you will need to assign a fixed address to this dhcp address.
+ 
+edit  the file /etc/inet/dhcpd4.conf  and add the line fixed-address.
+here is an example below: 
+» read more about solaris:  could not obtain address of ai server from dhcp server
+log in or register to post comments
+
+
+
+oracle virtual server manager 3.4.5: database reset
+
+oracle virtual server manager 3.4.5:  database reset
+(this comman should work with ovmm 3.3 and above)
+[root@oel75 ~]# service ovmm stop
+stopping ovmm (via systemctl):                             [  ok  ]
+[root@oel75 ~]# service ovmcli stop
+stopping ovmcli (via systemctl):                           [  ok  ]
+change password with your ovmm password. 
+» read more about oracle virtual server manager 3.4.5: database reset
+log in or register to post comments
+
+
+
+linux: do not power off when laptop lid is closed
+
+ 
+
+if you want to configure your laptop running any of the rhel 7 derivatives (oel,centos, etc) not to suspend the running os when you close the laptop lid.
+
+edit the file /etc/systemd/logind.conf and set handlelidswitch=ignore. 
+» read more about linux: do not power off when laptop lid is closed
+log in or register to post comments
+
+
+pages1
+2
+3
+4
+next ›
+last »
+ 
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+

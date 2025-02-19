@@ -1,0 +1,428 @@
+
+
+
+
+
+
+
+
+
+
+
+biobug.org
+
+
+
+
+
+
+
+
+
+
+
+biobug.org
+projects, notes, etc by will o’brien
+
+
+entries 
+
+
+search:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+my wishlist
+resume
+want my coffee?
+production
+photo gallery
+articles
+podcasting
+news
+amusements
+audio
+brewing
+cigars
+coffee
+gps/geocaching
+hacks
+home theater
+kayak
+machine shop
+photography
+recipes
+scuba diving
+research
+cnc
+cad
+scripts
+ vr interface
+environment
+karkomp
+karkompv2
+mythtv
+reference
+owlnet
+quit soda
+mac
+linux
+tech ref
+panasonic toughbook
+dreamhost hosting
+communication
+blackberry
+t-mobile mda
+danger sidekick
+wrt54g(s)
+transport
+land rover
+4runner
+beetle
+jeeps
+motorcycles
+ev motorcycle
+about
+links
+search
+
+
+
+
+
+back to coffee roasting
+4 february, 2017 (07:43) | coffee | 
+
+the turbo crazy is back in action. i’d had it stored away for a while. almost three years ago, we moved to colorado. two years ago we moved a but further into the mountains. fresh roasted coffee now takes 25 minutes round trip to acquire. i’ve hit the point where i buy half a bag of green beans every so often. the amazing part is that the original turbo crazy that i built over 10 years ago still works great!
+i have had issues with very cold, windy days causing uneven roasting. i’m considering upgrades to the roaster…
+
+
+
+old news
+4 february, 2017 (07:40) | news | 
+
+ok, i’m going to toss up some updates here. i’ve been pretty bad and my personal documentation has gone off the rails as a result. updates incoming!
+
+
+
+land rover discovery i
+11 january, 2015 (09:59) | uncategorized | 
+
+i’ve picked up a new 4×4. the wife’s prius just won’t quite cut it on major snow days. this will be our spare. it might be a little fun too! the new land rover has already been an adventure. it’s got its own section on the site.
+
+
+
+it’s been a busy year!
+11 january, 2015 (08:18) | news, projects | 
+
+i’ve been pretty dark on this site for a while. i was busy moving to colorado and starting a new job. it is a fantastic time for us. i’ve got a few things going on.
+
+new laser cutter! we now have our own 60 watt universal laser. it’s huge and awesome.
+land rover discovery! we live in the mountains now. i wanted a spare 4×4. the prince of darkness is alive and well.
+moar reloading. not a traditional geek activity, but oh it can be.
+
+
+
+
+ubuntu 14.04 smokeping
+27 august, 2014 (10:13) | linux | 
+
+smokeping is usually trivial to install on ubuntu, but 14.04 has some extra quirks. sigh.
+if you’ve installed smokeping, configured a target and added the smokeping.conf to the apache conf-available directory, then used a2enconf to turn it on….
+you might be getting ‘service unavailable’ on your host when you visit http://yourbox/cgi-bin/smokeping.cgi.
+well, smokeping uses fastcgi so that performance doesn’t suck. you need to install the fastcgi mod.
+sudo apt-get install libapache2-mod-fcgid
+go forth and enjoy.  more on stupid apache changes later…
+
+
+
+annd we’re back.
+4 july, 2013 (13:13) | uncategorized | 
+
+this site was murdering my web server every so often. after looking around a bit, i found that i had 2gb worth of comment/comment meta data. the comment system was just murdering the server. i’ve decided to turn off comments for now. i just don’t have the time to sift through them (this site makes enough from the ads to cover hosting, but that’s about it.) let’s all take a moment and thank the seo jerks for ruining something else on the internet.
+i’ll keep posting from time to time, but comments are dead for now.
+
+
+
+setting up an awesome home media system
+20 april, 2013 (09:17) | uncategorized | 1,155 comments
+
+
+i used to spend a lot of time playing with various home theater toys. it was one of my main hobbies before i owned a house. once i bought a house, my priorities changed a bit out of necessity. when we got the house, i did replace my diy video screen with an electric drop down screen. then i sold my old projector and replaced it with a 720p mitsubishi. i’m a bit on the cheap side when it comes to ht gear. i’m far too used to moore’s law in computing. i thought i’d post a bit about the state of my cheap geek home theater.
+let me talk about my goals for the project: enjoyment! i want good sound! i don’t want to cringe if things get broken! (i have kids after all.) my kids are allowed to use everything. my wife needs to be able to use it without turning into the incredible hulk. oh, and it’s got to be awesome.
+0) just a bit regarding layout. see the doorway above? it meant that i was limited to a 16:9 for maximum screen size. the setup needed to be centered on the wall for ascetics. i also built in a cabinet that goes into my garage. that provides inset shelving for my audio gear. it also has a door on the back. i can walk into the garage, open the door and access all my wiring without bending over – and there’s good lighting in my shop! this has saved my sanity for years now. i love it every time i need to access stuff. i recently pulled the tv feeds through the wall, so now i just need to get the controller for the screen tucked away and the only wires will be the speaker lines. i’m ok with seeing the wires – wife not so much. i also added the can lights to the room. all of them are on dimmers and light the room in three sections. the room used to be all brown paneling. now it’s all textured drywall. the ceiling is a dark matte color in the palette with the walls to reduce reflection from the screen. finally, the drop down screen is mounted to a pair of wood spacers that place it in front of the plasma for clearance.
+1) plasma screen” i have a commercial grade panasonic plasma that weighs something like 80 lbs. it’s pretty hard core. cost: infinite (hand me down from father in law) ok, it was free but i did have to fetch it from texas. advantage? saves projector life, it’s usable during the day with the windows uncovered. actual cost: $0.
+2) projector: mitsubishi hc-1500. this unit has served me well. it’s 720p and uses bulbs that clock in at around $100. it’s hard to replace it with a newer unit based on tco. cost: $800 new. $600 was offset by my old projector. actual cost: $200
+3) now semi retired onkyo 7.1 home theater system. this was a refurb that has since keeled over. it was around $300. it was a great deal with speakers, subwoofer and receiver. the speakers are still in use.
+3.1) new receiver: pioneer elite sc-25. this was a total ebay score. new retail in 2009 was $1800. 140 watts per channel, 1080p video scaling, multiple zone support, very good sound. the seller couldn’t get it to work with hdmi. the manual is 150 pages long. i guessed that it was user error and appear to have been correct! total cost with shipping: $100.
+4) electric screen – 104″  16:9 flexio electric screen. (links to the 103″ version)this is a chinese made, but good quality screen. the drop down provides the ability to use the plasma or the screen and keeps the screen safe from kids who may be throwing things (balls, snot, etc). the kids are getting older, but it’s nice not to worry about it. it was my treat to myself when we closed on the house: total cost: $230.
+5) blu-ray player – sony bdp-s570. this player does netflix, hulu, is made by the king of blu-ray (it’s a sony format) and does a great job. cost $130. the user interface could be better, but even the 6 year old has managed to use it.
+6) xbox 360 – used for nefarious purposes. rock band, odd video playback, etc. it was hijacked by my wife from my office, i spent $100 to replace my office unit later on. cost $100.
+7) 2010 mac mini – this mac had issues with ram over 2gb. it appears to be the controller rather than a particular stick of ram. this was my old home machine forever, so cost for the ht was $0. i added an old apple remote that was getting tossed out at work. it runs mac os 10.8 and the plex media player client. it provides hdmi out for the projector and vga to the plasma (which doesn’t have an hdmi port). it’s also great for playing emulated games like nes, etc. new cost for the mac was $600. actual cost for the theater since it long paid for itself in consulting work: $0.
+8) cables. over the years, i’ve spent about $100-150 at monoprice.com on various cables. those include 50ft hdmi and component video cables (projector), short hdmi, audio and toslink.
+that’s it for the home theater proper. now we need to add some nerd stuff.
+my media storage system is based on the plex media server. i store my videos on a mac and plex provides access to systems via the internet, to mobile phones, ipads and my plex player mac mini. i have a few other tricks to make it even sweeter. the plex server is acutally a virtual machine that lives on a vmware esxi host. why? i do alot of consulting work with vmware and running the system as a virtual machine means that i can replace the physical host as needed. i can add more ram, storage, processor – all without making major changes to the virtual mac. the server i use cost about $300 and has totally paid for itself in consulting earnings. cost: $0. (not including power to keep it running)
+a bit of info on the server itself. it’s got four sata drive bays, 8gb of ram, and a quad core server grade xeon cpu. it’s running esxi 5.1 and sits quietly in a corner of my house. it’s pretty sweet!
+so, what’s coming in the future? at some point i’ll get a 1080p projector. before that, i’m thinking of building some custom speakers. this depends on getting my new gantry cnc mill up and running, but it’ll happen! i’ll be doing a mtm (mid, tweeter, mid design) but am still researching options for design. i’d really like to come up with something unique that really takes advantage of my manufacturing process rather than just a plain box design. the audio from the new pioneer is great! i feel like the sub is coming up a little short, so i may have a sonotube in my future.
+
+
+
+android adk and ubuntu 12.10
+3 march, 2013 (10:02) | android | 1,049 comments
+
+i while back i played with setting up an android dev environment. it was annoying. i ended up throwing my hands up in the air and forgot the whole thing.
+now i’ve got a project that needs android, and i’ve had some requests for certain android apps. so, i’ve acquired a nexus 7 for dev testing and decided to set up a linux workstation to develop on. i had a quad core xeon poweredge tower that’s been sitting in the floor for a few months. (previously it was my test esxi host.)
+so, i installed ubuntu 12.10 in the usual fashion. (downloaded the iso and wasted a cd since i couldn’t find a thumb drive for it). post installation, i updated.
+sudo apt-get update
+sudo apt-get upgrade
+then i needed a version of java to run this thing. the standard free dev environment is eclipse, which needs java.
+sudo apt-get install openjdk-7-jre-headless
+so now java -version returns some useful information.
+java -version
+java version “1.7.0_15″
+openjdk runtime environment (icedtea7 2.3.7) (7u15-2.3.7-0ubuntu1~12.10)
+openjdk 64-bit server vm (build 23.7-b01, mixed mode)
+after that i downloaded the android adt bundle. the adt bundle has eclipse preconfigured for android development. this is a huge improvement from before. my frustration on my previous attempt was really that eclipse wouldn’t configure properly. this way, it’s pretty trivial to get things running. however, i ran into a problem. when i launched eclipse from the adt bundle, i got an error. eclipse popped up a window complaining about no such file when trying to run adb.
+i have a 64 bit install of ubuntu. i installed the 64bit adt bundle. however, it wants some 32bit tools! back to apt-get!
+sudo apt-get install ia32-libs
+say yes and let it install the 5 billion dependencies.
+try running eclipse again…
+boom! headshot! for a second, it looked like it was broken. however, it’s just ubuntu window management being goofy. mouse over the menu bar at the top of the screen and the file menu and friends will appear. now for some development….
+
+
+
+juniper mx lag to cisco nexus 7000 port channel
+11 january, 2013 (09:20) | networking | 1,102 comments
+
+i recently needed to set up some aggregated ethernet connections. (lags, etherchannel, port channel, agg, etc). in this case, it was between a cisco nexus 7k series switch and a juniper mx 480 with trio based blades (mpc-2 to be exact). i did not configure this with multi-chassis technology – this is between single devices.
+on the mx, you must enable aggregate ethernet interfaces. 100 is overkill, but this is actually from a mx960 in my lab. it’s upper limit is thousands.
+set chassis aggregated-devices ethernet device-count 100
+without this, your new interface will never even appear in the interface list.
+now configure your first agg ethernet interface.
+set interfaces ae0 description “test aggro port to lexus1″
+set interfaces ae0 flexible-vlan-tagging
+set interfaces ae0 mtu 9192
+set interfaces ae0 encapsulation flexible-ethernet-services
+set interfaces ae0 aggregated-ether-options lacp active
+set interfaces ae0 unit 1234 encapsulation vlan-bridge
+set interfaces ae0 unit 1234 vlan-id 1234
+note the vlan interface. i’m using bridge domains here. you don’t have to do it that way. here’s the rest of the config for vlan 1234:
+set interfaces irb unit 1234 description “test vlan for agg”
+set interfaces irb unit 1234 family inet address 192.168.200.1/24
+set bridge-domains vlan-1234 domain-type bridge
+set bridge-domains vlan-1234 vlan-id 1234
+set bridge-domains vlan-1234 interface ae0.1234
+set bridge-domains vlan-1234 routing-interface irb.1234
+that’s it for the mx configuration. this will work from mx to mx as well if you want a consistent lag configuration. now for the nexus configuration.
+create a port channel:
+interface port-channel1234
+description “test agg link”
+switchport mode trunk
+switchport trunk allowed vlan 1234
+spanning-tree port type normal
+mtu 9216
+now configure and add the interfaces:
+interface ethernet1/3
+description “link1 to mx”
+switchport mode trunk
+switchport trunk allowed vlan 1234
+spanning-tree port type normal
+mtu 9216
+channel-group 1234 mode active
+no shutdown
+note the mode active on the channel group. that forces active lacp. also note the lack of vpc number in the port channel. that’s because it’s a single nexus that’s not part of a vpc pair. i got burned on my original configuration because i’d left it in there. (facepalm)
+ 
+
+
+
+snow hunting (101?)
+30 november, 2012 (09:16) | adventuring, travel | 944 comments
+
+when i plot my annual trip – in which i strap sticks to my feet and aim for the best powdered ice i can afford to find – i perform a few rituals to stoke the snow hunter inside.
+first of all, i start watching films by warren miller, teton gravity research, etc. (i was fortunate enough to win most of the tgr films at a premier a couple years ago) this helps me get excited. i’ve got no desire to pull 360s (well, maybe a little) but seeing people attempt moments of awesomeness on snow is exciting.
+second, i start reading snow forecasts. this doesn’t do much good until a couple weeks out, but it can still get the blood pumping. (either triumph in not going too early or heartbreak at missing the epic snow of the year) so, without further a due, let’s get to the snow hunting toys.
+1) freshy map – this is a great use of spatial data. it’ll give you a quick view that you can drill into if you’re really on the hunt for snow. currently it seems to only have the western united states covered. sorry east coasters.
+2) open snow – these guys are great. they have a widget that you can source into your web site if you like. they have dedicated forecasters who focus on powder and they write up some interesting blog posts about their conclusions along with their hopes and dreams for the coming of the powder.
+3) pre-trip deal hunting. i tend to haunt winter park because they’re a fantastic value. they’re also a pretty good drive for me. i head there from missouri, take a run through denver (sometimes with a stop in boulder to drop off a friend). winter park is pretty short drive from there. other spots like steamboat are a good clip away. my second favorite drive is probably breckenridge – a place that really really wants 2-300/night for a decent room. breck is a great place for a larger group, winter park is my choice for small inexpensive trips. each town has it’s own flavor – i suggest exploring to find the right fit.
+i’ve noticed a trend with resort web sites. they always have some sort of ‘deal’ which usually ends up being the standard price anyway. i have better luck watching the sites and getting a feel for the normal price. once in a while there’s a really good deal – like free lift tickets with the hotel. it’s all subjective.
+4) the season pass pondering. sometimes, it’s really truly worth the money to buy a season pass. a wp pass can be a heck of a deal. buying it in the summer is always cheapest. but it can reap some great benefits. the vouchers will save your friends and family $20-30 depending on the time of year. you’ll usually find discounts on gear and lessons with the pass too. that can really pay off. saving 10-20% on gear or lessons can help your trip funds last longer. it can also save your wallet – they can typically tie a credit card to your pass for on mountain charges. less digging around to pay for emergency chap stick is often the best thing ever!
+
+
+« older entries
+ 
+
+
+pages
+
+home
+contact me
+code
+
+
+february 2025
+
+
+m
+t
+w
+t
+f
+s
+s
+
+
+
+
+« feb
+ 
+ 
+
+
+
+
+ 12
+
+
+3456789
+
+
+10111213141516
+
+
+17181920212223
+
+
+2425262728
+ 
+
+
+
+categories
+
+adventuring
+
+travel
+
+
+
+coffee
+
+electric vehicle
+
+hardware
+
+linux
+
+mac
+
+networking
+
+news
+
+news, projects
+
+projects
+
+android
+
+iphone
+
+smsresponder
+
+
+
+motorcycle
+
+
+
+toys
+
+uncategorized
+
+
+archive
+
+february 2017
+january 2015
+august 2014
+july 2013
+april 2013
+march 2013
+january 2013
+november 2012
+october 2012
+september 2012
+august 2012
+april 2012
+february 2012
+december 2011
+november 2011
+september 2011
+august 2011
+july 2011
+may 2011
+february 2011
+january 2011
+november 2010
+october 2010
+august 2010
+july 2010
+april 2010
+february 2010
+january 2010
+december 2009
+november 2009
+october 2009
+september 2009
+august 2009
+july 2009
+may 2009
+april 2009
+march 2009
+january 2009
+december 2008
+november 2008
+october 2008
+september 2008
+august 2008
+july 2008
+june 2008
+may 2008
+april 2008
+march 2008
+february 2008
+january 2008
+october 2007
+september 2007
+august 2007
+june 2007
+
+blogroll
+
+bunnie studios
+engadget
+hack-a-day
+ladyada’s rants
+ubuntu
+
+
+
+© 2025 biobug.org - log inpowered by wordpress - theme design by andreas viklund
+
+
+

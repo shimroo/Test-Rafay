@@ -1,0 +1,345 @@
+
+
+
+
+
+mt312
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+コンテンツへスキップ
+
+
+
+
+
+
+mt312
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+none
+
+19
+6月
+2022
+
+
+
+apkとaabのファイル名にバージョンと日付を追加する
+
+						android { namespace 'com.mt312.myapp' compilesdk 31 defaultconfig { testinstrumentationrunner 'androidx.test.runner.androidjunitrunner' minsdk 24 targ…
+					
+
+						続きを読む  
+
+
+
+
+
+
+ 
+none
+
+14
+4月
+2022
+
+
+
+kotlin flow: suspension functions can be called only within coroutine body
+
+						flowのemitでエラー 例えば、zipにアーカイブしている最中にprogressをemitできない問題。 fun startpacking() = flow { ... ziputil.pack(basedir, exportpath) { name -> ... val progress: f…
+					
+
+						続きを読む  
+
+
+
+
+
+
+ 
+none
+
+14
+4月
+2022
+
+
+
+mvvm usecase repositoryメモ
+
+						ライブラリ dagger hiltkotlin coroutinekotlin flow activity, fragment（ui） viewmodelのstateflowを監視して、随時画面に出力する viewmodel（状態管理） view、dispatcherなしcontextが必要な場合は…
+					
+
+						続きを読む  
+
+
+
+
+
+
+ 
+none
+
+5
+4月
+2022
+
+
+
+分割画面の2画面目に表示させると戻る時の共有トランジションが効かなくなる問題について
+
+						デフォルトで有効になっているwindowsharedelementsuseoverlayを無効にすれば解消される模様です。これはスクロールなどで共有エレメントが隠れている場合にオーバーレイを使用するかどうかの設定です。 <item name="android:windowsharedeleme…
+					
+
+						続きを読む  
+
+
+
+
+
+
+ 
+none
+
+18
+3月
+2022
+
+
+
+autocompletetextviewをspinnerとして使うには
+
+						textinputlayoutでドロップダウンメニューを使いたい場合はspinnerが使えないのでautocompletetextviewをカスタムしてみました。 dropdownnonfilter フィルタリングせずに常時表示させるためだけのフィルター class dropdownnonfilte…
+					
+
+						続きを読む  
+
+
+
+
+
+
+ 
+none
+
+27
+1月
+2022
+
+
+
+android studio bumblebeeの新規プロジェクトにjava版のrealmを追加する
+
+						だいぶ書き方が変わっていて戸惑いましたが、より簡潔になりました。realmに無関係な行も含まれていますが、こんな感じになりました。ちゃんとマニュアル読めよ俺。 build.gradle (:app) realmはkaptが必要です。 plugins { id 'com.android.applica…
+					
+
+						続きを読む  
+
+
+
+
+
+
+ 
+none
+
+10
+10月
+2021
+
+
+
+google map latlngからplaceidを取得する
+
+						写真などの詳細情報を取得するには、位置の座標ではなく、place idが必要になっています。例えば駅のplace idは以下のようにして取得できます。 implementation 'com.google.maps:google-maps-services:1.0.0' val apicontext…
+					
+
+						続きを読む  
+
+
+
+
+
+
+ 
+none
+
+28
+9月
+2021
+
+
+
+google map v3 ベータ版は非推奨！現行バージョンを使おう！
+
+						google: as of the date of this release note, the maps sdk for android beta (versions 3.0.0 and 3.1.0) client library is deprecated. v3ベータ版の打ち切りがアナウンスさ…
+					
+
+						続きを読む  
+
+
+
+
+
+
+ 
+none
+
+15
+9月
+2021
+
+
+
+status barを自動的にtoolbarと同じ色に変える
+
+						coordinatorlayout -> appbarlayout -> materialtoolbar <androidx.coordinatorlayout.widget.coordinatorlayout xmlns:android="http://schemas.andro…
+					
+
+						続きを読む  
+
+
+
+
+
+
+ 
+none
+
+13
+9月
+2021
+
+
+
+android studio bumblebeeの新規プロジェクトにkotlin版のrealmを追加する
+
+						android studioがマルハナバチになってライブラリの追加で迷いました。。。プロジェクトのbuild.gradleがほぼ空になっていて、代わりにsettings.gradleに書くようになっています。 データベースライブラリのrealm-kotlinを追加してみます。ちなみに、java版とは…
+					
+
+						続きを読む  
+
+
+
+
+投稿のページ送り
+1
+2
+3
+…
+6
+>
+ 
+
+profile
+
+mt312
+色々なアプリを開発しています。
+
+ x
+ git
+
+
+tagandroid (28)
+android studio (4)
+appintro (1)
+aws (1)
+dagger hilt (1)
+google map (3)
+ios (19)
+java (1)
+kotlin (19)
+mac (2)
+objective-c (1)
+realm (2)
+shared element transition (1)
+split screen (1)
+storyboard (5)
+swift (4)
+toolbar (3)
+uialertcontroller (1)
+uicollectionview (2)
+uigesturerecognizer (2)
+uinavigationcontroller (2)
+uiscrollview (1)
+uislider (1)
+uitableview (1)
+wordpress (1)
+アーキテクチャ (1)
+ウォークスルー (1)
+エミュレータ (1)
+セキュリティ (1)
+ターミナル (2)
+プッシュ通知 (1)
+ヤフオク (1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+powered by wordpress
+theme by simple days
+
+
+
+
+			©2025  mt312 
+
+
+
+
+
+

@@ -1,0 +1,636 @@
+
+
+eshwar's web world
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+eshwar's web world 
+welcome, this gives you a glimpse of all the stuff you want to know and looking for.
+
+
+
+
+download
+subscribe to feeds
+
+
+ blog portal blogdup
+ 
+
+   
+
+â» link here  
+
+ 
+
+
+
+
+
+
+
+
+rate me on bloghop.com!
+
+
+
+
+
+help?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+about me
+
+name:  eshwar 
+location:  hyderabad, india 
+view my complete profile
+
+
+
+
+favourite links
+
+
+programming blog
+
+
+javascriptmagic
+
+
+investmentexpert
+
+
+guide2mutualfunds
+
+
+wannaebook
+
+
+latestsoftwares
+
+
+previous posts
+
+your custom search engine
+working with .htaccess files
+free online virus scanners which run inside web br...
+mvc architecture in simple words
+use websearch or blogsearch engine
+tips on ie6 and ie7
+icefaces powerful ajax jsf extension framework
+java robot class
+hide user accounts in windows xp
+stikkit a sticky notes to the browser
+
+
+archives
+
+2004-12-05
+2005-11-27
+2005-12-18
+2005-12-25
+2006-01-01
+2006-01-08
+2006-01-15
+2006-01-22
+2006-01-29
+2006-02-12
+2006-08-06
+2006-08-13
+2006-08-20
+2006-08-27
+2006-09-03
+2006-09-10
+2006-09-17
+2006-09-24
+2006-10-01
+2006-10-08
+2006-10-15
+2006-10-22
+2006-10-29
+2006-11-05
+2006-11-12
+2006-11-19
+2006-11-26
+
+
+my feeds
+
+ 
+my rss feed  
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wednesday, november 29, 2006
+
+
+
+	 
+	 your custom search engine 
+	 
+    
+
+			 it's easy to build a cse -- no ph.d. in computer science required. here's how it works:visit http://www.google.com/coop/cse/ and select the websites you'd like to include in your search index. then choose to restrict search results to include only those pages and sites, or you can give those pages and sites higher priority and ranking within the larger google index when people search on your search engine. from the cse site, you can generate the code to place on your site and make the search engine, through an iframe, look and feel like your own. if you choose, you can easily link to your current adsense account so you have a centralized place to manage your google adsense relationships. last but certainly not least, you can invite members of your community to contribute to your search engine index, in real time. simply enter email addresses of people you'd like to contribute and an invitation along with google marker will be sent to your invitees. you can check out a few more cses in action by visiting our featured examples page. you'll see some created by industry experts, bloggers, educators and techies. we're continuing to add customization and advanced features to the cse too. we hope you'll try it out and let us know what you think.get more information 
+
+				can't find what you're looking for? try google search! 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+web
+
+
+
+eshwar123.blogspot.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+posted by 
+eshwar at 11:51 am
+
+
+
+
+
+
+
+monday, november 27, 2006
+
+
+
+	 
+	 working with .htaccess files
+	 
+    
+
+.htaccess files provides us with ways to make configuration changes on a per-directory basis. this file works well in apache web server and on linux/unix. also, it works on windows based system with apache web server.there are several things that developers, site owners and webmasters can do by using .htaccess file. let’s look at some of them:prevent directory browsingredirect visitors from one page or directory to anotherpassword protection for directorieschange the default index page of a directoryprevent hot-linking of images from your websitesince .htaccess file allows us to make changes on a per-directory basis, the following are valid places to put the .htaccess file in:/.htaccess [placing in root folder of the site]/content/.htaccess [placing in content folder]/content/html/images/.htaccess [in the images folder] any command that you place in .htaccess file will affect it’s current directory where it is placed and also it’s sub-directories. you may put a .htaccess file in the root folder such that it will affect the whole site. make a backup of your .htaccess file [if you have any] before you attempt any of the settings mentioned in this article. i must not be held responsible for any consequences that arises due to editing your .htaccess file.  working with .htaccess filesfor creating and editing purpose, a normal text editor such as notepad will do. alternatively, you can download a free copy of pspad for easy editing. to be able to see files in your ftp software, you must enable settings in your ftp client to see hidden files on the remote server [applicable to your system as well]. when done editing, you can save the file with double quotes in windows. [save file as “.htaccess”]. this will save the file as .htaccess and will not prompt you for a file name as such. i think you have quite understood these instructions. let’s move on to some common examples and usages of .htaccess file.allow/deny directory browsingwith directory browsing on, people when open a url from your site with no index page or no pages at all, will see all it’s files and folders. to prevent such directory viewing, just place the following line in your .htaccess file.indexignore */*many hosting companies, by default deny directory browsing and having said that, just in case you need to enable directory browsing, place the following line in your .htaccess file.options +indexesredirect visitors from one page or directory to anotherit’s quite simple. look at the example lines below and place similar lines in your .htaccess file of the root folder and it will do the rest. [remember to use permanent keyword in the line to tell the search engines that the old link has moved to the new link]syntax: redirect permanent [old directory or file name][space][new directory or file name]redirect permanent /olddirectory /newdirectoryredirect permanent /olddirectory /somedirectory/newdirectoryredirect permanent /oldhtmlfile.htm /newhtmlfile.htmredirect permanent /oldhtmlfile.htm http://your-domain.com/newhtmlfile.htmall the above lines are valid. just remember to replace the file/directory names with actual ones.change the default index page of a directory or sitealmost every hosting company will have index.htm, index.html, index.php, index.asp, default.asp, default.html as the default index page names in their web server settings. so, in case your site or directory does not has a file name which matches a name from the list above, chances are that your visitors will either see a list of all the files and folders [through directory browsing] or will not see anything at all. to change the default index page’s name for a directory or the site, place the following line in the .htaccess file of the root folder or the particular directory for which you want to change the index page’s name.directoryindex homepage.htmdirectoryindex somepage.htmto have more names, put a space between file names and it will take into considerations all those file names as possible index page names. which means, if it finds a filename matching a list of names you supplied [in the given order] in .htaccess, then it will open that page as the index page for the directory. the below line, with multiple names, is also a valid usage:directoryindex homapage.html somepage.html myindexpage.html anything.html remember, each entry must be in one line only.prevening hot-linking of images from your websiteif your website contains images which people from other websites are linking to and you get charged for the extra bandwidth, then placing the following lines will prevent any such image hot-linking. most of the hosting companies provide this feature in their control panel itself, such as cpanel. this trick requires mod_rewrite engine to be on in apache on your web server.rewriteengine onrewritecond %{http_referer} !^$rewritecond %{http_referer} !^http://(www.)?your-domain.com/.*$ [nc]rewriterule .(gif|jpg)$ - [f]in the above code, replace [your-domain] with your actual domain name [without www]prevent access to your .htaccess filethis article would have remained incomplete without mentioning this trick.  to prevent visitors from viewing your .htaccess file, place the following lines in your file.<files .htaccess>order allow,denydeny from all</files>more information and detailed documentation, visit apache website.get more information 
+
+				can't find what you're looking for? try google search! 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+web
+
+
+
+eshwar123.blogspot.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+posted by 
+eshwar at 7:21 pm
+
+
+
+
+
+
+
+
+
+
+	 
+	 free online virus scanners which run inside web browser
+	 
+    
+
+he computer security market is flooded with antivirus software that work but don't come cheap.while viruses remain a threat to our precious data, you need not necessarily invest in expensive antivirus scanners - there are plenty of free options available that may give even some commercial vendors a run for their money.we look at some of the best software available today for keeping your computer free of viruses and other malware. later we help you decide the one most suitable for you.free online virus scanners [run inside the web browser to scan your hard drive]trend micro housecall - an online virus scanner that's absolutely free and scans your pc hard drive for any sort of viruses or even spyware. housecall allows you to remove detected infections. works with firefox and ie. requires java.mcafee freescan - this free virus scanner from mcafee is based on the mcafee virusscan engine. should viruses be found, freescan prepares a list of infected files and links to information about the viruses on your computer. it also gives you an option to clean your system. requires ie with activex.windows live onecare scanner - a free antivirus online scanner from microsoft that cleans your system from viruses and also recommends ways to improve the overall performance. part of windows onecare.symantec internet security - an online virus scanner from the developers of norton antivirus 2007 can detect most virus threat but there is no option to delete the virus infected file or repair it. does not examine compressed files. requires ie with activex.bitdefender online scanner - their free online virus scanner version 8 scans your system's memory, all files, folders and drives' boot sectors - the default options automatically cleans the infected files. requires ie with activex.free anti virus software for windows [requires installation]avast! home edition - one of the most popular antivirus software, can also be run from explorer context menu. you can either scan the entire hard drive or selected folders. ships with an antivirus screen-saver.aol active virus - a free virus scanner from aol based on kaspersky antivirus that doesn't require an aol account to download the software. the software can be configure to check only new and modified files thereby reducing the memory requirements. also support scanning of incoming and outgoing email messages.clamwin virus scanner - an opensource antivirus software that is great for running routine antivirus checks on your pc. you need to manually scan a file in order to detect a virus or spyware.avg 7.5 free antivirus - one of most popular free virus scanning software is avg 7.5 free edition (read comments). initially, there was confusion whether avg 7.5 would be free like avg 7.1 but the good news is that avg 7.5 free edition is already available for non-commercial, single home computer use. conclusion: which one should i choose ? unlike desktop antivirus software, online virus scanners do not proactively protect your pc against new virus infections. but if viruses have already entered your hard drive and taken control of your existing desktop scanner program, any of the above listed online virus-scanning services can save your day.if you are a fairly experienced web user who doesn't need an antivirus software to run in the background 24 hours, scan you drive at regular intervals using housecall. others may install the aol antivirus software which uses the kaspersky virus definitions database.get more information 
+
+				can't find what you're looking for? try google search! 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+web
+
+
+
+eshwar123.blogspot.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+posted by 
+eshwar at 2:26 pm
+
+
+
+
+
+
+
+thursday, november 23, 2006
+
+
+
+	 
+	 mvc architecture in simple words
+	 
+    
+
+about mvcthe model-view-controller (mvc) architecture provides a set of design patterns that help you separate the areas of concern involved in building and running a gui-based application. the model encapsulates the business logic and persistence code for the application. the model should be as view-technology-agnostic as possible. for example, the same model should be usable with a swing application, a struts application, or a jsf application. the view should display model objects and contain presentation logic only. there should be no business logic or controller logic in the view. the controller (along with its attending logic) acts as the mediator between the view and the model. the controller talks to the model and delivers model objects to the view to display. in an mvc architecture the controller always selects the next view.
+
+				can't find what you're looking for? try google search! 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+web
+
+
+
+eshwar123.blogspot.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+posted by 
+eshwar at 2:56 pm
+
+
+
+
+
+
+
+tuesday, november 21, 2006
+
+
+
+	 
+	 use websearch or blogsearch engine
+	 
+    
+
+well, there are least five differences between websearch and blog search engines listed below: 1: a web search engine indexes blogs, webpages, forums, pdfs and even microsoft office documents. blog search engines index only sites that syndicate content as a feed in either rss or atom formats. 2. blog search engine bots will index your website as soon as you ping them (or notify them about new content on your blog). search engines spiders are much more lazy (unless you are a pr8 or pr9 website) infact, it's not even guaranteed that a search engine would index your site.3. since xml feeds supply data in a more structured format to the blog search engine, you can sort blog search results either by date or relevance. in normal web search engines, results are sorted by page relevance since their bots do not know the exact date when the article was written or published on the web.4. web search engines index all parts of your webpage including reader comments, text in the sidebars, etc. on the other hand, most blog search engines index just the text of the blog post that was supplied to them inside the rss feed. they won't index other elements of the webpage like archive links, blogroll, etc.5. blog search engines let you restrict the search to a particular author, something not possible with web search. summary: use a blog search engine when you need information about an event that happened just seconds ago like someone smashed his ps3 on the road.in all other cases, you may prefer using a web search engine.get more information
+
+				can't find what you're looking for? try google search! 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+web
+
+
+
+eshwar123.blogspot.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+posted by 
+eshwar at 9:26 pm
+
+
+
+
+
+
+
+wednesday, november 15, 2006
+
+
+
+	 
+	 tips on ie6 and ie7
+	 
+    
+
+with the release of internet explorer 7 the rendering engine of the most widely used browser has changed. some of our customers reported display issues with our controls. some of them were bugs in our controls (both in the internal rendering implementation and skins) other were problems with custom defined skins or page layout. in 5 cases out of 10 the problem was due to one of the following reasons:ie7 no longer accepts css attributes starting with underscore. using underscores was a widely used css hack to circumvent rendering issues in ie6. here is a quick example to illustrate the underscore hack:the following css rule would be applied in ie6 (the background would be red) but wont be applied in ie7 (background stays white):<style>.mydiv{_background-color: red;}</style><div class=mydiv>test content</div>width and height are now interpreted according the w3c specification they fix the size of an element and it cannot grow. in ie6 width and height were treated as min-widh and min-height from the w3c specification. in ie6 an element whose width and height properties are set would stretch to accommodate its content (provided the content exceeds the specified dimensions).you can find here a kb article with more detailed info and screenshots. get more information 
+
+				can't find what you're looking for? try google search! 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+web
+
+
+
+eshwar123.blogspot.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+posted by 
+eshwar at 9:13 pm
+
+
+
+
+
+
+
+tuesday, november 14, 2006
+
+
+
+	 
+	 icefaces powerful ajax jsf extension framework
+	 
+    
+
+icefaces is a profoundly powerful extension framework for javaserver faces which provides excellent ajax integration with no heavy lifting. implemented as a jsf renderkit, you can get started with icefaces in your jsf apps quickly and easily. that is the beauty of standards-based development, isn't it? in addition to releasing as open source, icesoft has also created icefaces.org, a new community site to focus on icefaces development. you can download the full icefaces package, check out their demos and component showcase, and participate in support forums for the tools.    this is a big day for jsf. i know all eyes are on sun because of yesterday's news about gpl java, but trust me that this is also important news which you don't want to overlook. icesoft and icefaces are very cool, and as open source icefaces is more attractive than ever.get more information
+
+				can't find what you're looking for? try google search! 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+web
+
+
+
+eshwar123.blogspot.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+posted by 
+eshwar at 11:16 pm
+
+
+
+
+
+
+
+
+
+
+
+
+
+	  	© 2006  eshwar gupta
+
+
+
+
+
+
+
+
+online advertising
+
+
+

@@ -1,0 +1,389 @@
+
+
+
+
+eric phelps
+
+
+
+
+
+
+welcome to my place on the
+web. virtually everything here comes with source code and at least a
+passing description. nothing is guaranteed to work for you. i have
+enough trouble just getting things to work for me. the most redeeming
+feature is that it's all free (and worth every penny!).
+
+
+
+
+other
+people named eric phelps
+
+
+scripting languages
+how to write a simple plain text file that can leverage what's built
+in to windows to solve real-world problems.
+
+
+
+
+
+
+win9x batch
+programs 
+the beauty of doing things with batch is the
+simplicity of the limited command set. there are few enough
+commands that anybody can learn it. the challenge is in using
+these limited commands to accomplish anything useful!
+windows
+scripting 
+it's way better than batch, it's standard with windows 98 and
+newer, it's free for win95 and nt4, and unlike batch, it works the same
+(for the most part!) across all windows platforms.
+
+
+
+
+
+real programs
+when i had no other way to solve a problem, i wrote these. they
+worked on my computer. if they work on yours, you're welcome to them.
+
+
+
+
+
+
+
+   bar codes
+i needed some bar codes with text below them. i couldn't find any free
+ones, so i created my own. then i released them all to the public
+domain. better than free!
+ 
+commtool
+
+i kept locking up my serial ports and modem while writing comm
+programs.
+i wrote this to forcibly take control of ports opened by the win16 api
+so i wouldn't keep having to reboot. the coolest thing is that it can
+change
+port settings while another program is using that port (without
+knocking
+the other program off!).  
+
+ffind
+
+i used to be a big bbs guy. i wrote this to search bbs file
+descriptions,
+but i've found it does great at searching data dumps from our
+communications
+analyzers too!  
+
+mappoint
+asp 
+sample code showing how to use mappoint 2001 or 2000 as a cgi or with
+asp. you should already know how to do database operations before you
+try
+this code out. 
+
+pong
+
+sure, pong for excel 97. the little ball bounces around your
+spreadsheet
+and you chase it with your paddle. add it to any spreadsheet.
+demonstrates
+"callbacks" under vba. this will not work under any other version of
+excel.  
+
+probeme!
+
+run a unique port probe on your own computer to see what winsock ports
+are in use and which are available. 
+
+q193998
+
+a way to read binary files if you don't have ado. and sample code
+showing how to do it if you do have ado! 
+
+schedule
+
+automatically launch programs, scripts, or documents whenever you want.
+no shareware nagging, no task bar clutter. any combination of day,
+date,
+month, etc.. how many other schedulers can launch a program every
+friday
+the 13th? 
+setini
+
+a little utility i wrote to modify windows ini files from dos before
+windows comes up. it really cut down on the complaining windows did
+when
+the network wasn't there or some other fool problem.  
+
+shutdown
+
+do you need to shut windows down, log off, or reboot under program
+control? and have it happen either as a screensaver or as a scheduled
+task?
+here is my solution. 
+
+tnef 
+i get stuck receiving file attachments from outlook users who don't
+know how to turn off the "application/ms-tnef" file encoding. so i
+wrote
+this to help me pull files out of the otherwise useless mess that
+"ms-tnef"
+is. 
+
+webget
+
+i needed a scheduled batch file to pull a file off the web each night.
+it should have been simple. but it was a secure web server. login
+required.
+so i wrote webget (basically a wrapper for msinet.ocx) to allow me to
+get whatever
+i wanted. you can use it from a batch file or automate it from vba or
+the
+windows scripting host.
+
+ 
+
+
+commlink
+
+i needed to hack a proprietary communications protocol, so i wrote
+this. if you have two serial ports and have access to the target
+computer's
+rs232 line, you can grab and analyze all the data. there are better
+ways
+to do this now, but they weren't around when i wrote this...
+crlf
+
+i got tired of being on the losing end of the text differences between
+the unix, dos, and macintosh operating systems. i wrote a couple of
+utilities
+so i could convert from anything to anything. 
+
+headers
+
+i was writing a cgi program and was getting nowhere fast. the problem
+seemed to be in my headers, but i had no way of looking at them or
+comparing
+them with known good headers. now i do! now i can check out the
+otherwise
+hidden headers in any web page or cgi i want. 
+
+nofonts
+
+have you ever used excel to create an html table? did you ever wonder
+why it was so big and took forever to load? this program removes all
+the
+font info from an html table, reducing it's size to about 25% of what
+it
+was. 
+
+pop3
+
+retrieve your email automatically. or delete spam. or kill
+modem-choking
+big messages without downloading them. run it standalone, from a dos
+batch
+file, from windows scripting or from vba. the really cool thing is that
+you can read messages in your normal mail program or read the same
+message
+in several different mail programs at the same time.
+filecap
+/ prn2pbm 
+i work with equipment which can print to a serial printer. but i have
+no serial printer. with the filecap program and a null modem, i can
+capture
+the output from my equipment into a "prn" file. with the prn2pbm
+program,
+i can convert the prn file into a usable graphics file. 
+
+setup
+
+not a very original name, but it's a very simple program. it just
+installs
+all palm "pdb" and "prc" files that happen to be sitting in the same
+directory. 
+
+slideshow
+
+not just a slide show, it shows you several different ways you can
+build a self-running slide show yourself. handy to know when building
+training
+modules for your intranet. the goal here is to make things so the user
+doesn't have to have to have any special software and you don't have to
+have any special server. 
+
+uncheck
+
+after a major crash, i found myself looking at lots of "file0001.chk"
+type files. after hours of trying to identify each one, i wrote this to
+automate the process. it copies chk files into whatever type they
+really
+are. 
+
+word
+search & replace 
+we had a zillion word documents that needed several phrases and words
+replaced. word 97 vba automated the whole thing.
+ 
+
+
+
+
+
+
+
+security  
+tips on how to get your pc secure and keep it that way. no, you can't
+just buy a computer and use it on the internet.
+
+
+about me  
+every personal page i know of has a link to a mind-numbing collection
+of pictures and ramblings about the poor
+lifeless nerd who created the web page. why should i be different?
+
+fediverse
+  because i gave up on facebook.
+favorites  
+not my bookmarks, but a collection of urls that are either interesting
+or useful. interesting or useful to me. not to you. so there.
+
+world's
+smallest political quiz   you know what party you're
+registered to vote in, but do you really fit in there? take this
+ten question quiz and you might be surprised. afterwards, check 
+xkcd out for a laugh.
+
+my trips: venezuela 2006  chile 2006  saint vincent 2007  las vegas 2007  
+                
+
+
+
+
+lost? look at the site map.
+bad links? questions? send me mail.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+idth="125" height="44">
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+idth="125" height="44">
+					
+					<img bor

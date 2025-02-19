@@ -1,0 +1,458 @@
+
+
+mark bernstein
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+the purpose of art is to delight us; certain men and women  (no smarter than you or i) whose art can delight us have been given   dispensation from going out and fetching water and carrying wood.     it's no more elaborate than that.  â  david mamet
+
+
+ 
+  home
+ books
+ neovictorian
+ technocritâ 
+ wikipedia
+ food
+ craft of hypertext
+ tinderbox
+
+
+
+
+
+
+
+ 
+
+
+feb 25
+15 
+ 2025
+
+  nightshade noodle bar
+
+
+
+rachel miller and alex caruso have taken a tiny space in lynn and turned it into one of the most interesting and challenging restaurants in the us. 
+we went because we had an anniversary, and it was terrific.  nine courses, maybe ten?  caviar and potato chips with ethereal custard fluff was the first course. fresh portuguese barnacles â barnacles! â poached and chilled and served over crushed ice, with the delightful spicy dipping sauce that, iâm told, is simply â salt, â black pepper, and â lime juice. beats mignonette by a country mile.
+there was an amazing shrimp toast would not be out of place at alinea.  there was a tiny vietnamese-inflected lobster roll in a tiny custom-baked boston-style bun. there was a kabocha squash course with crispy confit duck tongues.  all with some really daring wine pairings.
+this goes beyond authenticity: itâs not your grandmotherâs vietnamese/french comfort food.  (neither millerâs grandmother  nor mine, i expect, was vietnamese. my grandmother didnât cook if she could help it.)  this is really thinking through what terrific food we can make, in a world where we can get næ°á»c cháº¥m and diver scallops.  the only comparable i can come up with is mandy leeâs escapism cooking: miller, like lee, likes to have a lot going on, fireworks in the mouth and excitement on the plate. sheâs very big on flavor and texture contrasts, and they pair nicely with some really complex wines (oh, that lapeyre juranã§on had a lot to say!).  but leeâs book is, at least in part, performance art; miller is doing stuff on the plate, four nights a week.
+
+
+
+
+
+ 
+
+
+feb 25
+12 
+ 2025
+
+  little fires everywhere
+
+
+
+once we come to the last episode, all the secrets are known, everyone is miserable, and we are headed â as we have always been headed â back to the beginning.  the book was wonderful, and this adaptation really does a wonderful job when it gets to the end. extraordinary performances all around, especially in parts that donât absolutely require much from the actor. 
+
+
+
+
+
+ 
+
+
+jan 25
+26 
+ 2025
+
+  quarto
+
+
+
+great tinderbox meetup today with prof. naupaka zimmerman on using tinderbox with r, pandoc, and quarto to prepare scientific papers and presentations.  itâs fascinating how well this kind of interoperability works.  watch the forum for the video.
+perhaps we need a tinderbox/quarto book club....
+
+
+
+
+
+ 
+
+  newer view 2: constructivity
+
+
+
+near the very beginning of hypertext research, michael joyce distinguished exploratory hypertext, in which the reader follows links to explore what an author has written, from constructive hypertext â hypertext that invites the reader to extend the hypertext.  this was an extremely inviting theoretical idea in 1988, since postmodern ideas about reading the writing were then new in mainstream american scholarship. as joyce memorably suggested, constructive hypertexts are "versions of what they are becoming, a structure for what 
+does not yet exist.â  the idea has had less impact on the engineering side of hypertext research, partly because computer science has never quite known what to do with postmodern thought, and partly because early efforts were not entirely convincing.
+in tinderbox, we typically make one note for an idea, and then make a new note for the next idea.  thatâs not the way cities are built: we make cities street by street, tower by tower, subdivision by development. that means a fast-growing city is bound to have some vacant dwellings awaiting new residents.  thatâs also common in note-taking. 
+1. when starting a new scientific paper, we often know at the very outset what the major sections of the paper will be.  in many fields, this is canonical: you have an introduction, a review of the literature, a description of the experiment, a discussion of the results, and conclude with ideas for further work.  why make this piece by piece, and not all at once?
+2. in a big piece of nonfiction, sources donât really come one by one.  today at the library, you sit down to find out about why historians think history can inform contemporary opinion. thatâs not going to be a single source, but youâve only got space for a paragraph or two, and you donât want to read the whole library. youâre going to need a handful of sources to satisfy referee #2, and you probably donât have time for more than a dozen.  why not make a dozen notes, and fill them up as you find books and articles with reading?
+
+in map view, you donât want to have many âvacantâ notes because, even on todayâs screens, you can only fit 100 notes or so on the screen before things start to feel crowded.  because the information city doesnât label every note all the time, each note can use fewer pixels. by making different building look different, we may be able to remember what things are and find them when wanted. vacant notes have black roofs, while notes that are in use have red roofs.  an area in which we plan to work is simply a neighborhood of vacant buildings, ready to be occupied by new sources.
+
+
+
+
+
+ 
+
+
+jan 25
+19 
+ 2025
+
+  newer view 1: too many words
+
+
+
+iâm two weeks in on a crash research project to take a new look into an old idea: the information city.  iâm going to try to blog this as it happens.  i usually work alone, but for this project iâm honored to be joined by three researchers: mark anderson, silas hooper, and kimera royale; opinions here, however, are just mine.
+today, most large hypertexts maps look like this tinderbox map.
+
+thatâs not too terrible: weâve made some progress from the original intermedia tangle.
+
+we still are quite limited in how many notes we can fit on one screen at a time. in contrast to the situation in the 1980s when this intermedia experiment was attempted, though, we canât expect improved displays to get us out of our predicament: todayâs displays are roughly as good as our eyes, and our eyes arenât expected to improve very soon.
+the main constraint on getting more notes into the tinderbox map is that tinderbox notes are identified by name, and all those textual names pose real problems. first, they use lots of pixels!  second, they need horizontal space, and my my experience they always demand more horizontal space than you are likely to have. third, all those words make the map view something you want to read, which gets in the way of the map viewâs inclination to express itself in space.  this third idea was the topic of my mexico city paper on âthe indefinite idea plane artistically consideredâ.
+a long time back, andreas dieberger wrote an intriguing dissertation on the information city, a way to visualize hypertexts as a cityscape.  that was too hard to implement 25 years ago, but i think itâs time for a fresh try.
+
+in this view, tinderbox notes are buildings. sometimes, a building might represent one note or several notes; the apartment towers are containers and their upper floors each represent one child note. the current selection in this view is the yellow house near the center of the view, called âquestionsâ.  at the extreme right edge, you can just see a bit of the release notes tower whose green second story represents release c02, which i am using right now.
+the point is not that people are good about reasoning in three dimension. we arenât, and this is a two-dimensional view of a three-dimensional space anyway. by reducing the amount of text, though, we can get lots more notes onto the screen, and we can still keep them organized in a way which (i hope) will make sense and be sustainable through a few hundred notes.  (you can read the note by clicking on the corresponding house, of course, and i think we can do a lot with displaying the names of notes on hover or mouseover, perhaps building on polle zellwegerâs fluid annotations.) 
+the models are absurdly simple right now.  that might be fine: we donât want to build a city or a palace, we only need the parts that serve us mnemonically, that help us find stuff we need.  just two weeks in: weâll see how it goes.
+
+
+
+
+
+ 
+
+
+jan 25
+11 
+ 2025
+
+  too much to read
+
+
+
+the new yorker recommends a slew of the best books of 2024.  i spent more than any hour scanning this, and added far too many books to my booklist.
+
+
+
+
+
+ 
+
+
+jan 25
+10 
+ 2025
+
+  emergent tokyo: designing the spontaneous city
+
+
+
+by jorge almazan
+    get the book.
+a fascinating discussion of features that make tokyo a unique and livable city.  the discussion of yokochå alleyways is particularly interesting. these narrow streets of tiny two-story bars and restaurants grew from a postwar effort to shut down the black market traffic that centered on tokyo rail stations.  black-market vendors were removed from their haunts and sent off to new-built market stalls, and these grew into entertainment districts that people like and that show up all the time in movies. this is very on-trend: thereâs maybe space for five customers at a time, but rents are low and you can cater to very specialized interests.  if you squint, you can see the germ of robuchonâs atelier and david changâs noodle bar.
+iâm interested because a small group of us are reviving an old idea of the imaginary city as a view of a hypertext.  
+
+photo: lan pham 
+
+
+
+
+
+
+
+
+
+mark bernstein
+chief scientist,  
+eastgate systems, inc.
+:
+134 main street
+watertown,  
+ma  
+02148
+usa
+
+
+work +1-617-924-9044
+
+42.367131-71.187311
+
+designer of tinderbox. (cv)
+eastgate 
+made with tinderbox 10.0.3
+email
+bernstein@eastgate.com
+twitter
+@eastgate
+
+3rd edition
+the tinderbox way
+    
+exploring not only how to use tinderbox but also why it works as it does. $34.95 (492 pages, ebook). read more.
+
+
+
+
+
+ 
+
+
+intertwingled
+    
+new media in the age of trump. from the revolution in retail politics when nobody goes to the diner or answers their doorbell, to responsible ai research, to a yarn about an actual holodeck on an actual starship . $29.95 (130 pages, paperback). read more.
+
+
+
+
+
+ 
+
+selected research
+ a new view
+ a novel architecture for classical hypertext
+ links of darkness: hypertext and horror  (with stee mcmorris. hypertext 2022, engelbart prize)
+ the web at war:hypertext, social media, and totalitarianism. blue sky award paper, acm conference on hypertext and social media. june 28-july 1, 2022, barcelona.
+ on the origins of hypertext in the disasters of the short 20th century (web conference 2022)
+ bad character: who do we want our hypertexts to be?
+ a villainâs guide to social media and digital storytelling (icids 2018 with clare hooper)
+ links: exercises in style (with stacey mason. web studies 2)
+ a villainâs guide to social media and web science (ht18 with clare hooper) 
+ as we may hear: our slaves of steel ii (ht18)
+ storyspace 3 (ht16)
+ gothic (ht12 workshop, with s. mason) 
+ fearâ (journal of curriculum and pedagogy)
+ can we talk about spatial hypertext? (ht11)
+ criticism (hypertext 2010)
+ hypertext narrative (hypertext 2009)
+ literary hypertext and its criticsâ (with d. greco)
+ patterns of hypertext (hypertext â98)
+ latest book notes  thoughts on my recent reading. mouseover the covers for notes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    get the book.
+a fascinating discussion of features that make tokyo a unique and livable city.  the discussion of yokochå alleyways is particularly interesting. these narrow streets of tiny two-story bars and restaurants grew from a postwar effort to shut down the black market traffic that centered on tokyo rail stations.  black-market vendors were removed from their haunts and sent off to new-built market stalls, and these grew into entertainment districts that people like and that show up all the time in movies. this is very on-trend: thereâs maybe space for five customers at a time, but rents are low and you can ca...  (close) 
+
+
+    get the book.
+a. j. liebling wrote wonderful columns about food for the new yorker in a time when food writing was seldom considered suitable for anything but the womenâs pages.  his account of being an impoverished art student in interwar paris and choosing between good food and good wine is memorable, and is also a modern morality.  (close) 
+
+
+    get the book.
+an interesting examination of the libretto of messiah and how it relates to georgian england, with an emphasis on slavery.  messiah started as charles jennensâs commonplace book, with headings on hope, suffering, and redemption.  jennens was a handel superfan and had money, and he worked out a deal with his favorite composer, whom he call âthe prodigiousâ.  i wish the book said more about the music, but you canât have everything.
+question: king makes a point that the first contralto aria in the dublin premiere was âhe was despisedâ, and that mrs. cibberâs exquisite acting (and, i presume, phrasing) more the compensat...  (close) 
+
+
+    get the book.
+a beautiful book of immense erudition and perception, this book has influenced my work deeply. it does things i did not think possible, and draws connections i did not think could be drawn. yet, it is plainspoken, considerate, and unfailingly entertaining.  (close) 
+
+
+    get the book.
+a fascinating study of vienna between the wars and its immense contributions to modernism and to computing.  vienna was a huge capital city that governed what had become a small country. austria had lost her empire and her markets, the economy had been shredded, and vast numbers of people from the former provinces converged on a city with insufficient housing, a place that had long seen itself as governed by schleppers.  yet, for a decade, it became the intellectual center of the world, before the viennese threw it all away for the satisfactions of fascism.  (close) 
+
+
+    get the book.
+from 1912 to 1915, venetia stanley, then inn her 20s,  carried on an intense, primarily epistolary, romance with prime minister h. h. asquith, who was considerably older.  he called venetia âdearestâ; she called him âprimeâ.  he wrote to her several times a day, often including state secrets in the letters.  incredibly, his half of the correspondence survives.  from these letter. robert harris has crafted a thriller which is often fascinating, if inevitably tinged with sadness.  (close) 
+
+
+    get the book.
+a wonderful and thorough history of the intersecting philosophical and mathematical circles in vienna from the early 1920s to their end in austrian fascism and the anschluss.  sigmund offers sensitive and intelligent portrayals of the most notable participants (though he rather neglect john von neumann) as well as those who, like the note-taking dr. rose rand, were ill-treated in life and neglected afterward.  this deserves special praise because, in this broad group biography, few of the characters are easy to identify with. sigmund is equally at home with the ideas with which these circles wrestled, and if he occasionally despairs...  (close) 
+
+
+    get the book.
+a delightful and fascinating contemplation of two threads that run through nearly three thousand years of historical writing.  herodotus tries to tell us about the world; if he knows something interesting about a place he will tell you about it.  thucydides tries to tell us what happened in the great war in which he himself played a part; if something important happened when he was elsewhere, he works to find a source who knows about it.  if it wasnât important to the war, to hell with it.  thucydides became the patron of historians, herodotus the patron of antiquarians; momigliano, a...  (close) 
+
+ books bought lately: recent additions to my reading stack, including review copies, loans, gifts.
+
+why we read: on bookworms, libraries, and just one more page before lights out (reed)
+existentialism: a very short introduction (flynn)
+first cities (saitta)
+emergent tokyo: designing the spontaneous city (almazan)
+upcoming talks
+all dates subject to change. want to arrange    a talk? contact eastgate  . a list of some previous talks is here. 
+
+books
+1150 books:  by author | by title 
+2024
+2023
+2021 fall | summer | spring | winter
+2020 fall | summer | spring | winter
+2019 fall | summer | spring | winter
+2018 fall | summer | spring | winter
+2017 fall | summer | spring | winter
+2016 fall | summer | spring | winter
+2015 fall | summer | spring | winter
+2014 fall | summer | spring | winter
+2013 fall | summer | spring | winter
+2012 fall | summer | spring | winter
+2011 fall | summer | spring | winter
+2010 fall | summer | spring | winter
+2009 fall | summer | spring | winter
+2008 fall | summer | spring | winter
+2007 fall | summer | spring | winter
+2006 fall | summer | spring | winter
+2005 fall | summer | spring | winter
+2004 fall | summer | spring | winter
+2003 fall | summer | spring | winter 
+2002 fall | summer | spring |  winter 
+2001   fall |   summer |  spring |  winter 
+2000 fall |    summer |  spring 
+
+hypertext theory
+ a new view (hypertext 2024)
+ links of darkness: hypertext and horror (pdf) (hypertext 2022, engelbart prize)
+ the web at war: hypertext, social media and totalitarianism (pdf) (blue sky award)
+ can we talk about spatial hypertext (pdf) (from hypertext 2011)
+ criticismâ (pdf) (from hypertext 2010)
+ shadows in the cave: hypertext transformations
+ on hypertext narrative (pdf) (from hypertext 2009) 
+ ten tips for writing the living web  (italian | czech | norwegianâ (new!) | french | belorussian)   
+ tom and bequi: the web journal that brought down the wall 
+ enarrative everywhereâ 
+ patterns  of hypertext  
+ hypertext  gardens 
+ collage, composites, construction (pdf)
+ card shark & thespis: exotic tools for hypertext narrative (talk) (pdf)
+ storyspace i (pdf)
+ chasing our tailsâ 
+also relevant
+ how to review conference papers
+tekka
+ pattern recognition
+ ornament in information architecture
+ conflicts and interest
+ bugs
+ slums of cyberspace
+ my friend hamlet
+ ia: looking at the bauhaus
+hypertextnow
+ akscyn's  law 
+ showing  links
+ web  shrines
+ link  typesâ (translation: ukrainian by âgmail archiveâ)
+ this  is not a hypertext
+ electronic reading (translation: belorussian)
+ (...more hypertextnow)
+  xml
+  books
+interviews
+jorge arango, the informed life, november 2022
+em short, getting started with hypertext narrative, april 2016
+alex strick van linschoten and matt trevithick, sources and methods (podcast), october 2014
+james fallows, âhow youâll get organizedâ, the atlantic (july/august 2014)
+judy malloy, "the history of hypertext literature authoring and beyond"
+claus atzenbeck, "hypertext research", acm sigweb newsletter (summer, 2008)  (pdf)
+lawrie hunter, "no reason not to link", information design journal + document design 13:3, pp. 229-237 (2005)
+jakob klein, frankfurter allgemeine zeitung (24 july 2005)
+linton weeks, washington post (on ebooks; paywall)
+d. c. dennison, boston globe (on eastgate)
+jim whitehead, the cyberspace reportâ 
+f. l. carr, english matters
+joe lambert, digital diner
+jennifer ley, riding the meridian
+susana pajares tosca, hipertulia
+roberto simanowski, dichtung-digital
+
+
+
+
+
+ 
+
+
+ 
+home  | lecture notes |  email me! 
+2024 dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan 
+2023 dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan 
+2022 dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan 
+2021 dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan 
+2020  dec | nov | oct | sep | aug | jul | jun | may | apr | mar |â feb | jan 
+2019  dec | nov | oct | sep | aug | jul | jun | may | apr | mar |â feb  | jan 
+2018 dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan 
+2017 dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan 
+2016 dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan
+2015 dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan 
+2014 dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan
+2013 dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan
+2012 dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan
+2011 dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan
+2010 dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan 
+2009 dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan
+2008	dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan
+2007  dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan 
+2006  dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan 
+2005  dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan 
+2004  dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan 
+2003  dec | nov | oct | sep | aug | jul | jun | may | apr | mar | feb | jan 
+2002  dec | nov | oct | sep | aug | jul | jun | may | apr | mar |â feb  | jan  
+2001  dec |  nov |   octâ |  sepâ | old
+
+
+
+
+

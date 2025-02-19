@@ -1,0 +1,587 @@
+
+
+
+
+
+
+
+
+
+davidpritchard.org
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+davidpritchard.org
+
+
+
+
+menu
+
+						skip to content					
+
+about
+projects
+
+greater toronto area transit map
+metro vancouver rapid transit map
+sustrans bibliography
+
+
+publications
+
+
+
+search for:
+
+
+
+ 
+
+
+
+
+
+
+
+
+c++ stack traces on uwp
+
+
+july 21, 2021c++, windowsadmin 
+
+
+
+in early 2019, i was working on an app (mental canvas draw) that was in private beta on the windows store. there was a nice, robust system to show you which crashes were most common your app. then suddenly – it disappeared, and instead there was a big stream of “unknown” class crashes.
+this caused much wailing and gnashing of teeth. i assumed that it would be fixed. microsoft had recently acquired hockeyapp and was revamping it into visual studio appcenter. surely that would provide a replacement! six months passed, a year passed, two years passed, and… nothing for c++ users. (i understand that appcenter provides a solution for c# users.)
+
+
+some wailing
+some gnashing of teeth
+that app was released widely in march 2021, and i realized an important fact: if you have a large volume of users and/or crashes, you get a valid list of stack traces! there seems to be something about the level of usage per package version that’s important. for <100 crashes per version, i get 0% stack traces; for <250 i get very few; and for the version with 750 crashes i get good (64%) stack traces.
+sample sizefilter type% unknown% stack traces1,051none50%50%750package version36%64%485os version54%46%316os version34%66%234package version86%14%110os version50%50%100os version99%1%66package version100%0%
+even for the “higher usage” package version, however, i’m still not getting solid data on the “rare” crash types – just the frequent crashes.
+so… what’s to be done? we don’t have access to any off-the-shelf win32 crash reporting tools, as the necessary apis are all blocked off from uwp apps. there’s no easy way to get a minidump. there might be some really elaborate solution involving project reunion apis to monitor the uwp process from win32-land, but i haven’t explored those technologies much, and i’m not confident that the win32 code gets sufficient privilege to dig deep on the uwp process’ behaviour.
+but… uwp apps do have access to one key api: capturestackbacktrace.
+a bare bones solution
+ a full-fledged crash handling and stack trace solution is quite complicated: running in a separate guard process to sidestep any memory/stack corruption; multiple threads; full analysis of both the app portion of the stack trace and the system (windows) portion. my main needs were more narrow, and i built a solution focused on that
+single thread: only show stack of active (crashing) threadapp portion of stack is critical; system/windows portion is desirable, but less importantsevere memory corruption doesn’t need to be handled initiallyonly handle c++/cx and x64. it probably works for other situations, but that’s all i’ve tested to date.
+with those criteria, i came up with a five-part solution:
+pre-crash: log system info to diskcrash time: set a callback to get notified, and capture stack to disknext app startup: transmit log+stack trace to server[optional] server: symbolify stack trace[optional] server: aggregate results
+let’s take a quick look at each piece.
+log system info
+when the crash happens, we want to do the bare minimum necessary. memory may be corrupted and we want to avoid crashing while trying to log the crash. so: we log system information to disk at startup, prior to any crash happening. we particularly need the app version and the operating system version in order to be able to symbolify the stack trace, and the date/time of the session; but of course other data (screen size, ram available, graphics driver versions, etc.) may also be relevant.
+crash capture: callback on crash
+there are several potential mechanisms to get notified on crashes:
+assertion failures (if enabled in production): it’s easy enough to write a custom assertion macro that captures __line__ and__file__ to get the source location of a failure, and it can then also trigger capture of a stack trace.invalid memory access: the best bet seems to be __try / __catch / _set_se_translator for windows structured exception handling (seh)
+these were also options, but didn’t seem to actually get called for relevant situations like null pointer dereferences:
+a different seh win32 c api: setunhandledexceptionfilter
+uwp event handlers: windows::applicationmodel::core::coreapplication::unhandlederrordetected and windows::ui::xaml::unhandledexception
+what is seh? it’s a c api that handles hardware exceptions on x86/x64 chips; while it uses the __try and __catch keywords, it’s not about software exceptions (either c++ or managed code). there’s some good discussion of it in the crashrpt documentation. it’s a key part of microsoft’s own error reporting mechanism, from the dr. watson era through to today. (i believe the rough data path is seh → windows error reporting (wer) → microsoft-hosted database → windows store stack traces.) there are all sorts of complicated nuances to how it works, and i’ve understood… relatively few of them. i just use the _set_se_translator function as a hook to:
+get called when a crash happens, on the crashing thread.grab a stack trace and record it (typically skipping the first 8 frames that are in vcruntime and ntdll)also grab and record the exception type (exception_access_violation, exception_stack_overflow, etc.)
+a single call to _set_se_translator appears to be sufficient to get a callback when any thread crashes. (which is the main reason i use it instead of __try / __catch or _set_terminate, which have to be applied on a per-thread basis.)
+the actual implementation is pretty straightforward:
+#include <eh.h>
+
+void se_trans_func( unsigned int u, _exception_pointers *pexp) {
+  // skip 8 stack frames - we usually see the ones below.
+  // 00:myapp.exe+0x009a7b98		(this function)
+  // 01 .. 05:vcruntime140d_app.dll
+  // 06 .. 08:ntdll.dll
+  char *backtrace =getbacktrace(8);
+  str desc;
+  switch (u) {
+  case exception_access_violation:
+    desc = l"access_violation";	     break;
+  case exception_array_bounds_exceeded:
+    desc = l"array_bounds_exceeded"; break;
+  // ... etc. ...
+  case exception_stack_overflow:
+    desc = l"stack_overflow";        break;
+  default:
+    desc = strprintf(text("%d"), u); break;
+  }
+
+  logprintf(l"structured exception handling failure type %s. stack trace:\n%s\n"),
+    desc.data(), backtrace);
+  delete[] backtrace;
+
+  // a bit irrelevant... we mostly just want the stack trace.
+  throw l”hardware exception”;
+}
+
+app::app() {
+  // ...
+  _set_se_translator(se_trans_func);
+  // ...
+}
+crash capture: record stack trace
+from a uwp app, we don’t have access to many win32 apis – but we can call capturestackbacktrace. if we combine that with calls to rtlpctofileheader and getmodulename, then we can get the module name (exe and dll filename) and the offset within that module for each entry in the stack trace. unlike conventional win32 crash handlers, we cannot symbolify at crash time. we get a module-relative offset:
+myapp.exe+0x00001234
+rather than the symbolified (actual function name and signature) with a function-relative offset:
+myapp.exe crashyfunction(int, const std::string &) + 0x0000001a
+or even better, with source filenames and line numbers:
+myapp.exe crashyfunction(int, const std::string &) + 0x0000001a
+myapp.cpp:465
+in theory, you could try to walk the module’s pe header data manually with an image_dos_header to get the image_export_directory for the exported symbols from each module. but in practice, we need non-exported private function names, for both trace entries in our code and in windows dlls.
+so – there’s no api call to do the symbolification locally in-app. we’ll have to do it out-of-app with the help of a server. given that situation, we just dump the capturestackbacktrace outputs to disk, and let the app merrily crash.
+the actual capture code looks like this:
+str getbacktrace(int skipframes)
+{
+  constexpr uint trace_max_stack_frames = 99;
+  void *stack[trace_max_stack_frames];
+  ulong hash;
+  const int numframes = capturestackbacktrace(skipframes + 1, trace_max_stack_frames, stack, &hash);
+  str result = strprintf(l"stack hash: 0x%08lx\n", hash);
+  for (int i = 0; i < numframes; ++i) {
+    void *modulebasevoid = nullptr;
+    rtlpctofileheader(stack[i], &modulebasevoid);
+    auto modulebase = (const unsigned char *)modulebasevoid;
+    constexpr auto module_buf_size = 4096u;
+    wchar_t modulepath[module_buf_size];
+    const wchar_t *modulefilename = modulepath;
+    if (modulebase != nullptr) {
+      getmodulefilename((hmodule)modulebase, modulepath, module_buf_size);
+      int modulefilenamepos = str(modulepath).findlastof(l"\\");
+      if (modulefilenamepos >= 0)
+        modulefilename += modulefilenamepos + 1;
+      result += strprintf(l"%02d:%s+0x%08lx\n"), i, modulefilename, 
+        (uint32)((unsigned char *)stack[i] - modulebase));
+     }
+     else
+       result += strprintf(l"%02d:%s+0x%016llx\n"), i, modulefilename, 
+         (uint64)stack[i]);
+   }
+   return result;
+}
+next app startup: transmit log
+the uwp lifecycle apis let us detect whether the last run of the app had a clean exit. we can use that to detect a crash, and transmit the recorded log to our server for symbolification. it does mean that we don’t get crashes immediately, and we may miss crashes if the user doesn’t restart the app. but in practice, this is largely acceptable.
+we do try to capture the app version and crash date/time in our log, as the version and date may be different by the time the log is transmitted.
+[optional] symbolify stack trace
+the server is – by necessity – a windows vm listening to https requests.
+on the server, we maintain a set of pdb files for each app version (extracted from the .msixpackage zip file). at present, we only handle x64 and not arm64 crashes.
+we also maintain a set of key system dlls for each major (semiannual) windows release. we don’t try to keep the dlls for each minor release, as that’s basically a herculean task.
+when a log file comes in, we:
+parse the log to retrieve the app version and windows versionmatch up the relevant pdb file and directory of windows system dllsfor each line of the stack trace, detect whether it’s in our app or a system dllrun cdb.exe to convert the module name + offset to a function name, offset, source filename and line number. the inspiration for this came from raymond chen’s oldnewthing blog.
+the heart of this is the call to cdb, which looks like this:
+export cdb=/mnt/c/progra\~2/windows\ kits/10/debuggers/x64/cdb.exe
+# typical raw output, prior to sed expressions:
+#   myapp!myapp::app::crashyfunction+0x25fb
+#   [c:\users\myuser\source\myapp\myapp.cpp @ 757]:
+# sed expressions simplify it to:
+#   app::crashyfunction+0x25fb [myapp.cpp @ 757]
+"$cdb" -lines -z myapp.exe -c "u $entry; q" -y \
+  "cache*c:\\symbols;srv*https://msdl.microsoft.com/download/symbols"\
+  | grep -m 1 -a 1 "^0:000>" \
+  | tail -1 \
+  | sed 's/:$//;' \
+  | sed 's/myapp:://g;' \
+  | sed 's/\[[^@[]*\\\([a-za-z0-9_.]*.\(h\|cpp\) @ \)/\[\1/g'
+for windows system dll entries, we can choose a $sys32dir to match the client’s windows version, and then change the -z argument to
+-z $sys32dir\\$dllfilename
+this ensures that cdb uses the client’s windows version to decide which symbols to retrieve for the dll, rather than the normal behaviour, which would use the server vm’s windows version. we’ll still get a fair bit of mismatch – as we usually don’t have the dlls that precisely match the client’s windows version.
+if there’s some way to specify a windows version when telling cdb about the symbol server – let me know! that would be a huge timesaver.
+[optional] aggregate results
+ideally, we want to build a database of all stack traces, merge duplicates, and present a ranked list of the most common crashes over (say) a month, and a graph of the crash frequency of any given bug per day.
+but i haven’t actually implemented this yet. for this purpose, an off-the-shelf tool will probably suffice – a service like sentry or visual studio app center would do the trick, and both accept submission of crash data via an api.
+what if we don’t symbolify?
+if you want a simpler solution: you can easily use the module name + module-relative offset in a visual studio debugger session to manually find the source location. this makes it painstaking to analyze each individual crash, but might be acceptable if you maintain a very low crash rate in your app. i took this route through 2019, but added stack trace capture by 2020 and finally  built out the symbolification code in 2021 when it became obvious that microsoft wasn’t going to fix this themselves.
+conclusion
+so – this is a very bare bones process for detecting crashes, capturing a c++ stack trace, transmitting to a server and determining filename + line numbers for each entry in the stack trace.
+i … still really wish microsoft would just re-enable this code in the microsoft store. for the life of me, i can’t understand why they turned it off. they must still be collecting all this information in the wer database for their own use, and just not exposing it to developers.
+
+
+
+one comment so far 
+
+
+
+
+
+pitfalls mixing ppl+await
+
+
+march 31, 2021c++, windowsadmin 
+
+
+imagine you have a c++/cx codebase with a lot of asynchronous logic written using the classic parallel patterns library (ppl) tasks:
+task<void> fooasync(storagefolder ^folder) {
+  return create_task(folder->trygetitemasync(l"foo.txt"))
+    .then([](istorageitem ^item) {
+      // do some stuff, cast to a file, etc.
+    });
+}
+it’s all running on the ui thread, so it’s in a single threaded apartment, and each task in your chain of .then() continuations is guaranteed to also be on the ui thread.
+now, you learn about microsoft’s relatively new co_await feature, recently accepted in an adapted form in the c++20 spec. so you start using it:
+task<void> fooasyncco(storagefolder ^folder) {
+  istorageitem ^item =
+    co_await folder->trygetitemasync(l"foo.txt");
+  // do some stuff, cast to a file, etc.
+}
+so far so good: all code inside fooasyncco() also runs on the ui thread, nice and clean.
+finally, you integrate a little of this co_await code into your heavily ppl codebase. helpfully, co_await returns a task, just like your existing async ppl method. another developer sees that you have a bunch of methods returning task<void> and decides to start building on that api using ppl:
+fooasyncco().then([]() {
+  // more stuff, after coroutine.
+  // kaboom. running on a threadpool thread, *not* the ui thread.
+  // we accidentally busted out of the sta.
+});
+uh-oh. when you mix the two async approaches… things break. and none of the documentation – or honestly anything i’ve read on the web to date – gives any hint of this issue.
+not a fix
+well… let’s see. the docs do give us one tip: a task chain is only guaranteed to remain inside the single threaded apartment if the chain starts with an iasyncaction or iasyncoperation
+the ui of a uwp app runs in a single-threaded apartment (sta). a task whose lambda returns either an iasyncaction or iasyncoperation is apartment-aware. if the task is created in the sta, then all of its continuations will run also run in it by default, unless you specify otherwise. in other words, the entire task chain inherits apartment-awareness from the parent task. this behavior helps simplify interactions with ui controls, which can only be accessed from the sta.asynchronous programming in c++/cx: managing the thread context
+well… trygetitemasync does return an iasyncoperation. that would appear to be the root task in the chain… so coroutines must be treated differently, with the coroutine itself being the root.
+well, what if we tried making the coroutine return an iasyncaction?
+iasyncaction ^fooasynccoaction(storagefolder ^folder) {
+  return create_async([folder]() -> task<void> {
+    // kaboom - this is now out of the apartment.
+    istorageitem ^item =
+      co_await folder->trygetitemasync(l"foo.txt");
+    // do some stuff, cast to a file, etc.
+  });
+}
+create_task(fooasyncco())
+.then([]() {
+  // more stuff, after coroutine.
+  // ok now!
+});
+no dice. now the coroutine runs off-thread, while the continuation runs correctly on the ui thread.
+two actual fixes
+with a little more reading, i found raymond chen’s blog post about ppl and apartment-aware tasks. that led to this successful solution:
+task<void> completed_apartment_aware_task() {
+  return create_task(create_async([](){}));
+}
+
+completed_apartment_aware_task()
+.then(fooasyncco)
+.then([]() {
+  // ok!
+});
+this one actually works. by rooting the ppl chain in an iasyncaction, the rest of the chain retains apartment awareness, and everything stays on the ui thread.
+and i’d earlier found a different but more fragile solution:
+create_task(fooasyncco, task_continuation_context::use_current())
+.then([]() {
+  // ok!
+});
+while this works, it’s… a bit hard to tell whether the root task, or the continuation, or what-all needs use_current(), and it’s always felt fragile to me. and if it gets called from a threadpool thread, it’s unclear to the caller what happens with use_current().
+conclusion
+i’ve got to say… this is a brutal pitfall. any existing codebase is going to have a lot of ppl tasks in it, and wholesale migration to co_await isn’t going to happen all in one go, at least if there’s any conditional/loop/exception logic in the ppl-based code. anyone who’s tried to migrate to co_await has probably run into this pitfall.
+we haven’t adopted the completed_apartment_aware_task() as a root task throughout our codebase yet, but i’m hopeful that will at least offer a path forward. just… still quite error-prone.
+
+
+
+leave a comment 
+
+
+
+
+
+a windows to ios port
+
+
+june 15, 2020ios, user interface, windowsadmin 
+
+
+my main activity of 2019 was a port of the mental canvas 3d drawing tool from windows to ios. about 75% of my effort was user interface code, maybe 15% on graphics and 10% other platform issues.
+what’s interesting about our porting approach? well, it’s just an unusual mix:
+it’s a uwp (universal windows platform) app. uwp was microsoft’s effort to modernize win32 and add ios mobile paradigms, so it is already touch-centric, relatively sandboxed and has a more mobile-like lifecyclewe didn’t use react native, flutter, electron, xamarin, qt or even fuschia’s namesake pink. we just… wrote some native code. and a lightweight abstraction layer.we completed the porting effort in seven months, with three developers.we stayed with the mvvm architecture that is the norm on windows. many ios developers would call that… exceptionally okwe didn’t use the latest and greatest swift tools, just plain old c++11 and objective-c for the most part. we didn’t switch to swiftui when it was released half way through our port.
+what combination of circumstances led to this approach? mostly just a real life constraint: a desire to rewrite/redesign as little working code as possible, and keep the codebase’s size down.
+starting pointui framework choicerestructuring the ui threadlightweight ios bindingswhat about swiftui?incremental portingthe upshot: code reuse
+continue reading a windows to ios port → 
+
+
+leave a comment 
+
+
+
+
+
+metal memory debugging
+
+
+november 27, 2019graphics, iosadmin 
+
+
+at mental canvas,  dave burke and i recently resolved a memory leak bug in our ios app using the metal graphics libraries. memory management on metal has had a few good wwdc talks but has surprisingly little chatter on the web, so i thought i’d share our process and findings.
+the issue: a transient memory spikeios / ipados memory limitsforming hypothesestools at handfindingsconclusionreferences
+the issue: a transient memory spike
+our sketching app does a lot of rendering to intermediate, offscreen textures. in the process, we generate (and quickly discard) a lot of intermediate textures. a lot of that rendering happens in a continuous batch on a dedicated thread, without yielding execution back to the operating system.
+a consequence of that behavior: our memory footprint grows rapidly until we hit the critical threshold — on a 3 gb ipad air, about 1.8 gb — and then ios summarily kills the app. from our app’s perspective, memory footprint is only growing gradually, as most of the memory usage is temporary intermediate rendertargets; they should be freed and available for reuse. but from the operating system’s perspective, it considers all of those temporaries to still be in use.
+which led us to the question: why? and how do we figure out which temporaries are leaking, and which metal flag / call will allow us to return that data to the operating system?
+continue reading metal memory debugging → 
+
+
+leave a comment 
+
+
+
+
+
+adventures in vintage emme
+
+
+february 19, 2019modelling & sci/techadmin 
+
+
+imagine there are no variable names. imagine working – in 2016 – with registers. imagine one minute file load times. imagine that all commands are just numbers. imagine there’s no usable string processing.
+welcome to emme 3. during the years that i worked in travel demand forecasting, this was the main tool available to me.
+emme was undoubtedly a trailblazing innovator when it first came out in 1982 and remained a power user’s dream through to the early 90s. but it clearly missed the windows boat; the software seems to have stagnated  until beginning a revival in the late 00s.
+emme 2’s graphical capabilities
+continue reading adventures in vintage emme → 
+
+
+leave a comment 
+
+
+
+
+
+working with xaml designer 2 (uwpsurface)
+
+
+november 2, 2018user interface, windowsadmin 
+
+
+in september 2017, microsoft released a rewritten xaml designer program within visual studio. it’s only enabled for a tiny fraction of apps and got a very quiet launch, so almost no one knows about it. the new version runs as uwpsurface.exe instead of xdesproc.exe and is only enabled for uwp apps targetting fall creators update sdk or newer.
+for my app, the new designer simply broke everything initially. why? presumably for technical reasons, it only works with {binding} and not {x:bind} – but this was not made at all clear in the launch announcements. uwp developers have been encouraged to use {x:bind}: it’s compiled, type-safe and faster, and x:bind functions are the only way to do multibinding. for my 64-bit app, i never got design data or design instances working under xaml designer (xdesproc), so i relied entirely upon {x:bind}‘s fallbackvalue parameter to preview different modes of my ui – but {binding} has no equivalent mechanism.
+after a lot of tinkering, i’ve finally learned a few important things about the new xaml designer, and got a usable workflow.
+top takeaways
+
+uwpsurface is much faster and stabler than xdesproc. the dialog above (“click here to reload the designer”) is largely history.
+it works for both 32-bit and 64-bit apps (x86 or x64), which is a big step forward
+only {binding} is evaluated; {x:bind} is completely ignored.
+designinstances (a live viewmodel) can be attached via datacontext or d:datacontext, although the designinstance parameter doesn’t seem to work
+viewmodel code executes, but i don’t see any indication that view code executes, despite discussion to the contrary in microsoft’s launch blog post
+for c++/cx apps: due to a bug, only single-class viewmodels (without any c++/cx base classes) work as of visual studio 15.8.x. they’re fine in c#.
+(update jan. 2019: visual studio 15.9 fixed this bug, but viewmodels that implement property change notifications still do not work.)
+you can attach a debugger and see debug output from your viewmodel, or any exceptions. i haven’t been able to set breakpoints.
+update jan. 2019: visual studio 15.9 added support for something i requested in mid-2018: the fallbackvalue parameter was added to {binding}, which makes that an equally viable way to work with xaml designer. fallbackvalue doesn’t work for {x:bind} in the new designer.
+
+my strategy for a c++/cx app
+
+stick with {x:bind} and its functions in most of my code
+for the few properties that are central to a clean layout (usually about 2-5), use {binding} and type converters
+for those properties, build a duplicate “designtimemock” viewmodel class – with no c++/cx base classes – and return the design-time property values there. most properties can be safely omitted.
+in the xaml code, define two different datacontexts like this:
+<usercontrol.datacontext>
+    <local:myviewmodel />
+</usercontrol.datacontext>
+<d:usercontrol.datacontext>
+    <local:myviewmodel_designtimemock/>
+</d:usercontrol.datacontext>
+this attaches one viewmodel for runtime, and the mock for design time.
+update jan. 2019: visual studio 15.9 now allows a different approach: instead of a designtimemock, you can just have a single datacontext using the “real” view model, but instead change {x:bind} to {binding} in the few places where it matters, and then add a fallbackvalue parameter to choose the desired value in xaml designer. the biggest advantage of fallbackvalue: you can edit it in place and see it immediately update, without recompiling and relinking the designtimemock view model.
+
+it’s not ideal. but… it’s better than nothing.
+closing thoughts
+despite the difficulties, i do look forward to further improvements in the xaml designer. the old version was dated and crash-prone, and a clean slate rewrite was the only reasonable path forward. it’s just going to take some time to reach feature parity with the old version, which will mean some teething pain for “guinea pig” developers like myself.
+
+
+
+one comment so far 
+
+
+
+
+
+asynchronous best practices in c++/cx (part 2)
+
+
+june 12, 2018c++, windowsadmin 
+
+
+this is part two in a series of articles on asynchronous coding in c++/cx. see the introduction here.
+
+prefer a task chain to nested tasks
+be aware of thread scheduling rules
+be aware of object and parameter lifetimes
+consider the effect of os suspend/resume
+style: never put a try/catch block around a task chain.
+references
+
+
+2. be aware of thread scheduling rules
+
+when working with non-threadsafe code, you will usually prefer to continue on the same thread and not have to deal with multiple threads contending for the same data. continue reading asynchronous best practices in c++/cx (part 2) →
+
+
+
+
+one comment so far 
+
+
+
+
+
+asynchronous best practices in c++/cx (part 1)
+
+
+june 7, 2018c++, windowsadmin 
+
+
+for me, the steepest learning curves with the universal windows platform (uwp) was the use of asynchronous apis and the various libraries for dealing with them. any operation that may take more than 50ms is now asynchronous, and in many cases you can’t even call the synchronous equivalent from win32 or c. this includes networking operations, file i/o, picker dialogs, hardware device enumeration and more. while these apis are pretty natural when writing c# code, in c++/cx it tends to be a pretty ugly affair. after two years of use, i now have a few “best practices” to share.
+c++/cx offers two different approaches for dealing with asynchronous operations:
+
+task continuations using the parallel patterns library (ppl)
+coroutines (as of early 2016)
+
+personally, i vastly prefer coroutines; having co_await gives c++/cx a distinctly c# flavour, and the entire api starts to feel “natural.” however, at my current job we have not yet standardized on coroutines, and have a mix of both approaches instead. and to be fair – despite microsoft’s assurances that they are “production ready”, i’ve personally hit a few coroutine bugs and they do occasionally completely break with compiler updates.
+i’m going to write up my advice in a series of posts, as the examples can be pretty lengthy.
+
+prefer a task chain to nested tasks
+be aware of thread scheduling rules
+stay aware of object and parameter lifetimes
+consider the effect of os suspend/resume
+style: never put a try/catch block around a task chain.
+references
+
+1. prefer a task chain to nested tasks
+when writing a series of api calls that need local variables, conditional logic, or loops, it’s tempting to write it as a nest of tasks. but a nest will:
+
+hurts legibility: an extra indent level for every sequential api call, and very wordy continue reading asynchronous best practices in c++/cx (part 1) →
+
+
+
+
+one comment so far 
+
+
+
+
+
+this one weird grid trick in xaml
+
+
+june 1, 2018user interface, windowsadmin 
+
+
+i recently found a neat xaml user interface trick that i hadn’t seen in my usual resources. suppose you have:
+
+a grid-based responsive user interface that you want to grow/shrink to fit the window
+suppose it has a fixed width, and each row has a “core” minimum height it needs.
+then there’s some extra vertical space that you want to sprinkle around
+you have some priorities – first give row #1 extra space, then row #2 any extra.
+
+xaml makes it easy to do proportional space allocation – e.g., give row #1 two-thirds and row #2 one-third by giving them “2*” and “*” height respectively. but it doesn’t do priorities.
+the trick: combine a massive star size with a maxheight. that looks like this:
+<grid>
+  <grid.rowdefinitions>
+    <rowdefinition height="1000*" maxheight="200" />
+    <rowdefinition height="*" />
+  </grid.rowdefinitions>
+</grid>
+essentially, row #1 gets “first claim” on any extra space, up to a limit of 200 pixels. any extra space beyond 200 pixels falls over to row #2.
+
+
+
+leave a comment 
+
+
+
+
+
+my first xaml tips for the universal windows platform
+
+
+november 1, 2017user interface, windowsadmin 
+
+
+i’m a latecomer to microsoft’s user interface technologies. i never used windows framework (wpf) on top of .net and i never used silverlight on the web. the last year was my first taste of these tools through the xaml framework that is part of the “universal windows platform” (uwp) – that is, the windows 10 user interface layer (and win8).
+xaml has steadily evolved since the wpf days, and it took a little while to really understand the different major eras of the technology, especially since the uwp flavour of xaml strips out some of the older syntaxes in the name of efficiency on mobile platforms, better error checking at compile-time and code readability and ease-of-use. the technology’s old enough that much of the google search hits and stackoverflow results are not applicable on the modern uwp platform.
+
+my tips
+so what were a few of my first lessons when using xaml on uwp?
+continue reading my first xaml tips for the universal windows platform →
+
+
+
+leave a comment 
+
+
+
+
+			posts navigation		
+
+← older posts
+
+
+
+
+
+
+
+
+recent posts
+
+
+c++ stack traces on uwp
+
+
+pitfalls mixing ppl+await
+
+
+a windows to ios port
+
+
+metal memory debugging
+
+
+adventures in vintage emme
+
+
+working with xaml designer 2 (uwpsurface)
+
+
+asynchronous best practices in c++/cx (part 2)
+
+
+asynchronous best practices in c++/cx (part 1)
+
+
+this one weird grid trick in xaml
+
+
+my first xaml tips for the universal windows platform
+
+
+ 
+
+
+
+
+
+
+					proudly powered by wordpress				
+
+
+
+
+
+
+
+

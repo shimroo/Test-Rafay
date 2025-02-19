@@ -1,0 +1,797 @@
+
+
+
+
+
+
+
+
+
+
+
+mod_perl: welcome to the mod_perl world
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+welcome to the mod_perl world
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+perl.apache.org
+
+
+
+
+
+
+
+
+
+
+what is mod_perl?
+
+
+
+
+
+
+
+
+success stories
+
+
+
+
+
+
+
+
+download
+
+
+
+
+
+
+
+
+documentation
+
+
+
+
+
+
+
+
+reporting bugs
+
+
+
+
+
+
+
+
+getting help
+
+
+
+
+
+
+
+
+mailing lists
+
+
+
+
+
+
+
+
+products
+
+
+
+
+
+
+
+
+contribute
+
+
+
+
+
+
+
+
+got mod_perl?
+
+
+
+
+
+
+
+
+about mod_perl
+
+
+
+
+
+
+
+
+mod_perl subprojects
+
+
+
+
+
+
+
+
+jobs
+
+
+
+
+
+
+
+
+site map
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+search
+
+
+
+
+
+
+
+
+
+
+
+
+whole site
+what's mp?
+stories
+download
+all docs
+..1.0 docs
+....guide 1.0
+....os 1.0
+....api 1.0
+..2.0 docs
+....user 2.0
+....os 2.0
+....devel 2.0
+....api 2.0
+..general docs
+..tutorials
+..offsite docs
+getting help
+mailing lists
+products
+contribute
+about
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+short cuts
+
+
+
+
+
+
+
+
+
+
+maillist subscription
+
+
+
+
+
+
+
+
+maillist archives
+
+
+
+
+
+
+
+
+the source
+
+
+
+
+
+
+
+
+the 1.0 guide
+
+
+
+
+
+
+
+
+starting with 2.0
+
+
+
+
+
+
+
+
+migrating to 2.0
+
+
+
+
+
+
+
+
+report 1.0 problems
+
+
+
+
+
+
+
+
+report 2.0 problems
+
+
+
+
+
+
+
+
+cpan 2.0 modules porting status
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+the apache software foundation
+
+
+
+
+
+
+
+
+
+
+asf home
+
+
+
+
+
+
+
+
+asf sponsorship
+
+
+
+
+
+
+
+
+asf thanks
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sister sites
+
+
+
+
+
+
+
+
+
+
+apache week
+
+
+
+
+
+
+
+
+perl mongers
+
+
+
+
+
+
+
+
+use perl
+
+
+
+
+
+
+
+
+perl monks
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+books
+
+
+
+
+
+
+
+
+
+
+                    mod_perl2 user's guide
+
+
+
+by stas bekman, jim brandt
+
+
+
+
+
+
+
+
+
+
+
+                    practical mod_perl
+
+
+
+by stas bekman, eric cholet
+
+
+
+
+
+
+
+
+
+
+
+                    the mod_perl developer's cookbook
+
+
+
+by geoffrey young, paul lindner, randy kobes
+
+
+
+
+
+
+
+
+
+
+
+                    mod_perl pocket reference
+
+
+
+by andrew ford
+
+
+
+
+
+
+
+
+
+
+
+                    writing apache modules with perl and c
+
+
+
+by lincoln stein, doug maceachern
+
+
+
+
+
+
+
+
+
+
+
+                    embedding perl in html with mason
+
+
+
+by dave rolsky, ken williams
+
+
+
+
+
+
+
+
+
+
+
+
+more mod_perl books...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+mod_perl brings together the full power of the perl programming language and the apache http server.  you can use
+perl to manage apache, respond to requests for web
+pages and much more.
+
+mod_perl  is more than cgi scripting
+on steroids.  it is a whole new way to create dynamic content by
+utilizing the full power of the apache web server to create stateful
+sessions, customized user authentication systems, smart proxies and
+much more.  yet, magically, your old cgi scripts will continue to work
+and work very fast indeed.  with mod_perl you give up nothing and gain
+so much!
+    -- lincoln stein
+
+
+
+mod_perl gives you a persistent perl interpreter embedded in your web
+server.  this lets you avoid the overhead of starting an external
+interpreter and avoids the penalty of perl start-up time, giving you
+super-fast dynamic content.
+
+
+as you'd expect from the perl community, there are hundreds of
+modules written for mod_perl, everything from persistent
+database connections, to templating systems, to complete
+xml content delivery systems.  web sites like
+slashdot and
+wired magazine use mod_perl.
+
+mod_perl is an apache software
+foundation project. it is licensed under the apache software license.
+
+the mod_perl web site
+
+
+what is mod_perl?
+
+
+success stories
+mod_perl is the power behind many of the internet's busiest and most
+advanced web sites.  listed here are success stories from people using
+mod_perl; also, world-wide statistics of mod_perl usage
+
+
+
+download
+get source and binary mod_perl distributions and download the documentation
+
+
+
+documentation
+the mod_perl project features a lot of documentation, both for
+mod_perl 1.0 and 2.0. if there is anything you need to learn about
+mod_perl, you'll learn it here.
+
+
+
+reporting bugs
+before a bug can be solved, developers need to be able to reproduce
+it. users need to provide all the relevant information that may assist
+in reproducing the bug. however it's hard to know what information
+needs to be supplied in the bug report. in order to speed up the
+information retrieval process, we wrote the guidelines explaining
+exactly what information is expected. usually, the better the bug
+report is the sooner it's going to be reproduced and therefore fixed.
+
+
+
+getting help
+solve your mod_perl problems: with the help of the mod_perl mailing
+lists, a mod_perl training company or a commercial support
+company. find an isp providing mod_perl services.
+
+
+
+mailing lists
+mod_perl and related projects' mailing lists.
+
+
+
+products
+there is a lot of software out there ready to run with mod_perl and/or
+help you with your programming project.
+
+
+
+contribute
+how to contribute to the mod_perl community
+
+
+got mod_perl?
+advocacy documents and resources for mod_perl
+
+
+
+about mod_perl
+general information regarding mod_perl of historical interest.
+
+
+
+mod_perl subprojects
+other projects maintained under the mod_perl umbrella
+
+
+
+jobs
+find the mod_perl job of your dreams!
+
+
+site map
+you can reach any document on this site from this sitemap.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+last modified sun feb 16 01:39:11 2014 gmt
+
+
+
+have comments? please send them to 
+            the 
+            modperl users mailing list.
+use of the camel for perl is a trademark of
+                o'reilly & associates, 
+                and is used by permission.
+            
+
+
+
+

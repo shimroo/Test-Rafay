@@ -1,0 +1,845 @@
+
+
+
+
+
+ 
+   dotgnu project
+  
+
+
+
+
+
+
+   	[html 2.0]   [printer friendly]
+   
+
+     
+   
+
+
+
+
+
+       dotgnu project - gnu freedom for the net
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+homepage
+
+
+
+
+
+
+dotgnu 0.1 release
+
+
+
+
+screenshots
+
+
+
+
+acronyms explained
+
+
+
+
+free software licensing
+
+
+
+
+don't get
+ caught in a .net
+
+
+
+
+coding competition
+
+
+
+
+mailing lists
+
+
+
+
+frequently asked questions
+
+
+
+
+#dotgnu irc channel
+
+
+
+
+
+ 
+
+
+
+
+
+dotgnu portable.net
+
+
+
+
+
+
+jit library
+
+
+
+how to install from source
+
+
+
+
+download links
+
+
+
+
+bugs and patches
+
+
+
+
+cvs info
+
+
+
+
+git info
+
+
+
+
+library docs
+
+
+
+
+library status
+
+
+
+
+demos and sample programs
+
+
+
+
+links
+
+
+
+
+
+ 
+
+
+
+
+
+dgee
+
+
+
+
+
+
+how to install from source
+
+
+
+
+download links
+
+
+
+
+running the dgee
+
+
+
+
+webservice examples
+
+
+
+
+frequently asked questions
+
+
+
+
+
+ 
+
+
+
+
+
+phpgroupware
+
+
+
+
+
+
+support
+
+
+
+
+docs
+
+
+
+
+forum
+
+
+
+
+
+ 
+
+
+
+
+
+              misc information
+             
+
+
+
+
+
+active development
+
+
+
+
+new dotgnu components
+
+
+
+
+promoting dotgnu
+
+
+
+
+overall architecture
+
+
+
+
+dotgnu people
+
+
+
+
+
+mcafee's patent
+
+
+
+
+business ethics
+
+
+
+
+aspect-oriented
+ specification of syntax trees
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+free software for webservices and for c# programming
+
+as of december 2012, the dotgnu project has been decommissioned,
+until and unless a substantial new volunteer effort arises.  the
+exception is the libjit component, which is now a separate libjit package.
+
+
+the dotgnu project aims to be for webservices and for c# programs
+what gnu/linux is rapidly becoming for desktop and server applications:
+the industry leader and provider of
+free software
+solutions.
+
+
+ dotgnu currently consists of three main development projects (further components will be added over time):
+ 
+
+dotgnu portable.net, an implementation
+   of the common language infrastructure (cli), more commonly known
+   as ".net", includes everything that you need to compile
+   and run c# and c applications that use the base class libraries,
+   xml, and systems.windows.forms.  currently supported cpus:
+   x86, ppc, arm, parisc, s390, ia64, alpha, mips, sparc.
+   supported operating systems: gnu/linux (on pcs, sparc, ipaq,
+   sharp zaurus, playstation 2, xbox,...), *bsd, cygwin/mingw32,
+   mac os x, solaris, aix.
+   [intro]
+[download]
+[install]
+
+
+phpgroupware, a multi-user web-based groupware
+   suite, which also serves to provide a good collection of webservice
+   components, all of which can be accessed through xml-rpc so that you can
+   easily integrate them into webservice applications of your own.
+
+
+
+   the dgee webservice server is also moving forward
+   nicely.
+   [intro]
+[download]
+[install]
+
+
+
+
+ major motivations for being involved in dotgnu include:
+ 
+
+    a desire to prevent microsoft from achieving their stated goal
+    "that the era of 'open computing,' the free exchange of digital information
+    that has defined the personal computer industry, is ending". 
+    read the quotation in context and learn how
+    the free software movement works to prevent this disaster.  the
+    contribution of the dotgnu project might turn out to be important.
+  
+a technical interest in webservices, bytecode systems, and compiler
+   construction.
+  
+a business strategy of using dotgnu, and contributing to dotgnu.
+    dotgnu is part of
+    gnu and thereby protected from
+    coming under the control of any single company.  
+  
+
+
+
+
+ news 
+
+
+ dotgnu news is also available as an rss feed. 
+
+
+
+june 06-06-2009: development version control switched from cvs to git ! 
+
+the active development takes place now in a git repository on savannah.
+the cvs repository will be available for read only access for some time but no further updates will be committed there.
+for information on how to obtain the git repository have a look at the 
+git info.
+
+
+
+december 12-10-2008: libjit 0.1.2 released ! 
+
+the changes are the switch from gpl to lgpl 2.1 licence,
+native support of x86-64/amd64, a fixed libjit interpreter
+and various other improvements and bugfixes.
+you can get the source tarball from 
+savannah's download area.
+
+
+
+april 04-15-2008: libjit runs windows.forms applications native on x86-64 ! 
+
+the big brother x86-64 is joining the jit x86 family.
+the current 
+cvs head of libjit, 
+along with the corresponding pnet,
+can run gui windows.forms programs in pure jit mode on x86-64.
+
+
+
+march 03-20-2007: dotgnu portable.net 0.8.0 released ! 
+
+after a year of work, the portable.net x86 jit is finally 
+ready to leave the confines of cvs into a stable release.
+the new release includes the new libjit based x86 jit with
+all the bells and whistles as well as all the bug fixes which
+have gone into various parts of the system. this release is also
+the first to be gift-wrapped by klaust & co, rather than 
+our regular release master rhysw. you can get the source tarballs from 
+savannah's download area.
+give it a whirl, it should be faster, better and more stable than 
+ever before.
+
+
+
+feb 02-23-2007: dotgnu in "real life"(tm) 
+
+despite what this scarcely maintained webpage might suggest, 
+interesting things are afoot in dotgnu developer land. 
+we've finally managed to catch a glimpse of dotgnu in action
+from the trumpf labs. 
+take a closer look at their 
+laser appliance control panel, which is 
+a windows.forms application which uses a touch-screen
+interface. the appliance and dotgnu was recently 
+featured in the elektronik magazine 
+
+issue 03/2007 (in german).
+
+
+
+aug 08-21-2006: libjit on alpha
+
+as part of the google 
+
+summer of code project, tcort has been hacking away at the libjit port to 
+alpha. as the soc was ending yesterday, tcort showed the basic jit samples
+working on alpha, including on-demand compilation and execution of functions. 
+there is a lot more work left in alpha land and tcort has said that he plans
+to continue working on it. take a look at his blog 
+post and the screenshot.
+if you're interested in helping, take a look at his 
+alpha porting guide first. 
+
+
+
+aug 08-19-2006: libjt runs windows.forms applications
+
+over the last few months, libjit has made progress in leaps and bounds.
+the current 
+cvs head of libjit, 
+along with the corresponding pnet,
+can run gui windows.forms programs in a pure jit mode on x86.
+actually, it has been functional for a while now. 
+we apologize for the delay in announcing this, but we are all too busy hacking :)
+
+
+
+may 01-05-2006: google summer of code 2006
+
+
+dotgnu is taking part in the google summer of code 2006 as a part of the gnu operating
+system. if you are a student and are interested in working on dotgnu (or another part
+of gnu) see the list of 
+gnu ideas. the dotgnu related items are mainly about implementing c# 2.0 features
+in the compiler, enhancing system.windows.forms and improving libjit. dotgnu related
+summer of code projects can be found on this list.
+
+
+march 04-03-2006: dotgnu website redesign
+
+
+we are currently looking at redesigning dotgnu.org and building a new look and feel. the old template system is also going to
+be replaced with an xslt based one. if you are interested in helping, please join up on the #dotgnu irc channel or mail the
+developers mailing list, we are very interested in general proposals and mockups.
+
+
+february 11-02-2006: linux.conf.au 2006
+
+
+some dotgnu developers met at this year's linux.conf.au in dunedin, nz to discuss plans for 2006. some dotgnu people
+can be seen on this photo. apart from a nice dessert,
+there was also quite some discussion about portable.net's future. the conclusion was to go ahead and give
+portable.net a big boost in 2006 as there is a lot of exciting technology in portable.net to play around with.
+
+
+january 15-01-2006: dotgnu portable.net 0.7.4 and libjit 0.0.6 released!
+
+
+new versions of portable.net and libjit are available. far too many new features and bug fixes to list them
+here, see the announcement which
+includes a full list of new features and bug fixes. you can get it from the download page.
+
+
+december 03-12-2005: portable.net and libjit progress
+
+
+work on libjit (a jit designed to be independent of any particular virtual machine bytecode format or language)
+has resumed again and we are gearing towards using it in portable.net soon.
+recently, there have also been donations
+which will be distributed amongst developers who contribute code to get libjit finished and hook it into portable.net's runtime engine.
+
+
+on portable.net related news, there have been many changes since the last release, probably the most notable one is the development of
+libcrayons, the new system.drawing backend.
+with a bit of luck, developers can even get one of the
+windows.forms related bounties
+for their code contribution.
+
+
+if you are interested in any of the recent libjit or portable.net developments you should subscribe to the
+mailing lists or talk to us on irc.
+
+
+august 17-08-2005: dotgnu portable.net 0.7.2 released!
+
+
+changes since the last release and download links can be found in the announcement.
+
+
+july 31-07-2005: third revision of c# and cli specifications
+
+
+the third edition of the ecma c# language specification
+and common language infrastructure (cli) have been approved recently.
+
+
+june 11-06-2005: dotgnu portable.net 0.7.0 released!
+
+
+we have reached yet another milestone: portable.net 0.7.0. there is an unroller for ppc, runtime
+optimizations and fixes all over the place, many system.windows.forms, system.drawing and xsharp
+fixes plus xml and networking enhancements!
+see the announcement for
+a more detailed list of changes and get it from the download page.
+
+
+january 16-01-2005: dotgnu portable.net 0.6.12 released!
+
+
+portable.net 0.6.12 and treecc 0.3.6 have been released today.
+
+
+for a list of changes and bug fixes read the 
+announcement or visit the download page where you can also find
+binary packages for numerous platforms.
+
+
+december 05-12-2004: video clip of dotgnu running on encore simputer
+
+
+dotgnu portable.net has been ported to the
+encore simputer,
+a handheld computer based on on intel's strongarm cpu (a risc
+microprocessor designed for embedded applications), within 72
+hours after the release of encore's port of the gnu/linux
+development tools for this platform at the "linux bangalore/2004"
+conference.  conference organiser atul chitnis
+said,
+''i threw the challenge as a joke, the bet being a cup of coffee. gopal
+borrowed a pc at the conference, and finally an encore simputer, and came to me
+on the third day, saying that i now owed him a cup of coffee. it took a few
+seconds before the enormity of that statement hit me.''
+here's a video clip.
+
+
+october 30-10-2004: dotgnu portable.net 0.6.10 released!
+
+
+version 0.6.10 of pnet, pnetlib, pnetc, and ml-pnet
+and version 0.3.4 of treecc have been released.
+the full release announcement is here.
+
+
+september 25-9-2004: getdotgnu.com community web portal launched
+
+getdotgnu.com is a new web portal dedicated to dotgnu and its development projects.
+the site features news articles and editorials, forums, downloads, screenshots, and many other great features.
+it is time to get dotgnu! now.
+
+
+august 7-8-2004: release of pnet, pnetlib, pnetc, ml-pnet, treecc, and
+libjit
+
+version 0.6.8 of pnet, pnetlib, pnetc, and ml-pnet, version 0.3.2 of treecc, and version 0.0.4 of libjit have been released.
+there are lots and lots of bug fixes and new features.  the full announcement
+with news entries and signed md5 checksums is
+here.
+
+
+july 7-7-2004: phpgw 0.9.16.002 security fix release
+
+
+all phpgroupware versions earlier than 0.9.16.002 set header admin and setup
+passwords as plain text cookies.  now the
+bugfix security release
+0.9.16.002 is out which fixes this security problem.
+
+
+may 29-5-2004: dotgnu portable.net 0.6.6 released!
+
+
+even though rhys was on "sabbatical" away from portable.net
+during this release cycle (he has been working on libjit),
+major progress has been made in many areas, including in
+particular threading, winforms, system.xml, ml-pnet, dcop
+and serialization.
+
+
+the full release announcement is
+here.
+
+
+here are some screenshots:
+
+portable studio ide, myxaml, photo tool (wx.net), kde dcop support, mdi and filedialogs, gtk-sharp, svg rendering,  xhtml rendering .
+
+
+may 13-5-2004: libjit-0.0.2 has been released!
+
+
+rhys has packaged up the current state of the libjit tree into a
+libjit
+0.0.2 release.
+
+
+libjit is now at the state where primary testing and bug fixing can begin.  we 
+initially need test cases that cover all of the functions in "jit-insn.h".
+
+
+the easiest way to write a test case is to write a small program in the 
+"dynamic pascal" language that exercises the feature in question.  then place 
+it into the "libjit/tests" directory.  the "libjit/tests/readme" file 
+contains more information on how to do this.  a couple of test cases are 
+already provided that demonstrate the concept.
+
+
+april 27-4-2004: libjit-0.0.0f has been released!
+
+
+the libjit
+library implements just-in-time compilation functionality. unlike 
+other jit's, this one is designed to be independent of any particular virtual 
+machine bytecode format or language. the hope is that free software projects 
+can get a leg-up on proprietary vm vendors by using this library rather than 
+spending large amounts of time writing their own jit from scratch.
+
+
+this jit is also designed to be portable to multiple architectures. if you run 
+libjit on a machine for which a native code generator is not yet available, 
+then libjit will fall back to interpreting the code. this way, you don't need 
+to write your own interpreter for your bytecode format if you don't want to.
+
+
+libjit is independent of pnet (that's one of the main points!) but we'll
+eventually modify pnet to use it for jit'ing.
+
+
+in the newly released version 0.0.0f, tutorials 1 to 4 now work correctly
+using the interpreted back end, which should allow people to experiment with
+real examples now. the x86 and arm back-ends should follow in the next few
+days.
+
+
+a mailing list
+for libjit-specific discussions has been set up.
+
+
+march 13-3-2004: dotgnu portable.net 0.6.4 released
+
+
+portable.net 0.6.4 and treecc 0.3.0 have been released.  the big change this
+cycle is the c compiler, which has now reached the point of being useful.  we
+now need lots of volunteers to help flesh out the c library, pnetc, to include
+all of the usual libc features.  there have also been a lot of bug fixes and
+performance improvements in system.windows.forms, thanks to neil cawse.  and
+richard baumann has completely rewritten the system.xml parser, fixing many
+long-standing issues with the xml library.
+
+
+march 6-3-2004: c compiler: significant progress and call for volunteers
+
+
+the new c compiler type system has been checked in.  type layout is
+now totally dynamic; the il binary will automatically adapt itself
+to the runtime engine it is running on.  this means that dotgnu is
+bringing true "write once, run anywhere" functionality to c,
+running on top of standard clr implementations.  unlike microsoft's
+c compiler, whose output will only run on i386-based windows
+systems, ours will run portable ansi c code on any platform that
+has a clr, be it 32-bit or 64-bit, little-endian or big.
+ 
+
+simple examples of c programs can be compiled to il now, and
+volunteers are needed to work on the standard c library so that
+more programs and libraries can be compiled.  our eventual goal is
+to bring a large body of free software libraries and programs to
+the cli environment, vastly increasing the range of functionality
+beyond the small number of libraries currently defined for c#.
+
+
+february 28-2-2004: .net developer's journal readers' choice awards 2003
+
+
+we were mentioned in the ".net developer's journal readers' choice awards 
+2003", achieving third runner up in the "best .net build tools/installers" 
+category and second runner up in the "best .net cli" category.  the full 
+details are at the following url:
+http://www.sys-con.com/2002/pr/02252004.cfm
+
+
+february 27-2-2004: interview with nb on gnu-friends.org
+
+
+gnu-friends has an interview about the history of dotgnu and nb's views on
+free software philosophy:
+http://gnu-friends.org/story/2004/2/27/15415/3365
+
+
+february 11-2-2004: "darwinports" packages of portable.net 0.6.2
+            for mac os x
+
+
+thanks to the efforts of olegb, "darwinports" packages of dotgnu
+portable.net 0.6.2, including system.windows.forms, are now available.
+to install, use "port install pnet; port install pnetlib; port install ml-pnet"
+
+
+january 3-1-2004: portable.net 0.6.2 released
+
+
+version 0.6.2 of dotgnu portable.net has been released with many
+enhancements particularly in the area of system.windows.forms,
+with improvements to most controls, fonts, mdi, tree views, and file dialogs.
+please use the
+southern storm
+site for now for downloading it, as we are currently unable to update
+ftp.gnu.org
+
+
+january 11-1-2004: portable.net on playstation 2
+
+
+thanks to the efforts of adam ballai and lance gilbert
+dotgnu portable.net is now running on sony playstation 2
+(which has a little endian "r5900 v3.1" mips cpu.)
+
+
+january 12-1-2004: dotgnu at lca2004
+
+
+four dotgnu'ers have made it to lca2004 in adelaide, australia.
+a group photo is here.
+from the left, we have andrew mitchell (ajmitch), rhys weatherley (rhysw), 
+chris smith (cds), and dave hall (skwashd, who wishes to remain anonymous for 
+reasons unknown).
+
+
+january 13-1-2004: website update
+
+
+all official gnu websites (which are on www.gnu.org or tightly synchronized
+with www.gnu.org, where in the example of dotgnu, our website is at
+http://www.gnu.org/projects/dotgnu/)
+were in hiatus between mid-november 2003 and january 2004 due to a
+security breach at an important server of the free software foundation,
+and the resulting need to set up a much more secure system.  the new
+system is available now, although it seems to have a bug which
+prevents the www.gnu.org version of the dotgnu website from being
+updated.  since the dotgnu project has important news to share, and i don't
+have much hope of this project-specific bug being treated with priority (it may
+have to do with dotgnu being under /projects on
+www.gnu.org and not under /software like almost
+everything else), i'm now updating dotgnu.org without waiting for
+the savannah webcvs bug to be fixed.
+
+
+november 6-11-2003: dotgnu snake!
+
+
+support for the upcoming "whidbey" system.console routines has been added to 
+portable.net, and there is a simple "snake" game that demonstrates how to 
+use it.  a screenshot is here
+
+
+november 4-11-2003: dotgnu 0.1 release announcement
+
+
+	the release announcement for the
+	dotgnu 0.1 cd-rom release has been posted.
+
+
+november 2-11-2003: embedding x applications in xsharp
+
+
+it is now possible to embed any x application as a child widget within an 
+xsharp application.  the pnetlib cvs tree includes "xclockembed.cs" as an 
+example of doing this for "xclock", and this
+screenshot shows both "gedit" (a gnome app) and "kcalc" (a kde app) running
+as two children of the same xsharp main window.  this is important because the
+next version of winforms will have a html web browser control widget, and
+we will want to embed an existing third-part free software web browser, and
+not write a web browser from scratch in c#.
+
+
+
+ your comments please...
+
+
+you are invited to add your comments concerning this page
+at the appropriate
+page of the dotgnu wiki
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+     
+   
+
+     
+   
+
+    verbatim copying and distribution of this entire article are
+    permitted in any medium or format, provided this notice is
+    preserved.
+   
+
+    this page is
+    maintained by norbert bollow <nb@softwareeconomics.biz>
+    with support from the dotgnu
+    developers mailing list.
+   
+
+
+

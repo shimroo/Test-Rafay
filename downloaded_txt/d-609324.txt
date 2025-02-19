@@ -1,0 +1,560 @@
+
+
+
+
+
+dontdream.it | home of bp profile search and menubar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dontdream.it
+home of bp profile search and menubar
+
+
+
+menu
+
+						skip to content					
+news
+bp profile search
+
+description
+form builder
+search modes
+custom member directories
+form templates
+search by user meta data
+search by custom profile field types
+incompatible plugins
+troubleshooting
+support forum
+download
+
+
+menubar
+
+description
+menu builder
+the menubar php type
+support forum
+download
+
+
+contact
+ 
+
+search for:
+
+
+
+ 
+
+
+
+
+
+
+
+
+dynamic dropdown search fields
+
+
+march 20, 2024tips & tricksandrea 
+
+
+the following code turns a standard bp profile search field into a dynamic dropdown search field. dynamic means that the dropdown list contains only the values that users have actually selected in their profiles.
+let’s say your user profile contains a country dropdown field with dozens of countries, but your users are only from a handful of them. when you add this code to your bp-custom.php file, the country search field in your bp profile search form will only list the countries where at least one user can be found.
+add_action ('bps_field_before_search_form', 'bps_dynamic_dropdown');
+function bps_dynamic_dropdown ($f)
+{
+	global $wpdb;
+
+	$ids = array (2, 5);  // ids of the search fields that will become "dynamic dropdown" search fields
+	if (empty ($f->id) || !in_array ($f->id, $ids))  return;
+
+	$query = "select distinct value from {$wpdb->prefix}bp_xprofile_data where field_id = {$f->id} order by value";
+	$values = $wpdb->get_col ($query);
+	$f->options = array ('' => '');
+	foreach ($values as $value)
+	{
+		$value = stripslashes ($value);
+		if ($value == '')  continue;
+
+		$f->options[$value] = $value;
+	}
+
+	$f->display = (count ($f->options) == 1)? 'none': 'selectbox';
+}
+
+please note that the above code does not work for check box and multi-select box profile field types, because their values are stored in serialized form.
+
+
+
+
+
+
+
+bp profile search 5.4.6
+
+
+june 13, 2022newsandrea 
+
+
+this new version of bp profile search adds a site information section to the admin interface. this information will be very useful if you ever post a request in a bp profile search support forum, either:
+https://wordpress.org/support/plugin/bp-profile-search/
+or:
+https://dontdream.it/support/forum/bp-profile-search-forum/
+when you have a support request, go to:
+tools -> site health -> info -> bp profile search
+you will find some lines like these:
+version			5.4.6
+platform		buddypress 10.3.0
+theme			twenty thirteen 3.5
+members index template	/plugins/buddypress/bp-templates/...
+members loop template	/plugins/buddypress/bp-templates/...
+form template(s)	/plugins/bp-profile-search/templates/...
+copy those lines and paste them into your support request, and most of the times i’ll be able to answer your question more quickly.
+
+
+
+
+
+
+
+exclude users from search results
+
+
+june 26, 2021tips & tricksandrea 
+
+
+if you wish to search your members directory with bp profile search and exclude some users from your search results, you can use one of the following code snippets.
+let’s say you wish to remove the current user from their search results. add this code to your bp-custom.php:
+add_filter ('bps_search_results', 'bps_exclude_users');
+function bps_exclude_users ($users)
+{
+	$donotshow[] = bp_loggedin_user_id ();
+	$users = array_diff ($users, $donotshow);
+
+	return $users;
+}
+
+if you wish to exclude the administrator(s) from search results, add this code to your bp-custom.php:
+add_filter ('bps_search_results', 'bps_exclude_users');
+function bps_exclude_users ($users)
+{
+	$args = array ('role' => 'administrator');
+	$admins = get_users ($args);
+	$donotshow = wp_list_pluck ($admins, 'id');
+	$users = array_diff ($users, $donotshow);
+
+	return $users;
+}
+
+you can even combine the above snippets. the following code excludes both the administrator(s) and the current user from search results:
+add_filter ('bps_search_results', 'bps_exclude_users');
+function bps_exclude_users ($users)
+{
+	$args = array ('role' => 'administrator');
+	$admins = get_users ($args);
+	$donotshow = wp_list_pluck ($admins, 'id');
+	$donotshow[] = bp_loggedin_user_id ();
+	$users = array_diff ($users, $donotshow);
+
+	return $users;
+}
+
+
+
+
+
+
+
+
+enabling select2
+
+
+may 3, 2021tips & tricksandrea 
+
+
+if you wish to enable select2 in your bp profile search forms, add this code to your bp-custom.php:
+add_action ('bps_before_search_form', 'bps_enable_select2');
+add_action ('bp_ps_before_search_form', 'bps_enable_select2');
+function bps_enable_select2 ($f)
+{
+	wp_enqueue_script ('select2-js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js', array ('jquery'));
+	wp_enqueue_style ('select2-css', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css');
+?>
+	<script>
+		jquery(function ($) {
+			$('.bps-selectbox select').select2({width: '10em', dropdownautowidth: true});
+			$('.bps-multiselectbox select').select2({width: '10em', dropdownautowidth: true});
+		});
+	</script>
+<?php
+}
+
+please note that there are two calls to select2(), one to enable select2 for standard drop-down fields (line 10), and the other to enable it for multi-select fields (line 11). if you aren’t interested in both, simply delete the line you don’t need.
+the javascript object inside a select2() call contains your select2 configuration options, and you can change them according to your needs. you can find the list of all the select2 configuration options in:
+https://select2.org/configuration/options-api
+
+
+
+
+
+
+
+taxonomy search
+
+
+may 2, 2021tips & tricksandrea 
+
+
+thanks to mark haygen and tracy haygen for letting me test this feature on their site crewcall.community. the site will be ready for live use in june 2021.
+if you are using buddypress xprofile custom field types and wish to search a custom taxonomy multiselector field, you need to register that field type with bp profile search before you can add it to your search forms.
+to do that, add this code to your bp-custom.php:
+use bpxprofilecftr\field_types\field_type_multi_select_taxonomy;
+
+add_action ('bps_custom_field', 'bps_register_msct');
+add_action ('bp_ps_custom_field', 'bps_register_msct');
+function bps_register_msct ($f)
+{
+	if ($f->type != 'multiselect_custom_taxonomy')  return;
+
+	$taxonomy = field_type_multi_select_taxonomy::get_selected_taxonomy ($f->id);
+	$terms = get_terms ($taxonomy, array ('hide_empty' => false));
+
+	$f->format = 'set';
+	$f->get_value = '';
+	foreach ($terms as $t)
+		$f->options[$t->term_id] = $t->name;
+}
+
+add_action ('bps_field_before_search_form', 'bps_change_display');
+add_action ('bp_ps_field_before_search_form', 'bps_change_display');
+function bps_change_display ($f)
+{
+	if (isset ($f->type) && $f->type == 'multiselect_custom_taxonomy')
+		$f->display = 'multiselectbox';
+}
+
+a general explanation on how to register custom field types is in:
+search by custom profile field types
+
+
+
+
+
+
+
+
+swap the labels
+
+
+may 1, 2021tips & tricksandrea 
+
+
+if a profile field is named, say, “my job title”, when you add that field to a bp profile search form you’ll probably need to change its label to a more general “job title” to avoid any confusion.
+if users see “my job title” in a search form, they may think they have to enter their own job title! but of course they have to enter the job title they are looking for, and they will get the list of users with that job title.
+an especially tricky case happens with some dating sites, where two profile fields are:
+i am a: (man/woman) and
+i am looking for a: (man/woman)
+when you add those two fields to a search form without changing their labels, users doing the search will most likely enter their own gender into the “i am a” field, and their own preference into the “i am looking for a” field… and surely they will be disappointed by the search results they get.
+to avoid this confusion, you can simply swap the labels of the two fields in your search form edit page, as follows (click to expand):
+
+and your users will now get their expected search results.
+
+
+
+
+
+
+
+bp profile search 5.3
+
+
+february 7, 2020newsandrea 
+
+
+to clean up the plugin code and simplify further development, version 5.3 no longer supports old form templates, see new form template structure.
+to know if the templates you are using are supported in 5.3, look at the template column in the admin page users -> profile search. templates whose name is shown in green or blue text are supported in 5.3, those shown in red text are not.
+if you still need to use old form templates, keep using bp profile search 5.2.4. if you upgraded already, roll back to bp profile search 5.2.4, either manually or using the wp rollback plugin.
+in addition, the old shortcode [bps_display] has been removed. if you were still using it, you can now replace it with [bps_form].
+version 5.3 brings a few new features and bug fixes:
+1. a search field can be marked as required
+to do that, go to the edit form page and prefix the field label with an asterisk, e.g.:
+* city
+if you prefer an alternative way to mark a field as required, you can add this code to your bp-custom.php file:
+add_action ('bps_field_before_search_form', 'set_required');
+function set_required ($f)
+{
+	if ($f->code == 'field_34')    // replace 34 with your field id
+	{
+		// mark the field as required
+		$f->required = true;
+	}
+}
+2. a search field can be assigned a default value
+to do that, add this code to your bp-custom.php file:
+add_action ('bps_field_before_search_form', 'set_default');
+function set_default ($f)
+{
+	if ($f->code == 'field_34')    // replace 34 with your field id
+	{
+		// assign the default value
+		$f->value = 100;
+	}
+}
+3. a search field can be validated with custom rules
+to do that, add this code to your bp-custom.php file:
+add_filter ('bps_validate_field', 'validate_field', 10, 2);
+function validate_field ($error_message, $f)
+{
+	if ($f->code == 'field_34')    // replace 34 with your field id
+	{
+		// specify the field validation rule and error message
+		if ($f->value <= 80)
+			$error_message = 'please enter a value > 80';
+	}
+
+	return $error_message;
+}
+bug fixes
+this version also fixes two bugs:
+1. the pagination of search results in member directories not using ajax;
+2. a conflict with the group members template, resulting in the group members page not being displayed correctly sometimes.
+the two bug fixes are also available in version 5.2.4; if you need them and can’t upgrade to 5.3, you can delete and then reinstall bp profile search 5.2.4.
+
+
+
+
+
+
+
+bp profile search 5.0.4
+
+
+may 19, 2019newsandrea 
+
+
+with this version you can:
+— translate the keywords and and or used in searches. for instance, to translate the keywords in spanish, add these definitions to bp-custom.php:
+define ('bps_and', ' y ');	// and in spanish
+define ('bps_or', ' o ');	// or in spanish
+— adjust the multiple select size in search forms, using the bps_field_before_search_form hook. for instance, add this code to bp-custom.php:
+add_action ('bps_field_before_search_form', 'new_multiselect_size');
+function new_multiselect_size ($f)
+{
+	if ($f->display == 'multiselectbox')
+	{
+		$f->multiselect_size = 6;
+	}
+}
+additionally, a bug happening when you used the bps_match_all hook has been fixed, and some minor adjustments to the bps-form-default template have been made.
+
+
+
+
+
+
+
+bp profile search 5.0.2
+
+
+april 10, 2019newsandrea 
+
+
+when you search your members directory for city is: london, there is no doubt that all the members in your search results live in london. there is no need to show the value of the city field, or to order the search results by city.
+but if you search for city is: london or paris, or for city contains: york, then you can’t say where a member in your search results actually lives. in these cases bp profile search 5.0.2 shows the value of the city field, and offers the option to sort your search results by city.
+you can disable this feature if you don’t need it. simply add this code to your bp-custom.php file:
+add_filter ('bps_sort_options', 'change_sort_options');
+function change_sort_options ($sort_options)
+{
+	$sort_options = array ();
+	return $sort_options;
+}
+
+add_filter ('bps_details', 'change_details');
+function change_details ($details)
+{
+	$details = array ();
+	return $details;
+}
+the [bps_directory] shortcode allows you to activate this feature independently of the current search.
+[bps_directory show='field_4,field_36' order_by='field_4,field_40']
+shows the fields with id 4 and 36 in all your directory (or search results) entries, and offers the option to sort your directory (or search results) by the fields with id 4 and 40.
+please note that [bps_directory] is not a standard shortcode. you can enter it in a new page, and you’ll get a new members directory, or you can enter it in the standard members directory page, and you’ll be able to customize the standard members directory itself.
+bp profile search 5.0.2 also fixes a potentially nasty privacy problem. this involves a possible backwards incompatibility, see potential privacy problem fixed in 5.0.2 for details.
+and, last but not least, version 5.0.2 features a much improved compatibility with geo my wordpress. enjoy!
+
+
+
+
+
+
+
+bp distance search
+
+
+march 7, 2019newsandrea 
+
+
+following many user requests, today i’ve released bp distance search.
+bp distance search adds a new google place autocomplete field type to your buddypress extended profiles.
+you can then create google place autocomplete fields, and add them to your bp profile search forms, selecting either the new distance search mode or one of the usual text search modes contains, is, or is like.
+i hope you’ll find this new plugin useful. for questions, suggestions and bug reports you can use the bp profile search support forum.
+
+
+
+
+
+
+			posts navigation		
+
+← older posts
+
+
+
+
+
+
+
+navigationnews
+bp profile search
+
+description
+form builder
+search modes
+custom member directories
+form templates
+search by user meta data
+search by custom profile field types
+incompatible plugins
+troubleshooting
+support forum
+download
+
+
+menubar
+
+description
+menu builder
+the menubar php type
+support forum
+download
+
+
+contact
+search forums 
+
+
+
+
+
+
+
+
+recent forum topics 
+
+: issue with back navigation – “err_cache_miss”
+
+
+support of umlauts like ä, ü or ö
+
+
+members don't appear in search results
+
+
+search in two fields
+
+
+shortcode taking over page
+
+
+recent forum replies 
+
+andrea
+				on : issue with back navigation – “err_cache_miss”
+
+
+andrea
+				on support of umlauts like ä, ü or ö
+
+
+gary houlton
+				on members don't appear in search results
+
+
+andrea
+				on members don't appear in search results
+
+
+andrea
+				on members don't appear in search results
+
+
+archives
+
+march 2024 (1)
+june 2022 (1)
+june 2021 (1)
+may 2021 (3)
+february 2020 (1)
+may 2019 (1)
+april 2019 (1)
+march 2019 (1)
+october 2018 (1)
+august 2018 (1)
+january 2018 (1)
+december 2017 (1)
+january 2017 (1)
+
+ 
+
+
+
+
+
+
+					proudly powered by wordpress				
+
+
+
+
+
+
+
+
+
+
+
+
+
+

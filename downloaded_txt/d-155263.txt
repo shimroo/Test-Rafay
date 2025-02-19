@@ -1,0 +1,1252 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+szalapski.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+szalapski.com
+
+
+
+software development, .net, and more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+my focus is on making software, coaching agile/scrum teams, and being a husband and father--definitely not on blogging--so please do not expect very frequent posts here.
+
+
+
+
+
+monday, november 25, 2024
+
+
+
+
+
+the way to do a no-op (do nothing) action in github actions is `run: exit 0`
+
+
+
+
+
+you'd think echo or : would work, but echo results in extra unexpected cruft, and : isn't recognized as a command, presumably due to the yaml interpreter.  hope this helps!
+
+
+
+
+posted by
+patrick
+
+
+at
+9:25 am
+
+
+0
+comments
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+saturday, august 17, 2024
+
+
+
+
+
+readability above all else in code reviews
+
+
+
+
+
+in my last post, i made a case that code reviews cannot be relied upon as the main activity to achieve defect prevention, correctness, robustness, usability, or learning. even so, these goals are worth pursuing in code reviews, though other practices such as unit testing and qa should be the primary driver to such goals. aside from those goals, code reviews can indeed be the primary driver of other areas of improvement for a software team. it is arguable (comments welcome), but i say above all else code reviews routinely and consistently improve code readability. highly readable code might not be the first measure of software quality or of team competency that you'd list, but it should be. code is typically written once and revised a few times, but read dozens of times. programs are for humans to read and only incidentally for computers to execute. i or any competent developer can deal with any code that we can understand, and the quicker we can understand it, the faster it will be to troubleshoot, maintain, and enhance. readable code gives us more than a fighting chance. too often, when teams are under the gun and avoiding spending any time or effort into code review, we get indecipherable, weird, arcane, and confusing code, and this incurs troubleshooting, maintenance, and enhancement costs to go way up in the future, and in unpredictable ways.the most important imperative in generating highly-readable code, i say, is: write your code so that the reader can immediately and intuitively discern what it actually does. don't make me think too hard. make the code obvious. as a reviewer, you can make this your top priority when recommending changes to the code under review. a reviewer ought to first point out where she or he doesn't understand what the code is doing and try to collaborate with the author to make it obvious. as an author, when a reviewer doesn't immediately grok what you wrote, your first thought shouldn't be "okay, let me explain it to him" and certainly not "i should probably add some comments that explain this". instead, think "if he didn't get it, others won't get it either. what code should change to make this more obvious?"more often, the reviewer already understands what the code is doing but quickly thinks of a better way to express it--"better" here being synonymous with "more readable". code review is the only practice i know of that presses code into a more readable state routinely and reliably. these can often be the quick wins: the reviewer says "try this instead", and very often the author can quickly agree and integrate such a change. as an author, i am very apt to take my coworker's suggestions, certainly when i am ambivalent and even when i mildly disagree. the rapport and mutuality gained from adopting a reviewer's recommendation in code review might be more valuable than the change itself. and several times i have looked back on such changes after several months and been convinced in the end--turns out my teammates are really quite good at this programming stuff!
+we should all write our code so that the mapping from the code itself to our intent is as simple and as straightforward as possible. for example, if i intend for a method to calculate and then save, naming it calculateandsave is better than naming it save. in a code review, pointing out "this is doing more than saving" will at least result in a renaming of the method. then, that name then might lead us to question if the calculation should be done in a separate method for better separation of concerns. conversely, if i named a method validateandsave but there is no validation code in the method at all, my teammate would immediately point out that i intended to validate but never actually did so. pointing out the differences between apparent intent (or mutually-understood requirements) and actual code is a top benefit of doing code reviews.so what makes code highly readable?  sometimes "it depends" (of course). sometimes, shorter code is more readable (e.g. omitting redundancies), and sometimes longer code is more readable (such as declaring a semantically meaningful temporary reference). sometimes clever code is more readable (i.e. when your cleverness came up with the apt statement; please not when cleverness is needed to understand it); sometimes "dumb" code is more readable (especially when familiar and unastonishing). sometimes more abstraction (more layers) is more readable; other times, collapsing layers makes it more readable. when these questions come up in code, the important thing is that the team is deciding together which way to go in each case. if the team is skilled and genuinely cares, i trust them to make a decision, even if i disagree with that decision. the difference between my idea of good code and my team's idea is usually tiny compared to code that isn't reviewed for readability at all.however, there are some good readable-code rules-of-thumb that are almost always true. simple beats complex. boring beats exciting. code written as others expect beats astonishing code. conventional code beats innovative code. pattern-following code beats trailblazing code. linear code beats nested code, and shallower nesting beats deeper nesting. more short methods are better than fewer long methods. i think we all appreciate simple, boring, as-expected, 
+conventional, patterned, linear, shorter code--so as a code reviewer, be eager to give your recommendations to make it such.and there is one more rule-of-thumb that i hold to be the most important: refactored code beats original code every time. code can almost always be made more readable by being revised, especially when there is no pressure to change its behavior. this is exactly where team peer code review shines: it allows for code to be refactored mere minutes or hours from when it was originally written, with zero added cost of extra testing, when you are most familiar with both the desired and actual behavior of the code in question, when such refactoring is typically least costly and most welcome by all concerned parties. it is the biggest no-brainer when it comes to code review: seize the opportunity to refactor your code to be more readable, and leverage code reviews to spur changes for readability.of course, even if all that is agreed among team member, opinions will still differ as to what is easiest to read. one thinks nested ternary conditionals are easier than using elseif; their teammates think they're nuts. some like indenting via tabs, some like spaces. when these differences are aired in a team peer code review, a quick resolution is likely. if the teams uphold the value of others' work and want to come to a consensus, a disagreement in a code review will result in the team either proposing a common practice that all can and should agree on, or it will result in the team agreeing that either way is fine and toleration of unimportant inconsistencies (if any). the important concern is that the team be empowered to consider and decide themselves, and that any team member can speak up to raise the issue (both within the code review and in initiating a broader team discussion).making the code more obvious and making the code reflect the intent of the author will result in big long-term wins for the product and for the team. something curious happens once a team gets a little experience at this: they inevitably start forming team norms that lead to more efficient and productive coding. often it also leads to agreed coding standards that take further time-consuming discussions (or arguments, or fights) out-of-play. these benefits result in snowballing productivity and team happiness as well, so i'll explore that in my next post. i've only scratched the surface on some other benefits of code review, which will also be coming up.  do you have a piece of code you'd like to make more readable?  post it here (maybe a link to a github pr or commit?) and i'll give it a crack.
+
+
+
+
+posted by
+patrick
+
+
+at
+7:27 am
+
+
+0
+comments
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+labels:
+code review,
+coding standards,
+principles
+
+
+
+
+
+
+
+
+
+
+thursday, august 15, 2024
+
+
+
+
+
+code reviews are overrated (but not how you think!)
+
+
+
+
+
+when i first began leading a "two-pizza" software team in 2007, our 
+code reviews focused on code robustness and correctness. our architect 
+would choose code to print out--usually around 4-6 pages' worth each 
+week. we would gather in a conference room and spend an hour 
+scrutinizing, and ultimately arguing, about what in that code should 
+change. a few months into the job, he turned over that duty to me and i 
+knew both the printed approach and the goals we were pursuing had to shift! since that time, tools have greatly improved, code review 
+practices have become easier and more widely known, and the way we 
+structure code is less novel and more relatable. on top of these 
+improvements, developers expect to review code more commonly and with a 
+much healthier attitude; the benefits are more intuitive to all. however, after doing code reviews on most days for the last 17 years, i 
+have come to see that some of the supposed benefits of code review are overrated. let's acknowledge the limitations of code review 
+toward those goals and consider other goals for which code reviews might be the primary means to gain. most 
+importantly, code reviews are not great at 
+finding defects (bugs) in the code. i hesitate to even mention this 
+first: indeed, my teams have used code reviews to find and fix thousands
+ of defects in our code over the years--perhaps making code reviews 
+worthwhile for this benefit alone. furthermore, bugs found in code review can be fixed much more easily and cheaply than those found in any
+ round of testing, or in the worst case, found by actual users in production. nevertheless, if we relied on code review as the main way to prevent 
+defects, our quality would dramatically drop. most defects are simply not obvious enough in code reviews. we need testing in all its forms. we need mutual understanding of requirements,
+ use cases, and/or user stories. we need collaboration and an ongoing 
+conversation about what our software should do and what our users' 
+experience should be. we need an overall team culture growing in 
+software quality and technical excellence. there is not one way to 
+prevent defects; we need all the ways. certainly code reviews are one 
+tool for higher quality software, but the answer to "why did this bug 
+make it into production?" never comes back as "eric reviewed the code 
+poorly."now let me restate that overrated does not mean nonexistent;
+ let me repeat that code reviews do often find bugs; they just 
+aren't great at doing so. much as a .300 hitter 
+(that is, a 30% successful hitter)
+
+in baseball is an all-star, the value in preventing defects via code 
+review is large despite its failure to detect them more often than not. keep looking for bugs in your code review effort--just don't expect to 
+find most of them that way.a concept related to defect prevention is correctness. does the code do what the author intended it to do? code reviews are 
+overrated in revealing incorrect code. after all, unless the review 
+somehow expresses what the author intended separately from the code that
+ implements it, the reviewer cannot tell where the intent of the code differs from the code. reviewers often proceed assuming the best intentions of the author and 
+also assume that the code written accurately reflects those intentions. if a reviewer encounters code they didn't expect, he might think "well,
+ she thought this through and i haven't. she must be right." the wise 
+reviewer will ask questions instead of assuming the best and use the 
+review as a jumping-off point for discussion and collaboration, but no 
+one will be able to question enough or in the right places all the 
+time. fortunately, there is a proven practice that is explicitly and 
+mainly about checking the code written against the author's intention: unit tests
+ are exactly what we need, especially when they are written side-by-side
+ with the implementation code, either immediately after 
+("code-then-test") or before (e.g. via tdd). if you aren't using unit 
+testing and instead relying on code reviews to ensure correctness, a lot
+ of misunderstandings and mistakes will slip through to qa or beyond.the
+ flip side of defect prevention is the completeness and robustness of 
+the code. does the code do all that it should? again, code review only 
+examines what the code does. code review isn't so good at flushing out what the code isn't doing but should be. a
+ really good reviewer will have a strong understanding of the intent and
+ end goals of the code under review and thus can and should question the
+ author on what might be missing. however, sometimes the author is 
+already the person who knows best about what code should be doing, and 
+other reviewers might assume too much given the code they see. again, 
+use the review as a jumping-off point for discussion and collaboration. but even this healthy attitude will only get you so far. code reviews 
+are no substitute for a team-wide mutual understanding of the both the 
+user's needs and the big-picture direction of the software effort. it 
+takes many other practices to build the product right; these include 
+product planning time, technical design meetings, pairing, prototyping, 
+and frequent review/discussion with the product owner and users.code reviews aren't good at revealing ui/ux shortcomings because code doesn't show  the interface or how users interact with it. testing, especially user-acceptance testing, of any user interface 
+cannot be replaced by code review. a team must engage in ui/ux reviews, both among the team and with their users or user representatives. however, i do highly recommend expanding 
+the idea of "code" reviews to more than code: include mockup/prototype reviews or even 
+reviews of nearly-finished screenshots. reviewing a screenshot, a ui mockup image, or a photo 
+of a whiteboard is far more valuable than merely reviewing the code that
+ might generate such an interface.technical non-coders can't rely on code review to
+ stay in the know. architects and tech leads who require that all code 
+changes be reviewed by them do their teams a disservice. they are 
+hindering all three of pink's factors of job happiness: they are 
+blocking their team member's autonomy, preventing them from attaining mastery, and de-emphasizing the purpose of
+ building the software product. at best, they make themselves a 
+necessary impediment to getting the job done. at worst they become the 
+lowest level of rubber-stamping bureaucrats. instead, architects and 
+tech leads should be sure they are occasionally authoring code just as 
+they did as senior developers, and they should sacrifice time doing code
+ review if necessary to achieve it. by all means 
+architects and tech leads should participate in code reviews (and their 
+recommendations should be valued by all), but the team should be 
+primarily responsible for reviewing each other as peers. the team 
+should be empowered to approve and complete code reviews quickly and to 
+do whatever necessary to prevent code reviews from becoming any kind of 
+delay.finally, code review is a poor 
+substitute for cross-training, mutual team learning, and team-wide 
+ownership of the requirements, code, and software deliverables. code reviews are just too narrow to be our main teaching tool. because teams that do code reviews well will tend to shorter reviews in
+ higher quantity, any given code review will not expose enough of the 
+software to generate the kind of conversations needed to genuinely 
+spread knowledge around. we can hope that code reviews will help spur 
+on broader conversations about our software, but we cannot depend on 
+them as the main tool for doing so. furthermore, the deep knowledge 
+needed to grow as a team can only come from implementing or improving 
+that software. reviewing does not make the reviewer as knowledgeable as 
+its author. planning, team organization, daily scrums, pairing, and 
+swarming can all help with this. these practices and more will 
+automatically happen the more your team takes on a mindset of collective code ownership.thus are you discouraged 
+about the benefits of code review? don't be. the supposed benefits above
+ can still be had, just not to the extent that you might have hoped for 
+in code reviews we can gain some defect prevention, correctness, robustness, usability, and learning from code reviews; we simply cannot rely mainly on code reviews for these goals. supplement code reviews with other practices tailored to these goals.but i haven't yet written of the underrated first-class benefits of code review. turns out there are many gains for which we can rely on code review--and especially on team peer code review. compared with 
+my team in 2007, today we review lots more code more efficiently and with 
+different goals. i'll explain a few in my next posts!  till then, let me 
+know how i can help with your team's code reviews or perhaps review your
+ code myself as freelance side work.
+
+
+
+
+posted by
+patrick
+
+
+at
+3:54 pm
+
+
+0
+comments
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+labels:
+code review,
+principles
+
+
+
+
+
+
+
+
+
+
+thursday, april 18, 2024
+
+
+
+
+
+full-stack? how about "full scope"
+
+
+
+
+
+hi, i’m patrick szalapski.i make software and help others at it.i lead teams to make the most optimally-scoped business web apps and tools, often with .net, growing such teams to deliver faster, better, and less expensively. i have a proven track record at multiple companies saving businesses millions of dollars and thousands of hours. i can lead or support the effort to figure out what you need, partnering with stakeholders to attack problems and quickly move to building solutions. my teams quickly grow to be highly productive, technically excellent, self-organizing, and happy. best of all, i pivot among these roles to whatever a team most needs for sustainable success. 
+
+
+
+
+posted by
+patrick
+
+
+at
+10:50 pm
+
+
+0
+comments
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+labels:
+principles
+
+
+
+
+
+
+
+
+
+
+
+
+older posts
+
+home
+
+
+
+
+subscribe to:
+posts (atom)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+my other sites
+
+
+me on linkedin
+me on github
+my twitter
+my facebook
+mastodon
+
+
+
+
+projects / downloads
+
+sz.blazor.reveal
+sz.blazorrenderreducers | nuget
+pubcleaner for kindle
+espn fantasy decruftifier extension for chrome and for firefox
+azure boards fix
+
+
+
+
+
+
+
+loading...
+
+
+
+
+followers
+
+
+
+
+
+
+
+
+
+
+
+blog archive
+
+
+
+
+
+
+
+
+        ▼ 
+      
+
+
+
+2024
+
+(4)
+
+
+
+
+
+        ▼ 
+      
+
+
+
+november
+
+(1)
+
+the way to do a no-op (do nothing) action in githu...
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2022
+
+(3)
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(2)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2020
+
+(3)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2019
+
+(2)
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(2)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2017
+
+(4)
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2016
+
+(3)
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2015
+
+(7)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2014
+
+(7)
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2013
+
+(2)
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(2)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2012
+
+(3)
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(2)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2011
+
+(1)
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2010
+
+(3)
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(2)
+
+
+
+
+
+
+
+
+
+about me
+
+
+
+
+
+patrick
+
+
+i make software and help others make software at a fortune 500 company.  i am passionate first for my family, but also for software development and architecture.
+
+view my complete profile
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+theme images by 5ugarless. powered by blogger.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

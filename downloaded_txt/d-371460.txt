@@ -1,0 +1,949 @@
+
+
+
+
+jezuk ltd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+stinc++ - macro, a macro processor, step three(b) : yr golygfa o hescwm uchaf, rhif 23
+
+
+sunday 09 february 2025
+
+
+
+
+stinc++ rewrites the programs in software tools in pascal using c++
+
+
+last time, on software tools in c++: having worked through stages one and two of kernighan and plauger’s three stages of implementing macro,
+
+
+
+
+simple text replacement, “the most elementary form of macro processing”
+
+
+“a much bigger job”, expanding the processor to allow macros with arguments
+
+
+
+
+i’d stumbled at stage three,
+
+
+
+
+extending the processor with extra built-in operations that help write “truly powerful macros”, such as conditionals and arithmetic.
+
+
+
+
+discovering, then resolving, something of a hole in my implementation.
+
+
+
+
+programmers, are you ready?
+
+
+in addition to text replacement and len, macro defines four other builtin macros. that’s perhaps not quite enough to make “truly powerful macros” easy, but i think it’s sufficient[1]
+
+
+quote,unquote
+
+macro is, as previously described, very eager. it’s always looking for macros, and wants to immediately expand them. there are occasions when this is undesirable, unhelpful even. macro provides, therefore, a quoting facility - any sequence of characters between a grave ` and a balancing apostrophe ' is taken literally, with the grave and apostrophe removed. sometimes, however, even that’s not enough - perhaps you need a grave or apostrophe in the literal text.
+
+
+enter the changeq(xy) macro, which changes the quote characters to x and y. changeeq(x) changes both quote characters to x, and changeq() changes them back to ` and ' respectively.
+
+
+changeq_macro
+
+void macro_processor::changeq_macro(
+  std::string const& macro,
+  macro_arguments const& raw_arguments, (1)
+  token_stream& source,
+  token_sink& sink
+) {
+  auto arguments = all_to_string(raw_arguments); (2)
+  if (arguments.empty()) { (3)
+    install_quotes(grave, apostrophe);
+    return;
+  }
+
+  auto const& quotes = arguments[0];
+  auto end = quotes.length() > 1 ? 1 : 0; (4)
+  install_quotes(quotes.substr(0, 1), quotes.substr(end, 1)); (5)
+}
+
+
+
+
+
+raw_arguments is a list of tokens given as arguments to the macro. they arguments have not yet been expanded - hence why they are raw.
+
+
+all_to_string recursively expands any macros in raw_arguments, return the result as a list of std::string
+
+
+if no arguments provided so revert to defaults
+
+
+just one character, or more?
+
+
+quote handling is, itself, handled as a macro. it is, after all, just detecting a token and doing some processing on the tokens that follow
+
+
+
+
+install_quotes
+
+void macro_processor::install_quotes(
+  std::string_view open,
+  std::string_view close
+) {
+  macros_.erase(open_quote); (1)
+  open_quote = open; (2)
+  close_quote = close;
+  install_macro(open_quote, &macro_processor::quoted_sequence, macro_argument_type::none); (3)
+}
+
+
+
+
+
+undefine any existing quote macro
+
+
+set the new open and close quote characters
+
+
+install the quote macro.
+
+
+
+
+the quote macro itself is straightforward
+
+
+quoted_sequence
+
+void macro_processor::quoted_sequence(
+  std::string const& token,
+  macro_arguments const&,
+  token_stream& source,
+  token_sink& sink
+) {
+  source.push_token(token); (1)
+  auto quoted_seq = bracketed_sequence(source, open_quote, close_quote); (2)
+  drop_bracketing(quoted_seq); (3)
+  std::ranges::for_each(quoted_seq, [&sink](std::string const& t) { sink(t); }); (4)
+}
+
+
+
+
+
+push the opening quote character back onto the input
+
+
+read everything from the input, starting with the opening quote, up to and including the close quote.
+
+
+discard the opening and closing quotes.
+
+
+copy the quoted sequence directly to the output.
+
+
+
+
+maybe stage three is going to be straightforward after all.
+
+
+
+slicing and dicing
+
+
+
+substr(s,m,n) is replaced by the substring of s starting at location m (counting from one) and continuing at most n characters. if n is omitted, it is taken as a very large number; if m is outside the string, the replacement string is null.
+
+
+
+
+substr_macro
+
+void macro_processor::substr_macro(
+  std::string const& macro,
+  macro_arguments const& raw_arguments,
+  token_stream& source,
+  token_sink& sink
+) {
+  auto arguments = all_to_string(raw_arguments);
+  auto const& str = !arguments.empty() ? arguments[0] : empty;
+  auto [start, start_ok] = int_arg(arguments, 1);
+  auto [len, len_ok] = int_arg(arguments, 2, static_cast<int>(std::string::npos));
+
+  if (!start_ok || !len_ok) { (1)
+    warning(std::format("non-numeric argument to `{}'", macro));
+    return;
+  }
+
+  if (start < str.size()) (2)
+    source.push_token(str.substr(start, len));
+}
+
+
+
+
+
+everything that’s happened to this point is concerned with collecting the arguments s, m, and n, referred to here as str, start, and len.
+
+
+and in the end, it’s two lines - is the start in bounds, if so return the substring.
+
+
+
+
+i have, in fact, deviated slightly from kernighan and plauger&x#2019;s definition. they start the substring index from 1, pascal style. i have chosen to start from 0, c++ style.
+
+
+
+choices, choices
+
+changeq is a convenience, because if we really wanted, surely we could find a way to pipeline the many programs we’ve written to heath-robinson some kind of work around. substr and len are helpful, providing basic string manipulation facilities. to really make the jump to those powerful macros, we need some kind of conditional. we need ifelse(a,b,c,d).
+
+
+ifelse’s operation is straightforward, but sufficient. if argument a exactly matches argument b (after, remember, macro expansion), then output argument c. otherwise, output argument d. any or all of the arguments can by empty, so there’s a reasonable degree of flexibility.
+
+
+if you take a moment, you can probably write the code in your head.
+
+
+ifelse_macro
+
+ifelse_macro(
+  std::string const& macro,
+  macro_arguments const& raw_arguments,
+  token_stream& source,
+  token_sink& sink
+) {
+  if (raw_arguments.size() < 3)
+    return;
+
+  auto arguments = all_to_string(raw_arguments);
+
+  auto const& lhs = arguments[0];
+  auto const& rhs = arguments[1];
+  auto const& then_r = arguments[2];
+  auto const& else_r = arguments.size() >= 4 ? arguments[3] : empty;
+
+  auto const& result = lhs == rhs ? then_r : else_r;
+  source.push_token(result);
+}
+
+
+
+
+
+
+evaluate this
+
+
+the code above presents the “finished” versions of the various macros. they were all originally a few lines longer, with a common preamble, which one last refactor hoisted that up and out. they were, however, all as simple as they looked. for each one, i wrote a starter test or two, did a bit of implementation, another test, a bit more code, back and forth, and within an hour or so’ leisurely evening programming, it was all done.
+
+
+and then i got to expr.
+
+
+
+
+expr(expression) is replaced by the decimal string representation of  the numeric value of expression. for correct operation, the expression
+ must consist of parentheses, integer operands written as decimal digit
+ strings, and the operators +, -, *, / (integer division), and % (remainder). multiplication and division bind tighter than addition and subtraction, but parentheses may be used to alter this order.
+
+
+
+
+a little integer calculation engine, that knows bodmas? i think we can agree, friends, that is more than a single evening’s work.
+
+
+
+
+source code
+
+
+source code for this program, indeed the whole project, is available in the stix github repository. macro is the only program in chapter 8.
+
+
+
+
+endnotes
+
+
+this whole business springs from software tools in pascal and software tools, both by brian w kernighan and pj plauger. i love these books and commend them to you. they are both still in print, but new copies are wildly expensive. happily, there are plenty of second-hand copies around, or you can borrow them from the internet archive using the links above.
+
+
+i started using jetbrain‘s clion ide back at the start of all this - it was good then, and it’s got gently better and better since. it‘s a really good tool, and i‘m more than content to spend money on it.
+
+
+
+
+
+
+1. m4, kernighan and ritchie’s grown up macro processor provides twenty builtin macros. those that go beyond what’s provided in macro are cover file inclusion, output redirection, undefining, and shelling out to the system.
+
+
+
+tagged
+code,  and 
+software-tools-in-c++
+
+stinc++ - macro, a macro processor, step three(a) : yr golygfa o hescwm uchaf, rhif 22
+
+
+monday 03 february 2025
+
+
+
+
+stinc++ rewrites the programs in software tools in pascal using c++
+
+
+it will probably come as no surprise to learn that these stinc++ aren’t written contemporaneously with the code they describe[1]. i’m generally a bit behind the times, but the twin distractions of my conference proposal being accepted[2] and getting a new puppy[3] have opened something of gap between writing the code in question and laying fingers to keyboard now.
+
+
+to recap, i’m working through the last chapter, chapter 8,  of software tools in pascal, in which brian kernighan and pj plauger develop macro, a macro processor not a million miles away from m4. they outline three stages in the development of macro,
+
+
+
+
+simple text replacement, “the most elementary form of macro processing”
+
+
+“a much bigger job”, expanding the processor to allow macros with arguments
+
+
+extending the processor with extra built-in operations that help write “truly powerful macros”, such as conditionals and arithmetic.
+
+
+
+
+having written parts one and two, which describe the first two steps, if you were expecting this part three to neatly wrap things up i’m afraid i’m going to let you down. writing macro, it turns out, is a three-step process in the same way that drawing an owl is a two-step process.
+
+
+
+
+it was all going so well
+
+
+having implemented simple text replacement macro, and then expanding that out to handle macro arguments, we are, indeed, set up to extend the processor with extra built-in operations that help write “truly powerful macros”. i started by implementing len, because it was the easiest.
+
+
+
+
+len(s) is replaced by the string representing the length of its argument in characters.
+
+
+
+
+i sat down and banged out
+
+
+
+void macro_processor::len_macro() {
+  auto argument_tokens = parenthesised_sequence(source_); (1)
+
+  drop_brackets(argument_tokens);
+
+  auto length = std::accumulate(
+    argument_tokens.begin(),
+    argument_tokens.end(),
+    size_t(),
+    [](int total, std::string const& tok) {
+      return total + tok.length();
+    }); (2)
+
+  source_.push_token(std::to_string(length)); (3)
+}
+
+
+
+
+
+gather up the arguments
+
+
+sum up the lengths of the arguments
+
+
+pop it out as a string
+
+
+
+
+given the above, the macro
+
+
+
+len(hello!)
+
+
+
+outputs 6. amazing.
+
+
+however,
+
+
+
+len(define(hello, world!))
+
+
+
+returned 20, which, although it’s not necessarily obvious why, is just straight up wrong.
+
+
+
+
+wrong for all the wrong reasons
+
+
+one of the subtleties of macro, and m4 on which it is based, is that macros can occur anywhere. here, when evaluating len(define(hello, world!)), we need to recognise define(hello, world!) as macro and process it, then evaluate len on the output of that define.  the output of a define is empty, so len(define(hello, world!)) should output 0.
+
+
+once i’d realised what was(n’t) happening, it dawned on me that the whole way i’d been evaluating macros was wrong. however, because i’d so far only had string replacement macros going, the results were accidentally correct.
+
+
+now i was attempting the len macro, the flaw had been revealed and the design i had was no longer the design i needed[4]
+
+
+this, by the way, is the cliffhanger i left at the end of part two.
+
+
+i had feeling quite pleased with myself. moments before i’d cleaned up the input tokenisation quite significantly. in my early enthusiasm, i’d unnecessarily overengineered the whole business, and, on later reflection, was able to pare things back and removee four classes, consolidating the features i did need into a single, now much simpler, class. a measure of how unnecessary the removed code was is how little else had to change as a result. sometimes you eat the bar, sometimes the bar will eat you.
+
+
+turning up a genuine problem made me a little sad. i suppose i could have just deleted the test case that exposed the problem, and pretended it hadn’t happened. what you don’t commit can’t hurt you, but too late. the psychic damage was done.
+
+
+it wasn’t enough to simply gather up the arguments to len, i needed to scan those arguments for macros, and as i processed any macros i found, scan their arguments for macros, and so on. oof, it’s turtles all the way down. i needed some kind of stack frame (or evaluation context, or subprocess).
+
+
+
+
+get happy
+
+
+it took a couple of loops round to tighten this up, but the code already contains what we needed. the central function was process_to
+
+
+process_to
+
+void macro_processor::process_to(std::ostream& out) {
+  while(source_.token_available()) {
+    auto token = source_.pop_token();
+
+    if (token == define)
+      install_definition();
+    else if (is_macro(token))
+      apply_macro(token);
+    else
+      out << token;
+  }
+} // process_to
+
+
+
+it reads the input token stream, looking for and evaluating macros, sending the text output to out_.
+
+
+here, the input token stream source_ is a member variable of macro_processor, created by initialising a token_stream around the input std::istream. a small rearranging gives something much more promising.
+
+
+process_to & frame
+
+void macro_processor::process(
+  std::istream& in,
+  std::ostream& out
+) {
+  auto source = token_source { in };
+
+  frame(source, out);
+}
+
+void macro_processor::frame(
+  token_source& source,
+  std::ostream& out
+) {
+  while(source.token_available()) {
+    auto token = source.pop_token();
+
+    if (token == define)
+      install_definition();
+    else if (is_macro(token))
+      apply_macro(token);
+    else
+      out << token;
+  }
+}
+
+
+
+by releasing frame from the direct connection to source_, we’ve opened up new possibilities, such as feeding in the arguments to len.
+
+
+len with evaluation of arguments
+
+void macro_processor::len_macro(token_source& source) {
+  auto argument_tokens = parenthesised_sequence(source);
+
+  drop_brackets(argument_tokens);
+
+  auto expansion = sub_frame(argument_tokens);  // this is the change!
+
+  source.push_token(std::to_string(expansion.size()));
+}
+
+std::string macro_processor::sub_frame(token_seq& in) {
+  auto seq_source = token_source { in };
+  auto sink = std::ostringstream { };
+
+  frame(seq_source, sink);
+
+  return sink.str();
+}
+
+
+
+wheels within wheels, macros within macros
+
+jez@coldsplash ~/w/j/s/c++ (main)> ./macro
+len(define(hello,all the shiny things))
+0
+hello
+all the shiny things
+len(hello)
+20
+
+
+
+i went from unhappy to content. ron jeffries wrote recently about why he seems never to dig a hole he can’t readily get out of, and i felt the same satisfaction here. small steps, from running state to running state, guided and supported by tests, means you almost can’t help but write code which is malleable and easily reshaped and reformed. very often, as here, what feels like a radical new piece of functionality can go in with comparatively little fuss.
+
+
+we can only speculate, of course, but we should consider where the code might be had i not completely forgotten about a key requirement. well, given that i’d just ripped out and discarded a load of code i’d written in anticipation of a need (of course an iterator return tokens is what we’ll want) rather than an actual need (oh, then again we don’), i’m inclined to think the code would be worse. i’m sure it would work, but i suspect we’d find there was fat that could be trimmed, if not now then later.
+
+
+ron jeffries[5] wrote implement things when you actually need them and that is, albeit accidentally in this case, what i’ve done[6]. i think we’ve landed in a pretty good place, because of, rather that in spite of, deferring the work.
+
+
+i’m a pretty decent programmer, but i’m a good learner, and i’ve been taught by some of the very best.
+
+
+
+
+source code
+
+
+source code for this program, indeed the whole project, is available in the stix github repository. macro is the only program in chapter 8.
+
+
+
+
+endnotes
+
+
+this whole business springs from software tools in pascal and software tools, both by brian w kernighan and pj plauger. i love these books and commend them to you. they are both still in print, but new copies are wildly expensive. happily, there are plenty of second-hand copies around, or you can borrow them from the internet archive using the links above.
+
+
+i started using jetbrain‘s clion ide back at the start of all this - it was good then, and it’s got gently better and better since. it‘s a really good tool, and i‘m more than content to spend money on it.
+
+
+
+
+
+
+1. while ron jeffries is a constant source of inspiration, our differing circumstances and his greater discipline mean i just can’t write along with the code like he does.
+
+
+2. not that i’ve written anything yet, but i’ve done a lot of anticipatory thinking 🙂
+
+
+3. he’s a good boy.
+
+
+4. which i believe is proper meaning of technical debt. this is a hill i’m prepared to stand quite firmly on.
+
+
+5. yes, him again.
+
+
+6. and more generally, what i try to do.
+
+
+
+tagged
+code,  and 
+software-tools-in-c++
+
+january linkfarm
+
+
+friday 31 january 2025
+
+
+
+
+
+
+windows 2: final fantasy of operating systems - let me put this into perspective: a decent system that can run windows 2.0 smoothly runs at 0.012 ghz and has 0.002 gigabytes of ram. likely, your phone is at least one hundred times as fast and has one thousand times more ram.
+
+
+slate going solo - board games are supposed to be enjoyed with other people. but what if there were another way to play?
+
+
+“success is a label other people put on youâ¦ my success is in terms of fulfilment and perfection of my art. that’s something i never will reach. i have to accept that”: kate bush’s mid-80s battle for control - after making an unlikely connection, three interviews with a punk magazine editor â which she said felt like psychiatrist talks â illustrate her rapid development from never for ever to hounds of love
+
+
+zx spectrum raytracer
+kind of magical.
+
+
+bbc ‘why does a plate of bananas appear on our street?’ - the mystery plate appears on the second day of every month on the corner of abbey road and wensor avenue in beeston, and residents say it has been a constant in their lives for more than a year.
+
+
+hbr research: how wfh can actually strengthen bonds between coworkers - we found that these virtual interactions can make employees see each other as more authentic, human, and trustworthy â all qualities that lead to stronger personal and professional bonds.
+
+
+the people should own the town square - today, we are excited to announce that mastodon is taking important steps to ensure its legal and operational structures better reflect and support the pursuit of these ideals.
+
+
+
+
+
+
+a chap‘s got to have a hobby
+
+
+
+bbc the ‘anti-influencers’ honouring poles and benches - “we’re against this thing called ‘moreitis’ â people constantly pushing to do more and more. we want to enjoy life today and resist all these pressures to do bigger, greater and grander things,”
+magnificent.
+
+
+new developments at pembroke dock and fishguard ferry ports - “just when we thought things couldnât get even more exciting at fishguard harbour, the pembrokeshire ferry port received its third new visitor in four weeks yesterday afternoon, tuesday january 7.”
+
+
+
+
+
+science!
+
+
+
+luca is the progenitor of all life on earth. but its genesis has implications far beyond our planet - luca â short for the last universal common ancestor, the progenitor of all known life on earth â seems to have been born 4.2bn years ago. back then our planet was no eden but something of a hell on earth: a seething mass of volcanoes pummelled by giant meteorites, and having recovered from a cosmic collision that blasted the world apart and created the moon from some of the fragments. … if luca really was so ancient, yet already so sophisticated and embedded in a whole ecosystem, thereâs a startling implication that goes far beyond an understanding of our own origins. it suggests that life must have got started on earth pretty much as soon as it possibly could have done.
+
+
+abundant ammonia and nitrogen-rich soluble organic matter in samples from asteroid (101955) bennu - we detected amino acids (including 14 of the 20 used in terrestrial biology), amines, formaldehyde, carboxylic acids, polycyclic aromatic hydrocarbons and n-heterocycles (including all five nucleobases found in dna and rna), along with ~10,000 n-bearing chemical species. all chiral non-protein amino acids were racemic or nearly so, implying that terrestrial lifeâs left-handed chirality may not be due to bias in prebiotic molecules delivered by impacts. the relative abundances of amino acids and other soluble organics suggest formation and alteration by low-temperature reactions, possibly in nh3-rich fluids.
+
+
+
+
+
+i don’t really like driving but i think i’d have preferred the future with flying cars
+
+
+
+ars itâs remarkably easy to inject new medical misinformation into llms - the nyu team also sent its compromised models through several standard tests of medical llm performance and found that they passed. “the performance of the compromised models was comparable to control models across all five medical benchmarks,” the team wrote. so there’s no easy way to detect the poisoning.
+
+
+
+
+
+persistant stupidity
+
+
+
+bbc man told he can’t recover â£598m of bitcoin from tip - reacting to the decision, mr howells said he was ‘very upset’.
+good.
+
+
+ft hodlers: an apology - weâre sorry if at any moment in the past 14 years you chose based on our coverage not to buy a thing whose number has gone up.
+
+
+
+
+
+the inevitable unix history section
+
+
+
+parsing awk is tricky - what is the grammar and meaning of awk code? maybe a yacc expert could know.
+
+
+
+
+
+lost to us
+
+
+
+writer, cartoonist jules feiffer dies at 95
+an incredible talent.
+
+
+
+
+
+tagged
+linkfarm
+
+
+
+            « prev
+vegan (well, mainly) cookbook suggestions : yr golygfa o hescwm uchaf, rhif 21
+
+
+
+
+            older posts are available in the archive or through tags.
+          
+
+
+
+
+
+
+
+jez higgins
+
+    freelance software grandad
+    
+software created
+    
+    extended or repaired
+
+
+
+
+
+jez higgins
+
+    freelance software grandad
+    
+software created
+    
+    extended or repaired
+
+
+
+
+
+
+
+
+jez higgins
+
+    freelance software grandad
+    
+software created
+    
+    extended or repaired
+
+
+
+
+
+
+
+@jezhiggins
+feed
+
+all articles
+all tags
+
+code
+talks
+
+about
+contact
+
+
+
+@jezhiggins
+feed
+
+
+all articles
+all tags
+
+
+code
+talks
+
+
+about
+contact
+
+
+
+
+@jezhiggins
+feed
+
+all articles
+all tags
+
+
+code
+talks
+
+about
+contact
+
+
+
+
+
+
+
+
+
+
+
+
+
+jez higgins
+
+    freelance software grandad
+    
+software created
+    
+    extended or repaired
+
+
+
+
+
+jez higgins
+
+    freelance software grandad
+    
+software created
+    
+    extended or repaired
+
+
+
+
+
+
+
+
+jez higgins
+
+    freelance software grandad
+    
+software created
+    
+    extended or repaired
+
+
+
+
+
+
+
+
+@jezhiggins
+feed
+
+all articles
+all tags
+
+code
+talks
+
+about
+contact
+
+
+
+@jezhiggins
+feed
+
+
+all articles
+all tags
+
+
+code
+talks
+
+
+about
+contact
+
+
+
+
+@jezhiggins
+feed
+
+all articles
+all tags
+
+
+code
+talks
+
+about
+contact
+
+
+
+
+
+
+
+

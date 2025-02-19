@@ -1,0 +1,734 @@
+
+
+
+
+
+
+
+
+
+byte cellar - the vintage computing weblog
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+← older posts
+
+
+
+have a helping of 8-bit holiday cheer! (2024 edition)
+
+posted on december 22, 2024 by blake patterson 
+
+
+
+‘tis the season, and that means it’s time to push out the thirteenth annual byte cellar vintage computer holiday demo roundup so everyone can feel that warm, fuzzy, pixellated holiday glow (which i think we could all especially use this year). with scanlines. enjoy!
+i’ve been a computer geek for a long time now, but i’ve been enjoying the holidays even longer…
+i got my first computer, a ti-99/4a, on christmas morning in 1982. i was 10 years old and from that christmas on, it was nothing but games and computer hardware that i wanted santa to leave me under the tree. on through my teenage years, part of my ritual for getting into the holiday spirit was downloading and watching christmas demos on whatever system i had at the time. and, apparently i wasn’t alone in this, as benj edwards explains in his piece, “the oddball, nostalgia-inducing christmas tech art of the 1980s and 1990s.”
+enjoying these demos is a personal tradition that i had, sadly, long left behind until 2010 (the year before i began writing these posts) when i was inspired to seek out the demo i remember best, audio light’s 1985 musical slideshow for the atari st. with the help of an emulator, i captured it to share online with readers. a year later, i fired it up again and watched it run through it’s 16-color, pixellated images and 3-voice musical holiday greetings. as i watched, it occurred to me that it might be nice to gather a few of the other demos i remember from the good ole’ days and present them here, in order to try to share some of the holiday cheer that they used to inspire within me.
+the following list of demos ranges across a variety of platforms of olde and is sure to bring the warmth of the season to the hearts of any and all retrocomputing enthusiasts who behold it. happy holidays, and i hope you enjoy the shows!
+be sure to also have a look at the dozens of demos gathered through the years in the 2023 edition, the 2022 edition, the 2021 edition, the 2020 edition, the 2019 edition, the 2018 edition, the 2017 edition and the 2011 – 2016 editions of this post.
+
+
+commodore 64 — christmas demo by icon64 (2020)
+
+
+apple ii — pengiuns – christmas 2024 by 8 bit shack (2024)
+
+
+win, macos, linux — christmas_demo (terminal-based) by rasmus anthin (2024)
+
+
+commodore 64 — xmas-rpi-demo by rpi (2023)
+continue reading →  
+
+
+posted in holidays, multi-platform 
+|
+
+tagged chiptune, christmas, demo, demoscene, holiday, music, nostalgia, santa, scenedemo, video 
+|
+2 comments
+
+
+
+leveling up tracker time with glowing vu meters in the byte cellar
+
+posted on november 6, 2024 by blake patterson 
+
+
+
+lately, i’ve been spending time in the evenings listening to tracker tunes on my gravis ultrasound-equipped 486 pc. my go-to player program is open cubicplayer for dos, which does a great job of both accurate playback and adjusting and sorting samples to work as well as possible within the gus’s 1mb of wavetable ram. 
+now, of course i like das blinkenlights (as one does), and ocp offers a number of satisfying ways to light up the phosphor during mod, s3m, it, and xm playback. recently, however, i spotted a free-standing led vu meter on the web that looked like it might be a welcome addition to my tracker player setup down in the byte cellar. 
+the unit is available from a variety of sources scattered across the globe, each of which seems to refer to the device by a different name while offering it at a different price. digging around a bit, i have come to the conclusion that the actual name / description of this thing is something close to: “d’esign r12 rhythm lights voice activated rgb music light led w/ pseudo tubes.” whew. it’s about 3.25-inches tall; 11-inches wide; has 12 led bars, each in a tube with a mesh in front of it for a nixie-tube sort of look, all in a nice wooden frame; has a variety of color and display modes; and picks up on sounds in the room as input for its vu meter display. after initially seeing it offered at a higher price, i found it elsewhere for about $90 usd.
+
+
+
+and, i love it! i have it sitting on top of the tandy 1000hx, just down the desk from the aforementioned 486 (it’s an amd 5×86 160, actually), and it adds enormously to the overall vibe of the room (which i wrote about in my last blog post) while listening to these tracks and watching demos. i usually run with the green fading-up-to-orange color scheme, as it reminds me of the bars in the original soundtracker that i spent hours in on my old amiga 2000, way back when. 
+the video above consists of a few quick and dirty clips i took with my iphone to give a feel for the setup in action — forgive the crudeness. it’s an amazing little device that is really giving me my money’s worth as far as the enjoyment it brings me during tracker time. and, i kind-of want a second one….
+
+
+
+posted in dos / win pc, just rambling 
+|
+
+tagged cubicplayer, mods, soundtracker 
+|
+1 comment
+
+
+
+vibing with some tunes and a retro wave slideshow on the apple iie
+
+posted on august 22, 2024 by blake patterson 
+
+recently i’ve gotten into a little synthwave electronic music, listening in the evenings to enjoy a nice drifty, nostalgic vibe. i’ve got hue color lighting and a couple of led arrays (from divoom) to show pics and anims down in the basement byte cellar to help set the mood. i’ve also got five desks full of computers and displays arrayed around the room…and it occurred to me that getting a few retro wave slideshows running down there would add to the vibe considerably, especially given the number of lovely, glowing-phosphor crts in the mix. 
+
+
+
+so, i started with the apple iie. 
+the enhanced 128k apple iie is capable of displaying “double high-resolution” graphics in 16 colors. (the apple //c and iigs support this mode, as well.) only a relatively small percentage of software for the apple ii supports this mode, including games like king’s quest (and many other sierra games), airheart, rampage, etc. dazzle draw was a very popular 16-color drawing program that utilized this mode, as well. the programs that use this mode have an effective color resolution of 140×192 but, as all pre-iigs apple ii graphics use ntsc artifacting to generate color, there’s some “play” in the technique, and several recent software applications written to convert modern images to the apple ii are able to generate dhgr images that could not be easily drawn or pixel-arted on the ii with any of the tools available back in the day. i discussed these modern converters in several posts (linked at the end of this one) and used one of the tools i discussed, tohgr (macos & windows), to convert the set of images i wanted for the slideshow.
+i was pleased with the results of the converted images i had chosen and put as many as would fit into a standard 800k disk image file (the size of a prodos 3.5-inch floppy disk) along with auto-booting slideshow software. in the end, there are 45 images in total, including the vibey rainbow apple logo image from the 2022 “peek performance” event that i converted and discussed earlier (linked below).
+grab the disk image and feel the vibe on your own apple ii! (crt definitely recommended…)
+
+retrowavevibepics1_800k.po
+related byte cellar posts:
+
+bmp2dhr: the best apple ii graphics you’ll see this week
+bmp2dhgr revisited: a slideshow running on real metal
+full motion, double high-res video playback on the apple iie
+a colorful “peek” at the graphics performance of the apple ii
+
+
+
+
+
+posted in apple ii 
+|
+
+tagged downloads, retrowave, synthwave 
+|
+3 comments
+
+
+
+q&d: enjoying some demos on the amiga 2000
+
+posted on february 17, 2024 by blake patterson 
+
+over the recent holiday, i spent some time upgrading, working on projects with, and generally polishing off a few of the vintage systems in my collection and, as such, ended up having some pretty great retro fun with them. not all of these endeavors warranted (or, well, ended up getting) a full post here on the blog, but i have been sharing the good times via my mastodon, youtube, flickr accounts, and the like. and, while my posts to those platforms generate some fun conversation, i would like to better include such “smaller” activities on the blog, here. as such, i am going to start making the odd “quick and dirty” post that captures something i think readers might like that’s just sort-of happening in the moment. these might consist of a video clip or a few photos — and probably not a big, in-depth text dive into what i’m doing. “q&d” posts. i hope they’re a positive addition. 
+this is the first. 
+
+
+
+last night, i fired up my amiga 2000 ‘020 and started running through some of the demos installed on its scsi2sd volumes. one that i really enjoyed was gagrakacka mind zones by disaster area, an amiga  original chipset (ocs/ecs) demo that took the first prize at the oldskool demo compo at the flashback 2015 party. after watching it through, i pulled out the iphone 15 pro max and did a quick and dirty capture of the demo running on my dual-screen a2000. 
+(the system next to the amiga is a 5×86 160mhz dos pc that shares (thanks to the indivision ecs scan-doubler in the amiga) the dual-input 19-inch sony cpd-g420, the best looking crt monitor i’ve ever owned.)
+the (many) demos created in recent years for even the base, 8mhz amiga models are truly a sight (and sound) to behold.
+
+
+
+posted in amiga, quick & dirty 
+|
+
+tagged amiga, demoscene, scenedemo, video 
+|
+1 comment
+
+
+
+have a helping of 8-bit holiday cheer! (2023 edition)
+
+posted on december 24, 2023 by blake patterson 
+
+
+
+‘tis the season, and that means it’s time to push out the twelfth annual byte cellar vintage computer holiday demo roundup so everyone can feel that warm, fuzzy, pixellated holiday glow (which i think we could all especially use this year). with scanlines. enjoy!
+i’ve been a computer geek for a long time now, but i’ve been enjoying the holidays even longer…
+i got my first computer, a ti-99/4a, on christmas morning in 1982. i was 10 years old and from that christmas on, it was nothing but games and computer hardware that i wanted santa to leave me under the tree. on through my teenage years, part of my ritual for getting into the holiday spirit was downloading and watching christmas demos on whatever system i had at the time. and, apparently i wasn’t alone in this, as benj edwards explains in his piece, “the oddball, nostalgia-inducing christmas tech art of the 1980s and 1990s.”
+enjoying these demos is a personal tradition that i had, sadly, long left behind until 2010 (the year before i began writing these posts) when i was inspired to seek out the demo i remember best, audio light’s 1985 musical slideshow for the atari st. with the help of an emulator, i captured it to share online with readers. a year later, i fired it up again and watched it run through it’s 16-color, pixellated images and 3-voice musical holiday greetings. as i watched, it occurred to me that it might be nice to gather a few of the other demos i remember from the good ole’ days and present them here, in order to try to share some of the holiday cheer that they used to inspire within me.
+the following list of demos ranges across a variety of platforms of olde and is sure to bring the warmth of the season to the hearts of any and all retrocomputing enthusiasts who behold it. happy holidays, and i hope you enjoy the shows!
+be sure to also have a look at the dozens of demos gathered through the years in the 2022 edition, the 2021 edition, the 2020 edition, the 2019 edition, the 2018 edition, the 2017 edition and the 2011 – 2016 editions of this post.
+
+
+amstrad cpc — christmas demo 2023 ‘joyeux noel’ by kukulcan (2023)
+
+
+apple ii — 2023 christmas demo by deater (2023)
+continue reading →  
+
+
+posted in holidays, multi-platform 
+|
+
+tagged christmas, demo, holiday, music, nostalgia, santa, video 
+|
+2 comments
+
+
+
+the era of american computer magazines has drawn to a close
+
+posted on december 23, 2023 by blake patterson 
+
+
+i’ve been buying a copy of maximum pc magazine at the airport newsstand on every long-distance trip i’ve taken over the past two decades. i’m primarily a mac user but maximum pc, which started life as boot, bought at these intervals kept me comfortably up to date on the state of affairs in the pc hardware world (not to mention making for a nice timeline of my significant travels). thumbing through these issues a few times a year, i got an overall feel for what was the state of the art in pc cpus, gpus, motherboards, ram technology, and so on. i’ve got all of these issues over there on the shelf, handy to look back on when trying to assess this or that mildly-vintage system that might come my way. 
+but, when i flew to boston this spring, i couldn’t find my copy of maximum pc on the newsstand. it wasn’t at washington national or at logan, on either end of the week-long trip. a few days later when i was back in town, i checked the local barnes and noble for the current issue and wasn’t able to find it there, either. 
+it was then that i did a bit of searching on the web and was rather alarmed to find harry mccracken’s recent  technologizer post, “the end of computer magazines in america,” subtitled “with maximum pc and maclife’s abandonment of print, the dead-tree era of computer journalism is officially over. it lasted almost half a century—and was quite a run.” i somehow didn’t see this coming nearly as well as i should have and i very much lament that the april 2023 issues of both of the aforementioned magazines’ were there last.
+
+
+ever since i got my first home computer on christmas morning, 1982, i have been buying and reading computer magazines. some general — creative computing, byte, compute!, personal computing, computers & electronics, pen computing, next generation, etc. — and some platform specific — a+, incider, ’99er, amigaworld, start, info 64, nextworld, etc. — these magazines riveted me with the promises of upcoming software, hardware, new systems, and the like in a world before the internet when monthly magazines like these were how we knew what was coming. they were what got me excited about the next big thing. 
+and now, basically all american computer print magazines have vanished. some have gone online in various fashions…but it’s not the same. coming to realize that this reality had crept slowly upon me was a sad moment.
+continue reading →  
+
+
+posted in multi-platform, news 
+|
+
+tagged periodicals 
+|
+9 comments
+
+
+
+thinking back on ‘turbo pascal’ as it turns 40
+
+posted on december 4, 2023 by blake patterson 
+
+
+
+november marked the 40th anniversary of turbo pascal, the first integrated development environment (or ide), which allowed a user to quickly and easily write a program in the pascal programming language and see it compiled and linked — all in one go — with an executable dropped to disk at the end. much simpler a process than the traditional model of programming in a text editor, using a compiler to convert the source into object code (often over several passes), and running a linker to integrate any required libraries, turbo pascal was friendly, fast, and cheap. created by anders hejlsberg, the development package was released by borland in november 1983 at a price of $49.99 for both cp/m and dos-based systems.
+created by niklaus wirth in 1970, pascal is a small and efficient procedural programming language that is easy to use and, thanks to its structured programming nature, was often employed as a language for learning programming concepts at a level higher than traditional, early basic. it is in this capacity that i had my first hands-on experiences with the language in an a.p. computer science class i took in high school during the late ’80s. here, at its 40th anniversary, i thought i would share the memories i have of spending time with turbo pascal.
+having joined the ranks of the home computing on christmas morning in 1982 and become instantly swept up in all of it, i quickly learned basic (in the backroom of a singer sewing machine store down at the mall, which is a story on its own) and was poring over computer books and magazines constantly. so, i had heard of pascal. in fact, texas instruments offered a ucsd pascal p-system for my beloved ti-99/4a, which allowed the system to access a large library of pascal programs out there via their p-code card which provided a virtual machine for running these platform-agnostic programs, though i never owned that hardware. 
+
+
+flash forward to my junior year of high school when i took the aforementioned a.p. computer science class, taught by the late col. ken jenkins, at hampton roads academy in newport news, virginia. at the time, the school had a computer lab full of apple iie computers used for teaching basic programming and for typing classes. for the apcs class, four or five dos pcs were setup along the back wall, featuring lovely, amber mda displays (pictured). these were the systems our small apcs class (i think there were only about five or six of us) used for pascal classwork, which was done in turbo pascal v4 for dos. (in retrospect, they should also have dropped z-80 cards in a few of those apple iies — the cp/m version of borland’s ide ran well in that environment.)  the class was a lot of fun and it was great getting my first taste of procedural programming. (and there was a particularly memorable anecdote about a lesson on the unary minus, i recall — but that’s a story for another time.)
+continue reading →  
+
+
+posted in amiga, dos / win pc, down memory lane, just rambling, multi-platform, other platform, programming 
+|
+
+tagged developers, programmers, pwxa, software 
+|
+5 comments
+
+
+
+lost amiga “four-byte burger” painting digitally recreated (and looking amazing in glowing phosphor!)
+
+posted on april 24, 2023 by blake patterson 
+
+
+it was in the late summer of 1985 when i first heard of the amiga. i learned about the forthcoming system in an issue of personal computing magazine that featured the amiga on its cover and contained an in-depth dive into the what was the most amazing computer — by an incredible margin — i had ever seen. the specifications i read and the photos i saw within made such an impact on me that i wrote a post to this blog about the magazine itself, a look at the sauciest magazine i ever owned, about ten years ago. 
+
+
+the magazine’s deep dive into the amiga (take a look for yourself) featured various examples of graphics created on the system, the most impressive of which — to my eye — was entitled “four-byte burger,” a whimsical and lovely, exploded digital painting of a floppy-disk cheeseburger of sorts created by jack haeger, director of amiga’s art and graphics department at the time. the 32-color image utilized the amiga’s 4096-color palette to produce graphics the likes of which i had never seen before. (at the time, i was using an apple ii that was 6-colors only, basically.) a short time later the premier issue of amigaworld magazine appeared on the shelf, also featuring the image within, and finally after the launch of the system, “four-byte burger” made its way to the inner covers of the graphicraft paint program’s user manual which is the source of the high-res scan i was able to secure a few years back.
+around the time of that earlier post, i tried to track down a digital copy of the image, but to no avail. it wasn’t in the amiga graphics archive, or seemingly anywhere else i looked. i came to find out that “four-byte burger,” along with several other early amiga paintings featured in these magazines, were created with a version of graphicraft so early in development that it did not yet feature file i/o capabilities. these images were drawn, the crt display was photographed, and then those lovely pixels were cast into the void when power was taken from system ram with the flick of a switch. 
+these images, in digital form at least, were lost to time…like tears in rain.
+continue reading →  
+
+
+posted in amiga, down memory lane 
+|
+
+tagged art, pixelart 
+|
+5 comments
+
+
+
+“muffinterm”: a great new terminal app for bbsing on iphone, ipad, and mac
+
+posted on january 25, 2023 by blake patterson 
+
+
+readers can find quite a few posts on this blog about my enjoyment of modern-day bbsing — “dialing in” to online bulletin board systems that can still be found out there on the net. i consider bbsing to be a wonderful opportunity to sit down in front of the various systems in my collection and spend time with them — to put them to use. the process itself, involving vintage hardware, i find to be quite satisfying and the online discussions i’m part of in the message areas of these bbss are a lot of fun as well. as such, there are certainly times when i want to login and check messages but it’s not possible or convenient to go down into the cellar and fire up an old system.
+
+
+being primarily a mac user (when it comes to modern systems), i will usually use my macbook air and iterm 2 or, if i need something beyond vt100 emulation, syncterm to login. these work well enough, but i need to have my mac with me to use them, and of course i often don’t. 
+a while back, i spent a considerable amount of time (and money, actually) trying out various enterprise-targeted terminal apps in the ios / ipados app store that claim to offer some of the emulations i need for proper bbsing, but not a single one of them ever managed to pull it off. some have ansi emulation but lack the extended character sets needed to render the “ansi art“-style login screens and menus used by many of the bbss out there. and, you can just forget about emulation of anything like the commodore 64’s petscii or the atari 8-bit’s atascii character sets. so, proper bbsing on the devices that i do have with me most of the time has been a no-go. 
+that is, until now.
+a new terminal program called muffinterm has recently appeared in the ios / ipados app store and the mac app store that is specifically designed for telnet bbsing. oh, and it’s free.
+continue reading →  
+
+
+posted in bbs, handhelds, ios, macintosh 
+|
+7 comments
+
+
+
+have a helping of 8-bit holiday cheer! (2022 edition)
+
+posted on december 25, 2022 by blake patterson 
+
+
+
+‘tis the season, and that means it’s time to push out the eleventh annual byte cellar vintage computer holiday demo roundup so everyone can feel that warm, fuzzy, pixellated holiday glow (which i think we could all especially use this year). with scanlines. enjoy!
+i’ve been a computer geek for a long time now, but i’ve been enjoying the holidays even longer…
+i got my first computer, a ti-99/4a, on christmas morning in 1982. i was 10 years old and from that christmas on, it was nothing but games and computer hardware that i wanted santa to leave me under the tree. on through my teenage years, part of my ritual for getting into the holiday spirit was downloading and watching christmas demos on whatever system i had at the time. and, apparently i wasn’t alone in this, as benj edwards explains in his piece, “the oddball, nostalgia-inducing christmas tech art of the 1980s and 1990s.”
+enjoying these demos is a personal tradition that i had, sadly, long left behind until 2010 (the year before i began writing these posts) when i was inspired to seek out the demo i remember best, audio light’s 1985 musical slideshow for the atari st. with the help of an emulator, i captured it to share online with readers. a year later, i fired it up again and watched it run through it’s 16-color, pixellated images and 3-voice musical holiday greetings. as i watched, it occurred to me that it might be nice to gather a few of the other demos i remember from the good ole’ days and present them here, in order to try to share some of the holiday cheer that they used to inspire within me.
+the following list of demos ranges across a variety of platforms of olde and is sure to bring the warmth of the season to the hearts of any and all retrocomputing enthusiasts who behold it. happy holidays, and i hope you enjoy the shows!
+be sure to also have a look at the dozens of demos gathered through the years in the 2021 edition, the 2020 edition, the 2019 edition, the 2018 edition, the 2017 edition and the 2011 – 2016 editions of this post.
+
+
+commodore 64 — christmas around the world by kermit r. woodall (1987)
+
+
+pc dos — sierra christmas card 1992 (in vga, played on roland mt-32) by sierra (1992)
+continue reading →  
+
+
+posted in holidays, multi-platform 
+|
+
+tagged carols, christmas, computing, demos, demoscene, holidays, music, scenedemos 
+|
+2 comments
+
+
+
+← older posts
+
+
+
+
+
+
+   info
+mastodon: @blakespot
+bluesky: @blakespot
+blakespot.com
+"the list"
+panorama of the "byte cellar"
+my bbs resource page
+the geek photo gallery
+blake's flickr photostream
+blake's ios device specifications grid
+my vinyl lps
+recommended reading
+blake's retro rss feed opml
+rss/xml feed
+
+ 
+   kudos to byte cellar
+hack a day: a handy guide to the humble bbs
+boing boing: no man's sky as a commodore amiga slideshow
+vg24/7: sean murray impressed by no man’s sky on amiga computer
+hack a day: bbsing with the esp8266
+retro gamer mag: on being featured in retro gamer’s “collector’s corner”
+polygon: meet the guy who spent over $4,000 on no man’s sky
+newegg- hardboiled: the science behind 3 inspiring pc battlestations [archive]
+pc mag: 7 amazing vintage computer collections
+cnn hln: inside the 'byte cellar': 30 years with apple [archive]
+forbes: steve jobs in the flesh
+lifehacker: the byte cellar: a geeked-out ode to computers and video games
+engadget: blake patterson's byte cellar: the ultimate man cave for aspiring geeks
+pc world: the byte cellar is the ultimate geek dream den
+gadget review: the “byte cellar” contains 122 video game machines [archive]
+the games shed: retro gaming collections – blake patterson – the retro story guy [archive]
+apartment therapy: blake's byte cellar workstation with 4 different monitors [archive]
+cnn (video): apple's mac turns 25
+engadget: apple iic as a serial terminal to a mac mini
+newton poetry: profile: blake patterson of ‘touch arcade’
+tuaw: flickr find: digital steve jobs on a bookshelf [archive]
+cult of mac: steve jobs left an imprint on tech and the skin of some devoted fans
+
+ 
+  random postshow me !  
+
+
+search for:
+
+
+
+
+
+recent posts
+
+
+have a helping of 8-bit holiday cheer! (2024 edition)
+
+
+leveling up tracker time with glowing vu meters in the byte cellar
+
+
+vibing with some tunes and a retro wave slideshow on the apple iie
+
+
+q&d: enjoying some demos on the amiga 2000
+
+
+have a helping of 8-bit holiday cheer! (2023 edition)
+
+
+the era of american computer magazines has drawn to a close
+
+
+thinking back on ‘turbo pascal’ as it turns 40
+
+
+lost amiga “four-byte burger” painting digitally recreated (and looking amazing in glowing phosphor!)
+
+
+“muffinterm”: a great new terminal app for bbsing on iphone, ipad, and mac
+
+
+have a helping of 8-bit holiday cheer! (2022 edition)
+
+
+it’s a midi christmas with the atari st for “holiday music week x”
+
+
+configure your mac to allow vintage computers to “dial in” [updated]
+
+
+a secret apple silicon extension to accommodate an intel 8080 artifact
+
+
+“4k scaling” is not a problem on modern macs
+
+
+an apple ii tale told complete by the late tony diaz
+
+
+microsoft sunsets amiga’s killer app: internet explorer
+
+
+fun with system power monitoring on the apple iie
+
+
+a colorful “peek” at the graphics performance of the apple ii
+
+
+bbsing in the snow is the best way to login
+
+
+have a helping of 8-bit holiday cheer! (2021 edition)
+
+
+recent commentsbill on thinking back on ‘turbo pascal’ as it turns 40andy on a look at the short-lived 3-inch compact floppy diskalexa goff on a look at the short-lived 3-inch compact floppy diskstingray on my little bbsing resource paged.t. on quite a memorymurray mccullough on the era of american computer magazines has drawn to a closeblake patterson on an apple ii tale told complete by the late tony diazhave a helping of 8-bit holiday cheer! (2024 edition) - byte cellar on have a helping of 8-bit holiday cheer! (2021 edition)blake patterson on have a helping of 8-bit holiday cheer! (2024 edition)mark miller on have a helping of 8-bit holiday cheer! (2024 edition)categories
+
+acorn
+
+amiga
+
+apple
+
+apple ii
+
+atari
+
+bbs
+
+commodore 64/128
+
+dos / win pc
+
+down memory lane
+
+gaming
+
+handhelds
+
+holidays
+
+hp
+
+ios
+
+just rambling
+
+lisa
+
+macintosh
+
+multi-platform
+
+news
+
+next
+
+no man's sky
+
+os
+
+other platform
+
+programming
+
+quick & dirty
+
+quickie
+
+r/retrobattlestations
+
+serial terminal
+
+sgi
+
+tandy / trs-80
+
+ti-99
+
+uncategorized
+
+unix
+
+windows
+
+zx spectrum
+
+
+links
+
+nostalgic virginian
+blakespot.com
+toucharcade
+wwwtxt
+20011
+blake's ios device specifications grid
+no man's sky foundation (v1.1) help links
+rss / xml feed
+nmsspot
+
+
+archives archives
+
+select month
+ december 2024 
+ november 2024 
+ august 2024 
+ february 2024 
+ december 2023 
+ april 2023 
+ january 2023 
+ december 2022 
+ november 2022 
+ october 2022 
+ june 2022 
+ march 2022 
+ january 2022 
+ december 2021 
+ july 2021 
+ may 2021 
+ december 2020 
+ november 2020 
+ october 2020 
+ august 2020 
+ april 2020 
+ february 2020 
+ january 2020 
+ december 2019 
+ november 2019 
+ october 2019 
+ september 2019 
+ july 2019 
+ may 2019 
+ april 2019 
+ march 2019 
+ february 2019 
+ january 2019 
+ december 2018 
+ november 2018 
+ october 2018 
+ september 2018 
+ august 2018 
+ july 2018 
+ june 2018 
+ may 2018 
+ april 2018 
+ march 2018 
+ january 2018 
+ december 2017 
+ october 2017 
+ august 2017 
+ june 2017 
+ may 2017 
+ march 2017 
+ february 2017 
+ january 2017 
+ december 2016 
+ november 2016 
+ october 2016 
+ september 2016 
+ august 2016 
+ july 2016 
+ june 2016 
+ may 2016 
+ april 2016 
+ march 2016 
+ february 2016 
+ december 2015 
+ november 2015 
+ october 2015 
+ september 2015 
+ august 2015 
+ july 2015 
+ june 2015 
+ april 2015 
+ march 2015 
+ february 2015 
+ january 2015 
+ december 2014 
+ november 2014 
+ september 2014 
+ august 2014 
+ july 2014 
+ june 2014 
+ may 2014 
+ march 2014 
+ february 2014 
+ january 2014 
+ december 2013 
+ november 2013 
+ october 2013 
+ september 2013 
+ august 2013 
+ june 2013 
+ may 2013 
+ april 2013 
+ march 2013 
+ february 2013 
+ november 2012 
+ october 2012 
+ september 2012 
+ august 2012 
+ july 2012 
+ march 2012 
+ february 2012 
+ january 2012 
+ december 2011 
+ november 2011 
+ october 2011 
+ august 2011 
+ july 2011 
+ june 2011 
+ may 2011 
+ april 2011 
+ march 2011 
+ february 2011 
+ january 2011 
+ december 2010 
+ june 2010 
+ january 2010 
+ december 2009 
+ november 2009 
+ september 2009 
+ august 2009 
+ may 2009 
+ march 2009 
+ january 2009 
+ november 2008 
+ october 2008 
+ august 2008 
+ july 2008 
+ june 2008 
+ may 2008 
+ april 2008 
+ march 2008 
+ february 2008 
+ january 2008 
+ december 2007 
+ november 2007 
+ october 2007 
+ september 2007 
+ august 2007 
+ july 2007 
+ june 2007 
+ may 2007 
+ april 2007 
+ march 2007 
+ february 2007 
+ january 2007 
+ december 2006 
+ november 2006 
+ october 2006 
+ september 2006 
+ august 2006 
+ july 2006 
+ april 2006 
+ march 2006 
+ february 2006 
+ january 2006 
+ december 2005 
+ november 2005 
+ october 2005 
+ september 2005 
+ august 2005 
+ july 2005 
+ june 2005 
+ april 2005 
+ february 2005 
+ january 2005 
+ december 2004 
+ november 2004 
+ october 2004 
+ august 2004 
+ june 2004 
+ may 2004 
+ april 2004 
+ march 2004 
+
+
+
+
+
+
+
+
+					byte cellar.  contact me, blake patterson, at blakespot@ google's mail service...
+				
+
+
+
+
+
+
+
+
+

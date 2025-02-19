@@ -1,0 +1,793 @@
+
+
+
+php 8.0.27 - phpinfo()
+
+
+
+php version 8.0.27
+
+
+
+system linux 8ffdfbb6aa5a 5.15.0-1048-oracle #54~20.04.1-ubuntu smp thu nov 9 09:00:33 utc 2023 aarch64 
+build date feb  9 2023 06:19:53 
+build system linux 983087d3dcad 5.10.0-19-cloud-arm64 #1 smp debian 5.10.149-1 (2022-10-17) aarch64 gnu/linux 
+configure command  './configure'  '--build=aarch64-linux-gnu' '--with-config-file-path=/usr/local/etc/php' '--with-config-file-scan-dir=/usr/local/etc/php/conf.d' '--enable-option-checking=fatal' '--with-mhash' '--with-pic' '--enable-ftp' '--enable-mbstring' '--enable-mysqlnd' '--with-password-argon2' '--with-sodium=shared' '--with-pdo-sqlite=/usr' '--with-sqlite3=/usr' '--with-curl' '--with-iconv' '--with-openssl' '--with-readline' '--with-zlib' '--disable-phpdbg' '--with-pear' '--with-libdir=lib/aarch64-linux-gnu' '--disable-cgi' '--with-apxs2' 'build_alias=aarch64-linux-gnu' 
+server api apache 2.0 handler 
+virtual directory support disabled 
+configuration file (php.ini) path /usr/local/etc/php 
+loaded configuration file (none) 
+scan this dir for additional .ini files /usr/local/etc/php/conf.d 
+additional .ini files parsed /usr/local/etc/php/conf.d/docker-php-ext-intl.ini,
+/usr/local/etc/php/conf.d/docker-php-ext-sodium.ini
+ 
+php api 20200930 
+php extension 20200930 
+zend extension 420200930 
+zend extension build api420200930,nts 
+php extension build api20200930,nts 
+debug build no 
+thread safety disabled 
+zend signal handling enabled 
+zend memory manager enabled 
+zend multibyte support provided by mbstring 
+ipv6 support enabled 
+dtrace support disabled 
+registered php streamshttps, ftps, compress.zlib, php, file, glob, data, http, ftp, phar
+registered stream socket transportstcp, udp, unix, udg, ssl, tls, tlsv1.0, tlsv1.1, tlsv1.2, tlsv1.3
+registered stream filterszlib.*, convert.iconv.*, string.rot13, string.toupper, string.tolower, convert.*, consumed, dechunk
+
+
+
+
+this program makes use of the zend scripting language engine:zend engine v4.0.27, copyright (c) zend technologies
+
+
+configuration
+apache2handler
+
+apache version apache/2.4.54 (debian) 
+apache api version 20120211 
+server administrator webmaster@localhost 
+hostname:port 172.17.0.4:80 
+user/group www-data(33)/33 
+max requests per child: 0 - keep alive: on - max per connection: 100 
+timeouts connection: 300 - keep-alive: 5 
+virtual server yes 
+server root /etc/apache2 
+loaded modules core mod_so mod_watchdog http_core mod_log_config mod_logio mod_version mod_unixd mod_access_compat mod_alias mod_auth_basic mod_authn_core mod_authn_file mod_authz_core mod_authz_host mod_authz_user mod_autoindex mod_deflate mod_dir mod_env mod_filter mod_mime prefork mod_negotiation mod_php mod_reqtimeout mod_setenvif mod_status 
+
+
+directivelocal valuemaster value
+engineonon
+last_modifiedoffoff
+xbithackoffoff
+
+apache environment
+
+variablevalue
+http_host www.dtison.net 
+http_user_agent myscript/1.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/121.0.0.0 safari/537.36 
+http_accept_encoding gzip, deflate 
+http_accept */* 
+path /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin 
+server_signature <address>apache/2.4.54 (debian) server at www.dtison.net port 80</address>
+ 
+server_software apache/2.4.54 (debian) 
+server_name www.dtison.net 
+server_addr 172.17.0.4 
+server_port 80 
+remote_addr 10.0.0.110 
+document_root /var/www/html 
+request_scheme http 
+context_prefix no value 
+context_document_root /var/www/html 
+server_admin webmaster@localhost 
+script_filename /var/www/html/index.php 
+remote_port 50736 
+gateway_interface cgi/1.1 
+server_protocol http/1.1 
+request_method get 
+query_string no value 
+request_uri / 
+script_name /index.php 
+
+http headers information
+
+http request headers
+http request get / http/1.1 
+host www.dtison.net 
+user-agent myscript/1.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/121.0.0.0 safari/537.36 
+accept-encoding gzip, deflate 
+accept */* 
+http response headers
+x-powered-by php/8.0.27 
+
+core
+
+php version 8.0.27 
+
+
+directivelocal valuemaster value
+allow_url_fopenonon
+allow_url_includeoffoff
+arg_separator.input&&
+arg_separator.output&&
+auto_append_fileno valueno value
+auto_globals_jitonon
+auto_prepend_fileno valueno value
+browscapno valueno value
+default_charsetutf-8utf-8
+default_mimetypetext/htmltext/html
+disable_classesno valueno value
+disable_functionsno valueno value
+display_errorsonon
+display_startup_errorsonon
+doc_rootno valueno value
+docref_extno valueno value
+docref_rootno valueno value
+enable_dlonon
+enable_post_data_readingonon
+error_append_stringno valueno value
+error_logno valueno value
+error_prepend_stringno valueno value
+error_reportingno valueno value
+expose_phponon
+extension_dir/usr/local/lib/php/extensions/no-debug-non-zts-20200930/usr/local/lib/php/extensions/no-debug-non-zts-20200930
+file_uploadsonon
+hard_timeout22
+highlight.comment#ff8000#ff8000
+highlight.default#0000bb#0000bb
+highlight.html#000000#000000
+highlight.keyword#007700#007700
+highlight.string#dd0000#dd0000
+html_errorsonon
+ignore_repeated_errorsoffoff
+ignore_repeated_sourceoffoff
+ignore_user_abortoffoff
+implicit_flushoffoff
+include_path.:/usr/local/lib/php.:/usr/local/lib/php
+input_encodingno valueno value
+internal_encodingno valueno value
+log_errorsoffoff
+log_errors_max_len10241024
+mail.add_x_headeroffoff
+mail.force_extra_parametersno valueno value
+mail.logno valueno value
+max_execution_time3030
+max_file_uploads2020
+max_input_nesting_level6464
+max_input_time-1-1
+max_input_vars10001000
+memory_limit128m128m
+open_basedirno valueno value
+output_buffering00
+output_encodingno valueno value
+output_handlerno valueno value
+post_max_size8m8m
+precision1414
+realpath_cache_size4096k4096k
+realpath_cache_ttl120120
+register_argc_argvonon
+report_memleaksonon
+report_zend_debugoffoff
+request_orderno valueno value
+sendmail_fromno valueno value
+sendmail_path/usr/sbin/sendmail -t -i/usr/sbin/sendmail -t -i
+serialize_precision-1-1
+short_open_tagonon
+smtplocalhostlocalhost
+smtp_port2525
+sys_temp_dirno valueno value
+syslog.facilitylog_userlog_user
+syslog.filterno-ctrlno-ctrl
+syslog.identphpphp
+unserialize_callback_funcno valueno value
+upload_max_filesize2m2m
+upload_tmp_dirno valueno value
+user_dirno valueno value
+user_ini.cache_ttl300300
+user_ini.filename.user.ini.user.ini
+variables_orderegpcsegpcs
+xmlrpc_error_number00
+xmlrpc_errorsoffoff
+zend.assertions11
+zend.detect_unicodeonon
+zend.enable_gconon
+zend.exception_ignore_argsoffoff
+zend.exception_string_param_max_len1515
+zend.multibyteoffoff
+zend.script_encodingno valueno value
+zend.signal_checkoffoff
+
+ctype
+
+ctype functions enabled 
+
+curl
+
+curl support enabled 
+curl information 7.74.0 
+age 7 
+features 
+asynchdns yes 
+charconv no 
+debug no 
+gss-negotiate no 
+idn yes 
+ipv6 yes 
+krb4 no 
+largefile yes 
+libz yes 
+ntlm yes 
+ntlmwb yes 
+spnego yes 
+ssl yes 
+sspi no 
+tls-srp yes 
+http2 yes 
+gssapi yes 
+kerberos5 yes 
+unix_sockets yes 
+psl yes 
+https_proxy yes 
+multi_ssl no 
+brotli yes 
+protocols dict, file, ftp, ftps, gopher, http, https, imap, imaps, ldap, ldaps, mqtt, pop3, pop3s, rtmp, rtsp, scp, sftp, smb, smbs, smtp, smtps, telnet, tftp 
+host aarch64-unknown-linux-gnu 
+ssl version openssl/1.1.1n 
+zlib version 1.2.11 
+libssh version libssh2/1.9.0 
+
+
+directivelocal valuemaster value
+curl.cainfono valueno value
+
+date
+
+date/time support enabled 
+timelib version 2020.03 
+"olson" timezone database version 2022.6 
+timezone database internal 
+default timezone utc 
+
+
+directivelocal valuemaster value
+date.default_latitude31.766731.7667
+date.default_longitude35.233335.2333
+date.sunrise_zenith90.83333390.833333
+date.sunset_zenith90.83333390.833333
+date.timezoneno valueno value
+
+dom
+
+dom/xml enabled 
+dom/xml api version 20031129 
+libxml version 2.9.10 
+html support enabled 
+xpath support enabled 
+xpointer support enabled 
+schema support enabled 
+relaxng support enabled 
+
+fileinfo
+
+fileinfo support enabled 
+libmagic 539 
+
+filter
+
+input validation and filtering enabled 
+
+
+directivelocal valuemaster value
+filter.defaultunsafe_rawunsafe_raw
+filter.default_flagsno valueno value
+
+ftp
+
+ftp support enabled 
+ftps support enabled 
+
+hash
+
+hash support enabled 
+hashing engines md2 md4 md5 sha1 sha224 sha256 sha384 sha512/224 sha512/256 sha512 sha3-224 sha3-256 sha3-384 sha3-512 ripemd128 ripemd160 ripemd256 ripemd320 whirlpool tiger128,3 tiger160,3 tiger192,3 tiger128,4 tiger160,4 tiger192,4 snefru snefru256 gost gost-crypto adler32 crc32 crc32b crc32c fnv132 fnv1a32 fnv164 fnv1a64 joaat haval128,3 haval160,3 haval192,3 haval224,3 haval256,3 haval128,4 haval160,4 haval192,4 haval224,4 haval256,4 haval128,5 haval160,5 haval192,5 haval224,5 haval256,5  
+
+
+mhash support enabled 
+mhash api version emulated support 
+
+iconv
+
+iconv support enabled 
+iconv implementation glibc 
+iconv library version 2.31 
+
+
+directivelocal valuemaster value
+iconv.input_encodingno valueno value
+iconv.internal_encodingno valueno value
+iconv.output_encodingno valueno value
+
+intl
+
+internationalization supportenabled
+icu version 67.1 
+icu data version 67.1 
+icu unicode version 13.0 
+
+
+directivelocal valuemaster value
+intl.default_localeno valueno value
+intl.error_level00
+intl.use_exceptionsoffoff
+
+json
+
+json support enabled 
+
+libxml
+
+libxml support active 
+libxml compiled version 2.9.10 
+libxml loaded version 20910 
+libxml streams enabled 
+
+mbstring
+
+multibyte support enabled 
+multibyte string engine libmbfl 
+http input encoding translation disabled 
+libmbfl version 1.3.2 
+
+
+mbstring extension makes use of "streamable kanji code filter and converter", which is distributed under the gnu lesser general public license version 2.1.
+
+
+multibyte (japanese) regex support enabled 
+multibyte regex (oniguruma) version 6.9.6 
+
+
+directivelocal valuemaster value
+mbstring.detect_orderno valueno value
+mbstring.encoding_translationoffoff
+mbstring.http_inputno valueno value
+mbstring.http_outputno valueno value
+mbstring.http_output_conv_mimetypes^(text/|application/xhtml\+xml)^(text/|application/xhtml\+xml)
+mbstring.internal_encodingno valueno value
+mbstring.languageneutralneutral
+mbstring.regex_retry_limit10000001000000
+mbstring.regex_stack_limit100000100000
+mbstring.strict_detectionoffoff
+mbstring.substitute_characterno valueno value
+
+mysqlnd
+
+mysqlndenabled
+version mysqlnd 8.0.27 
+compression supported 
+core ssl supported 
+extended ssl supported 
+command buffer size 4096 
+read buffer size 32768 
+read timeout 86400 
+collecting statistics yes 
+collecting memory statistics no 
+tracing n/a 
+loaded plugins mysqlnd,debug_trace,auth_plugin_mysql_native_password,auth_plugin_mysql_clear_password,auth_plugin_caching_sha2_password,auth_plugin_sha256_password 
+api extensions no value 
+
+openssl
+
+openssl support enabled 
+openssl library version openssl 1.1.1n  15 mar 2022 
+openssl header version openssl 1.1.1n  15 mar 2022 
+openssl default config /usr/lib/ssl/openssl.cnf 
+
+
+directivelocal valuemaster value
+openssl.cafileno valueno value
+openssl.capathno valueno value
+
+pcre
+
+pcre (perl compatible regular expressions) support enabled 
+pcre library version 10.35 2020-05-09 
+pcre unicode version 13.0.0 
+pcre jit support enabled 
+pcre jit target arm-64 64bit (little endian + unaligned) 
+
+
+directivelocal valuemaster value
+pcre.backtrack_limit10000001000000
+pcre.jit11
+pcre.recursion_limit100000100000
+
+pdo
+
+pdo supportenabled
+pdo drivers sqlite 
+
+pdo_sqlite
+
+pdo driver for sqlite 3.xenabled
+sqlite library 3.34.1 
+
+phar
+
+phar: php archive supportenabled
+phar api version 1.1.1 
+phar-based phar archives enabled 
+tar-based phar archives enabled 
+zip-based phar archives enabled 
+gzip compression enabled 
+bzip2 compression disabled (install ext/bz2) 
+native openssl support enabled 
+
+
+
+phar based on pear/php_archive, original concept by davey shafik.phar fully realized by gregory beaver and marcus boerger.portions of tar implementation copyright (c) 2003-2009 tim kientzle.
+
+
+directivelocal valuemaster value
+phar.cache_listno valueno value
+phar.readonlyonon
+phar.require_hashonon
+
+posix
+
+posix support enabled 
+
+reflection
+
+reflection enabled 
+
+session
+
+session support enabled 
+registered save handlers files user  
+registered serializer handlers php_serialize php php_binary  
+
+
+directivelocal valuemaster value
+session.auto_startoffoff
+session.cache_expire180180
+session.cache_limiternocachenocache
+session.cookie_domainno valueno value
+session.cookie_httponly00
+session.cookie_lifetime00
+session.cookie_path//
+session.cookie_samesiteno valueno value
+session.cookie_secure00
+session.gc_divisor100100
+session.gc_maxlifetime14401440
+session.gc_probability11
+session.lazy_writeonon
+session.namephpsessidphpsessid
+session.referer_checkno valueno value
+session.save_handlerfilesfiles
+session.save_pathno valueno value
+session.serialize_handlerphpphp
+session.sid_bits_per_character44
+session.sid_length3232
+session.upload_progress.cleanuponon
+session.upload_progress.enabledonon
+session.upload_progress.freq1%1%
+session.upload_progress.min_freq11
+session.upload_progress.namephp_session_upload_progressphp_session_upload_progress
+session.upload_progress.prefixupload_progress_upload_progress_
+session.use_cookies11
+session.use_only_cookies11
+session.use_strict_mode00
+session.use_trans_sid00
+
+simplexml
+
+simplexml support enabled 
+schema support enabled 
+
+sodium
+
+sodium supportenabled
+libsodium headers version 1.0.18 
+libsodium library version 1.0.18 
+
+spl
+
+spl supportenabled
+interfaces outeriterator, recursiveiterator, seekableiterator, splobserver, splsubject 
+classes appenditerator, arrayiterator, arrayobject, badfunctioncallexception, badmethodcallexception, cachingiterator, callbackfilteriterator, directoryiterator, domainexception, emptyiterator, filesystemiterator, filteriterator, globiterator, infiniteiterator, invalidargumentexception, iteratoriterator, lengthexception, limititerator, logicexception, multipleiterator, norewinditerator, outofboundsexception, outofrangeexception, overflowexception, parentiterator, rangeexception, recursivearrayiterator, recursivecachingiterator, recursivecallbackfilteriterator, recursivedirectoryiterator, recursivefilteriterator, recursiveiteratoriterator, recursiveregexiterator, recursivetreeiterator, regexiterator, runtimeexception, spldoublylinkedlist, splfileinfo, splfileobject, splfixedarray, splheap, splminheap, splmaxheap, splobjectstorage, splpriorityqueue, splqueue, splstack, spltempfileobject, underflowexception, unexpectedvalueexception 
+
+sqlite3
+
+sqlite3 supportenabled
+sqlite library 3.34.1 
+
+
+directivelocal valuemaster value
+sqlite3.defensiveonon
+sqlite3.extension_dirno valueno value
+
+standard
+
+dynamic library support enabled 
+path to sendmail /usr/sbin/sendmail -t -i 
+
+
+directivelocal valuemaster value
+assert.activeonon
+assert.bailoffoff
+assert.callbackno valueno value
+assert.exceptiononon
+assert.warningonon
+auto_detect_line_endingsoffoff
+default_socket_timeout6060
+fromno valueno value
+session.trans_sid_hostsno valueno value
+session.trans_sid_tagsa=href,area=href,frame=src,form=a=href,area=href,frame=src,form=
+unserialize_max_depth40964096
+url_rewriter.hostsno valueno value
+url_rewriter.tagsform=form=
+user_agentno valueno value
+
+tokenizer
+
+tokenizer support enabled 
+
+xml
+
+xml support active 
+xml namespace support active 
+libxml2 version 2.9.10 
+
+xmlreader
+
+xmlreader enabled 
+
+xmlwriter
+
+xmlwriter enabled 
+
+zlib
+
+zlib supportenabled
+stream wrapper compress.zlib:// 
+stream filter zlib.inflate, zlib.deflate 
+compiled version 1.2.11 
+linked version 1.2.11 
+
+
+directivelocal valuemaster value
+zlib.output_compressionoffoff
+zlib.output_compression_level-1-1
+zlib.output_handlerno valueno value
+
+additional modules
+
+module name
+
+environment
+
+variablevalue
+hostname 8ffdfbb6aa5a 
+php_version 8.0.27 
+apache_confdir /etc/apache2 
+php_ini_dir /usr/local/etc/php 
+gpg_keys 1729f83938da44e27ba0f4d3dbdb397470d12172 bfddd28642824f8118ef77909b67a5c12229118f 2c16c765dbe54a088130f1bc4b9b5f600b55f3b4 
+php_ldflags -wl,-o1 -pie 
+pwd /var/www/html 
+apache_log_dir /var/log/apache2 
+lang c 
+php_sha256 f942cbfe2f7bacbb8039fb79bbec41c76ea779ac5c8157f21e1e0c1b28a5fc3a 
+apache_pid_file /var/run/apache2/apache2.pid 
+phpize_deps autoconf 		dpkg-dev 		file 		g++ 		gcc 		libc-dev 		make 		pkg-config 		re2c 
+php_url https://www.php.net/distributions/php-8.0.27.tar.xz 
+apache_run_group www-data 
+apache_lock_dir /var/lock/apache2 
+shlvl 0 
+php_cflags -fstack-protector-strong -fpic -fpie -o2 -d_largefile_source -d_file_offset_bits=64 
+apache_run_dir /var/run/apache2 
+apache_envvars /etc/apache2/envvars 
+apache_run_user www-data 
+path /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin 
+php_asc_url https://www.php.net/distributions/php-8.0.27.tar.xz.asc 
+php_cppflags -fstack-protector-strong -fpic -fpie -o2 -d_largefile_source -d_file_offset_bits=64 
+
+php variables
+
+variablevalue
+$_server['http_host']www.dtison.net
+$_server['http_user_agent']myscript/1.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/121.0.0.0 safari/537.36
+$_server['http_accept_encoding']gzip, deflate
+$_server['http_accept']*/*
+$_server['path']/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+$_server['server_signature']<address>apache/2.4.54 (debian) server at www.dtison.net port 80</address>
+
+$_server['server_software']apache/2.4.54 (debian)
+$_server['server_name']www.dtison.net
+$_server['server_addr']172.17.0.4
+$_server['server_port']80
+$_server['remote_addr']10.0.0.110
+$_server['document_root']/var/www/html
+$_server['request_scheme']http
+$_server['context_prefix']no value
+$_server['context_document_root']/var/www/html
+$_server['server_admin']webmaster@localhost
+$_server['script_filename']/var/www/html/index.php
+$_server['remote_port']50736
+$_server['gateway_interface']cgi/1.1
+$_server['server_protocol']http/1.1
+$_server['request_method']get
+$_server['query_string']no value
+$_server['request_uri']/
+$_server['script_name']/index.php
+$_server['php_self']/index.php
+$_server['request_time_float']1739633276.0175
+$_server['request_time']1739633276
+$_server['argv']array
+(
+)
+
+$_server['argc']0
+$_env['hostname']8ffdfbb6aa5a
+$_env['php_version']8.0.27
+$_env['apache_confdir']/etc/apache2
+$_env['php_ini_dir']/usr/local/etc/php
+$_env['gpg_keys']1729f83938da44e27ba0f4d3dbdb397470d12172 bfddd28642824f8118ef77909b67a5c12229118f 2c16c765dbe54a088130f1bc4b9b5f600b55f3b4
+$_env['php_ldflags']-wl,-o1 -pie
+$_env['pwd']/var/www/html
+$_env['apache_log_dir']/var/log/apache2
+$_env['lang']c
+$_env['php_sha256']f942cbfe2f7bacbb8039fb79bbec41c76ea779ac5c8157f21e1e0c1b28a5fc3a
+$_env['apache_pid_file']/var/run/apache2/apache2.pid
+$_env['phpize_deps']autoconf 		dpkg-dev 		file 		g++ 		gcc 		libc-dev 		make 		pkg-config 		re2c
+$_env['php_url']https://www.php.net/distributions/php-8.0.27.tar.xz
+$_env['apache_run_group']www-data
+$_env['apache_lock_dir']/var/lock/apache2
+$_env['shlvl']0
+$_env['php_cflags']-fstack-protector-strong -fpic -fpie -o2 -d_largefile_source -d_file_offset_bits=64
+$_env['apache_run_dir']/var/run/apache2
+$_env['apache_envvars']/etc/apache2/envvars
+$_env['apache_run_user']www-data
+$_env['path']/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+$_env['php_asc_url']https://www.php.net/distributions/php-8.0.27.tar.xz.asc
+$_env['php_cppflags']-fstack-protector-strong -fpic -fpie -o2 -d_largefile_source -d_file_offset_bits=64
+
+
+php credits
+
+php group
+thies c. arntzen, stig bakken, shane caraveo, andi gutmans, rasmus lerdorf, sam ruby, sascha schumann, zeev suraski, jim winstead, andrei zmievski 
+
+
+language design & concept
+andi gutmans, rasmus lerdorf, zeev suraski, marcus boerger 
+
+
+php authors
+contributionauthors
+zend scripting language engine andi gutmans, zeev suraski, stanislav malyshev, marcus boerger, dmitry stogov, xinchen hui, nikita popov 
+extension module api andi gutmans, zeev suraski, andrei zmievski 
+unix build and modularization stig bakken, sascha schumann, jani taskinen, peter kokot 
+windows support shane caraveo, zeev suraski, wez furlong, pierre-alain joye, anatol belski, kalle sommer nielsen 
+server api (sapi) abstraction layer andi gutmans, shane caraveo, zeev suraski 
+streams abstraction layer wez furlong, sara golemon 
+php data objects layer wez furlong, marcus boerger, sterling hughes, george schlossnagle, ilia alshanetsky 
+output handler zeev suraski, thies c. arntzen, marcus boerger, michael wallner 
+consistent 64 bit support anthony ferrara, anatol belski 
+
+
+sapi modules
+contributionauthors
+apache 2.0 handler ian holsman, justin erenkrantz (based on apache 2.0 filter code) 
+cgi / fastcgi rasmus lerdorf, stig bakken, shane caraveo, dmitry stogov 
+cli edin kadribasic, marcus boerger, johannes schlueter, moriyoshi koizumi, xinchen hui 
+embed edin kadribasic 
+fastcgi process manager andrei nigmatulin, dreamcat4, antony dovgal, jerome loyet 
+litespeed george wang 
+phpdbg felipe pena, joe watkins, bob weinand 
+
+
+module authors
+moduleauthors
+bc math andi gutmans 
+bzip2 sterling hughes 
+calendar shane caraveo, colin viebrock, hartmut holzgraefe, wez furlong 
+com and .net wez furlong 
+ctype hartmut holzgraefe 
+curl sterling hughes 
+date/time support derick rethans 
+db-lib (ms sql, sybase) wez furlong, frank m. kromann, adam baratz 
+dba sascha schumann, marcus boerger 
+dom christian stocker, rob richards, marcus boerger 
+enchant pierre-alain joye, ilia alshanetsky 
+exif rasmus lerdorf, marcus boerger 
+ffi dmitry stogov 
+fileinfo ilia alshanetsky, pierre alain joye, scott macvicar, derick rethans, anatol belski 
+firebird driver for pdo ard biesheuvel 
+ftp stefan esser, andrew skalski 
+gd imaging rasmus lerdorf, stig bakken, jim winstead, jouni ahto, ilia alshanetsky, pierre-alain joye, marcus boerger, mark randall 
+gettext alex plotnick 
+gnu gmp support stanislav malyshev 
+iconv rui hirokawa, stig bakken, moriyoshi koizumi 
+imap rex logan, mark musone, brian wang, kaj-michael lang, antoni pamies olive, rasmus lerdorf, andrew skalski, chuck hagenbuch, daniel r kalowsky 
+input filter rasmus lerdorf, derick rethans, pierre-alain joye, ilia alshanetsky 
+internationalization ed batutis, vladimir iordanov, dmitry lakhtyuk, stanislav malyshev, vadim savchuk, kirti velankar 
+json jakub zelenka, omar kilani, scott macvicar 
+ldap amitay isaacs, eric warnke, rasmus lerdorf, gerrit thomson, stig venaas 
+libxml christian stocker, rob richards, marcus boerger, wez furlong, shane caraveo 
+multibyte string functions tsukada takuya, rui hirokawa 
+mysql driver for pdo george schlossnagle, wez furlong, ilia alshanetsky, johannes schlueter 
+mysqli zak greant, georg richter, andrey hristov, ulf wendel 
+mysqlnd andrey hristov, ulf wendel, georg richter, johannes schlüter 
+oci8 stig bakken, thies c. arntzen, andy sautins, david benson, maxim maletsky, harald radi, antony dovgal, andi gutmans, wez furlong, christopher jones, oracle corporation 
+odbc driver for pdo wez furlong 
+odbc stig bakken, andreas karajannis, frank m. kromann, daniel r. kalowsky 
+opcache andi gutmans, zeev suraski, stanislav malyshev, dmitry stogov, xinchen hui 
+openssl stig venaas, wez furlong, sascha kettler, scott macvicar, eliot lear 
+oracle (oci) driver for pdo wez furlong 
+pcntl jason greene, arnaud le blanc 
+perl compatible regexps andrei zmievski 
+php archive gregory beaver, marcus boerger 
+php data objects wez furlong, marcus boerger, sterling hughes, george schlossnagle, ilia alshanetsky 
+php hash sara golemon, rasmus lerdorf, stefan esser, michael wallner, scott macvicar 
+posix kristian koehntopp 
+postgresql driver for pdo edin kadribasic, ilia alshanetsky 
+postgresql jouni ahto, zeev suraski, yasuo ohgaki, chris kings-lynne 
+pspell vlad krupin 
+readline thies c. arntzen 
+reflection marcus boerger, timm friebe, george schlossnagle, andrei zmievski, johannes schlueter 
+sessions sascha schumann, andrei zmievski 
+shared memory operations slava poliakov, ilia alshanetsky 
+simplexml sterling hughes, marcus boerger, rob richards 
+snmp rasmus lerdorf, harrie hazewinkel, mike jackson, steven lawrance, johann hanne, boris lytochkin 
+soap brad lafountain, shane caraveo, dmitry stogov 
+sockets chris vandomelen, sterling hughes, daniel beulshausen, jason greene 
+sodium frank denis 
+spl marcus boerger, etienne kneuss 
+sqlite 3.x driver for pdo wez furlong 
+sqlite3 scott macvicar, ilia alshanetsky, brad dewar 
+system v message based ipc wez furlong 
+system v semaphores tom may 
+system v shared memory christian cartus 
+tidy john coggeshall, ilia alshanetsky 
+tokenizer andrei zmievski, johannes schlueter 
+xml stig bakken, thies c. arntzen, sterling hughes 
+xmlreader rob richards 
+xmlwriter rob richards, pierre-alain joye 
+xsl christian stocker, rob richards 
+zip pierre-alain joye, remi collet 
+zlib rasmus lerdorf, stefan roehrich, zeev suraski, jade nicoletti, michael wallner 
+
+
+php documentation
+authors mehdi achour, friedhelm betz, antony dovgal, nuno lopes, hannes magnusson, philip olson, georg richter, damien seguy, jakub vrana, adam harvey 
+editor peter cowburn 
+user note maintainers daniel p. brown, thiago henrique pojda 
+other contributors previously active authors, editors and other contributors are listed in the manual. 
+
+
+php quality assurance team
+ilia alshanetsky, joerg behrens, antony dovgal, stefan esser, moriyoshi koizumi, magnus maatta, sebastian nohn, derick rethans, melvyn sopacua, pierre-alain joye, dmitry stogov, felipe pena, david soria parra, stanislav malyshev, julien pauli, stephen zarkos, anatol belski, remi collet, ferenc kovacs 
+
+
+websites and infrastructure team
+php websites team rasmus lerdorf, hannes magnusson, philip olson, lukas kahwe smith, pierre-alain joye, kalle sommer nielsen, peter cowburn, adam harvey, ferenc kovacs, levi morrison 
+event maintainers damien seguy, daniel p. brown 
+network infrastructure daniel p. brown 
+windows infrastructure alex schoenmaker 
+
+php license
+
+
+
+this program is free software; you can redistribute it and/or modify it under the terms of the php license as published by the php group and included in the distribution in the file:  license
+
+this program is distributed in the hope that it will be useful, but without any warranty; without even the implied warranty of merchantability or fitness for a particular purpose.
+
+if you did not receive a copy of the php license, or have any questions about php licensing, please contact license@php.net.
+
+
+
+1

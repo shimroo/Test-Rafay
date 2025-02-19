@@ -1,0 +1,342 @@
+
+
+
+
+
+
+
+
+flashgot - best firefox download manager integration - what is it? - informaction 
+
+
+
+
+
+
+
+
+
+
+
+
+home
+catalog
+contacts
+
+flashgot is free software: if you like it, you can support its progress :)
+
+
+
+
+
+
+
+
+
+what is it?what is it?featureschangelogscreenshotsforumfaqget it!
+
+
+
+install
+
+
+firefox download manager integration
+
+v. 1.5.6.13 download anything, replay anytime.
+if you find any bug or you'd like an enhancement, before reporting here or
+        here, please check if it's fixed in
+        latest development build. many thanks!
+  
+
+
+main good news are:
+
+
+fixed breakage due to getter/setter definition changes
+        in latest firefox nightlies.
+"[middle button drag down] gesture starts flashgot
+  downloads" checkbox in flashgot options window.
+bug fix: link chooser not properly honoring its
+  "choose all items by default" checkbox (thanks
+  baptx for reporting).
+fixed built-in download manager not working on
+  seamonkey 33 and above (thanks therube for report).
+fixed post data being sent with preamble headers no recent browser versions (thanks
+  mosal for report and flashgot.user for patch).
+new custom download manager argument placeholders, courtesy of flashgot.user's patch:
+  "rawpost" sends the raw post upload data including
+  its headers; "headers" sends just the post data headers.
+added folx 4 and 3 support as "folx" (legacy support is kept as
+  "folx 2")
+support for 5 additional terminal emulators on linux
+  (konsole, lxterminal, urxvt, rxvt, xfce4-terminal,
+  thanks mathias bauer for patch)
+fixed jdownloader 2 detection issue (thanks user).
+updated youtube support (thanks user).
+graceful handling of invalid referrer urls.
+support for full encryption on https://flashgot.net/
+terminal windows attached to linux/os x download
+  managers are now paused on completion with
+  "press [enter] to exit...", unless you set the
+  flashgot.term.autoclose about:config preference
+  to a non-negative integer value, meaning the number
+  of seconds to be waited before automatically closing.
+several flashgot media capturing improvements
+  (thanks user for patches).
+customizable terminal/launcher for linux/mac os x download managers: if a
+  "flashgot-term" script is found in $path it gets
+  passed a "flashgot (number of links)" string as its
+  first argument (to be used as the terminal title),
+  followed by the actual executable with arguments.
+updated fr & pl localizations (thanks jack black and teo)
+more compatible and complete generic url parameter redirector (grabs the "real" final urls from redirects and trackers).
+addresses of media content captured by flashgot media can be copied to the clipboard by
+right-clicking their menu entries (thanks gµårðïåñ for rfe).
+updated dfiles.eu (fka depositfiles.com) preprocessing for batch direct link premium downloads
+(similar flashgot-supported preprocessed file sharing services are
+fileserve.com,
+filesonic.com, hotfile.com,
+megaupload.com, netload.in,
+rapidshare.com,
+uploading.com,
+uploaded.to, ul.to,
+zshare.com).
+flashgot media toolbar icon placement can be customized
+  also while no media is playing.
+added recent folders autocompletion support to
+  built-in save path chooser; just focus the text field or type in it to have up to 10 recently used download paths
+  to be looked up (thanks scott merrill for rfe)
+added suggested file name support for links diverted from the
+  "save as" dialog.
+added private mode support when calling built-in download manager.
+further accuracy improvements in the middle mouse button + drag south gesture,
+    which triggers either
+  flashgot link or flashgot selection, depending on
+  the context
+  (can be disabled by setting the flashgot.gesture
+about:config preference
+  to false).
+
+improved oron.com preprocessing for batch direct link downloads
+(similar flashgot-supported preprocessed file sharing services are
+fileserve.com,
+filesonic.com, hotfile.com,
+megaupload.com, netload.in,
+rapidshare.com,
+uploading.com,
+uploaded.to, ul.to,
+zshare.com).
+batch download support for linksafe.me (other already supported link protection/redirection services are
+    chooselinks.com, re-links.com,
+    protectlinks.com, rapidsafe.net,
+    relink.us, rsmonkey.com, hideurl.biz, ftp2share.net, rapidbolt.com, linkbank.eu,
+    linkbucks.com, rsprotect.comupdated and enhanced batch download support for relink.us (other already supported link protection/redirection services are
+    chooselinks.com, re-links.com,
+    protectlinks.com, rapidsafe.net,
+    rsmonkey.com, hideurl.biz, ftp2share.net, rapidbolt.com, linkbank.eu,
+    linkbucks.com, rsprotect.com (warning: feb 15 2009, the rsprotect.com web site is infected, don't open without noscript enabled),
+    link-protector.com, stealth.to and lix.in, urlcash.net).
+download studio support (trial download here).
+improved flashgot options|flashgot media panel, to
+  choose a distinct download manager for streaming
+  media capture. firefox's built-in download manager is recommended
+  because it uses browser's cache whenever possible and supports name guessing,
+  and it's set as the default for flashgot media on new installatios.
+windows visual download managers are fully supported on linux and mac os x through
+wine and darwine (tested with flashget and orbit downloader on ubuntu 8.0.4).
+you can enable or disable wine support by setting the flashgot.usewine about:config
+preference to true or false.
+
+
+
+more in the changelog...
+
+
+
+
+
+
+flashgot, the best firefox download manager integration, has been honored in the may 2006 issue of pc world, 
+the most widely-read computer or business magazine, as one of the "101 fabulous freebies"
+
+"each download or service on the list impressed the editors with its functionality and usability,” 
+said harry mccracken, vp/editor in chief of pc world. "these are some of the most well-crafted services available – congratulations to flashgot!"
+
+
+so...
+
+are you tired of "saving as..." one by one all those movies, music files, pictures, programs and so on?
+are you sick of getting them sooo slowly? 
+are you afraid of losing them in the middle of download if you get disconnected or close your browser, 
+being forced to repeat all that tedious work?
+well, you need a 
+download manager...
+
+
+but... aaaargh!!! my download manager doesn't work with
+firefox! they say it does, but where is my download all menu? 
+how can i handle the tons of mp3, mpeg, jpg files that i want to download?
+well, you definitely need...
+
+flashgot!
+
+
+
+
+flashgot is the free add-on for 
+firefox and
+thunderbird, 
+meant to handle single and massive ("all" and
+"selection") downloads with several external download managers.
+
+
+
+for windows
+(bitcomet,
+download accelerator plus,
+downloadstudio,
+flareget,
+flashget,
+free download manager,
+fresh download,
+getright,
+gigaget, 
+hidownload,
+igetter,
+instantget,
+internet download accelerator,
+internet download manager,
+jdownloader,
+leechget,
+mass downloader,
+net transport,
+netxfer (net transport 2),
+netants,
+orbit,
+pyload,
+reget,
+retriever*,
+star downloader,
+thunder (chinese only popular product),
+truedownloader
+and
+ukrainian download master  [russian language only] ),
+uget,
+wellget, wxdfast
+xtreme download manager
+
+
+for linux / freebsd / other unix-like oses
+(aria,
+axel download accelerator,
+curl,
+downloader 4 x,
+fatrat,
+gnome gwget,
+fatrat,
+jdownloader,
+kde kget,
+pyload,
+steadyflow,
+uget,
+wxdfast,
+xtreme download manager
+).
+many windows-only download manager are supported on linux through wine! 
+
+
+for mac os x
+(folx,
+igetter,
+jdownloader
+leech,
+progressive downloader,
+speed download and
+wxdfast*)
+* wxdownload fast for mac os x is currently available in source form only
+
+
+
+
+
+flashgot turns every supported download manager into a download manager for firefox!
+
+
+
+
+is your preferred download manager not listed above? click here
+
+
+flashgot offers also a 
+build gallery functionality which helps to 
+synthetize full media galleries in one page, from serial contents originally 
+scattered on several pages, for easy and fast "download all".
+
+
+flashgot is free software: if you like it, you can support its progress :)
+
+
+
+
+
+
+
+
+
+motivation
+
+since i switched from ms internet explorer to
+a serious browser, i've had only one regret: i've been missing the
+ability to handle "massive downloads" through a multithreaded, 
+file splitting download manager.
+
+
+in ie there was a "download all with mynice downloadmanager" menu item, which
+delivered every link on a web page to the download manager, ready
+to be choosen and downloaded in batch.
+
+
+there was nothing like this on mozilla/firefox,
+so i decided to build my solution with my own hands... and it works
+pretty well (at least for me).
+
+
+now, after many releases, flashgot is probably the most advanced form 
+of browser integration for download managers,
+often better than the native one provided for ie, featuring:
+
+
+a "flashgot selection" command to selectively download
+items you highlight on the page (even pure textual links!)
+
+a build gallery 
+command, helping you to auto-generate complete media gallery from
+partial ones to download at once all the contents in a serie.
+
+
+convenient shortcuts and hooks for single downloads, like alt+click on a link and
+automatic interception of unknown content types, giving you the chance to
+override the default download manager when it is about to start.
+
+
+(more in the features page)
+
+
+
+giorgio maone
+
+what is it?  features  changelog  screenshots  forum  faq  get it!   privacy   ...stay safer, get noscript!
+
+
+copyright © 2004-2025 informaction - all rights reserved
+
+
+
+
+
+
+
+
+
+
+

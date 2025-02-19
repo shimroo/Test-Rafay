@@ -1,0 +1,354 @@
+
+
+
+
+
+
+
+
+
+brian c. lane
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+brian c. lane
+software and electronics
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			kluh jewelers car show 2024
+			
+
+
+
+
+2024-07-13 17:18:00
+
+
+
+
+went to the kluh jewelers car show yesterday and got these shots.
+
+
+read moreâ¦
+
+
+
+
+
+			software setup for touchscreen display
+			
+
+
+
+
+2023-08-05 09:53:13
+
+
+
+
+		i’ve mostly automated the setup of the software for the life display frame software. you can find the scripts here on github . running this requires a linux system with ansible and git installed.
+i am running this on a raspberry pi zerow , but it should work on just about anything running debian linux .
+this uses the lite version of raspberry pi os without a gui. you should download the correct one for your hardware, expand the image, and write it to an sd card:
+	
+
+read moreâ¦
+
+
+
+
+
+
+
+
+
+
+			a touchscreen life display
+			
+
+
+
+
+2023-06-26 07:07:13
+
+
+
+
+		last year i wrote about my sdl2-life program, adding color to it, and seeding it with data from my website logs. this time i’ve decided to make a dedicated wall display for it using an adafruit touchscreen display and a raspberry pi zero that i bought back before they became unobtainable.
+after a bunch of experiments with the design i managed to make a display that won’t fall off the wall and it looks reasonably nice.
+	
+
+read moreâ¦
+
+
+
+
+
+
+
+
+
+
+			olympic air show 2023
+			
+
+
+
+
+2023-06-17 21:02:00
+
+
+
+
+i made it to the olymic air show
+ today. good
+turnout, decent weather, and some very cool airplanes and helicopters.
+
+
+read moreâ¦
+
+
+
+
+
+			pxe booting with qemu and uefi
+			
+
+
+
+
+2023-04-26 12:07:13
+
+
+
+
+		this is a followup to the qemu with pxe boot post i wrote a few years back. in this post i will cover the creation of a live filesystem using livemedia-creator, and pxe booting it with qemu and uefi. i am assuming that you have some familiarity with using anaconda to install fedora, centos, and red hat enterprise linux. as well as with my previous posts about livemedia-creator .
+building the image with livemedia-creator the creation process is similar to creating live isos but instead of an iso we will create the live root filesystem.
+	
+
+read moreâ¦
+
+
+
+
+
+			digitemp
+			
+
+
+
+
+2023-02-08 12:14:30
+
+
+
+
+		digitemp is a simple to use program for reading values from 1-wire devices. its main use is for reading temperature sensors, but it also reads counters, and understands the 1-wire hubs with devices on different branches of the network.
+see the digitemp.com page for more information.
+	
+
+
+
+
+
+
+
+
+
+			colorizing sdl2-life
+			
+
+
+
+
+2022-12-17 15:18:42
+
+
+
+
+		after letting the life server i wrote about last month run for a bit i decided that all white cells are a bit boring and i started exploring ways to add some color to it. first step was to keep track of the age of the cells, and i decided that new cells should inherit the age of the cells that created it in the hope that it would be more visually snazzy.
+	
+
+read moreâ¦
+
+
+
+
+
+
+
+
+
+
+			conway's life server
+			
+
+
+
+
+2022-11-26 07:33:33
+
+
+
+
+		a few years back i was experimenting with go and sdl2, i wrote a dead-simple conway's game of life program with it, added loading of a couple popular pattern file formats, and was pretty much finished with it. the other day i came across this cool project while preparing for thanksgiving by browsing infosec.exchange . brett has an e-ink display running life and is seeding it from tarpit data which struck me as a really neat idea to keep the world from becoming static as most of the more complex ones tend to do.
+	
+
+read moreâ¦
+
+
+
+
+
+
+
+
+
+
+			rewriting hms with scenegraph
+			
+
+
+
+
+2022-11-23 12:03:07
+
+
+
+
+		back in 2017 i mentioned that the api i have been using for my roku home media server project was going to be replaced by scenegraph and that i would need to rewrite things. that day finally arrived when my newer roku players updated themselves to v11.5.0 and hms quit loading.
+scenegraph has lots of documentation, and lots of examples . most of them are either too simplistic to be useful, or too complex to untangle for someone new to the framework, but experienced with the previous api.
+	
+
+read moreâ¦
+
+
+
+
+
+			profiling osbuild-composer with go pprof
+			
+
+
+
+
+2022-09-14 15:37:09
+
+
+
+
+		one of the projects that i work on is osbuild-composer . this is an operating system image builder, written in go, and is the replacement for the lorax-composer project. i’m going to skim over the details since this post is about profiling things, but you can read more about it at osbuild.org and the [github repository].
+behind the scenes it uses dnf to handle depsolving and package queries. a few weeks back i wrote a patch to cache the results from the dnf-json program in order to speed up the response time when listing all the packages (over 63000 of them in fedora 35!
+	
+
+read moreâ¦
+
+
+
+
+1/10
+â»
+
+
+
+
+menu
+
+
+
+about
+
+
+photos
+
+
+software
+
+
+writing
+
+
+
+
+
+social
+
+
+
+
+twitter
+
+
+
+
+
+github
+
+
+
+
+image/svg+xml
+git (local)
+
+
+
+
+
+mastodon
+
+
+
+
+
+keybase.io
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			© 2024 brian c. lane.
+			generated with hugo and mainroad theme.
+
+
+
+
+
+
+
+

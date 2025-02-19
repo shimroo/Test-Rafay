@@ -1,0 +1,568 @@
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+sxemacs website
+
+
+
+
+
+
+redefining emacs
+
+
+      bleeding edge: v22.1.17-4-g66cd362
+
+    
+
+
+
+
+home
+
+news
+
+
+download
+
+
+view source
+
+
+screenshots
+
+
+latest changes
+
+mailing lists
+
+
+issue tracker
+
+
+documentation
+
+
+
+	steve's init files
+
+
+
+
+
+
+
+
+
+sxemacs chat
+
+developer pages
+
+steve youngs
+andrey slusar
+erik arneson
+evgeny zajcev
+hynek schlawack
+norbert koch
+sebastian freundt
+nelson ferreira
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+what is sxemacs
+
+      hmm, that's actually not an easy question to answer.  at
+      least, not easy to answer completely.  at the most basic of
+      levels, sxemacs is a text editor.  if you've ever used
+      gnu/emacs or
+      xemacs you've probably
+      seen the description that goes something like...
+    
+
+      ...is a highly customisable and extensible,
+      self-documenting, real-time display editor and ide.
+    
+
+      ditto for sxemacs.  yep, sxemacs is jafe (just another fine
+      editor).  though, if that's all you thought it was,
+      you'd be missing out.  there is very little that sxemacs can't
+      do, or at least, be made to do.  you can tailor it to your
+      wildest dreams and imagination.  this is where the
+      "customisable and extensible" part of the description comes
+      in.
+    
+it's more than just an editor
+    if you looked at any of the screenshots you would have seen
+    that even though sxemacs is a text editor, it can be oh so
+    much more.
+    
+
+sxemacs is my window manager.  yes, that's right, with the
+	xwem and xlib packages installed, sxemacs becomes a very
+	powerful, full featured, highly customisable window
+	manager for x11.  most of the screenshots here were taken
+	using it.
+      
+
+sxemacs is my login shell.  you can add
+	/usr/local/bin/sxemacs to /etc/shells and change your
+	login shell to sxemacs.  it does work.  although we
+	wouldn't recommend trying to run an x session from it. :-)
+      
+
+sxemacs is my image viewer.  sxemacs supports a number of
+	image formats right out of the box (gif, xpm, png, jpeg,
+	tiff, x-face).  if you compile sxemacs with ffi support
+	and have imagemagic's libwand available you have a sxemacs
+	that supports all image formats that libwand does.
+      
+
+sxemacs is my mp3 player.  i used to use mpg123.el
+	for this, but now i use xwem's xwem-mpd.el.  it hooks into
+	mpd (an mp3 daemon).  there are other ways to hear the
+	muzak like emms.
+      
+
+sxemacs balances my cheque book.  with an elisp
+	package called emoney (currently only available via steve
+	youngs' tla repo's, but one day will be an xemacs package)
+	sxemacs turns into a reasonable home finance cash book
+	program.
+      
+
+sxemacs can do the math.  with enhanced number
+	types, there is very little that sxemacs can't do
+	mathematically. 
+      
+
+sxemacs lets me communicate with my friends.
+	sxemacs can be used as a mua (mail user agent), a
+	newsreader, an irc client, even an icq client.  so you can
+	keep in touch without leaving the comfort of your
+	favourite editor.
+      
+
+sxemacs helps me with my databases.  with support
+	for postgresql compiled in you can manipulate your pgsql
+	databases.  sxemacs also has more or less complete support for
+	sqlite, and there is also limited support for berkeleydb
+	and gnu/dbm.
+      
+
+sxemacs makes vc comfortable.  vc is short for
+	version control and sxemacs can make dealing with it a lot
+	less painful.  there are sxemacs vc frontends available
+	for cvs, and gnu/arch (tla).  there are also elisp
+	libraries available that integrate with other vcs such as
+	svn, rcs, and sccs.
+      
+
+sxemacs helps with my security.  sxemacs has
+	support for openssl and allows encryption, decryption, and
+	digest functions.
+      
+
+sxemacs helps me with my social life. with such
+	powerful elisp libraries as lj.el, twitter.el, facebook.el,
+	and emacs-flickr.el, i can easily interact with social
+	networking sites that keep me up-to-date with my friends, and
+	easily commandeer those sites from within the comforts and
+	confines of my sxemacs session.
+      
+
+
+      that list is by no mean exhaustive.  oh, and i nearly
+      forgot... sxemacs edits text too.  and it even helps you
+      with that.  in many, many ways.  with things like syntax
+      highlighting, context sensitive completion, keyboard macros,
+      powerful search and replace, spell checking (on the fly if
+      you wish), programming language aware indentation.  the list
+      just goes on and on.  it would be a fair bet to say that
+      whatever "feature" you like in other editors, there's a good
+      chance sxemacs has it too.
+    
+what sxemacs has that xemacs doesn't (yet)
+
+      following is hopefully an up to date (at time of writing) list
+      of the features that are in sxemacs but are currently not
+      (yet) in xemacs 21.4.  i say xemacs 21.4 because sxemacs was
+      forked from the xemacs 21.4 code base and not the 21.5 code
+      base.  with that said, however, most (all?) of what follows is
+      unique to sxemacs and isn't in xemacs 21.5 either.
+    
+
+
+win32
+
+	  sxemacs does not support the win32 platform and it never
+	  will.  yes, we consider this a feature.
+	
+
+
+ffi
+
+	  this is the sxemacs foreign function interface.  it
+	  makes it possible to bring the functionality of almost
+	  any external library to elisp.  two useful examples can
+	  be found in ffi-curl.el and ffi-wand.el.  the former
+	  allows sxemacs to download files from the internet using
+	  any protocol that libcurl supports.  and the latter
+	  allows sxemacs to view any image format that libwand
+	  supports.
+	
+
+
+openssl
+
+	  sxemacs can be compiled with openssl that enables a
+	  range of cryptography and digest functionalities.
+	
+
+
+autoconf 2.60
+
+	  sxemacs uses autoconf version 2.60 for its configuration
+	  scripts.  xemacs 21.5 is using 2.59, but xemacs 21.4 is
+	  still using autoconf 2.13.
+	
+
+
+postgresql
+
+	  sxemacs has better support for postgresql 8 and the
+	  documentation has had some improvement here too.  also,
+	  support for postgresql is compiled in by default if
+	  pg_config is present and usable.
+	
+
+
+sqlite
+
+	  sxemacs has fairly complete support for sqlite through ffi.
+	
+
+
+c++ builds.
+	
+	  sxemacs does not support being compiled with a c++
+	  compiler.  gcc 3.4.4 or equivalent is required.
+	
+
+
+more mouse buttons.
+	
+	  in sxemacs, you can bind up to 32 mouse buttons.  the
+	  first 26 of which can be used as modifiers.
+	
+
+
+uptime.
+	
+	  every decent os has an uptime util... sxemacs is no
+	  exception. :-)
+	
+
+
+bootstrapping pui.
+	
+	  the sxemacs pui (package user interface) can be
+	  "bootstrapped" without the requirement of having
+	  any xemacs packages pre-installed.
+	
+
+
+enhanced number types.
+	
+	  xemacs 21.5 users might know this as "bignum".  sxemacs
+	  has bignums and bigfloats and ratios like xemacs 21.5,
+	  but it also goes way beyond the xemacs implementation.
+	  many, many, more number types and other mathematical
+	  goodies are supported in sxemacs.
+	
+
+
+raw strings.
+	
+	  sxemacs has python-style raw strings.  it greatly
+	  reduces "backslashitis" when writing those hairy
+	  regexps. :-)
+	
+
+
+	        normal regexp:
+	    "\\(?:^\\|[^\\]\\)\\(?:\\\\\\\\\\)*\\(\\\\[@a-za-z]+\\)"
+	    raw string regexp: #r"\(?:^\|[^\]\)\(?:\)*\(\\[@a-za-z]+\)"
+	  
+
+
+	  xemacs 21.5 now has raw strings.
+	
+
+
+tty font-locking.
+	
+	  sxemacs has improved default font-locking in a tty.
+	
+
+
+more image formats supported.
+	
+	  this was mentioned under ffi, but it is worth noting
+	  again.  with ffi and libwand, sxemacs can display any
+	  image format that is supported by imagemagick's
+	  libwand. 
+	
+
+	  not only can sxemacs view images, but it can edit and
+	  manipulate them as well.  in fact sxemacs is a very good
+	  image manipulation program.  take a look at
+	  
+	    what sxemacs can do with images.
+	
+
+
+embeddable kbd macros.
+	
+	  this one is for jwz.  see point 1.a of
+	  jwz's xemacs wish list
+
+
+
+multimedia -- audio
+
+	  sxemacs has support for a wide variety of sound servers,
+	  backends, drivers, and formats.  audio outputs supported
+	  include: alsa, arts, ao, esd, nas, oss, pulseaudio, and
+	  jack.  media stream handlers supported include: ffmpeg,
+	  mad, sndfile, sox, libmagic, as well as the
+	  pre-existing (from xemacs days) internal audio support.
+	
+
+	  yes, sxemacs can play mp3 and ogg.  we can even do so
+	  asynchronously. 
+	
+
+
+network server sockets
+
+	  taking open-network-stream to the next
+	  logical step, sxemacs can "listen" for, and act upon,
+	  incoming tcp/udp connections.  server sockets in sxemacs
+	  are set up via open-network-server-stream.
+	
+
+
+cached compiled regular expressions
+
+	  significant speed ups are possible through the
+	  application of exhaustive caching of compiled regular
+	  expressions. 
+	
+
+
+gnu autotools build chain
+
+	  not only does sxemacs use autoconf 2.60 (and above), the
+	  entire build chain is now fully "autotooled".  we've done
+	  away with all those makefile.in.in files and manual
+	  dependency tracking of the sources.  it's now all done
+	  with aclocal, automake, autoheader, autoconf.
+	
+
+
+fhs compliant install hierarchy
+
+	  sxemacs now installs to a much more 
+	  fhs compliant
+	  location.
+	
+
+
+double linked lists
+
+	  unlike ordinary lists that only have hooks into the head
+	  of the list (think car, cdr), a doubly linked list has
+	  hooks into both the head and the tail of the list.  this
+	  means you can operate on both ends of a doubly linked
+	  list.  you can also traverse a dllist in both
+	  directions, tail-wards and head-wards.  ordinary lists
+	  only allow for tail-wards traversal.
+	
+
+
+skip lists
+
+	  sxemacs has a basic implementation of pugh's skip
+	  lists.  their efficiency is overwhelming when compared
+	  to alists or plists.  they also perform better on
+	  insertion and removal than large hash-tables (due to
+	  the resizing/rehashing which takes place).  they can
+	  be created almost as fast as lisp lists and thus beat
+	  hash-tables there, too.
+	
+
+
+bloom filters
+
+	  bloom filters are a hash-table like data structure with
+	  the purpose of performing membership tests.  unlike
+	  hash-tables bloom filters do not need to be resized
+	  despite the fact that they can carry an arbitrarily
+	  large number of objects.
+	
+
+
+recursive directory traversal
+
+	  sxemacs has a recursive implementation of
+	  directory-files called
+	  directory-files-recur.  it is incredibly
+	  fast.  sometimes even faster than gnu find(1).
+	
+
+
+support for 256 colors in xterm and compatible terminals
+
+
+	  sxemacs is now capable of properly using the
+	  termcap and terminfo
+	  capabilities to support more than the ansi standard 8
+	  colors.
+
+	  in addition, sxemacs will gracefully approximate the
+	  colors on the face specifications to match the terminal,
+	  so you can share your graphics and text terminal color
+	  definitions and still have pretty syntax highlighting.
+	
+
+
+why i use sxemacs
+    here are a few random reasons why some folks use sxemacs.  if
+    you want to add to this list, just drop us a line on the
+    mailing list.
+    
+  - i love the comfort of having the full power of my editor behind me
+    while i'm irc'ing, icq'ing, mail, and news reading.
+
+  - keyboard macros would have to be right up there in the list.
+    being able to define a quick keyboard macro to complete repetative
+    tasks is sweet.
+
+  - bookmarks.  i often find myself reading through a whole bunch of
+    documents at the same time (howtos, readmes etc), i can save where
+    i am in each doc and easily come back to the same spot in the
+    future. 
+
+  - i just love the whole "swiss-army-knife-ed-ness" of it all.  i
+    mean, c'mon, if it can't be done in sxemacs, is it worth doing?
+
+  - sxemacs' extensibility.  being able to make sxemacs do things it
+    can't do out of the box is its greatest benefit.
+    
+where we might be going
+    i really don't like making promises, so you'll just have to
+    wait and see. :-)  ok, ok, i'll throw you a bone. here are a
+    couple of hints…
+    
+multi-gui support
+parallelised lisp engine
+embeddable video streams
+buffers embedded in buffers
+built-in lexical scoping at c level
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+copyright © 2004 - 2020 steve youngs
+      verbatim copying and distribution is permitted in any medium,
+      providing this notice is preserved.
+      
+      last modified: wednesday, september  2, 2020 15:55:51 utc -0700
+    
+
+
+
+

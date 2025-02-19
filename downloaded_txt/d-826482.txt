@@ -1,0 +1,226 @@
+
+
+
+
+
+
+
+amarok | rediscover your music!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skip to main content
+
+
+
+
+
+
+
+amarok rediscover your music!            
+
+main menudownload
+discover
+screenshots
+videos
+support
+team
+ secondary menucontributor blogs
+insider
+wiki
+contribute
+calendar
+  
+
+
+
+languages
+
+ç®ä½ä¸­æ
+polski
+franã§ais
+deutsch
+espaã±ol
+english
+ 
+
+
+
+
+ 
+
+
+
+
+amarok is a powerful music player for linux, unix and windows with an intuitive interface. it makes playing the music you love and discovering new music easier than ever before - and it looks good doing it!
+
+
+
+
+ 
+  
+
+
+
+
+amarok 3.2 "punkadiddle" released!
+december 29, 2024 - 21:21 â tuomas
+
+
+view the full release announcement at
+amarok blog on blogs.kde.org
+
+
+
+
+
+amarok 3.1 "tricks of the light" released!
+august 2, 2024 - 23:23 â tuomas
+
+
+view the full release announcement at
+amarok blog on blogs.kde.org
+
+
+
+
+
+amarok 3.0 "castaway" released!
+april 29, 2024 - 23:23 â tuomas
+
+we are there!
+view the full release announcement at
+amarok blog on blogs.kde.org
+
+
+
+
+
+amarok 2.9.82 beta out now!
+april 14, 2024 - 16:23 â tuomas
+
+we are getting there...
+this is the next step towards a proper kf5 based release. although there have been some functionalities lost during porting or due to changes in external network services, it should work quite well in general.
+
+changelog for 2.9.71 â 2.9.82
+depending on reactions and amount of bugs reported, another beta or the final 3.0 will be released probably about 3 weeks from now.
+
+3.0 is/will be kf5-based. after possibly some 3.0.x bugfix releases, an effort
+will be made to port to qt6/kf6, and hopefully have such version available in
+this year still.
+
+
+
+
+
+
+amarok 2.9.71 alpha out now!
+february 3, 2021 - 16:23 â mamarok
+
+a new year, a new amarok release ... yes!
+you read correctly, after a long hiatus and all developers busy with their real life, the qt5 port had to wait. but finally, thanks to the dedicated work of a few hardy developers like pedro and heiko, we are proud to present the technical preview or the next amarok: amarok 2.9.71 aka amarok 3.0 alpha.
+some important notes about this release:
+
+language 
+ undefined
+
+
+
+read more about amarok 2.9.71 alpha out now!
+
+
+
+
+amarok 2.9.0 "hibernaculum" released
+march 7, 2018 - 19:24 â markey
+
+as it may be customary for the upcoming season the amarok team did some spring cleaning and is proud to announce the immediate release of amarok 2.9.0. while we realize that the clock has run out on kdelibs 4 and qt 4, we wanted to bring 20+ bug fixes from 18 contributors to our users before the next major release will harness all the shiny new things provided by qt 5 and kde frameworks 5. in fact, the port is already progressing nicely in the git 'kf5' branch, which is soon to become the new âmasterâ branch. we welcome everybody willing to help out to check out the source code and improve the next major version of amarok!
+list of important changes since 2.8.90:
+- fixed "open last-fm webpage" of similar artist (https://bugs.kde.org/show_bug.cgi?id=354849)
+- vfat-safe file and directory names cannot end with dot (https://bugs.kde.org/show_bug.cgi?id=388465)
+- fixed transcoding to aac format by switching to the latest 'aac' ffmpeg encoder (https://bugs.kde.org/show_bug.cgi?id=374670)
+- fix crash during musicbrainz search (https://bugs.kde.org/show_bug.cgi?id=328359)
+- fix gpodder credential service without kwallet (https://git.reviewboard.kde.org/r/122797/)
+- fix bug 302299 - autoscrolling lyrics are scrolling down if a song is rated via context browser's current track (https://bugs.kde.org/show_bug.cgi?id=302299)
+- fix collection browser auto-expand after search expanding too little (https://bugs.kde.org/show_bug.cgi?id=335217)
+- fix mpris2 desktopentry value (https://bugs.kde.org/show_bug.cgi?id=365275)
+- organize tracks / guess tags presets persisted properly (https://bugs.kde.org/show_bug.cgi?id=226144)
+- use transparent background for lyrics browser (https://bugs.kde.org/show_bug.cgi?id=314854)
+- handle numeric fields properly in filter creation dialogs (https://bugs.kde.org/show_bug.cgi?id=341661)
+- substitute deprecated mysql option --myisam-recover (https://bugs.kde.org/show_bug.cgi?id=354255)
+- disable non ssl connections in wikipedia applet (https://bugs.kde.org/show_bug.cgi?id=348313)
+- fix build with gcc6 (https://bugs.kde.org/show_bug.cgi?id=363054)
+- fix untranslatable string in organize collection dialog (https://bugs.kde.org/show_bug.cgi?id=331443)
+- fix for the infinite loop in case a home-burned or old audio cd is inserted (https://bugs.kde.org/show_bug.cgi?id=339190)
+- fix tabs applet and change it to use https (https://bugs.kde.org/show_bug.cgi?id=358408)
+- fix taglib version check (https://bugs.kde.org/show_bug.cgi?id=351013)
+- fix amarok build with libofa using ffmpeg 3+ (https://git.reviewboard.kde.org/r/129626)
+- make qt4webkit optional (https://phabricator.kde.org/d10923)
+list of changes since 2.8.0: https://amarok.kde.org/en/node/887
+
+language 
+ undefined
+
+
+
+read more about amarok 2.9.0 "hibernaculum" released
+
+
+
+
+amarok 2.9 beta release
+august 16, 2015 - 08:20 â the amarok team
+
+the amarok team is proud to announce the immediate availability of the result of 2 years of hard work, the beta release of amarok 2.9. this release is marked by improvements, corrections and polishing of nearly all amarok features. everybody is encouraged to test this beta release thoroughly so that we can release rock-solid amarok 2.9 final. while this version has been thoroughly tested on our systems, we welcome additional tests by our users, as we simply can't cover all possible use-cases. 
+
+we still have two blocker bugs, a major one which sends amarok into a loop:  kde bug 339190 in amarok (collections/cd) "amarok falls into endless loop if certain audiocds are inserted  and a regression:  kde bug 349313 in amarok (context view/wikipedia) "wikipedia redirects not handled correctly when ssl is disabled for the widget." we welcome help fixing these bugs so we can do a 2.9 release. this will be the last qt4/kde4.x based release, as new work porting amarok to qt5 and plasma5 is waiting in the wings!
+
+some of the reworked areas that that you should try out and test:
+a new collection version, make sure to not interrupt an eventual rescan
+new statistics synchronization between amarok collections and amarok 1.4, amarok 2.x, clementine, banshee, rythmbox and apple itunes
+new ascii analyzer option in the analyzer widget
+and many more. plus, multiple bugfixes! the complete changelog can be found in the source code here: changelog.
+
+language 
+ undefined
+
+
+
+read more about amarok 2.9 beta release
+27 comments
+
+
+
+pages1
+2
+3
+4
+5
+6
+7
+8
+9
+â¦
+next âº
+last â»
+ 
+
+
+
+  
+ 
+ 
+
+

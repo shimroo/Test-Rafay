@@ -1,0 +1,438 @@
+
+
+
+
+
+
+
+
+
+html tips and tricks
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+    
+	html tips and tricks
+	
+  
+
+ 
+
+
+thursday, february 02, 2006
+
+
+
+
+	 
+	 images clickable in different areas
+	 
+    
+
+before, looking at these html tips and tricks, be sure to know the tips on links and images.look at the following:it's one image (the google logo). however, try clicking on different parts of the image. it leads you to different web pages. the code below made the html tip:<img src="http://www.google.com/images/logo.gif"usemap=#googleimagemap><map name=googleimagemap><area shape=rect coords=0,0,68,109 href="http://en.wikipedia.org/wiki/g"><area shape=rect coords=68,0,161,109 href="http://en.wikipedia.org/wiki/o"><area shape=rect coords=161,0,201,109 href="http://en.wikipedia.org/wiki/g"><area shape=rect coords=201,0,227,109 href="http://en.wikipedia.org/wiki/l"><area shape=rect coords=227,0,275,109 href="http://en.wikipedia.org/wiki/e"></map>the first line inserts an image, called logo.gif. usemap=#googleimagemap calls the clickable areas googleimagemap. you can change the name googleimagemap to any other name you want, like googleletters. then, you have the 'image map':<map name=googleimagemap><area shape=rect coords=0,0,68,109 href="http://en.wikipedia.org/wiki/g"><area shape=rect coords=68,0,161,109 href="http://en.wikipedia.org/wiki/o"><area shape=rect coords=161,0,201,109 href="http://en.wikipedia.org/wiki/g"><area shape=rect coords=201,0,227,109 href="http://en.wikipedia.org/wiki/l"><area shape=rect coords=227,0,275,109 href="http://en.wikipedia.org/wiki/e"></map>make sure you change googleimagemap to the name of your image map. the italicized numbers stand for the right, top, left and bottom edges of each clickable rectangle area. the e letter, for example, has 227 as the right edge, 0 as the top edge, 275 as the left edge and 109 as the bottom edge. to find the coordinates of a clickable rectangle in any picture, you can copy and paste the picture into paint. (see note below to find out how to find out the numbers.) the href="http://..." tells which web page the viewer will go to when he/she clicks on the rectangle.try clicking everywhere around the e. you will see that in the rectangle defined by the coordinates 227,0,275,109 goes to http://en.wikipedia.org/wiki/e.remember, you can add and delete areas in order to add or remove clickable rectangles:<img src="http://www.google.com/images/logo.gif"usemap=#secondgoogleimagemap><map name=secondgoogleimagemap><area shape=rect coords=0,0,68,109 href="http://en.wikipedia.org/wiki/g"><area shape=rect coords=201,0,275,109 href="http://en.wikipedia.org/wiki/le"></map>above i have removed the rectangles for o,g,l,e but added a rectangle for le. here is the result:these tips and tricks can add a few touches of proffesionalism to the pictures on your web page! remember to check out a few other tips in this web site!note: to find out the numbers next to coords that define a rectangle, copy and paste the image into paint. move your mouse across the image and look at the bottom left corner of paint. you will see two numbers (for example, 47,56). 47 shows how far left your mouse is, and 56 shows how for down your mouse is. to find out the first two numbers you need to put next to coords=, move your mouse to the upper left of the rectangle you want, then look at the two numbers at the corner. to find out the last two numbers, move your mouse to the lower right of the rectangle, then look at the two numbers at the corner.
+
+posted by nilsmo at 
+      6:53 pm 
+       |
+         154 comments
+
+
+
+
+
+tuesday, may 17, 2005
+
+
+
+
+	 
+	 build a web page
+	 
+    
+
+this tip will tell you exactly how to code your own html website.first, remember that most tags must be eventually closed. the syntax would be: <tag> content </tag>.open a text editor such as notepad, or the html editor for your hosting service.the first tag in your website should be <html>, which starts the html site.immediately after this should come the <head> tag.so far, you should have the following:<html><head>the next step is to enter the title of your website.  this is what shows up in the title bar of the internet browser.  put the title between the <title> and </title>.  then, end the head with </head>.  you will end up with:<html><head><title>title</title></head>other data to put into the head includes metadata and stylesheet data.the next step is to add the body of your website.  this is where all the important stuff goes.  start out the body with the <body> tag.  in a basic website, all the real content goes in the body.the most basic way to write the body is to simply write a heading, then type.within the body, start off by writing the first heading.  this should be big, so the <h1> tag should do the trick.  after that, simply write the text of the site. remember the syntax for making links: <a href="http://www.linktarget.com">link</a>and for making images: <img src="http://imagesite.com/image.jpg"> .remember, most html tips can be simply inserted into the body and used immediately.finish off the body with </body>, and the body is done.the code with the body included should look like:<html><head><title>title</title></head><body><h1>the site</h1>blablabla<a href="http://www.linktarget.com">link</a>image:<img src="http://imagesite.com/image.jpg"></body>remember, you still have 1 more tag to close: the <html> tag.  close it with </html>, and your website is complete.  the final code:<html><head><title>title</title></head><body><h1>the site</h1>blablabla<a href="http://www.linktarget.com">link</a>image:<img src="http://imagesite.com/image.jpg"></body></html>if you want to see what that code looks like in a real web browser, go to this page, which uses the exact html code above:test siteyour basic website is complete!  for more advice on tables, frames, text formatting, javascript, etc., look at the rest of the tips on this site.  almost all of them can simply be inserted in the body.  now you know how to make your website from html!also, if you are using blogger, you can go to the "template" section of the dashboard, and edit the template, which is raw html.  be careful not to change too much stuff.  the beginning data is stylesheet data, so don't mess around unless you know what you're doing.  however, you can find the sidebar, and mess around with that quite freely.you can always use a program like frontpage or dreamweaver, but raw coding is always the best way to make your website exactly like you want it!
+
+posted by gl at 
+      3:37 am 
+       |
+         50 comments
+
+
+
+
+
+sunday, may 15, 2005
+
+
+
+
+	 
+	 links and images basics
+	 
+    
+
+these tips and tricks will teach you how to put a link or an image into an html page.to put a link, use the following code:<a href="http://google.com">google</a>the result is as follows:googlemake sure you change "http://google.com" to the address of the site that you want to link to and that you change "google" to the text that you want users to see.to put an image into your web page, use the following code:<img src="http://www.google.com/intl/en/images/logo.gif">the result of that code is as follows:make sure that you change "http://www.google.com/intl/en/images/logo.gif" to the address of the image you want to display.so those are two basic html tips!
+
+posted by nilsmo at 
+      7:19 pm 
+       |
+         19 comments
+
+
+
+
+
+
+
+
+
+	 
+	 new line tips
+	 
+    
+
+sometimes you want there to be a large number of empty lines.if you do, you will have to use <br>simply insert <br> wherever you want there to be a new line.for example, if you want 5 lines to be skipped, use this html code:<br><br><br><br><br>it will create this:you can put the br tag nearly anywhere in your html document. make sure that it is in the body, however.
+
+posted by nilsmo at 
+      1:39 pm 
+       |
+         19 comments
+
+
+
+
+
+
+
+
+
+	 
+	 tips on headings
+	 
+    
+
+these html tips and tricks will show you different types of headings.look at the following html code:<h2>heading 2</h2>it creates this heading:heading 2now looking at this html code:<h3>heading 3</h3>it now creates this slightly smaller heading:heading 3the 2 and 3 in h2 and h3 can be changed to any number between 1 and 6 to make different sorts of headings.here is an example of some code that uses headings:<h4>heading 4</h4>heading 4 is the fourth most important heading.<h5>heading 5</h5>heading 5 is the fifth most important heading.the code results in the following:heading 4heading 4 is the fourth most important heading.heading 5heading 5 is the fifth most important heading.related tip:tips for formatting text
+
+posted by nilsmo at 
+      1:15 pm 
+       |
+         9 comments
+
+
+
+
+
+
+
+
+
+	 
+	 fun tips and tricks
+	 
+    
+
+these html tips and tricks will show you some rarely-used html tags.all these tags will show the exact same primitive-looking text:<code><kbd><tt><samp>for example, look at the following code:<kbd>text style that can be used to show programming code or basic, boring texts</kbd>that code will create this:text style that can be used to show programming code or basic, boring texts
+
+posted by nilsmo at 
+      1:05 pm 
+       |
+         3 comments
+
+
+
+
+
+saturday, may 14, 2005
+
+
+
+
+	 
+	 pre-formatted text
+	 
+    
+
+these tips and tricks will allow you to have greater control over text.to preformat text, you will need to look at the following html:<pre>      this text is           preformatted</pre>it will display the following:      this text is           preformattedif you simply were to remove the <pre> tag, like this:      this text is           preformattedthen this text would be displayed:      this text is           preformattedhere is another example of the uses of preformatting text.
+
+posted by nilsmo at 
+      5:51 pm 
+       |
+         5 comments
+
+
+
+
+
+friday, may 13, 2005
+
+
+
+
+	 
+	 javascript: rollover buttons
+	 
+    
+
+these javascript tips and tricks will teach you how to make image links that change as you put your mouse over them. it is simple.first, you need two images. one will be the image when the link is not being touched, the other image is when the link has been activitated.in this case, i am using these two images:second, you need to put this code in between the <head> and the </head> on the page that the rollover link is going to be on:<script language="javascript"><!--image1= new image( );image1.src="http://www.blogblog.com/tictac/tictac_orange.gif";image2= new image ();image2.src="http://www.blogblog.com/tictac/tictac_green.gif";//--></script>make sure that you change the two urls (in italics). the first one is to the image of when the link is not activitated, and the second is to the image when the link is touched.finally, you insert this html code in the main part of your web page, and you you will get a rollover button that links to another site.<a href="http://htmltips.blogspot.com.html" onmouseover="mybutton.src='http://www.blogblog.com/tictac/tictac_orange.gif';" onmouseout="mybutton.src='http://www.blogblog.com/tictac/tictac_green.gif;"> <img src="http://www.blogblog.com/tictac/tictac_green.gif" name="mybutton"></a>as usual, make sure that you change the code in italics to match your needs.the result of these three steps is as follows: 
+
+posted by nilsmo at 
+      9:05 pm 
+       |
+         7 comments
+
+
+
+
+
+
+
+
+
+	 
+	 javascript: password tips
+	 
+    
+
+if you want a page to be password protected, look at these html tips and tricks.the first step is to find a web page that is password protected.mine is: http://htmlpassprotect.blogspot.com/the second step is to find a web page that will be gone to if the visitor types in the wrong password.i chose: http://htmltips.blogspot.com/it may be better, however, to make a page that will say, for example, "your password is incorrect. click here to try again. click here to go back."the third step is to insert the following code in between <head> and </head> on your password protected page:<script language="javascript"><!--hidevar password;var pass1="cool";password=prompt('please enter your password to view this page!',' ');if (password==pass1)  alert('password correct! click ok to enter!');else   {    window.location="http://htmltips.blogspot.com";    }//--></script>the four messages in italics show:-the password-the prompt that asks the visitor to type in the password -the message that is displayed if a user types in the password correctly-the address that the visitor goes to if they typed in the wrong password (this should probably be the site that you made in the second step)those four messages may be changed if you desire.to make a link to the password protected page, simply use the <a> tag:<a href="http://addressofthesitethatispasswordprotected.com>click here to go to the password protected site</a>that is what i have done here:click here to go to the password protected sitenote: cool is the password for my password protected site.finally, to make multiple passwords possible, you will have to look at the original javascript which is on the password protected page:<script language="javascript"><!--hidevar password;var pass1="cool";password=prompt('please enter your password to view this page!',' ');if (password==pass1)  alert('password correct! click ok to enter!');else   {    window.location="http://htmltips.blogspot.com";    }//--></script>first, you will need to look at first text in italics.var pass1="cool";change this to:var pass1="cool";var pass2="cool2";var pass3="cool3";...and then new passwords will be declared.make sure you change cool, cool2, and cool3 for your own passwords.finally, you need to look at the second text in italics:password==pass1that will need to be changed to, in this case:password==pass1||pass2||pass3that javascript literally says:"if the password that the user entered is the same as password 1 or password 2 or password 3, then follow the instructions below"if you were to make these changes to the password page, then the password page would accept cool2 and cool3 as a password also, in addition to cool.to add more than 3 passwords, just add more of these:var pass4="password"...and make sure to change pass4 to another name each time you add it again to the code.adn edit the:password==pass1to include all your password names. (seperate the password names by ||) (the password name in var pas10="cool10" is pas10)
+
+posted by nilsmo at 
+      3:04 pm 
+       |
+         43 comments
+
+
+
+
+
+thursday, may 12, 2005
+
+
+
+
+	 
+	 mouseover hyperlinks tips
+	 
+    
+
+if you want to make your site fancy, these tips are for you!the tips and tricks in this post allow two different types of mouseover links.the first is one that will act as if visitors have clicked the link when they have simply put their mouse on top of it.for example, look at the following link:look at this site!it was made with this code:<a href=" "onmouseover="parent.location='http://google.com'"> look at this site!</a>copy and paste the code into your html code and the change the text in italics and you are done!the second mouseover link tip is one that will show a pop-up window when a visitor puts his or her mouse on the link.look at this link:i like web pagesit was made with slightly different code than the previous tip. look at the html:<a href="" onmouseover="alert('that answer is correct')">i like web pages</a>copy and paste that code into your web page's html code and remember to change the text in italics.related tips:describe your linksdescribe your links another waythe nice mailto tricklinking to other parts of the same webpage
+
+posted by nilsmo at 
+      8:23 pm 
+       |
+         7 comments
+
+
+
+
+
+
+
+
+
+	 
+	 blockquote tips
+	 
+    
+
+blockquote makes a small text box that is indented, as in a quote.this text is a little to the right because of the blockquote tag. to learn how to make a blockquote like this one, continue reading html tips and tricks.to make a blockquote, simply copy and paste the following html code:<blockquote>text text text</blockquote>finally, change the "text text text" message to suit your needs.result:text text textrelated tips:align text and imagestips for formatting textnote from geoffrey: the "correct" use of the blockquote is to quote someone.  for example:geoffrey said this:"although you can use this tag simply to indent text, it is better if you use it to quote. that is why it is called the "blockquote" tag."as you can see, the tag is handy to quote people or websites.
+
+posted by nilsmo at 
+      4:37 pm 
+       |
+         6 comments
+
+
+
+
+
+wednesday, may 11, 2005
+
+
+
+
+	 
+	 bullets and lists
+	 
+    
+
+these html tips and tricks will help you put bullets and lists on your blog.let's start with simple bullets.for this html tip, look at this bullet:this is next to a bulletit was made with this simple html code:<li>this is next to a bullet</li>insert the above code to your web page,and then change the message to suit you needs....and now let's end with more advanced tips, concerning lists.to make numbered bullets,like theseonesuse this html code instead:<ol><li>like these</li><li>ones</li></ol>note that the <ol> is only put at the extremes of the list.there are also some tips and tricks that will allow different types of bullets:lower case roman numeralshtml code:<ol type="i"><li>lower case roman numerals</li></ol>upper case roman numeralshtml code:<ol type="i"><li>upper case roman numerals</li></ol>lower case alphabethtml code:<ol type="a"><li>lower case alphabet</li></ol>upper case alphabethtml code:<ol type="a"><li>upper case alphabet</li></ol>finally, text inside these bullets can be formatted with this tip.
+
+posted by nilsmo at 
+      5:07 pm 
+       |
+         207 comments
+
+
+
+
+
+
+
+
+
+
+
+
+センメ
+basic html tips and tricks
+build
+a web page
+new
+line tips
+
+have a
+title
+text tips
+tips
+for formatting text
+more
+control over text formatting
+new
+line tips
+
+tips
+on headings
+blockquotes
+bullets
+and lists
+justify
+text
+align
+text/images
+have
+text highlighted
+having
+columns like in a newspaper
+link tips
+make
+a
+link
+linking
+to other parts of the same webpage
+the
+nice mailto tricks
+mouseover
+hyperlink tips
+making
+an image a link
+describe
+your links
+describe
+your links another way
+javascript:
+back/forward links
+button tips
+having
+a button on your site
+javascript:
+rollover buttons
+image tips
+insert
+an image
+aligning
+images
+basic
+images tips
+making
+an image a link
+alternative
+text for images
+resizing
+images
+images
+clickable in different areas
+style tips
+marquees:
+scrolling banners
+weird
+tips for marquees
+background
+sound: internet explorer
+background
+color
+put
+in a tiled background
+page
+fading: internet explorer
+introduction
+to stylesheets
+advanced html tips and tricks
+how
+to create a basic form
+create
+more advanced forms
+create
+a table
+more
+advanced tables
+javascript:
+password tips
+javascript:
+print this page
+javascript:
+dialog boxes
+internet tricks
+prevent
+browsers from caching
+protection
+from spam robots
+how
+to show html to people
+make
+this your homepage: internet explorer
+open
+a page in a new window
+javascript:
+back/forward links
+automatically
+redirect visitors
+html tips and tricks
+html
+requests
+
+problems
+w/ tips and tricks
+
+
+
+home
+
+links
+
+my friend's comics
+search
+
+best general forums
+
+
+
+
+
+if you do not have a website, i suggest you go to www.blogger.com, and get a blog. then this web page can turn into your treasure chest.
+
+
+
+about html tips and tricks
+you will be able to add tons of features to your website with these useful and stylish html tips and tricks, presented to you by the award winning site htmltips.blogspot.com. you can even use these as myspace tips and tricks.
+
+disclaimer: html tips is not responsible for any damage caused by following the tips on this site.
+
+
+ 
+
+
+ 
+
+
+
+

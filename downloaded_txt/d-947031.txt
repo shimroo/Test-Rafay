@@ -1,0 +1,157 @@
+
+
+
+
+
+no free lunch theorems
+
+
+
+
+
+
+no free lunch theorems
+
+broadly speaking, there are two no free lunch theorems.  one for supervised machine learning (wolpert 1996) and one for search/optimization (wolpert and macready 1997).  for an overview of the (no) free lunch and associated theorems, see david wolpert’s what does dinner cost?
+
+
+no free lunch for supervised machine learning
+
+hume (1739–1740) pointed out that ‘even after the observation of the frequent or constant conjunction of objects, we have no reason to draw any inference concerning any object beyond those of which we have had experience’. more recently, and with increasing rigour, mitchell (1980), schaffer (1994) and wolpert (1996) showed that bias-free learning is futile.
+
+
+wolpert (1996) shows that in a noise-free scenario where the loss function is the misclassification rate, if one is interested in off-training-set error, then there are no a priori distinctions between learning algorithms.
+
+
+more formally, where
+d = training set;
+m = number of elements in training set;
+f = ‘target’ input-output relationships;
+h = hypothesis (the algorithm's guess for f made in response to d); and
+c = off-training-set ‘loss’ associated with f and h (‘generalization error’)
+all algorithms are equivalent, on average, by any of the following measures of risk: e(c|d), e(c|m), e(c|f,d), or e(c|f,m).
+
+how well you do is determined by how ‘aligned’ your learning algorithm p(h|d) is with the actual posterior, p(f|d).
+
+
+wolpert's result, in essence, formalizes hume, extends him and calls the whole of science into question.
+
+
+
+no free lunch for search/optimization
+
+the no free lunch theorem for search and optimization (wolpert and macready 1997) applies to finite spaces and algorithms that do not resample points.  all algorithms that search for an extremum of a cost function perform exactly the same when averaged over all possible cost functions.  so, for any search/optimization algorithm, any elevated performance over one class of problems is exactly paid for in performance over another class.
+
+
+free lunches
+
+second moments and higher of algorithms' generalization error
+coevolution (wolpert and macready 2005)
+confidence intervals can give a priori distinctions between algorithms
+
+
+quotes
+
+"we show that all algorithms that search for an extremum of a cost function perform exactly the same, when averaged over all possible cost functions. in particular, if algorithm a outperforms algorithm b on some cost functions, then loosely speaking there must exist exactly as many other functions where b outperforms a. starting from this we analyze a number of the other a priori characteristics of the search problem, like its geometry and its information-theoretic aspects. this analysis allows us to derive mathematical benchmarks for assessing a particular search algorithm's performance. we also investigate minimax aspects of the search problem, the validity of using characteristics of a partial search over a cost function to predict future behavior of the search algorithm on that cost function, and time-varying cost functions. we conclude with some discussion of the justifiability of biologically-inspired search methods."
+wolpert and macready (1995)
+
+
+"an algorithmicist looks at no free lunch."
+culberson (1996)
+
+
+'the "no free lunch" theorems (wolpert and macready) have sparked heated debate in the computational learning community.  a recent communication, (zhu and rohwer, 1996) attempts to demonstrate the ine
+fficiency of cross-validation on a simple problem.  we elaborate on this result by considering a broader class of cross-validation.  we show that when used more strictly, cross-validation can yield the expected results on simple examples.'
+goutte (1997)
+
+
+"a framework is developed to explore the connection between effective optimization algorithms and the problems they are solving. a number of "no free lunch" (nfl) theorems are presented that establish that for any algorithm, any elevated performance over one class of problems is exactly paid for in performance over another class. these theorems result in a geometric interpretation of what it means for an algorithm to be well suited to an optimization problem. applications of the nfl theorems to information theoretic aspects of optimization and benchmark measures of performance are also presented. other issues addressed are time-varying optimization problems and a priori "head-to-head" minimax distinctions between optimization algorithms, distinctions that can obtain despite the nfl theorems' enforcing of a type of uniformity over all algorithms."
+wolpert and macready (1997)
+
+
+"here different scenarios of optimization are presented. it is argued why the scenario on which the no free lunch theorem is based does not model real life optimization. for more realistic scenarios it is argued why optimization techniques differ in their efficiency. for a small example this claim is proved."
+droste, jansen and wegener (1998)
+
+
+"we show that with a uniform prior on models having the same training error, early stopping at some fixed training error above the training error minimum results in an increase in the expected generalization error."
+cataltepe, abu-mostafa and magdon-ismail (1999)
+
+
+the problem with the no-free-lunch theorems in machine learning is that they are rather complicated and difficult to follow because they are proven under the most general conditions possible (wolpert 1992, 1995, 1996). the purpose of this note is to present the idea behind them in a very simple example.
+forster (1999)
+
+
+"no free lunch theorems have shown that learning algorithms cannot be universally good. we show that no free lunch exists for noise prediction as well. we show that when the noise is additive and the prior over target functions is "uniform", a prior on the noise distribution cannot be updated, in the bayesian sense, from any finite data set. we emphasize the importance of a prior over the target function in order to justify superior performance for learning systems."
+magdon-ismail (2000)
+
+
+'this letter discusses the recent paper "some technical remarks on the proof of the 'no free lunch' theorem".  in that paper some technical issues related to the formal proof of the "no free lunch" (nfl) theorem for search [2], [3] were given. as a result of a discussion among the authors, this letter explores the issues raised in that paper more thoroughly. this includes the presentation of a simpler version of the nfl proof, in accord with a suggestion made explicitly in [1] and implicitly in [3].  it also includes the correction of an incorrect claim made in [1] of a limitation of the nfl theorem. finally, some thoughts on future research directions for research into algorithm performance are given.'
+köppen, wolpert and macready (2001)
+
+
+"wolpert proved nfl assuming uniform problem distributions
+- for learning in 1992 and 1994
+- for optimization in 1995 (with macready)"
+english (2001)
+
+
+"it is seen that no free lunch results are independent from whether or not the set of functions over which a no free lunch result holds is compressible."
+schumacher, vose and whitley (2001)
+
+
+"the no free lunch theorem has had considerable impact in the field of optimization research. a terse definition of this theorem is that no algorithm can outperform any other algorithm when performance is amortized over all functions. once that theorem has been proven, the next logical step is to characterize how effective optimization can be under reasonable restrictions. we operationally define a technique for approaching the question of what makes a function searchable in practice. this technique involves defining a scalar field over the space of all functions that enables one to make decisive claims concerning the performance of an associated algorithm. we then demonstrate the effectiveness of this technique by giving such a field and a corresponding algorithm; the algorithm performs better than random search for small values of this field. we then show that this algorithm will be effective over many, perhaps most functions of interest to optimization researchers. we conclude with a discussion about how such regularities are exploited in many popular optimization algorithms."
+christensen and oppacher (2001)
+
+
+"in a recent paper [3] it was shown that no free lunch results [5] hold for any subset f of the set of all possible functions from a finite set x to a finite set y iff f is closed under permutation of x. in this article, we prove that the number of those subsets can be neglected compared to the overall number of possible subsets. further, we present some arguments why problem classes relevant in practice are not likely to be closed under permutation."
+igel and toussaint (2001)
+
+
+"an almost no free lunch (anfl) theorem shows that for each function which can be optimized efficiently by a search heuristic there can be constructed many related functions where the same heuristic is bad. as a consequence, search heuristics use some idea how to look for good points and can be successful only for functions “giving the right hints”.'
+droste, jansen and wegener (2002)
+
+
+"the classic nfl theorems are invariably cast in terms of single objective optimization problems. we confirm that the classic nfl theorem holds for general multiobjective fitness spaces, and show how this follows from a ‘single-objective’ nfl theorem. we also show that, given any particular pareto front, an nfl theorem holds for the set of all multiobjective problems which have that pareto front. it follows that, given any ‘shape’ or class of pareto fronts, an nfl theorem holds for the set of all multiobjective problems in that class. these findings have salience in test function design. such nfl results are cast in the typical context of absolute performance, assuming a performance metric which returns a value based on the result produced by a single algorithm. but, in multiobjective search we commonly use comparative metrics, which return performance measures based non-trivially on the results from two (or more) algorithms. closely related to but extending the observations in the seminal nfl work concerning minimax distinctions between algorithms, we provide a ‘free leftovers’ theorem for comparative performance of algorithms over permutation functions; in words: over the space of permutation problems, every algorithm has some companion algorithm(s) which it outperforms, according to a certain well-behaved metric, when comparative performance is summed over all problems in the space."
+corne and knowles (2003)
+
+
+"the no-free-lunch (nfl) theorems hold for general multiobjective fitness spaces, in the sense that, over a space of problems which is closed under permutation, any two algorithms will produce the same set of multiobjective samples. however, there are salient ways in which nfl does not generally hold in multiobjective optimization. previously we have shown that a ‘free lunch’ can arise when comparative metrics (rather than absolute metrics) are used for performance measurement. here we show that nfl does not generally apply in multiobjective optimization when absolute performance metrics are used. this is because multiobjective optimizers usually combine a generator with an archiver. the generator corresponds to the ‘algorithm’ in the nfl sense, but the archiver filters the sample generated by the algorithm in a way that undermines the nfl assumptions. essentially, if two multiobjective approaches have different archivers, their average performance may differ. we prove this, and hence show that we can say, without qualification, that some multiobjective approaches are better than others."
+corne and knowles (2003)
+
+
+"the sharpened no-free-lunch-theorem (nfl-theorem) states that the performance of all optimization algorithms averaged over any finite set f of functions is equal if and only if f is closed under permutation (c.u.p.) and each target function in f is equally likely. in this paper, we first summarize some consequences of this theorem, which have been proven recently: the average number of evaluations needed to find a desirable (e.g., optimal) solution can be calculated; the number of subsets c.u.p. can be neglected compared to the overall number of possible subsets; and problem classes relevant in practice are not likely to be c.u.p. second, as the main result, the nfl-theorem is extended. necessary and sufficient conditions for nfl-results to hold are given for arbitrary, non-uniform distributions of target functions. this yields the most general nfl-theorem for optimization presented so far."
+igel and toussaint (2003)
+
+
+"genetic algorithms (gas) and genetic programming (gp) are often considered as seperate but related fields. typically, gas use a fixed length linear representation, whereas gp uses a variable size tree representation. this paper argues that the differences are unimportant. firstly, variable length actually means variable length up to some fixed limit, so can really be considered as fixed length. secondly, the representations and genetic operators of ga and gp appear different, however ultimately it is a population of bit strings in the computers memory which is being manipulated whether it is ga or gp which is being run on the computer.
+the important difference lies in the interpretation of the representation; if there is a one to one mapping between the description of an object and the object itself (as is the case with the representation of numbers), or a many to one mapping (as is the case with the representation of programs). this has ramifications for the validity of the no free lunch theorem, which is valid in the first case but not in the second. it is argued that due to the highly related nature of gas and gp, that many of the empirical results discovered in one field will apply to the other field, for example maintaining high diversity in a population to improve performance."
+woodward (2003)
+
+
+"this paper has three aims. firstly, to clarify the poorly understood no free lunch theorem (nfl) which states all search algorithms perform equally.  secondly, search algorithms are often applied to program induction and it is suggested that nfl does not hold due to the universal nature of the mapping between program space and functionality space. finally, nfl and combinatorial problems are examined.  when evaluating a candidate solution, it can be discarded without being fully examined. a stronger version of nfl is established for this class of problems where the goal is to minimize a quantity."
+woodward and neil (2003)
+
+
+google scholar
+
+http://scholar.google.com/scholar?q="no+free+lunch"+wolpert"
+
+bibliography
+
+wolpert, david h., 1996. the lack of a priori distinctions between learning algorithms. neural computation, 8(7), 1341–1390.
+wolpert, david h., 2001. the supervised learning no-free-lunch theorems. in: proceedings of the 6th online world conference on soft computing in industrial applications.
+wolpert, david h., and william g. macready, 1995. no free lunch theorems for search. technical report sfi-tr-95-02-010. sante fe, nm, usa: santa fe institute.
+wolpert, david h., and william g. macready, 1997. no free lunch theorems for optimization. ieee transactions on evolutionary computation, 1(1), 67–82.
+wolpert, david h., and william g. macready, 2005. coevolutionary free lunches. ieee transactions on evolutionary computation, 9(6), 721–735.
+
+
+
+
+
+webmaster: martin sewell
+
+
+
+
+
+

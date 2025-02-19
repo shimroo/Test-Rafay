@@ -1,0 +1,235 @@
+
+
+carpeaqua
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+removing unremovable files after upgrading to macos catalina
+august 22nd, 2019
+
+against the better judgement of my own common sense, i decided to update my imac to the macos catalina beta recently. one of the major internal changes in going from mojave to catalina is the transition to a read-only system volume. during this process, i ended up with a folder on my desktop of files that the upgrade was unable to handle. most of these files seemed innocuous, and i just deleted them. there was one folder, however, that i couldn’t delete because the system claimed it wasn’t empty. blowing it out via the finder or the terminal was a fruitless task.in the interest of saving you time if you run into this scenario, these are the steps i took to solve my issue.reboot your mac into recovery mode. authenticate your user account if required.from the menu bar, open the terminal application.disable system integrity protection and reboot: csrutil disable; reboot .once your mac reboots (and assuming it's still not in recovery mode), open the terminal app.you need to mount the new file system as read-write temporarily so we can blow the folder(s) away: sudo mount -uw /. this is temporary, and rebooting will revert back to the safer read-only variant.delete the files you want to purge via the rm command. you’ll probably need to use sudo.as a last step, you need to re-enable system integrity protection. to do that, reboot back into recovery mode.from the recovery mode menu bar, open the terminal application: csrutil enable; rebootonce the reboot completes, your mac should be back to the expected state, just with a few less zombie folders. you can verify sip is active by opening terminal and executing the csrutil status command.
+
+read more about. . . 
+
+
+macos
+
+
+apfs
+
+
+apple
+
+
+
+
+
+
+the joys of a two week vacation
+january 8th, 2018
+
+today is my first day back at work after a wonderful two weeks unplugged from the normal day-to-day workings of a software developer. i don’t unplug entirely, but my imac with xcode and all the trimmings is mostly replaced with the ipad pro 10.5 i am presently typing on.
+in my twenties i would rarely, if ever, take a day off. holidays and weekends seemed to bleed into the previous and next days and there was always something that i wanted to be working on. there was a new release of elements with a feature i was worried a competitor would beat me to. other times, it was that gnawing calculator in my head telling me that every hour i don’t work and bill clients is money i am leaving on the table.
+as i’ve settled into my thirties, however, i’ve learned to appreciate taking time to reset and just get away the work. i still haven’t taken a proper destination vacation or unplugged entirely to silently meditate, or whatever you do when you don’t use technology. what i do try to stick to, however, is taking two weeks off twice a year: once in the middle of summer and again at the end of the year between christmas and new years.
+my summer conveniently lines up with the summer shutdown at my current day job where nearly every single person in the company (sorry, devops) disappears for two weeks and takes their vacation at the same time[1]. the first time i took a two week break like this i was quickly bored and ready to get back to work. having never taken even a week off before, two weeks seemed insane and unnecessary. as i’ve continued the habit though, i’ve realized that it’s actually the perfect amount of time to decompress, recharge, and maybe even learn new things without having to worry about making time before or after work.
+it’s also great at forcing you to truly separate from your work. with a long weekend, or even just a single week away, i’d spend the majority of the time just trying to unwind and transition out of ‘work mode’, which is sometimes challenging for someone as high-strung and invested as i can be sometimes. by adding the second week away, i am allowing myself a full week of true vacation where i’m in the rhythm of whatever i’m most interested in during that time.
+these last two weeks have been spent just reading books i’ve had saved up as well as catching a few different tv shows i’ve wanted to see. i may or may not have completely reorganized my kitchen too. my two week break over the summer was spent doing repairs around the house or building things in my shed such as a new monitor stand. i rarely open xcode, though that’s not a hard rule i have. i just find i don’t want to or feel the need to. most importantly, i unplug entirely from work and make myself as unavailable as tom hanks on a deserted island.
+admittedly i have a bit of privilege in being able to take this much extended time off regularly and it may not be possible for others with different life scenarios. one trade off for me is that since i am a for-hire contractor i don’t get paid for this time or any vacation days, so it does require a bit of budgeting and discipline[2]. despite that, if you can figure out a way to pull the two week vacation at your job, i highly recommend giving it a shot.
+now, i wonder if my app still compiles . . .
+
+
+
+if i ever ran a company again, i would steal this idea and implement it. ↩︎
+
+something i have never really been good at until early last year. that’s a story for another day. ↩︎
+
+
+
+
+
+read more about. . . 
+
+
+sanity
+
+
+health
+
+
+vacation
+
+
+
+
+
+
+how i made twitter tolerable, for me
+january 4th, 2018
+
+at some point in 2016 i opted out of most social media, especially twitter. i don’t remember the exact day or what the final straw was that brought me to that point, but my response was to delete nearly a decade's worth of tweets, unfollow every account and just stop participating.
+there was no major discovery from breaking away from social media. i didn’t find enlightenment, start drinking more water, or become a better person. i just stopped feeling bad about whatever micro-outrage would make its way through my network on a given day, only to be forgotten about as soon as the next day’s outrage arrived. i stopped arguing about stuff it turns out i didn’t care nearly that much about to have a firmly held opinion on. developers are miserable people. we complain a lot. being connected to tens of thousands of them throughout your day is probably not the best idea if you’re someone like me who isn’t great at letting stuff go easily. so i opted out.
+this is the point where i confess that while i “quit” twitter, i didn’t actually “quit twitter.” while you may have seen the mass destruction of the @justin account as me signaling my desire to cameo in a logan paul video, i was actually still using the service, albeit in a much more pleasant way.
+private twitter
+private twitter is the account i use to follow close friends, see sports gifs, and get my news from college football twitter. more importantly, it’s a private account that only 80 of my closest friends have access too. these are the folks who i would be happy to see if i randomly ran into them at a bar or restaurant. it doesn’t include colleagues, casual acquaintances, or any random person who thinks i might be an interesting follow because i sit and stare at xcode all day for the day job.
+by limiting the follower list with such a heavy hand, i’m able to more freely share things that are boring, mundane, or only potentially of interest to me. i have no one to impress, no stats to juke, and no need to worry about being retweeted in to a viral hellscape of “well, actually.” my friends who follow me on twitter may not be super interested in seeing that i reorganized my kitchen cabinets or took apart and washed my keyboard, but that’s the type of mundane and boring stuff you talk about with friends.
+private twitter is also not about reciprocating follows or worrying about the social awkwardness that can be caused by not following back. some of my closest friends follow me on private twitter, but i don’t follow back because they talk about technology and whatever “ios community” drama there is on a daily basis. i have active imessage threads with these friends daily, and that acts as a filter of sorts to bubble up the actual news i need to worry about.
+personally, i just do not care to see or hear about whatever is going on in the tech sector anymore, because it’s mostly noise and very little signal. if i want to dip my toes in for whatever reason, i search for a few friends’ accounts and read their timeline for the last day or two. i usually regret it because i get a headache from eye rolling, but it was my choice to make.
+is private twitter for me?
+the only reason i am writing this is because a week doesn’t go by without me talking to someone that hasn’t quit twitter or is on the verge of quitting because the negatives far outweigh the positives anymore. my advice to them is usually always the same:
+
+create a new twitter account and set it as private by default.
+follow a few accounts related to things you truly like. in my case that was college football, the greatest sport of all.
+follow a few accounts related to your city, if relevant. i follow cdot, rtd, and the mayor of denver so i can know if there are traffic accidents i need to know about or something interesting is happening in denver.
+follow your family, unless they annoy you. follow a few close friends.
+throw your old account into the sea.
+
+my twitter solution is definitely not for everyone, but it has worked well for me for almost two years now. i still take twitter breaks periodically, but it’s rarely because i’m annoyed at what i’m reading or seeing anymore.
+back on public twitter
+in january of this year i started tweeting again from @justin.  i set a few ground rules. first, i try to only post positive things rather than just using it as an outlet to complain. i try to stick to this 100% of the time, but i’m sadly not perfect. my second rule was to not follow anyone on the account. when i use my public twitter account i think about it as throwing a note over a wall and then walking away. i’ll check the replies and interact occasionally, but that is an exception, not a norm.
+people have described twitter and social media in general as an avenue for people to shout their opinions out into the open while other people are shouting theirs. i now fully embrace that with my public account. you’re welcome to follow my public shouting if you’d like. private twitter, though? that’s for me and my friends.
+
+
+read more about. . . 
+
+
+twitter
+
+
+
+
+
+
+my 2017 home screen
+january 1st, 2018
+
+
+as a matter of archiving and historical significance that is potentially only useful to me, i’m opting to share the current home screen of my iphone on this, the first day of 2018.
+embracing defaults
+as the iphone and ios has matured over the last decade, the amount of third-party apps i have used for system-provided services seems to have dwindled. i no longer use a third-party email client because mail is good enough for my needs. apple music allowed me to ditch spotify. the calendar app isn’t nearly as good as sunrise used to be, but it’s good enough that i don’t want to be bothered using a third-party solution anymore.
+probably the most controversial will be my use of the apple podcasts app over something else. the podcasts app isn’t nearly as full-featured as my old stalwart pocketcasts, but i was willing to trade silence trimming for easily being able to tap on a share link and have it open where most podcasts expect: apple podcasts.
+reading
+one constant is that i read a lot on my phone. apple news has become a mainstay for me as a way to check in on the news of the day (both real and fake!), while also mixing in some of the entertainment and music news i am interested in as well. the new york times is my go-to in the morning for their morning briefing and for periodic push notifications throughout the day so i know when we have been nuked.
+i recently received a subscription to the new yorker and have found their app to be incredibly well done and now my preferred way to read their content. i still check the medium app daily as well, because there are a few pearls in their sea of masturbatory posts. i do enjoy their new audio posts feature for members, which is a nice addition for longer reads that i have been meaning to read for a while, but never actually sat down to enjoy.
+one change i made in the last year is that i stopped using pocket, which was probably my most used app of the last five years. there wasn’t necessarily anything wrong with pocket, but i found that i would just throw articles in there and never get around to reading them. queue guilt is a real thing.
+my new system is to either read the article at the time i find it, or open it in a background tab if i know i want to read it in the evening. each morning, i close out those tabs, even if they are unread.
+writing
+one of my goals for my 35th year is to get back into the habit of writing more, so i’ve put both ulysses and day one on my home screen to try and facilitate that. day one tracks my journaling, private moments (think instagram posts , but without sharing and growth hacks), and my monthly and annual goals.  ulysses is where i do the majority of my professional and hobby writing, such as this post you are reading right now.
+and yes, i use the official twitter app for both reading and writing tweets instead of tweetbot. it’s fine. don’t @ me.
+photography
+one break from my “defaults” rule has been switching my photography app of choice to halide. the ability to shoot manually or with raw when it makes sense is a major win over the default ios camera app.  if i need to shoot a video or panorama, the system’s camera app is easily accessible via control center.
+halide is the first third-party camera app that seems to have eliminated the annoying delay from launch to being able to capture an image. when i’ve tried (or worked on!) camera apps in the past, i found that the delay would cause me to lose several ‘in the moment’ shots. either halide is doing some secret magic, or apple has finally fixed avfoundation to not have that delay when using a camera view.
+for sharing photos or seeing what is happening in the lives of my friends & family, i still use instagram. facebook hasn’t completely ruined it, yet.
+a work-free zone
+a trend i started around the middle of 2017 and hope to continue into 2018 is keeping all work-related apps and services off of my personal phone and tablet: no work email, slack, or asana. the testflight build of the ted app is the closest i get to work-related content.
+my reasoning for this was to try and create a better separation from work and my day-to-day life. i realized that the notifications and always-on nature of modern work caused my anxiety to increase in ways that i didn’t like. now, i just check these services when i am sitting at my desk and actually working, versus making myself seem accessible 24/7.  if a true emergency does come up (the 1% of the time it is a true emergency), people can contact me via imessage and i’ll install whatever app i need temporarily if i’m unable to get to my imac.
+into 2018
+if i have to guess about how my phone habits will change in 2018, i am guessing they won’t much. i rarely download new apps anymore as i’ve found the ten or so that suit me. the bar to get people to switch apps is incredibly high at this point.
+forced to pick though, i’d say instagram and twitter will be gone by 2018. i constantly struggle with twitter being both a toxic cesspool of hate and abuse, while also making me laugh daily. i don’t trust facebook as far as i can throw them, so i won’t be surprised if they do something that makes me delete my instagram account.  given that i use day one more for “posting” what i used to share on instagram, i don’t know if i’ll miss it.
+
+
+read more about. . . 
+
+
+iphone
+
+
+ios
+
+
+homescreen
+
+
+
+
+
+
+updating your apfs encrypted volume / filevault password
+november 30th, 2017
+
+for as long as i can remember, i have been running into an annoying issue with my imac where i’d have to authenticate twice upon restart: once with my old account password to unlock filevault, followed by my new account password to actually get into my account. i finally took the time to figure out how to fix this the other day. i couldn’t find a succinct example on the google, so here you go. note that this is for an apfs volume on high sierra (10.13). if you are using hfs+ or an older version of macos still, the instructions may be a bit different.
+in terminal run the following command:
+sudo fdesetup list -extended
+this will return a list of accounts that are associated with your mac.  the output should look something along the lines of below.
+escrow  uuid                                  type          user
+        c20a4763-d4f8-4b3c-a889-0021b0735248  os user       justin
+        7da69d0c-ba82-4575-ac68-cfe037778ba1  unknown user
+        05e65dd7-ae83-4bd4-8b8b-aada35a307e1  icloud user
+
+copy the uuid for your specific user account as you will need it for the next command.
+once again in terminal, type the following command:
+diskutil apfs changepassphrase disk1s1 -user [uuid]
+replace uuid with your uuid you copied from above, obviously.  you’ll be asked to enter your old passphrase, followed by the new one. after that, you should be able to sign into your mac and unlock filevault using the same password, once more.
+
+
+read more about. . . 
+
+
+filevault
+
+
+apple
+
+
+macos
+
+
+apfs
+
+
+
+
+
+older posts →
+
+
+
+

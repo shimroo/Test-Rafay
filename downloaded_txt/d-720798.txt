@@ -1,0 +1,145 @@
+
+
+
+
+
+
+home-pages an der school of computation, information and technology
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+homepages an der school of computation, information and technology
+
+hier finden sie homepages von benutzern am school of computation, information and technology. wenn
+ihnen eine login-kennung bekannt ist, können sie die entsprechende homepage mit
+folgender url direkt aufrufen:
+
+
+
+https://home.cit.tum.de/~<login>/
+features
+
+
+cgi-skripte:
+  
+für alle cgi-skripte muss das owner-execute-bit (chmod u+x) gesetzt sein.
+alle in home_page/cgi-bin liegende dateien werden als cgi-skript ausgeführt. (erreichbar unter ~<login>/cgi-bin/...)
+im restlichen space werden *.pl, *.php, und *.cgi dateien als cgi ausgeführt.
+*.php, *.php5, *.php7 und *.pl-dateien werden automatisch mit dem richtigen interpreter ausgefã¼hrt. alle anderen skripte müssen mit shebang versehen werden. weitere verfügbare interpreter:
+    
+/bin/bash
+/usr/bin/python2
+/usr/bin/python3
+
+
+suexec: alle skripte werden mit user-rechten ausgeführt.
+
+
+client-zertifikat: skripte können client-zertifikate überprüfen. dazu werden die üblichen environment-variablen gesetzt.
+cgi-log: wenn eine group-writeable gesetzte datei cgi.log im home_page-verzeichnis existiert, werden skript-fehler dorthin geloggt.
+redirect: wenn ihre homepage nur auf eine andere persönliche homepage weiterleiten soll, erstellen sie einfach eine datei namens redirect oder redirect.https in ihrem home_page-verzeichnis und schreiben sie die adresse (ohne protokoll) in diese datei.
+
+
+bitte haben sie verständnis dafür, dass die ito keinen persönlichen web-entwicklungssupport für die mehreren tausend benutzer der school leisten kann.
+kontaktieren sie uns aber bitte gerne, falls sie ein bestimmtes modul/library benötigen oder einen bug im system vermuten.
+haftungsausschluss
+
+
+die school of computation, information and technology ist nicht für den inhalt der dokumente
+verantwortlich, die die benutzer selber angelegt haben. jegliche verstöße
+gegen recht und anstand sind ausschließlich auf den jeweiligen benutzer
+zurückzuführen. 
+
+
+home pages at the school of computation, information and technology
+
+here you can find home pages of users at the school of computation, information and technology
+if you know a user's login, you can find the corresponding page with this
+url:
+
+
+http://home.in.tum.de/~<login>/
+
+features
+
+
+cgi scripts:
+  
+the owner execute bit (chmod u+x) must be set for all cgi scripts
+all files in home_page/cgi-bin are executed as cgi script. (reachable via ~<login>/cgi-bin/...)
+in the rest of your personal web space *.pl, *.php, and *.cgi files will be executed as cgi.
+    *.php, *.php5, *.php7 and *.pl files will be executed by the correct interpreter automatically. all other scripts need to have a shebang. additional interpreters:
+    
+/bin/bash
+/usr/bin/python2
+/usr/bin/python3
+
+
+suexec: all scripts are executed with the owner's permissions.
+
+cgi log: if there is a group-writeable cgi.log file in your home_page directory, all script errors will be logged there.
+client certificates: scripts can evaluate client certificates. apache will set the usual environment variables when a client certificate is used by the user.
+redirect: if you just want your computer science homepage to redirect to a different personal homepage, just create a file called redirect or redirect.https in your home_page directory.
+
+
+please appreciate that the ito cannot provide personal web development support for the several thousand users of the school.
+however, please feel free to contact us if you need a specific library or module, or you have found a bug.
+
+disclaimer
+
+
+
+the school of computation, information and technology is not responsible for the contents of any
+document created by a user.  the only one responsible for violation against law
+and honesty is the user who created the document.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  ito-hotline: 089-289-18018      e-mail: support@ito.cit.tum.de
+
+
+â© copyright  it operations - tum school of computation, information and technology
+
+impressum
+
+
+
+
+
+

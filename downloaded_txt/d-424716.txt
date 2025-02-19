@@ -1,0 +1,247 @@
+
+
+
+
+
+
+
+
+command-tab
+
+
+
+
+
+
+
+command-tab
+
+
+
+
+
+by collin allen
+
+
+archive
+
+
+bluesky
+
+
+mastodon
+
+
+github
+
+
+contact
+
+
+
+
+
+
+
+running nuxt 3 behind an nginx reverse proxy
+
+
+april 24, 2022
+
+
+i was attempting to run nuxt 3 rc1 in development mode behind a local nginx reverse proxy, but ran into several issues. there are a number of reasons to run a development application server behind a tls-terminating reverse proxy, including more closely mirroring a production setup, ensuring an application performs correctly when proxied, and gaining https support to enable use of  newer https-only user-agent apis.
+however, when nginx reverse proxies to the nuxt server using a configuration like the following, the application will load correctly in the browser but vite (bundled with nuxt) will no longer be able connect to its backend websocket server to provide hot module replacement (hmr).
+location / {
+    proxy_pass http://localhost:3000;
+    proxy_set_header x-real-ip $remote_addr;
+    proxy_set_header host $host;
+    proxy_set_header x-forwarded-for $proxy_add_x_forwarded_for;
+}
+
+to fix this, vite needs to be made aware it’s being reverse proxied, and nginx needs to pass through vite’s websocket connection.
+in the nuxt config (nuxt.config.ts), add the following vite config:
+vite: {
+  server: {
+    hmr: {
+      protocol: 'wss',
+      clientport: 443,
+      path: 'hmr/'
+    }
+  }
+}
+
+vite will now use the secure websocket protocol over the same https port as the application, but it will request it at a new, distinct path.
+in the nginx config, add a new location directive to match the configured vite path (/_nuxt is always prepended), have it perform an http upgrade, and then reverse proxy to vite’s websocket server, which always listens on port 24678:
+location /_nuxt/hmr/ {
+    proxy_http_version 1.1;
+    proxy_set_header upgrade $http_upgrade;
+    proxy_set_header connection "upgrade";
+    proxy_pass http://localhost:24678;
+}
+
+after restarting the development server and nginx, nuxt 3 and vite hmr work great behind nginx, which now handles tls termination and reverse proxying of http and websocket traffic.
+update 2023-09-28
+as of nuxt 3.7.4, the nuxt.config.ts configuration is unnecessary, though having the following nginx config in place avoids a websocket error about the websocket host being undefined:
+location /_nuxt/ {
+    proxy_http_version 1.1;
+    proxy_set_header upgrade $http_upgrade;
+    proxy_set_header connection "upgrade";
+    proxy_set_header host $host;
+    proxy_cache_bypass $http_upgrade;
+    proxy_pass http://localhost:3000;
+}
+
+note the differences from the above config – the location path dropped hmr/, the vite hmr port (24678) became the default nuxt port (3000), and the host header was also added (but the host header is likely not critical for this scenario).
+
+
+
+
+building cen64 on macos
+
+
+january 11, 2020
+
+
+for testing nintendo 64 homebrew roms, cen64 is the most accurate emulator (though it doesn’t run at full speed yet). here’s how to build it from source on macos:
+
+install xquartz from the official distributed disk image
+brew install cmake glew
+git clone https://github.com/n64dev/cen64.git
+cd cen64
+mkdir build
+cd build
+cmake ..
+make
+
+if you’d like to enable cen64’s debug logging, create a debug build when running cmake:
+cmake -dcmake_build_type=debug ..
+
+when running cen64 outside of an xquartz x11 terminal, it may report:
+using ntsc-u pifrom
+create_device: failed to initialize the vi.
+failed to create a device.
+
+to fix this, you can run it within an xquartz x11 terminal, or set the display environment variable to something like :0 either in your .bashrc file or inline during invocation:
+display=:0 ./cen64 /path/to/pifdata.bin /path/to/rom.z64
+
+display needs to be set because cen64 calls xopendisplay with a null display name (presumably to default to your display environment variable), but if it’s not set, xopendisplay returns null and cen64 has no display within which to create a window for rendering nintendo 64 content.
+for extremely verbose register-level output, edit cmakelists.txt and set debug_mmio_register_access to on. make sure to remove any cached data in build/ to ensure your changes are reflected, then recompile and re-run.
+update 2024-03-02
+development on cen64 has not progressed in many months and is now considered unmaintained. ares, a cross-platform, open source, multi-system emulator is now regarded as the best emulator for nintendo 64 development.
+
+
+
+
+brewbot - sending coffee notifications to slack
+
+
+september 16, 2017
+
+
+at work, we have a coffee machine that serves dozens of people in the building, and it’s difficult to know when to come get fresh coffee. you might arrive when it’s empty and be tasked with making more, but the ideal situation is to arrive just as a fresh pot is being brewed.
+we also use slack for team chat and various notifications, so integrating the coffee machine status was a no-brainer. using a non-invasive/inductive current sensor and raspberry pi, the following setup monitors coffee machine energy consumption and waits for a significant rise in current draw, followed by several minutes of sustained usage. once a time threshold has passed, it does an http post to a slack webhook, sleeps for about 15 minutes, then starts monitoring again. this “brewbot” code is available on github, and a parts list can be found below.
+
+
+
+full parts list:
+
+mcp3008 8-channel 10-bit analog to digital converter
+raspberry pi model b
+16-pin ic socket
+assortment of heat shrink tubing
+panel mount to micro usb adapter
+10kω 1/4w led resistor
+half-size perma-proto raspberry pi breadboard pcb kit
+5mm yellow led
+1/8” panel mount audio jack
+10uf electrolytic decoupling capacitor
+33ω 1/2w burden resistor
+2x 470kω 1/2w voltage divider resistors
+30a non-invasive current sensor
+22 awg solid core hook up wire
+5x7 photo box, from the container store
+8 gb class 10 sdhc card
+edimax ew-7811un wireless nano usb adapter
+6x nylon screws washers and nuts
+8” ac cord clips
+hdmi to mini hdmi adapter
+6’ mini hdmi to hdmi cable
+10’ usb a male to b male cable
+
+related reading: hyper text coffee pot control protocol
+
+
+
+
+gottago
+
+
+july 23, 2013
+
+
+working at blackboard mobile making unique mobile apps is fun, but occasionally it’s interesting to do something completely different at work, just to see what you can come up with. to that end, we recently hosted our first hackathon, where small teams of co-workers had 24 straight hours to create a project of any theme using resources available inside our outside of the office, and the results would be judged by our peers. one of the other benefits of working in a growing industry is that we’re expanding our staff almost weekly. unfortunately, though, that means that the building we’re in is less and less able to handle the increasing capacity. specifically, the bathrooms are occupied more frequently, resulting in either a return trip to your desk only to try again later, or an awkward wait of unknown duration.
+
+working with joe taylor and eric littlejohn, our hackathon project set out to make the office bathroom availability more visible and accessible through a combination of hardware and software. the piece of the project that lets this all work is a microswitch installed inside each door jamb, such that when the locking bolt is engaged, the switch is tripped. that way, we can do anything with resulting data, knowing that when the door is locked, the room is in use. running wire down through the hollow metal trim was tedious and time consuming, and involved a lot of false starts and fishing around with a straightened coat hanger, but we finally got a run of wire inside each frame.
+
+on each office floor there are two bathrooms side by side, and the pair of switches inside the door jambs are wired to a single arduino fitted with an ethernet shield for network connectivity. the arduino samples the switches many times per second, providing near-instant feedback.
+
+after debouncing the switch input signal over about 50 milliseconds, the arduino waits for a definitive change in state – from locked to unlocked, or unlocked to locked – before illuminating led lights on the wall.
+
+after the light corresponding to the now-occupied bathroom is lit, the arduino also performs an http post, sending the event details (floor level, which room, and current occupancy state) to an in-house webserver running node.js and mongodb. the webserver records the data and makes it visible on a web page for viewers to check the availability digitally, for those who can’t see the wall mounted lights from their seating position.
+
+if you’d like to employ a project like this, the code we hacked together is available on github, and the wiring is rather straightforward:
+
+all components share a common ground
+led anodes are wired to room_a_led_pin and room_b_led_pin and brought high when doors are locked, and low when unlocked
+switches bring room_a_switch_pin and room_b_switch_pin low when triggered, and the arduino uses the input_pullup pinmode for the unlocked state
+
+our hackathon project came in at second place, losing to an as-yet-unannounced software project, but we had a lot of fun staying up and hacking all night!
+
+
+
+
+adventures with nest
+
+
+june  6, 2013
+
+
+i recently purchased a pair of nest learning thermostats for my new home. compared to the white brick style honeywell thermostats that came with the place, the nest is so much more advanced. it does temperature learning, auto-away, and remote control over wi-fi from the web and ios devices. it also has a color lcd and just generally looks beautiful on the wall with its brushed stainless steel housing.
+
+installing the nest is pretty straightforward with a modern forced air heating and cooling system:
+
+remove the old thermostat and mounting plate from the wall
+disconnect the wires
+patch and paint any holes
+install the nest mounting base and connect the wires
+pop the nest onto the base and configure the software
+
+my initial install went well physically, but not long after, i discovered that the nest would regularly run out of battery power. i quickly learned that due to how the hvac circuits are arranged, the nest can only draw power while the system is running. when the system is not busy heating, cooling, or running the fan, the nest is left to run under its own battery power. and in sunny california during the springtime, the system doesn’t run often enough to let the nest keep a charge. several times per day, i would have to unplug the nest from its base and charge it over micro usb. not a great solution.
+reading more about the nest and hvac circuitry, i found that there is a solution for situations like this. a “common wire” that provides a path back to the hvac controller would allow the nest to draw the power it needs while not running any systems. as luck would have it, my system provided this common wire, but connecting it to the nest had no effect on the battery. more telling was the fact that the nest did not detect that the wire was connected.
+so, i decided to find out what was at the other end of that common wire. i put up a ladder and ventured into the attic of my home and scouted around the furnace. on top of it, inside an easily-opened metal enclosure, was the thermostat controller, a ztech zte2s. double checking the wiring diagram and comparing it with the wires on the left (coming from the nests), it’s clear that the blue common wire is simply not connected to the controller. in the photo below, you can see that it’s clipped short, close to the brown jacket covering the bundle of five wires.
+
+reconnecting the wire was a matter of disconnecting the wires that were already connected, snipping them all to the same length, and stripping a little plastic off the end so that all five can be connected to the hvac controller.
+
+a few hours after leaving the nest installed with the common wire attached and the hvac controller all closed up, its battery has fully charged and the features work great.
+
+
+
+
+
+← older posts
+
+
+
+
+
+
+
+powered by jekyll · source on github · atom feed
+
+
+
+
+
+mastodon
+
+

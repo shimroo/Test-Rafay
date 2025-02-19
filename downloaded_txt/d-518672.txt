@@ -1,0 +1,1431 @@
+
+
+
+
+  
+
+
+cavebear! - thoughts and commentary by karl auerbach 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cavebear!
+
+
+
+
+
+
+about
+cavebear blog
+old cavebear blog
+documents
+archive
+catalog
+original catalog
+recipes
+tags
+
+
+
+latest posts:
+
+comments on ntia’s proposed performance measures for bead last-mile networks
+building a firewall around a radical supreme court
+why i built kmax – the world’s best network emulator
+i will not be joining the united states supreme court (scotus) bar
+is the internet at risk from too much security?
+
+
+
+
+cavebear! - thoughts and commentary by karl auerbach
+
+
+locus ab auctoritate .. est infirmissimus.(the argument from authority is the weakest.)– thomas aquinas (1225–1274).
+last update: 19 january at 12:00am
+
+
+
+
+
+
+comments on ntia’s proposed performance measures for bead last-mile networks
+
+
+13 dec, 2024
+comments on ntia’s proposed “performance measures for bead last-mile networks”
+ntia url: https://www.ntia.gov/funding-programs/internet-all/broadband-equity-access-and-deployment-bead-program/program-documentation/draft-performance-measures-bead-last-mile-networks-policy-notice-public-comment
+from:	karl auerbach
+ceo/cto interworking labs
+scotts valley, california
+karl@iwl.com (email)
+https://iwl.com/ (corporate website)
+https://cavebear.com/ (personal website)
+date: november 13, 2024
+permanent url to these comments: https://www.cavebear.com/cavebear-blog/ntia-bead-dec2024/
+who am i
+i am karl auerbach, i am the ceo and cto of interworking labs (iwl).
+my cv may be viewed on my website at https://www.cavebear.com/about/karl-cv-long/
+i have been involved with the development and deployment of the internet since 1972.
+our business at iwl ( https://iwl.com/ ) is to create network emulation products that help network developers bench test their code against less-than-perfect network conditions to find problems before their own customers do.
+as such, we (and i) deal daily with issues of network imperfections, including latency (including jitter/packet delay variation), bandwidth, packet loss, duplication, out of order packet delivery, and so on.
+overview of comments
+i appreciate and support the thrust of the bead performance measures effort.
+however, i find the proposals ambiguous, simplistic, and insufficient.  those inadequacies can be remedied.
+my remarks are in four major parts.  the first part deals with bandwidth and bandwidth measuring.  the second part is similar, but on the topic of latency.  the third part is about aspects of network performance that ought to be part of the bead performance measurement framework.  the fourth part is a catch-all of other suggestions.
+one point that is made multiple times below is the need for clarity with regard to the point of demarcation between a customer and network provider.
+
+read more…
+
+
+
+
+
+
+building a firewall around a radical supreme court
+
+
+6 jul, 2024
+the supreme court of the united states (scotus) has become a corrupt body.  it is dismembering the most fundamental principles of our constitution and declaration of independence.  scotus appears to be fixed upon a course to transform the united states into a monarchy of kings and courtiers, under a national evangelical church.
+scotus' five conservative members range from merely being disconnected from reality (roberts) to anti-regulatory/pro-corporate hacks (gorsuch) to evangelical warriors (barrett) to the suspect corrupt (kavanaugh) to right wing nationalists (alito) to the outright corrupt (thomas).
+recent decisions of scotus risk displacing dred scott v. sandford (60 us 393 (1857)) as the worst decision in us history:
+
+
+dobbs v. jackson women’s health organization 597 us _ (2022) - https://supreme.justia.com/cases/federal/us/597/19-1392/
+
+
+loper bright enterprises v. raimondo 603 us _ (2024) - https://www.oyez.org/cases/2023/22-451
+
+
+trump v. united states 03 us _ (2024) - https://www.oyez.org/cases/2023/23-939
+
+
+in addition substantial questions have been raised regarding significant ethical lapses, under- (or non-) reported gifts (that have every appearance of lightly veiled bribes) from interested parties with present or future cases before the court, and conflicts of interest through spouses who have direct interests in cases presently or likely to come before the court.
+scotus has declared itself as primus inter pares - first among equals - of the three formerly equal branches of our federal government.  in the recent fischer v. united states (603 us _ (2024)) scotus declared the judicial branch, with scotus at its head, as having the power to discard and reinterpret decisions of the legislative and executive branches.  (this new power to reinterpret is a massive extension of the well accepted power of our courts to determine whether legislative and executive acts are within the constitution.)
+it is clear that the supreme court of the united states has run off the rails ideologically and ethically.  scotus has ejected our presidential and congressional pilots, locked the citizens of the united states out of the cockpit, and is flying our country straight into national catastrophe.
+so what can we do about it?
+this note suggests a radical, revolutionary answer to what is a radical, revolutionary problem.
+that answer is to partially neuter scotus.
+the proposals made here require no changes to the existing constitution.  this proposal is entirely within the existing powers of congress and the president.
+
+read more…
+
+
+
+
+
+
+why i built kmax – the world’s best network emulator
+
+
+28 may, 2024
+i am a human, i am not an ai.
+i wrote this piece to reflect on the testing of internet protocols, in
+particular through the use of devices that tickle the flow of packets
+going back and forth between devices that speak those protocols.
+the term “network emulator” is ambiguous.
+does it refer to a device that affects actual packet traffic or is it
+a mathematical model about what would happen to real traffic?
+if real packet traffic, where do those packets come from, the user’s
+own network or a synthetic traffic generator?
+can traffic be classifed into related streams and subjected to
+different kinds of effects?
+is the purpose of the emulator to test protocol implementations for
+robust and correct operation, or is the purpose to push devices under
+extreme loads?
+i tend to work with actual, running network protocol code.
+my intent is to test whether devices that contain that code
+perform acceptably when presented with the kinds of network conditions that can occur
+on real networks but which are rarely present on the pristine networks used by
+code developers and qa teams.
+as a consequence, i am more attuned to network emulation tools that allow
+the controlled manipulation of actual traffic streams emitted by real devices
+than with mathematical simulations of hypothetical or synthetic,
+perfect protocol interactions.
+
+read more…
+
+
+
+
+
+
+i will not be joining the united states supreme court (scotus) bar
+
+
+26 jun, 2023
+i live far from washington dc, and my practice in law has never
+required me to bring a matter before scotus.  so, for me, membership
+in the scotus bar would be a bauble, a nice certificate to add to my
+office wall.
+i used to consider the supreme court of the united states (scotus) to
+be an institution with honor and integrity.
+i no longer hold that opinion.
+i used to believe that a case before scotus would be decided using
+clear logic, established precedent, and prudence.
+i no longer hold that opinion.
+every now and then i ask myself “should i petition to become a member
+of the united states supreme court bar?”
+but now i add a second question: “do i want to debase myself by asking
+for admission to an institution that is no longer worthy of respect?”
+
+read more…
+
+
+
+
+
+
+is the internet at risk from too much security?
+
+
+15 apr, 2023
+
+
+
+
+the internet has become a lifeline grade utility.[1]
+our health, safety, and financial security depend on reliable and consistent availability of internet services.
+yet over the years we have given relatively little consideration to actually having a reliable and consistently available internet.
+we are to a large extent flying the internet on good luck and the efforts of unheralded people often working with tools from the 1980s.
+as we wrap the internet with security walls and protective thorns, maintenance and repair work is becoming increasingly difficult to accomplish in a reasonable period of time, or even at all.
+with the increasing inter-dependency between the internet and our other lifeline grade utilities — such as power, water, telephone, and transportation — outages or degradations of any one of these systems can easily propagate and cause problems in other systems.  recovery can be difficult and of long duration; significant human and economic harm may ensue.
+although we can hope that things will improve as the internet matures, outages, degradations, and attacks can, and will occur.  and no matter how much we prepare and no matter how many redundant backup systems we have, equipment failures, configuration errors, software flaws, and security penetrations will still happen.
+the oft quoted line, “the internet will route around failure”, is largely a fantasy.
+when we designed the arpanet and similar nets in the 1970s we did have in mind that parts of the net would be vaporized and that packet routing protocols would attempt — notice that word “attempt” — to build a pathway around the freshly absent pieces.[2]
+today’s internet is less dynamic than the old arpanet; today’s internet is more “traffic engineered”, and subject to peering and transit agreements than the old arpanet.  although the possibility of dynamically routing around path problems remains, that possibility is constrained.
+today’s internet is far more intricate than the arpanet.  today’s internet services are often complicated aggregations of inter-dependent pieces.  for example, web browsing depends upon more than mere packet routing; it depends upon a well operating domain name service, upon well operating servers for the many side-loads that form a modern web page, and upon compatible levels of cryptographic algorithms.  streaming video or music, and even more so interactive gaming or conversational voice, requires not only packet connectivity but also fast packet delivery with minimal latency, variation of latency (jitter), and packet loss.
+as any one today can attest, today’s internet service quality varies from day to day.
+when the internet was less ingrained into our lives, network service wobbles were tolerable.  today they are not.
+problems must be detected and contained; the causes ascertained and isolated; and proper working order restored.
+individually and as a society we need strong assurance that we have means to monitor the internet to detect problems, to isolate those problems, and to deploy repairs.  someone is going to need adequate privileges to watch the net; to run diagnostic tests; and to make configuration, software, and hardware changes.
+however, we do not have that strong assurance.
+and the few assurances we do have are becoming weaker due to the deployment of ever thicker, stronger, and higher security barriers.
+simply put: our ability to keep the net running is being compromised, impeded, and blocked by the deployment of ever stronger security measures.
+this is a big problem.  it is a problem that is going to get worse.  and solutions are difficult because we can not simply relax security protections.
+this paper describes this problem in greater detail, speculates what we might be able to do about it, and offers a few suggestions.[3]
+
+read more…
+
+
+
+
+
+
+on banning books - again
+
+
+17 mar, 2023
+it seems as if certain states of the usa and certain right-wing political “leaders” are trying to control what people can read, watch, or listen to.
+this is often a practice of conservative elements, particularly those espousing fundamentalist or puritan religious beliefs or advocating neo-apartheid goals.
+this kind of thing has been attempted in the past.  it has not succeeded.
+so let’s look at one such attempt by one of the era’s most dominant and controlling institutions, the catholic church before the reformation.
+the lateran council was began in 1512 and continued through 1517.
+among its decisions was the following.  books had to be examined by a high officer (a bishop) of the church before publication.  failure to obtain such permission could result in one of the most draconian of sanctions, ex-communication.
+did it work?  no.
+
+read more…
+
+
+
+
+
+
+network operations on a public utility internet
+
+
+3 mar, 2023
+permanent url: https://www.cavebear.com/cavebear-blog/nanog-keynote-as-spoken/revised: march 3, 2023
+i gave one of the two keynote presentations at nanog (north american network operators' group) in the fall of 2019.
+there were two parts to the talk.
+the first part deals with the responsibilities, obligations, and
+liabilities of being an operator of parts of an internet that was
+becoming a lifeline grade public utility.
+the second part shifts to ways we design and implement the internet to
+improve its resiliance to errors, problems, and attacks.  i suggest
+that we look beyond traditional methods of designing and
+implementing computer systems. in particular i urge that we take a look at
+the methods used by living things to improve their ability to survive.
+below the break is the textual transcript of the talk.
+in case the video does not start at the right place, my presentation begins at 7:43.
+
+here is the transcript:
+
+read more…
+
+
+
+
+
+
+democracy versus stakeholderism
+
+
+1 jan, 2022
+joe everyman, mr. corporate, and ms. lawfirm walk into a voting precinct.  each gets a ballot, each marks his/her choices, and each puts the marked ballot into the voting box.
+joe everyman, believing in the principle of one-man, one-vote, leaves.
+but mr. corporate and ms. lawfirm each walk outside, put a sock puppet onto each of their hands, re-enter the precinct and use ventriloquist voices to demand additional ballots, one for each puppet.
+the precinct workers say, “you can’t vote a second and third time!”
+but mr. corporate and ms. lawfirm answer on behalf of their respective sock puppets: “i am not voting again, i am merely accompanying a pair of stakeholders who now want to cast their own votes.”
+huh?  you would be quite correct if you were to say “this is not democracy!”
+but you would be quite wrong if you were to think that this kind of thing does not happen.
+in fact it happens quite often.
+it goes by then name “multi-stakeholder” or simply “stakeholders”.  these are systems in which some people get to use sock-puppets to multiply their votes and influence.
+
+read more…
+
+
+
+
+
+
+reformation of the united states supreme court (scotus)
+
+
+22 dec, 2021
+throughout our country people are talking about the united states supreme court (scotus).
+there are few alive today who have experienced a more conservative supreme court.
+and there are few objective observers who would deny that on today’s court that legal principle is often subordinated to fundamentalist religious views, libertarian biases against the federal government, or hazy notions of “natural law”.
+many of the conversation about scotus ask whether we ought to expand the number of justices (pejoratively called “court packing”) or impose some sort of term or age limits on the justices (which would probably require a constitutional amendment that would be a practical impossibility in today’s political climate.)
+but there is another matter.
+it is an important matter.  it is overlooked.  it is a matter that is fully within the power of congress (with the president’s signature).  and it is a matter that requires no constitutional amendment.
+our supreme court is overworked.
+the growth of our government, our regulatory agencies, and the ever ramifying complexity of our lives, economy, and technology have increased the work demanded of the court.
+scotus does not have the resources to do a proper job.
+this article argues that we ought to reshape our supreme court so that it can better deal with the workload.
+this article proposes nothing radical.  rather the proposal here builds upon long established practices of us courts, most particularly the united states courts of appeal.
+
+read more…
+
+
+
+
+
+
+jay nova hoffman
+
+
+21 nov, 2021
+permanent url: https://www.cavebear.com/cavebear-blog/jayhoffman/revised: nobember 23, 2021
+my oldest friend died this morning.
+alzheimers.
+jay nova hoffman.
+i’ve known him since we met one morning at hazeltine elementary school in van nuys (california) waiting to get into the first day of mr. stone’s 4th grade class.
+i doubt that any of us thought that our teacher, mr. stone, had a first name, much less knew it.
+jay went on to become a teacher and educator.  i suspect that his students knew his first name.
+jay and i somehow managed to both win a good citizenship medal from the daughters of the american revolution.  had the dar had any notion of what our political and social views would become they probably would have chosen differently.
+
+read more…
+
+
+
+
+
+
+modern software recapitulates greek mythology
+
+
+15 aug, 2021
+
+
+
+the titan kronos (saturn) ate his children.
+modern software developers are doing the same.
+kronos was afraid being overthrown by his sons.  so he eliminated them.
+many modern software developers seem hell bent on devouring the past.  but they have less reason to do so than did kronos.
+few of us remember mainframe computers (although they still exist).  during their heyday from the 1950s through the 1990s the unbreakable rule was “backwards compatibility”.  it was a great sin to change an api (application programming interface) to an operating system or library in a way that could cause existing software to go awry or fail.
+this honoring of the past worked: there are many mainframe financial applications, written (often in the 1959 language cobol) between 1960 and 1990 that are still in heavy use today.
+however, today the concept of backward compatibility is no longer universally respected.  today many software developers and providers do not bother to pause and think of the consequences before racing forward and breaking with the past.
+we are forcing people to fix what is not broken.  we are forcing people to rewrite working code or abandon working products simply because someone, somewhere has decided to cancel existing, working software foundations, often for no reason more substantial than that those foundations are older and perhaps less “elegant” in the eyes of some.
+
+read more…
+
+
+
+
+
+
+vote yes on the tcaa/rnis business plan
+
+
+26 apr, 2021
+to: the commissioners of the santa cruz county regional transportation commission (rtc)
+on may 6, 2021 the rtc commissioners will once again be voting on the transit corridor alternatives analysis and rail network integration study (tcaa/rnis) business plan.
+that business plan deserves your approval.
+santa cruz county has a traffic problem, a large traffic problem.
+most residents and businesses in santa cruz county are concentrated in a long, narrow coastal plain between watsonville at the south end and santa cruz at the north.
+the principal arteries of transportation are two highways: highways 1 and 17.  both are aging and designed for an era when santa cruz county was more rural.  both congest and clog daily.
+caltrans has widened parts of highway 1 with almost no long-term benefit.  and there’s little chance that the infamous “fishook” or the obsolete on/off ramps (such as soquel near dominican) will be remedied.
+today, even in the era of covid-19 and work-at-home, there is a daily tide of commuter traffic.  in the morning much of that tide flows north on highway 1 from watsonville to santa cruz.  much of that traffic continues over highway 17 to silicon valley.  in the evening that tide reverses.  long delays occur every day as thousands of automobiles stop, creep, and stop again.
+we have a system of smaller roadways, such as soquel drive.  but they are mere capillaries.
+and yet, right in front of us is a golden resource – the “santa cruz branch rail line” (scbrl), an old rail line that runs from a junction with the union pacific (and future caltrain) line in watsonville, north through santa cruz and on to davenport.  these still functioning tracks run close to the monterey bay shoreline and roughly parallel to highway 1.
+
+read more…
+
+
+
+
+
+
+do we need rubber rooms for federal judges?  two plans to reduce the long tailed impact of trump judicial appointees
+
+
+20 sep, 2020
+permanent url: https://www.cavebear.com/cavebear-blog/rubber-rooms/revised: september 22, 2020
+ruth bader ginsburg died last friday.
+already, many are talking about adding new justices to the supreme court to overcome the political imbalance that is likely to occur when a new justice is confirmed to fill her now vacant seat.
+however, this article is not about the supreme court or the addition of new justices.
+instead, i want to address two subordinate federal courts — our system of district and circuit (appellate) courts.
+the judges on these courts are generally referred to as “article iii” judges to distinguish them from judges on federal regulatory and administrative courts.  article iii judges “hold their offices during good behaviour”.  this effectively means they have lifetime appointments.
+the membership of the supreme court gets most of our attention.  yet, during the 2017-2021 presidential term those lower courts have been packed with more than 200 questionable or highly biased appointees.
+the district courts handle all federal trials.  the circuit courts handle all appeals aside from the tiny portion that is taken up by the supreme court.
+the impact of the last four years of federal judicial appointments is significant, amounting to 25% of all article iii judges.
+and because those judges have lifetime appointments that impact could continue for years.  generations of new and existing voters could find their majority views and votes blocked and nullified by judicial decisions made by those judges.
+how do we deal with this?
+while the problem might seem hopeless, there are things we can do.
+
+read more…
+
+
+
+
+
+
+our new reconstruction: constraining the growth of presidential powers
+
+
+10 aug, 2020
+permanent url: https://www.cavebear.com/cavebear-blog/executive-amendment/revised: september 23, 2020
+the trump presidency has been a constitutional disaster for the united states.  presidential power, which already had been growing at an alarming rate in prior administrations, has exploded to dictatorial levels under trump.
+it is not reasonable to expect that future presidents will easily reject these powers.  even if not used by the next or subsequent presidents these powers will retain their potency and be available to be resurrected and used.
+many of these new claims to executive power exclude, in practical reality if not in academic theory, the authority of congress, the courts, or the people of the united states to step in to impose corrections or limitations.
+our system of separation of powers has been weakened.  madison’s notion, as expressed in the federalist papers (number 51), that “ambition must be made to counteract ambition”, is in need of life support.
+because the basic allocation of authority in the united states comes from our constitution it is beyond the power of congress, the courts, or the states either individually or in concert, to do more than apply cosmetic remedies.
+as a consequence we are faced with an exigent need to update our us constitution with one or more amendments that define the limits of executive authority and create and enhance the balancing powers vested in the other branches of government and the citizenry.
+in the years just after the civil war, congress and the states created three new constitutional amendments, along with a body of supporting legislation.  these amendments and laws reshaped our country in ways that remain important, more than 150 years later.
+it is time to do so again.
+our nation is in need of new reconstruction.
+
+read more…
+
+
+
+
+
+
+a bill to ensure that united states treasury funds are not expended for certain purposes of personal aggrandizement or self promotion.
+
+
+8 nov, 2018
+i’m working on this to send to my congress critters as a request for legislation.  this is a first draft…
+h. r. _
+to ensure that united states treasury funds are not expended for certain purposes of personal aggrandizement or self promotion.
+in the house of representatives
+november 8, 2018
+a bill
+to ensure that united states treasury funds are not expended for certain purposes of personal aggrandizement or self promotion.
+be it enacted by the senate and house of representatives of the united states of america in congress assembled,
+section 1. short title.
+this act may be cited as the “challenge and commemorative coins act of 2018”.
+section. 2. limits on challenge and commemorative coins.
+(a) any other provision of law notwithstanding, no elected official, appointed official, employee of the united states government, or member of the united states armed forces may expend or commit any united states funds or assets for any purpose associated with the design, creation, or dissemination of any challenge or commemorative coin bearing the likeness or name of any living person.
+(b) congress may enact specific exceptions to subsection (a).
+(c) definitions.—in this section:
+(1) the term “challenge of commemorative coin” means…
+(2) the term “likeness” means any photograph, video, movie, drawing, cartoon, sculpture, bas relief, or other visual representation.
+
+
+
+
+
+redressing the distortion of elections and political speech by corporations
+
+
+1 nov, 2018
+(this was originally posted on oct 14, 2011.)
+proposed amendment to the united states constitution to redress the increasing distortion of elections and political speech by corporations and other aggregate forms
+proposed text
+corporate and other aggregate forms of organization are neither persons nor citizens under this
+constitution and shall have neither protections, rights, nor legal standing under this constitution
+this amendment shall not be construed to deny or disparage the power of congress or the several
+states to enact legislation that defines rights, powers, limitations,
+liabilities, and standing of such corporate and other aggregate forms of organization
+
+read more…
+
+
+
+
+
+
+tiny houses are a weak idea
+
+
+14 dec, 2017
+there is no doubt that many of our communities need safe, clean, accessible, and inexpensive housing.
+this note does not dispute that need.  rather, this article, questions whether “tiny houses” are among the better answer or whether there are better approaches.
+many communities are under pressure by advocates for increased housing for the homeless to consider adopting policies that encourage tiny homes.
+the argument made here is such policies may be a weak answer to the need to provide housing for the homeless.
+
+read more…
+
+
+
+
+
+
+domain names are fading from user view
+
+
+19 apr, 2017
+prologue
+the internet has changed and evolved ever since it’s ancestors first came to life in the late 1960’s.  some technology fades away and is forgotten; other aspects continue but are overlaid, like geological sediments, so that they are now longer visible but are still present under the surface.
+the domain name system - both the technology of dns and the deployed naming hierarchy we all use - are among those aspects of the internet that, although they feel solid and immutable, are slowly changing underneath our feet.
+
+read more…
+
+
+
+
+
+
+pc-engines apu2 led/mode-switch driver for freebsd
+
+
+20 jan, 2017
+the pc-engines apu2 is a very nice board when you need a lot more horsepower than a raspberry pi but still want low power, small form factor, and no moving parts.
+among the many features of the the apu2 are three leds and one mode button/switch.
+i needed a device driver so that my code could control the leds and read whether the button is pushed.
+i wrote one.  it is up and available on the interworking labs website: at https://iwl.com/.
+update: (february 2018): this driver no longer works on recent versions of the apu-2 board.  however, there is a working alternative now available at
+https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=189772.
+
+read more…
+
+
+
+
+
+
+internet: quo vadis (where are you going?)
+
+
+4 jul, 2016
+
+articles, blogs, and
+meetings about the internet of the future are
+filled with happy, positive words like "global", "uniform", and "open".
+the future internet is described in ways that seem as if taken from a late 1960’s utopian
+sci-fi novel: the internet is seen as overcoming petty rivalries between countries,
+dissolving social rank, equalizing wealth, and bringing universal justice.
+if that future is to be believed, the only obstacle standing between us and an
+arcadian world of peace and harmony is that the internet does not yet reach everyone, or that
+network carriers are unfairly giving different treatment to different kinds of traffic, or that
+evil governments are erecting “great walls”, or that ipv6 is not yet everywhere, or that
+big companies are acquiring top level domains, or that encryption is not ubiquitous …
+the list goes on and on.
+i do not agree.
+i do not believe that the future internet will be a utopia.
+nor do i believe that the future internet will be like some beautiful angel, bringing peace, virtue, equality, and justice.
+
+instead i believe that there are strong,
+probably irresistible, forces working to lock-down and partition the internet.
+i believe that the future internet will be composed of “islands'.
+these islands will tend to coincide with countries, cultures, or companies.
+there will be barriers between these islands.
+and to cross those barriers there will be explicit bridges between various islands.
+network traffic that moves over these bridges will be observed, monitored, regulated, limited, and taxed.
+the future internet will be used as a tool for power, control, and wealth.
+and to a large degree the users of this future internet will not care about this.
+this paper describes this future - a future more likely than the halcyon world painted by others.
+
+read more…
+
+
+
+
+
+
+why did i break a perfectly good website?
+
+
+20 may, 2016
+i have reworked the old, joomla based, cavebear website.
+it took a lot of work.
+a lot of urls got changed, thus breaking external links.
+and i am sure that a lot of small adjustments remain to be done.
+the old one was not broken.
+so why did i break a perfectly good website?
+well, i’ll tell you why.
+it all begins with the idea that much of the content of today’s world-wide-web will disappear.
+
+read more…
+
+
+
+
+
+
+redressing excess corporate power
+
+
+15 oct, 2011
+proposed amendment to the united states constitution to redress the increasing distortion of elections and political speech by corporations and other aggregate forms
+karl auerbach ─ october 14, 2011 ─ version 1.04
+proposed text:
+
+corporate and other aggregate forms of organization are neither persons nor citizens under this constitution and shall have neither protections, rights, nor legal standing under this constitution.
+
+
+this amendment shall not be construed to deny or disparage the power of congress or the several states to enact legislation that defines rights, powers, limitations, liabilities, and standing of such corporate and other aggregate forms of organization.
+
+the problem:
+the conservative wing of the us supreme court has elevated several corporate rights to at least the same degree of constitutional protection as the rights of natural (living) people.
+there is little or no precedent for the creation of these rights in corporations.  the idea of the modern corporation did not arise until nearly a century after the writing and adoption of the constitution.  and the 14th amendment predates the rise of the modern corporation by at least a decade.
+in other words, these corporate rights are the product of judicial legislation.
+
+read more…
+
+
+
+
+
+
+biodiesel stinks
+
+
+21 apr, 2008
+monday, 21 april 2008 16:25
+it used to be that people who drive with the windows open or the top down could identify two kinds of vehicles from their smell, even at long distances: ford diesel pickups, both old and new, and old diesel peugeots.
+the ranks of the stinkers have been supplemented by biodiesel conversions of cars and trucks that should have been scrapped long ago.
+and here in santa cruz, there are a lot of these things.
+
+read more…
+
+
+
+
+
+
+unanswered questions
+
+
+20 apr, 2008
+sunday, 20 april 2008 17:00
+so far none of the candidates for president has answered some of the questions i would like to hear answered:
+
+will, and when, will the candidate initiate a review with the purpose of repudiating bush’s excessive signing statements?
+will the candidate promise not to use signing statements except to identify ambiguities and difficulties so that congress may provide clarifications?
+will, and when, will the candidate repudiate the concept of the “unitary executive”?
+will, and when, will the candidate recognize that the constitution of the united states not only limits the powers of the united states federal government, including the executive, within the geographic borders of the united states, but everywhere.
+
+
+
+
+
+
+citizens or subjects?
+
+
+9 feb, 2008
+saturday, 09 february 2008 16:59
+it’s pretty obvious that the republican party is going to try to paint democratic candidates for us federal offices (president, senate, and house) as wimps who are going to hand the country over to “terrorists”.
+that, of course, is utter and vacuous nonsense.
+the real issue for fall 2008 is this:
+are we citizens or subjects?
+the democrats allow us, you and me, to have opinions, to differ from one another, and to disagree with the government.  in other words, we would be citizens.
+the republican position, on the other hand, tries to make you and me subordinate to the government position.  the republicans want us to be subjects.  if we differ on any subject from their position - whether it be on a war, on use of taxes to support “faith”, or on whether the government hand is put down our wife’s throat or down our pants - then we will be labelled as unpatriotic and un-american.
+i chose to be a citizen.  i hope you join me.
+
+
+
+
+
+contempt
+
+
+3 oct, 2007
+wednesday, 03 october 2007 18:36
+i’m getting pretty disgusted with the way that congress does the dance of the neutered wimps around the president’s increasingly egregious claims of executive power.
+gwb is playing a game of chicken with congress and congress ought to call his bluff.
+the house and senate ought to begin by sanctioning those government contractors who refuse to turn over documents because the president told them not to.  perhaps the senate ought to begin by holding some executives from blackwater and at&t in contempt and tossing ‘em into the clink until they recognize that congress has at least as much authority in this country as does the president.
+and congress, even if it does not have the votes to pass veto proof legislation or to get past the senate’s filibuster rules, most certainly has the power to refuse to pass legislation that the president needs.
+teddy roosevelt once sent a fleet across the seas and said that it was congress’ problem to pay to get it back home.  perhaps congress ought turn the tables and refuse to pass the forthcoming budget, let the federal government go into stasis, and tell the president that it’s his problem to pay for his war.
+
+
+
+
+
+going solar
+
+
+23 sep, 2007
+sunday, 23 september 2007 18:00
+i just got a new toy - we just added solar panels to our house.
+every hour or every time the sun changes i dash up to the garage to check the output and then race out to the power meter to watch it spin backwards.
+it is somewhat ironic that as a result we are going to have to trim the crowns of several trees that impinge on our solar horizon.
+we anticipate that this will reduce our electrical bill to zero.
+however, due to a reagan era clunker in the the byzantine us tax code, we are going to be scrod and unable to obtain the federal tax credit.
+
+
+
+
+
+a toast to g. w. b.
+
+
+15 sep, 2007
+saturday, 15 september 2007 17:02
+mr. president, i offer you a toast.
+may you have a long life; may your mind remain lucid.
+may you live to see the nation and history repudiate everything you have done and everything you stand for.
+my you live to understand how you perverted your oath to preserve, protect, and defend the constitution of the united states.
+may you live to perceive how you polluted the words “freedom” and “democracy” and so dishonored the united states and its citizens that we are ashamed to say “we are americans”.
+may you live to comprehend that you cheapened religion, morality, and ethics by turning them into political tools of expediency rather than reflections of our highest aspirations.
+may you live to feel shame for what you have done.
+
+
+
+
+
+being distracted
+
+
+4 sep, 2007
+tuesday, 04 september 2007 18:32
+i’ve been rather busy of late; i’ve been writing a lot of code in pursuit of my long developing ideas about self-healing networks and network troubleshooting (these may seem disjoint, but they are two ends of a spectrum.)
+![doda ](/images/blog/nacimiento-ferguson-150x200.png "doda")
+i needed a break, so this last weekend i fired up doda, dropped her top, and headed south for a trip over the santa lucia mountains, from king city to big sur via the nacimiento-ferguson road.
+the trip encompassed landscapes covered by two of california’s greatest writers - wallace stegner and john steinbeck.  (all married people ought to read stegner’s angle of repose and crossing to safety.)
+
+read more…
+
+
+
+
+
+
+who is karl
+
+
+15 may, 2016
+if you are looking for a short bio then click here.
+so, i bet the first thing you want to know is what i look like.  the photo on the left is nearly a decade old, but i like it.  the vicissitudes of internet politics, life at startups, and life in general have left me with a bit more gray around the edges.
+some people have said "karl is a crock".
+and i’m here to say that they are right… sort of…
+yes! that that is me over there to the lower right.
+i was understudy crocodile in a production of peter pan.
+it is true that i hold some strong opinions.  this website is full of materials that articulate and elaborate on those opinions so i won’t go into a lot of detail here except to say that i firmly believe that modern governance - political and of the internet - is in serious trouble unless we abandon the corrosive concept of stakeholderism and return to the principles of constrained government and separation of powers, as articulated by so many of the great thinkers of the 18th century.
+
+read more…
+
+
+
+
+
+
+what is a cavebear
+
+
+15 may, 2016
+who or what is cavebear?  the "where" part is easy: 37° 00' 02 north by 122° 00' 59 west - which just so happens to be in the city of santa cruz in the state of california.
+cavebear was formed by me, (karl auerbach) in mid 1994.
+cavebear is an organization for research, consulting, product development, and other matters related to the internet.  cavebear explores new ways of making the internet a more useful place for people.  projects include:
+
+tools for network diagnosis and repair.
+the homeostatic (self-healing) internet.
+lifeline grade internet services.
+capability computer architectures and operating systems.
+internet governance.
+internet law and policy.
+protocol interoperability analysis and testing.
+internet humor.
+the history of the internet project (sponsored by interworking labs).
+
+shakespeare said - "what’s past is prologue, what to come in yours and my discharge."  if cavebear is about anything, it is about new ideas and new things.
+
+read more…
+
+
+
+
+
+
+karl cv/bio
+
+
+15 may, 2016
+(this is a reduced version of the the full, long cv - https://www.cavebear.com/about/karl-cv-long/)
+mr. auerbach is the chief technology officer at interworking labs (iwl) in scotts valley, california.
+mr. auerbach was the first (and only) north american publicly elected member of the board of directors of icann, the internet corporation for assigned names and numbers.
+karl auerbach was formerly a senior researcher in the advanced internet architecture group in the office of the chief strategy officer at cisco systems.
+in addition to his technical work, mr. auerbach has been an attorney in california since 1978. he is a member of the intellectual property section of he california state bar.
+in 2002 he received the norbert wiener award from the computer professionals for social responsibility (cpsr).
+
+read more…
+
+
+
+
+
+
+karl cv/bio - long form
+
+
+3 mar, 2023
+(for the most recent version of this page, go to https://www.cavebear.com/about/karl-cv-long/)
+karl auerbach has been creating and extending internet and operating system technology since the early 1970s.  he has worked at all levels, from hardware to protocols to applications to legal policy.
+in addition to his technical work, mr. auerbach has been an attorney in california since 1978. he is a member of the intellectual property section of he california state bar.
+mr. auerbach is the chief technology officer at interworking labs (iwl) in scotts valley, california.
+karl’s home page is at http://cavebear.com/.
+karl is a “pioneer member” of the internet society.
+recently, karl has become concerned that our efforts to improve internet and device security have overlooked our need to manage and repair the internet.  security barriers have made it increasingly difficult to locate, isolate, and repair faults.
+scope
+for more than five decades karl has been involved in nearly every aspect of internet technology and in much of the related national and international policy.  there are few with karl’s synoptic view of the internet. karl has worked with internet technology from the electronic signaling layer all the way up through applications.
+karl was influenced by dave farber’s dcs network to think of networks as distributed systems with dynamic behavior and properties similar to that of a large scale industrial process.
+karl’s perspective on internet policy is condensed into his “first law of the internet”:
+
+every person shall be free to use the internet in any way that is privately beneficial without being publicly detrimental.
+
+the burden of demonstrating public detriment shall be on those who wish to prevent the private use.
+
+such a demonstration shall require clear and convincing evidence of public detriment.
+the public detriment must be of such degree and extent as to justify the suppression of the private activity.
+
+
+
+
+
+karl was among the first to bring together law and network technology, particularly with regard to privacy and domain name policy.
+karl has long strongly advocated that the internet must be considered a lifeline grade utility.  he has argued this point several times, such as in his 2003 presentation “from barnstorming to boeing – transforming the internet into a lifeline utility”, his 2019 keynote presentation at nanog, and his long time position that the internet should be managed less as individual, independently acting devices and more as a complex distributed process.
+karl’s technical work has contributed to the expansion, security, and reliability of the internet.
+his work on internet policy and privacy have contributed to the development of internet governance and protections for users.
+karls work on tools and testing have led to an internet that is more robust and interoperable.  and through karl’s tools and testing people everywhere have increased assurance that their internet devices will actually work.
+his work with network security, although largely confined to the military sphere, advanced the art of both network and operating system security.
+karl’s work with john romkey’s pc/ip, packet drivers, the ulana effort, and interop helped publicize and deploy interoperable tcp/ip code in an era when networking was largely for larger computers.
+karl’s leadership in articulating the technical goals and reasoning for design decisions in ietf meetings and on ietf mailing lists for 50 years has had major influence on two generations of technologists.
+karl, an attorney and member of the california bar, has formed or led policy discussion groups and bridged the gap between internet technology and government representatives, policy makers, lawyers, and academic researchers.
+his work with voting contributed significant advances to trustworthy open source, inspectable testable voting machines and software.
+significant achievements
+during the 1970s karl designed and implemented some of the first operating systems and networks based on formal security models.  in this work karl created the first encrypted vlans, virtual private networks, cryptographic key management protocols, message digests, access controllers, and multi-level secure networks.
+during the 1980s and later karl worked with several others to bring small computers into the nascent internet.
+his testing tools and his lead roles at “bakeoff” events, the ulana project, and the interop show net greatly increased the probability that network devices from different vendors would actually work with one another.
+karl created the first internet “butt set”, a highly portable device that could be brought into the field by network repair teams to rapidly analyze problems.
+in the mid 1990s karl architected and implemented ip/tv, a pioneering product for internet distribution of entertainment grade video over the internet.
+karl’s efforts building tools, developing interoperability tests, and designing, deploying, and running the interop show networks have facilitated internet growth and the quality of internet devices.
+karl has been a long-time member of the internet engineering task force (ietf).  during that time karl participated in, or chaired, working groups that led to the creation of widely used, full internet standards.
+mr. auerbach served as a publicly elected member of the board of directors of icann, the internet corporation for assigned names and numbers.
+karl is a co-founder of the boston working group and has been involved in the issue of internet governance for several years.
+karl has long been interested in questions related to internet reliability, particularly as the internet evolves into a critical element of our infrastructure.
+karl has a strong interest in network diagnostic tools
+karl was a principal in the creation of open voting systems. he was formerly on the board of directors of the open voting consortium.
+
+read more…
+
+
+
+
+
+
+garlic bread
+
+
+19 jan, 2025
+garlic bread is a common accompanyment to pastas with a tomato based sauce.
+however, it is often not very good.
+so i came up with my own recipe.
+
+read more…
+
+
+
+
+
+
+cheese breads
+
+
+15 jun, 2024
+these make great finger-food, appetizers for gatherings.
+around our house they vanish fairly quickly.
+they are fairly easy to make.
+
+read more…
+
+
+
+
+
+
+latkes
+
+
+19 nov, 2023
+latkes are for many of us one of the ultimate comfort foods.
+this recipe is derived from several sources.
+first, it is related to another (perhaps not yet posted) for hash browns that
+i built on a recipie from the ad hoc at home cookbook by thomas keller.
+second are various websites about latkes, most particularly
+great grandmother’s potato pancakes recipe at https://www.theseasonedmom.com/potato-pancakes/
+i have reduced the amount of egg from the usual two to one.  i simply do not like eggs.
+i have substantially increased the amount of onion and have added curry powder.
+this recipe is still under development.
+
+read more…
+
+
+
+
+
+
+cheeseburgers
+
+
+19 jul, 2023
+cheesburgers are a not hard to make but they do deserve good quality ingredients.
+these burgers have a fairly strong pepper quality.
+the pickapeppa sauce - https://www.pickapeppa.com/about adds both additional pepper and some sweetness.
+i learned about pickapeppa sauce from the old hippo restaurant on van ness in san francisco.  and i picked up the idea for the thyme in the spice blend from the movie “the best years of our lives”.
+the cooking time will, of course, vary depending on your preferences as well as the heat of the bbq.  take care, however, not to overcook the beef.  the cook time below (8 minutes total on the grill) leads to roughly medium (or perhaps a bit more) cooked.  if you like it more rare, remove a minute, perhaps two, from the total cooking time.
+
+read more…
+
+
+
+
+
+
+boregs
+
+
+18 may, 2023
+boregs are from armenia.  all are made by wrapping phyllo (or pastry) dough around a filling.
+the filling in this recipe is a combination of cheeses and herbs.  some recipes use filings that contain meat, typically lamb.
+i also came up with a lemon-honey glaze that resembles a glaze from the old, and now long gone, max and son restaurant in daly city, california - a rather unique place that was half new york deli and half chinese.
+these are not diet food.
+this recipe is still under development.
+
+read more…
+
+
+
+
+
+
+black and white cookies
+
+
+9 jul, 2022
+i grew up in la with black and white cookies.  when i moved north (to the san francisco and monterey bay areas) i couldn’t find the.
+so i had to make my own.
+these contain a lot of sugar.
+
+read more…
+
+
+
+
+
+
+strawberry popsicles
+
+
+13 jul, 2021
+these are really good, with a smooth texture.
+i often adorn these with some bittersweet or semisweet chocolate that i’ve melted in a double boiler with some corn syrup, and then, before the chocolate hardens, i push some mint leaves onto the still-liquid chocolate.
+copied from ultimate strawberry popsicles recipe
+
+read more…
+
+
+
+
+
+
+onion bagels
+
+
+10 may, 2021
+a true bagel can be hard to find — they are not to be found in most supermarkets.  many restaurant “bagels” are simply round bread — boring.  and real bagels are boiled — that is not something that is up for debate.
+this recipe can be easily be modified to make plain (water), sesame, garlic, or other flavored bagels: just change-out the onion.  note, however, that after being boiled the bagels are not sticky and onions, seeds, or what-have-you will tend to slide off.
+
+read more…
+
+
+
+
+
+
+beef rub
+
+
+9 may, 2021
+i use this mostly on tri-tip roasts.
+
+read more…
+
+
+
+
+
+
+citrus chicken with prunes
+
+
+29 jan, 2017
+saturday, 29 january 2017
+this is an easy recipe to create a flavorful chicken: citrus and tangy.  it takes about an hour.
+
+read more…
+
+
+
+
+
+
+license
+
+
+18 may, 2016
+as you might guess the material on this website is protected by us copyright.
+don’t let that scare you; you always have “fair use” rights.
+and i am, of course, willing to consider allowing further use, but you need to ask me first.
+
+
+
+
+
+documents
+
+
+31 dec, 2010
+internet governance
+
+
+
+bookmarks
+description
+
+
+
+
+thoughts on the ntia green paper
+this is a copy of the ntia “green” paper of january 30, 1998 with some of my comments interleaved.
+
+
+the national science foundation (nsf), the internet’s domain name system (dns), and the privacy act of 1974
+this is a collection of pages from 1998 describing the role of the national science foundation (nsf) in the domain name system.
+
+
+ifwp: international forum on the white paper - transcript of first day working group reports
+the international forum on the white paper was a gathering to discuss the then growing concerns about control of the internet’s domain name system (dns)september, 1998
+
+
+what i would say to the house commerce committee were i invited to testify
+july 17, 1999
+
+
+suppose icann had an at-large membership drive
+humor - suppose icann hired a telemarketeer to try to get you to join. what might that be like? august 22, 1999
+
+
+structural principles for internet governance
+materials for the meeting of the un internet governance forum.
+
+
+stakeholderism - the wrong road for internet governance
+submitted to the the meeting of the un internet governance forum.
+
+
+request for independent review
+after icann rejected my request for reconsideration of icann great giveaway to network solutions (now verisign) as being in violation of icann’s procedures, i submitted this request for independent review.
+
+
+reconsideration request
+way back in 1999 icann began the great giveaway of the crown jewels of the internet to network solutions, nee verisign.
+
+
+questioning authority - searching for stability in internet governance
+i spoke on the weakness of icann’s legal and technical foundations, and the potential collapse of icann as a result, at signifiers in cyberspace: domain names and online trademarks at the center for law, technology, and the arts at case western reserve university school of law, november 12-13, 2009.
+
+
+why louis xiv would have loved the internet
+king louis xiv of france, a man who treasured control over chaos, would have loved the internet.this is a presentation i gave at cal tech and loyola law when i was named a fellow of law and technology in 2001.
+
+
+my comments at the conference on the internet and governance, john f. kennedy school of government, harvard university
+let me declare that icann has been a successful experiment in governance of the internet. but there is more to say…
+
+
+my senate testimony on icann of february 14, 2001
+
+
+
+a prescription to promote the progress of science and useful arts
+i wrote this to express concerns about the privitization of government powers into the hands of private bodies.january 2002 issue of internet law & business.
+
+
+my testimony before the subcommittee on science, technology, and space of the united states senate committee on commerce, science and transportation.
+june 12, 2002
+
+
+my submission to the communications subcommittee of the united states senate committee on commerce, science & transportation
+july 31, 2003
+
+
+my comments to ntia’s “mid-term review” of its icann “jpa” agreement.
+my comments on ntia’s “the continued transition of the technical coordination and management of the internet’s domain name and addressing system: midterm review of the joint project agreement”
+
+
+internet governance - by whom?
+this is a note written not long after icann got started - and it reflects on how poor a start it was and how it established the pattern for the icann we have today.  may 1, 1999
+
+
+icann mission statement generator
+are you a prolix pleonast?  do mission statements amuse you?
+
+
+fragmentation of the internet
+this is a presentation that i gave at the american bar association (aba) national institute on “computing and the law: from steps to strides into the new age”.  san francisco, june 2007.
+
+
+evaluation of icann
+as my last act as a director of icann and during the course of a public meeting i tendered this report to icann’s board of directors.  icann has never acknowledged this document; nor does it appear in any icann document collection or website.  adobe acrobat format, 13 pages.  june 2003
+
+
+decision diary
+during my term on the icann board of directors i kept a written, public diary of my decisions.  this is that diary.  it spans the entire duration of my term, november 2000 through july 2003.
+
+
+contracting the internet: does icann create a barrier to small business?
+this is a statement made before the committee on small business, u.s. house of representatives
+
+
+containing the whole science of government
+this is a chapter from charles dickens' book little dorrit (1857)  the chapter describes the circumlocution office.  it may, and should, call to mind a certain existing institution of internet governance.
+
+
+campaign platform - election for north american director of icann
+this is my campaign platform for the year 2000 election for the north american seat on the icann board of directors.  there is a fair amount of material here, much of it is still relevant today.  november 10, 2000.
+
+
+boston working group submission to ntia
+this is the boston working group (bwg) submission to ntia on ntia’s plan to form icann.  september 29, 1998
+
+
+a plan to reform icann: a functional approach
+this is one of several papers that describes a way to structure bodies of internet governance, such as icann, into tightly constrained units that are less likely to go astray or suffer from mission bloat. april 2002
+
+
+a note to ntia for their review of their “transition” to icann.
+my submission to “the continued transition of the technical coordination and management of the internet domain name and addressing system
+
+
+review of the at‐large advisory committee.
+my “concurrence” (appendix 3) contains my arguments why icann needs a much broader base of public representation on its controlling body, the board of directors.  my portion begins on page 32.
+
+
+
+internet governance / itu meeting on ig (feb 2004)
+materials presented at the itu meeting on internet governance in geneva, february 2004
+
+
+
+bookmarks
+description
+
+
+
+
+panel presentation and speakers notes
+
+
+
+governing the internet, a functional approach
+
+
+
+first law of the internet
+
+
+
+deconstructing internet governance
+
+
+
+
+internet technology
+
+
+
+bookmarks
+description
+
+
+
+
+a secure, national system for electronic funds transfer
+david kaufman and i wrote this to present some guidelines for the development of a secure national network for electronic funds transfer.1975
+
+
+design alternatives for computer network security
+this is a google books scan of a paper we wrote at system development corporation (sdc) in 1978 on the topic of network security.the actual content begins on page 6.my name is misspelled in the list of contributors.1978
+
+
+the sdc communications kernel
+this is a paper about the security kernel that i designed in the late 1970 for use in a multi-level secure communications network. i also led the group that implemented it.  this was, i believe, the first b-level secure system. (actually it pre-dated the orange book; lessons learned during this design and implemnentation fed into what was to become the orange book.
+
+
+1980 letter to cacm on security
+this is a letter i wrote to cacm after which they claimed i had revealed classified material even though 100% of the sources were open and unclassified.
+
+
+an introduction to the concepts of information regulation and data protection
+1980
+
+
+a new electronic mail system
+this was a paper i presented at the usenix winter 1981 conference.  i have long thought that several of the ideas i presented here were eventually incorporated into the internet’s store and forwared e-mail relay system and software such as sendmail.1981
+
+
+a unix(tm) subsystem on the cray time sharing system (ctss) - 1986
+we ported unix system iii to run on the cray time sharing system at the lawrence livermore labs' magnetic energy (mfe) project.note: our paper begins on page 211 of these proceedings.
+
+
+third-pary mediated protocols
+this is the slide deck from an acm sigcomm envent in napa, californiai do not remember the year.
+
+
+rfc 1001 and rfc 1002
+this pair of rfcs are a full internet standard defining netbios over tcpi was the chair of the working group and editor of the resulting documents.this work was instigated by the us air force’s ulana procurement intended to push for good interoperability of network products.
+
+
+building the interop show network - 1993
+this is a 1993 video made showing our team building the interop show network.
+
+
+management by delegation: network management for the real world
+this is a thought piece i wrote describing where i wanted to take my company, empirical tools & technologies. these ideas remain valuable but largely undeveloped.march 1993
+
+
+management by delegation: network management for the real world - presentation
+this is a presentation on the management by delegation idea. these ideas remain valuable but largely undeveloped.march 1993
+
+
+building a temporary network in a hurry
+john mcmahon and i wrote this to export some lessons we had learned from building the interop show network.1994
+
+
+tips for diagnosing and repairing tcp/ip networks
+1994
+
+
+towards useful network management
+this is a paper written by chris wellens and myself regarding ways to better manage networks.  several of these ideas remain valuable but largely undeveloped.july 1996
+
+
+a prescription to promote the progress of science and useful arts
+2002
+
+
+on entity associations in a cloud network
+this is a paper i wrote in 2010 about issues that arise when naming things that exist in a cloud network.  most particularly this note deals with issues concerning persistent network relationships between entities that exist within a cloud-net.
+
+
+my presentation on internet naming to the us national research council
+the domain name system is often touted as a kind of global, uniform name space for the internet. it is not. this note describes various ways in which dns lacks those properties that people and bodies of internet governance assume that it has. (powerpoint format), july 2001
+
+
+protecting the internet’s domain name system
+the domain name system (dns) is one of the few parts of the internet that can be considered a single point of failure.
+
+
+from barnstorming to boeing - transforming the internet into a lifeline utility - speaker’s notes
+8th ifip/ieee international symposium on integrated network management, colorado springs, colorado, march 26, 2003
+
+
+from barnstorming to boeing - transforming the internet into a lifeline utility (.pdf) from barnstorming to boeing - transforming the internet into a lifeline utility (powerpoint)
+8th ifip/ieee international symposium on integrated network management, colorado springs, colorado, powerpoint format, march 26, 2003
+
+
+fast path characterization protocol (fpcp)
+what is “proximity” on the internet and how do we measure it?
+
+
+internet: quo vadis (where are you going?)
+i do not believe that the future internet will be a utopia. nor do i believe that the future internet will be like some beautiful angel, bringing peace, virtue, equality, and justice.instead i believe that there are strong, probably irresistible, forces working to lock-down and partition the internet.2016
+
+
+domain names are fading from user view
+the domain name system - both the technology of dns and the deployed naming hierarchy we all use - are among those aspects of the internet that, although they feel solid and immutable, are slowly changing underneath our feet.2017
+
+
+network operations on a public utility internet - keynote presentations at nanog (north american network operators' group) in the fall of 2019.
+i gave one of the two keynote presentations at nanog (north american network operators' group) in the fall of 2019.the first part deals with the responsibilities, obligations, and liabilities of being an operator of parts of an internet that was becoming a lifeline grade public utility.the second part shifts to ways we design and implement the internet to improve its resilience to errors, problems, and attacks.  i suggest that we look beyond traditional methods of designing and implementing computer systems. in particular i urge that we take a look at the methods used by living things to improve their ability to survive.2019
+
+
+
+miscellaneous
+
+
+
+bookmarks
+description
+
+
+
+
+senate report no. 93-1183 (privacy act of 1974)
+i scanned and ocr’ed a paper version of the senate report on what was to become the privacy act of 1974.
+
+
+history of the privacy act of 1974
+i did not write the main body of this document; i merely resurrected it from paper format.
+
+
+beware the tactyldactyl!)
+a fun (and quite short) story.
+
+
+
+external links
+
+
+
+bookmarks
+description
+
+
+
+
+my lawsuit against icann
+during my term as a director of icann icann’s staff (and several members of the board) obstructed me when i tried to perform my duties as a director.  it became necessary to obtain a court order to compel icann to cease its unlawful behaviour.  this link leads to the case file.
+
+
+
+
+
+
+
+
+bbq grilled tomato steaks
+
+
+12 jun, 2007
+tuesday, 12 june 2007 18:18
+these are extremely easy to make.
+they have a robust flavor - not at all your wimpy, just lie-there-on-the-plate, kind of tomatoes.  i’ve found these to go well with lamb, beef, and strong fish (like salmon.)
+i have found momotaro tomatoes to be by far the best variety for this.  the momotaro is a solid tomato that has good flavor, can be carved into thick "steaks", and stands up to marinating and grilling.  i usually use the largest ones i can find.
+i find that one tomato "steak" per person is about right.
+recently i’ve been adding a layer of shredded parmasean cheese so that it melts to form a cap when grilling.
+when i do this i don’t flip the tomotoes when they are on the bbq.
+
+read more…
+
+
+
+
+
+
+apricot glaze
+
+
+9 jun, 2007
+saturday, 09 june 2007 07:31
+i use this glaze roasting a chicken or turkey.  it is rather sweet and thick.
+it tends to burn, so it has to be and watched and sometimes covered with aluminum foil (it will stick to cheesecloth.)
+
+read more…
+
+
+
+
+
+
+cipollini yams
+
+
+9 jun, 2007
+saturday, 09 june 2007 05:11
+these yams have an intense flavor.  i’ve used them alone (as an item to bring to a potluck dinner).  they work very well with turkey.
+
+read more…
+
+
+
+
+
+
+sauteed apples
+
+
+9 jun, 2007
+saturday, 09 june 2007 07:15
+i tend to make this with the ricotta pancakes.
+
+read more…
+
+
+
+
+
+
+tabbouleh
+
+
+9 jun, 2007
+this is great for a summer gathering.
+
+read more…
+
+
+
+
+for more items use the tags or do a search.
+
+
+
+license
+back to top
+
+
+
+
+
+  
+  © copyright karl auerbach, all rights reservedmastodon
+
+
+
+
+
+
+
+

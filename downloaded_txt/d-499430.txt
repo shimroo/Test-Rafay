@@ -1,0 +1,158 @@
+
+
+
+marv on record
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+home     archive     about     search:  
+
+
+
+last 10
+apple puts the lid on free-for-all itunes artwork, again
+
+a year later, apple stops encrypting artwork. def.
+
+telekinesis
+
+im threads (concept)
+
+apple encrypts their free artwork
+
+unix: itunes 7's .itc album artwork to jpeg/png
+
+the return of free itms art
+
+qtfairuse6 reaches maturity
+
+fairuse4wm, will anyone learn this time?
+
+mp3toys, my favorite music player for windows
+
+(more...)
+
+
+
+
+
+
+
+
+ 
+
+
+apple puts the lid on free-for-all itunes artwork, again
+i hope you album art addicts out there went on a rampage for these few weeks itunes turned off their album art authentication, because they just flipped the switch back to the "on" position. i guess you can go back to cracking their encryption now!
+oh well. there is always def.
+but now i really need a uk itunes account so i can go back to the [drag to itunes] + [.itc + bitmaprip] method for the bigger uk copies of the art def can't get.
+would anyone in the uk care to buy me a £5 gift certificate so i can make a uk itunes account? :) that is the only way to do it without a uk billing address on your credit card. and yes, it has to be bought from a legitimate uk itunes account. trust me, i've poked!
+
+ 
+
+ 27 sep 07 | +permalink+ | comments (3)
+a year later, apple stops encrypting artwork. def.
+a year ago, apple began encrypting their itms artwork to prevent non-itunes users from accessing it. it worked pretty darn well. a year later, they suddenly have stopped encrypting artwork. maybe they caught wind of my secret project? (more below) in addition to removing encryption, they have upped the resolution of their artwork to up to the full 1500x1500 that the press gets access to, in a move i've predicted for some time now. most albums i have checked are still much lower resolution than that, but that may change in time.
+example: 900x900 / the go! team - proof of youth (straight off of phobos)
+
+
+and with that, i'd like to give a little gift to anyone who still checks a blog that hasn't been updated in almost a year.
+defyou may have noticed that my posts stopped when the quest for itunes artwork came to a halt. well, my quest for giant artwork never did.
+
+around the time i stopped posting, i began exploring the world of press assets. for about 10 months i explored every secret corner of the internet, in search of these press assets. ultra high resolution album artwork. through the use of some custom tools and del.icio.us, i compiled a large collection of insider/private/public sites that pr firms, labels, and members of the press use to distribute pre-print high def artwork.
+jump to july, i began molding this press collection into a web app to streamline my giant cover grabbing process. now that it might be on the verge of becoming obsolete, i'd like to show you my creation that i've been keeping from the world. i have a way to access the same print quality high resolution artwork that is given to members of the press. 
+i call it def.
+enjoy, but keep it to yourself. do not post def to digg/reddit etc, or it will be shut down. by me. because otherwise, it will be by them.
+[edit: did i forget to stress how big of a deal it is that itunes store got high res artwork? i just got a 3709x3709 cover for prefuse 73 - extinguished: outtakes from the uk itunes store, which seems to have much bigger art than the us store. warp records press assets are generally hard to come by, this is huge. ]
+
+ 
+
+ 17 sep 07 | +permalink+ | comments (5)
+telekinesis
+requirement 1: brain interface
+requirement 2: nano machines that can fly and work together to lift things thousands of times their size
+in 40 years, i will move things with my mind.
+
+ 
+
+ 27 oct 06 | +permalink+ | comments (1)
+im threads (concept)
+you've been there- you're talking to someone about multiple things at once and having trouble keeping track of the topics. enter im threads. a way to physically separate the different things you're talking to someone about so you don't lose track and forget about them.
+i'm using the term "threads" in the sense of threads in a forum. a different thread for each topic.
+implementation:
+plug-ins for gaim and adium and ______
+a different tab for each thread? might get messy...
+backwords compatible by design.. 
+normal client view:
+"(2:01 pm) marv: [halloween] what are you going to be for halloween?"
+"(2:04 pm) marv: [project] the four ducks need to be emphasized more."
+"(2:05 pm) elephantjones: [project] why?"
+"(2:05 pm) elephantjones: [halloween] i dunno"
+every "halloween" message would be in the same tab, or be color coded, or ___
+every "project" message would be in a different tab, or different color, or ____
+im threads view:
+[[halloween]]
+"(2:01 pm) marv: what are you going to be for halloween?"
+"(2:05 pm) elephantjones: i dunno"
+[[project]]
+"(2:04 pm) marv: the four ducks need to be emphasized more."
+"(2:05 pm) elephantjones: why?"
+
+the beauty of this method of implementation is that it can be manually typed by someone without the proper plug-in. thus the backwards compatibility.
+
+ 
+
+ 17 oct 06 | +permalink+ | comments (3)
+apple encrypts their free artwork
+as of the latest itms update, apple is sending encrypted copies of their artwork to itunes when you select "get album artwork". the only people who probably noticed anything happened were those who used means other than itunes 7 to get free artwork from apple. this seems to only apply to albums released after the october 3, 2006 itms update.
+a path to a cover that used to look like this:
+
+http://a1.phobos.apple.com/r10/music/38/39/68/
+mzi.xmzzmbsl.600x600-100.jpg?downloadkey2=1160626777_b69d6ec64a43566af002c1ad7e09c9fd
+
+now looks like this:
+
+http://a1.phobos.apple.com/r10/music/38/39/68/
+mzi.xmzzmbsl.enc.jpg?downloadkey2=1160626777_b69d6ec64a43566af002c1ad7e09c9fd
+
+after downloading the encrypted artwork, it appears that itunes 7 decodes the image and saves it as usual to an itc file, unencrypted. what method of encoding is used, i do not yet know.
+[update]
+here are test files if anyone wants to join me in exploring this further.
+
+a-encr.jpg - an encrypted cover
+md5: a724f4a5fcb1094c3f5c218baaa83624
+b-decr.itc - the cover after itunes has decoded it and made it into a .itc
+md5: 7d8f9c20d3d32678f406e7ddf7f76b54
+c-decr.jpg - the cover changed to a jpg from the unencrypted itc using this method
+md5: aaf11fcb75ff930d7367d74ef166adca
+the encrypted image is 20 bytes larger than the normal image.
+[update 2 - 10/6]
+here is another example cover.
+
+ex2-encr.jpg - encrypted
+md5: 458fce8a1ebe960c7583ea6a8fd6af3b
+ex2-decr.jpg - decrypted
+md5: 998afc20daf6a50784447a54d42f2c34
+[update 3 - 10/17]
+a comment reminded me of a finding i forgot to share.
+any two people's encrypted copies of the same cover will be identical. an encrypted copy of cover x will always be y no matter who downloads it. to test this, have a friend download an encrypted cover and compare it to your copy of the same encrypted cover. the md5 hashes should be identical.
+
+ 
+
+  5 oct 06 | +permalink+ | comments (36)
+
+
+
+

@@ -1,0 +1,663 @@
+
+
+
+
+
+
+
+
+
+bia securities | clarity through chaos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bia securities
+clarity through chaos
+
+
+
+menu
+skip to content
+
+molly
+sample page
+
+
+
+search for:
+
+
+
+ 
+
+
+
+
+
+
+
+
+spruce and cachestack
+
+
+may 13, 2013development, open sourcejim geurts 
+
+
+spruce
+i recently created a library that compliments the fantastic dapper library. i called my library spruce as a play on the word dapper. the spruce library contains a set of extension methods that simplify querying and saving. when i’m in working in .net land, i primarily use ms sql server 2008+, so that is what the library is written against. until i have a need (or get a pull request), i don’t have plans to extend the library to support other databases.
+in addition to the querying and saving extensions, spruce also includes sql schema helpers and a basic migration framework. the migration framework is a simple forward-only (no rollbacks) code based migrations. there are a number of attributes, that can be added to your poco classes, to define the basic schema for your data. to complement the attributes, spruce offers a set of extensions specifically for manipulating sql schemas. there are extensions ranging from creating and dropping tables to column schema manipulation. the migration framework ensures that your schema is always where you want it. in cases where there isn’t an extension to accomplish the migration that you need, you can always run the raw sql script via db.execute().
+spruce is available as a nuget and is also available on github. there is detailed example usage available at the project’s github page. if you’re interested in seeing spruce in a real-world project, it is being used with the mvckickstart project.
+ 
+cachestack
+the other library that i recently created is all about caching. it’s called cachestack and compliments servicestack’s icacheclient. cachestack extends typical caching scenarios with the notion of a cache context, allowing you to clear cache items without knowing the specific cache keys. you’re able to setup listeners for the items that you cache and have those cache items invalidate when one of the items you’re listening to fires a trigger. the cache context supports cache profiles that can be defined any way you prefer, be it database, config files, etc. cachestack also includes a modified version of mvcdonutcaching. my version of donut caching has some bugfixes, performance improvements, and uses icacheclient for persistence. the really cool part is that you can leverage all of the features of a cache context when using donut caching. this makes it very trivial to clear the output cache of an action, when a model object is updated.
+cachestack is available as a nuget and is also available on github. like spruce, there is detailed example usage available on the project’s github page. cachestack will be incorporated into mvckickstart in the near future.
+
+
+
+leave a comment 
+
+
+
+
+
+configuring mvc 4 with structuremap
+
+
+june 25, 2012uncategorizedjim geurts 
+
+
+i started a new mvc4 project and wanted to use structuremap for my ioc container of choice. i followed phil’s post about wiring up dependency resolvers in mvc 4, but i kept getting the following error: “structuremapdependencyresolver does not appear to implement microsoft.practices.servicelocation.iservicelocator.
+parameter name: commonservicelocator”
+took a little digging, but i found the commonservicelocator project from the microsoft patterns and practice group.  that project has a structuremap implementation of the iservicelocator interface for structuremap.  after i installed the commonservicelocator nuget, i was able to reference iservicelocator in my code.   taking the code from the commonservicelocator implementation, i ended up with the following:
+using system;
+using system.collections.generic;
+using system.linq;
+using microsoft.practices.servicelocation;
+using structuremap;
+
+// this is part of mvckickstart (https://nuget.org/packages/mvckickstart)
+namespace mvckickstart.infrastructure
+{
+    /// <summary>
+	/// wrapper for idependencyscope, so that structuremap plays nicely with built in mvc4 dependency resolution.
+	/// </summary>
+	public class structuremapdependencyscope : servicelocatorimplbase
+	{
+		protected readonly icontainer container;
+
+		public structuremapdependencyscope(icontainer container)
+		{
+			if (container == null)
+				throw new argumentnullexception("container");
+
+			container = container;
+		}
+
+		public new object getservice(type servicetype)
+		{
+			if (servicetype == null)
+				return null;
+			try
+			{
+				return servicetype.isabstract || servicetype.isinterface
+						 ? container.trygetinstance(servicetype)
+						 : container.getinstance(servicetype);
+			}
+			catch
+			{
+				return null;
+			}
+		}
+
+		/// <summary>
+		///		when implemented by inheriting classes, this method will do the actual work of resolving
+		///		the requested service instance.
+		/// </summary>
+		/// <param name="servicetype">type of instance requested.</param>
+		/// <param name="key">name of registered service you want. may be null.</param>
+		/// <returns>
+		/// the requested service instance.
+		/// </returns>
+		protected override object dogetinstance(type servicetype, string key)
+		{
+			if (string.isnullorempty(key))
+			{
+				return getservice(servicetype);
+			}
+			return container.trygetinstance(servicetype, key);
+		}
+
+		/// <summary>
+		///		when implemented by inheriting classes, this method will do the actual work of
+		///		resolving all the requested service instances.
+		/// </summary>
+		/// <param name="servicetype">type of service requested.</param>
+		/// <returns>
+		/// sequence of service instance objects.
+		/// </returns>
+		protected override ienumerable<object> dogetallinstances(type servicetype)
+		{
+			return container.getallinstances(servicetype).cast<object>();
+		}
+
+		public ienumerable<object> getservices(type servicetype)
+		{
+			return container.getallinstances(servicetype).cast<object>();
+		}
+
+		public void dispose()
+		{
+			container.dispose();
+		}
+	}
+}
+the following code will setup mvc to use structuremap as the dependency resolver. add the webactivator nuget and toss the following file in your app_start folder:
+using system.web.mvc;
+using mvckickstart.infrastructure;
+using structuremap;
+
+[assembly: webactivatorex.preapplicationstartmethod(typeof(yourproject.iocconfig), "prestart", order = -100)]
+
+// this gets installed automatically with the mvckickstart nuget (https://nuget.org/packages/mvckickstart)
+namespace yourproject 
+{
+  public static class iocconfig
+	{
+		public static void prestart() 
+		{
+			// if changes need to be made to iocregistry, please subclass it and replace the following line
+			objectfactory.initialize(x => x.addregistry(new iocregistry(typeof(iocconfig).assembly)));
+			dependencyresolver.setresolver(new structuremapdependencyscope(objectfactory.container));
+		}
+	}
+}
+hope this helps someone looking to do the same!
+
+
+
+view all 5 comments 
+
+
+
+
+
+using the google analytics api with asp.net mvc
+
+
+february 17, 2012web developmentjim geurts 
+
+
+i’m a big fan of wordpress and really like the google analyticator plugin. it provides a dashboard widget that summarizes your analytics stats. i was working on a project that had a relatively sparse admin dashboard and figured i would provide a similar view of analytics stats. the main difference is that the project i was working on was an asp.net mvc3 project.
+i searched for some analytics api examples for asp.net and didn’t really find much. so hopefully this will help someone who is looking to consume gdata apis from .net. all of the code is available on github for your viewing pleasure.
+what does it look like?
+
+authenticating with google data api
+authenticating with google is pretty simple.  google supports a variety of authentication methods including oauth2.  i’m not entirely sure why, but i chose to go with their authsub method of authentication.  basically, you redirect the user to a specific google url, they authorize your application and are returned to your application with a token.  you can then use that token for one-time operation or convert the token to a long lasting token that can be used repeatedly.
+the code i use to authenticate looks like:
+
+i store the long lasting token in an embedded instance of ravendb. it’s a quick & super easy way to store things like that.
+querying analytics
+now that you have a token from the user, you can query analytics to get data for any site that the user has access to.  google sites have a unique id associated with them, that google calls tableid.  you need to specify this value with any analytic data query.  in order to get a list of available sites, you’ll need to query the account feed:
+
+with that snippet, i organize the sites based on their associated account.
+after choosing a specific site to work with, you can query information like total page views, average amount of time spent on the site, etc.  the data feed explorer is quite handy in exploring the type of data that analytics will return.  for example, the following query will get a number of general stats across all pages:
+
+similarly, you can add dimensions to your query.  dimensions allow you to group the metrics data, similar to sql group by.  the following query will get a list of pages sorted by most page views:
+
+the ui side of things
+the graph is generated using the jquery sparkline plugin.  while not as sexy as the official analytics graphs, it works for a quick view.  everything else on the page is styled with twitter bootstrap, with a few minor tweaks.  
+conclusion
+that’s about it.  have a look at the complete project to get a full understanding of how i used the analytics api to build an asp.net mvc widget that summarizes website analytics.
+
+
+
+view all 14 comments 
+
+
+
+
+
+hello rails
+
+
+december 20, 2011web developmentjim geurts 
+
+
+this year, i began to explore worlds outside of .net, as more than a lurker, and i want to continue to share my steps along the way. this is one of those steps…
+background
+the dmb stream community has grown more than i had ever envisioned when i first created the site. to help celebrate that and give back to the community, i wanted to run a facebook contest. i read long ago that heroku and facebook have a partnership where you can host your facebook app on heroku for free. this means no server configuration and it just works 🙂  i have been meaning to make a site with rails, but always fell back into my comfort zone of .net.  not this time…
+getting started
+i fired up a virtual image of mac osx (i will get a dedicated box as i become more comfortable with non windows environments) and started down the path of installing my development environment.  i used the rails ultimate install guide and other answers from this stackoverflow post to get the majority of my development tools setup.  outside of that, i had my trusty agile web development with rails book next to me to hold my hand throughout this journey.
+i should make a side note: i chose to use heroku’s mongohq for persisting data.  they offer free data storage with mongo, up to 16mb.  i don’t feel i need a relational database and mongohq seemed like the easiest route to take for saving contest submissions.
+riding rails
+since this is my first rails app, it took a bit longer than i expected to get up and running.  that and i made a point to get comfortable with vim which took time as well.  i supplemented the rails book with the getting started guide on the rails wiki.  it compliments my rails book with basic things like hooking up the root route.
+after a day or so of using vim, i decided to check out textmate to see how that compares.  coming from visual studio, i can definitely say that i am more at home using textmate over vim.  i’m happy i learned vim and have basic usage down.  i know i could continue to improve my efficiency with vim, but i really like the project like view that textmate offers.  being able to quickly select any file in the rails tree is a major deciding factor for me.
+as far as rails itself goes, i have really enjoyed working with that framework.  rails feels between one and two major releases ahead of asp.net mvc.  all of the built in helpers, asset pipeline, etc are all time savers and magically work with no configuration/custom code.  the only thing that feels less mature than asp.net mvc is validation.  rails has model validation, but i have yet to find something along the lines of the unobtrusive jquery validation that asp.net mvc provides.  that doesn’t mean it isn’t out there…
+that’s one of the downfalls that i have found regarding rails.  finding up to date information for the current version of rails isn’t the easiest thing in the world.  there’s a lot of blog posts and examples out there for rails and a good chunk of those are for older rails versions.  sometimes the examples work, sometimes the latest version of rails looks nothing like what’s in the example.
+heroku, github, and mongo
+what can i say about heroku? it’s amazing and such a pleasure to use; i don’t see myself using another rails host at this point.  they continue to innovate and offer solutions with the same vigor that amazon does with their web services.  heroku pricing is extremely attractive as well.  host any number of small sites for free and they’ll scale on demand, when that time comes.  deploying to heroku is so simple and easy… ms could learn a lot from them (that is, if there are any passionate people left on that stack).  yes, i understand that there is appharbor, but deployment options for .net are outdated, limited, and overall complete shit.
+not much to say about github either… it’s what everyone uses these days for source control.  i used both the command line git client and github’s mac client with my project.  both have benefits and the gui client is so simple and elegant… i still really enjoy kiln for my .net projects, but i’ll be in git land for everything else.
+i chose to go with mongohq for data persistence.   mongohq and heroku have a partnership that provides the free 16mb plan to each heroku app.  if your app requires more storage than that, mongohq price levels won’t break your bank.  there are no license fees or worries about infrastructure.  mongohq has multiple libraries available for non rails environments as well (including .net and java).  they even have a similar partnership with appharbor.  rails by default is setup to use activerecord and a relational database.  have no fear, it’s easy to override those defaults and mongomapper wraps mongo in a way that makes working with it feel very similar to a traditional database.
+conclusion
+while i was building this application, i found myself thinking that i should be doing busy work type things, but there really isn’t a lot of that to do with the rails stack.  for small/medium sized sites, it’s geared to help you realize your ideas rather than getting lost in architecture and useless technical rants.  to get started, that’s all i need… if the site ever gets too big or cost prohibitive for rails, it should monetize itself enough at that point to facilitate alternatives.
+at this point, i’m planning out my next project and will be using the same frameworks to make it a reality.  it’s more complicated than a simple facebook app, so it should be a nice next step for my rails experience.
+i feel that innovation and excitement have long moved away from the microsoft stack and the trend seems to continue among developers.  there are many other things going on out there and in general, it feels like .net is treading water and playing catch up.
+as slanted as this post may seem, i haven’t given up on .net.  i still have a fondness for it, but i would be stupid to ignore the rest of the web.
+
+
+
+view all 3 comments 
+
+
+
+
+
+howto: install non-authorized apk files on at&t android phones
+
+
+july 20, 2011mobile developmentjim geurts 
+
+
+i don’t know why this has to be so difficult, but these are the steps i took to install my development apk file to a test droid phone:
+
+make sure i have the android sdk installed on my pc (required for droid explorer)
+download and install htc sync – if the htc site search is broken, google to the rescue
+connect the phone to your pc via usb and select htc sync as the connection type
+download and install droid explorer from http://de.codeplex.com/
+right click the apk file and select install
+
+hope this helps someone…
+
+
+
+one comment so far 
+
+
+
+
+
+access the wordpress browser check api from asp.net
+
+
+july 8, 2011uncategorizedjim geurts 
+
+
+new versions of wordpress have a pretty handy widget included with the admin dashboard.  the widget checks the version of the browser that the user is running (via the user agent) and alerts them if it is insecure (ie6) or has an upgrade (firefox 3.x).  i wanted to include a similar widget with acturent and if possible, take advantage of their service api.
+after a short time tinkering, i have a nice c# wrapper to their api.  the code below uses a class called biacache that is basically a wrapper around system.web.cache or an in-memory dictionary, based on if system.web.cache exists.  a slight modification will be needed based on your usage.  i cache the results for a week, based on the user agent.
+to deserialize the string that comes back from the wordpress service, i found the sharp serialization library works well.
+basic usage for my helper is:
+var browserinfo = new happybrowsinghelper().getbrowserinfo(request.useragent);
+the results from the web service get stored in a model object called browserinfo:
+public class browserinfo
+{
+  public string name { get; set; }
+  public string version { get; set; }
+  public string url { get; set; }
+  public string imageurl { get; set; }
+  public string currentversion { get; set; }
+  public bool hasupgrade { get; set; }
+  public bool isinsecure { get; set; }
+}
+the helper method to make the service call is as follows:
+public browserinfo getbrowserinfo(string useragent)
+{
+  if (string.isnullorwhitespace(useragent))
+    return new browserinfo();
+
+  var key = "__getbrowserinfo_" + useragent;
+  var item = biacache.get<browserinfo>(key);
+  if (item == null)
+  {
+    string serializedresponse = null;
+    try
+    {
+      var postdata = "useragent=" + useragent;
+
+      var request = webrequest.create("http://api.wordpress.org/core/browse-happy/1.0/");
+      request.method = "post";
+      request.contenttype = "application/x-www-form-urlencoded";
+      request.contentlength = postdata.length;
+      using (var writestream = request.getrequeststream())
+      {
+        var encoding = new utf8encoding();
+        var bytes = encoding.getbytes(postdata);
+        writestream.write(bytes, 0, bytes.length);
+      }
+
+      using (var response = request.getresponse())
+      {
+        using (var responsestream = response.getresponsestream())
+        {
+          using (var reader = new streamreader(responsestream, encoding.utf8))
+          {
+            serializedresponse = reader.readtoend();
+          }
+        }
+      }
+
+      var serializer = new phpserializer();
+      var result = (hashtable) serializer.deserialize(serializedresponse);
+      item = new browserinfo
+          {
+              name = tostringornull(result["name"]),
+              version = tostringornull(result["version"]),
+              url = tostringornull(result["update_url"]),
+              imageurl = tostringornull(result["img_src_ssl"]),
+              currentversion = tostringornull(result["current_version"]),
+              hasupgrade = (bool) result["upgrade"],
+              isinsecure = (bool) result["insecure"]
+          };
+
+      biacache.add(key, item, (int) timespan.fromdays(7).totalminutes, system.web.caching.cacheitempriority.abovenormal);
+    }
+    catch (exception ex)
+    {
+      log.fatal("error getting browser info from wordpress :( nuser agent: " + useragent + "nresult: " + (serializedresponse ?? string.empty) + "nn" + ex, ex);
+      item = new browserinfo();
+    }
+  }
+  return item;
+}
+
+private static string tostringornull(object o)
+{
+  return o == null ? null : o.tostring();
+}
+thats basically about it…  happy browsing!  you can download a demo project: happybrowsingdemo.
+
+
+
+leave a comment 
+
+
+
+
+
+freetextexpression for nhibernate 3.2
+
+
+july 4, 2011nhibernatejim geurts 
+
+
+i upgraded to the latest nhibernate 3.2 and found my freetext abstractcriterion wasn’t working as it previously did.  this updated version works for me:
+[serializable]
+public class freetextexpression : abstractcriterion
+{
+  private readonly string _propertyname;
+  private readonly object _value;
+  private readonly iprojection _projection;
+
+  /// <summary>
+  /// initializes a new instance of the <see cref="freetextexpression"/> class.
+  /// </summary>
+  /// <param name="projection">the projection.</param>
+  /// <param name="value">the value.</param>
+  public freetextexpression(iprojection projection, object value)
+  {
+    _projection = projection;
+    _value = value;
+  }
+
+  /// <summary>
+  /// initialize a new instance of the <see cref="freetextexpression" />
+  /// class for a named property and its value.
+  /// </summary>
+  /// <param name="propertyname">the name of the property in the class.</param>
+  /// <param name="value">the value for the property.</param>
+  public freetextexpression(string propertyname, object value)
+  {
+    _propertyname = propertyname;
+    _value = value;
+  }
+
+  public override sqlstring tosqlstring(icriteria criteria, icriteriaquery criteriaquery, idictionary<string, ifilter> enabledfilters)
+  {
+    var sqlbuilder = new sqlstringbuilder();
+    var columnnames = criterionutil.getcolumnnames(_propertyname, _projection, criteriaquery, criteria, enabledfilters);
+
+    if (columnnames.length != 1)
+    {
+      throw new hibernateexception("contains may only be used with single-column properties");
+    }
+
+    sqlbuilder.add("freetext(")
+      .add(columnnames[0])
+      .add(",");
+
+    sqlbuilder.add(criteriaquery.newqueryparameter(getparametertypedvalue(criteria, criteriaquery)).single());
+    sqlbuilder.add(")");
+
+    return sqlbuilder.tosqlstring();
+  }
+
+  public override typedvalue[] gettypedvalues(icriteria criteria, icriteriaquery criteriaquery)
+  {
+    var typedvalues = new list<typedvalue>();
+
+    if (_projection != null)
+    {
+      typedvalues.addrange(_projection.gettypedvalues(criteria, criteriaquery));
+    }
+    typedvalues.add(getparametertypedvalue(criteria, criteriaquery)); 
+
+    return typedvalues.toarray();
+  }
+
+  public typedvalue getparametertypedvalue(icriteria criteria, icriteriaquery criteriaquery)
+  {
+    var matchvalue = _value.tostring();
+    if (_projection != null)
+    {
+      return criterionutil.gettypedvalues(criteriaquery, criteria, _projection, null, matchvalue).single();
+    }
+    return new typedvalue(nhibernateutil.string, _value.tostring(), entitymode.poco);
+  }
+
+  public override iprojection[] getprojections()
+  {
+    if (_projection != null)
+    {
+      return new [] { _projection };
+    }
+    return null;
+  }
+
+  public override string tostring()
+  {
+    return " freetext(" + (_projection ?? (object)_propertyname) + "," + _value + ")";
+  }
+}
+
+
+
+view all 2 comments 
+
+
+
+
+
+profileattribute for mvcminiprofiler
+
+
+june 10, 2011uncategorized, web developmentjim geurts 
+
+
+i’ve been using the mvcminiprofiler quite a bit lately.  i put it in production with acturent and i’ve contributed a bit to the project.  with acturent, i came up with a simple actionfilterattribute that i’m using to auto inject the profiler to all actions in the application.  rather than going through and specifically adding @mvcminiprofiler.miniprofiler.renderincludes() to each view, i just slap the following attribute on my base controller class:
+public class profileattribute : actionfilterattribute{
+  public override void onresultexecuted(resultexecutedcontext filtercontext) {
+    base.onresultexecuted(filtercontext);
+    if (filtercontext.requestcontext.httpcontext.request.isajaxrequest()) return;
+    var session = objectfactory.container.getinstance<iusersession>();
+    if (session != null) {
+      var user = session.getcurrentuser();
+      if (user == null || !user.isadmin) return;
+
+      var includes = miniprofiler.renderincludes().tostring();
+      using (var writer = new streamwriter(filtercontext.httpcontext.response.outputstream)) {
+        writer.write(includes);
+      }
+    }
+  }
+}
+obviously it will need a bit of tweaking if you implement it in your app.  specifically, the user validation code should be swapped out with whatever logic you want to use to determine who sees the profile information.
+
+
+
+leave a comment 
+
+
+
+
+
+using pjax with asp.net mvc3
+
+
+april 11, 2011web developmentjim geurts 
+
+
+i was recently introduced to the pjax project and wondered how hard it would be to use it with asp.net.  it turns out that it takes next to no effort to have a basic asp.net mvc3 razor application support pjax.
+overview
+pjax uses ajax to reload a portion of your page.  this is nothing new, but the “p” part of pjax stands for pushstate.  pushstate is a new feature of html5 that allows you to modify browser history, without messing around with hash values.  so pushstate gives you the speed boost of using ajax to update just part of your page, while offering a traditional experience for browsers like ie.  according to caniuse.com, firefox 4+, safari 5+, chrome 8+, ios 4+, and android 2.2+ all support pushstate.
+demo
+the github home for the jquery plugin for pjax has an overview of available options and usage.  the project also has a demo hosted on heroku that will give you an idea of how pjax works and some ideas for how you can use it in your application(s).
+my version using asp.net mvc3
+while my version may not be as sexy as the ruby example, it’s simple and allows you to still use content sections for things like javascript.  i just check for the x-pjax header in the _viewstart.cshtml, where my layout is specified for the views.  if the x-pjax header is specified, then the views should use a “chrome-less” layout.  otherwise, they should use the normal layout.
+the _viewstart.cshtml file looks like:
+@{
+  if (request.headers["x-pjax"] != null) {
+    layout = "~/views/shared/_pjaxlayout.cshtml";
+  } else {
+    layout = "~/views/shared/_layout.cshtml";
+  }
+}
+my _pjaxlayout.cshtml layout file is very basic and just contains a tag for the page title and the content body section:
+<title>@viewbag.title</title>
+@renderbody()
+additional thoughts
+if you have javascript that needs to run on the page, you could easily add @rendersection(“script”, false) after @renderbody().  just keep in mind that the pjax plugin only updates one container on the page.  so if you have multiple html content sections that need updating, you would need to wrap them in a container that could be updated in one call.
+download
+if you’re interested, feel free to take a look at the asp.net mvc3 pjax demo project i created.
+
+
+
+view all 3 comments 
+
+
+
+
+
+nhibernate queryover support for orderby random
+
+
+march 24, 2011nhibernatejim geurts 
+
+
+i had a need to get random records from the database, so i came up with this extension to the nhibernate queryover api.  it is for microsoft sql server, but it shouldn’t take much effort to port it to other database flavors.
+public static class nhibernateextensions
+{
+  public static iqueryover<troot, tsubtype> orderbyrandom<troot, tsubtype>(this iqueryover<troot, tsubtype> query)
+  {
+    query.underlyingcriteria.addorder(new randomorder());
+    return query;
+  }
+}
+
+public class randomorder : order
+{
+  public randomorder() : base("", true)
+  {
+  }
+
+  public override sqlstring tosqlstring(icriteria criteria, icriteriaquery criteriaquery)
+  {
+    return new sqlstring("newid()");
+  }
+}
+
+
+
+leave a comment 
+
+
+
+posts navigation
+
+← older posts
+
+
+
+
+
+
+
+welcome jim geurts is a software developer and entrepreneur located in milwaukee, wi.
+i own bia creations , who creates and maintains acturent.
+twitter: http://twitter.com/jgeurts
+github: http://github.com/jgeurts
+
+meta 
+log in
+entries rss
+comments rss
+wordpress.org 
+ 
+
+
+
+
+
+proudly powered by wordpress
+
+
+
+
+
+
+
+
+
+
+
+
+
+

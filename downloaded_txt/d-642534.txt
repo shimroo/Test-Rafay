@@ -1,0 +1,354 @@
+
+
+
+
+
+the cafes 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+the cafes
+
+
+
+
+
+
+stack traces considered harmful
+february 13th, 2025 
+
+i’m trying to build an open source project in a language i’m unfamiliar with and hit this problem:
+(base) $ ruby bin/setup
+== installing dependencies ==
+
+a new release of rubygems is available: 3.6.2 ? 3.6.3!
+run `gem update --system 3.6.3` to update your installation.
+
+bundler 2.6.2 is running, but your lockfile was generated with 2.3.9. installing bundler 2.3.9 and restarting using that version.
+fetching gem metadata from https://rubygems.org/.
+fetching bundler 2.3.9
+installing bundler 2.3.9
+your ruby version is 3.4.1, but your gemfile specified ~> 3.0.4
+bin/setup:16:in 'kernel#system': command failed with exit 18: bundle (runtimeerror)
+	from bin/setup:16:in 'block in '
+	from /opt/homebrew/cellar/ruby/3.4.1/lib/ruby/3.4.0/fileutils.rb:241:in 'dir.chdir'
+	from /opt/homebrew/cellar/ruby/3.4.1/lib/ruby/3.4.0/fileutils.rb:241:in 'fileutils#cd'
+	from bin/setup:10:in '<main>'
+this illustrates a common antipattern in error handling. this is a ruby program, but i’ve encountered it often in python programs too, including the google cloud sdk. it also happens in java, though less frequently. the most common place it appears in java is when junit tests fail. do you see it?
+read the rest of this entry »
+
+posted in programming, ruby | no comments »
+
+
+different styles of dependency management
+february 8th, 2025 
+
+recently i was hacking out a quick python script. everything was fine until i needed to import one common third party library and then boom! i was dropped head first into the messy chain of python dependencies, weak typing, virtual environments, and conflicts. i couldn’t even install the necessary library with pip.  i’d just get an unintelligible hash of error messages and stack traces.
+so off to duckduckgo i went to remind myself how one actually builds and packages real world python programs that do more than print hello world! it wasn’t pretty, and it took me quite a while to understand it. this was actually harder for me than it might have been for a newbie because i was so invested in the way java manages dependencies. i’ve spent years working with dependency management in java at a depth most developers never sink to. i’m an apache maven committer. i’ve rewritten most of their documentation about dependencies. i’ve written tools to analyze java jars, dependency trees, and classpaths. i wrote or edited most of google’s java library best practices. i’ve debugged many problems caused by java class loaders. so i’ve got a pretty good understanding of how java dynamically links third party dependencies.
+but python? python doesn’t work like that. and neither does everything else.
+read the rest of this entry »
+
+posted in programming | no comments »
+
+
+assume vs. assert
+february 1st, 2025 
+
+assumptions are an underused feature of modern testing frameworks that should be more widely known. briefly, an assumption verifies that conditions are right to execute the test. an assertion verifies that the test passes. if an assertion fails, the test failed, and we know the code is broken. if an assumption fails, the test was not run and the code may or may not be broken.
+ read the rest of this entry »
+
+posted in java, testing | no comments »
+
+
+“is a” vs. “represents a”
+january 24th, 2025 
+
+we’ve all had the distinction between “is a” and “has a” in object oriented programming drilled into us. “is a” relationships call for inheritance. “has a” relationships call for delegation. some theorists will even bother to distinguish between “is a” and “is a role played by“. however, recently i’ve been wondering about the distinction between real “is a” and “represents a” relationships, and i wonder if it may help explain some otherwise confusing points.
+read the rest of this entry »
+
+posted in programming | 2 comments »
+
+
+updating…
+january 9th, 2025 
+
+i’m in process of migrating this site to a new (and cheaper) host than gcp. this is not a quick or easy operation. more thoughts on that later. meanwhile a few things are likely to be wonky. in particular:
+1. fixed – no ssl/https until the domain is migrated to a new registrar (about two weeks)
+2. fixed – ipv6 still goes to the old site.
+3. single page articles hit a critical error, perhaps due to an old theme that needs to be updated. investigating…
+read the rest of this entry »
+
+posted in web development | no comments »
+
+
+« previous entries
+
+
+
+
+
+
+
+
+
+elliotte rusty harold
+elharo@ibiblio.org
+
+
+
+
+
+
+
+ 
+
+
+
+infoabout
+projects that need doing (and paying for)
+blogroll
+ archives
+
+february 2025
+january 2025
+december 2023
+april 2023
+december 2020
+november 2019
+november 2017
+february 2016
+november 2015
+august 2015
+may 2015
+march 2013
+january 2013
+november 2012
+august 2012
+july 2012
+june 2012
+may 2012
+february 2012
+january 2012
+september 2011
+january 2011
+december 2010
+june 2010
+april 2010
+december 2009
+september 2009
+june 2009
+may 2009
+january 2009
+december 2008
+november 2008
+august 2008
+july 2008
+june 2008
+may 2008
+april 2008
+march 2008
+february 2008
+january 2008
+december 2007
+november 2007
+october 2007
+september 2007
+august 2007
+july 2007
+june 2007
+may 2007
+april 2007
+march 2007
+february 2007
+january 2007
+december 2006
+november 2006
+october 2006
+september 2006
+august 2006
+july 2006
+june 2006
+may 2006
+april 2006
+march 2006
+february 2006
+january 2006
+december 2005
+november 2005
+june 2005
+may 2005
+march 2005
+february 2005
+january 2005
+december 2004
+november 2004
+
+
+categories
+
+categories ajax
+
+blogroll
+
+debugging
+
+e-mail
+
+hardware
+
+internet
+
+java
+
+macs
+
+math
+
+open source
+
+optimization
+
+php
+
+privacy
+
+programming
+
+refactoring html
+
+ruby
+
+security
+
+software
+
+source code control
+
+testing
+
+tools
+
+travel
+
+user interface
+
+web development
+
+windows
+
+xml
+
+ 
+
+feeds
+
+atom 1.0
+
+
+admin
+
+log in
+
+
+
+
+
+
+
+
+
+
+
+
+
+

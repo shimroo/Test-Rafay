@@ -1,0 +1,729 @@
+
+
+
+
+watzmann.blog - home
+
+
+
+
+
+
+
+
+
+watzmann.blog
+            varying amounts of fiber
+
+
+
+
+
+
+
+
+ home
+
+
+
+entirely too many words about idempotency in systems management
+
+
+21 may 2018
+
+
+idempotency is one of the fundamental ideas when managing systems: it’s
+both convenient and natural to demand that any management action has the
+same result whether it’s performed once or multiple times. for example, if
+the management action is ‘make sure that httpd is running’, we only want to
+say that once, and if, for some reason, that action gets performed multiple
+times, the result should stay the same. in this post, i’ll use ‘classical’
+management actions on long-lived, stateful servers as examples, but the
+arguments apply in the same way to management actions that manipulate cloud
+services or kubernetes clusters, or really any other system that you’d want
+to manage.
+it has always bothered me that it’s not obvious that stringing such
+idempotent actions together will always be idempotent, too.
+formally an action is a function f that turns some system state x into
+an updated state f(x). idempotent then means that f(f(x)) = f(x), which
+i’ll also write as f f = f, dropping the argument x to f. for two
+actions f and g to be idempotent when we string them together then
+means that f g f g = f g. clearly, if f and g commute, for example
+because f is ‘httpd must be running’ and g is ‘crond must be running’,
+the result of combining them is f g f g = f f g g = f g because both f
+and g are idempotent.
+but what if they are not ? what if f is ‘make sure httpd is running’ and
+g is ‘make sure httpd.conf has this specific content’ ? how can we
+convince ourselves that combining these two actions is still idempotent ?
+when we look at real-life management actions, they are actually more than
+just idempotent: they are constant functions. no matter what state the
+system is in, we want the result of f to be that httpd is running. that
+means that f is not just idempotent, i.e. that f f = f, but that for
+any other management action g, we have f g = f. and if f and g are
+constant functions, f g = f and therefore f g f g = f f = f, which
+makes the combination f g idempotent, too, but is much stronger than mere
+idempotency.
+in practice, there are of course other considerations. for example, the
+action ‘make sure httpd is running’ will generally fail if httpd is not
+even installed, but that does not really affect the argument above, we’d
+just have to get more technical and talk of management actions as partial
+functions, where concatenating them only makes sense where they are both
+defined. similarly, we can work around order-dependency by getting a little
+more formal about what we consider the system state x and that management
+actions should actually be constant on the ‘interesting’ part of the state,
+and the identity everywhere else.
+it therefore seems misleading to harp so much on idempotency when we talk
+about systems management. what we really want are constant functions, not
+just idempotent ones, a fact that the notion of ‘desired-state management’
+nicely alludes to, but doesn’t make quite clear enough.
+
+ 
+
+comments
+
+
+
+
+using puppet's policy-based autosigning
+
+
+13 june 2014
+
+
+handling ssl certificates is not a lot of fun, and while puppet’s use of
+client certificates protects the server and all its deep, dark secrets very
+well from rogue clients, it also leads to a lot of frustration. in many
+cases, users would configure their autosign.conf to allow any (or almost
+any) client’s certificate to be signed automatically, which isn’t exactly
+great for security. since puppet 3.4.0, it is possible to use
+policy-based autosigning
+to have much more control over autosigning, and to do that in a much more
+secure manner than the old autosigning based solely on client’s hostnames.
+one of the uses for this is automatically providing certificates to
+instances in ec2. chris barker
+wrote a nice module,
+based on a gist by
+jeremy bouse that uses policy-based
+autosigning to provide ec2 instances with certificates, based on their
+instance_id.
+i recently got curious, and wanted to use that same mechanism but with
+preshared keys. here’s a quick step-by-step guide of what i had to do:
+the autosign script
+when you set autosign in puppet.conf to point at a script, puppet will
+call that script every time a client request a certificate with the
+client’s certname as the sole command line argument of the script and the
+csr on stdin. if the script exits successfully, puppet will sign the
+certificate, and refuse to sign it otherwise.
+on the master, we’ll maintain a directory /etc/puppet/autosign/psk; files
+in that directory must have the certname of the client and contain the
+preshared key.
+here is the autosign-psk script; the oid’s for puppet-specific
+certificate extensions can be found
+here:
+#! /bin/bash
+
+psk_dir=/etc/puppet/autosign/psk
+
+csr=$(< /dev/stdin)
+certname=$1
+
+# get the certificate extension with oid $1 from the csr
+function extension {
+  echo "$csr" | openssl req -noout -text | fgrep -a1 "$1" | tail -n 1 \
+      | sed -e 's/^ *//;s/ *$//'
+}
+
+psk=$(extension '1.3.6.1.4.1.34380.1.1.4')
+
+echo "autosign $1 with psk $psk"
+
+psk_file=$psk_dir/$certname
+if [ -f "$psk_file" ]; then
+    if grep -q "$psk" "$psk_file"; then
+        exit 0
+    else
+        echo "file for '$psk' does not contain '$certname'"
+        exit 1
+    fi
+else
+    echo "could not find psk file for $certname"
+    exit 1
+fi
+
+puppet master setup
+on the puppet master, we put the above script into
+/usr/local/bin/autosign-psk, make it world-executable, and point
+autosign at it:
+cp somewhere/autosign-psk /usr/local/bin
+chmod a+x /usr/local/bin/autosign-psk
+mkdir -p /etc/puppet/autosign/psk
+puppet config set --section master autosign /usr/local/bin/autosign-psk
+
+a psk for client $clientname can easily be generated with
+tr -cd 'a-f0-9' < /dev/urandom | head -c 32 >/etc/puppet/autosign/psk/$certname
+
+puppet agent setup
+on the agent, we create the file /etc/puppet/csr_attributes.yaml with the
+psk in it:
+---
+extension_requests:
+  pp_preshared_key: @the_psk@
+
+with all that in place, we can now run the puppet agent and have it get its
+certificate automatically; that process is as secure as we keep the
+preshared key.
+
+ 
+
+comments
+
+
+
+
+don't hate the hateos
+
+
+20 december 2012
+
+
+dhh has a
+post
+on some of the hoopla around hypermedia api’s over at
+svn, complete with a cool picture of the
+ws-*. while i agree with most of his points, he’s missing the larger
+point of api discoverability.
+the reason discoverability is front and center in restful api’s isn’t some
+naive belief that the semantics of the api will just magically be
+discovered by the client — instead, it’s a strategy to keep logic
+that belongs on the server out of clients. when a client is told that they
+have to discover the url for posting a comment to an article, they are also
+told to prepare that that operation might not be available. there are lots
+of reasons why that operation may not be possible for the client; none of
+them need to interest the client, all it cares about is whether that
+operation is advertised in the article or not.
+dhh also puts up a nice strawman, and then ceremoniously burns it to the
+ground:
+
+the idea that you can write one client to access multiple different apis
+in any meaningful way disregards the idea that different apps do
+different things.
+
+again, that misses the point, especially of discoverability. not every api
+has exactly one deployment. many clients need to work with multiple
+different deployments of the same api; the
+deltacloud api is a good example of how
+discoverability lays down clear guidelines for clients on what they can
+assume, and what they have to be prepared for being different with each
+different endpoint they want to talk to. you can look at that as making the
+contract between server and client explicit in the api. discoverability
+makes conditional promises to the client: if you see x, you may safely do
+y.
+we are all in agreement though that overall we want to tread very lightly
+when it comes to standardizing api mechanisms - i think there are some
+areas around restful api’s where some carefully crafted standards might
+help, but staying out of range of the ws-* is much more important.
+
+ 
+
+comments
+
+
+
+
+cimi v1.0 released
+
+
+29 august 2012
+
+
+this morning, the dmtf officially
+announced the availability of
+cimi v1.0. after two years of hard work,
+heated discussions, and many a vote on proposed changes, cimi is the best
+shot the fragmented, confusing, and in places legally encumbered, landscape
+of iaas api’s has at a universally supported api. not just because of the
+impressive number of industry players that are part of the working group
+but also because it has been designed from the ground up as a modular
+restful api,
+taking the breadth of existing iaas api’s into account.
+while the name suggests that cimi is 75% cim, the two have actually no
+relation to each other, except that they are both dmtf standards. cimi
+covers most of the familiar concepts from iaas management: instances
+(called machines), block storage (volumes), images, and networks. the
+standard itself is big, though most of the features in it are optional, and
+i don’t expect that any one provider will support everything mentioned in
+the standard. to get started, i highly recommend reading the
+primer
+first, as a gentle introduction to how cimi views the world and how it
+models common iaas concepts. the
+standard
+itself then serves as a convenient reference to fill in the details.
+one of the goals of cimi is that providers with widely varying feature sets
+can implement it, and it therefore puts a lot of emphasis on making what
+exactly a provider supports discoverable, using the
+well-known mechanisms that a
+restful style makes possible
+, and that we’ve also
+used in the deltacloud api to
+expose as much of each backend’s features as possible. this emphasis on
+discoverability is one of the things that sets cimi apart from the popular
+vendor-specific api’s, where the api has to be implemented in its entirety,
+or not at all.
+we’ve been involved in the working group for the last two years, bringing
+our experience in designing deltacloud to
+the table. we’ve also been busy adding various pieces to deltacloud, and
+that implementation experience has been invaluable in the cimi
+discussion. we’ll continue to improve our cimi support, and build out what
+we have; in particular, we are working on
+
+the cimi frontend for deltacloud; when you run deltacloudd -f cimi, you
+get a server that speaks cimi, with the antrypoint at
+/cimi/cloudentrypoint. you can try out the latest code at
+https://dev.deltacloud.org/cimi/cloudentrypoint
+the cimi client app (in clients/cimi/ in our
+git repo — the app makes it
+both easier to experiment with the cimi api, and serves as an example of
+cimi client code.
+a cimi test suite; as part of our test suites, we are adding tests that
+can be run against any cimi implementation and will eventually be a
+useful tool to informally qualify such implementations
+
+as with all open source projects, we always have way more on the todo list
+than we actually have time to do. if you are interested in contributing to
+deltacloud’s cimi effort, have a look at
+our contribute page,
+stop by the mailing list, or
+drop into our irc channel #deltacloud on freenode.
+
+ 
+
+comments
+
+
+
+
+evolution for rest api's
+
+
+03 august 2012
+
+
+like everything,
+rest api’s
+change over time. an important question is how these changes should be
+incorporated into your api, and how your clients should behave to survive
+that evolution.
+the first reflex of anybody who’s thought about api’s and their evolution
+is to stick a version number on the api, and use that to signal to clients
+what capabilities this incarnation of the api has, and maybe even let
+clients use that to negotiate how they talk to the
+server. mark
+has a very good post explaining why, for the web, that is not just
+undesirable, but often not feasible.
+if versioning is out, what else can be done to safely evolve rest api’s ?
+before we dive into specific examples, it’s useful to recall what our
+overriding goal is. since it is much easier to update a server than all the
+clients that might talk to it, the fundamental aim of careful evolution of
+rest api’s is:
+
+old clients must work against new servers
+
+to make this maxim practical, clients need to follow the simple rule:
+
+ignore any unexpected data in the interaction with the server
+
+in particular, clients can never assume that they have a complete picture
+of what they will find in a response from the server.
+let’s look at a little toy api to make these ideas more tangible, and to
+explore how this api can change while adhering to these rules. the api is
+for a simplistic blogging application that allows posting articles, and
+retrieveing them. for the sake of simplicity, i will omit all http request
+and response headers.
+a simple rest api
+in sticking with good
+rest practice,
+the api has a single entrypoint at /api. issuing a get /api will result
+in the response
+<api>
+  <link rel="articles" href="/api/articles"/>
+</api>
+
+the articles collection can be retrieved with a get /api/articles:
+<articles>
+  <article href="/api/articles/1">
+    <title>evolution for rest api's</title>
+    <content>
+      like everything, ....
+    </content>
+  </article>
+  <article href="/api/articles/2">
+    ...
+  </article>
+  <actions>
+    <link rel="create" href="/api/articles"/>
+  </actions>
+</articles>
+
+each article consists of a title and some content; the href on each article
+gives clients the url from which they can retrieve that article, and serves as
+a unique identifier for the article.
+the actions element in the articles collection tell the client that they can
+create new articles by issuing post requests to /api/articles:
+<article>
+  <title>how to version rest api's</title>
+  <content>...</content>
+</article>
+
+it’s worth pointing out a subtlety in including a link for the create
+action: one reason for including that link is to tell clients the url to
+which they can post to create new articles, and keep them from making
+assumptions about the url space of the server. a more important reason
+though is that we use the presence of this link to communicate to the
+client that it may post new articles. this, following the
+hateos constraint for rest api’s,
+is the more important reason to include an explicit link: clients should
+not even assume that they are allowed to create new articles.
+adding information from the server
+readers might want to know when a particular article has been made
+available. we therefore add a published attribute to the representation
+of articles that a get on the articles collection or on an individual
+article’s uri returns:
+<article href="/api/articles/2">
+  <title>how to version rest api's</title>
+  <content>...</content>
+  <published>2012-08-03t13:00</published>
+</article>
+
+this does not break old clients, because we told them to ignore things they
+do not know about. a client that only knows about the previous version of
+our api will still work fine, it just won’t do anything with the
+published element.
+allowing more data when creating an article
+some articles might be related to other resources on the web, and we’d want
+to let authors call them out explicitly in their articles. we therefore change
+the api to accept articles with some additional data on post
+/api/articles:
+<article>
+  <title>great rest resources</title>
+  <content>...</content>
+  <related>
+    <link rel="background" href="http://en.wikipedia.org/wiki/representational_state_transfer"/>
+    <link rel="background" href="http://en.wikipedia.org/wiki/hateoas"/>
+  </related>
+</article>
+
+as long as our new api allows posting of articles without any related
+links, old clients will continue to work.
+blogging api’s everywhere
+if our blogging software is so successful that clients must be prepared to
+deal with both servers that support adding related reosurces, and ones that
+do not, we need a way to indicate that to those clients that know about
+related resources. while there are many ways to do that, one that we’ve
+found works well for deltacloud is annotating the
+collections in the toplevel api entrypoint. when a client does a get /api
+from a server that supports related resources, we’d send them the following
+xml back:
+<api>
+  <link rel="posts" href="/api/posts">
+    <feature name="related_resources"/>
+  </link>
+</api>
+
+updating articles
+authors want to revise their articles from time to time; we’d make that
+possible by allowing them to put the updated version of an article to its
+url. this won’t introduce any problems for old clients, but new clients
+will need to know whether the particular instance of the api they are
+talking to supports updating articles. we’d solve that by adding actions
+to the article itself, so that a get of an article or the articles
+collection will return
+<article href="/api/posts/42"/>
+  <title>...</title>
+  ...
+  <actions>
+    <link rel="update" href="/api/posts/42"/>
+  </actions>
+</article>
+
+not only does the update link tell clients that they are talking to a
+version of the blogging api that supports updates, it also lets us hide
+complicated business logic that decides whether an article can be updated
+or not by simply showing or suppressing the update link.
+merging blogs
+because of its spectacular content, our blog has been so successful that
+we want to turn it from a personal blog into a group blog, supporting
+multiple authors. that of course calls for adding the name of each author
+(or their avatar or whatnot) to each post — in other words, we want
+to make passing in an author mandatory when creating or updating an
+article. rather than break old clients by silently slipping in the author
+requirement, we add a new action to the articles collection:
+<articles>
+  <post>...</post>
+  <actions>
+    <link rel="create_with_author" href="/api/articles_with_author"/>
+    ...
+  </actions>
+</articles>
+
+old clients will ignore that new action; the remaining question is if we
+can still allow old clients to post new articles. if we can, for example,
+by defining a default author out-of-band with this api, we’d still show the
+old create action in the articles collection. if not, we’d take the
+ability to post away from old clients by not displaying the create action
+anymore — but we haven’t broken them, since they can still continue
+to retrieve posts, we’ve merely degraded them to readonly clients.
+while this seems like an extreme change, consider that we’ve changed our
+application so much that existing clients can simply not provide the data
+we deem necessary for a successful post. it’s much more realistic that we’d
+find a way to let old clients still post articles using the old create
+link.
+some consequences for xml
+there are two representations that are popular with rest api’s: json and
+xml. the latter poses an additional challenge for the evolution of rest
+api’s because the use of xml in rest api’s differs subtly from that in many
+other places. since clients can never be sure that they know about
+everything that might be in a server’s response, it is not possible to
+write down a schema (or
+relaxng grammar) that the client could use to
+validate server responses, since responses from an updated server would
+violate that schema, as the simple example of adding a published date to
+articles above shows.
+it’s of course possible to write down relaxng grammars for a specific
+version of the api, but they are tied to that specific version, and must
+therefore be ignored by clients who want to happily evolve with the server.
+questions ?
+i’ve tried to cover all the different scenarios that one encounters when
+evolving a restful api — i’ve left out http specific issues like
+status codes (must never change) and headers (adding new optional headers
+is ok) as the openstack folks have decided for their
+api change guidelines.
+i’d be very curious to hear about changes that can not be addressed by one
+of the mechanisms described above.
+
+ 
+
+comments
+
+
+
+
+deltacloud 1.0
+
+
+15 june 2012
+
+
+the upcoming release of deltacloud 1.0 is a huge milestone for the project:
+even though no sausages were hurt in its making, it is still chockful of
+the broadest blend of the finest iaas api ingredients. the changes and
+improvements are too numerous to list in detail, but it is worth
+highlighting some of them. tl;dr: the
+release candidate
+is available now.
+ec2 frontend
+with this release, deltacloud moves another step towards being a universal
+cloud iaas api proxy: when we started adding support for
+dmtf cimi as an alternative to the ‘classic’
+deltacloud api, it became apparent that adding additional frontends could
+be done with very little efforts. the new
+ec2 frontend proves that
+this is even possible for api’s that are not restful. with that, deltacloud
+allows clients that only know the ec2 api to talk to various backends,
+including openstack, vsphere, and
+ovirt.
+the ec2 frontend supports the most commonly needed operations, in
+particular those necessary for finding an image, launching an instance off
+of it and managing that instance’s lifecycle. in addition, managing ssh key
+pairs is also supported. we hope to grow the coverage of the api in future
+releases to the point where the ec2 frontend is good enough to support the
+majority of uses.
+the debate around the ‘right’ cloud iaas api is heated and continues,
+especially around standards, and we still see the right answer to this
+debate in a properly standardized, broadly supported, and openly governed
+api such as dmtf’s cimi — yet it is undeniable that ec2 is the front
+runner in this space, and that large investments into ec2’s api exist; it
+is deltacloud’s mission to alleviate the resulting lockin, and the addition
+of the ec2 frontend allows users to experiment with different backend
+technologies while migrating off the ec2 api on their own pace.
+one issue that the ec2 frontend brings to the forefront is just how
+unsuitable that api is for fronting different backend implementations: iaas
+api’s that are designed for this purpose provide extensive capabilities for
+client discovery of various features. ec2 on the other hand provides no way
+for providers to advertise their deviation from ec2’s feature set, and no
+possibilities for clients to discover them.
+cimi frontend
+we continue our quest to support the fledgling cimi standard as broadly and
+as faithfully as possible. with this release, we introduce support for the
+cimi networking api; for now only for the mock driver, but we are looking
+to expand backend support for networking as clouds add the needed features
+for them.
+besides the core cimi api, which is purely a restful xml and json api, work
+also continues on the simple human-consumable html interface for it; we’ve
+learned from designing the deltacloud api and helping others using that
+api, that a web application that stays close to the api, but is easy to use
+for humans is an invaluable tool. with this release, that application can
+now talk to openstack, rhev-m/ovirt, and ec2 via deltacloud’s cimi proxy.
+operational and code enhancements
+with three frontends, it’s become even more urgent that the three frontends
+can be run from the same server instance to reduce the number of daemons
+that need to be babysat. thanks to an extensive revamp of the guts of
+deltacloud to turn it into a
+modular sinatra app
+it is now possible to expose all three frontends (or only one or two) from
+the same server.
+we now also base our restful routes and controllers on
+sinatra-rabbit — only
+fitting since sinatra-rabbit started life as the dsl we used inside
+deltacloud for our restful routing and our controllers.
+a lot of work has gone into rationalizing the http status codes that
+deltacloud returns, especially when errors occur; in the process, we
+learned quite a bit about just how fickle and moody vsphere can be.
+other drivers have seen major updates, not least of which the openstack
+driver, which now works against the openstack v2.0 api; in particular, it
+works against the hp cloud — with the ec2
+frontend, deltacloud provides a capable ec2 proxy for openstack. we’ve also
+added a driver for the
+fujitsu global cloud platform,
+which was mostly written by dies köper of fujitsu.
+the
+release candidate
+for version 1.0.0 is out now, packages for rubygems.org, fedora and other
+distributions will appear as soon as the release has passed the vote on the
+mailing list.
+
+ 
+
+comments
+
+
+
+
+sinatra rabbit - a restful dsl
+
+
+13 march 2012
+
+
+tl;dr: have a look at
+sinatra-rabbit.
+when we converted deltacloud from
+rails to sinatra,
+we needed a way to conveniently write the controller logic for restful
+routes with sinatra. on a lark, i cooked up a dsl called ‘rabbit’ that lets
+you write things like
+collection :images do
+  description "the collection of images"
+
+  operation :index do
+    description "list all images"
+    param :id,            :string
+    param :architecture,  :string,  :optional
+    control { ... controller code ... }
+  end
+
+  operation :show do
+    description 'show an image identified by "id" parameter.'
+    param :id,           :string, :required
+    control { ... show image params[:id] ... }
+  end
+
+  operation :destroy do
+    description "remove specified"
+    param :id,    :string,    :required
+    control do
+      driver.destroy_image(credentials, params[:id])
+      status 204
+      respond_to do |format|
+        format.xml
+        format.json
+        format.html { redirect(images_url) }
+      end
+    end
+  end
+
+end
+
+that makes supporting the common rest operations convenient, and allows us
+to auto-generate documentation for the rest api. it has been very useful in
+writing the
+two
+frontends
+for deltacloud.
+the dsl has lots of features, for example, validation of input parameters,
+conditionally allowing additional parameters, describing subcollections,
+autogenerating head and options routes and controllers, and many more.
+michal fojtik has pulled that code out of deltacloud and
+extracted it into its own github project as
+sinatra-rabbit in the process,
+there were quite a few dragones to slay: for example, in deltacloud we
+change what parameters some operations can accept based on the specific
+backend driver. for example, in some clouds, it is possible to inject
+user-defined data into instances upon launch. in deltacloud, the logic of
+what routes to turn on or off is based on introspecting the current driver,
+which means that deltacloud’s rabbit knows about drivers. that, of course,
+has to be changed for the standalone sinatra-rabbit. michal just added
+route conditions that look like
+collection :images do
+    operation :create, :if => lambda { complicated_condition(request) } do
+        ...
+    end
+end
+
+hopefully, sinatra-rabbit will grow to the point where we can remove our
+bundled implementation from deltacloud, and use the standalone version;
+there’s still a couple of features missing, but with enough people
+sending patches, it can’t be very long now ;)
+
+ 
+
+comments
+
+
+
+
+
+
+
+posts
+augeas
+deltacloud
+puppet
+rails
+archive of all posts
+
+
+projects
+augeas
+netcf
+deltacloud
+
+
+local
+faq for soc.culture.german
+work
+about
+
+
+atom feed
+
+
+
+
+
+
+
+
+
+
+          watzmann.blog by david lutterkort is licensed under
+          a creative commons attribution-share alike 3.0
+            united states license.
+          
+generated
+            with jekyll
+
+
+
+
+
+

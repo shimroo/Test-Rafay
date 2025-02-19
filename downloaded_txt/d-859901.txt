@@ -1,0 +1,153 @@
+
+
+
+
+
+apache2 debian default page: it works
+
+
+
+
+
+
+
+          apache2 debian default page
+        
+
+
+
+
+
+          it works!
+        
+
+
+                this is the default welcome page used to test the correct 
+                operation of the apache2 server after installation on debian systems.
+                if you can read this page, it means that the apache http server installed at
+                this site is working properly. you should replace this file (located at
+                /var/www/html/index.html) before continuing to operate your http server.
+          
+
+                if you are a normal user of this web site and don't know what this page is
+                about, this probably means that the site is currently unavailable due to
+                maintenance.
+                if the problem persists, please contact the site's administrator.
+          
+
+
+
+                configuration overview
+        
+
+
+                debian's apache2 default configuration is different from the
+                upstream default configuration, and split into several files optimized for
+                interaction with debian tools. the configuration system is
+                fully documented in
+                /usr/share/doc/apache2/readme.debian.gz. refer to this for the full
+                documentation. documentation for the web server itself can be
+                found by accessing the manual if the apache2-doc
+                package was installed on this server.
+
+          
+
+                the configuration layout for an apache2 web server installation on debian systems is as follows:
+          
+
+/etc/apache2/
+|-- apache2.conf
+|       `--  ports.conf
+|-- mods-enabled
+|       |-- *.load
+|       `-- *.conf
+|-- conf-enabled
+|       `-- *.conf
+|-- sites-enabled
+|       `-- *.conf
+          
+
+
+apache2.conf is the main configuration
+                           file. it puts the pieces together by including all remaining configuration
+                           files when starting up the web server.
+                        
+
+ports.conf is always included from the
+                           main configuration file. it is used to determine the listening ports for
+                           incoming connections, and this file can be customized anytime.
+                        
+
+                           configuration files in the mods-enabled/,
+                           conf-enabled/ and sites-enabled/ directories contain
+                           particular configuration snippets which manage modules, global configuration
+                           fragments, or virtual host configurations, respectively.
+                        
+
+                           they are activated by symlinking available
+                           configuration files from their respective
+                           *-available/ counterparts. these should be managed
+                           by using our helpers
+                           
+                                a2enmod,
+                                a2dismod,
+                           
+
+                                a2ensite,
+                                a2dissite,
+                            
+                                and
+                           
+                                a2enconf,
+                                a2disconf
+                           . see their respective man pages for detailed information.
+                        
+
+                           the binary is called apache2. due to the use of
+                           environment variables, in the default configuration, apache2 needs to be
+                           started/stopped with /etc/init.d/apache2 or apache2ctl.
+                           calling /usr/bin/apache2 directly will not work with the
+                           default configuration.
+                        
+
+
+
+
+                document roots
+        
+
+
+                by default, debian does not allow access through the web browser to
+                any file apart of those located in /var/www,
+                public_html
+                directories (when enabled) and /usr/share (for web
+                applications). if your site is using a web document root
+                located elsewhere (such as in /srv) you may need to whitelist your
+                document root directory in /etc/apache2/apache2.conf.
+            
+
+                the default debian document root is /var/www/html. you
+                can make your own virtual hosts under /var/www. this is different
+                to previous releases which provides better security out of the box.
+            
+
+
+
+                reporting problems
+        
+
+
+                please use the reportbug tool to report bugs in the
+                apache2 package with debian. however, check existing bug reports before reporting a new bug.
+          
+
+                please report bugs specific to modules (such as php and others)
+                to respective packages, not to the web server itself.
+          
+
+
+
+
+
+
+

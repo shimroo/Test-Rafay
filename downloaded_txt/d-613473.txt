@@ -1,0 +1,330 @@
+
+
+
+webdav resources
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+welcome to webdav resources
+
+
+
+					this site is being produced for the webdav
+					community as a central resource for
+					documentation, specifications, software,
+					mailing lists, and other useful items.
+					
+
+what is webdav?
+
+					briefly: webdav stands for "web-based
+					distributed authoring and versioning". it is
+					a set of extensions to the http protocol
+					which allows users to collaboratively edit
+					and manage files on remote web servers.
+					
+
+
+					we have prepared a
+					frequently asked questions
+					page as a quick introduction for dav newcomers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+webdav working groups
+projects and software
+specifications
+papers and articles
+
+about webdav.org
+older news
+
+hosted projects
+				        cadaver
+				        davlib (macos)
+				        goliath
+				        mod_dav
+				        neon
+				        perldav
+
+other resources
+				        faq
+				        proxy interop
+
+specifications
+				        webdav: rfc4918
+				            html, xml, pdf
+				        deltav: rfc3253
+				            html, xml, pdf
+		                        ordercoll: rfc3648
+			                    html, xml, pdf      
+				        acl: rfc3744
+				            html, xml, pdf
+				        proptype: rfc4316
+				            html, xml, pdf
+				        quota: rfc4331
+				            html, xml, pdf
+				        redir: rfc4437
+				            html, xml, pdf
+				        mount: rfc4709
+				            html, xml, pdf
+				        caldav: rfc4791
+				            html, xml, pdf
+				        ext. mkcol: rfc5689
+				        search: rfc5323
+				            html, xml, pdf
+				        current principal: rfc5397
+				            html, xml, pdf
+				        extended mkcol: rfc5689
+				            html, xml, pdf
+				        bind: rfc5842
+				            html, xml, pdf
+				        webdav (obsoleted): rfc 2518:
+				            html, xml,
+				            pdf,
+				  pdf (a4), 
+				            french
+
+
+                                  webdav.org sponsored by
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+recent news
+
+
+subscribe to the
+dav-announce
+mailing list
+
+
+
+november 1, 2009
+the extended mkcol for web distributed authoring and versioning protocol specification has been approved by the internet engineering task force
+			as rfc 5689. this protocol extends the mkcol method so that it can set a range of
+			properties upon collection creation. mkcol thus acts like a combined mkcol +
+			proppatch request. congratulations to cyrus daboo for his work on this protocol!.
+scanner pro, by readdle
+			 turns an iphone into a document scanner, able to save scanned pages off to a webdav server.
+the latest version of mac os x server (10.6) provides support for carddav,
+			which provides remote access to address books, using webdav. information about
+			carddav can be found at the carddav resource
+			web site, and in the latest specification.
+december 18, 2008
+the webdav current principal extension
+			to the webdav access control (acl) protocol has been approved by the internet engineering
+			task force as rfc 5397. this protocol permits a webdav client to discover what principal (user)
+			the server thinks is currently authenticated. this is useful in providing full-service client
+			implementations that use the acl protocol. congratulations to wilfredo sanchez and cyrus daboo
+			for creating this protocol!
+dav-e is a webdav client for iphone, with
+			free and full versions. it provides remote file browsing via webdav, and can be used to
+			upload pictures taken with the iphone. brough to you by <green/>bytes, which hosts an
+			excellent webdav resources page.
+google calendar now officially supports caldav. 
+			tidbits writes that, after several months of unofficial support for caldav, google calendar now
+			officially supports the webdav calendaring protocol, caldav. in practical terms, ical users on the
+			mac can now sync their calendars with google calendar. in related news, the zimbra
+			open source shared calendar server for linux and mac also has 
+			caldav support.
+milton is a java-based open source 
+			server-side webdav library. a developer would use milton to wrap an existing data source,
+			such as a database or content management system, and expose it via the webdav protocol.
+			it has been tested to work with windowsxp, linux, and mac os x.
+instaviz is a graph drawing application for
+			the iphone. it can store the graphs you create on a remote webdav server. see a video of instaviz in action.
+real time logic has released a free version of the barracudadrive application for linksys nslu2. the nslu2 is a device made by linksys that makes usb flash memory and
+			hard drives accessible across a network. the barracudadrive application makes the nslu2 accessible
+			via webdav, and also provides content management system and message board capability. when used with
+			usb flash memory, the nslu2 has no moving parts, and would be expected to have a long lifetime.
+			that's a lot of capability for appx. usd $60.
+november 21, 2008
+the dav searching and locating (dasl,
+			or webdav search) protocol has been officially published by the internet engineering
+			task force as rfc 5323.
+document editing and personal notetaking software voodoopad has 
+			added 
+			webdav support in version 4.0. any documents you edit using voodoopad are automatically synchronized to
+			a remote webdav server, providing remote access from any machine. this is an exciting use of webdav for
+			remote document editing!
+cloud storage increasingly means webdav. egnyte is a cloud storage
+			company that provides webdav support
+			with its usd $15/month power user account. parascale provides
+			software that allows users to create and manage cloud storage. it has standard support for webdav.
+october 2, 2008
+the dav 
+			searching and locating (dasl) protocol has been approved by the internet engineering
+			steering group (iesg) as a proposed standard. the protocol permits remote clients to
+			perform sql-like queries of the properties defined on resources on webdav servers. this
+			substantially increases the value of properties, as they can now be efficiently searched
+			by webdav clients. congratulations to julian reschke for pushing this protocol through to
+			proposed standard!
+the xdb 
+			(extensible database) has been released as open source software by the nasa ames research center.
+			xdb is an architecture for storing and
+			retrieving semi-structured, schema-less
+			data. users and applications store and
+			retrieve information resources in xdb using
+			the webdav protocol. these resources may be
+			documents, such as html, xml, or microsoft
+			word documents, but may also be individual
+			records from a relational database converted
+			into an xml record or e-mail messages from an
+			e-mail archive. xdb decomposes the resources
+			into atoms of content in a hierarchy defining
+			the context of the atom. resources and their
+			contents are retrieved via a simple web query
+			interface that produces xml, text, or
+			processed through a server-side transformation
+			(xslt) module for arbitrary output formats.
+			it can use can use mysql, oracle, ms-sql, or sqlite as the storage engine.
+			if interested, contact chris knight, <cknight aaat hotcat dot org>.
+mozilla weave is a plugin for firefox 
+			that aims to provide a "blending of the desktop and the web 
+			through deeper integration of the browser with online services." the general idea
+			is for browser metadata to be stored remotely (and encrypted) in the cloud, via the webdav protocol.
+			this includes browser bookmarks, history, and customizations. wherever a user gets online,
+			they will retrieve this information from the cloud to their current browser, providing 
+			the same browsing experience even if using firefox from multiple locations. 
+			ars technica gives the service high marks, calling it "already effective and easy to use."
+idrive oss is a cloud storage system designed
+			from the ground up as a native webdav-supporting service, ensuring that it is open,
+			and standards-based. the architecture is designed to scale, and the operators have
+			experience managing petabytes of data in online storage services.
+p300 is a free file-sharing tool for private networks and vpns. it
+			is multi-platform, and supports access to files on webdav servers. its latest release also
+			implements the dasl protocol, allowing clients to search for resources on peer machines. 
+			congratulations to markus götz and sebastian breier for developing this tool.
+the community information sharing service digg wrote a piece
+			on how digg works, describing its technical
+			infrastructure. at the heart lies danga's mogilefs,
+			which digg describes as a distributed webdav cluster, and is used to serve story and user
+			icons.
+
+
+please contact jim
+        whitehead to report a news item.
+older news
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+section descriptions
+
+
+
+
+webdav working groups
+
+        this area contains information about the ietf working
+	  groups that are working on webdav.
+	  
+projects and software
+
+	    this is the fun part... what are people doing with dav? look
+	      here for information on the projects that people in the dav
+	        community are working on. both open-source and commercial
+		  projects are listed here.
+		  
+specifications
+
+		    this section contains links to the various specifications that
+		      are related to dav, such as http and xml.
+		      
+papers and articles
+
+		        several papers, presentations, and articles have been
+			  written about dav, which you can find here.
+			  
+other resources
+
+			    this area contains resources for dav that don't really
+			      fall under the above areas. for example, the faq, additional
+			        xml resources, and webdav-related job listings are located
+				  here.
+				  
+
+
+
+
+
+
+
+
+
+
+
+jim whitehead
+
+
+last modified: apr 21 2010
+
+
+

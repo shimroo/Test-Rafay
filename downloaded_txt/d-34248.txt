@@ -1,0 +1,275 @@
+
+
+radified guide to norton ghost (symantec) -  a tutorial on how to create, save & restore hard drive back-up ghost images
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+posted:
+          21.june.2000
+norton
+          ghost
+          support
+          community
+          
+        forum
+[faq]
+
+p
+          a
+          g
+          e
+
+o
+          n
+          e
+
+          o
+          f
+
+          s
+          i
+          x
+    t
+    e
+    e
+    n
+ 
+ •   
+            
+              • 
+
+
+
+
+this guide presents what many consider  the ultimate back-up strategy. it is based on features found in norton ghost, a  hard drive imaging/cloning software program developed by symantec.
+
+
+
+
+
+altho designed around norton ghost (considered the most reliable application of its kind), the strategies presented here (such as performing a test-restore, to ensure your back-up image will work when you really need it) can be applied to *any* disk cloning program.
+
+          here is the *original* radified guide. after nearly 7 years on the 'net - and countless updates - it is still the site's most requested windows tutorial.
+
+		  users of ghost from all over the world contribute regularly to the insights it contains, which might be why its popularity continues to grow.
+
+          when you realize how much time & misery ghost's supernatural disaster 
+          recovery features can save you, you'll understand why you shouldn't be without a cloning program.
+
+          discover for yourself why so many 
+          people include ghost on their list when asked: "if 
+        you could only have 10 programs...?
+
+        the remainder of this introductory page discusses the different versions of norton ghost available, including their respective advantages & disadvantages.
+norton ghost 12
+symantec claims here that norton ghost 12 will be released april 18, 2007, and will officially support windows vista.
+
+	      update > june 2007 - ghost 12 released. official press release for both ghost 12 + ns&r 2.0 is > here (dated april 2007).
+
+		  threads in the forums which adress the topic of ghost 12:
+
+what is norton ghost 12?
+norton ghost 12: beta release
+
+update > since posting links to those two threads listed just above, the forums have since seen many posts regarding ghost 12. for more, here's a google search preconfigured for the query > norton ghost 12.
+
+	    brian (from australia) says:
+
+i've had a quick look at the ghost 12 beta. it needs dot-net framework 2 and resembles ghost 10, with a slightly different gui. the cd boots marginally faster than ghost 10 and the recovery environment has ghost 10 type menus and ghost 10 type drive letters (same drive letters as winxp). 
+
+	        i didn't test any of the fancy features such as remote management, physical to virtual image conversion, and lightsout recovery.
+
+update > 13.june.2007 - today i install a copy of ghost 12 and (successfully) created my first windows-based back-up image (which symantec terms a recovery point). you can review my experience here > installed norton ghost 12 & created back-up image, called a recovery point.
+
+	    also posted a series of screenshots here > installed ghost 12 today, created image (recovery point), posted screenshots.
+
+	    note that i will be creating a *new* rad guide, based on ghost 12, which is significantly different from ghost 2003, which this guide was designed around. i tried however, to introduce various concepts that can be applied to *any* cloning program, so you should still find this guide enlightening
+
+		for things related to ghost 12, i also created a new subdomain > nortonghost.radified.com. you can find the first (under-construction) g12 page here > rad guide to norton ghost 12.
+
+		this will also be my first attempt at creating a certifiable xhtml 1.0 web page. so it might take a tad longer to get going. still studying the spec's details.
+norton save & restore
+
+
+
+
+
+update april 2007 - symantec released version 2.0 of norton save & restore. see here. version 2.0 differs from version 1.0 is ways detailed in this thread > norton save & restore 2.0. the remainder of this section deals with v1.0, which has some advantages over things left out in v2.0, and compares ghost with ns&r. 
+update: 27.february.2006 - norton save & restore (ns&r) is sometimes called norton ghost 11 cuz it's the next product released by symantec that contains a copy of ghost, following norton ghost 10.
+ns&r (released 2006) contains a product named ghost 11 that is functionally the same as norton ghost 10, with the added ability to back-up individual folders. (pre-ghost 11 products only back-up entire hard drives, or individual partitions, no folders.)
+
+		  the downside of norton save & restore is that is doesn't come with a copy of norton ghost 2003, which some folks (such as nightowl & myself) prefer for reasons stated here. (note that ghost 9 and ghost 10 are very similar, with some preferring ghost 9 over ghost 10).
+
+	    update: 21.nov.2006 - good news! it appears n s&r *does* come with ghost v8.2, which is the corporate version of the original ghost software, which will allow you to both create and restore images using this software. and this version is not crippled as is the version that comes with ghost 9. see this thread for details:
+
+using ghost 10 cd [including n s&r] to create and restore ghost images 
+ for more about ns&r, see the thread in the forums titled: norton save & restore, and also this one started by pleo. the official symantec news release is here.
+
+	      the rad support board for norton save & restore is here > community support for norton save & restore
+
+		  for your hyperlink convenience, a separate page containing this info has been posted here: norton save & restore by symantec. i will update this page as info regarding norton save & restore comes in from users around the globe. 
+norton ghost 10
+new version: 13.sept.2005 - symantec announces the release of ghost v10.0. the short version: ghost 10 = ghost 9 + encryption (ability to encrypt your back-up images).
+with version 10, symantec continues to make ghost easier to use, automating still more decisions you previously had to make yourself. their aim is to bring the power of back-up imaging to the masses. 
+
+          while applauding their efforts, i feel the need to caution users that each additional feature tends to sacrifice reliability. for example, if you encrypt your image file, you will, at some point, need to de-crypt it, before it can be restored .. which is one more place where something can go wrong.
+
+          for me, reliability is my #1 priority. i need to feel confident i can restore my back-up image should anything go wrong with my operating system or hard drive.
+
+          the good thing is that symantec includes a copy of ghost 2003 in the ghost 10 retail 
+          box. and i *know* ghost 2003 is reliable, because i've used it to restore dozens of images.
+
+          all the caveats about ghost 9 & hot-imaging still apply to version 10, since they are basically the same program. so i suggest to familiarize yourself with the way ghost 9 works. see here:> ghost 9 & hot-imaging.
+
+          there is an on-going thread is the forums about ghost 10. see here:> symantec norton ghost 10, where i share my share my thoughts on version 10. there's also a blog entry posted here: symantec releases version 10 of norton ghost.
+
+        the rad support board for norton ghost 10 is here > community support for norton ghost 9 & 10. you can download a 45mb demo of ghost 10 > here. (you can also try here to bypass some of the paperwork.)
+
+
+
+
+norton ghost 9
+new version: 02.august.2004 - symantec announces the release of ghost v9.0. ghost 9 is controversial, because it's not really ghost. it's actually drive image, a similar imaging/cloning product originally developed by powerquest, a company  symantec purchased on 05.dec.2003.
+
+          the reason ghost 9 (drive image in disguise) is controversial is because it supports a feature symantec calls 'hot imaging', which allows you to to create images of/from a 'live' operating system, while files are able to change. hot imaging might sound attractive to the casual user, but it comes with hidden risks that concern many veterans of the program.
+
+note: to keep this introduction uncluttered, the remainder of this  discussion on norton ghost v9.0 continues on its own page:> norton ghost v9.0 + hot imaging. i recommend you take a look. at the bottom of that page is a link that will bring you back here.
+
+        if you have no idea what an imaging/cloning program does or how it works, you should first read the program introduction. then come back here & read the ditty on ghost 9 & hot-imaging.
+
+norton ghost 2003          
+
+new version: 26.august.2002 - symantec releases ghost 
+          2003. this  version offers a windows-based interface. prior 
+          to v2003, you needed to boot to dos in order to create or restore an image. 
+          being able to configure ghost from windows makes the program  more 
+          user-friendly. 
+the official symantec press release is posted 
+          here. pcworld reviews ghost 2003 here. 
+          they still claim it's "for pc pros only" tho. see here. 
+          in particular, notice where they say, "the program is saddled 
+          with a confusing manual, lousy web support, and phone support that costs 
+          $30 per incident." 
+that's why this guide has become so popular. it teaches you everything 
+          you need to know .. with language that's easy to understand. that's because 
+          it was written by someone who knows how confusing ghost can be.
+
+note: again, to keep  this  introduction uncluttered, the remainder of this discussion on norton ghost 2003 continues on its own page:> norton ghost 2003. take a look. at the bottom of that page you'll find a  link that  will bring you back here.
+
+          the rad support board for norton ghost 2003 is here > community support for ghost 2003 
+get your ccna security tutorial for free with our brain dump packages. you can also enjoy free mcp exam download with our unlimited package and comptia a+ certification simulations.
+table of contents
+for your <hypertext> convenience, this  guide can be found at both 
+              these fine radified urls:
+
+
+[http://ghost.radified.com/]
+[http://radified.com/ghost/ghost_1.htm]
+[http://ghost.radified.com/ghost_1.htm]
+
+
+the guide contains 16 pages, organized like so:
+
+
+[page 1] - orientation: you be here.
+[page 2] - ghost 9 & hot imaging.
+[page 3] - norton ghost 2003.
+
+
+[page 4] - program introduction 
+[page 
+              5] - quick start: for the ready-fire-aim type, who wants to jump right in & begin imaging right 
+              away. plus an important limitation.
+[page 
+              6] - caveat: need a second hard drive to be safe, test restore.
+
+
+[page 7] - bootable ghost cd/dvds.
+ [page 8] - imaging to ntfs drives, usb/external drives, dead drives, data integrity.
+[page 
+              9] - get your copy, running ghost from  
+              dos, raid arrays, knowledge base, switches & error codes.
+[page 10] - ghost alternatives. other programs that do (basically) the same thing as norton ghost. 
+
+
+[page 
+              11] - pre-imaging info, norton ghost boot floppy.
+[page 
+              12] - create a ghost image.
+[page 
+              13] - restore a ghost image, ghost explorer, restoring image from different pc.
+
+
+[page 
+              14] - hard disk drive & partition cloning.
+[page 15] - automated batch files.
+ [page 16 - network 
+              addendum] - imaging across a network 
+              or an lpt connection.
+
+
+
+
+ 
+
+updated:
+          28.apr.2010
+norton
+          ghost
+  support
+  community
+  
+  forum
+[faq]
+
+          p
+            a
+            g
+            e
+
+o
+            n
+            e
+
+            o
+            f
+
+            s
+i
+x
+            t
+            e
+            e
+            n
+
+
+
+
+
+
+next => [radified 
+          guide to norton ghost: page 4, program introduction]
+
+[radified 
+        home] 
+
+
+
+
+

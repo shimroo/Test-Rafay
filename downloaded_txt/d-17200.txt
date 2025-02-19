@@ -1,0 +1,659 @@
+
+
+
+rjstanford
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+home
+columns
+about
+toolkit
+
+
+
+
+
+sign in
+subscribe
+
+
+
+
+
+
+
+
+pragmatic development and random digressions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    record locators considered useful
+                
+
+you know what record locators are, right?  those little 6-8 character random strings that you get with your plane ticket? have you ever thought about how they're generated and what they mean?
+
+
+10 jul 2022
+3 min read
+
+
+
+
+
+
+
+
+
+
+
+driving
+
+
+                    your first hpde - getting on track
+                
+
+i started track driving about 5 years ago. it's expensive, noisy, and non-productive. its also one of the absolute purest joys of my life.  if you're interested - even if you don't think you could ever do it - read on!
+
+
+16 may 2022
+6 min read
+
+
+
+
+
+
+
+
+
+
+
+development
+
+
+                    overly complex sdks
+                
+
+good sdks make writing service code easy.  why do so many of them stop just short of where they should?
+
+
+09 mar 2022
+2 min read
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    chex mix
+                
+
+chex mix should be yours. use this recipe as a starting point - or not - but adjust it until you can't stop making it.  then back off one notch.
+
+
+24 dec 2021
+2 min read
+
+
+
+
+
+
+
+
+
+
+
+12 factor
+
+
+                    disposability
+                
+
+normalize not knowing where - or to some extent why - your processes are.  and never, ever, name a server (sorry saruman37)
+
+
+14 dec 2021
+1 min read
+
+
+
+
+
+
+
+
+
+
+
+12 factor
+
+
+                    concurrency
+                
+
+sometimes its okay to be a monolith.  or at least one monolith amongst many.
+
+
+08 dec 2021
+1 min read
+
+
+
+
+
+
+
+
+
+
+
+driving
+
+
+                    race day
+                
+
+hanging on to the back of the reasonably decent racers may not be a winning strategy, but it doesn't seem like a losing one either.
+
+
+24 nov 2021
+1 min read
+
+
+
+
+
+
+
+
+
+
+
+development
+
+
+                    boilerplate is just tech debt waiting to happen
+                
+
+our goal as developers should be to write as much business logic as possible, and spend as little time as possible on anything else. here's why that matters.
+
+
+24 nov 2021
+2 min read
+
+
+
+
+
+
+
+
+
+
+
+development
+
+
+                    package based development
+                
+
+thanks a pervasive culture of sharing, almost everything that we write can be thought of as refinements, gluing existing components together and adding only the parts of the code that are truly unique to whatever we're trying to build.
+
+it's a great time to be a software developer.
+
+
+26 oct 2021
+5 min read
+
+
+
+
+
+
+
+
+
+
+
+driving
+
+
+                    msr cresson in the challenge miata
+                
+
+someone has to bring the slowest car...
+
+
+20 oct 2021
+3 min read
+
+
+
+
+
+
+
+
+
+
+
+resource basics
+
+
+                    papertrail
+                
+
+keeping track of what's going on in your remotely running stateless servers can be a challenge, but it doesn't have to be a chore.
+
+
+24 jul 2020
+2 min read
+
+
+
+
+
+
+
+
+
+
+
+12 factor
+
+
+                    port binding
+                
+
+making sure that you have a single, simple, well-understood entry point to your service.
+
+
+22 jul 2020
+1 min read
+
+
+
+
+
+
+
+
+
+
+
+development
+
+
+                    the benefits of keeping it simple
+                
+
+everything must be made as simple as possible, but no simpler. but why?
+
+
+16 jul 2020
+2 min read
+
+
+
+
+
+
+
+
+
+
+
+12 factor
+
+
+                    processes
+                
+
+state belongs in clients and database, nowhere in between.
+
+
+15 jul 2020
+2 min read
+
+
+
+
+
+
+
+
+
+
+
+tech talk
+
+
+                    ask for actions but deliver on intent
+                
+
+when building a ui, a small change in the way that you think about the user's requests can significantly change the way that you communicate about exceptional conditions.
+
+
+10 jul 2020
+2 min read
+
+
+
+
+
+
+
+
+
+
+
+12 factor
+
+
+                    build, release, run
+                
+
+> strictly separate build and run stages
+what problem are we solving?
+builds should be repeatable, trivial, and boring. if you can build your
+application twice in a row on different servers and get different results than
+you have a problem.
+
+additionally, the build should be hands-off.  if your build
+
+
+08 jul 2020
+3 min read
+
+
+
+
+
+
+
+
+
+
+
+driving
+
+
+                    msr houston ccw track day
+                
+
+my first de at msr houston going counter clockwise
+
+
+04 jul 2020
+3 min read
+
+
+
+
+
+
+
+
+
+
+
+development
+
+
+                    date handling
+                
+
+dates are invisible and obvious, until they're not.  luckily a little thought and a few common strategies will keep them as boring as they seem.
+
+
+02 jul 2020
+3 min read
+
+
+
+
+
+
+
+
+
+
+
+12 factor
+
+
+                    backing services
+                
+
+how should you incorporate 3rd party services, and their configurations, into your saas app?  are they just another dependency or something more?
+
+
+01 jul 2020
+2 min read
+
+
+
+
+
+
+
+
+
+
+
+tech talk
+
+
+                    don't forget the v
+                
+
+when it comes to mvps, everyone loves to focus on the m for minimal.  especially when working in a b2b environment, the viable portion is all too often neglected.
+
+
+26 jun 2020
+2 min read
+
+
+
+
+
+
+
+
+
+
+
+12 factor
+
+
+                    config
+                
+
+how and where should you be storing runtime configuration, especially secrets?
+
+
+24 jun 2020
+4 min read
+
+
+
+
+
+
+
+
+
+
+
+12 factor
+
+
+                    dependencies
+                
+
+how and where do you define, update, and import your dependencies?
+
+
+17 jun 2020
+3 min read
+
+
+
+
+
+
+
+
+
+
+
+resource basics
+
+
+                    mockaroo
+                
+
+good test data helps you see problems that bad test data obscures.  thankfully there's an easy way to get large amounts of it.
+
+
+12 jun 2020
+2 min read
+
+
+
+
+
+
+
+
+
+
+
+12 factor
+
+
+                    codebase
+                
+
+how many codebases make up a deployable?  how many deployable can you build from one codebase?
+
+
+10 jun 2020
+5 min read
+
+
+
+
+
+
+
+
+
+
+
+development
+
+
+                    don’t be afraid to cheat
+                
+
+its easy to lose sight of the forest for the trees and get so caught up in solving a technical problem that we don't stop to consider how we could take a shortcut and work around it instead.
+
+
+04 jun 2020
+4 min read
+
+
+
+
+
+page 1 of 2
+older posts →
+
+
+
+
+
+
+rjstanford © 2025
+
+
+powered by ghost
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,256 @@
+
+
+nocrew's pdp-10 stuff - porting gnu software
+
+
+
+
+
+
+nocrew's pdp-10 stuff
+  porting gnu software
+
+
+
+
+
+news
+
+
+
+2023-12-30
+
+    the its 138 listing
+    has been typed in and run on an emulator.
+  
+2022-01-18
+
+    a 125-page paper listing for pdp-6 its version 138 has been
+    located, but not yet scanned.
+  
+2019-09-xx
+
+    its now runs on ka10, kl10, and ks10 emulators.
+    we're missing a version of its for the pdp-6.
+  
+2016-10-24
+
+    created an its repository at github:
+http://github.com/pdp-10/its
+
+2016-05-12
+
+    created a pdp-10 organization at github:
+http://github.com/pdp-10
+
+2003-04-18
+
+    i have been busy enhancing and debugging gcc lately, so there has
+    been no glibc progress.
+  
+2002-10-22
+
+    a program linked with glibc successfully runs and is able to
+    output "hello world".
+  
+2002-09-20
+
+    there has been some changes to the function call convention in
+    order to make code easier to debug.  see the
+    gcc page for details.
+  
+2002-07-01
+
+    gnu c library (aka glibc) port started.
+  
+
+
+
+older news items.
+
+
+work to do
+
+
+
+pdp-10 support for gcc.
+  pdp-10 support for the gnu c library.
+  pdp-10 support for gnu binutils.
+  pdp-10 support for gdb.
+  help out with pdp-10 emulators.
+  add jit compilation to pdp-10 emulators?
+
+
+
+local resources
+
+
+
+pdp-10 processor features.
+  a disassembler for its binaries.
+      github
+      repo
+a disassembler for ks10 microcode.
+      github repo
+an attempt at a
+      supdup
+      client and server.
+  mit teco emacs version 170 from rich alderson:
+      distribution tape image,
+      installation notes.
+      also at github.
+
+
+
+reference material
+
+
+
+pdp-10 instruction set,
+      (from
+      ftp://ftp.netcom.com/pub/hb/hbaker/pdp-10/pdp-10.html)
+pdp-10 opcodes,
+      (from
+      http://www.inwap.com/pdp10/opcodes.html)
+decsystem-10/decsystem-20
+      processor reference manual,
+      (from
+      http://www.36bit.org/dec/manual/ad-h391a-t1.pdf)
+pdp-6 arithmetic processor 166
+      instruction manual,
+      (from
+      http://www.ai.mit.edu/people/tk/pdp6/pdp6-hardware-manual.ps)
+some differences between the 166
+      and the ka10 processors.
+
+
+
+
+its source code from ftp.swiss.ai.mit.edu:
+      original location, or
+      local copy.
+  its source code from ftp.ai.mit.edu:
+      original location,
+      or local copy.
+  its snapshot from ftp.its.os.org:
+      original location,
+      or local copy.
+  its reference manual, version 1.5:
+      original
+      location, or local copy
+time
+      capsule file system, the format used to save the its files.
+  kcc, kok chen's pdp-10 c compiler.
+
+
+related sites
+
+
+joe smith's pdp-10 page,
+      an excellent source of pdp-10 information
+  tim shoppa's pdp-10
+      software archive
+paul allen's pdp-10 file
+      archive
+36bit.org, general information
+      about 36-bit computers
+  pdp-10 software at
+      36bit.org.
+  twenex.org, a public-access
+      tops-20 system.
+  alan bawden's mit its file system
+      snapshots.
+  mirian crzig lennox'
+      its hacking page.
+  
+
+pdp10.com
+phil's pdp10 miscellany
+      page
+phil budne's
+      collection of ported pdp-10 software
+pdp-6 home
+      page
+dan murphy's tenex and
+      tops-20 papers
+tops-20 mailing list
+kermit software
+      for the decsystem-10 and decsystem-20.
+  the decsystem-20
+      at columbia university
+
+      advent-style games for pdp-10
+pdp-10 pictures originally from the dec computing timeline:
+      pdp-6,
+      pdp-10,
+      ki10,
+      kl10,
+      decsystem-20,
+      
+the foonly f-1
+al kossow's collection
+      of scanned manuals, particularly the
+      pdp-10 section.
+  tim shoppa's collection
+      of scanned documents
+dec manuals
+zane healy's
+      pdp-10
+      emulation page
+  klh10,
+      ken harrenstien's emulator
+  ts10,
+      timothy stark's ks10 emulator
+  simh, bob supnik's
+      historical computer simulators
+  e10, daniel seagrave's and hans b pufal's kl10b emulator
+      (incomplete)
+  sim10, megan
+      gentry's pdp-6/ka10/ki10 emulator (not available any more)
+  kx10, stu grossman's emulator (maybe available?)
+  eric smith's emulator (far from finished)
+  pictures of
+      knight and space cadet keyboards.
+  sc group, manufactures
+      a pdp-10 clone called sc-40.
+  neil franklin's
+      pdp-10 clone project.
+  
+david g. conroy is also
+    cloning a pdp-10.
+  
+
+pdp-10 stuff at kilonet.org.
+  
+
+decsystems
+       at retro-computing society of rhode island.
+  
+
+b.o.c.e.s. / l.i.r.i.c.s..
+  
+
+the
+    evolution of the decsystem-10, from computer engineering by
+    gordon bell.
+  
+
+
+somewhat related:
+
+
+multicians, about multics
+    dtss, darthmouth
+      time sharing system
+    tixo.org, about the tx-0
+    hercules
+desktop
+        cyber emultator
+
+
+
+last changed , by
+lars
+
+
+

@@ -1,0 +1,429 @@
+
+
+crack attack!
+
+
+
+
+
+
+
+
+
+
+a free opengl game for linux and windows
+
+based on the super nintendo classic
+tetris attack
+
+by daniel nelson
+
+version 1.1.10
+
+
+
+
+
+download, installation, and running |
+requirements |
+screen shots |
+wallpaper 
+game play |
+advanced features |
+final notes |
+links |
+contactvideo of game play
+
+
+
+download, installation, and running
+linux
+linux download, installation, and running instructions.
+
+windows
+windows download and installation instructions.
+
+os x
+os x download.  (thanks to jeff disher for porting crack attack! to os x.)
+
+requirements
+
+linux, windows, or os x
+opengl - standard with all modern windows versions.
+3d graphics hardware support - the game is unplayable without it.  that is,
+unless it's the year 2010 or higher.
+
+screen shots
+here are a few quick screen shots so you have some idea what you're getting
+yourself into.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wallpaper
+you know you need lame crack attack! wallpaper.  right click on the links to
+download.
+
+
+
+
+1280x1024 standard wallpaper
+
+1152x864 standard wallpaper
+
+
+1280x1024 x-treme wallpaper
+
+1152x864 x-treme wallpaper
+
+game play
+screen description
+first a quick overview of the game screen.
+
+
+
+crack attack! logo.
+your opponent's level lights.  these indicate the height of your
+opponent's stack.  when the red reaches the top and they start flashing, he's in
+trouble!
+your level lights.  these correspond to the height of your stack.
+when your stack reaches the top of the screen, these lights flash to warn you of
+your impending doom.  you've got seven seconds to reduce your stack or you lose.
+if nothing else, just eliminate some blocks.  time during which blocks are
+disappearing or garbage is shattering do not count towards these seven seconds.
+players' names.
+your star collection.  when you win a game, you get a happy yellow
+star.  once you earn two, you win the match!  in this case the player won the
+first game, lost the second, and the third star is being contested.
+the clock keeps track of how long the current game has taken.  in
+solo mode the clock is replaced by your score.
+the four orange blocks have been eliminated and are disappearing.
+any time three or more of the same color blocks are in a row, they eliminate.
+in this case, since the elimination is more than the minimum size of three, a
+'4' appeared to let the player know he was doing a good job.  the
+rectangular-ish white thing is your cursor.  you control it with the arrow keys
+and use it to manipulate the colored blocks in your stack.
+these are the blocks in your stack.  you can use your cursor to swap
+blocks which are side-by-side in order to put blocks of like color into a row,
+which causes them to eliminate.  and you'd better be quick about it, because
+your stack will creep up from the bottom and once it reaches the top of the
+screen, you loose.
+this is a piece of garbage in your stack.  when your opponent does
+something clever, for example eliminating four blocks at once, garbage will fall
+from above, cluttering your stack.  you can shatter garbage into normal blocks
+by eliminating blocks that are in contact with the garbage.
+
+
+
+
+play control
+play control is very simple.
+
+arrow keys
+move your cursor.  also, in solo mode, rotates the hall of fame.
+space bar
+swap the blocks your cursor surrounds.
+enter
+advance your stack upwards one row.
+p | p
+pause the game.  during online play, either player is able to unpause a
+paused game.
+esc
+concede the current match or exit crack attack! after a match.
+
+
+game play
+the basics
+slowly, your stack of blocks grows from the bottom, and you've got to make sure
+it never reaches the top.  because once it does, you lose!  to eliminate
+blocks from the stack, line up at least three of one color, horizontally or
+vertically.  once you do, those blocks disappear, and slightly postpone your
+inevitable demise.
+
+to add to the excitement, chunks of red garbage will fall from above.  it is
+impossible to eliminate this garbage directly.  however, if you eliminate any
+blocks which are touching the garbage, the garbage will shatter into normal,
+run-of-the-mill blocks.
+
+throughout the game your stack of blocks will slowly grow from below, initially
+quite slowly but always faster and faster.  when the stack reaches the top it
+will pause and you have seven seconds to save yourself.
+it is possible, however, to get a momentary reprieve from your stack's assent.
+when you eliminate a block or cause garbage to shatter, the growth of your
+stack will pause.  even if your stack has reached the top and you're about to
+lose, you will be given a little more time to save yourself.  time during which
+a block is disappearing or a chunk of garbage is shattering does not count
+towards your seven seconds.
+multiple eliminations
+so, what is it that causes this garbage?  well, the garbage is your opponent's
+way of sticking it to you; and, conversely, your way of sticking it to him.
+while any old slod can eliminate a ho-hum three blocks, a true master will
+eliminate four, five, or even more blocks at one time.  and when he does,
+not only will he be rewarded with a little light show, but garbage will
+come raining down onto his opponent's stack!  just remember, the bigger the
+elimination, the bigger the downpour.
+combos
+beyond the multiple elimination method, there is yet another technique to
+generate troublesome garbage.  i speak of the dreaded combo.  whenever you
+eliminate blocks, it's likely to cause other blocks to fall, either simply
+because they were above the eliminated blocks, or because you have freed them
+from a piece of overhanging garbage.  if, when these blocks fall, they cause a
+second elimination, you've got yourself a combo.  if you're good enough to
+keep the combo rolling, your combo multiplier will increment for each
+elimination.  and, when the combo is finally complete, a massive chunk of
+garbage will descend upon your opponent, its size proportional to your final
+multiplier.
+solo mode
+solo play works a little differently.  instead of trying to last longer than an
+opponent, now you're attempting to rack up as many points as possible before
+you die.  the number of points you get for an elimination depends on how fancy
+it is.
+
+
+eliminationvalue
+3 blocks2 point
+4 blocks4 points
+5 blocks5 points
+n blocksn points
+......
+
+
+when you get a combo, all of the points you earned in the eliminations which
+made up that combo are multiplied by the combo's highest multiplier.  so, for
+example, if you work up to a x5 combo, then all of the eliminations in that
+combo will be worth five times the points.
+
+but watch out!  eliminations generate garbage in solo mode too.  except the
+garbage falls on you!  so, it's a tradeoff between points and garbage.
+
+once the game is over, if your score is within the top thirty scores ever, you
+win and your name is added to the hall of fame!  if you manage to get the
+number one spot, you're in for an extra special treat.  use the arrow keys when
+viewing the hall of fame in order to check out the other scores.
+gray block
+while there is little more to say about the five standard colored blocks,
+there is an additional color of block, more rare than the others, the gray
+block.  even the elimination of just three gray blocks generates garbage,
+and this is no ordinary garbage.  normally when a piece of garbage shatters,
+the effect propagates on, destroying all garbage that it is in contact with.
+often just one well placed elimination by your opponent can shatter all
+of your hard earned garbage.  well, gray garbage stops shattering 
+propagation like a firewall and can only be destroyed by an elimination
+in direct contact with it.
+
+in solo mode a gray elimination generates three times the points!  because gray
+blocks are worth so many points, it's a good idea to try and work them into a
+combo multiplier.
+
+
+eliminationvalue
+3 gray blocks6 points
+4 gray blocks12 points
+5 gray blocks15 points
+n gray blocks3n points
+
+x-treme play mode
+for those who have mastered the art of crack attack! and hunger for something
+more, we offer crack attack! x-treme!!!  in crack attack! x-treme, long lost
+block types, thought by some to be extinct, have resurfaced.  gone is the
+ho-hum, work-a-day world of the lone gray special block type.  replacing it is
+a cavalcade of color: over eight special block types!
+
+use the -x command-line option to access x-treme play
+mode.  one should note that normal play mode is the true test of one's
+crack attack! skill.  while normal play mode can be likened to chess, x-treme
+play mode is more akin to winging a super ball as hard as you can in a small
+room, and seeing who gets hit first.  it's fun, just a bit random.
+
+in crack attack! x-treme no block can be trusted and nothing is as it seems!
+wild block
+this crazy block can't decide which color it wants to be!  slowly it shifts
+though the spectrum, hoping to cause an unexpected match.
+special orange block
+this baby lays out a hunk of garbage taller than it is wide, guaranteed to add
+height to your opponent's stack, and quick!
+special yellow block
+knock your opponent flat with this block's diseased garbage!  all his controls
+will be reversed until he can figure out a way to shatter the garbage and cure
+himself.
+special green block
+special green blocks generate poisoned garbage which blinds your opponent!
+well, sort of.  actually, it will cause his cursor to flicker and then
+disappear.  the cursor will remain nearly invisible until the poisoned garbage
+is shattered.
+special blue block
+when you cause the blue garbage generated by this special block to shatter,
+instead of turning into blocks, it becomes normal garbage.  what a pain!
+special purple block
+forget those big, easy-to-shatter chunks of connected garbage.  any elimination
+with this block causes a veritable downpour of miniature purple garbage
+onto your opponent's stack.  that stuff has a nasty habit of getting into all
+the wrong places.
+gray block
+this old guy's still along for the ride.  you'll need him to help eliminate his
+relatives.
+ancient ancestors of the gray block
+there are rumored to be even more rare and powerful block colors: lost
+relatives of the gray block.  legend speaks of a black block and a white block,
+one which generates obsidian garbage that is nigh impossible to shatter and the
+other which generates pearl garbage and has dominion over the sun itself!
+point values
+in solo mode many of the x-treme blocks are worth bonus points.  but are the
+points worth their deadly garbage!?  you must decide.  it's always a good idea
+to try and work any special block eliminations into a combo.  that way the
+special blocks' bonus points will be multiplied by the combo's multiplier.
+
+
+special blockvalue
+special orange10 points
+special yellow15 points
+special green8 points
+special blue5 points
+special purple5 points
+black? points
+white? points
+
+advanced features
+personal garbage image
+crack attack! is fully customizable!
+
+that is a big lie.  however, you can get it to use your own personal giant
+garbage image.  often, whenever you lay a really serious piece of garbage
+down on your opponent, it will have some sort of inspirational message
+on it.  normally, crack attack! chooses an image at random from its little
+stock pile.  however, if you specify your own personal image, crack attack! will
+use it more often than not.  during online play your image will be placed on
+any giant pieces of garbage which fall on your opponent.  with solo play the
+image will be used on garbage you send to yourself.  just think of the
+possibilities!  you can communicate your views on your opponent's
+intelligence, at the same time as you play a rousing game of crack attack!
+you could propose to your girlfriend, assuming she's enough of a loser to play
+crack attack!  the list goes on.
+
+a personal garbage image must be 128x128 or smaller.  save the image as an
+uncompressed tga with alpha channel.  name the image file
+garbage_flavor_my.tga.  if you are running linux, put the file in
+the directory .crack-attack/ which is located in your home
+directory.  if you are running windows, put the file in the directory
+localdata which is located in crack attack!'s application
+directory.  remember, do not use rle compression when saving.  why?  because
+i'm too lazy to code up an uncompressor but too proud to use someone else's.
+plus, your hard drive is huge.  if you're really hard up for space, maybe you
+could delete a few of those lexx episodes.  when creating a personal garbage
+image, use a transparent background and keep in mind that that transparent
+background will become red once the image is placed on the garbage.
+
+as you play against a multitude of opponents, crack attack! will accumulate a
+set of garbage images and will use them from time to time.  if you manage to
+obtain a garbage image which is of particularly bad taste and you'd like to be
+rid of it, find its file.  under linux it will be found in the directory
+.crack-attack/ located in your home directory.  under windows it
+will be found in the directory localdata located in crack
+attack!'s application directory.  the file will be among the files named
+garbage_flavor_###.tga.  simply delete it.
+
+links
+
+sound and music for crack attack!, thanks to miguel ángel vilela.
+
+final notes
+potential improvements
+believe it or not, there are improvements which could be made to crack attack!
+
+improved socket code
+
+crack attack!'s socket code was written based on my experience
+with parallel scientific simulation code.  and no one has ever accused a
+piece of academic simulation code of being nimble.  that is, my socket use
+is perhaps a bit naive, and i doubt it deals as effectively as it might with
+such things as not having a direct and dedicated connection.
+much to my surprise, games have been successfully played between opponents
+on opposite coasts of the us.  none the less, there is still much for me to learn when
+it comes to writing robust, time-critical socket code.  until then, your best
+bet is to stay inside your lan.
+
+triangle strips
+
+i'm lazy and thus never got around to triangle stripping the basic block.  as it
+is the block has over five hundred vertices.  that's almost embarrassing.
+
+windows version 
+
+done!
+
+sound
+
+see the links section!
+
+chat
+
+want to chat during a game?  go download aim.
+
+money
+
+someday someone will pay me to do this kind of crap.  and i'll have an artist!
+
+thanks to...
+colin walters | wade lutgen, friend and co-conspirator | roland peetz, play
+tester | greg kilcup, my infinitely patient graduate studies professor | andy
+colebourne, creator of ac3d - used to model the basic block | mark kilgard,
+creator of glut | the gimp team | nullsoft, creators of nsis - an excellent and
+free utility for creating windows install scripts | mark wilde | mom
+
+gnu general public license
+copyright (c) 2002  daniel richard nelson
+
+19229 aenta st.
+tarzana, ca  91356  usa
+
+nelson@aluminumangel.org
+aluminumangel.org
+
+this program is free software; you can redistribute it and/or
+modify it under the terms of the gnu general public license
+as published by the free software foundation; either version 2
+of the license, or (at your option) any later version.
+
+this program is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+merchantability or fitness for a particular purpose.  see the
+gnu general public license for more details.
+
+the gnu general public license can be found online at
+
+http://www.gnu.org/copyleft/gpl.html.
+additionally, a copy can be obtained by writing to the free software
+foundation, inc., 59 temple place - suite 330, boston, ma  02111-1307, usa.
+
+disclaimer
+it is important to realize that the name of crack attack! x-treme play mode is
+meant to be humorous, and thus should not itself be the subject of derision.
+thank you.
+
+contact
+direct comments, questions, praise, flames, and job offers to
+
+nelson@aluminumangel.org.  visit my homepage at
+aluminumangel.org.
+
+

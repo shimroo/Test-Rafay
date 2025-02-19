@@ -1,0 +1,336 @@
+
+
+mhonarc home page
+
+
+
+
+
+
+
+
+
+mirrors:  
+de  
+de(bwb)  
+de(nrw)  
+de(th)  
+jp  
+us(il)  
+us(tx)  
+
+locales:  
+
+ja  
+
+
+
+
+a mail-to-html converter
+
+
+
+contents
+
+
+what's new |
+what is mhonarc? |
+examples |
+download |
+mirrors |
+support |
+related software
+
+
+
+what's new
+
+
+*** security advisory ***
+mhonarc
+releases prior to v2.6.18 have
+known vulnerabilities to the html filter, making web sites hosting
+mhonarc web archives vulnerable to xss attackes.  all users
+are strongly encouraged to upgrade to the latest release.
+
+if you are unable to upgrade immediately, and you are operating
+a site that archives messages from untrusted sources, please
+see the following item in the mhonarc faq:
+so how can i exclude html mail?.  even with the fixes provided, it is
+highly recommended to neutralize html data for any archive
+containing content from untrusted sources.
+
+
+ 
+
+apr 22, 2014: 
+
+v2.6.19 released:  bug fixes.
+more information available in
+changes
+and the
+v2.6.19
+bug fix report.
+
+
+
+ 
+
+
+
+what is mhonarc?
+
+mhonarc is a perl mail-to-html converter.  mhonarc
+provides html mail archiving with index, mail thread
+linking, etc; plus other capabilities including support for mime
+and powerful user customization features.
+
+
+
+examples
+
+
+mhonarc.org mail archives:
+<http://www.mhonarc.org/archive/html/>
+www mailing list archives & references:
+<http://www.xray.mpe.mpg.de/mailing-lists/>
+the mail archive:
+<http://www.mail-archive.com/>
+hort.net archived email lists:
+<http://www.hort.net/lists/>
+debian mailing list archives:
+<http://lists.debian.org/>
+freelists:
+<http://www.freelists.org/>
+sourceware.org mailing lists:
+<https://www.sourceware.org/lists.html>
+mail.gnome.org archives:
+<http://mail.gnome.org/archives/>
+lists.riseup.net:
+<http://lists.riseup.net/www/>
+
+
+
+download
+
+mhonarc is distributed under the
+gnu
+general public license.
+
+you can download mhonarc from a
+site close to you or from this site in
+the following formats:
+
+
+md5 checksum                      filename                    size    - sig
+--------------------------------- --------------------------- -------------
+80f1f0044ce5bf2a341465e96668274f  mhonarc-2.6.19-1.noarch.rpm 1947004 - sig
+6e74712a6da370c8c63b5bde7573f48f  mhonarc-2.6.19.tar.bz2      1577790 - sig
+d86645e67da3524574caaee8a4dde69a  mhonarc-2.6.19.tar.gz       1992055 - sig
+5a2c9f5c0e6c438a607e9f786c4870b1  mhonarc-2.6.19.zip          2441451 - sig
+--------------------------------- --------------------------- -------------
+
+for complete information on installing mhonarc from the
+distribution, please read the
+installation section
+of the mhonarc
+reference manual.
+
+
+
+important:
+
+please read the release notes
+before upgrading from an older release.
+
+
+
+
+public signing key
+since mhonarc v2.6.11, distribution bundles are digitally signed.
+the following public key can be used for signature verification:
+
+
+-----begin pgp public key block-----
+version: gnupg v1.4.0 (gnu/linux)
+
+mqgibekohu4rbactuzt7qupckph1pqsoykvrbfoc8kbq4fjek7uxzsmuft4w0n86
+nl+osnsdwslywps1syt9sis8z73vqhml0muortpmq6ivau2y+tjixlpfe46bhgwk
+wpqe04b9bvv2hik1skn3ueq5nh0qblxa2nbz7/kqgwypmxx1knk3ioxmcwcgs5nn
+lxxgsjlaw/lz9nvgnrg58vkeaivjikygtddycst7wm5hn+uhvp6j5lhnljqvl36f
+xq2fjwfaq1ikxtzyny2tq+gayv17t4lkjewm4jzcfqqor1m9fdzrhcbvwk7jpimt
+ifv94abhjt73qjjqi+nhw3onoxypj+e0vrpyymrzrxcqkyn1blpoynaq2a9tlrvn
+z5pea/4mziwip8bgjkgw5jrn56zrf4rqreawhjs8xg92jdzwyihx3mlv/8gcnovy
+tod/knz9myjfigq/ceqdtk31i9a33lwsb1hsi4/rhocupptkbhk5lwioksss2w8c
+cwuiyjwbivbw12+yvfm0jnnmgo/rzfojj6s5wgo+b0weqflcyrratuhvbkfyyybt
+awduaw5nifvzzxigke1ib25bcmmgu2lnbmluzyblzxkpidxtag9uyxjjqg1ob25h
+cmmub3jnpohebbmragaebqjcjh7uahsdbgsjcacdagmvagmdfgibah4baheaaaoj
+eefx4u7gmgygukman1wwlggyhq6e8krx5akpm8ztrbvaaj4w2yazlsmetehnkozq
+e4fmw0u5dlkcdqrcjh/3eagaq10ervivtgnjjhjmq1fyoy/t1cuyzbkrsvz186cf
+vcu6cdl14dftsf9cyishjapyg+hrf+mjnz2ejdjoi5wa9+ckst53lr3dlu895xz9
+0fbto6uzmf3fidazfe1pw/fwypztdwipltg2vlnoq7ngf8houki8jl8cjihn+ucq
+ehsz/2x6fcfh4nqlbchiytmhjonu0m+xhxn4sl2nkcssxy8y9ikgo2cswq8+v+kw
+9lpwem589bhfokrudenan9k0uqpbyxlr7uhiwdjxklcgbzllbif+3xny9f76dhom
+ylxmun+rq361uv2epxjcusl6xuvdnuz25lrrl32wnxdnnwaecwf/tiqzeihh5qpc
+mmoqxzd90vw5/rlo0kgb/ijbqpgrjvkcwp3xsqcrri/ah4jygzr4v0ueogfn04k9
+rh4kzt61w7qtlg32ynvjilmoomud6144gjexqbulo09skxyuipqlayigfgknhebo
+v6yz/chibefywju0mzsviitabg+kw4bkm/kufxqmfpijtbdhych1wiwymwluttxf
+3ymqu+0zlovc0c2cqdipj+f6w73etoofhlcndk4poxfjfdbtxw2mbudhhorhr7vf
+ogj0dmur8juclwd/0tpjyj+yd6f83t0y0g8kozgtm0rsnor0yrxv3ti/i0oge7h1
+a4eurc+cb4hjbbgragajbqjcjh/3ahsmaaojeefx4u7gmgygatganryyerwi+smf
+hqlvcjtzi5itzfcuakcsbdsaprv6nozq+ijvsyat1obxvq==
+=2r87
+-----end pgp public key block-----
+
+if using
+gnupg, you can verify the signature
+for a file, after importing the above key into your key ring, as follows:
+
+
+prompt> gpg --verify file.sig file
+replace file with the distribution bundle you
+want to verify.
+
+other download locations
+mhonarc software can be downloaded from a
+mirror site or from one of
+the following distribution locations:
+
+
+<http://download.savannah.gnu.org/releases/mhonarc/> (savannah)
+    
+<http://www.cpan.org/authors/id/e/eh/ehood/> (cpan)
+    
+<http://packages.debian.org/mhonarc> (debian)
+    
+<http://www.rpmfind.net/linux/rpm2html/search.php?query=mhonarc>
+    (3rd-party linux rpms)
+    
+
+older versions
+past versions of mhonarc may be obtained from the
+releases directory.
+
+snapshots
+installable snapshot builds of the latest sources are
+available in the releases directory.
+
+
+
+mirrors
+
+home address
+<http://www.mhonarc.org/> (us, il)
+	(hosting services graciously provided by 
+	mallorn computing)
+
+mirrors:
+
+<http://www.very-clever.com/mhonarc/>
+    (de)
+<http://mhonarc.domainunion.de/>
+    (de, bwb)
+<http://mhonarc.ipmedia.de/>
+    (de, nrw)
+<http://mhonarc.brainbyte.de/>
+    (de, th)
+<http://www.mhonarc.jp/mirror/>
+    (jp)
+<http://www.nacs.uci.edu/indiv/ehood/mhonarc.html>
+    (us, ca)
+<http://www.java-tips.org/mirror/mhonarc/>
+    (us, tx)
+
+locales:
+
+
+<http://www.mhonarc.jp/>
+    (ja)
+
+
+
+
+support
+
+
+documentation:
+    reference manual, faq, and guides.
+    
+japanese mhonarc
+
+
+mailing lists & contacts
+
+archives
+
+
+
+bugs
+
+revision history
+
+todo list
+
+professional consulting
+
+3rd party links:
+    
+useful aliases and environment variables, by
+	shohreh@uci.edu
+
+
+
+
+
+
+
+related software
+
+
+mharc
+a web-based mail archiving system for multiple mailing lists
+using procmail,
+mhonarc, and
+namazu.  example usage of
+mharc can be seen by checking out the
+mhonarc.org
+list archives.
+
+
+contributed programs
+useful 3rd-party contributed programs are included in the
+contrib directory of the mhonarc distribution.
+
+
+extras
+additional, related programs are included in the
+extras directory of the mhonarc distribution
+
+
+
+
+
+mirrors:  
+de  
+de(bwb)  
+de(nrw)  
+de(th)  
+jp  
+us(il)  
+us(tx)  
+
+locales:  
+
+ja  
+
+
+
+
+
+$date: 2014/04/22 04:29:29 $
+earl hood,
+mhonarc@mhonarc.org
+
+
+
+

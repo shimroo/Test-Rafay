@@ -1,0 +1,139 @@
+the gtk project - a free and open-source cross-platform widget toolkitgtk features docs community code development blogcreate apps that users just loveoffering a complete set of ui elements, gtk is suitable for projects ranging from small one-off tools to complete application suites.learn gtkdownloadslinux windows macoslatest stable 4.16.12latest unstable 4.17.4latest old stable 3.24.48work with the language of your choicedevelop your gtk app with your language of choice by using language bindings or wrappers and take full advantage of the official gnome bindings which guarantee api stability and time-based releases.c javascript perl python rust vala// include gtk
+#include <gtk/gtk.h>
+
+static void on_activate (gtkapplication *app) {
+  // create a new window
+  gtkwidget *window = gtk_application_window_new (app);
+  // create a new button
+  gtkwidget *button = gtk_button_new_with_label ("hello, world!");
+  // when the button is clicked, close the window passed as an argument
+  g_signal_connect_swapped (button, "clicked", g_callback (gtk_window_close), window);
+  gtk_window_set_child (gtk_window (window), button);
+  gtk_window_present (gtk_window (window));
+}
+
+int main (int argc, char *argv[]) {
+  // create a new application
+  gtkapplication *app = gtk_application_new ("com.example.gtkapplication",
+                                             g_application_flags_none);
+  g_signal_connect (app, "activate", g_callback (on_activate), null);
+  return g_application_run (g_application (app), argc, argv);
+}
+imports.gi.versions['gtk'] = '4.0';
+const gtk = imports.gi.gtk;
+
+// create a new application
+let app = new gtk.application({ application_id: 'com.example.gtkapplication' });
+
+// when the application is launched…
+app.connect('activate', () => {
+    // … create a new window …
+    let win = new gtk.applicationwindow({ application: app });
+    // … with a button in it …
+    let btn = new gtk.button({ label: 'hello, world!' });
+    // … which closes the window when clicked
+    btn.connect('clicked', () => { win.close(); });
+    win.set_child(btn);
+    win.present();
+});
+
+// run the application
+app.run([]);
+#!/usr/bin/env perl
+use strict; use warnings; use utf8;
+use glib::io;
+use gtk4;
+
+# create a new application
+my $app =
+  gtk3::application->new('com.example.gtk3application', 'g_application_flags_none');
+
+# when the application is launched…
+$app->signal_connect(
+  activate => sub {
+    my $app = shift;
+    # … create a new window …
+    my $win = gtk3::applicationwindow->new($app);
+    # … with a button in it …
+    my $btn = gtk3::button->new('hello world!');
+    # … which closes the window when clicked
+    $btn->signal_connect(clicked => sub { $win->close(); });
+    $win->set_child($btn);
+    $win->present();
+  }
+);
+
+# run the application
+$app->run(\@argv);
+# load gtk
+import gi
+gi.require_version('gtk', '4.0')
+from gi.repository import gtk
+
+# when the application is launched…
+def on_activate(app):
+    # … create a new window…
+    win = gtk.applicationwindow(application=app)
+    # … with a button in it…
+    btn = gtk.button(label='hello, world!')
+    # … which closes the window when clicked
+    btn.connect('clicked', lambda x: win.close())
+    win.set_child(btn)
+    win.present()
+
+# create a new application
+app = gtk.application(application_id='com.example.gtkapplication')
+app.connect('activate', on_activate)
+
+# run the application
+app.run(none)
+use glib::clone;
+// glib and other dependencies are re-exported by the gtk crate
+use gtk::glib;
+use gtk::prelude::*;
+
+// when the application is launched…
+fn on_activate(application: &gtk::application) {
+    // … create a new window …
+    let window = gtk::applicationwindow::new(application);
+    // … with a button in it …
+    let button = gtk::button::with_label("hello world!");
+    // … which closes the window when clicked
+    button.connect_clicked(clone!(@weak window => move |_| window.close()));
+    window.set_child(some(&button));
+    window.present();
+}
+
+fn main() {
+    // create a new application with the builder pattern
+    let app = gtk::application::builder()
+        .application_id("com.github.gtk-rs.examples.basic")
+        .build();
+    app.connect_activate(on_activate);
+    // run the application
+    app.run();
+}
+int main (string[] argv) {
+    // create a new application
+    var app = new gtk.application ("com.example.gtkapplication",
+                                   glib.applicationflags.flags_none);
+
+    app.activate.connect (() => {
+        // create a new window
+        var window = new gtk.applicationwindow (app);
+
+        // create a new button
+        var button = new gtk.button.with_label ("hello, world!");
+
+        // when the button is clicked, close the window
+        button.clicked.connect (() => {
+            window.close ();
+        });
+
+        window.set_child (button);
+        window.present ();
+    });
+
+    return app.run (argv);
+}
+apps built with gtkdevelopers around the world have used gtk as a platform to create apps that solve problems faced by end-users.gimpfontscalculatordictionarygamesevolutionimage viewerpolarikey signmapstransmissionpassword safea feature-rich development toolgtk has all the features that a widget toolkit needs to have. these features make it the most trusted toolkit for developing linux applications. portabilityprojects built using gtk and its dependencies run on well known operating systems. stabilitygtk delivers the enticing features and superb performance which adds to your applications. language bindingsgtk is written in c but has been designed to support a wide range of languages such as python, javascript, c++, rust and many more. interfacesgtk has a comprehensive collection of core widgets like buttons, windows, toolbars for use in your application. open sourcegtk is a free and open-source project maintained by gnome and an active community of contributors. gtk is released under the terms of the gnu lesser general public license. apigtk boasts of an easy to use api which helps in decreasing your development time and help you achieve better results. accommodationgtk caters to many features like native look and feel, theme support, object-oriented approach that today’s developers look for in a toolkit. foundationsgtk is built on top of glib. glib provides the fundamental data types and system integration points to avoid duplicated code in applications.develop with gtkby taking advantage of gtk being a cross-platform development tool and its easy to use api, you can develop amazing apps using the gtk. if you are interested in developing an app, get started now by developing this example application.develop gtkgtk is a large project and relies on volunteers from around the world. to help us with the project development, hack away on the existing bugs and feature requests.looking for help?if you want to ask questions about gtk, whether it’s for developing applications with gtk or contributing to gtk itself, you can use the gnome discourse instance, under the platform/core category. you can use tags like gtk or glib to narrow down the topic of discussion to specific libraries. you can also ask questions in our matrix room.news and eventscatch up with gtk developmentget in touch with gtk developers through matrix. get updates about gtk and its community from gtk blog or on mastodon.meet the communityas regularly as possible, gtk team meetings take place at conferences and hackfests to discuss the future of gtk and define a roadmap.contribute to gtkif you are a developer and want to contribute to gtk, you are more than welcome to do so.gtk is hosted by gnome.gtk is maintained by the gtk team.© 1997-2025, the gtk team. all rights reserved.gtk and the gtk logo are trademarks of the gnome foundation.projectgtkfeaturesdocsdownloadslicensereleasescodesupportfaqsreport a bugrequest a featurecommunitycommunitydevelopment blogdiscussioncode of conductdonateabout the sitehosted on gitlab.powered by jekyll.report an issue.

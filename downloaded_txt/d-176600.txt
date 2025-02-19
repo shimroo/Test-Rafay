@@ -1,0 +1,1012 @@
+
+
+
+
+
+
+justin's linklog – (things i found interesting recently.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skip to content
+
+
+
+
+
+front page
+follow on mastodon
+follow on bluesky
+rss (posts and links)
+rss (linkblog only)
+about the author
+
+
+
+
+
+
+search
+
+
+
+
+
+open menu
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+justin's linklog (things i found interesting recently.) 
+
+
+justin's linklog posts
+
+
+
+
+
+3dbenchy enters the public domain
+
+
+
+		published february 14, 2025	
+ 
+
+
+3dbenchy enters the public domain
+“3dbenchy, a 3d model [of an adorable little boat] designed specifically for testing and benchmarking 3d printers, is now in the public domain.”
+
+originally released on april 9, 2015, by creative tools, the model has become a beloved icon of the 3d printing community. […] nti has decided to release 3dbenchy to the world by making it public domain, marking its 10th anniversary with this significant gesture.
+mark your calendars for april 9, 2025, as 3dbenchy celebrates its 10th anniversary! a special surprise is planned for the 3dbenchy community to commemorate this milestone.
+
+(via alan butler)
+tags: 3dbenchy 3d-printing via:alan-butler ip public-domain creative-commons
+
+
+
+
+
+
+
+
+a visual guide to vèvè
+
+
+
+		published february 14, 2025	
+ 
+
+
+a visual guide to vèvè
+these are very cool — drawings of the vèvè, the symbology used in haitian vodou.
+“vodou, a [haitian] spiritual and cultural practice that has long intrigued people from around the world, is a fascinating blend of african, native american, and european beliefs and traditions. it’s a rich tapestry woven from the beliefs and experiences of enslaved peoples brought to the caribbean and the americas, and it has been shaped and evolved over centuries to become what it is today.”
+(via minor mobius, https://bsky.app/profile/minormobius.bsky.social/post/3lhzvuovycs2a )
+tags: via:minormobius sigils veve haiti caribbean religion art graphics signs symbology
+
+
+
+
+
+
+
+
+monzo stand-in
+
+
+
+		published february 14, 2025	
+ 
+
+
+monzo stand-in
+this is great — monzo built “monzo stand-in”, a full “backup” of the main stack, since uptime is critical to them:
+
+we take reliability seriously at monzo so we built a completely separate backup banking infrastructure called monzo stand-in to add another layer of defence so customers can continue to use important services provided by us. we consider monzo stand-in to be a backup of last resort, not our primary mechanism of providing a reliable service to our customers, by providing us with an extra line of defence.
+monzo stand-in is an independent set of systems that run on google cloud platform (gcp) and is able to take over from our primary platform, which runs in amazon web services (aws), in the event of a major incident. it supports the most important features of monzo like spending on cards, withdrawing cash, sending and receiving bank transfers, checking account balances and transactions, and freezing or unfreezing cards.
+
+flashback to the old pimms setup in aws network monitoring; we had an entire duplicate stack in aws — every single piece duplicated and running independently.
+tags: architecture uptime monzo banking reliability ops via:itc
+
+
+
+
+
+
+
+
+random numbers at 200 gbit/s
+
+
+
+		published february 13, 2025	
+ 
+
+
+random numbers at 200 gbit/s
+very cool trick from tony finch; using the pcg random number generator, avx or neon vector instructions on modern cpus allow generation of multiple rng states at once, in parallel
+tags: rngs avx neon vector-instructions cpu parallelism pcg random randomness hacks
+
+
+
+
+
+
+
+
+language models do addition using helices
+
+
+
+		published february 13, 2025	
+ 
+
+
+language models do addition using helices
+wtf:
+
+mathematical reasoning is an increasingly important indicator of large language model (llm) capabilities, yet we lack understanding of how llms process even simple mathematical tasks. to address this, we reverse engineer how three mid-sized llms compute addition. we first discover that numbers are represented in these llms as a generalized helix, which is strongly causally implicated for the tasks of addition and subtraction, and is also causally relevant for integer division, multiplication, and modular arithmetic. we then propose that llms compute addition by manipulating this generalized helix using the “clock” algorithm: to solve a+b, the helices for a and b are manipulated to produce the a+b answer helix which is then read out to model logits. we model influential mlp outputs, attention head outputs, and even individual neuron preactivations with these helices and verify our understanding with causal interventions. by demonstrating that llms represent numbers on a helix and manipulate this helix to perform addition, we present the first representation-level explanation of an llm’s mathematical capability.
+
+tags: llms helices trigonometry magic weird ai papers arithmetic addition subtraction
+
+
+
+
+
+
+
+
+critical ignoring as a core competence for digital citizens
+
+
+
+		published february 13, 2025	
+ 
+
+
+critical ignoring as a core competence for digital citizens
+“critical ignoring” as a strategy to control and immunize one’s information environment (kozyreva et al., 2023):
+
+low-quality and misleading information online can hijack people’s attention, often by evoking curiosity, outrage, or anger. resisting certain types of information and actors online requires people to adopt new mental habits that help them avoid being tempted by attention-grabbing and potentially harmful content.
+we argue that digital information literacy must include the competence of critical ignoring—choosing what to ignore and where to invest one’s limited attentional capacities. we review three types of cognitive strategies for implementing critical ignoring:
+
+self-nudging, in which one ignores temptations by removing them from one’s digital environments;
+lateral reading, in which one vets information by leaving the source and verifying its credibility elsewhere online;
+and the do-not-feed-the-trolls heuristic, which advises one to not reward malicious actors with attention.
+
+we argue that these strategies implementing critical ignoring should be part of school curricula on digital information literacy.
+
+good to give names to these practices, since we’re all having to do them nowadays anyway…
+(via stan carey)
+tags: psychology trolls media kids internet literacy attention critical-ignoring ignoring papers via:stancarey
+
+
+
+
+
+
+
+
+carbonrunner
+
+
+
+		published february 13, 2025	
+ 
+
+
+carbonrunner
+“carbon-aware infrastructure to optimize your ci/cd workflows” — “a multi-cloud ci/cd github actions runner that shifts your workflows to the lowest co2 regions. 90% greener. 25% cheaper. 1 line of code. zero effort. ?”
+(via dryden williams)
+tags: green sustainability carbon github ci cd workflows development via:climateactiontech
+
+
+
+
+
+
+
+
+linuxpdf
+
+
+
+		published february 13, 2025	
+ 
+
+
+linuxpdf
+it’s linux, running inside a pdf file.
+“the humble pdf file format supports javascript – with a limited standard library, mind you. by leveraging this, [vk6] managed to compile a risc-v emulator (tinyemu) into javascript using an old version of emscripten targeting asm.js instead of webassembly. the emulator, embedded within the pdf, interfaces with virtual input through a keyboard and text box.”
+(via fuzzix)
+tags: via:fuzzix linux pdf hacks emulation javascript emscripten tinyemu
+
+
+
+
+
+
+
+
+undergraduate upends a 40-year-old data science conjecture
+
+
+
+		published february 11, 2025	
+ 
+
+
+undergraduate upends a 40-year-old data science conjecture
+this is a great story; bonus that it’s a notable improvement for the humble hash-table data structure:
+
+krapivin was not held back by the conventional wisdom for the simple reason that he was unaware of it. “i did this without knowing about yao’s conjecture,” he said. his explorations with tiny pointers led to a new kind of hash table — one that did not rely on uniform probing. and for this new hash table, the time required for worst-case queries and insertions is proportional to (log x)^2 — far faster than x. this result directly contradicted yao’s conjecture. farach-colton and kuszmaul helped krapivin show that (log x)^2 is the optimal, unbeatable bound for the popular class of hash tables yao had written about.
+
+paper here — https://arxiv.org/abs/2501.02305 .
+tags: data-structures hash-tables cs programming coding papers optimization open-addressing
+
+
+
+
+
+
+
+
+pleias/common_corpus
+
+
+
+		published february 11, 2025	
+ 
+
+
+pleias/common_corpus
+this is great to see:
+
+common corpus is the largest open and permissible licensed text dataset, comprising 2 trillion tokens (1,998,647,168,282 tokens). it is a diverse dataset, consisting of books, newspapers, scientific articles, government and legal documents, code, and more. common corpus has been created by pleias in association with several partners and contributed in-kind to current ai initiative.
+the dataset in its entirety meets the requirements of the code of conduct of the ai act and goes further than the current requirements for data transparency. it aims to set a new standard of openness in ai, showing that detailed provenance at a granular document level is a realistic objective, even at the scale of 2 trillion tokens.
+
+tags: ai llms open-data open-source pleias common-corpus corpora training ai-act
+
+
+
+
+
+
+
+
+government agency removes spoon emoji from work platform amid protests
+
+
+
+		published february 10, 2025	
+ 
+
+
+government agency removes spoon emoji from work platform amid protests
+lol.  “on wednesday, employees at the technology transformation services division of the [u.s. government’s general services administration] reportedly unleashed a torrent of spoon emojis in the chat that accompanied an organization-wide, 600-person video conference with new leader thomas shedd, a former tesla engineer.” … workers embraced the digital cutlery to protest the trump administration’s “fork in the road” resignation offer.”
+tags: forks spoons funny protest us-politics emojis
+
+
+
+
+
+
+
+
+are better models better?
+
+
+
+		published february 10, 2025	
+ 
+
+
+are better models better?
+this is very interesting, on the applicability and usefulness of generative ai, given their inherent error rate and probabilistic operation:
+
+asking if an llm can do very specific and precise information retrieval might be like asking if an apple ii can match the uptime of a mainframe, or asking if you can build photoshop inside netscape. no, they can’t really do that, but that’s not the point and doesn’t mean they’re useless. they do something else, and that ‘something else’ matters more and pulls in all of the investment, innovation and company creation. maybe, 20 years later, they can do the old thing too – maybe you can run a bank on pcs and build graphics software in a browser, eventually – but that’s not what matters at the beginning. they unlock something else. 
+what is that ‘something else’ for generative ai, though? how do you think conceptually about places where that error rate is a feature, not a bug?
+
+(via james tindall)
+tags: errors probabilistic computing ai genai llms via:james-tindall
+
+
+
+
+
+
+
+
+woof.group vs the osa
+
+
+
+		published february 10, 2025	
+ 
+
+
+woof.group vs the osa
+the uk’s new online safety act law is extremely vague, extremely punitive, and has fediverse operators woof.group very worried —
+
+ofcom carefully avoided answering almost all of our questions. they declined to say whether ~185 users was a “significant number”. several other participants in ofcom’s livestreams also asked what a significant number meant. every time, ofcom responded obliquely: there are no numeric thresholds, a significant number could be “small”, ofcom could target “a one-man band”, and providers are expected to have a robust justification for deciding they do not have a significant number of uk users. it is unclear how anyone could make a robust justification given this nebulous guidance. in their letter, ofcom also declined to say whether non-commercial services have target markets, or whether pornography poses a “material risk of significant harm”. in short, we have no answer as to whether woof.group or other fediverse instances are likely to fall in scope of the osa.
+do we block pre-emptively, or if and when ofcom asks? this is the ethical question woof.group’s team, like other community forums, have been wrestling with. ofcom would certainly like sites to take action immediately. as hoskings warned:
+“don’t wait until it’s too late. that’s the message. once you do get the breach letter, that is when it is too late. the time doesn’t start ticking from then. the time is ticking from—for part five services, from january, part three from july.”
+
+tags: woof.group fediverse mastodon social-media uk osa laws ofcom porn blocking
+
+
+
+
+
+
+
+
+building materials price tracker
+
+
+
+		published february 7, 2025	
+ 
+
+
+building materials price tracker
+graphs tracking the cost of building materials in ireland; turns out these are a prime driver of construction costs here, so this is good info to have when planning construction work…
+tags: building-materials construction costs ireland prices building
+
+
+
+
+
+
+
+
+apple ordered by uk to create global icloud encryption backdoor
+
+
+
+		published february 7, 2025	
+ 
+
+
+apple ordered by uk to create global icloud encryption backdoor
+
+the british government has secretly demanded that apple give it blanket access to all encrypted user content uploaded to the cloud, reports the washington post.
+the spying order came by way of a “technical capability notice,” a document sent to apple by the home secretary, ordering it to provide access under the sweeping uk investigatory powers act (ipa) of 2016. critics have labeled the legislation the “snooper’s charter,” as it authorizes law enforcement to compel assistance from companies when needed to collect evidence.
+apple is likely to stop offering encrypted storage in the uk, rather than break the security promises it made to its users, people familiar with the matter told the publication. however, that would not affect the uk order for backdoor access to the service in other countries, including the united states. apple has previously said it would consider pulling services such as facetime and imessage from the uk rather than compromise future security.
+
+(via gwire)
+tags: via:gwire apple encryption backups cloud ipa surveillance icloud backdoors security infosec
+
+
+
+
+
+
+
+
+within bounds: limiting ai’s environmental impact
+
+
+
+		published february 6, 2025	
+ 
+
+
+within bounds: limiting ai’s environmental impact
+a joint statement issued by the green screen coalition, the green web foundation, beyond fossil fuels, aspiration, and the critical infrastructure lab, regarding ai’s impact on climate change:
+
+to meet the challenge of climate change, environmental degradation, pollution and biodiversity loss, and its attendant injustices, we urge policymakers, industry leaders and all stakeholders to acknowledge the true environmental costs of ai, to phase out fossil fuels throughout the technology supply chain, to reject false solutions, and to dedicate all necessary means to bring ai systems in line with planetary boundaries. meeting these demands is an essential step to ensure that ai is not driving further planetary degradation and could instead support a sustainable and equitable transition.
+
+their demands are:
+
+i. phase out fossil fuels
+ii. computing within limits
+iii. responsible supply chains
+iv. equitable participation
+v. transparency
+
+tags: via:climateaction climate climate-change ai fossil-fuels sustainability
+
+
+
+
+
+
+
+
+chaossearch
+
+
+
+		published february 5, 2025	
+ 
+
+
+chaossearch
+“live search / elk on the lake”:
+
+same elk tools, but the scalability, cost effectiveness & durability of the lake, powered by chaossearch.
+
+recommended for log search by corey quinn, pricing looks reasonable too.
+tags: search elk kibana chaossearch logs data-lake ops via:cquinn
+
+
+
+
+
+
+
+
+cur.vantage.sh
+
+
+
+		published february 5, 2025	
+ 
+
+
+cur.vantage.sh
+via ben schaechter: “a new microsite we’ve launched for the aws community that helps with understanding billing codes present in either cost explorer or the cur. we profiled the number of distinct billing codes across our customer base and have about ~60k unique billing codes. we hear all the time that finops practitioners and engineers are confused about the billing codes present in cost explorer or the cost and usage report. think of these as being things like “requests-tier1” for s3 or “cw:gmwi-metrics” for cloudwatch. there is usually really limited resources for determining what these billing codes are even when you google around for them.”
+tags: aws billing codes cost-explorer ec2 s3 finops
+
+
+
+
+
+
+
+
+words from an ex-zizian-adjacent person
+
+
+
+		published february 4, 2025	
+ 
+
+
+words from an ex-zizian-adjacent person
+it seems there’s now a full-on mansonesque death cult emerging from the lesswrong/rationalist/effective-altruism community: https://www.sfgate.com/bayarea/article/bay-area-death-cult-zizian-murders-20064333.php
+this hn comment was very interesting for background:
+
+[former member of that world, roommates with one of ziz’s friends for a while, so i feel reasonably qualified to speak on this.]
+the problem with rationalists/ea as a group has never been the rationality, but the people practicing it and the cultural norms they endorse as a community.
+as relevant here:
+1) while following logical threads to their conclusions is a useful exercise, each logical step often involves some degree of rounding or unknown-unknowns. a -> b and b -> c means a -> c in a formal sense, but a -almostcertainly-> b and b -almostcertainly-> c does not mean a -almostcertainly-> c. rationalists, by tending to overly formalist approaches, tend to lose the thread of the messiness of the real world and follow these lossy implications as though they are lossless. that leads to…
+2) precision errors in utility calculations that are numerically-unstable. any small chance of harm times infinity equals infinity. this framing shows up a lot in the context of ai risk, but it works in other settings too: infinity times a speck of dust in your eye >>> 1 times murder, so murder is “justified” to prevent a speck of dust in the eye of eternity. when the thing you’re trying to create is infinitely good or the thing you’re trying to prevent is infinitely bad, anything is justified to bring it about/prevent it respectively.
+3) its leadership – or some of it, anyway – is extremely egotistical and borderline cult-like to begin with. i think even people who like e.g. eliezer [yudkowsky] would agree that he is not a humble man by any stretch of the imagination (the guy makes neil degrasse tyson look like a monk). they have, in the past, responded to criticism with statements to the effect of “anyone who would criticize us for any reason is a bad person who is lying to cause us harm”. that kind of framing can’t help but get culty.
+4) the nature of being a “freethinker” is that you’re at the mercy of your own neural circuitry. if there is a feedback loop in your brain, you’ll get stuck in it, because there’s no external “drag” or forcing functions to pull you back to reality. that can lead you to be a genius who sees what others cannot. it can also lead you into schizophrenia really easily. so you’ve got a culty environment that is particularly susceptible to internally-consistent madness, and finally:
+5) it’s a bunch of very weird people who have nowhere else they feel at home. i totally get this. i’d never felt like i was in a room with people so like me, and ripping myself away from that world was not easy. (there’s some folks down the thread wondering why trans people are overrepresented in this particular group: well, take your standard weird nerd, and then make two-thirds of the world hate your guts more than anything else, you might be pretty vulnerable to whoever will give you the time of day, too.)
+tldr: isolation, very strong in-group defenses, logical “doctrine” that is formally valid and leaks in hard-to-notice ways, apocalyptic utility-scale, and being a very appealing environment for the kind of person who goes super nuts -> pretty much perfect conditions for a cult. or multiple cults, really. ziz’s group is only one of several.
+
+tags: zizians cults extropianism tescreal effective-altruism rationalism lesswrong death-cults
+
+
+
+
+
+
+
+
+burrows–wheeler transform
+
+
+
+		published february 4, 2025	
+ 
+
+
+burrows–wheeler transform
+an algorithm used to prepare data for use with data compression techniques such as bzip2. it permutes the order of characters in a string (s), sorting all the circular shifts of the text in lexicographic order, then extracting the last column and the index of the original string in the set of sorted permutations of s.
+some day when i have lots of free time to spare, i’ll spend a while getting my head around this deep magic, because it’s just amazing that this works.
+(via john regehr)
+tags: compression algorithms burrows-wheeler-transform bzip2 via:john-regehr magic text
+
+
+
+
+
+
+
+
+irish spider zombies!
+
+
+
+		published january 31, 2025	
+ 
+
+
+irish spider zombies!
+this is fantastic — a newly-discovered species of fungus does the same trick as ophiocordyceps in brazil; it infects the brains of orb-weaving cave spiders in ireland, and induces them to leave their lairs or webs, and migrate to die in an exposed situation, in order to favor dispersal of the fungal spores.
+ophiocordyceps is, of course, the inspiration for the zombie-forming fungus in the last of us.
+tags: cordyceps fungi ireland spiders zombies fungus nature gross
+
+
+
+
+
+
+
+
+the billion docs json challenge: clickhouse vs. mongodb, elasticsearch, and more
+
+
+
+		published january 31, 2025	
+ 
+
+
+the billion docs json challenge: clickhouse vs. mongodb, elasticsearch, and more
+this buries the lede somewhat, but here’s the key bit:
+
+we built a new powerful json data type for clickhouse with true column-oriented storage, support for dynamically changing data structures without type unification and the ability to query individual json paths really fast. […]
+clickhouse stores the values of each unique json path as native columns, allowing high data compression and, as we are demonstrating in this blog, maintaining the same high query performance seen on classic types.
+
+the performance results are very impressive, and notably also efficient in disk space usage.
+tags: clickhouse benchmarks performance json querying columnar-storage mongodb elasticsearch databases storage
+
+
+
+
+
+
+
+
+odroid-h4+
+
+
+
+		published january 28, 2025	
+ 
+
+
+odroid-h4+
+the next generation of the excellent odroid sbcs; based on intel’s n97 architecture, avx2 extensions, faster dram, 4 sata ports, and up to 48gb of ram. 
+significantly beefier in general, reportedly around the eur180 mark in price.
+tags: odroid sbcs n97 hardware home devices servers
+
+
+
+
+
+
+
+
+coordinated lunar time
+
+
+
+		published january 28, 2025	
+ 
+
+
+coordinated lunar time
+the moon may have a timezone of its own soon, coordinated lunar time (ltc):
+
+due to the moon’s lower gravity and its motion relative to earth, moon time passes 56 microseconds faster each earth day. as a result, an atomic clock on earth would run at a different rate than an atomic clock on the moon.
+similar to how utc is determined, the memo suggests “an ensemble of clocks” deployed to the moon might be used to set the new time standard.
+
+(via david cuthbert)
+tags: via:david-cuthbert moon time timezones ltc
+
+
+
+
+
+
+
+
+understanding the bm25 full text search algorithm
+
+
+
+		published january 28, 2025	
+ 
+
+
+understanding the bm25 full text search algorithm
+“bm25, or best match 25, is a widely used algorithm for full text search. it is the default in lucene/elasticsearch and sqlite, among others.”  at its heart, it’s an interesting probabilistic ranking scheme, involving the inverse document frequency of a term, term frequency in a single document, and the document length. (via tony finch)
+tags: via:fanf lucene elasticsearch search text algorithms sqlite full-text bm25
+
+
+
+
+
+
+
+
+git worktrees
+
+
+
+		published january 28, 2025	
+ 
+
+
+git worktrees
+this is a pretty nifty feature i was unaware of; git now has built-in support for “worktrees”, multiple parallel checkouts of the same git repo in side-by-side directories. (via last week in aws)
+tags: via:lwia git worktrees checkouts coding version-control unix
+
+
+
+
+
+
+
+
+llm-driven code completion in jetbrains ides
+
+
+
+		published january 27, 2025	
+ 
+
+
+llm-driven code completion in jetbrains ides
+jetbrains have come up with a new relatively-lightweight llm-driven code generation option, constrained to producing single line suggestions:
+
+the length of the completion suggestions is a trade-off. while longer suggestions do tend to reduce how many keystrokes you have to make, which is good, they also increase the number of reviews required on your end. taking the above into account, we decided that completing a single line of code would be a fair compromise.
+
+some key features:
+
+
+
+it works locally and is available offline. this means you can take advantage of the feature even if you aren’t connected to the internet.
+
+
+it doesn’t send any data from your machine over the internet. the language models that power full line code completion run locally, which is great for two reasons. first, your code remains safe, as it never leaves your machine. second, there are no additional cloud-related expenses – that’s why this feature comes at no additional cost.
+
+
+
+also, customer code is never used for training.
+i’ve used this (in rubymine), and found it fairly useful; it’s good for generating the obvious next line, but is easily ignored when that’s not what’s needed. not bad at all.
+tags: coding code-completion jetbrains ides java ruby llms ai code-generation rubymine intellij
+
+
+
+
+
+
+
+
+vic 20 elite
+
+
+
+		published january 27, 2025	
+ 
+
+
+vic 20 elite
+crazy stuff. elite, ported to the commodore vic 20 (albeit with a 32k expansion):
+
+vic 20 elite is based on the c-64 source. vic 20 specific graphics, text, keyboard & joystick input, and sound routines were written from scratch to replace the corresponding c-64 code.
+of course, the complete enhanced elite won’t fit within the vic 20’s limited memory, so some features had to be left out. following the original 1984 bbc cassette and acorn electron version, the vic 20 version omits extended planet descriptions, planetary details (craters and meridians), and the missions that appear further on in the game. the pause mode options are dropped, and there is no find planet option in galactic chart (that would be only really useful during missions).
+
+(via sleepy from fp)
+tags: retrogaming commodore emulation gaming history elite vic-20
+
+
+
+
+
+
+
+
+goref
+
+
+
+		published january 27, 2025	
+ 
+
+
+goref
+“a go heap object reference analysis tool based on delve: it can display the space and object count distribution of go memory references, which is helpful for efficiently locating memory leak issues or viewing persistent heap objects to optimize the garbage collector (gc) overhead.”
+nice to see go supporting similar debugging/optimisation tools to those offered by the jvm.
+tags: go heap memory gc memory-leaks
+
+
+
+
+
+
+
+
+artsy’s technology choices evaluation process
+
+
+
+		published january 24, 2025	
+ 
+
+
+artsy’s technology choices evaluation process
+this is a nice way to evaluate new technology options, from artsy:
+
+we want to accomplish a lot with a lean team, which means we must choose stable technologies. however, we also want to adopt best-of-breed technologies or best-suited tools, which may need work or still be evolving. we’ve borrowed from thoughtworks’ radar to define the following stages for evaluating, adopting, and retiring technologies:
+
+adopt: reasonable defaults for most work. these choices have been exercised successfully in production at artsy and there is a critical mass of engineers comfortable working with them.
+trial: these technologies are being evaluated in limited production circumstances. we don’t have enough production experience to recommend them for high-risk or business-critical use cases, but they may be worth consideration if your project seems like a fit.
+assess: technologies we are interested in and maybe even built proofs-of-concept for, but haven’t yet trialed in production.
+hold: based on our experience, these technologies should be avoided. we’ve found them to be flawed, immature, or simply supplanted by better alternatives. in some cases these remain in legacy production uses, but we should take every opportunity to retire or migrate away.
+
+
+(via lar van der jagt on the last week in aws slack instance)
+tags: via:lwia tech technology radar choices evaluation process architecture planning tools
+
+
+
+
+
+
+
+
+api error design
+
+
+
+		published january 23, 2025	
+ 
+
+
+api error design
+some good thoughts from a slatedb dev, regarding initial principles for errors in slatedb, derived from experience with kafka:
+
+keep public errors separate from internal errors. the set of public errors should be kept minimal and new errors should be highly scrutinized. for internal errors, we can go to town since they can be refactored and consolidated over time without affecting the user.
+public errors should be prescriptive. can an operation be retried? is the database left in an inconsistent state? can a transaction be aborted? what should the user actually do when the error is encountered? the error should have clear guidance.
+prefer coarse error types with rich error messages. there are probably hundreds of cases where the database can enter an invalid state. we don’t need a separate type for each of them. we can use a single fatalerror and pack as much information into the error message as is necessary to diagnose the root cause.
+
+(via chris riccomini)
+tags: errors api design slatedb api-design error-handling exceptions architecture
+
+
+
+
+
+
+
+
+7 lessons from building a small-scale ai application
+
+
+
+		published january 23, 2025	
+ 
+
+
+7 lessons from building a small-scale ai application
+these are good. tl;dr:
+
+ai programming is stochastic;
+data quality is real work;
+models are only as good as the evaluation;
+trust/quality is the #1 issue;
+your training pipeline is your core ip;
+ai is yet another distributed system;
+don’t buy the ai library hype
+
+via niall murphy.
+tags: llms ai ml training via:niallmurphy models
+
+
+
+
+
+
+
+
+optimizing java apps on kubernetes
+
+
+
+		published january 23, 2025	
+ 
+
+
+optimizing java apps on kubernetes
+“optimizing java applications on kubernetes: beyond the basics”: bruno borges, at the infoq dev summit boston, discusses the strategies for enhancing java application performance on kubernetes, focusing on leveraging jvm ergonomics, and managing garbage collection processes.  some interesting tips here.
+tags: kubernetes java eks resources ops scaling scalability gc optimization jvm
+
+
+
+
+
+
+
+
+block ai scrapers with anubis
+
+
+
+		published january 22, 2025	
+ 
+
+
+block ai scrapers with anubis
+bookmarking this in case i have to use it; i have a blog-related use case that i don’t want llm scrapers to kill my blog with. 
+
+anubis is a man-in-the-middle http proxy that requires clients to either solve or have solved a proof-of-work challenge before they can access the site. this is a very simple way to block the most common ai scrapers because they are not able to execute javascript to solve the challenge. the scrapers that can execute javascript usually don’t support the modern javascript features that anubis requires. in case a scraper is dedicated enough to solve the challenge, anubis lets them through because at that point they are functionally a browser.
+the most hilarious part about how anubis is implemented is that it triggers challenges for every request with a user-agent containing “mozilla”. nearly all ai scrapers (and browsers) use a user-agent string that includes “mozilla” in it. this means that anubis is able to block nearly all ai scrapers without any configuration.
+
+tags: throttling robots scraping ops llms bots hashcash tarpits
+
+
+
+
+
+
+
+
+ask hn: is anyone doing anything cool with tiny language models?
+
+
+
+		published january 22, 2025	
+ 
+
+
+ask hn: is anyone doing anything cool with tiny language models?
+for some reason, i’m slightly more biased towards tiny, self-hosted, run-on-cpu lms.  as long as high accuracy isn’t in the criteria, some of these use cases are pretty nifty
+tags: local ai llms ollama via:hn
+
+
+
+
+
+
+
+
+cost-optimized archival in s3 using s3tar
+
+
+
+		published january 22, 2025	
+ 
+
+
+cost-optimized archival in s3 using s3tar
+“s3tar” is new to me, and looks like a perfect tool for this common use-case — aggregation and archival of existing data on s3, which often requires aggregation into large file sizes to take advantage of s3 glacier storage classes (which have a minimum file size of 128kb).
+
+s3tar optimizes for cost and performance on the steps involved in downloading the objects, aggregating them into a tar, and putting the final tar in a specified amazon s3 storage class using a configurable “–concat-in-memory” flag. … the tool also offers the flexibility to upload directly to a user’s preferred storage class or store the tar object in s3 standard storage and seamlessly transition it to specific archival classes using s3 lifecycle policies.
+
+the only downside of s3tar is that it doesn’t support recompression, which is also a common enough requirement — especially after aggregation of multiple small input files into a larger, more compressible archive. but hey, can’t have everything.
+s3tar: https://github.com/awslabs/amazon-s3-tar-tool
+tags: s3tar amazon s3 compression storage archival architecture aggregation logs glacier via:lwia
+
+
+
+
+
+
+
+
+if not react, then what?
+
+
+
+		published january 22, 2025	
+ 
+
+
+if not react, then what?
+it’s great to see pushback against react, angular, and other spa architectures for web app delivery. i never got my head around the applicability of these for many web app use cases so this is just confirming my biases :)
+related mastodon thread: https://toot.cafe/@slightlyoff/113868445222841008
+tags: react angular spa web-apps webdev javascript html apps
+
+
+
+
+
+
+
+
+long-running eks bug
+
+
+
+		published january 22, 2025	
+ 
+
+
+long-running eks bug
+since 2019 (!), the aws load balancer controller component doesn’t safely handle pod shutdowns when the alb target-type is set to ip.  this is the bug report, still open…
+tags: aws load-balancing alb eks kubernetes ops bugs
+
+
+
+
+
+
+
+
+cryptocurrency “market caps” and notional value
+
+
+
+		published january 20, 2025	
+ 
+
+
+cryptocurrency “market caps” and notional value
+excellent explainer from molly white, which explains the risk around quoting “market caps” for memecoins:
+
+the “market cap” measurement has become ubiquitous within and outside of crypto, and it is almost always taken at face value. thoughtful readers might see such headlines and ask questions like “how did a ‘$2 trillion market’ tumble without impacting traditional finance?”, but i suspect most accept the number.
+when crypto projects are hacked, there are headlines about hackers stealing “$166 million worth” of tokens, when in reality the hackers only could cash out 2% of that amount (around $3 million) because their attempts to sell illiquid tokens caused the price to crash.
+
+tags: molly-white memecoins bitcoin rug-pulls scams liquidity market-caps cryptocurrency
+
+
+
+
+
+
+
+
+isd
+
+
+
+		published january 20, 2025	
+ 
+
+
+isd
+a curses ui for systemd, via nelson
+tags: systemd ubuntu sysadmin linux ops curses ui tui
+
+
+
+
+
+posts navigation
+1
+2
+…
+132
+next
+ 
+
+
+
+apex wordpress theme by compete themes        
+
+
+
+
+
+
+
+
+
+
+
+

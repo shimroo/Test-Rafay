@@ -1,0 +1,191 @@
+
+
+
+
+
+
+
+
+sesam.hu
+
+
+
+sesam.hu
+engineering manager | trail runner | stockholm, sweden
+
+
+
+plans
+new year, new plans. i aim to organise my trainings and races more systematically.
+just this weekend i’m going to compete at sörmlands winter trail, a race i signed up for when i was in a better situation, nevertheless the challenge is still there. then this follows:
+
+8 february - sörmlands winter trail (43k)
+15 march - ursviks ultra (75k)
+29 march - permiärmilen (10k)
+26 april - premiärhalvan (21k)
+31 may - stockholm marathon (42k)
+7 june - ultra trail hungary (111k)
+
+and then if i’m still alive i might sign up for the 100 miler again. 😶
+
+
+sigh
+i suppose it tells volumes that i don’t even remember how old i am, re:previous post. anyhow, i’m leaving it here for next year. 😜
+
+
+42
+🖼️ dall·e
+
+
+flightradar
+i opted in to provide data to flightradar24 which has several benefits, the best of which is that i get a business subscription for free. the stuff runs on a software-defined radio receiver connected to a raspberry pi.
+unfortunately — unknown to me as to why —  the software can become flaky and disconnect without notifying me. so i made it my mission to have some sort of monitoring.
+there’s a command — fr24feed-status — that reports on what’s going on. an example output looks like this:
+  sesam in 🌐 bringebaer in ~ via 🐍 v3.9.2
+  ❯ fr24feed-status
+    fr24 feeder/decoder process: running.
+    fr24 stats timestamp: 2023-01-20 16:30:21.
+    fr24 link: connected [udp].
+    fr24 radar: t-essb413.
+    fr24 tracked ac: 3.
+    receiver: connected (367616 msgs/0 sync).
+    fr24 mlat: ok [udp].
+    fr24 mlat ac seen: 1.
+whenever any of the responses contains “failed” something went awry, that’s when i wanted a notification. problem #1, i don’t speak bash. enter chatgpt, and the question: write a bash script that runs fr24feed-status and if the result contains failed then email x.
+it’s actually not that hard, could have learned myself…
+  sesam in 🌐 bringebaer in ~ via 🐍 v3.9.2
+  ❯ cat fr24feed-alert.sh
+    #!/bin/bash
+
+    # run fr24feed-status and save the output
+    status=$(fr24feed-status)
+
+    # check if the output contains "failed"
+    if [[ $status == *"failed"* ]]
+    then
+    # send an email to petersz@me.com
+    echo "$status" | mailx -s "fr24feed status failed" petersz@me.com
+    fi
+the most complex bit was to make sure that the raspberry can send actual emails. mailx is your friend. you need an application password and a configuration file to succeed.
+so far it’s been stable so needs testing. 😅
+
+
+tcs lidingöloppet
+ez a futás egy nagyon érdekes keveréke volt az utcai és a terepversenyeknek. a rendezés, a résztvevők száma, a szakaszos indítás és a frissítés egészen olyan volt, mint egy városi futóversenyen. pár nagyon rövidke kivételtől eltekintve viszont végig ösvényeken vezetett az út erdőn-mezőn át, és bár nagy mászások nem voltak, a hullámzással némi szintkülönbség is összejött.
+lidingö egyike a stockholmot alkotó szigeteknek. amolyan helyi nagykovácsi, sok az erdős rész, főleg családi házak vannak, és ide költözöl, ha rengeteg pénzed van: azt hiszem, az abba tagjainak is itt van házuk. a versenyt a helyi mezei futó valamint sí- és tájékozódási futó klubok rendezik. a tradicionális táv, amin én is indultam 30 kilométeres, bejárja a sziget nagy részét.
+a 30 kilométeres futás útvonala
+még pénteken eltekertem a rajtszámért, mert beijesztettek, hogy majd rengetegen akarják felvenni aznap. persze nem lett volna gond, de sebaj, a kerékpáros infrastruktúra elég szuper a városban, ezen az útvonalon is végig jól kiépített és karbantartott bicikliúton lehetett közlekedni. a versenyközpont a helyi sportpálya volt, de mint kiderült a rajt másfél kilométerrel arrébb egy hatalmas mezőről történt.
+a rajt
+szeptemberben még tartott a korlátozás, hogy csak bizonyos számú fővel lehet kültéri rendezvényt tartani, így nagyon precízen tízperces bontásban lettek rajtcsoportok kijelölve. utcai versenyekhez hasonlóan zenés bemelegítés után indultunk el a körre. mivel az útvonal minden évben ugyanaz, és ez amolyan legendás verseny, egész évben kint vannak az állandó kilométerjelző táblák, sőt, minden szakaszról van egy kis leírás is, hogy miért érdekes. skandináv rendszer szerint nem a megtett, hanem a hátralévő kilométereket tüntetik fel.
+egész évben ki van jelölve az útvonal
+a pálya kifejezetten jól futható, kaviccsal felszórt vagy egyáltalán nem technikás erdei ösvény. kő, gyökér nem nagyon akadályoz, és a szintkülönbség sem számottevő. általában lazán hullámzik az útvonal, pár méter fel, pár méter le, így gyűjtött össze 446 méter szintemelkedést a végére a suunto nekem. a legmagasabb pontját is érintettük a szigetnek, ami kemény 48 méterrel van a tengerszint felett. a hosszabb emelkedők alján vagy a tetején a szponzorok települtek ki sátrakkal, és dj-k szolgáltattak aláfestő zenét, de szerencsére a táv nagy részén az erdő háborítatlan csendje volt inkább a jellemző.
+sok sikert!
+összesen hat frissítőpont volt felállítva az útvonalon, szintén klasszikus utcai versenyekhez hasonlóan poharakba töltött vízzel, izóval, később kólával és banánnal. a poharak újrafelhasznált papírból voltak, és kosarakba lehetett dobálni őket használat után. ezt mindenki nagyon komolyan is vette, nem volt össze-vissza mindenfelé hajigálva a szemét, mindenki szépen a szemeteseket használta. egyéb hulladékoknak, például gélek tasakjainak, pedig kilométerenként volt kitéve gyűjtő.
+szurkoltak is, például ahol a pálya elhalad a versenyközpont mellett egy öböl partján, de a kedvencem a pár volt, akik kiültek az erdei házuk teraszára egy hangszóróval, és nyomatták a rock’n’rollt. a szikrázó napsütés és 14 fokos meleg nem csak a futóknak kedvezett.
+kyrkviken, az öböl a versenyközpont mellett, itt jöttek szembe a futók, miközben mentem a rajthoz
+az elején mindent megfutottam, de a verseny második felére eléggé elfáradva belesétáltam az emelkedőkbe. ennek ellenére is 3:12’31” lett az időm, amivel mérsékelten elégedett vagyok; azért jóval gyorsabban is végig lehet ezen a pályán menni. de ez egy csodálatos verseny, kiváló szervezéssel és nagyon kellemes útvonallal, úgyhogy biztosan megyek még javítani.
+mászás
+csak saját képeim vannak, mert bár voltak hivatalos fotósok, és számítottam is rá, hogy fizetősek lesznek a képek, azt nem láttam jönni, hogy látatlanban kell megvenni őket: az email egyből egy paywallra visz, nincsenek vízjeles vagy kis méretű betekintő képek sem, ami alapján el lehetne dönteni, hogy akarom-e én ezt…
+az éremre idén egy fecske került
+
+
+21q2-3 futásokban
+persze jól elterveztem, hogy majd negyedévente írok összegzést, és már a második alkalommal sikerült kihagyni. sőt, nem csak a blogolás, de a futás lendülete is megtört kicsit a nyárral. szóval ez most egy megkésett q2, befejezetlen q3, verseny-, és versenynaptár beszámoló lesz.
+április még az előző negyedévhez hasonlóan jól sikerült, 269 kilométert futottam össze, aminek egy részét karlstadban tettem meg. a 9°c-os hűvösben összejött egy vállalható 1:45’25” félmaraton is ebben a hónapban. májusban aztán először (és eddig utoljára) idén meglett az endurance kihívás 311 kilométerrel. külön félmaratont nem is kellett futnom, keddenként a hosszú futások során meglett magától. júniusban kitört a nyár, születésnapra megleptem magam egy gravel biciklivel, és elutaztunk egy mini-nyaralásra megnézni gotland szigetét. mindezek együtt azt eredményezték, hogy alig 116 kilométer került a lábamba az utolsó napi félmaratonnal együtt. mondjuk cserébe tekertem is 108-at, sokat jártunk a källtorpssjön tóhoz fürdeni meg nézegetni a kacsákat. összességében a második negyedév 696 futott kilométere elmarad ugyan q1 712-jétől, de nem sokkal, szóval eddig jó.
+visby, balti-tenger
+kacsák, hellasgården
+július nem lett valami acélos, mindössze 138km futást és 30km biciklizést könyveltem, és a havi rendszeres félmaraton is elmaradt. augusztusban viszont közel egy évvel a disszidálás után sikerült végre hazajutni egy látogatásra, ami véletlenül pont egybeesett a vértes traillel. a lendület kitartott, csodálatos volt, hogy végre lehetett újra versenyezni, és a 3 óra 15 perces befutóidőmmel is teljesen elégedett vagyok; tíz percet javítottam a 2019-es eredményemen. utána viszont nagyon sporadikusan jártam futni, éppen csak meglett a havi százas kihívás végül (104km).
+vértes trail
+most szeptemberben eddig 67-en áll az óra, viszont iszonyatosan fel fognak pörögni a dolgok, mert itt is újra elindulhatnak a versenyek! rögtön a hétvégén (holnap) megyek a tcs lidingöloppet 30-as távjára. a versenyt 1965 óta rendezik meg, és a guinness rekordok könyve szerint a világ legnagyobb terepfutása. gondolom, a résztvevők száma alapján, hiszen az összes távon együttvéve 45000 indulóval számolnak.
+és amúgy kissé belelkesedtem, neveztem mindenhová. az október például elég durva lesz. két hét múlva, 9-én, stockholm maraton, a rákövetkező héten pedig a vértes terep ultramaraton (50km) otthon. végül novemberben egy villámlátogatás során futok még egy l távot a mátrában. ahhoz képest, hogy nem indult ígéretesen 2021, ez öt esemény lesz az év végéig. 😱
+
+
+38
+
+
+
+stockholms bästa: årstaviken
+nem tudom, ti hogy vagytok vele, de én nagyon unom már a virtuális futóversenyeket. a midnattsloppet és a svéd runner’s world közös sorozata, a stockholms bästa sem izgatott fel nagyon elsőre.
+az eseménysorozat nyolc útvonalból áll a város különböző pontjain, a legrövidebb 6 kilométer sincs, a leghosszabb 17. februártól júniusig minden táv egy tíznapos időablakon belül teljesíthető. akik legalább öt alkalmon részt vesznek, bekerülnek az összesített eredménylistába. lehet versenyezni korcsoportok, cégek, foglalkozások és sportklubok mezőnyében is.
+az április végi 7,5 kilométeres etap hazai pálya: a tantolunden parkból induva az årstaviken körül vezet, és a vasúti hídon tér vissza a rajthoz. számtalanszor futottam már erre.
+
+
+
+akkor kezdett el érdekelni a dolog, amikor megjelentek a kapuk. ezt a hírlevélben nem olvastam el rendesen anno, de az időmérés úgy működik, hogy az indulók postán kapnak egy rajtszámot, amit több versenyen is használhatnak. a rajtszámon van chip, a pályán pedig időmérő pontok vannak felállítva, mint egy igazi versenyen. nevezéskor rajtidőpontot is kell választani, ami után maximum tíz perccel kell megkezdeni a futást. gondolom, van valami limit, hányan indulhatnak egy időpontban, de amióta nyitva az időablak, rendszeresen találkoztam rajtszámot viselő, izzadt futók kisebb-nagyobb csoportjával a pályán.
+így már azért sokkal jobban tetszett, mégsem a szokásos virtuális futás, amit akkor és olyan útvonalon csinálsz meg, ahogy akarod… úgyhogy előző hétvégén neveztünk is, szerdára pedig itt voltak a rajtszámok. kicsit borsos a fejenként 225 korona, de az árszínvonalat figyelembe véve nem meglepő. az érem feláras, ami bónusz pont, legalább nem termelődik fölslegesen a szemét. pólót is lehet rendelni, de a tavalyi stockholmi midnattsloppet megmaradt készletét szórják ki, nem egy nagy eresztés.
+helyismerettel nem rendelkezőknek készült a weboldalra részletes útvonalleírás, és le lehet tölteni a gpx tracket is. ettől függetlenül szuper jelölést raktak ki, minden elágazásnál van tábla és szalag, valamint kilométerjelölők. három ponton van részidő mérés, amik úgy vannak elhelyezve, hogy nemigen lehet levágni a távból.
+rajt a tantolunden parkban
+az időjárással hatalmas mázlink volt. az elején volt pár felhő, de nemsokára kisütött a nap, és úgy is maradt. szignifikáns szél nem fújt, a 9°c pedig pont elég volt, hogy ne fázzunk.
+årstaskogen, a kiserdő a túlparton
+a pályán viszonylag kevesen voltak. egy fiatal lányt kísért egy csávó biciklin, aki előzéskor szurkolt is, amit nekem idő dekódolni svédül, de sikerült azért megköszönni, meg velünk együtt indult egy srác is, szintén kerékpáros felvezetővel.
+cél szintén a parkban
+közvetlenül utána nem néztem, de fent vannak az eredmények, részidővel, mindennel, egy nagyon pofás táblázatban.
+nyilván most már érdekel a többi futás is, ezek legalább a legtöbbet kihozzák a korlátozott lehetőségekből. a következő a jövő héten indul, és az lesz a leghosszabb!
+
+
+unifi
+for a very long time my wifi was served faithfully by an airport extreme 6th generation, the last of its kind, with 802.11ac support. it didn’t have too many options to tinker with but it proved to be very reliable and strong enough to cover my ~60 square metre apartment in budapest, even with suboptimal placement.
+here in stockholm, however, i started having problems. the apartment we ended up chosing is l-shaped. one leg is a corridor from which a row of rooms open: two offices and the bedroom with the bathroom on the opposite wall. the other leg is the combined living room and kitchen.
+there is a box on the wall of the corridor where the net comes in. the box also includes four lan ports which carry a wired connection to all of the rooms. i have seen this elsewhere in sweden so i assume it is something they tend to install after renovating older buildings and newer ones come with cabling already built-in.
+wall-mounted fuse box and router housing
+ideally one would place the modem from the isp in the box and optionally link some fixed clients up using the cabling. only the box is metal, which i’m sure does wonders for the radio signal, and with the awkward placement and bandwidth congestion the signal becomes pretty dodgy by the time it reaches the living room. also, com hem gave me a router which doesn’t fit.
+router and set-top-box from com hem (now tele2)
+the good part is that the endpoint is simple ethernet, you can bring your own router. however, not even the apple one was capable of covering the whole apartment without some significant packet loss. after some experiments i ended up with using the isp’s router in the hall and connecting the airport extreme via lan in the living room. both had their wifi on with the same ssid, which is the most basic optimization i could think of. fixed clients such as the tv ended up on the stronger network while moving ones like the phones were more hit-and-miss.
+i know enough about networking that i know i don’t know enough. therefore, after some reading, i came to the conclusion that for me ubiquiti’s all-in-one solution, the unifi dream machine, would be the best choice as an upgrade. i ordered it along with a unifi nanohd ap from dustin and they arrived the following day.
+unifi dream machine and nanohd
+for the setup i downloaded the accompanying ios app. it found the udm via bluetooth, had me create a ubiquity account, tested the wan (all 600 of the megabits were there), then moved over to the newly created wifi. all this in about ten minutes.
+out of the box the router lives on 192.168.1.1 but my pi-hole acting as a dhcp server was set up for the 192.168.0.x range. i was impressed that resolving this was as simple as rewriting the udm’s ip and switching off its dhcp in the lan settings. the changes worked without restarting even.
+the experience in the living room was already much better with the udm and then came the nanohd. adding it was as easy as plugging in and adopting it in the router software. the ap supports (only works with) poe, which the router doesn’t, but it comes with an adapter in the box. it went right into the wall-mounted housing in the hall.
+after a day of use i’m very satisfied. setup was seamless, the network is stable and fast, the clients happily roam around, and there is a plethora of pretty stats to look at on the dashboard. by now the software learned the make and model of every client, too.
+as an added bonus the udm is substituting as an excellent blue nightlight in the hallway.
+
+
+21q1 futásokban
+egy évre visszatekinteni elég hosszú, úgyhogy most kísérletet teszek arra, hogy rövidebb periódust nézzek meg a futás szempontjából.
+decemberre jutottunk el oda, hogy volt végleges lakás valamennyi berendezéssel, kialakult egyfajta rutin a munkában, így tudtam összpontosítani kicsit az edzések visszaépítésére. ahogy a tavalyi összegzőben írtam, decemberben 185 kilométert gyűjtöttem.
+a cél továbbra is a futásmennyiség szintre hozása volt, mind időben mind távolságban. az év elején még lehetségesnek tűnt, hogy csanya meg tudja rendezni a májusi uth-t, ezt szerettem volna újra szintidőn belül teljesíteni. az edzéstervem két alapja a rendszeresség és a kilométergyűjtés lett: igyekeztem heti legalább hat napon elmenni futni, és amennyire lehet teljesíteni a strava havi 300 kilométeres “endurance” kihívását.
+szerencsére itt nem volt sosem kijárási tilalom, vagy egyéb korlátozás, nyugodtan kimehettem szaladni az éjszakába, ami gyakran elő is fordult. persze télen elég nehéz is nappal futni, amikor már délután háromkor lemegy a nap, kész, ennyi volt.
+állítólag kivételesen havas volt az idei stockholmi tél, és a helyi hótakarítási szokás szerint inkább kavicsot szórtak az utakra, mintsem letolták a havat. főleg a kiserdőben és a partmenti sétálóutakon, amerre én futni jártam. igazából a terepviszonyokból kiindulva akár terepfutásként is trackelhettem volna az edzéseket. volt a havasesős latyaktól a letaposott kemény havon át a puha porhóig minden. a sebesség így nem annyira számított, viszont valószínűleg kiemelkedően jó edzésértéke lett a futásoknak. a finom porhó például egészen olyan tud lenni, mintha az ember a homokos tengerparton futna. egyik hétfőn pedig hatalmas pelyhekben hullott a hó, amiből estére szakadó eső lett: a három centis fagyos hólében két lépés után ázott be bokáig a cipőm; de legalább büszke lehettem magamra, hogy nem kutyáztam el az aznapi adagot.
+januárban így 261 kilométert szedtem össze, és bőven meglett a hegymászós strava kihívás is a 2558 méter szintemelkedéssel. ez utóbbi amúgy nem egyszerű feladat, a legmagasabb hely errefelé a sídomb. ez a szint apránként gyűlt össze az útközbeni kis hullámokkal, hidakkal, felüljárókkal. a hónap elején kipipáltam a havi félmaratont is 1:56’ idővel.
+
+február ehhez képest satnya lett: 170 kilométerrel zártam úgy, hogy a harmadik héten mindössze 6 kilométer került a lábaimba. az első hetekben nagyon hideg volt, éjszakánként gyakran ment -10°c alá a hőmérséklet. kezdett fogyni az energiám. a hegymenetből is csak 1270 méterig jutottam.
+február közepén még simán rá lehetett menni a jégre
+a hónap végére azonban hirtelen kitavaszodott kicsit, így indultam el február utolsó napján a havi félmaratonra, ami 1:43’48” lett. idejét sem tudom, mikor sikerült ilyen jó időt futnom. ennyit jelent a rendszeresség visszavezetése, meg hogy végigkorcsolyáztam a telet, gondolom. versenyszituációban sajnos nem lett volna ennyi a bruttó idő, ugyanis volt benne egy ötperces intermezzo a park közvécéjében. elkövettem azt az amatőr hibát, hogy a futás előtt vettem be a vitaminjaim, és vagy ezek, vagy a kritikátlanul sok elfogyasztott kávé miatt igencsak loholni kellett egy óra után, hogy könnyíthessek magamon. mindenesetre a közjáték ellenére ugyanolyan szaporán (sic!) tudtam folytatni.
+
+márciusra visszatért a lendület: 281 kilométer, 2200m szint, januárhoz hasonlóan három nap kivételével minden nap futónap. a félmaratont a kiserdőben körözve teljesítettem 1:50’ alatt, de 200m emelkedéssel (hullámok, meg a híd). bár a hőmérséklet este alig ment fagypont fölé, napközben tízfokos melegek is voltak, és elolvadt az összes hó. ilyen körülmények között rendszeresen tudtam 5 percen belüli kilométerekkel úgy haladni, hogy e1/e2 zónában maradt a pulzusom, amire jó ideje nem volt példa.
+
+márciusban megérkezett az új cipőm is, azóta ebben nyomom. annyira bejött a wildhorse 6 szuperkényelmes react talpa, hogy rámentem egy akciós nike react infinity run flyknitre. a tűzpirosról kicsivel maradtam le, így esett a választás végül erre a monokróm változatra. egyelőre teljesen beváltotta a hozzá fűzött elvárásokat. iszonyú kényelmes hosszú távon is, meglepően jól tartja a bokát, bár hivatalosan neutrális, nem stabil cipő. egyszer jól összevéreztem, mert rendszeresebben kellene körmöt vágni ugye, és akkor nem sebzi fel az egyik lábujjam a másikat, de az is kimosható volt belőle.
+ilyen vakító fehér volt újkorában
+ekkor már nagyon kevés esélyt láttam rá, hogy hazamehessek májusban, ezért nem annyira rázott meg, hogy a hónap végén törölték is az idei uth-t. persze elég szomorú azért, hagyományosan ilyenkor már javában beindult a versenyszezon, minden hétvégére juthatott valami futnivaló akár.
+
+
+
+
+older
+
+        1 / 206
+      
+newer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

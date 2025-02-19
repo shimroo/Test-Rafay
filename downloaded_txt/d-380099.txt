@@ -1,0 +1,421 @@
+
+
+
+
+
+
+
+
+
+
+step tools, inc. - digital thread, step and ifc solutions
+
+
+
+
+
+
+
+
+
+
+
+
+
+step tools®
+
+toggle navigation
+
+
+
+
+
+
+
+about
+support
+demos
+standards
+solutions
+
+digital thread
+step solutions
+ifc solutions
+training
+
+contact
+
+
+
+
+
+
+
+
+scientific, authoritative and reliable digital twin manufacturing
+the figure below shows a digital twin model of an airframe
+part. the model contains four thousand holes waiting to be filled by
+fasteners, and ten thousand holes waiting to be drilled. in this test
+the unfilled holes must be found and filled. the undrilled holes must
+be found, drilled and filled. all of the holes must meet requirements
+for position, placement and diameter. all of the fasteners must have
+sufficient grip to hold the pin, but not too much or the airframe will
+be too heavy. and all of the fills must have sufficient sealant to
+make the structure safe for traveling conditions.
+read more
+
+
+
+
+testing boolean removal
+inspired by
+the marching
+cubes algorithm used for surface fitting in computer graphics, we
+have been building tests that let us isolate the trickiest
+interactions and force our algorithms to deal with them under a
+variety of numeric conditions (exact, slightly overlapping, slightly
+separated, angled, etc.)
+as an aside, bill lorensen did the initial work on marching cubes
+at ge just a few miles from our offices, and now some variation of it
+is in just about every 3d imaging system.  our hope is that in the not
+too distant future, just about every manufacturing system will build
+digital twins using the simulation algorithms we are perfecting
+here.
+read more
+
+
+
+
+powder bed fusion generation
+announcing a powder bed fusion generation tool.  the tool is being
+developed as part of a project to extend step-nc for powder bed fusion
+machines. in this initial configuration you can generate scan paths
+for step solids using the parameters described below. please note the
+simple option if you just want to sample the output. the process
+control attributes can be set as text strings. in the next phase we
+will be updating the tool to set the process parameters to values
+appropriate to the dimensions and tolerances of the part as defined in
+the step model.
+read more and download tool
+[updated: 2024-5-30]
+
+tape layup generation
+announcing a tape layup generation tool. the tool is being
+developed as part of a project to extend step-nc for tape layup
+machines. in this initial configuration you can split a step surface
+into tapes. please note the simple option if you just want to sample
+the output. to make the input you need an advanced step translator
+that makes open shells trimmed by composite curves. the translator is
+available in some cad systems as an option for those designing
+composite materials.
+read more and download tool
+
+open accountability
+use iso standards to control the quality of your products. no
+matter where your parts are being machined and assembled, they need to
+be monitored for quality. the right materials, the right assemblies,
+the right geometries and the right tolerances. you can do this in
+closed systems but there will be no transparency. or you can do it
+using iso standards that everyone can read and verify. 
+the step standards have been under development for 40
+years. over half of public cad data is now in step. we have
+been working on extending step for manufacturing for more than 20
+years. yes, there are difficulties. you have to switch from
+manufacturing using codes to manufacturing using models, but even that
+is a benefit because you can see what you are making. 
+there has been too much delay! multiple industries are in crisis
+because we are asking too much of our workers. you need open
+accountability to prove that something has been done, and show how
+it was done. the step standards developed by international experts are
+the open, digital twins on the digital thread are the easy
+accountability.
+
+
+
+
+
+
+saratoga tc184/sc4 meeting a success!
+thank you to all the delegates who made the 86th meeting of tc
+184/sc4 a big success. step tools enjoyed hosting you in the beauty of
+the fall in upstate new york.
+we started several new standards for manufacturing with digital
+twins and resolved multiple issues.  the link above has the star trek
+and other meeting photos.
+all meeting photos
+
+— captains chair photos
+
+
+digital twin manufacturing
+
+announcing the step python interface,
+the faster way to program manufacturing solutions. the step python
+interface reads cad data, as defined by step, and makes digital twin
+as defined by iso 23247. everyone knows how much faster it is to make
+additive parts, but the same kind of acceleration can be realized for
+other kinds of manufacturing.  programming a third-party manufacturing
+system takes too much time and effort. a clever algorithm knows about
+the rules of your enterprise, and learns how to:
+
+
+ensure all the engineering requirements are being checked and met
+adjust to the non-availability of resources such as robots,
+cutters and fasteners
+build measurable digital twins of your products in real time for
+enhanced quality control
+
+the step python interface is now available at no cost on
+the python package index
+(pypi) for simple install with pip on windows, linux,
+or mac machines.
+version 20 software released!
+step tools® developer version 20 is now
+available, with support for the latest step ap242, step-nc ap238, and
+ifc 2x3 models.  the ifc viewer is significantly expanded and our ifc
+mesher now supports csg booleans and voids relations for window/door
+cutouts. plus new visual studio 2022 support, mach-o universal
+libraries for arm and intel on macos, and linux compiler support for
+all distros currently in lts back to rhel7.
+the step tools® libraries power commercial
+cad, analysis, and visualization systems and this latest release
+brings sematic tolerances, new geometry, step-nc manufacturing, and
+building information models to the fastest and most reliable libraries
+for making, using, and manipulating step, step-nc, ifc, and cis/2.
+the release notes for v20 have much
+more information about the libraries and new features!  our knowledge
+of these standards is unmatched across the industry.  whatever your
+goal, we provide the tools that you can rely on to reach it.
+
+
+ifc building
+
+json from step-nc
+we have been investigating json for describing manufacturing
+transactions and put together a small program to generate some using
+the step python interface.  we felt
+this was a nice example, so we are sharing it below.
+the json output for the simple facing workingstep is shown below.
+it summarizes the position within the process, tool, operation,
+feature, and some other basic parameters.
+continue reading …
+step-nc cam exchange
+the third edition of step-nc ap238 publishes improvements
+developed during 15 years of
+testing with new definitions for digital twin manufacturing,
+machine tool kinematics, integration with ap242, and machining process
+enhancements.
+this edition combines additive and subtractive manufacturing with
+measurement so that turbine blades can be repaired more quickly and
+accurately, or teams of robots can cooperate during the assembly of
+complex structures such as air frame wings.
+the improvements and testing makes ap238 ready for cam to cam data
+exchange.  the digital manufacturing implementation forum is now
+working to enable this data exchange with support from step
+tools® software.  there will be four meetings
+in 2023, with the first focus on data exchange of toolpaths.
+manufacturing industry needs cam to cam data exchange so that
+experts can define solutions for new materials and tooling.  the
+solutions can be developed by cutter vendors and other manufacturing
+specialists and sent to users for integration into their cam
+systems.
+sending the data as ap238 enables the deployment in the cam
+system. in the cam system it can be verified in the context of other
+operations, included in work instruction generation, and posted using
+trusted and tested tools. the alternate of sending the solution as
+gcode for cut and paste on the machine tool is very risky.
+
+
+cam process exchange
+
+continue reading …
+one million unique parts machined
+
+
+step is a standard for product model data and ifc is a standard for building model data. both are very widely supported by cad, cam and bim systems. 
+
+step-nc ap238 used to make 1,000,000 parts in 2019
+
+argument won — step-nc is the machine control data for
+future aerospace.
+boeing uses step-nc to machine parts for all its major airframes
+both single aisle and double aisle — even for satellites.
+engineer who did the work promoted to technical fellow.
+soon faa is likely to want step-nc documentation for every machined part on an aircraft.
+
+step ap242 edition 2 is finished
+
+every cad system has an interface to read and write step.
+edition 2 enables automatic measurement for on-machine cnc, and off-machine cmm.
+edition 2 enables kinematics for digital twin manufacturing.
+step has the biggest and most widely tested information model for engineering.
+
+ifc very popular for building models
+step reduces the cost of manufacturing by allowing products,
+processes and machines to be assembled digitally for testing before delivery. ifc does the same for building construction.
+
+ifc technical meetings include thousands of attendees.
+ifc translators are being upgraded for latest step geometry.
+building projects are producting very large multi-gigabyte ifc models.
+every bim system has an interface to read and write ifc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+if you own a cad, cam or bim system, then we can help you extend
+and maintain your step and ifc interfaces with the latest libraries
+and visualization systems. our librares are used by many of the
+leading cad vendors, including nx and autodesk, because they are the
+fastest and most reliable.
+if your are a leader in manufacturing or construction, then we can
+help you use step and ifc to make better products. we are leading the
+deployment of 3d product models in manufacturing automation. there are
+many savings including a reduction in the cost of tooling of 15% or
+more.
+enabling closed-loop machining
+august 29, 2019 — this short walkthrough shows a digital
+thread model in the step-nc explorer.  you will see geometry,
+tolerances, and process, simulate material removal, and discover how
+to get feed/speed, position, and calculated tool engagement
+cross-section information at any point in the machining process. 
+this information can close the loop with model-based machining and
+enable new applications for tool life and tool wear prediction,
+calculation of forces and heat, and many other possibilities.
+
+
+
+
+
+
+build it here, build it now, build it right with the digital thread
+on july 12, 2017, a team led by step tools, inc. stretched the
+digital thread farther than ever before - from design, through
+manufacture, and into five axis measurement.
+
+
+
+
+
+
+
+the digital thread is a vision for manufacturing that opens many
+new opportunities.  you can build it here because the thread is
+interoperable.  you can build it now because the models in the thread
+enables full safety checking.  watch the video to see how to build it
+right.
+
+on machine measurement will replace less responsive approaches
+because the integrated tolerances, machine feedback and linked
+evaluation give results before a part leaves the machine.
+
+we challenge the machining industry to start delivering these
+benefits.  at imts and jimtof 2018 we will supply test parts and
+confidential evaluation of the measurement results.  we want you to
+demonstrate that you too can build it here, build it now and build it
+right.  
+
+continue reading …
+more articles ...
+ 
+
+solutions and expertise
+
+
+latest news 
+
+
+
+
+
+step cad
+
+
+
+
+step-based solutions for cad or engineering analysis,
+bill-of-materials, or supply chain integration: cad shape, tolerances,
+assemblies, import or export, desktop or web visualization.
+
+step concepts
+
+concept
+
+go to diagram
+
+step data
+
+entity
+
+diagram
+text
+
+
+
+
+
+
+
+
+
+ifc bim
+
+
+
+
+ifc-based solutions for bim systems: translation, bill-of-materials
+applications, and visualization.
+
+
+
+
+
+
+
+digital thread for manufacturing
+
+
+
+
+connect product design, manufacturing, and inspection with a
+digital twin, built in real-time while machining with our new 3d
+model-based simulator. view from any mobile device, automate
+metrology, collaborate with supply chain, and real-time optimization.
+
+
+
+
+
+
+
+other services
+we offer training
+and support.  we also
+have standards development experience and
+host forums, and
+an express schema archive.
+
+
+ 
+ 
+ 
+
+step tools, inc. / 14 first st. troy, ny 12180
+copyright © 2025 step tools inc. all rights reserved.
+legal notices and trademarks.
+
+
+
+
+
+
+
+

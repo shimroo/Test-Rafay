@@ -1,0 +1,51 @@
+
+
+
+test page for the http server on red hat enterprise linux
+
+
+
+
+
+
+            red hat enterprise linux test page
+
+
+
+this page is used to test the proper operation of the http server after it has been installed. if you can read this page, it means that the http server installed at this site is working properly.
+
+
+
+
+if you are a member of the general public:
+the fact that you are seeing this page indicates that the website you just visited is either experiencing problems, or is undergoing routine maintenance.
+if you would like to let the administrators of this website know that you've seen this page instead of the page you expected, you should send them e-mail. in general, mail sent to the name "webmaster" and directed to the website's domain should reach the appropriate person.
+for example, if you experienced problems while visiting www.example.com, you should send e-mail to "webmaster@example.com".
+for information on red hat enterprise linux, please visit the red hat, inc. website. the documentation for red hat enterprise linux is available on the red hat, inc. website.
+
+
+
+if you are the website administrator:
+you may now add content to the webroot directory. note
+					that until you do so, people visiting your website will see
+					this page, and not your content.
+for systems using the apache http server:
+					you may now add content to the directory /var/www/html/. note that until you do so, people visiting your website will see this page, and not your content. to prevent this page from ever being used, follow the instructions in the file /etc/httpd/conf.d/welcome.conf.
+for systems using nginx:
+					you should now put your content in a location of your
+					choice and edit the root configuration directive
+					in the nginx configuration file
+					/etc/nginx/nginx.conf.
+
+
+
+
+
+
+
+
+apache™ is a registered trademark of the apache software foundation in the united states and/or other countries.
+        
+nginx™ is a registered trademark of f5 networks, inc..
+	
+

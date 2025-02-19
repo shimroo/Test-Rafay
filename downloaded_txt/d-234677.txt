@@ -1,0 +1,126 @@
+
+
+
+
+
+
+
+
+cubit – sandia national laboratories
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+skip to main content
+
+
+capabilities
+documentation
+licensing
+download
+tutorials
+publications
+support
+
+
+
+
+
+
+the cubit® geometry and mesh generation toolkit 
+
+
+cubit® is a full-featured software toolkit for robust generation of two-dimensional and three-dimensional finite element meshes (grids) and geometry preparation. its main goal is to reduce the time required to generate meshes, particularly large hex meshes of complicated, interlocking assemblies. 
+
+news of note
+cubit® 17.02 released november 21, 2024
+cubit® 16.18 released june 29, 2024
+cubit® 16.16 released march 26, 2024
+cubit® 16.14 released october 6, 2023
+cubit® 16.12 released june 2, 2023
+
+
+  workflow for rapid geometry preparation and automated meshing cubit® is a solid-modeler-based preprocessor with the ability to import cad files in neutral formats, clean up and prepare geometry for meshing, generate surface and volume finite element meshes, perform post-meshing operations such as refinement and smoothing, improve mesh quality, perform model attribution, and export mesh for analysis. cubit® also contains advanced machine learning capabilities to enable rapid design-to-simulation workflows.  cubit™ provides a comprehensive user interface that allows the user to generate and visualize complex meshes. machine learning for rapid part classification and simplification cubit® uses machine learning to classify parts and suggest defeaturing tools. in the geometry power tool, machine learning can predict poor tet-mesh quality and classify parts. for bolts and springs, the reduce commands can rapidly simplify these parts for analysis. machine learning also gives suggested solutions for poor tet-mesh quality.  
+  robust, high-quality tet and hex meshing of cad assemblies cubit® supplies a comprehensive set of features for surface and solid meshing. it provides a wide variety of element types and methods for automating and streamlining mesh generation. cubit® also delivers an extensive suite of tools for geometry decomposition and mesh generation.  
+  geometry- and physics-based adaptive meshing cubit® has the capability to automatically generate geometry-adaptive tetrahedral (tet) meshes based on geometric characteristics such as small curves, high curvature regions, thin walls, etc. it also provides a mesh sizing framework for building mesh sizing functions based on sizing sources. the mesh sizing framework also has the ability to build mesh sizing functions based on physics-based analysis results imported via exodus meshes. the mesh sizing function can be built using either nodal or element variables.  
+  large-scale parallel meshing on hpc cubit® provides parallel meshing algorithms for both tet and hex meshing.   sculpt is a mpi-based parallel all-hex meshing algorithm with various advanced options for defeaturing, adaptive meshing, and respecting multiple materials.  cubit® also provides a lightweight parallel tool for uniform mesh refinement (umr), which has the ability to generate billions of elements in minutes.  
+ accelerated geometry & meshing workflows via python scripting cubit® implements a python scripting capability that allows users to run the commands with or without the gui. python-cubit enhancement scripts are now distributed with cubit® for powerful id-less geometry and meshing operations. these python scripts are a collection of functions to enhance geometry selection, geometry manipulation, meshing, mesh smoothing, and other cubit® operations. these scripts are located in the cubit bin directory or can be downloaded from https://cee-gitlab.sandia.gov/meshing-users/cubit-python-enhancements (sandia users only). these functions have been added to nightly tests to assure compatibility with the latest cubit® code.  
+
+cubit® licensing
+cubit® is used free of cost in a wide range of applications for us government purposes by many government agencies, contractors, and subcontractors.  currently, there are about 2,000 cubit® users at more than 165 sites across the us.  see cubit® licensing for information on obtaining the government use notice (gun) licenses. licensed users may download the current release from this website.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

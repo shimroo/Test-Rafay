@@ -1,0 +1,404 @@
+
+
+
+
+
+
+
+
+perturb.org - interesting technology related things from around the internet
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+github
+photos
+gcount
+quotes
+login
+ipv6
+
+
+you should not see this!
+
+
+
+all it takes is one bad day to reduce the sanest man alive to lunacy. that's how far the world is from where i am. just one bad day.
+the joker
+
+
+
+
+
+
+perl: multiply-shift hash2025-01-27
+
+
+i've been using the multiply-shift hash lately and have had good results. it's simple, fast, and well tested. 
+// multiply-shift hash
+static uint64_t hash_msh(uint64_t x) {
+    uint64_t prime = 0x9e3779b97f4a7c15; // a large prime constant
+    x ^= (x >> 30);
+    x *= prime;
+    x ^= (x >> 27);
+    x *= prime;
+    x ^= (x >> 31);
+    return x;
+}
+whenever i find interesting code like this i like to try and implement it in perl:
+sub hash_msh {
+    my $x     = $_[0];
+    my $prime = 11400714819323198485;
+
+    $x ^= ($x >> 30);
+    $x = multiply_uv($x, $prime);
+    $x ^= ($x >> 27);
+    $x = multiply_uv($x, $prime);
+    $x ^= ($x >> 31);
+
+    return $x;
+}
+
+# perl converts numbers larger than 2^64 - 1 to floating point so
+# we 'use integer' to force integer math which retains any overflow.
+sub multiply_uv {
+    my ($one, $two) = @_;
+
+    use integer;
+    my $ret = $one * $two;
+    no integer;
+
+    # convert signed iv to unsinged uv
+    if ($ret < 0) {
+        $ret += 18446744073709551615;
+        $ret += 1;
+    }
+
+    return $ret;
+} tags: hashperl
+
+leave a reply
+
+
+
+
+
+perl: calculate number of bits needed to store a number2025-01-27
+
+
+quick perl function to calculate the number of bits required to store a given number.
+sub bits_required {
+    my ($n) = @_;
+
+    # handle special case for 0
+    return 0 if $n == 0;
+
+    # use logarithm to calculate the number of bits
+    my $bits = int(log($n) / log(2)) + 1;
+    return $bits;
+} tags: bitsperl
+
+leave a reply
+
+
+
+
+
+implmenting prngs in perl2025-01-25
+
+
+i'm a big fan of the pcg32 prng. it's simple, fast, and well documented. as is usually the case when i find interesting code i try and find a way to implement it in perl. pcg32 poses an interesting problem when one tries to implement it in perl because all the math is performed using unsigned integers and overflow. most prngs use large numbers and overflow to work, that's their secret sauce.
+perl does not have a native unsigned type so i had to learn the guts of how perl does math so i could emulate it. i ended up coming up with two different implementations, a native perl implementation, and a version that uses math::int64. surprisingly the native version was significantly faster. 
+both implementations with detailed comments are available in pcg32.pl if you're interested in learning more about how to do integer style math in perl. 
+as a bonus i also ported the xoshiro256 family into perl. splitmix64 ended up being a little more complicated to port, but i got it as well. tags: perlprng
+
+leave a reply
+
+
+
+
+
+c/c++: list all #define macros2025-01-22
+
+
+i need to target a specific platform with some code i'm writing. you can list all of the #define macros on a given platform with these commands:
+gcc -dm -e - < /dev/null
+clang -dm -e - < /dev/null
+in this big list of macros you should find something to help you target a given platform. tags: definemacro
+
+leave a reply
+
+
+
+
+
+ffmpeg: limit the output to only the encoding stats for quieter scripting2025-01-21
+
+
+ffmpeg is a great tool, but it is very chatty. if you want to encode a file you'll get about 40 lines of headers and track information, most of which you probably will not read. for scripting purposes you probably only want to see the statistics. if you start ffmpeg, hide the banner, and set the loglevel low you can output only the stats you need
+ffmpeg -y -hide_banner -loglevel quiet -stats ... tags: ffmpegoutputstats
+
+leave a reply
+
+
+
+
+
+perl: using sha256 to hash strings into integers2025-01-20
+
+
+i need 64bit integers to seed some prng work i'm doing. i found out that you can easily create four 64bit numbers from any string by using sha256.
+use digest::sha;
+
+my $input = $argv[0] || int(rand() * 1000000);
+
+# get raw bytes and convert to an array of uint64_t
+my $hash = digest::sha::sha256($input);
+my @nums = unpack("q*", $hash);
+
+print "sha256 hashing '$input' to: " . join(", ", @nums) . "\n";
+note: we are using sha256 here, not sha256_hex because we need raw bytes. tags: integersperlsha256
+
+leave a reply
+
+
+
+
+
+komihash is pretty amazing and simple hashing algorithm2025-01-17
+
+
+i need a simple way to hash strings into 64bit integers so i started some research. initially i was focusing on xxhash but it's slightly harder to implement than other newer hashes. i ended up landing on the amazing komihash which bills itself as: "a very fast 64-bit hash function, mainly designed for hash-table, hash-map, and bloom-filter uses".
+komihash is available as a single komihash.h file and is extremely easy to implement into existing code.
+#include <stdio.h>
+#include <stdlib.h>
+#include "komihash.h"
+
+int main(int argc, char *argv[]) {
+    int seed        = 0;
+    const char *buf = "hello world";
+
+    uint64_t hash_num = komihash(buf, strlen(buf), seed);
+
+    printf("komihash: %s = %llu\n", buf, hash_num); // 3745467240760726046
+}
+as a bonus it also comes with a prng which is equally simple to implement:
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "komihash.h"
+
+int main(int argc, char *argv[]) {
+    uint64_t seed1 = time(null) * 0x61c8864680b583ebull; // hash64
+    uint64_t seed2 = seed1      * 0x61c8864680b583ebull; // hash64
+
+    for (int i = 0; i < 5; i++) {
+        uint64_t rand64 = komirand(&seed1, &seed2);
+        printf("komirand: %llu\n", rand64);
+    }
+}
+in fact, i liked it so much i ported it to perl and called it crypt::komihash. tags: hashkomihashprngxxhash
+
+leave a reply
+
+
+
+
+
+perl: warning about non-portable numbers2025-01-16
+
+
+if you get a perl warning about non-portable numbers like this:
+hexadecimal number > 0xffffffff non-portable at /tmp/x.pl line 19.
+it means that you are using a hex number greater than 2^32. i dunno why this is a warning when everything is 64bit these days, but it is. there have been a couple of times i needed this in my code so you can disable these warnings with:
+no warnings 'portable'; tags: perlwarning
+
+leave a reply
+
+
+
+
+
+books of 20252025-01-08
+
+
+list of books i read in 2025. also see the list of 2024. the date indicated denotes the date i started reading the book.  
+2025-01-06 - mistborn by brandon sanderson - 643 pages
+2025-01-17 - ender's game by orson scott card - 324 pages
+2025-01-22 - thinner by stephen king - 318 pages
+2025-01-26 - the dead zone by stephen king - 426 pages
+2025-02-02 - the neverending story by michael ende - 377 pages
+2025-02-08 - the well of ascension by brandon sanderson - 785 pages tags: booksreading
+
+leave a reply
+
+
+
+
+
+c: nanoseconds since unix epoch2024-12-31
+
+
+i needed a function to use as a simple seed for srand(). unixtime in nanoseconds changes very frequently and serves as a semi-decent random seed.
+#include <time.h> // for clock_gettime()
+
+// nanoseconds since unix epoch
+uint64_t nanos() {
+    struct timespec ts;
+
+    // int8_t ok = clock_gettime(clock_monotonic, &ts); // uptime
+    int8_t ok = clock_gettime(clock_realtime, &ts);  // since epoch
+
+    if (ok != 0) {
+        return 0; // return 0 on failure (you can handle this differently)
+    }
+
+    // calculate nanoseconds
+    uint64_t ret = (uint64_t)ts.tv_sec * 1000000000ull + (uint64_t)ts.tv_nsec;
+
+    return ret;
+}
+see also: microseconds since epoch in perl tags: epochnanosecondsuptime
+
+leave a reply
+
+
+
+
+
+git: show all changes to a given file2024-12-31
+
+
+if you want to view the history of all the changes you've made to a specific file in git you can use the log command in git. this will show you all the commits that touched that file, and the associated commit message. 
+git log readme.md
+if you want to see a diff/patch for each commit you can run:
+git log --follow --patch readme
+this can be very useful to track down when a specific piece of code went into (or was taken out of) a file. be careful as this command only shows you the diff/patch for the file you request. if the commit contains changes to other files you will not see those unless you view the full commit. tags: diffgitlogpatch
+
+leave a reply
+
+
+
+
+
+perl: get microseconds since unix epoch2024-12-26
+
+
+i need to get system uptime with a higher resolution that just one second. this is the function i came up with to return uptime in microseconds.
+sub micros {
+    require time::hires;
+
+    my @p   = time::hires::gettimeofday();
+    my $ret = ($p[0] * 1000000) + $p[1];
+
+    return $ret;
+} tags: epochmicrosecondsperl
+
+leave a reply
+
+
+
+
+
+how big is 64bits2024-12-16
+
+
+older cpus are 32bits and could address 4.2 gigabytes of memory. new cpus are 64bits and can address 18.4 exabytes of memory.
+32bits = 4,294,967,296
+64bits = 18,446,744,073,709,551,616 tags: 64bit
+
+leave a reply
+
+
+
+
+
+php: run a command and capture stdout and stderr separately2024-12-10
+
+
+i need to run a shell command in php and capture stdout and stderr separately. this function lets you run a command and returns a hash with the various components and outputs.
+function run_cmd($cmd) {
+    $start   = hrtime(true);
+    $cmd     = escapeshellcmd($cmd);
+    $process = proc_open($cmd, [
+        1 => ['pipe', 'w'], // stdout
+        2 => ['pipe', 'w'], // stderr
+    ], $pipes);
+
+    if (!is_resource($process)) { return []; }
+
+    $stdout = stream_get_contents($pipes[1]);
+    fclose($pipes[1]);
+    $stderr = stream_get_contents($pipes[2]);
+    fclose($pipes[2]);
+    $exit   = proc_close($process);
+
+    $ret = [
+        'exit_code' => $exit,
+        'stdout'    => trim($stdout),
+        'stderr'    => trim($stderr),
+        'cmd'       => $cmd,
+        'exec_ms'   => (hrtime(true) - $start) / 1000000,
+    ];
+
+    return $ret;
+} tags: capturephpstderrstdout
+
+leave a reply
+
+
+
+
+
+linux: disable dns cache in systemd2024-11-21
+
+
+new linux distributions are enabling local dns caching. for most users this is a sane default, but as a system administrator this can sometimes get in the way. you can check if your local cache is running and see the statistics with:
+resolvectl statistics
+which will tell you how active your cache is, what the hit/miss ratio is, and information about dnssec. if you need to clear your local cache you can run:
+resolvectl flush-caches
+doing this repeatedly can get cumbersome if you are testing remote dns frequently. if you want to disable local caching all together you can run:
+systemctl disable systemd-resolved.service --now
+remember to update your /etc/resolv.conf to point at the correct dns server after you're done. tags: cachednslinux
+
+leave a reply
+
+
+
+
+
+
+
+
+
+scott@perturb.org
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,92 @@
+
+
+
+
+adding the noopener attribute to commonmark
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+all in the <head>
+– ponderings and code by drew mclellan –
+
+
+
+
+
+
+
+
+adding the noopener attribute to commonmark
+
+
+over on notist i’m using the php league commonmark markdown parser to convert markdown to html.
+one recommendation that google’s lighthouse audits recommend is that rel="noopener" be added to any external links. there’s an entire article explaining why this is a positive move for both security and performance.
+i initially couldn’t figure out how best to do this, but it turns out it’s really simple. commonmark enables you to specify and register custom renderers and they even have an example of one for adding a class to external links. all i needed to do was slightly modify this to add the rel="noopener" attribute and i was away.
+
+posting this here, because when i searched i couldn’t find anything interesting about commonmark, php, and noopener so i hope it might help someone else.
+
+
+        – 
+            drew mclellan
+09 may 2018
+        –
+    
+
+
+add a response
+this site uses webmentions. if you've posted a response and need to manually notify me, you can enter the url of your response below.
+
+
+
+article url
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+about
+
+
+archive
+
+
+work with me
+
+
+hand built on perch runway
+
+
+
+
+

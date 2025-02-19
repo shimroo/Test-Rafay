@@ -1,0 +1,925 @@
+
+
+
+
+
+
+
+welcome - ticalc.org
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+basics
+
+
+archives
+
+
+community
+
+
+services
+
+
+programming
+
+
+
+
+hardware
+
+
+help
+
+
+about
+
+
+search
+
+
+your account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+newprog 2.0 and npptoc released - ti-68k
+
+
+posted by xavier on 30 april 2021, 20:46 gmt
+
+
+
+newprog 1.0 by is a very powerful programming language released in 2010 for the ti-68k series. its syntax is close to ti-68k basic, but its functionality is closer to c and asm: access to memory, sprites, timers, os variables, etc. in addition, executing ti-basic instructions directly is possible. newprog programs can be edited and compiled directly on the calculator. basically, it is similar feature-wise to axe parser for the monochrome ti-z80 series, released in the same time frame; sadly, unlike axe parser, it seems to have come too late to trigger a significant revival of the corresponding community.
+recently, newprog 2.0 was released on ticalc.org. it represents an evolution of version 1.0, with generally good backwards compatibility, and significant new functionality. the main upside of newprog 2.0 is that it can be used in conjunction with npptoc, a new calculator-side program performing source-to-source translation between newprog and c under some conditions, e.g. that all variables have a single type throughout their lifetime. once translated, the programs can be compiled to assembly using gtc (calculator-side and computer-side) or gcc4ti (computer-side), creating faster, standalone native code binaries.
+however, there's more! thanks to npptoc, newprog 2.0 adds support for libraries, which can be programmed either in newprog or c(+asm), then compiled into native code, and called from newprog programs. this unleashes the full power of native code. other improvements in newprog 2.0 include a rewrite of the documentation, to fix errors and improve clarity, as well as new functions.
+all in all, this looks to be a very solid new release... existing and new users of newprog alike should love it!
+article written by mael bansard (author of newprog) and lionel debroux.
+
+
+
+
+
+
+
+
+
+
+  discuss
+
+
+
+
+(16 comments)  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+more text-based adventures for the ti-ez80 series
+
+
+posted by xavier on 25 december 2020, 20:48 gmt
+
+
+
+with access to native code programs restored almost four months ago, it's high time i resumed featuring programs for the ti-ez80 series: ti-83 premium ce / 84 plus ce and python variants thereof :)
+let's start with another couple of "text adventures" - text output and formatted text commands input - uploaded in 2019. the popularity of the genre has faded, but well-designed adventures are usually hours of fun, sometimes temporarily frustrating when there's a roadblock, for those who attempt to discover the adventures entirely by themselves, without using walkthroughs. taking external notes and map drawings is advised in some games, especially to help re-playing them.
+open adventure ce is a port colossal cave adventure 2.5 by "drdnar". the programming of the original colossal cave adventure game started in 1975 (!); since then, a significant number of persons have contributed to various versions of it. as in many adventure games, the player is navigating a complex maze containing treasures and monsters, solving puzzles, while of course trying to avoid dying prematurely.
+a first upload in our archives for its author, zemu by nicholas mosier brings z-machine emulation to the ti-ez80 series. the z-machine is a lightweight 16-bit virtual machine running z-code, created in the late 1970s for executing text adventures on a huge variety of platforms, originally used by infocom; over time, successive versions of the spec and machine have gained capabilities, and spawned several improved derivatives allowing e.g. native support for 32-bit integers, the making of larger files, or the addition of images and sound data, for more complex and realistic games. the availability of a z-machine means that among other games, you can play zork on your ti-ez80 calculator, and therefore be eaten by a grue plenty of times before you beat the game... don't worry, that's natural, that's the hallmark of zork ;)
+we wish you a merry christmas, and a hopefully as good as possible end of the very peculiar year 2020, hoping that 2021 will be a better one...
+ 
+article written by lionel debroux.
+
+
+
+
+
+
+
+
+
+
+  discuss
+
+
+
+
+(6 comments)  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ce jailbreak allows asm programs to work again!
+
+
+posted by xavier on 6 september 2020, 20:58 gmt
+
+
+
+we're happy to relay a very interesting, yet unsurprising, piece of news: the ability for the ti-83 premium ce, ti-84 plus ce(-t) and python editions thereof, to run asm programs, officially removed by ti a few weeks/months ago depending on the model, as reported in the previous news item, has been unofficially added back thanks to a jailbreak, called "artifice". from what we can see in the install tutorial, artifice seems to exploit a bug in the "cabri jr" geometry app in order to launch a shell.
+this move was so obvious and predictable that it was really a matter of when, not if. after all, the ti-ez80 series was not designed with security in mind, and in fact no ti graphing calculator model released to date is (even though ti seems to have learned a few tricks in the newer, high-end ti-nspire cx ii series, its security roadblocks appear to have been defeated relatively early on)
+what are the next steps? logically, just like on the ti-nspire series, ti would release new software versions fixing the vulnerabilities used in the current iteration of the jailbreak, then more vulnerabilities will be exploited to restore access to native code again. rinse and repeat, for a while, it's the usual cat & mouse "game".
+thinking out loud, we might see a series of 0-days showcasing exam mode insecurity being released over the several few days/weeks before the major exams of the northern hemisphere - something the ti enthusiasts community always refrained from doing. such a timeframe would make it possible for some users to use programs interfering with exam mode (and needless to say, face the significant consequences if they get caught! - just to be clear, we are not condoning cheating). and this, most importantly, before the fixes for the vulnerabilities get a chance to be made and widely distributed, as well as standardized testing regulation amended to forbid usage of the older, vulnerable versions and to mandate thorough checks of the current state of calculators right before the exam is taken.
+if that situation were to happen, it would probably be better to give up on the current exam mode "security model" entirely and rather reflash the os with an exam-tailored version right in the exam room - something that should have been done from the get go, notwithstanding the practical hurdles, if the fantasized exam security were actually taken seriously. unfortunately, a path of lower resistance for the educational system would be to just forbid the usage of the affected calculator models, several days before the exams, creating more injustice and further reducing the real-world value of said exams!
+time will tell, but there's a chance that there will be a spectacular - and publicized - backfire for the very smart demands from standardized testing regulation authorities, who didn't get (or didn't understand) the memo that predictably, removing access to native code does not make exams safer - quite the contrary.
+top-level ti management should be somewhat aware of that, in fact some of us in the community, myself included, attempted to explain all that to them several years ago... but we know that regulators have the power to forbid pieces of equipment for whatever reason, and manufacturers need to bend to their demands, no matter how unfounded, ill-motivated and counterproductive...
+thankfully, i'm not in the shoes of the previously mentioned teacher whose video about a long-fixed issue in ti's os allowing exam mode restrictions bypass on the ti-ez80 series might well have contributed to the removal of official native code access on those calculators, then consequently the current jailbreak, and might therefore contribute to potential future attacks on the exam mode.
+triggering a worldwide restriction on users' rights to use the hardware they bought, and potentially forbidding hundreds of thousands of calculators and creating further stress for students taking exams, is not something i'd be proud of.
+artifice's author doesn't seem to have uploaded it to our files archives yet(?), so for now, ce users stuck with a recent os version can learn more on its official website. go forth and use that great piece of work, which raises the usefulness of the cabri app :)
+article written by lionel debroux.
+
+
+
+
+
+
+
+
+
+
+  discuss
+
+
+
+
+(7 comments)  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ti removes access to assembly programs on the ti-83 premium ce
+
+
+posted by xavier on 20 may 2020, 21:35 gmt
+
+
+
+we're sad to relay news about the fact that in the currently latest os 5.5.1 version released today for the ti-83 premium ce & ti-83 premium ce edition python (such a mouthful ^^), ti completely removed access to assembly programs... support for unsquished asm programs was already removed earlier in os 5.3.1 onwards, though it didn't matter much at the time, because squished asm programs remained unharmed. yes, ti has retroactively removed an advertised feature, many a user's favorite feature at that.
+this slam shuts a golden age of over two decades (!) of native code being officially supported on at least one actively maintained ti graphing calculator model. unofficial availability of native code started a bit earlier, thanks to arbitrary code execution achievable through specially crafted backup files. thousands of programmers have published thousands of programs (and produced even more), many of these published programs can be found in the ticalc.org archives, because ticalc.org has been around since 1996, i.e. for the entire period of official native code availability, give or take a few months time :)
+as far as we can tell, ti did not make this move out of the blue. the trigger was probably a teacher posting, on his popular video channel, a video about a long-fixed flaw in an earlier version ti's implementation of ptt mode for the ti-ez80 series. the fix is from 2018, the video was posted in 2020. shortly thereafter, we can imagine that ti had to give in to pressure from some people who regulate standardized tests (as a matter of fact, they, not end users, are the real customers ti needs to appease). needless to say, removing user access to native code has extremely little to do with exam security...
+in fact, looking at what happened time and again on other platforms, e.g. the sony ps3, we can confidently predict that this move will worsen exam security. from now on, the french 83 premium ce, and certainly the international 84+ ce versions thereof in the near future, are in the same situation as the nspire platform: a cat & mouse game of jailbreaks, fixes, and newer jailbreaks. both the nspire series and the ti-ez80 series are insecure platforms, all the more users have unrestricted physical access to their calculators; more generally, at the time of this writing, no manufacturer produces any secure graphing calculator model, but the people who regulate standardized tests don't know or don't care...
+like all true calculator enthusiasts, we have hard feelings about the matter. the community had always been nice to ti - nothing really damaging for ti's business was ever released over 20+ years! - but a moral barrier has probably been broken today... however, there are so many much worse things in life, so let's focus on the future instead. it's the beginning of a new era - certainly an era of heightened tension. for now, let's only send our warmest thanks to all past, present and future programmers of native code programs for ti graphing calculators... and on to the new, upcoming chapters of a still ongoing story :)
+the news wishlist contains a number of ti-ez80 asm programs, among other things; even without future poty votes, we'll keep featuring programs as time permits.
+article written by lionel debroux.
+
+
+
+
+
+
+
+
+
+
+  discuss
+
+
+
+
+(27 comments)  
+
+
+
+
+
+
+
+
+older news
+got news?  let us know!
+
+
+
+
+
+
+
+
+
+recent additions to our file archives
+
+
+
+
+
+
+
+
+click 
+ for
+detailed information about a file.
+
+
+
+
+
+ indicates files with screenshots.
+
+
+
+
+
+
+
+ indicates files with animated screenshots.
+
+
+
+
+
+
+
+ indicates featured programs.
+
+
+
+
+
+
+
+
+
+
+
+
+new files for wednesday, 22 january 2025
+
+
+
+
+
+
+
+
+time
+
+
+action
+
+
+file
+
+
+location
+
+
+ti-84 plus cse/ce basic18:51added triss ce - triangle screensaverti-84 plus c silver edition/ce basic graphics programs
+18:51added cowsay basicti-84 plus c silver edition/ce basic graphics programs
+ti-84 plus ce assembly/flash/os18:51added fish ce v1.1ti-84 plus ce assembly graphics programs
+18:51updated block dude ceti-84 plus ce assembly games
+
+
+
+
+
+
+
+
+
+new files for friday, 17 january 2025
+
+
+
+
+
+
+
+
+time
+
+
+action
+
+
+file
+
+
+location
+
+
+ti-8918:11updated multivariable calculusti-89 basic math programs (calculus)
+
+
+
+
+
+
+
+
+
+new files for monday, 13 january 2025
+
+
+
+
+
+
+
+
+time
+
+
+action
+
+
+file
+
+
+location
+
+
+ti-83 plus/ti-84 plus17:06updated [minecraft] abba caving calculatorti-83/84 plus basic misc. programs
+ti-84 plus cse/ce basic17:06updated [minecraft] abba caving calculatorti-84 plus c silver edition/ce basic misc. programs
+
+
+
+
+
+
+
+
+» more recent files...
+
+
+
+
+
+
+have a file we don't? we welcome all contributions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+search
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+» custom search...
+
+
+
+
+
+
+
+
+
+
+
+
+
+new to this?
+
+
+
+
+
+
+
+
+
+
+welcome to ticalc.org, your resource for texas instruments graphing calculator community news, information, and software!
+
+
+check out our basics section for an
+intro to downloading programs and games and linking your calculator to your
+computer.
+our faq offers answers to many questions about ticalc.org and how we operate.
+
+our file archives contain a wide selection of programs and files for ti graphing calculators.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ads
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+survey
+
+
+
+
+
+
+
+
+
+
+
+
+your favorite non-ti graphing calculator brand?
+
+
+ casio
+ hp
+ numworks
+ sharp
+ other
+ i made my own!
+ ti is all i know
+ no particular preference
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+latest reviews
+
+
+
+
+
+
+
+
+
+
+unsigned - downgrade from os 2.55
+advanced quadratic formula program
+quadrate
+football
+portal prelude
+uno with ai - owns (2-8 players)
+
+
+
+» top reviewers...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+time
+
+
+
+
+
+
+
+
+
+
+standard
+
+ page loaded at 20:38 gmt.
+reload preferences cookie.
+
+
+
+
+
+
+
+
+
+
+
+
+
+hosted at ticalc.org
+
+
+
+
+
+
+
+
+
+
+
+
+ sicode software
+
+ prosit
+
+ sami khawam's home page
+
+ the official doors homepage
+
+ mxm projects
+
+
+
+
+» more about hosting...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+other sites
+
+
+
+
+
+
+
+
+
+
+be sure to check out these other recommended ti calculator sites:
+
+
+
+
+ texas instruments
+ calcg.org
+ cemetech
+ codewalrus
+ omnimaga
+ ti-basic developer
+ ti-freakware
+ ti-planet (french)
+ ti-story
+ wikiti
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+older news
+
+
+
+
+
+
+
+
+
+
+
+ 2019 poty results (15)
+ ti nspire voting begins
+ ti-92 poty voting begins
+ ti-89/92+/v200 voting begins (1)
+ ti-84+ce poty voting begins (5)
+
+
+» more news...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rss feeds
+
+
+
+
+
+
+
+
+
+the following rss feeds are available:
+
+ news
+ headlines
+ featured programs
+ reviews
+ files
+
+
+
+» more about syndication...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+newsletter
+
+
+
+
+
+
+
+
+
+
+subscribe to our bimonthly newsletter for
+exclusive new features every two months delivered to you by email.
+
+
+
+
+
+
+
+
+
+
+
+
+
+featured programs
+
+
+
+
+
+
+
+
+
+
+zemu (ti-84 plus ce assembly/flash/os)
+open adventure ce 1.8.0 (colossal cave adventure 2.5) (ti-84 plus ce assembly/flash/os)
+
+
+
+» more featured programs...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+top downloads
+
+
+
+
+
+
+
+
+
+
+mirageos v1.2 (ti-83 plus/ti-84 plus)
+tilp ii v1.18 (windows)
+the ultimate calculus collection!!! (ti-83 plus/ti-84 plus)
+cheater v3.0 (ti-83 plus/ti-84 plus)
+pac-man (ti-84 plus ce assembly/flash/os)
+tiemu v3.03 (w/o gdb)  (windows)
+doom (ti-83 plus/ti-84 plus)
+
+
+» more stats...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ads
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  copyright © 1996-2012, the ticalc.org project.  all rights reserved. |
+contact us |
+disclaimer
+
+
+
+
+
+
+
+

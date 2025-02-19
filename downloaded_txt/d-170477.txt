@@ -1,0 +1,559 @@
+
+
+signal harbor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+information
+
+
+apco project 25
+
+
+
+trunked radio
+
+
+
+
+statewide p25 systems
+
+
+
+
+radionavigation
+
+
+
+
+fcc databases
+
+
+
+
+references
+
+
+   
+
+equipment
+
+
+
+apco p-25 decoders
+
+
+
+
+10.7 mhz output receivers
+
+
+
+
+trunking scanners
+
+
+
+
+crystal radios
+
+
+
+
+oscilloscopes
+
+
+   
+
+network notes
+
+
+
+ardis
+
+
+
+
+edacs
+
+
+
+
+e.f. johnson
+
+
+
+
+mobitex
+
+
+
+
+mpt-1327
+
+
+
+
+nxdn
+
+
+
+
+open sky
+
+
+   
+
+photographs
+
+
+
+military
+
+
+
+
+deep space
+
+
+
+
+satellite
+
+
+   
+
+related
+
+
+
+links
+
+
+
+
+my radios
+
+
+
+
+old scanners
+
+
+
+
+publications
+
+
+
+
+items wanted
+
+
+
+
+about the author
+
+
+
+
+
+
+
+
+
+contents
+
+
+
+project 25 systems
+
+
+the
+project 25 technology interest group (ptig)
+maintains lists of known p25 systems. note that these lists
+are in portable document format (pdf).
+
+
+ the list of conventional p25 systems as of march 2017 is here.
+
+ the list of trunked p25 systems as of may 2017 is here.
+
+
+
+national interoperability
+
+
+click here for the
+interoperable communications technical assistance program.  the page has a link to download
+the latest national interoperability field operations guide (nifog).
+
+fema fire service guide
+
+
+click on the image to download a pdf of voice radio communications guide for the fire service
+dated june 2016.
+
+
+
+ trunked radio
+
+
+i've written two introductory articles on how trunked radio works.
+you can read them
+here
+and
+here.
+
+ monitoring tetra
+
+
+an excellent tutorial on using a small, inexpensive software defined radio
+and osmo-tetra software to monitor terrestrial trunked radio (tetra)
+systems can be found here.
+
+ digital speech decoding
+
+
+computer-savvy hobbyists may wish to experiment with using computer software to monitor digital radio signals.  a popular
+package currently under development is digital speech decoder (dsd).
+
+
+download dsd and mpelib from this page.
+
+
+a good tutorial is available here.
+
+
+dsd requires an additional software package called cygwin dll that can be found
+here.  download and install the 32-bit version.
+copy the cygwin1.dll file into the dsd directory.
+
+
+a basic introduction for windows users is available here.
+
+ digital speech decoding plus
+
+
+an enhanced and somewhat more capable version of dsd appeared in december 2013, designed to operate under windows.
+
+download dsd+
+
+
+dsd+ requires the use of an audio software package that can encode mp3 audio files.
+go here
+to download an installation program.  run it and move the lame_enc.dll file
+to the dsd+ directory.
+
+ dmr decode
+
+
+a free and open source decoder for digital mobile radio (dmr) is available
+here.
+
+
+source code can be found here.
+
+ apco project 25 security
+
+
+ researchers based at the university of pennsylvania have published an academic
+paper describing some security weaknesses in p25.  you can read the paper
+(in pdf format)
+here (local copy
+here).
+
+ a research group in australia have analyzed the implementation of various
+encryption-related functions in project 25.  their research paper is
+here
+(local copy here).
+
+
+ apco p-25 scanners
+
+
+monitoring apco project 25 systems requires a digital-capable scanner.
+
+
+
+uniden is selling the sds100 handheld and sds200 base/mobile
+scanners.  both are capable of monitoring p25 phase 1 and phase 2 systems and
+are the first consumer-grade scanners based on software-defined radio (sdr)
+technology.
+
+ the whistler group is selling the trx-1 handheld and
+trx-2 base/mobile scanners.  these models are capable of monitoring
+p25 phase i and phase ii as well as dmr, mototrbo and nxdn transmissions.
+
+ uniden is selling the bcd436hp handheld and bcd536hp base/mobile
+scanners. these units are capable of monitoring p-25 phase i and phase ii
+systems and support zip code-based scanning, making programming quite easy.
+
+ gre is  selling the pro-18 scanner,
+which requires no user programming.  instead, the user manipulates
+a simple, ipod-like front panel interface.
+radio shack is selling the pro-18 scanner,
+a slightly less capable version of the gre psr-800.
+
+ uniden is selling the homepatrol-1 scanner,
+which requires no user programming.  scanning is based on the 
+entered zip code of the user.
+
+ uniden is selling the bc396xt scanner,
+which appears to be similar to the bc396t with the addition of
+several features, including a bandscope, control channel data output,
+gps location-based scanning and the ability to track
+systems that use esk.
+
+ radio shack is selling the pro-106 and pro-197 scanners,
+which are nearly identical to the gre psr-500 and psr-600 models.
+
+ gre is selling the psr-500 and psr-600 scanners,
+capable of tracking apco project 25 systems (as well as other analog
+trunked systems).
+
+ uniden is selling the bcd996t, a base or mobile
+scanner capable of tracking nearly all apco p-25 systems, as well
+as the common analog trunked systems.  it has a unique capability of
+accepting external gps position information and selecting
+appropriate frequencies to scan.
+more here.
+
+ uniden is selling the bcd396t, a compact handheld
+scanner capable of tracking nearly all apco p-25 systems, as well
+as analog trunked systems.
+more here.
+
+
+radio shack is selling the pro-96, a gre-built scanner
+capable of monitoring 3600-baud and 9600-baud trunked apco p-25
+systems.
+more here.
+
+
+uniden is selling upgraded digital scanners, the
+bc296d handheld and the bc796d base/mobile scanners.
+each
+is capable of monitoring apco p-25 systems, including those
+with 9600 baud control channels.
+more here.
+
+
+uniden continues to sell the
+bc250d handheld and the bc785d base/mobile scanners, each
+of which are capable of monitoring (some) apco p-25 systems through
+the use of a plug-in bci25d decoder card.
+more here.
+
+
+ apco p-25 decoders
+
+
+aor is selling the ard25, an apco p-25 decoder that uses the 10.7 mhz if
+output of a separate receiver.
+more here.
+
+
+
+noaa weather radio
+
+the national oceanic and atmospheric administration (noaa), under the
+auspices of the national weather service (nws), operates more than 900
+transmitters broadcasting weather-related information on one of seven
+vhf frequencies:
+
+ 162.400 mhz
+ 162.425 mhz
+ 162.450 mhz
+ 162.475 mhz
+ 162.500 mhz
+ 162.525 mhz
+ 162.550 mhz 
+
+
+
+check
+here for
+current status on any problems or outages.
+
+
+decibels
+
+rhone & schwartz has an excellent document, db or not db?, describing the fundamentals of
+the decibel unit of measurement that is available
+here.
+
+
+signal propagation
+
+ propagation environment information from a variety of sources can be found
+here.
+ noaa maintains the space environment center.
+ information about the sun-earth environment at
+spaceweather.com.
+ ham radio magazine published a brief article on calculating
+line-of-sight distance.  you can see a scan of that article by clicking
+here.
+
+
+radio teletype (rtty)
+
+ real rtty signals may once again be on the air, originating from
+california (read about the station
+here).
+
+
+from an announcement dated october 31, 2006:
+
+
+
+ksm, the coast station of the maritime radio historical society (mrhs),
+has been granted two rtty frequencies by the fcc.
+
+
+
+the frequencies, known officially as narrow band direct printing (nbdp) channels, are:
+
+
+
+8.4330 mc
+
+12.6310 mc
+
+
+
+authorized power is 5kw.
+
+
+
+the mrhs will use these channels for broadcasting weather, press and other information to the maritime community using rtty (baudot) and sitor fec modes.
+
+
+
+it will take a while for the mrhs transmitter department to bring transmitters on line for these frequencies.  but now that we have fcc approval we can begin work on this new project.  an announcement will be made when we are ready to begin transmission on these frequencies.
+
+
+
+vy 73,
+
+
+
+richard dillman
+
+chief operator, ksm
+
+
+
+
+you can read more about the maritime radio historical society
+here.
+
+
+illinois
+
+ as of 2003, "inadvertent" interception of cellular telephone calls is not illegal,
+at least according to the state supreme court.
+
+read the reasoning
+here.
+
+
+
+michigan
+
+ information regarding the permit that used to be required for scanning from
+a vehicle in michigan is available
+here.
+
+ if you're interested in where the towers are located in michigan's statewide
+apco 25 system, click
+here.
+
+
+odds and ends
+
+ some notes on the origin of "73" and other numeric codes
+can be found
+here.
+
+ does anyone know where i can order a
+mcelroy chart of codes and signals as pictured
+here?
+
+
+you can read about maritime automatic identification system (ais) equipment
+and signals
+here.
+
+ back in 1970 the magazine popular electronics published
+this article about detecting
+changes in local gravity using a cw receiver.
+
+ information about building a quadrifilar helicoidal antenna
+can be found
+here.
+
+ does anyone know when motorola built a portable am/fm
+radio with a model number of x70e?  some photos of the radio
+can be seen
+here.
+
+ rich carlson, n9jig, reviews three scanning magazines
+(popular communications, monitoring times, and
+scanning usa) on his website
+here.
+
+
+interoperability
+
+ the national telecommunications
+and information administration has a set of recommendations for federal
+government radio frequency interoperability.
+the recommendations
+can be found 
+here.
+
+
+spectrum charts
+
+ the national telecommunications
+and information administration, office of spectrum management,
+offers a nifty spectrum chart in pdf format
+here, or you
+can order a poster version
+here.
+
+ you can download an electromagnetic radiation spectrum poster
+here,
+or order a full-size print.
+
+
+
+
+
+
+
+
+contact the webmaster.
+
+last updated september 4, 2019.
+
+
+

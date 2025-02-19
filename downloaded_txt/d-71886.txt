@@ -1,0 +1,86 @@
+
+
+
+sharpreader rss aggregator
+
+
+
+sharpreader
+
+
+links
+
+home
+release history
+screen shots
+faq
+plugins
+blog
+
+
+
+donate
+like sharpreader? make a donation to help support its hosting and development.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+best of the web
+
+
+
+
+
+
+
+
+
+ 
+sharpreader is an rss/atom aggregator for windows, created by luke hutteman.
+to get the latest version (0.9.7.0), either download the installer, 
+or the zip-file.
+prior to running sharpreader, you will need to install the .net framework, version 2.0 or version 1.1 sp1. 
+if you do not currently have the .net framework installed, you can get it at windowsupdate, 
+or here.
+
+main features
+
+handles all rss versions, atom 0.3 and 1.0, modules like dublin core, content:encoding, xhtml:body, etc.
+advanced threading support allowing you to view connected items together in a threaded fashion. 
+sharpreader detects and shows connections between items if they have same link, if one item links to another, if two items both link to the 
+same external webpage, or if an item has comments (for feeds supporting the <wfw:commentrss> standard).
+group subscribed feeds into custom categories.
+feed settings like refresh-rate and purge timeout can be set per feed or per category. category-wide settings apply to all feeds in 
+that category that are still set to "default" for the setting in question.
+dialog-less way of subscribing to new feeds - just drag a link from your browser into sharpreader, or enter the url into the address-bar at the top.
+feedster integration to easily search weblogs and newssites for specific terms, and even
+subscribe to such a search to be notified of new results.
+support for proxy-servers and proxy authentication.
+reduces bandwidth by using http conditional gets and gzip/deflate encoding.
+minimizes to the system-tray.
+systray popup when new items arrive (can be disabled on a per-feed or per-category basis through the properties pane).
+easy keyboard navigation to go the next or previous unread item.
+import and export your subscriptions using opml.
+filter items.
+international character-set support.
+http authentication support.
+
+
+
+
+copyright © 2003 - 2011 luke hutteman
+
+
+

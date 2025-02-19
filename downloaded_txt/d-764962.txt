@@ -1,0 +1,2729 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+kanka's sports page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+kanka's sports page
+
+
+
+nerdy ramblings of a notre dame and cleveland sports fan
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+home |
+message board |
+kankamatic fantasy sports |
+email kanka
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+friday, october 04, 2013
+
+
+
+
+
+a lot can happen in ten years
+
+
+
+
+
+i write this five days short of this blog's 10th anniversary.  from humble beginnings, a lot can happen in 10 years: 836 blog posts, three notre dame head football coaches, the same number of popes, and a few near misses by cleveland sports teams.
+a lot can happen in an individual's life too: meet a girl, get married, buy a house, have a kid, prepare for a second.  priorities can change in a big way over 10 years.  so with that, it's time for this blogger to hang up the keyboard.
+there's been some great moments.  the who will be the next pope? post that got linked by the top google result and blew up blog traffic (and yes, the current pope francis was mentioned on that list).  this site linking to edsbs so early in their existence that spencer actually took the time to write a personal email of thanks.  sabermetric bracketology.  lively message boards, fantasy leagues, and hall of fame voting.  the list goes on, so it's worth getting lost in the archives.
+i may not have time to bring quality discussion to the table, but plenty of sites like her loyal sons and let's go tribe, among countless others, still do.  so i'll still be active in the blog world as a consumer, if not a producer.
+
+thanks everyone for making this possible.  i couldn't have done it without everyone reading, emailing, posting on the message board, and keeping me going all these years.  it's been a fun ride.
+go irish!
+go tribe!
+go browns!
+go cavs!
+
+
+
+
+posted by
+kanka
+
+
+at
+10:08 pm
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+saturday, march 09, 2013
+
+
+
+
+
+baseball hack 22: translate.pl and rosters.pl
+
+
+
+
+
+i'm reviving the blog when it applies to my 35 for 35.  yes, i'd love to blog here more, but life has brought along many more important things over these past few years.
+
+that being said, here's some windows-compatible code for hack 22 in the book baseball hacks.  first, translate.pl.  run this from the same directory your zipped retrosheet event files are stored, and it will unzip them and concatenate all the play-by-play data to pbp.csv.  this code requires the perl extension archive::extract, and also takes advantage of readdir functionality only available in perl 5.2 or later.
+
+
+#!/usr/bin/perl
+use archive::extract;
+
+$outfile = '"c:\users\john\desktop\baseball hacks\retrosheet\pbp.csv"';
+print `type all_hdr.txt > $outfile`;
+
+opendir rsdir, "." or die "can't open directory .: $!\n";
+while (readdir rsdir) {
+ if ( $_ =~ /(\d\d\d\deve)\.zip$/ ) {
+   print "unzipping $_\n";
+   my $ae = archive::extract->new( archive => $_ );
+   my $ok = $ae->extract( to => '.\\' . substr($_, 0, -4) );
+   opendir yrdir, substr($_, 0, -4) or die "can't open directory .: $!\n";
+   chdir(substr($_, 0, -4)) or die "can't change to directory .: $!\n";
+   while (readdir yrdir) {
+    if ( $_ =~ /(\d\d)(\d\d)(\w\w\w)\.ev[an]$/ ) {
+     $century = $1; $year = $2; $team = 3;
+     print `..\\bevent.exe -y $century$year -f 0-96 $_ >> $outfile`;
+    }
+   }
+   chdir("..") or die "can't change to directory .: $!\n";
+   close yrdir;
+ }
+}
+close rsdir;
+print "done\n";
+
+
+similarly, here is rosters.pl, which loops through the unzipped event directories and concatenates all roster files for all years into a single file.  you must specify this file on the command line, e.g. ./rosters.pl > rosters.csv
+
+#!/usr/bin/perl
+
+print "retroid,lastname,firstname,bats,throws,team,pos\n";
+
+opendir rsdir, "." or die "can't open directory .: $!\n";
+while (readdir rsdir) {
+ if ( $_ =~ /(\d\d\d\d)eve$/ ) {
+   opendir yrdir, $_ or die "can't open directory .: $!\n";
+   chdir($_) or die "can't change to directory .: $!\n";
+   while (readdir yrdir) {
+    if ( $_ =~ /(\w{3})(\d{4})\.ros$/ ) {
+     $team = $1;
+     $year = $2;
+     open file, "<$_";
+     while () {
+      s/\n//;
+      s/\cm//;
+      s/\"//g;
+      if (/[a-z]{5}\d{3}/) {
+       print "$year,$_\n";
+      }
+     }
+     close file;
+    }
+   }
+   chdir("..") or die "can't change to directory .: $!\n";
+   close yrdir;
+ }
+}
+close rsdir;
+print "done\n";
+
+
+once you've run this perl code to create pbp.csv and rosters.csv, you can add them to your sql database using the instructions in the book.
+
+
+
+
+posted by
+kanka
+
+
+at
+3:44 pm
+
+
+labels:
+35 for 35,
+baseball hacks
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+saturday, july 14, 2012
+
+
+
+
+
+way too early must watch games of the week: weeks 1-3
+
+
+
+
+
+by f-bomb
+
+
+week 1 (september 1st)
+
+9a, nd vs. navy (ireland) – nbc
+college football on the international stage. historic rivals that finally have a rivalry as navy haswon 2 of the last 3 but nd really shut down the triple option last year in a rout.
+
+3:30p, miami @ bc – abc
+in this acc / former big east battle who will get a jump on the season? these teams have apretty solid past including bc giving miami all they could handle during miami’s prime in theearly 2000s. this is also a preview of two nd opponents. it wouldn’t hurt to do a little scouting.
+
+
+8p, michigan vs. alabama (dallas, tx) – abc
+what can denard do this year? he has shown the ability make amazing plays, especially earlyin the year before he gets banged up. the wolverines will be a preseason top 10 and facing analabama defense that lost 3 guys to the first round of the nfl draft, 1 to the second round, andanother 3 in the rest of draft. did saban reload? we will see. also, can michigan’s shut down anoffense?
+
+*bonus*: august 31st 8p, boise state @ michigan st. – espn
+will michigan state capture the spark they have had the past two seasons? they lost offensive leader, kirk cousins, but return beastly rb le’veon bell. also, william gholston comes back to lead a dirty and stingy spartan defense. will boise state continue their string of early season success against bcs teams in their last season in the moutain west?
+
+week 2 (september 8th)
+
+tba, nebraska @ ucla – tba
+only one name needs to be mentioned with regards to nebraska turning the corner this yearand that name is taylor martinez. at times he has showed brilliance but his inconsistencyespecially in regards to passing. his td to int ratio isn’t great nor is it bad but his poor playreally comes at inopportune times, see the ohio st. game. yet he had the ability to help rallythem back. ucla finds themselves with a new coach in jim l. mora / jim mora jr. / does it really matter it is ucla. ucla hasn’t won more than 7 games since 2005. it will be interesting to see if jim l. mora can get it done. this out of conference test will be a good measuring stick.
+
+
+tba, wisconsin @ oregon st. – tba
+big 10 vs pac 12. montee ball returns to lead the always powerful wisconsin ground game. howwill maryland transfer danny o’brien be at the helm for qb? what will life be like without therodgers brothers at oregon state? they always seem to be a team on the cusp who can at leastplay spoiler in the pac 12. how will they handle run strong team in wisconsin?
+
+
+tba, florida @ a&m – tba
+this is a&m’s welcome to the sec. can will muschamp’s gators make the jump from adisappointing 7-6 season? will a&m be able to move on without ryan tanehill or his superattractive wife? a&m had a disappointing season last year. they should have won games againstoklahoma state and arkansas but those slipped away due to a lack of defense. they also lost tokansas st. and formal rival texas.
+
+*bonus*: 3:30p, purdue @ nd – nbc
+purdue has been disappointing over the past few years but they return several defensive stars who are on the bednarik watch list. will this translate into the wins that have escaped this once consistent big 10 team? nd looks to continue their streak over purdue but with the qb debate still left to be settled they could be in for a long game with purdue’s projected stingy defense.
+
+week 3 (september 13th)
+
+tba, usc @ stanford – tba
+usc is projected to be at the top of college football once again. they return heisman frontrunner in matt barkley. their top wrs, freshman all american marqise lee and robert lee,are both back for another season. the trojans almost topped stanford last year but ended uplosing in triple over-time. not bad for a team that was on suspension. finally stanford looks tomove on without their star qb, andrew luck, who was selected #1 overall in the nfl draft. canthey build themselves into a consistent top 25 program or will they fall back to the middle of thepack? this game should be full of big hits as usc tries to reclaim dominance in the series afterlosing 4 of the last 5.
+
+
+tba, alabama @ arkansas – tba
+arkansas brings back a qb, wr, rb trio slated to be at the top of the sec. this offensivefirepower could turn the tide in a defense heavy league. this early season matchup withalabama should be a test for both teams. alabama, after the michigan game, should knowbetter where they stand and arkansas is one of those sec matchups that may be a problemgame if alabama loses sight of the goal of another national championship.
+
+
+tba, notre dame @ michigan state – abc
+this matchup has been full of intense games for the past 12 years. there have been last minutewins by both teams including two years ago the msu fake field goal / mark dantonio heartattack game in 2010. last year’s game was in doubt even though nd had a two possession leadinto the 4th quarter. with msu returning a slate of defensive stars will they play above nd or willit be another grudge match.
+
+*bonus*: 12p, cal @ ohio state – abc
+ohio state returns their prized athletic qb, braxton miller. will they be able to carry over themomentum they had towards the end of last year which included a victory over big 10 championwisconsin? that said, they also suffered their first loss to michigan since 2003. as for cal, jeff tedford’s team looks to build off a 7-6 season in which they were blown out by the better team every time except a for a surprising 31-28 loss to stanford. cal will certainly be tested by traveling to columbus for yet another pac 12-big 10 matchup.
+
+*bonus #2*: tba, florida @ tennessee
+the world’s largest cocktail party features sec powers of yesteryear. derek dooley continues to tryand bring back the prestige that tennessee had under phil fulmer. will muschamp is trying to translate recruiting success into wins on the field.
+
+
+
+
+posted by
+kanka
+
+
+at
+7:51 am
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+saturday, january 21, 2012
+
+
+
+
+
+the class of 2012
+
+
+
+
+
+it was a small electorate this year - only 3 voters plus the carryover.  as such, the threshhold for election was 2, and there will be no carryover votes next year.
+
+yeah, yeah, they're aren't any pictures.  consider it a weak (and belated) sopa protest or something like that.  without any further adieu, here's the first all-female class of the kankanation hall of fame
+
+mistelle
+a million times stronger than any of us losers.  plus she puts up with pete.
+
+muffett mcgraw
+two halls of fame in two years, plus the best all-around team she's had in a decade.
+
+rose kanka
+not even three months old, and already totally awesome.
+
+
+
+
+posted by
+kanka
+
+
+at
+8:02 am
+
+
+labels:
+kankanation hall of fame
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+saturday, december 10, 2011
+
+
+
+
+
+ramblings (or: possible future column ideas)
+
+
+
+
+
+former indians gm john hart said that the new mlb cba was a good thing because "it gets the best players on the best teams, and that's what fans want."  no, fans want their own team to be competitive.
+the new cba limits spending on the draft and international amateurs, but does nothing to limit spending on free agents.  why?  well, look at the parties involved.  one one side, the owners want to save money (and some/most care about saving money more than winning).  on the other side is the players association.  draftees and international amateurs aren't in the union yet (neither are signed minor leaguers until they're added to a 40 man roster), so cutting their money keeps the owners happy without taking money away from those in the players association.
+there are some that say the moneyball approach is stagnating, some 10 years after the book was published.  well, now the arms race begins again as smart teams who had been spending their resources on the draft and international amateurs will now spend their time and effort trying to get ahead in the climate of the new cba.  it sucks as a fan of a small team, but it will be fun to watch nonetheless.
+no, the albert pujolses and chris pauls of the world shouldn't be "well-paid slaves" - they should be able to play wherever they'd like.  that doesn't make it any easier for the clubs they're leaving though.
+that being said, the nba needs to watch that they don't become a league consisting only of the lakers, heat, celtics, knicks, and 26 feeder teams.  of course, the only way for the "feeder teams" to counter their unattractiveness to superstars, they will need to develop their own moneyball approach to roster construction, whether through underrated veterans, four-year college players, or even a return to a team-first college approach that simply out-hustles the superstar teams.
+robert blanton is expected to be a mid-to-late round draft choice.  but i wouldn't be surprised if his career outshines his draft position.  blanton has always been a hard-hitting ballhawk, and could easily play both corner and safety.  that versatility can keep him in the nfl for a long time, much as it has for cleveland's mike adams.
+those few people still complaining about brian kelly running the new-fangled spread offense at notre dame remind me of the people who complained about frank leahy going with the new-fangled spread over knute rockne's traditional box formation.  and for what it's worth, kelly's "spread" looks a lot like charlie weis's "pro-style," which to me means there's a lot more to an offense than just the name.
+moneyball is a recurring theme in this post, and there's a point where billy beane asks why his [stuff] doesn't work in the playoffs.  arguably, it's because his hitters' top ability is taking walks, which works over the course of the season against a variety of pitchers, but fails against the best teams and their shortened rotations.  but i digress.  a similar question is, "why doesn't mike brey's [stuff] work in the tournament?"  is there a specific component of brey's gameplan that works well enough during the long season against a variety of opponents, but fails against the best team?  definitely worth further research.
+speaking of brey, should he be praised for his great ability to bring in transfer students like ryan humphrey and ben hansbrough?  or does it just seem like the basketball team takes in a lot of transfers since the football team takes in almost none?  how many transfers do other schools take in, in basketball and in other sports?  yet another component of brey's legacy worth looking into.
+i can't understand the (mostly national) media calling for colt mccoy's replacement as browns quarterback.  he's a second year starter who had about a month to learn a new system before the start of this season.  plus, as other clubs have shown, it doesn't matter how good the qb is if he's surrounded by a good run game and good defense.  (sorry dave, it's not the best obligatory tebow reference, but it's the best i could do.)  the browns have too many other holes right now to waste a high draft pick on another quarterback who may or may not work out.
+speaking of the browns defense, they have some good pieces in their front seven, but have been pretty bad against the run.  is it because the unit hasn't played together enough yet?  or because the young guys like phil taylor and jabaal sheard focusing too much on the pass rush because it's their specialty?  or is this unit just not as good as the sum of its parts?
+
+
+
+
+
+posted by
+kanka
+
+
+at
+4:00 pm
+
+
+labels:
+ramblings
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+friday, december 09, 2011
+
+
+
+
+
+it's ballot time again!
+
+
+
+
+
+once again, it's time to vote for the kankanation hall of fame.
+
+list up to 10 people you think should be in the kankanation hall of fame, and email to kanka@kankasports.zzn.com by 5 pm eastern on december 31.
+those who receive a certain percentage of the vote (depends on how many ballots are received; usually 66-75%) will join the classes of 2004-2010.  those who received multiple votes last year will receive one carryover vote this year.
+to view past inductees and voting results, click one of the links below:
+class of 2004
+class of 2005
+class of 2006
+class of 2007
+class of 2008
+class of 2009
+class of 2010
+class of 2011
+
+
+
+
+posted by
+kanka
+
+
+at
+6:38 pm
+
+
+labels:
+kankanation hall of fame
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+thursday, october 20, 2011
+
+
+
+
+
+notre dame football 2011: beat sc game preview
+
+
+
+
+
+usc offense vs notre dame defenseusc's offensive playcalling has been more-or-less balanced, only slightly favoring the pass.  the trojans may want to favor the pass a little more this saturday, both because of notre dame's defensive reputation, and because leading rusher 26 marc tyler is expected to miss the game after dislocating his shoulder against cal.  tyler's primary backup, 22 curtis mcneal, is averaging an impressive 7 yards per carry, but that's mostly as a 5-7, 180 pound change of pace back.  assuming mcneal can't take a full game's worth of snaps, the irish will also see a healthy dose of 30 dj morgan.
+
+quarterback 7 matt barkley wouldn't be considered a mobile quarterback by most standards, but he has gained more yards on the ground than he's lost (thanks partly to only 4 sacks on the year).  fullback 40 rhett ellison has only run the ball once this year (for -5 yards), but he has been an effective outlet in the passing game, averaging two catches per contest.
+
+usc's passing attack centers around wideout 2 robert brooks, who is averaging 10 catches per game.  fellow receivers 9 marqise lee and 80 brandon carswell are averaging less than 3 catches per game, and no other trojan receiver (outside of fullback ellison) is averaging more than one per game.
+
+regardless of who he's throwing it to, barkley has been a very accurate passer this year, completing 68 percent of his throws, with 16 touchdowns to only 4 interceptions.
+
+not surprisingly, manti te'o is the key component of notre dame's defense.  te'o is leading the team in tackles (59), tackles for loss (8.5), and sacks (4).  cornerbacks robert blanton and gary gray have two interceptions apiece to lead the team, while harrison smith has 7 pass breakups - many of them near interceptions.
+
+notre dame offense vs usc defensethe irish have put up spectacular numbers on both sides of the ball.  the run game is averaging close to 200 yards per contest, with cierre wood at 108 yards per game and jonas gray at 66.
+
+tommy rees is completing 66 percent of his passes, with 14 touchdowns and 6 interceptions.  not surprisingly, michael floyd has been his main target; floyd is averaging 9 catches per game.  tyler eifert has come on of late as rees's #2 option, and is averaging 5 catches per game.  wideouts not named floyd (theo riddick and tj jones) are averaging 4 catches per game, and cierre wood is averaging 2.  riddick got a boost of confidence with playcalling that centered around him in the air force game - now let's see if he can carry that forward into this week.
+
+as usual, usc's defensive strength is in its linebackers.  18 dion bailey is a converted safety, and he still plays like one in many ways.  while bailey leads the team in tackles with 48, he's also first on the team in interceptions with 2.  defensive end 8 nick perry leads the trojans with 4 sacks.  both are impressive numbers, but this is a usc defensive unit that isn't quite as good as it was in its glory days last decade.
+
+usc also has 5-8, 165 21 nickell robey starting at one corner.  even if robey isn't matched up on michael floyd, it's likely that he'll have to guard the 6-2 tj jones, and that's a matchup tommy rees will have to look to exploit.
+
+special teamssouthern cal's 48 andre heidari has been near perfect on the year, converting 10-11 field goals, including 3-4 from 40+.  david ruffer, by comparison, is 4-8 with a long of 39.
+
+usc punter 35 kyle negrete is averaging just 39 yards per punt, but he has put 10 of 18 inside the 20.  however, opponents are averaging 16 yards per punt return.  the irish punt team has similar mediocre numbers, with ben turk averaging 37 yards per punt and opponents are averaging 22 yards per return.
+
+usc's primary punt returner is nickell robey.  he's averaging 10 yards per return with a long of 44.  for the irish, john goodman is averaging just 0.3 yards per return, but rumors are flying about michael floyd dropping deep to return punts in this game.
+
+robert woods returns kicks for the trojans, and he's averaging 26 yards per return.  for the irish, george atkinson is averaging 29 per return, including an 82-yard touchdown.
+
+andre heidari also kicks off for the trojans, and he's averaging 63 yards per kick, while his teammates are giving up 20 yards per return for an average start at the 26.  five of heidari's 36 kicks have gone for touchbacks.  notre dame's kyle brindza is averaging 67 yards per kick, with 7 of his 35 kicks going for touchbacks.  notre dame is giving up 22 yards per return, meaning opponents start at the 24 yard line on average.
+
+predictionnotre dame 33, usc 25
+
+
+
+
+posted by
+kanka
+
+
+at
+7:09 am
+
+
+labels:
+nd football,
+nd game previews
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+older posts
+
+home
+
+
+
+
+subscribe to:
+posts (atom)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+days
+
+
+
+
+
+
+
+
+hours
+
+
+
+
+
+
+
+
+minutes
+
+
+
+
+
+
+
+
+seconds
+
+
+
+
+until football
+
+
+
+
+
+
+
+subscribe to
+
+
+
+
+
+
+
+posts
+
+
+
+
+
+
+
+
+
+
+                  atom
+                
+
+
+
+
+
+
+
+
+
+
+posts
+
+
+
+
+
+
+
+
+
+
+
+
+all comments
+
+
+
+
+
+
+
+
+
+
+                  atom
+                
+
+
+
+
+
+
+
+
+
+
+all comments
+
+
+
+
+
+
+
+
+
+
+
+followers
+
+
+
+
+
+
+
+
+
+
+
+popular posts
+
+
+
+
+sabermetric bracketology: 2010 post mortem
+since i didn't get a chance to preview my brackets this year, here's a wrapup of how i did. straightforward scoring: the "pomer...
+
+
+
+
+
+the man of a thousand nicknames
+i noticed that kanka's sports page is the top google result for " tom timmermans  nicknames."  i also noticed that no reliable...
+
+
+
+
+
+
+
+
+
+
+notre dame football 2009issue 6: beat sc
+prediction notre dame 30, usc 27
+
+
+
+
+
+a lot can happen in ten years
+i write this five days short of this blog's 10th anniversary.  from humble beginnings , a lot can happen in 10 years: 836 blog posts, th...
+
+
+
+
+
+
+
+
+
+
+nd basketball: where are they now?
+ austin carr : tv color commentator, cleveland cavaliers adrian dantley : assistant coach, denver nuggets, and a motivational speaker lapho...
+
+
+
+
+
+(no title)
+2004 nd football preview  quarterback  all eyes are on brady quinn  this year.  some are still skeptical about the sophomore qb.  he may n...
+
+
+
+
+
+“why carlyle holiday sometimes misses catching punts” – an inside look at the bob davie years
+by ellen fitzgerald - special to kankanation [editor's note: i wanted to massively edit this for flow, as i, too, have the same problem ...
+
+
+
+
+
+
+
+
+
+
+notre dame football previewpart iii
+defensive line spotlight : victor abiamiri courtesy ap/paul sakuma g tackles tfl sacks 2005 12 48 15 8 also returning : justin brown, casey ...
+
+
+
+
+
+(no title)
+so, i've finally decided to jump the shark (yet again), both in the sports world (by putting my ramblings online), and in the geek world...
+
+
+
+
+
+
+
+
+
+
+notre dame football position preview: quarterback
+this is the first in a series of previews of this year's fighting irish football team. spotlight : jimmy clausen g att-comp-int yds td 2...
+
+
+
+
+
+
+
+blog archive
+
+
+
+
+
+
+
+
+        ▼ 
+      
+
+
+
+2013
+
+(2)
+
+
+
+
+
+        ▼ 
+      
+
+
+
+october
+
+(1)
+
+a lot can happen in ten years
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2012
+
+(2)
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2011
+
+(16)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(3)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2010
+
+(33)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(2)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2009
+
+(59)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(14)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(7)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2008
+
+(175)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(13)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(13)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(14)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(21)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(23)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(10)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(13)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(17)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(16)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2007
+
+(102)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(15)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(13)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2006
+
+(137)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(17)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(16)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(14)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2005
+
+(128)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(20)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(20)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(10)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(8)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2004
+
+(148)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(14)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(16)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(16)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(21)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(16)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(13)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2003
+
+(34)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(10)
+
+
+
+
+
+
+
+
+
+total pageviews
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+awesome inc. theme. powered by blogger.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

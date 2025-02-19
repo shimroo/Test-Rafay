@@ -1,0 +1,227 @@
+ï»¿
+
+
+
+
+
+amibroker - technical analysis software. charting, portfolio backtesting, scanning of stocks, futures, mutual funds, forex (currencies). alerts. free quotes.
+
+
+
+
+
+
+
+
+
+
+
+
+amibroker
+
+home
+news
+products
+download
+order
+support
+
+
+
+
+
+
+
+
+
+discover
+validate
+trade
+
+
+discover your edge
+            use amibroker's powerful and ultra-fast exploration tool to scan the market for opportunities and inefficiencies
+            - your edge to stay ahead of the crowd
+build & validate the system
+            define objective entry & exit rules to remove emotions from your trading. use portfolio-level backtesting & optimization to fine tune the performance. validate robustness using walk-forward & monte carlo simulation
+trade the systemtrade visually from charts, or use analysis tool to generate order list, or place orders directly from your code using auto-trading interface. whatever your style is. the choice is yours.
+
+
+
+ download free trial
+for   windows
+
+
+
+
+upgrade your trading to the next level
+
+
+
+
+    powerful, easy-to-use and beautiful charts
+drag-and-drop averages, bands and indicators on other indicators, modify parameters in real-time using sliders and customize using many different styles & gradients to make them beautiful
+
+
+
+    the world's fastest portfolio backtesting and optimization
+amazing speed comes together with sophisticated features like:
+    advanced position sizing, scoring and ranking, rotational trading,
+    custom metrics, custom backtesters, multiple-currency support
+
+
+
+    automation and batch processing
+don't spend your time and energy on repeated tasks. let amibroker automate your routine using newly integrated batch processor. no more boring repeated clicks. you can run it from windows scheduler so amibroker can work while you sleep
+
+
+
+
+all the information at your fingertips
+
+
+charts and drawing toolsamibroker features all standard chart styles and drawing tools. they all can be customized, combined and overlaid anyway you want. hundreds of popular indicators like macd, rsi, stochastics, adx/dmi and many more are included
+3d optimization chartit helps finding out parameter combinations that produce best and most reliable results. 3d chart can be rotated, animated and watched from any angle. a water level can be adjusted to precisely determine peak and valleys above and under certain level
+analysis windowin this example it shows cross-correlation between symbols from user-defined list.this is just one of many things that you can do using exploration.the analysis window is home to backtesting, optimization, walk-forward testing and monte carlo simulation
+symbols windowamibroker allows you to categorize symbols into different markets, groups, sectors, industries, watch lists. ultra-quick full-text search makes finding symbols a breeze. categories are used in all other areas of the program to quickly filter/analyze user-definable selections of symbols
+interpretation windowthe interpretation is automatically generated market commentary based on user-definable formulas. you can use pre-written interpretations or create your own
+gradient chart and market profileany chart, not only price, can be displayed as gradient chart for attractive look. on the left side you can see volume-at-price chart (orange) which allows to quickly recognize price levels with highest traded volume
+real time quotethis small fragment of real-time quote window features mini high-low rank charts and bid/ask trend indicators which helps tape reading
+information windowamibroker provides instant access to fundamental & valuations data. fundamental data can also be used in your formulas
+
+flexible user interface can be arranged and customized in any way you like. multiple monitor setups are fully supported. windows can be docked or floated.
+
+
+
+powerful tools for the system trader
+
+
+
+
+the analysis window
+the analysis window is home to all your scans, explorations, portfolio backtests, optimizations, walk-forward tests and monte carlo simulation
+screen markets for opportunities
+exploration is multi-purpose screening/data mining tool that produces fully programmable tabular output with unlimited number of rows and columns from all symbols data
+test your system
+the backtest allows to test your system performance on historical data. the simulation is performed on portfolio-level as in real-life, with multiple securities traded at the same time, each having user-definable position sizing rule. 
+
+
+
+
+scoring & ranking
+if multiple entry signals occur on the same bar and you run out of buying power, amibroker performs bar-by-bar ranking based on user-definable position score to find preferable trade.
+find optimum parameter values
+tell amibroker to try thousands of different parameter combinations to find best-performing ones. use smart artificial intelligence optimization (particle swarm and cma-es) to search huge spaces in limited time.
+walk-forward testing
+don't fall into over-fitting trap. validate robustness of your system by checking its out-of-sample performance after in-sample optimization process.
+
+
+
+
+
+
+
+
+monte carlo simulation
+prepare yourself for difficult market conditions. check worst-case scenarios and probability of ruin. take insight into statistical properties of your trading system
+
+
+
+
+concise and fast formula language to express your trading ideas
+
+
+
+
+fast array and matrix processing
+in amibroker formula language (afl) vectors and matrices are native types like plain numbers. to calculate mid point of high and low arrays element-by-element you just type 
+      midpt = ( h + l )/2; // h and l are arrays 
+      and it gets compiled to vectorized machine code. no need to write loops. this makes it possible to run your formulas at the same speed as code written in assembler. native fast matrix operators and functions make statistical calculations a breeze.
+concise language means less work
+your trading systems and indicators written in afl will take less typing and less space than in other languages because many typical tasks in afl are just single-liners. for example dynamic, atr-based chandelier's stop is just:applystop( stoptypetrailing, stopmodepoint, 3* atr(14), true, true ); 
+
+
+
+
+built-in debugger
+the debugger allows you to single-step thru your code and watch the variables in run-time to better understand what your formula is doing
+state-of-the-art code editor
+enjoy advanced editor with syntax highlighting, auto-complete, parameter call tips, code folding, auto-indenting and in-line error reporting. when you encounter an error, meaningful message is displayed right in-line so you don't strain your eyes
+
+less typing, quicker results
+coding your formula has never been easier with ready-to-use code snippets. use dozens of pre-written snippets that implement common coding tasks and patterns, or create your own snippets!
+multi-threading
+all your formulas automatically benefit from multiple processors/cores. each chart formula, graphic renderer and every analysis window runs in separate threads.
+
+
+
+
+three amibroker editions to choose from
+
+
+299
+ buy
+standard edition
+includes 24 months of free upgrades & support
+entry-level version for end-of-day and swing traders. end-of-day and real time. intraday starting from 1-minute interval. 10 symbols limit in real time quote window. 2 simultaneous threads per analysis window. 32-bit only. 
+
+369
+ buy
+professional edition
+includes 24 months of free upgrades & support
+professional real-time and analytical platform with advanced backtesting and optimization. end-of-day and real time. all intraday tick/second/minute intervals, unlimited symbols in real time quote window. unlimited symbols in time&sales. mae/mfe stats included. up to 32 simultaneous threads per analysis window. includes both 64-bit and 32-bit versions.
+
+499
+ buy
+ultimate pack pro
+includes 24 months of free upgrades & support
+everything that amibroker professional edition has plus two very useful programs:amiquote - quote downloader from multiple on-lines sources featuring free eod and intraday data and free fundamental data.afl code wizard - creates afl formulas out of plain english sentences. invaluable learning tool for novices. (amiquote and afl code wizard licenses are worth $198 when purchased separately so you save 8% when buying this pack)
+
+all our licenses are perpetual which means you can buy once and use the version that you purchased forever. they also come with 24-month free upgrades, support and maintenance which means that you will be able to upgrade to the newest version during that period
+  at no cost. all licensed users are also entitled to receive 50% discount on upgrade purchases past free upgrade period.system requirements: microsoft windows 11, 10, 8.1, 7 (sp1) at least 1gb ram. apple mac users can use bootcamp / parallels / vmware to run amibroker.
+
+
+
+
+
+
+company
+    
+about us
+branding
+terms & conditions
+privacy policy
+email us ✉
+
+docs
+    
+feature list
+what's new
+users' guide
+data sources
+videos
+
+support
+    
+tech support & sales
+members' area
+knowledge base
+devlog
+users' kb
+
+other
+    
+amibroker users' forum
+useful links
+
+
+
+copyright ©1995-2024 amibroker.com. all rights reserved.
+
+
+    this site uses cookies. by browsing this site you agree to our privacy & cookies policy
+    amibroker.com is a software development company and does not provide any kind of investment or brokerage services in financial markets. 
+
+
+
+

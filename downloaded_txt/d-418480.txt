@@ -1,0 +1,389 @@
+
+
+
+great internet mersenne prime search - primenet
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+ 
+
+usernamepasswordlog in register forgot password? 
+
+ 
+ 
+ 
+great internet mersenne prime search
+gimps
+finding world record primes since 1996
+
+
+
+
+
+
+
+home
+get started
+
+why join?
+download software
+instructions
+
+
+current progress
+
+known primes
+gimps milestones
+recent results
+recent cleared
+work distribution map
+active assignments
+
+
+create account
+reports
+
+cpu benchmarks
+top producers
+
+totals overall
+trial factoring
+first primality tests
+double-checking
+p-1 factoring
+ecm factoring
+
+
+top teams
+
+totals overall
+trial factoring
+first primality tests
+double-checking
+p-1 factoring
+ecm factoring
+
+
+detailed reports
+
+factors found
+ll results
+prp results
+prp cofactor results
+prp proof results
+ecm progress
+exponent status
+factoring limits
+
+
+
+
+manual testing
+
+assignments
+extensions
+results
+
+
+more information / help
+
+gimps history
+the math
+how gimps works
+glossary of terms
+assignment rules
+web api specification
+privacy policy
+legal
+
+forum & help
+
+
+mersenne historical
+
+
+
+
+
+
+make a donation
+        
+
+
+
+
+copyright © 2014 apycom jquery menus
+
+
+
+
+what is gimps?
+gimps is a collaborative project of volunteers who search for mersenne prime numbers.
+find out how it works, create an account, download software, start searching!
+ask questions on the mersenne forum.
+
+
+
+welcome to gimps
+the great internet mersenne prime search
+
+
+
+join gimps
+downloads
+known primes
+progress overview
+milestones
+history
+
+
+
+
+
+
+
+today's numbers
+
+gflop/s 2369722ghz-days1184861cpus & gpus 2890888 
+
+
+
+
+previous day stats
+
+newly factored152first prime tests194verified prime tests324 
+
+
+
+all exponents below 71446709 have been tested and verified.all exponents below 129469817 have been tested at least once. 
+
+
+2136279841-1 is the new largest known prime number
+october 21, 2024 —
+		the great internet mersenne prime search (gimps) has discovered a new mersenne prime number,
+		2136279841-1.  at 41,024,320 digits, it eclipses by
+		more than 16 million digits the previous largest known prime number found by gimps
+		nearly 6 years ago.
+luke durant, gimps most prolific contributor using free gimps software, proved the number prime on october 12.  after notifying
+		the gimps server, gimps began a rigorous process of independently confirming the prime number on several different hardware platforms using several
+		different programs.  this process concluded on october 19th.
+this prime ends the 28 year reign of ordinary pcs finding the largest known prime.  in 2017, mihai preda authored mersenne prime search
+		software that runs on gpus.   gpus were primarily used in pcs as video cards or for mining cryptocurrency.  nowadays, video cards are also
+		used to power the ai revolution.  durant's idea was to use these powerful gpus that are now available in the cloud and heavily discounted
+		when they are being under-utilized.  luke organized these cloud gpus creating a kind of "cloud supercomputer" spanning 17 countries.
+		after nearly a year of testing, luke finally struck paydirt. on october 11, an nvidia a100 gpu in dublin, ireland, reported that m136279841 is
+		probably prime.  on october 12, an nvidia h100 in san antonio, texas, usa, confirmed primality with a lucas-lehmer test.
+luke, a 36 year-old researcher from san jose, ca, and former nvidia employee, is one of thousands of gimps volunteers contributing
+		spare cpu and gpu time in hopes of making a little bit of history.  mihai preda, and later george woltman, wrote the gpu software.
+		aaron blosser keeps the gimps server running smoothly.
+		this discovery is also made possible by the combined effort of each and every gimps volunteer testing mersenne numbers that
+		did not turn out to be prime.
+		in recognition of all the above, official credit for this discovery goes
+		to "l. durant, m. preda, g. woltman, a. blosser, et al."
+		
+the new prime is only the 52nd known mersenne prime ever discovered.  mersenne primes were named for the french monk
+		marin mersenne,
+		who studied these numbers more than 350 years ago.  gimps, founded by george woltman in 1996, has discovered
+		the last 18 mersenne primes.  volunteers download a free program to search for these primes, with a $3000
+		award offered to anyone lucky enough to find a new prime.  prof. chris caldwell maintained an authoritative web site on
+		the largest known primes,
+		and wrote an excellent history of mersenne primes.
+		
+you can read a little more in the press release.
+
+			plus a stand-up maths video!
+
+
+
+			and a numberphile interview with luke:
+
+
+
+
+
+2024-nov-30
+
+
+hoodies, t-shirts, and mugs
+viliam furik, who organized the production and distribution of gimps polo shirts several years ago, has set up a store where you can purchase gimps hoodies, t-shirts, mugs, and decals.  profits directly support the mission of gimps.  sadly, no polo shirts yet.
+	  
+
+
+2024-mar-06
+prime95 version 30.19 released
+version 30.19 is now available.  ecm stage 2 is now much faster if you can give prime95 lots of memory to use.
+	  this is similar to the improvements to p-1 stage 2 in version 30.8.  there are other minor bug fixes and tweaks.  this is not a required upgrade -- version 30.3 and
+	  later can be used to hunt for new mersenne primes.  should you decide to upgrade, if any workers are currently in ecm or p-1 stage 2 wait for ecm or p-1 to finish before upgrading.
+	  if you have any upgrade questions, ask in  this thread at mersenne forum.
+	  
+
+
+2021-oct-06
+all tests smaller than the 48th mersenne prime, m(57885161), have been verified 
+
+m(57885161) was discovered eight and half years ago.  now, thanks to the largely unheralded and dedicated efforts
+	  of thousands of gimps volunteers, every smaller mersenne number has been successfully double-checked.  thus, m(57885161) officially becomes the 48th
+	  mersenne prime.  this is a significant milestone for the gimps project.
+	  
+
+
+2021-apr-08
+first-time lucas-lehmer testing ends
+one year ago, first-time prp primality testing with proofs was introduced.  it has been a huge success, saving gimps tens of
+	  thousands future double-checks.  going forward, the server will no longer make available exponents for first time lucas-lehmer tests.
+	  users that have not yet upgraded to prime95 version 30.3 or
+	  gpuowl for gpus should do so.  failure to upgrade
+	  will result in unnecessary double-check work.  gimps has a multi-year backlog of double-checks to work through.  there is even a chance that
+	  a new mersenne prime is hidden in all those double-checks.
+	  
+the server will continue to accept lucas-lehmer results.  there is no need to worry about any ll tests that are currently underway.
+	  
+
+
+2020-sep-10
+big changes are here!  prime95 version 30.3 released.
+for almost 25 years, gimps has looked for new mersenne primes by running a primality test on one computer and later
+	  running the exact same primality test on another computer to guard against hardware errors having corrupted the first primality test.
+	  
+a breakthrough by krzysztof pietrzak makes it possible to eliminate the
+	  second primality test!  the first primality test produces a proof file that can be securely verified with less than 0.5% of
+	  the work required to re-run the primality test.  this breakthrough will nearly double gimps' throughput in the long run.
+	  
+version 30.3 is now available with prp proofs.  while not a required upgrade, at some point in the
+	  future only users running version 30.3 with prp proofs will be assigned first-time primality tests.  should you run into any problems,
+	  support is available at this thread at mersenne forum.
+	  
+many thanks to mihai preda for discovering the paper on the breakthrough and realizing its importance to the gimps project.
+	  also, thanks go to pavel atnashev for important ideas on adapting the discovery for use by gimps.
+	  
+
+
+2020-sep-10
+boinc users with gpus can now participate
+srbase has created a boinc project to hand out trial factoring assignments
+	  on large mersenne numbers.  these are very quick work units.
+	  to get the most of the boinc client without any issues, a 
+	  faq at the srbase forum is available.
+	  
+note that there’s no way to individually credit srbase users in
+	  gimps trial factoring stats.  all work is credited to gimps user srbase.
+	  
+
+
+2018-dec-21
+51st known mersenne prime found!
+december 21, 2018 —
+	  the great internet mersenne prime search (gimps) has discovered the
+	  largest known prime number, 282589933-1, having
+	  24862048	  digits.  a computer volunteered by patrick laroche from ocala, florida made the find on
+	  december 7, 2018.  the new prime number, also known as m(82589933), is calculated by multiplying
+	  together 82589933 twos and then subtracting one. it is more than one and a half million digits larger than
+	  the previous record prime number.
+	  
+gimps has been on amazing lucky streak finding triple the expected number of new mersenne primes -- a dozen
+	  in the last fifteen years.  this prime was even luckier for patrick laroche, striking pay dirt on just his fourth try.
+	  for years, patrick had used gimps software as a free "stress test" for his computer builds.  less than four months ago
+	  he started prime hunting on his media server to give back to the project.  by way of comparison, some gimps participants
+		have searched for more than 20 years with tens of thousands of attempts but no success.  this proves that, with luck,
+	  anyone can find the next new mersenne prime.
+	  
+the new prime is only the 51st known mersenne prime ever discovered.  mersenne primes were named for the french monk
+	  marin mersenne,
+	  who studied these numbers more than 350 years ago.  gimps, founded in 1996, has discovered
+	  the last 17 mersenne primes.
+	  volunteers download a free program to search for these primes, with a cash
+	  award offered to anyone lucky enough to find a new prime.
+	  prof. chris caldwell maintains an authoritative web site on
+	  the largest known primes,
+	  and has an excellent history of mersenne primes.
+	  
+  patrick is one of thousands of volunteers using
+	  free gimps software available at www.mersenne.org/download/.
+	  credit for this prime goes not only to patrick laroche for
+	  running the prime95 software, woltman for writing the software, blosser for keeping the
+	  primenet server running smoothly, and the thousands of gimps volunteers that sifted through millions of non-prime candidates. 
+	  in recognition of all the above people, official credit for this discovery goes
+	  to "p. laroche, g. woltman, a. blosser, et al."
+	  
+you can read a little more in the press release.
+	  
+
+
+more news and discussions
+
+gimps forums — here you can chat with fellow gimps members, get help with
+	  installation questions, learn more about how gimps works, etc.
+	  
+
+
+make math history!!
+you could discover one of the most coveted finds
+	  in all of mathematics - a new mersenne prime number. we've found eighteen already. join in on this fun, yet serious
+	  research project. all you need is a personal computer, patience, and a lot of luck.
+	  
+in addition to the joy of making a mathematical
+	  discovery, you could win a (usd) $3,000 cash gimps research discovery
+	  award for each mersenne prime discovered, and the electronic
+	  frontier foundation is offering a $150,000 award
+	  to the first person or group to discover a 100 million digit prime number! see how gimps will distribute this award if we are lucky enough to find the winning
+	  100 million digit prime.
+	  
+
+
+what are mersenne primes and why do we search for them?
+prime numbers have long fascinated amateur and
+	  professional mathematicians. an integer greater than one is called a prime number if its only
+	  divisors are one and itself. the first prime numbers are 2, 3, 5, 7, 11, etc. for example, the
+	  number 10 is not prime because it is divisible by 2 and 5. a mersenne prime is a prime of the
+	  form 2p-1. the first mersenne primes are 3, 7, 31, 127 (corresponding to p = 2, 3, 5,
+	  7). there are only 51 known mersenne primes.
+	  
+gimps, the great internet mersenne prime search,
+	  was formed in january 1996 to discover new world-record-size mersenne primes. gimps harnesses the
+	  power of thousands of small computers like yours to search for these "needles in a
+	  haystack".
+	  
+most gimps members join the search for the thrill
+	  of possibly discovering a record-setting, rare, and historic new mersenne prime. of course, there
+	  are many other reasons.
+	  
+
+
+
+
+©1996-2025 mersenne research, inc.
+
+current time: 2025-02-17 15:20 utc - page rendered in 0.0069s
+
+
+
+
+
+

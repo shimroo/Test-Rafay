@@ -1,0 +1,538 @@
+
+
+
+program microchip pic micros with c - sample source code, faq and more
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+search this site (www.microchipc.com).
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+ 
+ 
+ 
+
+ 
+
+
+
+
+
+
+this site is non-profit. ad revenue almost covers hosting costs.
+
+
+
+
+
+
+
+
+
+
+expand all | collapse all
+
+
+home
++ pic code in c (55)
+index
++ pic16fx code in c (2)
+pic16f87x bootloader
+delay routines
+crc routines in c
+eeprom, i2c, a/d, d/a
+more ...
+
++ pic18fx code in c (2)
+delay routines
+pic18fx52 bootloader
+usb code in c
+crc routines in c
+eeprom, i2c, a/d, d/a
+more ...
+
++ dspic30fx code in c (2)
+hello world
+rc pulse
+more ...
+
+usb code in c
+crc routines in c
+eeprom
+i2c
+a/d
+d/a
+lcd
+mmc card
+pulse monitor project
+triac controller project
+pic12c509 logic gate
+phase controller project
+dallas ds1821 thermostat
+heater project
+multitasking
+samsung ks0713 driver code
+... and 40 other example projects
+
++ pic c faq (68)
+index
+commonly used features?
+how to find suppliers?
+how to research?
+available datatypes?
+available datatypes?
+switch bits on and off?
+test bits in a variable?
+divide or multiply by two?
+inline code for functions?
+how do i use interrupts?
+speed up interrupts?
+timing exact intervals?
+delay routines?
+measure the time code takes?
+how do i reset the micro?
+... the other 50 questions
+
++ pic bootloaders (5)
+universal pic bootloader
++ pic16f87x bootloader
+index
+features
+download
+troubleshooting
+faq
+photos
+user testimonials
+
+pic18f1320 bootloader
++ pic18x52 bootloader
+index
+
+dspic bootloader
+
++ pic articles (3)
+hi-tech c speed optimization
+hi-tech c multitasking
+solderless rs232 crossover
+
++ pic tips (7)
+pic tips 0
+pic tips 1
+pic tips 2
+pic tips 3
+pic tips 4
+pic tips 5
+pic tips 6
+
++ reviews (7)
+lupik compiler
+ccs c
+dlp design
+hi-tech c picc16
+hi-tech c picc18
+peter andersons library
+pic18 compiler comparison
+picall programmer
+
+
++ uva tutorial (2)
+uva tutorial
+mingw tutorial
+
+advertise
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+news
+10th march 2016. converted three more projects to github.      
+          9th march 2016. tonight, shifted pic16f87x bootloader to github.        
+          8th march 2016. i am slowly copying all of the source code to github, so anyone can submit pull requests to improve the code. tonight, i shifted rs232 serial port examples and the usb example for the pic18f4550.
+            
+          31st january 2025. observed a lot of traffic from universities and educational institutions worldwide.          
+25th january 2025. lots of site traffic from emerging markets, where microcontrollers that sell for fractions of a us dollar are popular. 
+16th march 2014. added a link to simplertos, a multitasking os. for more information, see the c sample source section on simplertos.
+2nd july 2013. added a link to www.embeddedrelated.com, an excellent resource for anything related to embedded programming.
+31st february 2013. fixed site for colors with google chrome.
+16th july 2012. added code for portable lcd driver.
+3rd april 2011. updated links.
+18th july 2011. added a link to an an embedded pic programmer, a method of programming a pic micro from an embedded linux application.
+26th january 2011. added a link to datasheet zone, one of the best places on the web to download datasheets for integrated circuits.
+22rd november 2010. unfortunately, microchipfault.com had to be discontinued due to stackoverflow changing their business model.
+23rd october 2010. removed dead links. thanks isaac rogers.
+27th september 2010. the (admittedly small) advertising profits from this site are now supporting an orphan in africa.
+27th september 2010. new 18f4525 bootloader released.
+18th august 2010. new 18fx52 bootloader client written in python, for linux (or mac).
+19th may 2010. check out the openpicus wireless platform project.
+
+            12th march 2010. updated source code.
+24th february 2010. microchipfault.com is live. note: unfortunately, microchipfault.com had to be discontinued due to stackoverflow changing their business model.
+
+            10th january 2010. updated website with review for lupik compiler and the dot factory: an lcd font and image generator.
+22nd december 2009. added links to free terminal program, realterm. highly recommended.
+28th september 2009. added the ds30 loader, a universal pic bootloader that supports almost every pic micro, including pic18f, pic24f, dspic30 and dspic33.
+1st april 2009. updated links to portmon, one of the most amazing little utilities to monitor rs232 serial communications occurring in the background. checked other links.
+23rd february 2009. updated the pic18f4550 usb serial port to be compatible with hi-tech c v9.51pl3.
+10th january 2009. the pic18fx bootloader source code is now freely downloadable.this source code was previously sold for a fee.
+8th december 2008. added the uva online judge tutorial and mingw tutorial.
+10th november 2008. added a link to www.datasheetdir.com. this website has thousands of datasheets, and is maintained by an engineer that has spent 3 years collecting datasheets as a service to the engineering community.
+23rd july 2008. hi-tech software has released the new pro ansi c compiler for microchip’s pic32 mcu family. supports omniscient code generation™. for more details  visit the pic32 compiler product web page.
+14th may 2008. added innosetupav v1.00, a sample installer script for any windows based support programs for any embedded work.
+13th may 2008. fixed some broken links in the sourcecode page, unlocking some source code that wasn't previous accessible.
+15th april 2008. free hi-tech software pic32 compiler: time limited offer. see hi-tech c  compiler offer.
+3rd april 2008. hi-tech   c® pro released for the pic10/12/16 mcu family, with omniscient code generation, supporting the pic10/12/16 mcu family.
+
+            details, see the product forum   post.
+21st february 2008. release candidate   testing: hi-tech software’s picc-18 pro v9.62.
+12th february 2008. beta release:   hi-tech c pro for the pic32 mcu   family. nearly 50   volunteer testers will, effective week commencing 11 february, put the beta release of hi-tech c pro for the pic32 mcu family ansi c compiler through its   paces.
+9th january 2008. added tiny threads example project.
+8th january 2008 . added interrupt driven uart for pic16x.
+3rd january 2008. added link to minibasic - includes a complete library of example peripheral source code in c, for pic18, pic24, pic32.
+30th november 2007. updated pic18f4550 example - a virtual comm port (vcp) over usb.
+7th november 2007. microchip has released the pic32, based on a mips core. the "pic32 linux challenge" has been laid down, to fit uclinux or linux into a pic micro.
+22nd august 2007. added pic joystick i/o demonstration project.
+22nd august 2007. added pic18lf4550 plus lcd plus temperature sensor sample project.        
+view older news.
+
+            11 nov 1999 uploaded first 
+          version of this site to the web.
+
+
+pic sample code in c
+brief site map
+
+
+ c sample source for the pic micro (55 sample projects).
+ pic c faq (frequently asked questions) page (85 questions).
+ds30 loader, a universal pic bootloader.
+dspic bootloader.
+pic18fx52 bootloader.
+pic18f1320 bootloader.
+pic16f876a or pic16f877a bootloader.
+speed/size optimization tips for c on a pic micro.
+... and much, much more!
+
+
+pic c sample code
+ a huge amount of pic 
+          sample code in c, over 55 projects.  browse the pic c sample code 
+            archive here.
+frequently asked questions for hi-tech c
+ hi-tech 
+          c frequently asked questions with the 65 most commonly asked questions 
+      about hi-tech c.      
+
+ds30 loader
+universal pic bootloader for the pic18f, pic24f, pic24h,  dspic30f and dspic33f from microchip. 100% open source. view the ds30 loader.
+16f876a or pic16f877a bootloader
+download a program into your pic micro, in-circuit, within seconds via a serial link. browse to shane tolmies 16f87xa bootloader.
+18f1320 bootloader
+download a program into your pic micro, in-circuit, within seconds via a serial link. browse to 18f1320 bootloader.
+18fx52 bootloader
+download a program into your pic micro, in-circuit, within seconds via a serial link. browse to shane tolmies 18fx52 bootloader.
+dspic  bootloader
+download a program into your dspic, in-circuit, within seconds via a serial link. this bootloader has auto-baud rate detection, and works with any dspic via a configurable xml file. browse to ingenia dspic bootloader.
+featured articles
+
+
+ review of lupik compiler, a new compiler for entry level pic micros.
+review of ccs c, one of the compilers for the pic micro.
+review of hi-tech c for pic18x, 
+        one of the compilers for the pic micro.
+18fxxx 
+          tutorial with quick start, everything you need to get started on this 
+        platform.
+tool setup tips, optimization tips for c, and much more. a huge 
+        7.6mb .pdf file - highly recommended. read.
+ how to have four pic16f87x chips on one rs232 
+        bus.
+ "how do i integrate mplab and an editor such as ultraedit?".
+"how 
+          do i measure an unknown resistor without 
+        using an a/d port?".
+          "why 
+          do i need a common ground point for mixed 
+        analogue/digital circuits?".
+          "if 
+          i had to condense 3 years of pic micro experience 
+        into one page, what would i say?".
+a 
+          technique thats resulted in development time shortened by 20% and bugs 
+        reduced by 10%. read.
+discussion 
+          on the most technically superior way of compiling files under hi-tech 
+        c. read.
+
+
+18fxxx tutorial
+
+
+
+
+
+
+hello shane,
+                          saw your bootloader page on sunday, wired the max232 circuit monday morning at 09:00 am and had downloaded my first program into an 'f876 by 09:15!!! by the end of the day, i came to realize that this is by far one of the best time savers i've come across in the last 5 years!
+thanks for an extremely detailed description and once again, thank you for making petr kolomaznik's small and powerful bootloader available.
+fritz braun jr.
+                      melbourne, fl usa
+www.bellsouth.net
+
+
+
+
+
+
+everything you need to know to get started 
+    using the 18fxxx micros with c. optimization tips, tool setup, and more.
+hi-tech c speed optimization
+ optimizing your code for 
+    speed and small size in loops in hi-tech c. see hi-tech 
+    c speed optimization tips. 
+reviews
+
+
+ review of lupik compiler, a new compiler for entry level pic micros.
+
+review 
+          of ccs c, one of the compilers for the pic micro.
+review 
+        of hi-tech c for pic18x, one of the compilers for the pic micro.
+  over 19,000 lines of 
+            c sample code for the pic micro, with 95 projects. review of peter 
+        andersons pic c library.
+review 
+          of hi-tech c for pic12x, pic16x, one of the compilers for the pic 
+        micro.
+
+
+
+
+
+
+
+"thanks, 
+                      you got me up and running quickly!"
+
+                      - sam douglas.
+
+
+
+
+
+
+hi-tech c micellaneous 
+
+how to do simple 
+        but powerful multitasking with hi-tech c. with tutorial 
+        and source code.
+how to increase your processing speed using the intel core i7 processor.  fly through everything you need to do on your pc, the processor will    give you the ultimate performance that you need to perform all   of your tasks.
+
+
+
+how to use a serial 
+        link for debugging. see serial debugging.
+
+
+
+c links
+
+ see www.embeddedrelated.com for resources related to embedded programming including white papers, books, blogs, forums and sample code. highly recommended.
+ portmon to monitor serial rs232 and/or lpt comms between other programs. w95/98/nt/2k. 
+        hooks into operating system to give background monitoring of any comms 
+        on any port.
+
+
+the openpicus wireless platform project.
+
+
+realterm. free terminal program, excellent design. recommended.
+
+
+hone your c programming skills with the uva online judge. if you are using windows, you can use the mingw windows tutorial to help prepare programs.
+
+
+www.datasheetdir.com. this website has thousands of datasheets, and is maintained by an engineer that has spent 3 years collecting datasheets as a service to the engineering community.
+
+
+minibasic for pic32 and pic18. the source code is open, and written in c, so that you can use it to work out how to talk to virtually any peripheral on a pic18, pic24, or pic32. ported originally from arm source code. download from www.pic32.org/minibasic/.
+
+
+picmicro 
+          webring with lots of pic micro links. 
+
+the best real time 
+        operating system (rtos) for the pic - salvo from www.pumpkininc.com. 
+hi-tech c source 
+        code for interfacing to a usb device. 
+http://www.beyondlogic.org/usbnutshell/usb7.htm#pic16f876example
+blitzlogic, 
+        for a few bits of sample c code and circuits.
+ peter andersons 
+        home page http://www.phanderson.com/pic/ 
+
+ my review of peter andersons pic c library.library of pic 
+              micro c code, see http://www.phanderson.com/pic/picc/index.html 
+ items available 
+              from peter andersons zshop on amazon.com. see here. 
+
+
+pdfqueen is a great search engine for pdf documents, see www.pdfqueen.com.
+
+
+ken boaks page added 
+          covers pics and telephone circuitry. he has upcoming routines for simple 
+          dtmf dial out, v23 transmission, dial tone sensing, dial tone regeneration, 
+          audio sample record/replay using a 16f877 and 128kx 8 sram, v23 reception 
+          in c on a 16f877, and dtmf reception in firmware on a '877 running at >16mhz. read.
+
+ lots of pic code in c. http://www.piclist.com/techref/microchip/language/c/index.htm
+ pic micro code in assembly, see base of epe mage page, http://www.epemag.wimborne.co.uk/
+
+eagle air australia, 
+        pic micro and c, see http://www.eagleairaust.com.au/sampcode.htm.
+
+
+          hi-tech 
+          c, the c compiler that most of the the code on this site is written for.
+
+cc5x compiler, http://www.bknd.com/cc5x/index.shtml.
+cc5x compiler example 
+        code, http://www.bknd.com/cc5x/examples.shtml. 
+pic c routines for 
+        the c2c compiler. examples of crc, i2c, xmodem, lcd display, a/d and more, 
+        see http://www.winpenny.cwc.net/index.htm.
+
+
+
+
+
+
+
+"i 
+                      found this site one of the most helpful on the net regarding 
+                      c
+                      development for the pic family.
+                      many thanks to the people involved on it!"
+- 
+                          eduardo robles
+
+
+
+
+
+
+
+about 
+    the author
+
+hi,
+
+i have invested literally thousands of hours in this site, for you, and i sincerely 
+    hope this archive saves you a lot of time and effort. 
+    to enable you to trust what i have written on this site, here is my experience:
+
+
+
+14  years of experience, 
+        10 years of commercial programming in c/c++/c#/php/sql/.net.
+
+
+ 4 years doing an 
+          electrical engineering degree at canterbury university, graduated 
+          with honours.
+
+ 1 year of tutoring 
+        students for a stage 4 electrical engineering design course at university.
+8 years of commercial 
+        programming with pic micros.
+
+2 years of commercial 
+          programming with arm and embedded linux.
+
+4 years of experience 
+        with 8086 assembly.
+
+ regards,
+shane tolmie (beng. elec. hons.)
+email: support@microchipc.com
+
+
+
+
+
+
+
+
+
+
+this site is non-profit. ad revenue almost covers hosting costs.
+
+we welcome any suggesions 
+  or comments! send them to shane tolmie on support@microchipc.com. 
+  this site is a completely separate site to www.microchip.com, and is maintained 
+  independently of microchip ltd., manufacturers of the pic micro. 
+  all code on this site is free for non-commercial use, unless stated otherwise. 
+  commercial use normally free, however, it is prohibited without contacting support@microchipc.com for permission.
+  all content on this site created by shane tolmie is copyrighted by shane tolmie 
+  1999-2009. click to advertise on this website - $29.90 for a banner ad which will reach 55,000 user sessions per month. one months free trial!
+
+
+
+
+
+
+
+

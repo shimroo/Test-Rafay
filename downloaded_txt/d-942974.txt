@@ -1,0 +1,828 @@
+
+
+
+
+
+
+
+
+
+bibletime
+
+
+
+
+
+
+view on github
+bibletime
+bibletime is a powerful cross platform bible study tool.
+
+
+
+
+
+
+
+
+    about
+
+
+bibletime is a completely free bible study program, built for linux, windows, freebsd and mac os x. bibletime contains over 200 free bible texts, commentaries, dictionaries and books, provided by the crosswire bible society via the sword programming library. bibletime is written in c++ and uses the qt gui toolkit.
+
+
+
+
+    downloads
+
+
+bibletime program downloads
+
+        source code & binaries for windows and mac os x are available on the
+        release page at github.
+    
+
+        the major linux distributions like ubuntu, debian, gentoo and opensuse as well as freebsd
+        have bibletime packages available in their package manager.
+    
+
+
+bible text downloads
+
+        after installation, bibletime's bookshelf is empty. downloading and installing works is just a
+        matter of a few clicks: open the bookshelf manager from the settings menu, click the green refresh button to refresh the default remote source (the crosswire main repository), select the works to install and click the install button and confirm.
+    
+
+
+
+
+    translations
+
+
+    did you know? you can help translating bibletime to your language at
+    transifex.
+
+
+
+
+    news
+
+
+2022-05-14
+
+        bibletime 3.0.3 released
+    
+the bibletime team is proud to announce the immediate availability of bibletime version 3.0.3 which is the third bugfix release in the stable 3.0 series of bibletime.
+read more…
+
+all users of bibletime are encouraged to upgrade, especially users still using bibletime version 2.11.2 or earlier.
+notable changes since version 3.0.2:
+
+macos build improvements
+fixed license.html being installed twice
+partially worked around a libsword bug which limited download durations to 10 seconds
+fixed bug which made it impossible to active toolbar buttons using keyboard
+fixed some out-of-bounds memory read
+fixed a number of input parsing and output generation errors, including invalid memory reads
+fixed search scopes not being properly translated
+fixed version information in installed metadata files
+updated translations
+
+source code and binaries for bibletime 3.0.3 can be found here.
+details of bibletime-3.0.3.tar.xz:
+
+file size: 1620012 bytes (1.54 mb)
+md5sum: 07c4f717f15be1418c0e3f434ee2983c
+sha1sum: 4af0d3f999b8848986ead5b7b2708bb70ff11460
+sha256sum: 80e5e4ccb69a95201036442dd3f13dffcfcb0f001be1222ce7eefcb30fcc2692
+
+glory be to god and thanks to everyone who contributed to this release!
+with best regards, and on behalf of the bibletime team,jaak ristioja
+
+
+
+2021-08-30
+
+        bibletime 3.0.2 released
+    
+the bibletime team is proud to announce the immediate availability of bibletime version 3.0.2 which is the second bugfix release in the stable 3.0 series of bibletime.
+read more…
+
+all users of bibletime are encouraged to upgrade, especially users still using bibletime version 2.11.2 or earlier.
+notable changes since version 3.0.1:
+
+fixed a build-error caused by an c++11 incompatibility (bug #332)
+fixed copying of text disabled with qt versions earlier than than 5.13 (bug #334)
+fixed some undefined behavior and out-of-bounds memory errors
+fixed missing documentation in windows
+updated translations
+added ability to copy docs into build during install and packaging
+
+source code and binaries for bibletime 3.0.2 can be found here.
+details of bibletime-3.0.2.tar.xz:
+
+file size: 1631828 bytes (1.56 mb)
+md5sum: 026794966a22c59bf8a814f3efaf9a62
+sha1sum: 5bc1cb264af3efcbfbb4f7086892b7ba683ab04a
+sha256sum: fc93639d4fc3183e1846dacacd7eede8c80d09962285d81325cf896ebf48609e
+
+glory be to god and thanks to everyone who contributed to this release!
+with best regards, and on behalf of the bibletime team,jaak ristioja
+
+
+
+2021-07-30
+
+        bibletime 3.0.1 released
+    
+the bibletime team is proud to announce the immediate availability of bibletime version 3.0.1 which is the first bugfix release in the stable 3.0 series of bibletime.
+read more…
+
+all users of bibletime are encouraged to upgrade, especially users still using bibletime version 2.11.2 or earlier.
+notable changes since version 3.0:
+
+improved tuning of scrolling speed.
+improved handling of fonts to fix many bugs, including a switch to qt's native font chooser widget in settings dialog, because of many serious bugs in our legacy implementation.
+improved sample text in settings dialog.
+improved behavior of the mag view to be more similar to pre-3.0 behavior.
+increased maximum column count from 4 to 10.
+removed the orphaned and broken tests for bibletime.
+updated translations, including a new user interface translations to japanese and ukrainian, a new handbook translation to russian, and a new howto translation to ukrainian.
+fixed displayview.qml getting incorrectly installed under /usr/bin/ on some platforms.
+fixed some compatibility issues with different qt versions.
+fixed a crash when editing personal commentary.
+fixed highlighting of selected text.
+fixed dragging of links.
+fixed modules rearranging themselves.
+fixed logic related to clicking on verse numbers.
+fixed custom font of first column being incorrectly applied to all columns.
+fixed preview in settings dialog displaying text in red.
+fixed lexicons not being displayed.
+fixed drag and drop in mag view and search dialog.
+fixed no text being displayed for some thml modules.
+fixed undefined behavior and crashes from opening menus to select works by working around a broken qmenu interface (qtbug-77273).
+fixes to handling of languages, including a caching discrepancy which caused some settings not being properly applied before restarting bibletime.
+fixed saving of chapters not working properly.
+fixed handling of nested  tags for osis works.
+fixes to handling of pageup/pagedown keys when scrolling out of bounds. note that when bibletime is compiled against qt 5.9, one might still experience a trivial glitch where only part of the module is displayed. pressing pageup/pagedown again may help to work around this.
+
+source code and binaries for bibletime 3.0.1 can be found here.
+details of bibletime-3.0.1.tar.xz:
+
+file size: 1630180 bytes (1.55 mb)
+md5sum: fb20bfefe40204296aaaadb43ebf4838
+sha1sum: 649c1f6baedefdc708a12a3a25d71a213263f08c
+sha256sum: 6b2e28f267e08ff9b7041a01317560c3435395a160250bcb94d62f1194574a20
+
+glory be to god and thanks to everyone who contributed to this release!
+with best regards, and on behalf of the bibletime team,jaak ristioja
+
+
+
+2020-08-02
+
+        bibletime 3.0 released
+    
+the bibletime team is proud to announce the immediate availability of bibletime version 3.0, which is the first full release in the stable 3.0 series of bibletime.
+read more…
+
+notable changes since 2.11.2:
+enhancements:
+
+text windows now have continuous scrolling from the beginning to end of a module. at the end of a chapter just keep scrolling to see the next chapter.
+you don't have to open the personal commentary for writing. edit it in a normal text window or even when it is a parallel column in a text window.
+automatic text scrolling up or down with variable speed and pause.
+copy to clipboard by choosing the beginning and ending reference.
+a search filter was added in the "install works" page of the bookshelf manager.
+you can select text from a single column when using parallel texts in a window.
+added a user interface to delete or create search indices.
+the first time the bookshelf manager is used in a session, the remote libraries are updated.
+improved popup menus and icons for module chooser buttons and text window headers.
+show module unlock information in about text when available.
+improved unlocking of modules.
+
+bugs fixed:
+
+locked bible not unlocking properly.
+place not being saved in daily devotional.
+problems with mag window references using  hebrew modules oshb and osmhb.
+unable to create a search scope for deuterocanonical books.
+searching with quotes not working.
+mag windows strongs references not working unless config settings were saved.
+
+note that the bibletime source code no longer bundles the generated documentation (handbook and howto). we have amended the build system to generate the documentation by default, but this can optionally disabled. see readme.md for details.
+build requirements:
+
+c++11 compiler
+qt 5.9 or later
+sword 1.8.1 or later
+clucene 0.9.19 or later
+cmake 3.10 or later
+po4a (for handbook and howto)
+xsltproc (for handbook and howto)
+docbook-xsl (for handbook and howto)
+docbook-xml (for handbook and howto)
+fop (for handbook and howto pdf generation)
+
+source code and binaries for bibletime 3.0 can be found here.
+source archive details:
+
+filename: bibletime-3.0.tar.xz
+file size: 1568732 bytes (1.50 mb)
+md5sum: c90bcafa7938ff0257a8599c3d9cb024
+sha1sum: 848bc1679767d767e35c2e8798ae23833edb9e34
+sha256sum: d6beef62ad44b255e3dc4c5e89214bf01a0e85c9136073b0be12fca3d2b22622
+
+with best regards, and on behalf of the bibletime team,jaak ristioja
+
+
+
+2020-05-09
+
+        bibletime 3.0 rc 1 released
+    
+the bibletime team is proud to announce the immediate availability of bibletime version 3.0 rc 1, which is the first release candidate in the stable 3.0 series of bibletime.
+read more…
+
+notable changes since 2.11.2:
+enhancements:
+
+text windows now have continuous scrolling from the beginning to end of a module. at the end of a chapter just keep scrolling to see the next chapter.
+you don't have to open the personal commentary for writing. edit it in a normal text window or even when it is a parallel column in a text window.
+automatic text scrolling up or down with variable speed and pause.
+copy to clipboard by choosing the beginning and ending reference.
+a search filter was added in the "install works" page of the bookshelf manager.
+you can select text from a single column when using parallel texts in a window.
+added a user interface to delete or create search indices.
+the first time the bookshelf manager is used in a session, the remote libraries are updated.
+improved popup menus and icons for module chooser buttons and text window headers.
+show module unlock information in about text when available.
+improved unlocking of modules.
+
+bugs fixed:
+
+locked bible not unlocking properly.
+place not being saved in daily devotional.
+problems with mag window references using  hebrew modules oshb and osmhb.
+unable to create a search scope for deuterocanonical books.
+searching with quotes not working.
+mag windows strongs references not working unless config settings were saved.
+
+note that the bibletime source code no longer bundles the generated documentation (handbook and howto). we have amended the build system to generate the documentation by default, but this can optionally disabled. see readme.md for details.
+build requirements:
+
+c++11 compiler
+qt 5.9 or later
+sword 1.8.1 or later
+clucene 0.9.19 or later
+cmake 3.10 or later
+po4a (for handbook and howto)
+xsltproc (for handbook and howto)
+docbook-xsl (for handbook and howto)
+docbook-xml (for handbook and howto)
+fop (for handbook and howto pdf generation)
+
+source code and binaries for bibletime 3.0 rc 1 can be found here.
+source archive details:
+
+filename: bibletime-3.0_rc1.tar.xz
+file size: 1554532 bytes (1.48 mb)
+md5sum: e7b1da5da0c85fb861b210ca43a82eb5
+sha1sum: e64a0b0769ce7b3fadaddcab3838dca7df5c38fc
+sha256sum: 14245b4a529d92bc31bca2b78813e057022fbc9dd58a32615b318a4d4cb2fb1c
+
+with best regards, and on behalf of the bibletime team,jaak ristioja
+
+
+
+2019-12-22
+
+        bibletime 3.0 beta 2 released
+    
+the bibletime team is proud to announce the immediate availability of bibletime version 3.0 beta 2, which is the second beta release in the stable 3.0 series of bibletime.
+read more…
+
+notable changes since 2.11.2:
+enhancements:
+
+text windows now have continuous scrolling from the beginning to end of a module. at the end of a chapter just keep scrolling to see the next chapter.
+you don't have to open the personal commentary for writing. edit it in a normal text window or even when it is a parallel column in a text window.
+automatic text scrolling up or down with variable speed and pause.
+copy to clipboard by choosing the beginning and ending reference.
+a search filter was added in the "install works" page of the bookshelf manager.
+you can select text from a single column when using parallel texts in a window.
+added a user interface to delete or create search indices.
+the first time the bookshelf manager is used in a session, the remote libraries are updated.
+improved popup menus and icons for module chooser buttons and text window headers.
+
+bugs fixed:
+
+locked bible not unlocking properly
+place not being saved in daily devotional.
+problems with mag window references using  hebrew modules oshb and osmhb
+unable to create a search scope for deuterocanonical books
+searching with quotes not working.
+mag windows strongs references not working unless config settings were saved.
+
+build requirements:
+
+c++11 compiler
+qt 5.9 or later
+sword 1.8.1
+
+source code for bibletime 3.0 beta 2 can be found here.
+details:
+
+filename: bibletime-3.0_beta2.tar.xz
+file size: 3646880 bytes (3.48 mb)
+md5sum: 1874d442546791b5611343fbcf2aed73
+sha1sum: 031546bdef274b2939f3132de66acd84bf81e791
+sha256sum: 2f37d1062c516872bba12292317bdd45a05ed8c942e24020308a8e0584e4cfe9
+
+mac, windows, snap and flatpak versions will also be uploaded soon. :)
+with best regards, and on behalf of the bibletime team,jaak ristioja
+
+
+
+2019-12-11
+
+        bibletime 3.0 beta 1 released
+    
+the bibletime team is proud to announce the immediate availability of bibletime version 3.0 beta 1, which is the first beta release in the stable 3.0 series of bibletime.
+read more…
+
+notable changes since 2.11.2:
+enhancements:
+
+text windows now have continuous scrolling from the beginning to end of a module. at the end of a chapter just keep scrolling to see the next chapter.
+you don't have to open the personal commentary for writing. edit it in a normal text window or even when it is a parallel column in a text window.
+automatic text scrolling up or down with variable speed and pause.
+copy to clipboard by choosing the beginning and ending reference.
+a search filter was added in the "install works" page of the bookshelf manager.
+you can select text from a single column when using parallel texts in a window.
+added a user interface to delete or create search indices.
+the first time the bookshelf manager is used in a session, the remote libraries are updated.
+
+bugs fixed:
+
+locked bible not unlocking properly
+place not being saved in daily devotional.
+problems with mag window references using  hebrew modules oshb and osmhb
+unable to create a search scope for deuterocanonical books
+searching with quotes not working.
+mag windows strongs references not working unless config settings were saved.
+
+build requirements:
+
+c++11 compiler
+qt 5.9 or later
+sword 1.8.1
+
+source code for bibletime 3.0 beta 1 can be found here.
+details:
+
+filename: bibletime-3.0_beta1.tar.xz
+file size: 3709500 bytes (3.54 mb)
+md5sum: 42083cd7d86769af1beeab4913fd2807
+sha1sum: cd68d262ccc56a19b9650af4160a5bc9e608add5
+sha256sum: 2661f3ae4bfd727d1a406184cdf91488c0e544f4afb9fc288510698d8cb4f9fb
+
+mac and windows versions will also be uploaded soon. :)
+with best regards, and on behalf of the bibletime team,jaak ristioja
+
+
+
+2018-10-31
+
+        bibletime not working on ubuntu 18.10 and others.
+    
+bibletime 2.11.1 is not compatible with qt 5.11. this combination was released with ubuntu 18.10. the problem was fixed
+      in bibletime 2.11.2. it is possible to install bibletime 2.11.2 as a flatpak.
+    
+read more…
+
+
+          this flatpak is available at  flathub.org. be sure to
+          follow the "setup guide" before installing bibletime. this flatpak works on numerous operating systems. see the "setup guide"
+          for more details.
+        
+
+          note: this flatpak of bibletime runs in a confined filespace. it will not find your $home/.bibletime or $home/.sword directories.
+          it will use the $home/.var/app/info.bibletime.bibletime directory to find .bibletime and .sword. it is possible to move your current .bibletime
+          and .sword to this directory and then make a symbolic link to $home/.bibletime and $home/.sword. 
+        
+on behalf of the bibletime team,gary holmlund
+
+
+
+2018-06-18
+
+        bibletime 2.11.2 released
+    
+the bibletime team is proud to announce the immediate availability of bibletime version 2.11.2 which is the second bugfix release in the stable 2.11 series of bibletime.
+all users of bibletime are encouraged to upgrade, especially users still using bibletime version 2.10 or earlier.
+read more…
+
+notable changes since 2.11.1:
+
+updated translations. thanks to all translators!
+improved compatibility with qt 5.11 (including bug #140).
+fixed crash when clicking on "full syntax" (#134).
+fixed mag not always working with hebrew / strongs (#132).
+fixed bibletime startup on some versions of windows (#119).
+fixed bookshelf wizard buttons not being translated (#131).
+fixed application icon directory to match the freedesktop standard.
+fixed bug which prevented installing of works (#124).
+
+source code for bibletime 2.11.2 can be found here.
+details:
+
+filename: bibletime-2.11.2.tar.xz
+file size: 2533472 bytes (2.42 mb)
+md5sum: e0aed5f3b672c89ee5e06ffeb505e1ae
+sha1sum: 75b0a3be9f392b568bbf974d8cf59db128fa7b20
+sha256sum: d178197ce87c8211733409fb28fa6ed0220800bbf06944ebb8fe85bf78ddabe8
+
+mac and windows versions will also be uploaded soon. :)
+with best regards, and on behalf of the bibletime team,jaak ristioja
+
+
+
+2017-09-29
+
+        bibletime 2.11.1 released
+    
+the bibletime team is proud to announce the immediate availability of bibletime version 2.11.1 which is the first bugfix release in the stable 2.11 series of bibletime.
+all users of bibletime are encouraged to upgrade, especially users still using bibletime version 2.10 or earlier.
+read more…
+
+notable changes since 2.11:
+
+enhanced packaging for windows.
+enhanced some error messages.
+updated translations. thanks to all translators!.
+improved build-time detection of qt webengine.
+fixed crash with qt 5.9 (workaround for qtbug-61213).
+fixed apocryphal books not being properly displayed (#12).
+fixed paragraphs being displayed incorrectly (#37).
+fixed some greek dictionary modules not working in mag (#52).
+fixed windows not starting on some windows 7 computers (#90).
+fixed a bug which hindered changing to second tab in tabbed view (#91)
+fixed qt "more info..." tab being blank (#92)
+fixed crash when closing module display window with qt 5.8 (#94)
+fixed images not being displayed (#95).
+fixed reloading of "all text windows" shortcuts not working (#102).
+fixed problem with save - yes/no dialog and editing a personal commentary (#105).
+
+source code for bibletime 2.11.1 can be found here.
+details:
+
+filename: bibletime-2.11.1.tar.xz
+file size: 2438788 bytes (2.33 mb)
+md5sum: 6a94566c93983ff05e41f1a00b62156d
+sha1sum: 84c55479c99fd23b048ddd1d9c1fd5b51f31887d
+sha256sum: c6e85ea0256e1abf1a9edb1b03596b4a8b51a20b252367d920431a3d2cf42ef0
+
+mac and windows versions will also be uploaded soon. :)
+with best regards, and on behalf of the bibletime team,jaak ristioja
+
+
+
+2016-08-11
+
+        bibletime 2.11.0 released
+    
+thanks to the great mercy of our savior and lord, king jesus christ, the bibletime team is yet again pleased to announce the immediate availability of bibletime version 2.11.0, which is the first full release in the the stable 2.11 series of bibletime.
+all users of bibletime are encouraged to upgrade, including users of the bibletime version 2.10 series.
+read more…
+
+notable changes since the 2.10 series:
+
+redesigned bookshelf manager
+many bugfixes and optimizations
+
+build requirements changes:
+
+a c++11 compiler is now required
+qt 5 or later is now required
+xml-po is no longer required
+
+source code for bibletime 2.11.0 can be found here.
+details:
+
+filename: bibletime-2.11.0.tar.xz
+file size: 2403136 bytes (2.29 mb)
+md5sum: 196335c6c2f3abae4bfddd675dd05a30
+sha1sum: 3ecb8d02aae20f949bdce01d8c0a343d9f10f645
+sha256sum: 8794db413ce927d8e664a873efbab62f8764a1f27b62d62165cb455ef55f1a32
+
+mac and windows versions will also be uploaded soon. :)
+merry christmas on behalf of the bibletime team!jaak ristioja
+
+
+
+2016-08-11
+
+        bibletime 2.11 rc 2 released
+    
+the bibletime team is proud to announce the immediate availability of bibletime version 2.11 rc 2, which is the second release candidate in the stable 2.11 series of bibletime, with a number of bugs fixed since rc 1.
+read more…
+
+notable changes since the 2.10 series:
+
+many bugfixes and optimizations
+redesigned bookshelf manager
+
+build requirements changes:
+
+a c++11 compiler is now required
+qt 5 or later is now required
+xml-po is no longer required
+
+source code for bibletime 2.11 rc 2 can be found here.
+details:
+
+filename: bibletime-2.11_rc2.tar.xz
+file size: 2389884 bytes (2.28 mb)
+md5sum: 088988723ccf0c141669f00ab9f31f6e
+sha1sum: f8f38c6470957e121f042120d1328273eda4275b
+sha256sum: 0028fc1fde8b6df52aad99a3ac897b6a576b454bf48d8a85faaaf6f06ec9652b
+
+mac and windows versions will also be uploaded soon. :)
+with best regards, and on behalf of the bibletime team,jaak ristioja
+
+
+
+2016-05-14
+
+        bibletime 2.11 rc 1 released
+    
+the bibletime team is proud to announce the immediate availability of bibletime version 2.11 rc 1, which is the first release candidate in the stable 2.11 series of bibletime.
+read more…
+
+notable changes since the 2.10 series:
+
+many bugfixes and optimizations
+redesigned bookshelf manager
+
+build requirements changes:
+
+a c++11 compiler is now required
+qt 5 or later is now required
+xml-po is no longer required
+
+source code for bibletime 2.11 rc 1 can be found here.
+details:
+
+filename: bibletime-2.11_rc1.tar.xz
+file size: 2388520 bytes (2.28 mb)
+md5sum: 06311be681d59c9ab189f27b8ba30233
+sha1sum: 7bc8532fb4bdddde7f20cfdbaef2eb6755c0884d
+sha256sum: e11336f8006875817fbeadbe640cc145299b5853689246d3b2adccbf44b41110
+
+mac and windows versions will also be uploaded soon. :)
+with best regards, and on behalf of the bibletime team,jaak ristioja
+
+
+
+2016-04-23
+
+        bibletime 2.11 beta 1 released
+    
+the bibletime team is proud to announce the immediate availability of bibletime version 2.11 beta 1, which is the first (and only) beta release in the stable 2.11 series of bibletime.
+read more…
+
+notable changes since the 2.10 series:
+
+many bugfixes and optimizations
+redesigned bookshelf manager
+
+build requirements changes:
+
+a c++11 compiler is now required
+qt 5 or later is now required
+xml-po is no longer required
+
+source code for bibletime 2.11 beta 1 can be found here.
+details:
+
+filename: bibletime-2.11_beta1.tar.xz
+file size: 2508404 bytes (2.39 mb)
+md5sum:    135b5c42bb7f97a9ae7a2f879995a810
+sha1sum:   a60d41deab5ffed65b5bc4aeebbcfa808bf2df81
+sha256sum: f7547e9fc3384ad2a58b8f605d6589a3b1d3dd88106a441d9013381ff70f2bca
+
+mac and windows versions will also be uploaded soon. :)
+with best regards, and on behalf of the bibletime team,jaak ristioja
+
+
+
+2014-12-14
+
+        bibletime mobile 1.0 for android released
+    
+
+        an alternative frontend for bibletime has been created especially for mobile devices. the first release is now available for android phones and tablets. more details and pictures of it are available at the google play store.
+    
+
+
+2014-05-07
+
+        bibletime 2.10.1 released
+    
+the bibletime team is proud to announce the immediate availability of bibletime version 2.10.1 which is the first bugfix release in the stable 2.10 series of bibletime.
+read more…
+
+all users of bibletime are encouraged to upgrade, especially users still using bibletime version 2.10.0 or earlier.
+notable changes since 2.10.0:
+
+implemented support for localized module config entries.
+fixed an osis rendering bug.
+fixed some html rendering issues.
+fixed key chooser bug in book windows.
+fixed double loading of some settings.
+fixed text filter settings not being saved.
+various install manager bug fixes.
+various other minor fixes and optimizations.
+
+source code for bibletime 2.10.1 can be found here.
+details:
+
+filename: bibletime-2.10.1.tar.xz
+file size: 3252680 bytes (3.10 mb)
+md5sum:    ef4d189d53fd1608c56f4827947ffcf0
+sha1sum:   94f6f98f27ccfceee88c985bc393777b6a81d3f9
+sha256sum: 86d2d53913c08bce9f67c0d897639091d84e9d330527636cecd2b9008bf7ca91
+
+mac and windows versions will also be uploaded soon. :)
+with best regards, and on behalf of the bibletime team,jaak ristioja
+
+
+
+2013-12-24
+
+        bibletime 2.10.0 released
+    
+the bibletime team is proud to announce the immediate availability of bibletime version 2.10.0, which is the first release in the stable 2.10 series of bibletime.
+read more…
+
+notable changes since 2.9.2:
+
+enhancements:
+uses sword library version 1.7.
+changed source code archive format from .tar.bz2 to .tar.xz (~40% size reduction).
+added find context menu for search within each window. matching words are highlighted and navigated using next or previous buttons.
+added support for http, https, sftp transports in bibletime.
+implemented saving of font family and size in html commentary editor.
+bugs fixed:
+fixed problem where certain alternate versification bibles did not display old testament.
+fixed windows control panel version was to be correct.
+fixed search analysis save dialog filters.
+fixed search analysis save asking for overwrite confirmation twice.
+optimized and enhanced search analysis to output proper xhtml.
+fixed widget ending up disabled after removing install source.
+mag window uses current module if no default cross reference is set.
+fixed a bug in the html commentary editor which resulted in text formatting from the cursor to be applied to the whole selection.
+allow comboxboxes on config dialog desk page to resize.
+fixed some lexicons never working.
+fixed high stack memory usage on indexing.
+fixed unexpected exception with encrypted modules.
+fixed application freeze during installation of works.
+
+source code for bibletime 2.10.0 can be found here.
+details:
+
+filename:  bibletime-2.10.0.tar.xz
+file size: 3252312 bytes (3.10 mb)
+md5sum:    56c31c506a004e262187d42ffab67e1a
+sha1sum:   95eda0130ba7b273d2b1b8561682870772221902
+sha256sum: 89763b17e91b6fe8a791c69d9357bcaf548abb7c1007a1c47efd834a2ec9f1fc
+
+mac and windows versions will also be uploaded soon. :)
+merry christmas on behalf of the bibletime team, :)jaak ristioja
+
+
+
+2013-12-17
+
+        bibletime 2.10 rc 1 released
+    
+the bibletime team is proud to announce the immediate availability of bibletime version 2.10 rc 1, which is the first (and only) release candidate in the 2.10 series of bibletime.
+read more…
+
+notable changes since 2.9.2:
+
+enhancements:
+uses sword library version 1.7.
+changed source code archive format from .tar.bz2 to .tar.xz (~40% size reduction).
+added find context menu for search within each window. matching words are highlighted and navigated using next or previous buttons.
+added support for http, https, sftp transports in bibletime.
+implemented saving of font family and size in html commentary editor.
+bugs fixed:
+fixed problem where certain alternate versification bibles did not display old testament.
+fixed windows control panel version was to be correct.
+fixed search analysis save dialog filters.
+fixed search analysis save asking for overwrite confirmation twice.
+optimized and enhanced search analysis to output proper xhtml.
+fixed widget ending up disabled after removing install source.
+mag window uses current module if no default cross reference is set.
+fixed a bug in the html commentary editor which resulted in text formatting from the cursor to be applied to the whole selection.
+allow comboxboxes on config dialog desk page to resize.
+fixed some lexicons never working.
+fixed high stack memory usage on indexing.
+fixed unexpected exception with encrypted modules.
+
+
+        source code for bibletime 2.10 rc 1 can be found here.
+
+        details:
+
+filename:  bibletime-2.10_rc1.tar.xz
+file size: 3238308 bytes (3.09 mb)
+md5sum:    370b1831b2076ae89741bf12cece0ac9
+sha1sum:   89e924a7cf47f056b7c738caf152b8a7f9b4b089
+sha256sum: 8a715e45cb543e9c33cb4afd28192a2e4e2a01e90f913390058b2e82194e9a1b
+
+mac and windows versions will also be uploaded soon. :)
+with best regards, and on behalf of the bibletime team,jaak ristioja
+
+
+
+
+
+
+    screenshots
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    faq
+
+
+where can i write down my personal notes?
+you have to install the module "personal", which is available as a commentary on crosswire. please refer to bibletime's handbook for more information about the personal commentary.
+why is one of the two testaments of a bible module empty?
+some modules only contain the text of the old or new testament.
+is bibletime available in my native language?
+bibletime is available in several languages. if a translation in your language is not available, you can help translate it at transifex.
+
+
+
+
+
+    support
+
+
+    if you have any questions or want to report software problems, please use our issue tracker.
+
+
+
+
+
+    development
+
+
+    please find all relevant information in the developers' wiki.
+
+
+
+
+
+    license
+
+
+    bibletime is completely free (free software and open source). it's released under the gpl version 2 license. basically it means that you can download and use it freely. if you want to redistribute it you have to make sure that the receivers get the source code, too.
+
+
+
+
+
+
+
+© 2021 bibletime team
+
+
+
+
+
+
+
+

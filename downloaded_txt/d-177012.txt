@@ -1,0 +1,749 @@
+
+
+
+
+cd-recordable faq
+
+
+
+
+
+
+
+
+
+andy mcfadden's
+cd-recordable faq
+
+
+last-modified: 2010/01/09
+version: 2.73
+
+send corrections and updates to andy mcfadden.  if you
+have a question you'd like to see answered in here, either post it to one
+of the comp.publish.cdrom newsgroups (if you don't have the answer), or
+send it to fadden@fadden.com (if you do).
+
+ this faq is no longer updated.
+the most current version is always at
+http://www.cdrfaq.org/.
+
+
+this was originally developed (and is still maintained) as a usenet
+newsgroup faq.  if you'd like to check out the newsgroups, point your
+news reader at the following (or go to
+http://groups.google.com/ and read
+them with your web browser):
+
+
+comp.publish.cdrom.hardware
+comp.publish.cdrom.software
+comp.publish.cdrom.multimedia
+alt.comp.periphs.cdr
+
+
+
+you can get an
+all-in-one-file
+version of the html in
+a .zip file, suitable for printing.  some translations are available:
+
+german
+turkish
+hungarian
+italian
+french
+russian
+
+
+if you're maintaining a translation, or just really want to know what has
+changed since the last update, you can get a set of
+context diffs in a .zip file.
+
+please do not post copies of the html version on your web site unless you
+plan to keep them up to date automatically.  i have on several occasions
+received e-mail from people reading versions that are several months old.
+just use a link to the www.cdrfaq.org site instead.
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+web
+
+
+
+cdrfaq.org
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+whassup with the ads?
+
+
+
+table of contents:
+
+
+[0] introduction
+
+[0-1] legal noise (disclaimers and copyrights)
+[0-2] what does this faq cover (and not cover)?
+[0-3] what's new since last time?
+[0-4] is the faq only available in english?
+[0-5] appropriate use of the newsgroups
+[0-6] i'm having trouble, how do i ask for help?
+[0-7] spelling and name conventions
+[0-8] can i advertise on the faq pages?
+[0-9] can you mail the faq to me?
+
+
+[1] simple answers to simple questions
+
+[1-1] what's cd-r?  cd-rw?
+[1-2] are they identical to normal cds?
+[1-3] can i create new audio and data cds?
+[1-4] can i use it to copy my cds?
+[1-5] how much can they hold?
+[1-6] can i just copy files onto a cd-r like i would to a floppy?
+[1-7] what can you tell me about dvd, dvd-r, dvd-ram, dvd-rw, etc?
+[1-8] can i copy dvds with a cd recorder?
+[1-9] what's the cheapest recorder and best place to buy media?
+[1-10] can i get step-by-step installation and use instructions?
+[1-11] can i download mp3s from the internet and make an audio cd?
+[1-12] what does this term mean?  is there a glossary?
+[1-13] do i need "music" blanks to record music?
+[1-14] how do i learn more?  is there a good book for beginners?
+[1-15] why is this faq so far out of date?
+
+
+[2] cd encoding
+
+[2-1] how is the information physically stored?
+[2-2] what is xa? cdplus? cd-i? mode1 vs mode2? red/yellow/blue book?
+[2-3] how do i know what format a disc is in?
+[2-4] how does copy protection work?
+
+[2-4-1] ...on a data cd-rom?
+[2-4-2] ...on an audio cd?
+[2-4-3] ...on an audio cd (macrovision - safeaudio)
+[2-4-4] ...on an audio cd (sunncomm - mediacloq and mediamax cd3)
+[2-4-5] ...on an audio cd (midbar tech - cactus data shield)
+[2-4-6] ...on an audio cd (key2audio / sony dadc)
+[2-4-7] ...on an audio cd (bayview systems - duolizer)
+[2-4-8] ...on an audio cd (sanyo)
+[2-4-9] how does the doc-witness opsecure cd-rom work?
+[2-4-10] what's the sony bmg rootkit (first 4 internet xcp)?
+
+[2-5] what's a multisession disc?
+[2-6] what are subcode channels?
+[2-7] are the cd identifier fields widely used?
+[2-8] how long does it take to burn a cd-r?
+[2-9] what's the difference between disc-at-once and track-at-once?
+[2-10] differences between recording from an image and on-the-fly?
+[2-11] how does an audio cd player know to skip data tracks?
+[2-12] how does cd-rw compare to cd-r?
+[2-13] can dvd players read cd-rs?
+[2-14] should i buy a dvd recorder instead?
+[2-15] what are "jitter" and "jitter correction"?
+[2-16] where can i learn more about the history of cd and cd-r?
+[2-17] why don't audio cds use error correction?
+[2-18] how does cd-r compare to minidisc?
+[2-19] what does finalizing (and closing and fixating) do?
+[2-20] how are wav/aiff files converted into red book cd audio?
+[2-21] what does multiread mean?  multiplay?
+[2-22] if recording fails, is the disc usable?
+[2-23] why do recorders insert "00" bytes at the start of audio tracks?
+[2-24] how many tracks can i have?  how many files?
+[2-25] will scms prevent me from making copies?
+[2-26] is a serial number placed on the disc by the recorder?
+[2-27] what's a toc?  how does it differ from a directory?
+[2-28] what's an iso?  a cif?  bin and cue?  .dat?
+[2-29] why was 74 minutes chosen as the standard length?
+[2-30] why is there a visibly unwritten strip near the cd-r hub?
+[2-31] what is "burn-proof"?  "justlink"?  "waste-proof"?
+[2-32] can playing cd-rs in a dvd player hurt the discs?
+[2-33] who *really* made this cd-r blank?
+[2-34] can i make copies of dts-encoded cds?
+[2-35] why 44.1khz?  why not 48khz?
+[2-36] what format are .cda files in?
+[2-37] what are dd-r and dd-rw?
+[2-38] what's an atip?
+[2-39] what are "ml" discs and devices?
+[2-40] what's cd-mrw?  mount rainier?  easywrite?
+[2-41] what's audio master quality (amq) recording?
+[2-42] can i draw pictures on a disc with the recording laser?
+[2-43] what are the gory details about how are 1s and 0s encoded?
+
+[2-43-1] how does the laser read or write a disc?
+[2-43-2] how do pits and lands turn into 1s and 0s?  what's efm?
+[2-43-3] what's a frame?  circ encoding?  how does ecc work?
+[2-43-4] what's in a sector?
+[2-43-5] what's in a subcode channel?
+[2-43-6] i want even more details
+
+[2-44] digital is better than analog, right?
+
+[2-44-1] what is "digital" and "digitization", anyway?
+[2-44-2] how does this relate to cd-da?
+
+[2-45] what's a cdr-rom?  cd-prom?
+[2-46] what's hd-burn?  gigarec?
+[2-47] what are c2 errors?  what do they say about disc quality?
+[2-48] what are cd+r and cd+rw?
+[2-49] what's highmat?
+[2-50] what's varirec?
+[2-51] will my cds work on players in other countries?
+[2-52] do cd-rs have deeper pits?  are "shallow burns" bad?
+[2-53] what's a stacking ring?
+
+
+[3] how do i...
+
+[3-1] how do i copy a cd-rom?
+
+[3-1-1] why can't i just do a block copy like a floppy?
+
+[3-2] how do i extract tracks from ("rip") or copy an audio cd?
+
+[3-2-1] how do i remove the voice from a cd track, leaving just music?
+[3-2-2] how do i encode a cd track to mp3?
+
+[3-3] how do i get rid of hisses and clicks on audio cds?
+[3-4] how do i copy game console discs (e.g. playstation, dreamcast)
+[3-5] how do i get long filenames onto a disc?
+
+[3-5-1] iso-9660
+[3-5-2] rock ridge
+[3-5-3] hfs/hfs+ and macintosh extensions to iso-9660
+[3-5-4] joliet
+[3-5-5] romeo
+[3-5-6] iso/iec 13346 and iso/iec 13490
+[3-5-7] iso-9660:1999
+
+[3-6] how do i use a cd-i disc on a pc?
+[3-7] how can i extract disc and track titles from an audio cd?
+[3-8] how do i write more than 80 minutes of audio or 700mb of data?
+
+[3-8-1] how well do 80-minute cd-r blanks work?
+[3-8-2] how well do 90-minute and 99-minute cd-r blanks work?
+[3-8-3] how can i exceed the stated disc capacity ("overburning")?
+
+[3-9] how do i put photographs onto cd-rom?
+
+[3-9-1] how do i create a photocd?
+[3-9-2] how can i set up a photo album on cd-rom?
+[3-9-3] how can i show digital photos on my dvd player?
+
+[3-10] how do i make a cd that will work on a pc or a mac?
+[3-11] how do i access different sessions on a multi-session cd?
+[3-12] how do i transfer my records or cassettes to a cd?
+
+[3-12-1] ...with a stand-alone audio cd recorder?
+[3-12-2] ...with a cd recorder attached to my computer?
+[3-12-3] how can i clean up the audio before recording?
+
+[3-13] how do i transfer an audio dat tape to cd?
+[3-14] how do i put audio and data on the same cd?
+[3-15] how do i make a bootable cd-rom?
+[3-16] how do i convert home movies into video on cd?
+
+[3-16-1] how do i create a videocd from avi or mpeg files?
+[3-16-2] how do i create an svcd?
+[3-16-3] how do i create an avcd?
+
+[3-17] how can i burn several copies of the same disc simultaneously?
+[3-18] can i make copies of copies?
+[3-19] how can i compress or encrypt data on a cd-rom?
+[3-20] can i do backups onto cd-r?
+[3-21] how do i automatically launch something?  change the cd icon?
+
+[3-21-1] how does windows "autorun" work?
+[3-21-2] how do i launch a document (like a web page)?
+[3-21-3] what autorun software is available?
+
+[3-22] how can i be sure the data was written correctly?
+[3-23] how do i create, copy, or play audio karaoke/cd+g discs?
+[3-24] how do i copy a cd-rom with 3gb of data on it?  a huge videocd?
+[3-25] how do i get my cd-r pressed into a real cd?
+[3-26] how do i make a cd without that two-second gap between tracks?
+[3-27] how can i record realaudio (.ra), midi, wma, and mp3 on a cd?
+[3-28] how do i add cd-text information?
+[3-29] can i distribute a web site on a cd-rom?
+[3-30] how do i clean my cd recorder?
+[3-31] is it better to record at slower speeds?
+[3-32] where do i get drivers for my cd recorder?
+[3-33] can i copy discs without breaking the law?
+
+[3-33-1] ...in the united states of america?
+[3-33-2] ...in canada?
+
+[3-34] can cd-rs recorded at one speed be read at a different speed?
+[3-35] how do i make my cd-rom work on the mac, winnt, and unix?
+[3-36] how do i put "hidden tracks" and negative indices on audio cds?
+[3-37] do i need to worry about viruses?
+[3-38] how do i cover up a bad audio track on a cd-r?
+[3-39] how do i duplicate this hard-to-copy game?
+[3-40] should i erase or format a disc?  how?
+[3-41] how do i equalize the volume for tracks from different sources?
+[3-42] how do i make a bit-for-bit copy of a disc?
+[3-43] how do i put punctuation or lower case in cd-rom volume labels?
+[3-44] how do i extract audio tracks from an "enhanced" cd on the mac?
+[3-45] how do i disable directcd for windows?
+[3-46] how do i specify the order of files (e.g. sorting) on iso-9660?
+[3-47] how do i put a password on a cd-rom?
+[3-48] can i record an audio cd a few tracks at a time?
+[3-49] how do i copy dvds onto cd-r?
+
+[3-49-1] i heard about software that copies dvds with a cd recorder!
+
+[3-50] how do i copy mac, unix, or "hybrid" cd-roms from windows?
+[3-51] how do i copy something in "raw" mode?  what's dao-96?
+[3-52] how do i do cross-fades between audio tracks?
+[3-53] how do i create a cd with my favorite songs on it?
+[3-54] how do i record directly onto cd from a microphone?
+[3-55] is it okay to record a cd from mp3?
+[3-56] how can i test a disc image before recording?
+[3-57] how do i clear the "read-only" flag under windows?
+[3-58] how do i share a cd recorder across a network?
+[3-59] how do i write a large file across multiple discs?
+[3-60] what's the safest, most reliable way to write data to cd-r?
+
+
+[4] problems
+
+[4-1] what does "buffer underrun" mean?
+
+[4-1-1] what's the deal with windows auto-insert notification (ain)?
+[4-1-2] what's all this about win9x vcache settings?
+
+[4-2] i can't get long win95 filenames to work right
+[4-3] i can't read the multisession cd i just made
+[4-4] write process keeps failing n minutes in
+[4-5] why did my cd-r eject and re-load the disc between operations?
+[4-6] my cd-rom drive doesn't like *any* cd-r discs
+[4-7] how do i avoid having a ";1" on my iso-9660 discs?
+[4-8] i keep getting scsi timeout errors
+[4-9] i'm having trouble writing a complete disc
+[4-10] what's the cdd2000 write append error / spring problem?
+[4-11] getting errors reading the first (data) track on mixed-mode cd
+[4-12] my recorder ejects blank discs immediately
+[4-13] i'm getting complaints about power calibration
+[4-14] my adaptec 2940 pauses after finding my recorder
+[4-15] i can't see all the files on the cd-r
+[4-16] my multi-session disc only has data from the last session
+[4-17] i'm getting scsi errors
+[4-18] why doesn't the copy of an audio cd sound the same?
+
+[4-18-1] why doesn't the audio data on the copy match the original?
+[4-18-2] the audio data matches exactly, why do they sound different?
+
+[4-19] digital audio extraction of a track is shifted slightly
+[4-20] i can't play extracted audio files by double-clicking in win95
+[4-21] i can't read an iso-finalized packet-written disc
+[4-22] i'm finding corrupted files on the cd-roms i write
+[4-23] having trouble playing an audio cd in a home or car player
+[4-24] having trouble using a cd-rom on a different machine
+[4-25] i can't copy a videocd
+[4-26] the test write succeeds, but the actual write fails
+[4-27] i can no longer erase a particular cd-rw disc
+[4-28] having trouble formatting discs with directcd
+[4-29] i can't write cd-rs after installing windows 98
+[4-30] i can't use the copy of a cd-rom after installing windows 98
+[4-31] the disc i was writing with directcd is now unreadable
+[4-32] i'm getting a message about 100 form transitions
+[4-33] my system hangs when i insert a blank disc
+[4-34] my cd-r discs don't work in my dvd player
+[4-35] i need help recovering data from a cd-rom
+[4-36] what does "not convertible to cd quality" mean?
+[4-37] i inserted a cd-rom but windows thinks it's an audio cd
+[4-38] i get read errors when trying to copy a game
+[4-39] restarting or shutting windows down after recording causes hang
+[4-40] why do cd-rs play poorly when anti-skip protection is enabled?
+[4-41] i'm having trouble recording under windows 2000 or winxp
+[4-42] i formatted a cd-rw and only have about 530mb free
+[4-43] my cd recording software keeps crashing
+[4-44] do i need to update my aspi layer?
+[4-45] the write process completes, but the disc is still blank
+[4-46] my cd-rw drive doesn't work with my cd-rw blanks
+[4-47] audio discs have crackling sounds on the last few tracks
+[4-48] files in deep directories can be seen but not opened
+[4-49] my cd-rom drive stopped working after uninstalling software
+[4-50] audio cds recorded from mp3s play back fast and high-pitched
+[4-51] windows says access denied, can't create or replace file
+[4-52] i can't see any files on a cd-r or cd-rw from ms-dos
+[4-53] my os doesn't support iso-13346 "udf"
+[4-54] why don't i get disc and track titles on my cd-rs?
+
+
+[5] hardware
+
+[5-1] which cd recorder should i buy?
+
+[5-1-1] yamaha
+[5-1-2] sony
+[5-1-3] smart & friendly
+[5-1-4] philips
+[5-1-5] hewlett-packard (hp)
+[5-1-6] plasmon
+[5-1-7] kodak
+[5-1-8] jvc
+[5-1-9] pinnacle
+[5-1-10] ricoh
+[5-1-11] pioneer
+[5-1-12] olympus
+[5-1-13] optima
+[5-1-14] mitsumi
+[5-1-15] dynatek automation systems
+[5-1-16] microboards of america
+[5-1-17] micro design international
+[5-1-18] micronet technology
+[5-1-19] procom technology
+[5-1-20] grundig
+[5-1-21] plextor
+[5-1-22] panasonic (matsushita)
+[5-1-23] teac
+[5-1-24] wearnes
+[5-1-25] turtle beach
+[5-1-26] creative labs
+[5-1-27] taiyo yuden
+[5-1-28] memorex
+[5-1-29] hi-val
+[5-1-30] dysan
+[5-1-31] traxdata
+[5-1-32] benq (nee acer)
+[5-1-33] waitec
+[5-1-34] btc
+[5-1-35] caravelle (sanyo)
+[5-1-36] micro solutions
+[5-1-37] pacific digital
+[5-1-38] iomega
+[5-1-39] goldstar (lg electronics)
+[5-1-40] aopen
+[5-1-41] toshiba
+[5-1-42] tdk
+[5-1-43] lite-on
+[5-1-44] cendyne
+[5-1-45] vst (smartdisk)
+[5-1-46] asus
+[5-1-47] samsung 
+[5-1-48] aps / lacie
+
+[5-2] how long do cd recorders last?
+[5-3] what kind of pc is recommended?
+[5-4] what kind of mac is recommended?
+[5-5] which standard cd-rom drives work well with cd-r?
+[5-6] what kind of hd should i use with cd-r?  must it be av-rated?
+[5-7] what scsi adapter should i use with a cd recorder?
+
+[5-7-1] adaptec - 1510/1522a/1540/1542cf
+[5-7-2] adaptec - 2840/2910/2920/2930/2940
+[5-7-3] asus - sc-200/sc-875
+[5-7-4] tekram - dc-390u/dc-390f
+[5-7-5] adaptec - 1350/1460/1480
+
+[5-8] can i use a cd recorder as a general-purpose reader?
+[5-9] to caddy or not to caddy?
+[5-10] can i burn cds from a jaz drive?  tape drive?
+[5-11] what is "running opc"?
+[5-12] what's the story with stand-alone audio cd recorders?
+[5-13] what's firmware?  how and why should i upgrade my recorder?
+[5-14] how well do parallel-port, usb, and 1394 recorders work?
+[5-15] how should i configure my system for an atapi cd recorder?
+
+[5-15-1] should i have dma enabled for an atapi recorder in windows?
+
+[5-16] how important is cd-rw?
+[5-17] what is an "mmc compliant" recorder?
+[5-18] what do i need to record on a unix (linux, solaris, etc) system?
+[5-19] what do i need for recording cds from a laptop?
+[5-20] i need to make *lots* of copies
+[5-21] how do i connect two drives to one sound card in a pc?
+[5-22] how fast is 1x?  what are cav, clv, pcav, and zclv?
+[5-23] will playing cd-rs damage my cd player?
+[5-24] can i "overclock" my cd recorder?
+[5-25] i need some help installing the drive
+[5-26] how much power does a cd recorder use?
+[5-27] will the laser in my drive wear out?
+
+
+[6] software
+
+[6-1] which software should i use?
+
+[6-1-1] adaptec - easy-cd, easy-cd pro, and easy-cd pro mm ("ecd")
+[6-1-2] adaptec - cd-creator ("cdc")
+[6-1-3] gear software - gear pro
+[6-1-4] roxio - toast
+[6-1-5] cequadrat - winoncd
+[6-1-6] young minds, inc. - cd studio+
+[6-1-7] golden hawk technology (jeff arnold) - cdrwin
+[6-1-8] optical media international - quicktopix cd
+[6-1-9] creative digital research - cdr publisher
+[6-1-10] mkisofs
+[6-1-11] asimware innovations - masteriso
+[6-1-12] newtech infosystems, inc. (nti) - cd-maker
+[6-1-13] cirrus technology/unite - cdmaker
+[6-1-14] hohner midia - red roaster
+[6-1-15] dataware technologies - cd author
+[6-1-16] creamware - triple dat
+[6-1-17] microtech - mastermaker
+[6-1-18] angela schmidt & patrick ohly - makecd
+[6-1-19] liquid audio inc. - liquid player
+[6-1-20] jörg schilling - cdrecord
+[6-1-21] prassi software - cd rep and cd right
+[6-1-22] zittware - cdmaster32
+[6-1-23] dieter baron and armin obersteiner - cd tools
+[6-1-24] point - cdwrite
+[6-1-25] point - cdaudio plus
+[6-1-26] roxio - easy media creator (was easy cd creator deluxe "ecdc")
+[6-1-27] padus - discjuggler
+[6-1-28] ahead software - nero
+[6-1-29] charismac engineering - discribe
+[6-1-30] istván dósa - dfy$vmscd
+[6-1-31] rsj software - rsj cd writer
+[6-1-32] james pearson - mkhybrid
+[6-1-33] jvc - personal archiver plus
+[6-1-34] roxio - jam
+[6-1-35] pinnacle systems - instantcd/dvd (was vob)
+[6-1-36] sony - cd architect
+[6-1-37] eberhard heuser-hofmann - cdwrite
+[6-1-38] cequadrat - justaudio!
+[6-1-39] digidesign - masterlist cd
+[6-1-40] thomas niederreiter - x-cd-roast
+[6-1-41] jesper pedersen - burnit
+[6-1-42] jens fangmeier - feurio!
+[6-1-43] iomega - hotburn
+[6-1-44] dartech, inc - dart cd-recorder
+[6-1-45] interactive information r&d - cdeverywhere
+[6-1-46] dns development - burnit
+[6-1-47] andreas müller - cdrdao
+[6-1-48] tracer technologies - (various)
+[6-1-49] slysoft - clonecd
+[6-1-50] igd - fireburner
+[6-1-51] jodian systems & software - cdwrite
+[6-1-52] erik deppe - cd+g creator
+[6-1-53] micro-magic - cd composer
+[6-1-54] earjam, inc. - earjam imp
+[6-1-55] emagic - waveburner
+[6-1-56] zy2000 - mp3 cd maker
+[6-1-57] integral research - speedy-cd
+[6-1-58] desernet broadband media - net-burner and mp3-burner
+[6-1-59] stomp, inc. - click 'n burn
+[6-1-60] steinberg media technologies - clean! plus
+[6-1-61] enreach - i-author for vcd/svcd
+[6-1-62] vso software - blindread/blindwrite
+[6-1-63] microsoft - windows xp
+[6-1-64] an chen computers - cd mate
+[6-1-65] e-soft - alcohol
+[6-1-66] stomp inc. - recordnow max
+[6-1-67] james mieczkowski - cheetah cd burner
+[6-1-68] blaze audio - ripeditburn
+[6-1-69] acoustica, inc. - mp3 cd burner
+[6-1-70] magiciso, inc. - magiciso
+[6-1-71] simone tasselli - burn4free
+[6-1-72] sonic solutions - record now!
+[6-1-73] freeridecoding - burnagain
+[6-1-74] powerkaraoke - power cd+g burner, powerkaraoke
+
+[6-2] what other useful software is there?
+
+[6-2-1] optical media international - disc-to-disk
+[6-2-2] gilles vollant - winimage
+[6-2-3] asimware innovations - asimcdfs
+[6-2-4] steven grimm - workman
+[6-2-5] cyberdyne software - cd worx
+[6-2-6] arrowkey - cd-r diagnostic
+[6-2-7] dc software design - cdrcue cuesheet editor
+[6-2-8] astarte - cd-copy
+[6-2-9] frank wolf - cdr media code identifier
+[6-2-10] logiciels & services duhem - macimage
+[6-2-11] erik deppe - cd speed 2000
+[6-2-12] andre wiethoff - exact audio copy (eac)
+[6-2-13] earle f. philhower, iii - cdrlabel
+[6-2-14] adobe - audition (formerly cool edit)
+[6-2-15] elwin oost - burn to the brim
+[6-2-16] mike looijmans - cdwave
+[6-2-17] eci - driveeasy
+[6-2-18] jackie franck - audiograbber
+[6-2-19] high criteria - total recorder
+[6-2-20] smart projects - isobuster
+[6-2-21] goldwave inc. - goldwave
+[6-2-22] naltech - cd data rescue
+[6-2-23] jufsoft - badcopy pro
+[6-2-24] cdroller soft co. - cdroller
+[6-2-25] fleximusic - wave editor
+[6-2-26] nic wilson - dvd info pro
+[6-2-27] audacity
+
+[6-3] what is packet writing (a/k/a dla - drive letter access)?
+
+[6-3-1] what's udf?
+[6-3-2] do i want to do packet writing?
+
+[6-4] what packet writing software should i use?
+
+[6-4-1] roxio - drag-to-disc (a/k/a directcd)
+[6-4-2] cequadrat - packetcd
+[6-4-3] smartstorage - smartcd for recording
+[6-4-4] gutenberg systems - floppycd
+[6-4-5] pinnacle systems - instantwrite (was vob)
+[6-4-6] prassi - abcd
+[6-4-7] ahead - incd
+[6-4-8] oak technologies - simplicd rewrite
+[6-4-9] newtech infosystems, inc. (nti) - file cd
+[6-4-10] veritas - dla (drive letter access)
+[6-4-11] bha - b's clip
+
+[6-5] can i intermix different packet-writing programs?
+[6-6] i want to write my own cd recording software
+
+[6-6-1] point - cdarchive sdk
+[6-6-2] golden hawk technology (jeff arnold)
+[6-6-3] gear software - gear.wrks
+[6-6-4] vob - cd-wizard sdk
+[6-6-5] dialog medien - acdwrite.ocx
+[6-6-6] eci - the engine
+[6-6-7] nugroovz - cdwriterxp
+[6-6-8] ashampoo - discforge plug & burn
+[6-6-9] numedia soft - nmsdvd burning sdk
+[6-6-10] sonic solutions - authorscript
+
+[6-7] what software is available for doing backups?
+
+[6-7-1] adaptec - easy-cd backup
+[6-7-2] d.j. murdoch - doslfnbk
+[6-7-3] dantz - retrospect
+[6-7-4] veritas - backup exec
+[6-7-5] symantec - norton ghost
+[6-7-6] powerquest - drive image special edition for cd-r
+[6-7-7] centered systems - second copy
+[6-7-8] fileware - filesync
+[6-7-9] novastor - novadisk
+[6-7-10] roxio - take two
+[6-7-11] nti - backup now!
+[6-7-12] cequadrat - backmeup lt
+[6-7-13] duncan amplification - disk2disk
+[6-7-14] pinnacle systems - instantbackup (was vob)
+[6-7-15] microsoft - backup
+[6-7-15] portlock software - storage manager
+[6-7-16] willow creek software - backup to cd-rw
+[6-7-17] terabyte unlimited - image for windows
+
+[6-8] how do i get customer support for bundled recording software?
+
+
+[7] media
+
+[7-1] what kinds of media are there?
+[7-2] does the media matter?
+[7-3] who manufactures cd-r media?
+[7-4] which kind of media should i use?
+
+[7-4-1] what's the best brand of media?
+
+[7-5] how long do cd-rs and cd-rws last?
+[7-6] how much data can they hold?  650mb?  680mb?
+[7-7] is it okay to write on or stick a label on a disc?
+
+[7-7-1] can i write on them?  what kind of pen should i use?
+[7-7-2] are labels okay?
+
+[7-8] how do cd-rs behave when microwaved?
+[7-9] what can i do with cd-r discs that failed during writing?
+[7-10] where can i find jewel cases and cd sleeves?
+[7-11] what's "unbranded" cd-r media?
+[7-12] how do i repair a scratched cd?
+[7-13] what's this about a canadian cd-r tax?
+[7-14] can i get 80mm (3-inch "cd single") cd-rs?
+[7-15] where can i find cd-rom business cards and "shaped" cds?
+[7-16] can you tell pressed cds and silver cd-rs apart?
+[7-17] what's the difference between "data" and "music" blanks?
+[7-18] how do i convert data cd-rs into "consumer audio" blanks?
+[7-19] is translucent media bad?
+[7-20] how do i destroy cd-r media beyond all hope of recovery?
+[7-21] can i recycle old cds, cd-rs, and cd-rws?
+[7-22] is there really a fungus that eats cds?
+[7-23] how do i clean cd-r and cd-rw discs?
+[7-24] are "black" discs different from other discs?
+[7-25] my disc just shattered in the cd drive!
+[7-26] how do i tell which side on a silver/silver disc is up?
+[7-27] how should i handle and store cds?
+[7-28] what causes the rainbow effect when looking at the data side?
+[7-29] can i print directly on a cd-r?
+
+
+[8] net resources and vendor lists
+
+[8-1] information resources
+[8-2] magazines and other publications
+[8-3] net.vendors
+
+[8-3-1] consumer software, hardware, and media
+[8-3-2] net.vendors (duplication services and hardware)
+
+[8-4] news sources & mailing lists
+
+
+[9] contributors
+
+
+
+
+the last-modified date of each section is shown below the subject line.
+the date format used is yyyy/mm/dd.  the date stamps were added on
+1998/04/06, so you won't find any older than that.
+
+this version of the faq is generated automatically by faq2html, an
+application developed specifically for converting the plain ascii version
+of the cd-recordable faq to html.
+
+
+
+
+
+
+
+
+top of page
+
+
+faq copyright © 2010 by andy mcfadden.  all rights reserved.
+
+
+
+
+
+
+
+
+
+

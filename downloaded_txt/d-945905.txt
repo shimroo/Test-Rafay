@@ -1,0 +1,538 @@
+
+
+
+
+glotv
+
+
+
+
+
+
+
+gnu
+    lightweight
+    opuscule
+    television
+
+
+
+latest news
+at the bottom of this page.
+
+
+disclaimer: some assembly required.
+
+links:
+
+download
+installation
+screenshots and command-line examples
+manifest
+home
+
+blurb:
+
+glotv is a free dvr system that i am developing as a "lightweight" alternative
+to mythtv and freevo. it was prompted by my need for a useful interface to
+my experimental libusb driver for the hauppauge wintv-pvr-usb2 device for
+video input. that driver has since been obsoleted by a much better kernel
+driver for linux 2.6+ systems. but glotv lives on anyway, since it is
+practical enough for my own purposes: watching tv in a window on the
+computer screen, watching mpeg/avi/quicktime/flash/etc movies on the
+tv, recording video, viewing photographs on the tv, and (in an extremely
+primitive way) playing music through the tv speakers.
+
+
+glotv is free software in the gnu sense: all of the glotv code is gpl-licensed.
+other components that you might need for a complete working system might not
+be. caveat emptor.
+
+features:
+
+
+	server can stream captured video and files to multiple simultaneous clients,
+	through local unix sockets or tcp/ip connections.
+  
+
+	two different x11 user interfaces: one for watching tv in a small
+	window on a normal computer desktop, and another one called
+	"kiosk mode" which is used on a normal tv, together with a
+	remote control (or with a x11-capable laptop as the remote
+	control).
+  
+
+	a special client records to disk. this client can be run either
+	locally or on a remote machine. recordings are automatically
+	segmented into files smaller than a predefined size, for example
+	4.70 gb or 8.54 gb (the default is 2.001 gb).
+  
+
+	simple time-shifting is accomplished by pressing the record
+	button and then the "play back latest recording" buttons.
+  
+
+	scheduled recordings are managed by a web interface.
+	the backend uses text files to keep track of schedules,
+	and lets the unix job scheduler "at" handle the timing.
+  
+
+	a special "slide show" mode for watching photographs on the tv.
+  
+
+	glotv is implemented in approximately 3000 lines of code.
+  
+
+prerequisites:
+
+
+	for recording, you need a video capturing device & driver
+	that produces compressed video. so far the only device that has
+	been tested is the hauppauge wintv-pvr-usb2 with the linux driver.
+	to get tuner support for another device or driver you will need to
+	write a separate backend for it. without tuner support you can
+	probably get away with "cat /dev/video0" or something similar.
+  
+
+	a posix-like operating system. the server code currently needs
+	linux since it uses a linux video driver.
+  
+
+	mplayer, perl/tk, twm-kiosk, and apache httpd.
+	see the installation page for details.
+  
+
+not yet implemented:
+
+ipv6 (for the rudimentary address-based authorization).
+client authentication.
+support for other streaming protocols (for instance udp/multicast, or tcp reflectors).
+
+
+author: björn danielsson
+
+
+news
+
+
+2021-10-13
+
+version 2.0alpha15. various tweaks to make mp4 hd work in mpeg transport streams.
+also disabled the code that captures a whole 8mhz dvb-multiplex at once. it's
+fragile enough as it is, so that feature will simply have to wait.
+
+
+
+2021-03-25
+
+version 2.0alpha14. fixed a minor bug and a compilation warning in glotvschedule.
+
+
+
+2017-02-25
+
+version 2.0alpha13. preliminary support for the linuxtv dvbv5 api (in capture/play5.pl).
+this means support for dvb-t2 (hdtv capture for terrestrial freeview broadcasts, yay!) and the
+future potential of extracting multiple programs simultaneously from an 8mhz dvb-multiplex
+with a single tuner. the latter will require some serious re-architecturing of the capture layer
+however, so don't hold your breath. on the other hand, glotv is just 3087 lines of perl +
+222 lines of c, so it's not like it's impossible.
+
+
+note: the dvbv5 stuff requires a fairly recent version of ffmpeg.
+
+
+
+2017-02-07
+
+version 2.0alpha12. added hook for filtering the data stream while recording.
+see $config{rec_filter} in the sample config.
+
+
+
+2016-03-28
+
+version 2.0alpha11 uploaded, with the following backward-compatible changes:
+
+
+
+	fixed some perl syntax that was deprecated in perl-5.18.
+  
+
+	adapted to changes in the tzap api.
+  
+
+
+note: it's unlikely that version 2.0 will ever be released, since i no longer
+use the glotv kiosk mode myself. i use
+kodi
+(formerly known as "xbox media center") which is vastly superior,
+and nowadays there are plenty of other solutions for the living room anyway.
+however, i still use the recording and streaming features (using pvrusb2 and
+dvb-t specifically), so i might do a final release (3.0?) with only that stuff,
+stripping out the kiosk mode features. but don't hold your breath.
+
+
+
+2010-08-16
+
+version 2.0alpha10. updated link to twm-kiosk in the installation docs.
+
+
+
+2010-05-13
+
+version 2.0alpha9 uploaded, with some new minor features. 
+in kiosk mode it is now possible to toggle deinterlacing. this is only possible
+for hdtv output, where pressing "minus" toggles the deinterlace filter instead
+of toggling overscan/underscan. mplayer now runs with ssa/ass subtitle rendering
+(-ass). this fixes some problems with osd, and is generally beneficial.
+in desktop mode there is a new checkbox "aws" which controls anamorphic
+widescreen mode, just as the "plus" button does in kiosk mode. finally, the
+pvrusb2 backend now adjusts the recording volume and the aspect ratio depending
+on the signal source. this is still experimental, so the adjustments are done
+directly in the code instead of in glotv.conf.
+
+
+
+
+
+as a sidenote, an interesting milestone has been reached in that
+glotv can now stream live mpeg2 content to a mobile phone. 
+the phone in question is the
+nokia n900.
+i did this without attempting to install any glotv software on the phone,
+the streaming was accomplished via simpler tools. here is how to do it:
+first use the n900 application manager to install "mplayer movie player".
+then add the "fremantle/tools" maemo repository, and install the
+netcat package which provides the nc command:
+
+
+apt-get install netcat
+
+
+then create the following shell script, after first changing the hostname
+and port to match your own glotv server:
+
+
+#!/bin/sh
+echo play | nc glotv.example.com 1150 | \
+    mplayer -quiet -framedrop -ass -fs -monitorpixelaspect 39:40 -cache 2048 -autosync 10 -
+
+
+running this script will show the currently selected tv channel in
+fullscreen mode. the same script can of course be used on any machine
+that has nc and mplayer.
+
+
+
+
+2009-08-17
+
+version 2.0alpha8 uploaded. two bugs fixed: got rid of the flickering of osd
+text when using yadif deinterlacing (enabled for all progressive-scan
+output). the magic mplayer filter option expand=osd=1 did the trick.
+the other bug was that the "play file" button in desktop mode didn't work for
+utf-8 filenames, due to a broken perl/tk widget. the workaround was to replace
+"getopenfile" with "fileselect". the former is broken, the latter works painlessly
+even if the filesystem and the xglotv host use different unicode normalization
+schemes (e.g. macos-generated filenames consisting of decomposed unicode aka nfd,
+with xglotv running on linux where there normalization is composed unicode aka nfc).
+
+
+
+2009-02-01
+
+version 2.0alpha7 uploaded, with the following news:
+
+
+
+	support for hdtv (1080p). enabled via the option
+	--fullhd in kiosk mode.
+  
+
+	the behaviour of the "forward" and "reverse" buttons in kiosk mode
+	has changed. the new behaviour is that a single button click starts
+ 	forwarding or reversing. there is no need to hold down the button.
+	this fixes some issues with bad responsiveness from the lirc remote.
+  
+
+	play video (and audio) at 2x, 4x, etc, speeds. pressing the "play" button
+	while a video is playing doubles the speed. to reset, press "pause".
+  
+
+	changed the deinterlace filter from linear blend to yadif.
+  
+
+
+
+2008-09-17
+
+version 2.0alpha6 uploaded. support for multiple tuners in scheduled
+recordings, plus some bug fixes and minor adjustments. the web interface
+has a new field "tuner" where you fill in a number 0, 1, 2, etc which
+is an index representing the tuner to use. changing the parameters
+of a scheduled recording works almost as before: if you change anything
+except the starting time or the tuner index, the new parameters will
+overwrite the old ones. if you change the starting time or the tuner,
+a new entry will be created, so you will need to cancel the old one
+manually.
+
+
+simultaneous recordings may be mixed in the same directory. the filenames
+contain a letter a, b, c, etc that indicates the corresponding tuner
+index, so the generated filenames will be different even when the
+starting time is the same. but if you want to avoid filesystem
+fragmentation you should configure the glotvd servers to use
+spool directories that reside on different partitions or different
+disks.
+
+
+known bugs: the player process will hang if you change dvb channel
+while playing video. new clients (i.e. glotvrecord) will however
+get the new channel without problems.
+
+
+
+2008-09-14
+
+version 2.0alpha5 uploaded. two new experimental features, plus some
+minor bug fixes. the first feature is a backend for
+linuxtv
+dvb drivers. only terrestrial digital broadcast is supported at the
+moment. you will need to load the kernel modules appropriate for your
+dvb tuner, install the program tzap from linux-dvb-apps together
+with my patch that makes tzap responsive
+when running behind a pipe. when i find the time, i will add my
+notes on how i configured linuxtv for my hauppauge nova-t usb-stick.
+
+
+the second experimental feature is (surprise!) preliminary support
+for multiple video capture devices. it works like this: for each device,
+a separate glotvd server process is started, configured to listen on its
+own tcp port and/or unix socket, perhaps even on different machines.
+the default configuration file for xglotv contains a special declaration
+that points to a list of alternative client configurations. when giving
+a "switch tuner" command in the gui, the next alternative configuration
+is loaded, presumably selecting a different glotvd server process.
+the minimum alternative configuration needed for a client is a different
+port or socket, and a different pid file for glotvrecord, since recording
+is technically a client activity. but this is still very much work in
+progress, so the exact details will probably change...
+
+
+note: the glotv scheduler doesn't know about multiple tuners yet,
+so scheduled recordings will always use the default tuner.
+
+
+
+2008-08-22
+
+version 2.0alpha4 uploaded. the only change is a bug fix:
+the table "lirc_translations" was missing from etc/glotv.conf.sample.
+it is currently needed for hauppauge ir remotes to work, and it
+currently supports two models. see my
+lirc tips
+for configuration details.
+
+
+
+2008-07-06
+
+version 2.0alpha3 uploaded, with two minor enhancements. pressing
+"play" while paused single-steps one frame. the autorepeat magic
+for fast forward and reverse has been adjusted to be slightly more
+useful.
+
+
+
+2008-05-10
+
+bug fix: version 2.0alpha2 fixes a race condition in the new glotvschedule
+system. the "at" job that handles the recording now does an atomic "test and
+clear" operation before proceeding.
+
+
+
+2008-05-06
+
+version 2.0alpha1 uploaded. lots of things have changed:
+
+
+
+	added support for the linux pvrusb2 kernel driver.
+	removed explicit support for the old libusb driver.
+  
+
+	the channel table is now needed only on the server.
+	xglotv prepares its channel menu by reading the channel table
+	from the server at startup.
+  
+
+	the xglotv channel setting is automatically updated if some
+	other client changes the channel. this is done via polling,
+	so there is a small delay before the update happens.
+  
+
+	the kiosk main screen shows a blinking red light to indicate
+	that a recording is in progress. this is done by polling the
+	pid file for glotvrecord, so any recording initiated on the
+	same machine is detected automatically.
+  
+
+	glotvschedule now maintains a database of scheduled recordings.
+	previously this information was contained within the "at" jobs
+	only. each scheduled time slot has a file in the directory
+	/usr/local/glotv/var/schedule. if you remove the file, the
+	recording is automatically cancelled (the "at" job remains
+	but it turns into a no-op). if you overwrite the file with
+	new data, all recording parameters except the start time are
+	changed.
+  
+
+	there is a web interface for the new glotvschedule system.
+	see the installation page for details.
+  
+
+	the default xglotv installation now uses antialiased fonts.
+	i can't understand why i didn't do this a long time ago.
+  
+
+	no more switching between square pixel and "native" 12:11 aspect
+	resolutions in kiosk mode. it's too unstable. kiosk mode now
+	uses the same mode at all times, and that mode is 720x576 (or whatever
+	you replace it with for ntsc systems).
+  
+
+	lirc support.
+  
+
+	unicode normalization in the kiosk file browser, for better
+	interoperability with macos x file names.
+  
+
+	kiosk mode tv output with "desktop" gui on another machine (e.g.
+	a laptop) now actually works, via the new "--tvdisplay" option.
+	see the examples page for details.
+  
+
+	updated all the old sloppy html to xhtml 1.1. the old web pages
+	are available as a downloadable tarball
+	here
+	in case anyone still needs the information (including the old 1.0
+	releases plus some obsoleted xbox stuff).
+  
+
+
+
+2008-04-16
+
+version 1.0 uploaded. i decided to tag this as a final 1.0 release since a year has gone by since the previous beta, and since work on 2.0 has recently begun. two new features have been added in this release, both of them available in kiosk mode only. the first is an "underscan" mode for viewing special content on tv, together with a command that toggles between overscan and underscan. the second is automatic filtering of any file names that match the regexp ^\.(_|ds_store$). this filters out attribute files that are created by macos when writing to an nfs share.
+
+
+
+2007-04-08
+
+version 1.0beta2 uploaded. big cleanup of aspect ratio handling. the special
+16:9 anamorphic rescaling in cinemascope mode has been deprecated and replaced
+with a button that toggles between 4:3 and 16:9 aspect for the display device,
+or more exactly between 12:11 and 16:11 pixel aspect ratios. mplayer then
+performs the correct rescaling. this version has only been tested on
+mplayer-1.0rc1.
+
+
+
+2006-12-29
+
+version 1.0beta1 uploaded. new glotvd commands "channel_lock" and "play_locked".
+these ensure that the channel is locked when a client is recording. any client
+can override the lock, but only by starting a new recording. fast forward and
+reverse now automatically mutes the sound. support for cinemascope format via
+16:9 anamorphic aspect (kiosk mode only). bug fixed that prevented unsegmented
+recordings. after more than a year without changes, i decided to call this
+a beta release.
+
+
+
+2005-02-11
+
+version 1.0alpha9 uploaded. a new feature in the kiosk mode is that pressing
+"pause" on the xbox remote control will open an xterm window with a shell.
+upon termination, xglotv will regain focus and hide the cursor.
+various bug fixes in xglotv: most notably "%" characters in mplayer options
+are now handled correctly (useful for e.g. -geometry x%:y%). while tracking
+down this bug, a bug in mplayer itself was discovered. a patch was submitted
+and is available in mplayer cvs after 2005-02-09.
+
+
+
+2004-10-16
+
+version 1.0alpha8 uploaded. makefile and glotvrecord.c have been patched for freebsd.
+a week ago i created a temporary file server by putting a 200 gb disk in an old 240 mhz
+machine (with 32 mb ram) and installed freebsd on it. after using it as an nfs server
+for a while, i then tried using it as a glotv recording client, and to my surprise it
+used less resources running glotv than by recording via nfs.
+
+
+
+2004-10-06
+
+version 1.0alpha7 uploaded. updated etc/glotv.conf.sample for ntsc tuner support.
+also fixed a bug in the kiosk-mode photo album viewer (image rotation was broken).
+
+
+
+2004-03-11
+
+version 1.0alpha6 uploaded. added anamorphic widescreen (16:9) choices in desktop mode,
+and made some various minor improvements in the desktop mode interface.
+also fixed a couple of bugs in glotvd.
+
+
+
+2004-02-26
+
+version 1.0alpha5 uploaded. mplayer in kiosk mode now switches to 720x576 resolution
+(non-square pixels) while playing. updated pvrusb2 backend to handle switching between
+tv tuner and composite video inputs.
+
+
+
+2004-02-22
+
+version 1.0alpha4 uploaded. this is mainly a bugfix release. a number of things
+that ended up broken in alpha3 have been fixed.
+
+
+
+2004-02-17
+
+changed the square-pixel mode from 768x576 to 792x576, to account for the fact
+that 720x576 isn't really a 4:3 format.
+
+
+
+2004-02-16
+
+added photo album viewer for the kiosk mode. pressing the display button
+in the file browser enables still-image viewing. press left/right to rotate.
+imagemagick is a prerequisite for this: /usr/bin/convert is used to resize
+the next image in the browser, which is then preloaded while the previous one
+is displayed. without preloading there is a painfully long delay when loading
+1600x1200 size images on the xbox.
+
+
+
+2004-02-10
+
+first version uploaded.
+
+
+
+
+
+
+
+
+

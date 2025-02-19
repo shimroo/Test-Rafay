@@ -1,0 +1,670 @@
+
+
+roojsolutions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+toggle navigation
+
+
+
+
+
+
+
+
+our services
+
+
+our work
+
+
+blog
+
+
+open source
+
+
+contact
+
+
+
+
+
+
+
+
+
+
+
+
+latest
+
+some thoughts on the language server and its usefulness in the roobuilder  
+roo builder for gtk4 moving forward 
+clustered web applications - mysql and file replication 
+gitlive - branching - merging 
+pdo_dataobject released 
+pdo_dataobject is under way 
+mass email marketing and anti-spam - some of the how-to.. 
+hydra - recruitment done right   
+rss and categories 
+
+
+
+all categories
+ 
+
+
+
+php
+
+
+
+
+php-gtk
+
+
+
+
+pear
+
+
+
+
+hong kong
+
+
+
+
+linux
+
+
+
+
+general crap
+
+
+
+
+xul
+
+
+
+
+digitalmars d
+
+
+
+
+javascript
+
+
+
+
+gtk
+
+
+
+
+roo javascript
+
+
+
+
+xtuple erp
+  
+
+
+
+  
+12 apr 2024 
+some thoughts on the language server and its usefulness in the roobuilder   
+  since adding the 
+  vala language server to 
+  roobuilder i disabled quite a bit of the compiler code that was in the existing code base primarily removing the code copied from 
+  libvala which reduced the long-term maintenance issues
+
+
+  the initial edition of the language server provided the error reporting both for syntax errors that prevented compiles but also warnings and deprecated warnings.
+
+
+  these were nicely integrated into both the editor and the node navigation of the ui builder. this didn't really add a huge change to the existing usability as we already had error reporting like this before however the way that the language server reported errors was far nicer than the original code that we had
+  
+
+
+
+
+
+highlighting a warning in the editor
+
+
+
+
+
+  notably to get the language server working we had to switch to using meson as the build tool. this after working out how to use it proved a major improvement over both autoconf and cmake that i previously been using on other projects. it also made it quite easy to bundle resources like images and data into the compile which i had avoided before. notably however it did not seem to solve the issue that glib has a settings library which appears to be almost unusable due to the the way it requires things to be done at compile time which would not really be occurring if you installed via packaging.
+
+
+
+
+
+
+completion provider mostly working but a bit slow
+
+
+
+  the next stage to using the language server was to add the completion engine in. the biggest issues around the completion engine appear to be the requirement that the code is being edited is the same inside the language server as that being edited in the editor.
+
+
+  this means continually passing an up to date version of the text to the language server. the language server then running a compile from there it can work out type of the symbol that is being completed and pass back suggestions. on anything other than a single file or very tiny project this compile can take a few seconds before the completion engine is able to return a list of suggestions.
+
+
+  the end result of this is that the completion pop up frequently appears a minute or so after you finish typing or after you have jumped to another window and it pops up floating in space. it's quite cool for an example but doesn't really seem to have much practical use due to these restrictions. it is also notable that completion suggestions only really work well if you know what method or property you wanted to call or reference. on any kind of large library quite frequently you are not quite sure what that property or method might be so looking up the documentation is frequently the result.
+
+
+  to solve that i started looking at the hover feature of the language server. initially implementing it as a mouse over hover, this however suffered from the similar problem that the completion engine had, that the round trip back and forth between the server and the editor had enough of a lag that you really have to wait for the hover to appear. so rather than using the hover method for mouse over, i had to go using it to create a context bar at the top of the editor where there was a little white space left over to be used. this seemed like it would actually be a quite useful feature the language server returns quite a good signature of what it is hovering over with things like the type of the symbol eg. the object name or the method and the parameters that might be called.
+
+
+
+
+
+  i'm thinking that this might be useful. i looked at ways in which having got this context menu it was possible to look up the documentation of the object for example all the properties and methods from the language server based on sending it that object type for example the method that was being selected.
+
+
+
+
+
+
+hover provider providing a context menu at the top of the code
+
+
+
+
+
+  this is where i started to run into the limitations of the language server. it has some features to search for symbol types but just the simple idea of saying give me all the information you have on this type i couldn't really find any method in the specification to give me that info. it also appears that the number of methods that actually return documentation are quite limited within the specification, so the only ones i initially worked out was hover and completion.
+
+
+
+
+
+
+code navigation on the right of the plaintext editor
+          
+
+
+
+
+  one thing i did look at was the api to return document symbols, this after a bit of hunting can return a tree of symbols within a document which is extremely handy as a navigational tool to jump to code within a class. that was added as a right hand navigation bar on the plain text editing windows. it always amuses me to see editors with what i think they call mini maps which look like a zoomed out version of a file which seems absolutely pointless as a navigational tool. this tree however shows the methods and properties of the class of the file being edited and i think i made the mouse over show types etc. this however did not really solve the issue as this document symbol feature does not return any help documentation as per the api.
+
+
+  in my usual disorganized plan for the editor and my constant fascination with languages i decided to spend a bit of effort looking into this in more detail. the first step i decided to look at was how the language server was actually extracting the data from both the vapi and gir files. previously in the original design we fetch quite a bit of the structural data from the vapi to fill in all of the properties for the gtk widgets. this part of the code had a long history as i actually started with the gir files when it was written for the javascript seed engine.
+
+
+  that part of code had evolved over time to not actually use much of the gir however it was all structurally named around that and the symbol management which also wrapped the javascript user interface builder all shared the same structure.
+
+
+  looking at going forward with this and having the ability to properly query any type of object whether it is part of the library or part of the code base required the ability to use the same way that the language server extracted symbols from the library. the first step was really just to build a proof of concept called from the command line to convert vapi files and the code base into a tree structure. i decided to create a new base class which really just stores these type data and extend this class to handle the various other types like vala or eventually the javascript library. and also ended up being wrapped to handle gir files which i will come to later.
+
+
+  having done this it became pretty clear early on that using this code in line while things are being edited is going to have the same problem that the language server currently has in that the passing really needs to be done in the background and quickly. so it obviously became clear that the whole passing really should be done in a thread. this however leads to the interesting problem that if you are compiling in a separate thread you then need somehow to pass we compile data back to the original thread.
+
+
+  having worked with sqlite before i had a suspicion this might be a better solution. all of the file structures that we are currently using like gir and vapi, have a tree like structure and the existing data we have storing them in in the previous iteration of the passing engine which was still being used for the properties look like you could really just be mapped into a single table. i also realized that sqlite appears to work with threads although this bit i still have not tested completely. primarily as we are using memory based databases that i'm guessing will work between the threads.
+
+
+  phase one was parse the code base with the vapi and store it in the sql database, initially after a vapi file is being passed there is no need to update the database as that file has not changed in general that part of the engine would not update symbols in the database for files that have not changed. this makes an assumption that the symbol types of files are actively being edited do not affect the symbol database of other files in the project. i still need to understand whether that is really going to be the case but in general i think it is.
+
+
+  phase two wants to look at the gir files, these files are still useful as they contain documentation for the object libraries. there is however an issue which needs to be dealt with which is that although generally they map directly to vala there are quite a few instances where the way vala has wrapped the libraries diverges from the gir files. my initial hope was to use the libvala code in a similar way to the language server to extract the documentation from these files. that however proved to be a bit of a fool's game. technically within the language server you can actually compile a valid project against these gir files to do bindings in some scenarios. that actual usage however is pretty minimal and to be honest those files are more useful just as a data set for the documentation. and since they're relatively static it would be kind of helpful to just scan the whole lot. stored in the database and use it when needed rather than specifically scan gir files as needed.
+
+
+  since the language server uses them in a similar way to the compiler it didn't really like having multiple versions eg. gtk 3 and gtk 4 read in and expect to spit out documentation for both versions hence some really old code that i'd written to handle imports was grabbed to just scan very quickly through these xml files and extract the symbol names and documentation along with the file name version that the code is associated with.
+
+
+  the last part that's been currently done is to wrap this gir extraction into the startup process as a background thread to when you load the builder.
+
+
+  the next steps in theory are to hook in the code compiler to go as a background process when the code is being edited. this probably needs to look a bit better than the current language server interaction, whereby the compilation process needs to be canceled if a new compilation is required, and also the compilation needs to wait until editing has reasonably being completed rather than starting on the first change, which i managed to do with a little trickery on timeouts and asynchronous checks before.
+
+
+  this approach also had an interesting relevance to another significant issue with the editor. some of the javascript user interface files actually contain a huge tree which when edited does cause significance performance issues. part of these issues are the re-rendering in webkit which can be turned off .. however i think the other issue is that due to the nature of the renderer and the need to store references to the outputted line that maps to each node and property the javascript engine doesn't really cache in any sensible way the conversion of the node tree into a file and the data mapping of line to properties. in theory some of this could be speeded up by using more sensible methods to store the line numbers using more relative than absolute numbers. however it does raise the issue that using a similar concept of background threading the rendering of the tree into a string and using the database to store the line numbers means that the background thread generated data could be used by the foreground thread about too many issues. but as usual with the editor design far too many ideas and not enough time.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+posted by  in 
+                        
+              
+                         | 
+                        
+              add / view comments()
+ 
+19 nov 2023 
+roo builder for gtk4 moving forward  the gtk4 port of my roobuilder is getting closer to a release.. well, good enough that it will replace the existing gtk3 version. 
+
+
+ porting has been quite an effort. the initial phase of switching to gtk4 libraries and fixing all the compiler errors took a few months (this is very much a pet, part time project.. so things take a while). 
+
+
+
+
+
+ after having reached the point where there were no compiler errors (although it still has plenty of warnings). the next step was to see if it ran.. which obviously it failed at badly. 
+
+
+ its been a long road, and it started with issues around how gtk4 windows are more deeply tied to the application class. been so long since i fixed that, so ive forgotten the details. in the gtk3 version, although it had a application class, it did not really do that much. 
+
+
+ more recently, though, i've been going through the interface migration. key to this has been the migration away from gtktreeview, which seems to be unusable now for drag and drop of outside elements, along with being depricated. so i had to migrate all the code to use columnview with treemodels. 
+
+
+
+
+
+ on the positive side the use of an array of objects as the storage for trees, and the new method to render cells is a massive improvement on gtk3. and works like magic with vala objects. especially clever is the methods to update cell content. which you can create get/set properties on the vala object. and any change to the property instantly updates label text 
+
+
+
+
+
+ this makes the code that manages node tree, the core to the ui builder, massively simpler. no need to keep calling refresh or deal with tree iteraters like gtk3 treeview. 
+
+
+this.el.bind.connect( (listitem) => { 
+  var lb = (gtk.label) ((gtk.listitem)listitem).get_child();
+  var item = (jsrender.nodeprop) ((gtk.listitem)listitem).get_item();
+  item.bind_property("to_display_name_prop", lb, "label", glib.bindingflags.sync_create);
+});
+
+
+ the method for sorting these view is also nothing short of magical, when you finally find the code example for sorting.. its very easy.. but hunting down a good sample was difficult. 
+
+
+this.el.set_sorter( new gtk.stringsorter(
+  new gtk.propertyexpression(typeof(jsrender.nodeprop), null, "name")
+));// along with this  (in the sorterthis.el.set_sorter(new gtk.treelistrowsorter(_this.view.el.sorter)); 
+  
+
+
+
+
+ the process had not been without difficulty though, the new widgets seriously lack the ability to convert click events into cell row/column detection. essential for drag drop, the only way to do it is to iterate through the child and siblings and use math to calculate which row was selected. this made more complicated as the recent update to the widget changed the structure of the widgets. breaking all row detection code. note to self... don't complain.. send a patch... 
+
+
+(double x,  double y, out string pos) {
+
+	
+ // from  https://discourse.gnome.org/t/gtk4-finding-a-row-data-on-gtkcolumnview/8465
+	glib.debug("getrowat");
+    var  child = this.el.get_first_child(); 
+	gtk.allocation alloc = { 0, 0, 0, 0 };
+	var line_no = -1; 
+	var reading_header = true;
+	var curr_y = 0;
+	var header_height  = 0;
+	pos = "over";
+	
+	while (child != null) {
+		//glib.debug("got %s", child.get_type().name());
+	    if (reading_header) {
+		   
+		    if (child.get_type().name() == "gtkcolumnviewrowwidget") {
+		        child.get_allocation(out alloc);
+		    }
+			if (child.get_type().name() != "gtkcolumnlistview") {
+				child = child.get_next_sibling();
+				continue;
+			}
+			child = child.get_first_child(); 
+			header_height = alloc.y + alloc.height;
+			curr_y = header_height; 
+			reading_header = false;
+        }
+	    if (child.get_type().name() != "gtkcolumnviewrowwidget") {
+		    child = child.get_next_sibling();
+		    continue;
+	    }
+	    line_no++;
+
+		child.get_allocation(out alloc);
+		//glib.debug("got cell xy = %d,%d  w,h= %d,%d", alloc.x, alloc.y, alloc.width, alloc.height);
+
+	    if (y > curr_y && y <= header_height + alloc.height + alloc.y ) {
+	    	if (y > (header_height + alloc.y + (alloc.height * 0.8))) {
+	    		pos = "below";
+    		} else if (y > (header_height + alloc.y + (alloc.height * 0.2))) {
+    			pos = "over";
+			} else {
+				pos = "above";
+			}
+	    	glib.debug("getrowat return : %d, %s", line_no, pos);
+		    return line_no;
+	    }
+	    curr_y = header_height + alloc.height + alloc.y;
+
+	    if (curr_y > y) {
+	    //    return -1;
+        }
+        child = child.get_next_sibling(); 
+	}
+    return -1;
+
+}
+
+
+
+ the other issue is that double clicking on the cells is a bit haphazard. sometimes it triggers.. other times you feel like you are pressing a lift button multiple times hoping it will come faster. 
+
+
+https://gitlab.gnome.org/gnome/gtk/-/issues4364
+
+
+ the other bug i managed to find was putting dropdowns on popovers. don't do this it will hang the application. at present i've used a small column view to replace it.. but it needs a better solution as the interface is very confusing. 
+
+
+ https://gitlab.gnome.org/gnome/gtk/-/issues/5568  
+  
+
+
+ the other hill that i've yet to climb is context menus. gtk4’s menu system is heavily focused on application menus. and they have dropped menuitems completely. 
+
+
+
+
+
+ context menus are usually closely related to the widget that triggers them, and sending a signal to the application, that then sends it back to the widget, seems very unnatural. for the time being i've ended up with popovers with buttons.. not perfect, but usable 
+
+
+ i also had the opportunity to change the object tree adding for objects that ar properties of the parent. 
+
+
+ previously, adding a model to a columnview was done by using the add child + next to the columview item in the tree. it wouls show a list of potential child object, including ones that are properties. 
+
+
+ which is only working for the roo library so far 
+
+
+
+
+
+ i've removed those from that object list now, and put them in the properties dialog, which then lists all the potential implementations of the property, if you expand it the list, and double click to add it to the tree 
+
+
+ anyway, now to work out some good demo videos 
+
+
+ 
+posted by  in 
+                        
+              
+                         | 
+                        
+              add / view comments()
+ 
+05 mar 2020 
+clustered web applications - mysql and file replication  in mid-2018, one of our clients asked if we could improve the reliability of their web applications. the system was developed by us and was hosted on a single server in hong kong. over the last 5 years or so, the server had been sporadically unavailable due to various reasonsddos attack on the hosting provider's networkhardware failure - both on the hosting machine and the provider's network hardware.disk capacity issueswhile most of these had been dealt with reasonably promptly, the service provided by our client to their customers had been down for periods up to a day. so we started the investigation into the solution to make this redundant and considerably more reliable.since this was not a financial institution, with endless money to throw at the problem, amazon, azure etc. were considered to pricey, and even if they did provide a more reliable solution, there was still a chance that it could still be susceptible to network or ddos attacks. so the approach we took was to build a cluster of reasonably priced servers (both physical and virtual) hosted at multiple hosting providers.this represented the starting point, we had already separated the application and mysql server into individual containers. which made backups and restoration trivial, along with theoretically making the cluster implementation somewhat simplerto implement a full clustering solution, not a redundancy solution, we needed to solve a few issuesmysql clusteringfile system clusteringload balancingprivate networking between the various components.the simplest of these was the load balancing, we had already been using cloudflare to provide free ssl (we tend to use letsencrypt on solutions these days, but cloudflare has proved reasonably resilient. although it does still result in a single point of failure from our perspective)the other two however proved to be more challenging than we expected.mysql clusteringanyone who has used mysql, normally at some point set's up a master/slave backup system. it's pretty reliable, however, when it comes to switching from the master/slave, we concluded that the effort involved, especially considering the size of our database would be problematic. so we started testing out the mysql clustering technologies (note we tended to stick to classic mysql technologies, rather than trying out any of the forks/offshoots). after our initial analysis, we settled on ndb clustering, the setup of which proved more than a little problematic. in part due to the database restrictions that the storage engine enforced, but eventually having overcome the initial issues with this, by modifying our schemas slightly, we discovered that in our usage scenario, that ndb performance was significantly slower than that of a standalone innodb server. to the point where the application became un-usable. this may have been due to various factors, memory limitations, one of the machines using a physical rather than ssd drive. but after many hours of research and testing, we concluded that it was not a viable solution.after throwing all that research in the bin, the next alternative was an innodb cluster. again this involved quite a learning curve as management of the cluster is done via mysqlsh, which due to the nature of the internet has a wealth of out of date contradicting information all over the internet. along with rather limited precise information on working configurations. eventually, we managed to solve both the multitude of configuration settings (enough memory allocated to migrate) and minor schema modifications to enable replication to work. resulting in the first part of the puzzle being solved.the final solution for the mysql server involved hosting on 1 physical machine, one virtual machine in hong kong and a linode vps in singapore. this has generally met the initial goals of more stability, however, we do have a long term plan to move more to linode, and remove the hong kong physical hardware, as this seems to be our most frequent point of failure. saying that the machine and network have failed multiple times, but the services have remained up throughout.in addition to the servers, we also added mysqlrouter to the mix, in the initial design it's running on the same container as the mysql server. in hindsight, it would have been better to have a separate container for this, and the next phase the mysql servers will be hosted on seperate vps's, and the mysqlrouter container will be running on the application server vps's.file replicationwe did some quite extensive testing of clustered file systems, including getting the application up and running on gluster. this again however proved to be a performance issue, and we found that gluster killed both cpu and memory usage. eventually, we settled on a multi-pronged approach, the first being unison for two way synchronization. the second being splitting the file system into 'active areas' and archive areas. our applications generally create files in directories based on yyyy/mm/dd - so a simple script was written to move directories older than a few days from the 'hot' storage area which was replicated using unison (based on inotify watches) and a 'cold' area, that was kept in sync daily using rsync. softlinks were then created the hot file areas to point to the correct place in the cold storage.this meant we could handle quite a bit of file activity as one of the applications is constantly creating files, and have those files available on multiple servers. for the next phase of development, we will be running unison in multiple containers for each pair of replication targets. and also considering nfs servers over tcp rather than replication for our main two front end servers.private networkingone of the early issues before we set this all up was to work out how all these different servers would communicate, securely with each other. normally for private networking, we had used openvpn. this is a client-server spoke system, however for a reliable network we would not want to have a single point of failure, and writing scripts to flip between different openvpn servers if something failed seemed rather messy.to solve this we came across tinc, which solved our redundancy problem brilliantly. tinc is a mesh vpn, which, in theory, can route around broken connections, so with servers a,b,c - if the line is down between c&a then it will route via b. it, as we found later does not handle a 'poor' (dropped packets) connection between c&a very well. you also have to make sure all the firewalls are correctly configured as if you incorrectly configure access to 'c&b', in that 'c&b' can see a, but a can connect directly to c&b, the network will work, however, will fall apart as soon as c goes down. it's a real, cross the t's and dot the i's network, get it correct otherwise when it fails you will be hunting down the issue for a while.this is a map of the current configuration 
+posted by  in 
+                        
+              
+                         | 
+                        
+              add / view comments()
+ 
+03 jan 2019 
+gitlive - branching - merging  as things have slowed down in the new year, i've decided to give this blog a sparkle of life briefly. so if you are interested in engaging our services feel free to send us a message. as we have spare capacity at present.almost 9 years ago, i created a little application called gitlive, it's aim was to replicate our old subversion environment, where we mounted the subversion server over webdav, and whenever we saved files, they where automatically committed to the revision control system. 
+
+view extended entry
+ posted by  in 
+                        
+              
+                         | 
+                        
+              add / view comments()
+ 
+28 oct 2016 
+pdo_dataobject released  coding was complete last month, and has a huge test suite to covering a large proportion of the features. this should mean that replacing db_dataobjects will be pretty easy.you can either just checkout the code from github  / pdo_dataobject , or use the pear channel #pear channel-discover roojs.github.com/pear-channel#pear install roojs/pdo_dataobject-0.0.1 documentationbrowse around here  https://roojs.github.io/pdo_dataobject/docs/index.htmli revived my old php_codedoc code  (that needs publishing). it seemed simpler than trying to use any of the other tools out there. it's a pretty simple tool to extract structure, and documentation comments from the php source code. i added a small amount of code to export to our 'roo ui bjs toolkit format' the generated files are pure json, and mostly contain the contents from the comments un-formatted. i decided that doing the markdown conversion in javascript was far simpler (i refactored https://github.com/chjj/marked slightly for use with our libraries)there are a few other tweaks i made, using `@category` to group the documentation, and writing category pages (using roobuilder), then putting it all together the index.js file loads the parts, and renders the manual.this week i finished tidying up the rendering on mobile, and making sure all the comments render nicely using markdown. the result should be a nice easy to read and use manual. 
+posted by  in 
+                        
+              php
+                         | 
+                        
+              add / view comments()
+ 
+17 aug 2016 
+pdo_dataobject is under way  work has started on revamping my pear package db_dataobject, while it's served well over the years, and i still use it every day.. we have been funded to create a new version, which runs on pdo.there is a migration plan in the github repo for pdo_dataobject, i have currently completed the first two blocks, and almost the third block. but the key features aregeneral compatibility to db_dataobject with a few exceptions -  methods relating to pear::db have been removed, and replaced with pdo callsnew simpler configuration methods, with some error checkinga complete test suite - which we will apply to db_dataobject to ensure compatibilitychaining for most methods so this works$data = pdo_dataobject::factory('mytable')
+    ->autojoin()
+    ->where("somevalue not like 'fred%'")
+    ->limit(100)
+    ->fetchall();exceptions by default (pear is an optional dependency - not required)it should be fast!!! - standard operations should require zero other classes - so no loading up a complex set of support classes.  (odd or exotic features will be moved to secondary classes)feel free to watch the repo (we are using auto commit, so the commits are pretty meaningless at present) 
+posted by  in 
+                        
+              php
+                         | 
+                        
+              add / view comments()
+ 
+19 nov 2015 
+mass email marketing and anti-spam - some of the how-to..  i'm sure i've mentioned on this blog (probably a few years ago), that we spent about a year developing a very good anti-spam tool. the basis of which was using a huge number of mysql stored procedures to process email as it is accepted and forwarded using an exim mail server.the tricks that it uses are numerous, although generally come from best practices these days.the whole process starts off with creating a database with'known' servers it has talked to before 'known' domains it has dealt with before.'known' email address it has dealt with before.if an email / server / domain combo is new and not seen before, then apart from greylisting, and delaying the socket connections we also have a optional manual approval process. (using the web client).moving on from that we have a number of other tricks, usually involving detecting url links in the email and seeing if any of the email messages that have been greylisted (with different 'from') are also using that url.on top of this, is a web user interface to manage the flow and approvals of email. you can see what is in the greylist queue, set up different accounts for different levels of protection (either post-delivery approval, or pre-delivery approval etc..)this whole system is very effective, when set up correctly. it can produce zero false negatives, and after learning for a while, is pretty transparent to the operations of a company. (email me if you want to get a quote for it, it's not that expensive...)so after having created the best of breed anti-spam system, in typical fashion, we get asked to solve the other end.. getting large amounts emails delivered to mailing lists.if you are looking for help with your mass email marketing systems, don't hesitate to contact us sales@roojs.comread on to find out how we send out far to many emails (legally and efficiently) 
+
+view extended entry
+ posted by  in 
+                        
+              hong kong
+                         | 
+                        
+              add / view comments()
+ 
+16 nov 2015 
+hydra - recruitment done right  
+
+for the last few months we have been finishing up the first round of work on the hydra jobs platform. something, along with the founders we think is quite revolutionary idea in it recruitment. 
+
+
+
+
+
+  key to it's design is the idea that the first step in finding someone is not putting up an advert, and expecting a shitstorm of resume's that are totally unconnected to the requirements. taking a step back and realizing that as an employer, you would rather do a search for all the available candidates, than risk the time and wasted effort in sorting though unrelated piles of cv's.
+
+
+
+
+  we have spent the last 9 months working to get this to a mvp. the platform is now running, and the business operations are now underway.
+
+
+
+
+  so to make this work, the first step on hydra was to design a set of questions that could enable a detail search to work. what we ended up with is probably the easiest, yet comprehensive way of entering your profile data so it can be matched efficiently with companies recruiting staff.
+
+
+
+
+  it has been an interesting few months getting hydra up and going, now we are over the hump of the work,
+  
+    we are looking for more interesting projects to take on, so if you know of any, please
+    contact us.
+  
+
+
+
+
+
+  read on for some of the tricks we used to make this project, one of the best recruitment platforms around.
+
+
+
+
+
+
+view extended entry
+ posted by  in 
+                        
+              hong kong
+                         | 
+                        
+              add / view comments()
+ 
+20 may 2015 
+more on syntax checking vala - and a nice video  
+  as i wrote last week. i had added full syntax checking to the editor. so it runs a full compile check as you type.
+here's a nice video of it working...
+
+
+
+
+
+
+
+  after the initial joy of adding this to code, i soon realized it had a fatal flaw, read on to find out more..
+
+
+ 
+
+view extended entry
+ posted by  in 
+                        
+              gtk
+                         | 
+                        
+              add / view comments()
+ 
+09 may 2015 
+fetching resources from github in the app builder and fake web servers  my final words this week on the builder - handling resources, and fake web serverswhile i talked in the other posts about how the builder extracts the api for various components from the libvala library and the vapi files, some information that the builder requires has to be manually, created or fetched from other locations.when the builder was written in seed, it basically looked at the source code directory, and read files relative to the source code. for the vala version however, it's not expected to know about the source code directory, so i had to use a different approach. 
+
+view extended entry
+ posted by  in 
+                        
+              gtk
+                         | 
+                        
+              add / view comments()
+  
+
+  
+        (page 1 of 24, totalling 233 entries)
+           next page »   
+
+
+
+
+
+      follow us on  
+        
+
+
+
+
+
+
+
+
+
+
+
+
+our blog
+
+some thoughts on the language server and its usefulness in the roobuilder 
+
+roo builder for gtk4 moving forward
+
+clustered web applications - mysql and file replication
+
+gitlive - branching - merging
+
+pdo_dataobject released
+
+pdo_dataobject is under way
+
+mass email marketing and anti-spam - some of the how-to..
+
+hydra - recruitment done right
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+contact
+
+
+
+email: 
+                  sales@roojs.com
+
+tel: 
+                  +852 3709 2951
+
+room 2710, trend center
+                  
+29-31 cheung lee street, 
+                  
+chai wan
+                  
+hong kong
+                  
+
+
+
+
+
+copyright 2023 - roo j solutions limited
+powered by the roo javascript library and our roo bootstrap toolkit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

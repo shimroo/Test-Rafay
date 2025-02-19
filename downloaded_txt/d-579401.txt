@@ -1,0 +1,353 @@
+
+
+
+
+
+amateur seti: project bambi
+
+
+ 
+
+
+
+amateur seti:
+project bambi
+
+
+
+take a look at what's
+new with project bambi. (updated november 23rd, 2013)
+download the
+bambi
+printed circuit board layouts.
+download the bambi
+software collection.
+view the bambi
+schematics.
+ join
+the search with your own pc,
+through the seti@home project!
+
+
+the project bambi team:
+
+(left to right)
+mike f., bob
+lash, and mike fremont.
+
+
+
+example bambi waterfall drifting cw
+detection (terrestrial origin)
+can you find it? a faint 3.8 ghz drifting
+continuous wave (cw) narrow band signal is visible below. although this
+signal was of terrestrial origin (you are looking at the 30th harmonic
+of an ovenized 128 mhz ttl oscillator soldered to a resistor lead, mounted
+two yards behind the dish for high attenuation, mixed with actual sky signal
+at ra 19:46:05  dec +40 43), we are searching for real signals that
+have a similar drifting cw characteristic due to possible doppler shift.
+the horizontal axis of this display block
+corresponds to 600 channels (1 hz per channel), and the vertical axis represents
+time (240 lines at 2 seconds per line). the slope of this signal is approximately
++ 3 hz per second, with an inflection reversing to - 3 hz per second. unlike
+this test signal, a real extraterrestial source would be expected to maintain
+a constant slope.
+
+
+
+
+
+bambi sites:
+
+site a: california. site b: colorado.
+approximate antenna separation: 1,000
+miles
+bambi overview:
+ 
+ 
+
+
+
+the following article, complete with
+figures, was originally published
+in the june/july 1994 issue of
+radio
+astronomy,
+the journal of the society of amateur
+radio astronomers, pp. 1-6.
+
+
+up and running at 4 ghz:
+the seti-capable bambi radio
+telescope
+ by bob lash and mike fremont
+
+abstract
+
+the design, construction, and initial observational results of a 
+4 ghz amateur radio telescope are described in this first report from 
+project bambi (bob and mike's big investment). the system is now operating 
+continuously. the planned extension of the bambi project to amateur seti is 
+also discussed.
+
+
+introduction
+
+a number of efforts are underway in the search for extraterrestrial 
+intelligence (seti). we have been deeply interested in the search for some 
+time, and have concluded that amateurs can in fact construct affordable 
+systems with sensitivities comparable to professional all-sky search 
+strategies even with antennas of limited aperture. we have also concluded 
+that we can achieve a reasonably respectable frequency coverage of a search 
+spectrum as well. we hope this project will encourage other amateurs to join 
+in the search. project bambi is divided into two phases:
+
+     phase i: standard amateur radio astronomy:
+
+we have initially operated bambi as a total power receiver for several 
+crucial reasons. most importantly, it has been a lot of fun. many of you 
+must have experienced this same indescribable, goose-bump raising feeling, 
+when you realize you are actually detecting radio emissions from a source 
+almost a billion light years away (e.g. cygnus a). also, we confirmed that 
+the front end of the system actually worked, and calibrated our pointing 
+accuracy. we are now looking for the lower limit of our sensitivity, 
+which will allow us to better estimate our actual system temperature for 
+purposes of phase ii.
+
+
+     phase ii: narrow band seti:
+
+you will notice that bambi has a number of features that, while not required 
+or even necessarily optimal for a total power receiver, are essential for 
+seti. the incorporation of a 25 degree k lnb front end, and an inexpensive 
+spectrum analyzer in the if pathway make the telescope "seti-capable".  
+in phase ii, the spectrum analyzer will be used as a pc-controlled tuner, 
+funneling a "block" of frequencies to bambi's analog-to-digital converter. 
+an fft will then be performed to break the block up into narrow channels on 
+the order of 0.8 hz each, and the results will be passed on to detection 
+software to log possible "hits". the smaller aperture antenna actually 
+enjoys a benefit for seti use; the wider beam width means that sources 
+will stay in the beam longer allowing a wider spectrum to be examined. 
+when promising "hits" occur, one of the ways we can help distinguish them 
+from terrestrial noise is by repeatedly scanning for the frequency drift 
+expected due to the doppler shift caused by the earth's rotation and 
+possibly that of the source.
+
+
+background: amateur radio astronomy at 4 ghz
+
+
+the radio sky at 4 ghz is an interesting place. while sources emitting by 
+the synchrotron process (e.g. supernova remnants and radio galaxies) are 
+less intense than at lower frequencies, thermal sources such as hot ionized 
+gas clouds (h ii regions where new stars are forming) and other thermal 
+emissions from the plane of the galaxy are actually stronger. a big benefit 
+to the amateur radio astronomer at 4 ghz is the narrower half-power beam 
+width obtainable with even a modest sized antenna (1.9 degrees for our 8.5 
+foot parabolic dish) than at lower observing frequencies, and the ready 
+availability of inexpensive state-of-the-art low noise amplifiers, feeds, 
+antennas, and positioners mass produced by the tvro industry for satellite 
+tv reception.
+
+
+design
+
+an overview of the design is illustrated in figure 1. an off-the-shelf 8.5 
+foot parabolic antenna with a built-in horizon-to-horizon positioner was 
+pole mounted and oriented to sweep in a north-south arc covering a usable 
+declination range of +90 to -42 degrees. the telescope's ibm-pc clone moves 
+the antenna to the desired declination automatically using a standard 
+positioner control unit. a 25 degree k hemt gaasfet lnb (3.7 to 4.2 ghz 
+broadband input, 62 db gain, complete with built-in down converter producing 
+950 to 1450 mhz output) with attached chaparral style circular feed was 
+mounted at the focus. cabling was run indoors and the signal was down 
+converted to the 225 to 725 mhz range using a mixer driven by a 725 mhz 
+local oscillator. the signal was then supplied to an inexpensive 0.1 to 
+810 mhz spectrum analyzer plug-in card for ibm-pc's (built from a kit 
+featured in the august 1991 issue of radio electronics magazine and 
+available from dkd instruments). this card consists of a catv type tuner and 
+two ne615 receiver / if amplifier stages providing about 55 db of gain in 
+our application. the output of the 1st if stage (now at a bandwidth of 280 
+khz centered at 455 khz) was then coupled to two wide band op-amp gain 
+stages (for 20x and 12x voltage gain) and then sent to a square law 
+detector circuit. this was then buffered by a unity gain voltage follower, 
+and sent to an integrator with a 70x gain and a 30 second integration time. 
+baseline adjustment is accomplished automatically by means of a computer 
+controlled 8-bit d/a converter driving an offset adjust circuit (it 
+algebraically subtracts the d/a output voltage from the signal). a dc 
+amplifier stage delivering 50x gain provides the final signal to an 
+8-bit a/d converter attached to an ibm-pc. total power data is logged at 
+30 second intervals. the log files are time averaged over a series of scan 
+nights and the results are shown graphically on a pc.
+construction
+
+if you have some familiarity with analog and digital electronics as well as 
+programming, you should be able to build a system similar to bambi. we are 
+both electronics and computer hobbyists (yes, we did later get degrees in 
+electrical engineering and computer science, but that sort of academic 
+background is not necessary to build a working system).  all of the front 
+end electronics (from the antenna up to the ibm-pc spectrum analyzer card) 
+are pre-made items that were patched together using f and n type jumper 
+cables. even the spectrum analyzer can be obtained pre-built if desired. 
+the kit construction proceeded flawlessly, but we cracked one of the if 
+
+transformer cores with a metal screwdriver during the initial tuning and 
+had to replace it (be sure to invest $1.25 for the recommended toko plastic 
+adjusting tool!). the remaining electronics were assembled on a small 
+breadboard, and the layout was not critical because the signal at this 
+stage is very low frequency. the indoor electronics were placed in two 
+rack mount bays (see photos) and attached to a dedicated ibm-pc. a second 
+ibm-pc (on the right side of the photo) is used for time averaging analysis, 
+display, and other development work, so that the telescope can continue 
+observations without interruption.
+
+
+initial observational results
+
+
+after checking out the system on a tvro satellite (anik-e2) and the sun, 
+we then realized we still needed some more gain, and added the two above-
+mentioned if amp stages that follow the spectrum analyzer. we then 
+reobserved the sun (fig. 2), and as you can see the signal was so strong 
+that it pegged off scale and illuminated the antenna sidelobes.
+
+fig. 2 - solar transit
+after kicking up the post-detector amplitude to about 70 mv, we then successfully 
+observed cassiopeia a (figs. 3 & 4), taurus a (fig. 5), cygnus a (fig. 6), 
+and virgo a (fig. 7). the published strength of these sources at 4 ghz are 
+listed below:
+
+
+object
+flux at 600 mhz (jy) 
+flux at 4 ghz (jy)
+
+
+
+(ref. 1) 
+(ref. 2)
+
+
+
+
+
+
+
+cass a 
+4756 
+1086
+
+
+tau  a 
+1090 
+687
+
+
+cyg  a 
+2944
+459
+
+
+vir  a 
+396 
+84
+
+
+                     
+
+fig 3. - cassiopeia a, six separate scan night plotted
+
+fig. 4 - cassiopeia a, time average of six scan nights
+
+fig. 5 - taurus a (crab nebula), average of six scans
+
+fig. 6 - cygnus a, average of seven scans
+
+fig. 7 - virgo a, average of ten scans
+the observations for cass a in figure 3 show the individual plots obtained 
+over 6 separate nights. figure 4 shows the dramatic reduction in noise that 
+occurs when the 6 nights are time averaged together. the remaining objects 
+shown are also time averaged. in the cygnus a plot (fig. 6), it is 
+interesting to note that the cygnus arm of the galaxy (the spiral arm we 
+are in) is also clearly seen. the transients seen prior to and following 
+the virgo a detection (fig. 7) are due to baseline adjustment artifact. 
+this source was close to the sun causing more frequent baseline compensation 
+due to thermal changes. we are now beginning to search for weaker sources to 
+find the practical limit of our sensitivity.
+
+
+planned extension to amateur seti
+
+
+as mentioned earlier, and quite remarkably, amateurs can obtain 
+sensitivities comparable to nasa's all-sky search (which we were saddened 
+to learn was recently cancelled due to budget constraints), even using small 
+antennas, by means of applying the fft to break the signal up into channels 
+significantly narrower than what nasa was using (e.g. using 0.6 to 1 hz vs. 
+20 to 32 hz channels). man-made radio signals such as the strongest military 
+radar systems radiate 14,000 megawatts into a bandwidth of 0.1 hz. even 
+ordinary tv carriers concentrate about half their power in a very narrow 
+band of 0.1 to 1 hz (ref. 3). this narrow band detection approach provides 
+a dramatic boost in the signal-to-noise ratio which significantly 
+compensates for the smaller aperture dish. the next phase of project bambi 
+will be to run a high resolution fft spectral analysis on the output of the 
+spectrum analyzer in a search for narrow band carriers not found from 
+natural radio sources. this will initially be carried out in software, 
+and later will be implemented using a dedicated fft processor chip which 
+was donated to the project. we will submit updates as the project 
+continues.
+
+
+resources
+
+you can download the bambi software collection right here.
+view the bambi
+schematics.
+other resources:
+
+dkd instruments (810a spectrum analyzer ibm-pc plug-in)
+750 amber way
+nipomo ca. 93444
+(805) 929-2285
+fax (805) 929-5983
+orbitron (sx-8.5 tvro antenna) (available from skyvision)
+351 s. peterson st., spring green, wi  53588  
+(608) 588-2923
+
+chaparral communications (polarotor feedhorn) (available from skyvision)
+2450 north first st., san jose, ca 95131
+(408) 435-1530
+
+california amplifier (25 deg. k lnb) (available from skyvision)
+460 calle san pablo, camarillo, ca  93012
+(805) 987-9000
+
+vigar electronics (surplus source of cal. microwave l.o.)
+242-01 alameda ave., douglaston, n.y. 11363
+(718) 423-1906
+
+california microwave (very helpful with info on their pc7pl t.c.x.o. 
+local oscillator)
+(408) 732-4000
+
+mini-circuits (zfm-150 mixer)
+p.o. box 350166, brooklyn, ny, 11235-0003
+(718) 934-4500
+
+
+references
+
+1. sickels, r.m., radio astronomy handbook, catalog of 400 radio sources, 
+pp. 296-299, 1989
+
+2. baars, j., et. al., the absolute spectrum of cas a;  an accurate flux 
+density scale and a set of secondary calibrators, astronomy and 
+astrophysics, 61:99-106, 1977
+
+3. papagiannis, m. (ed.), the search for extraterrestrial life;  
+recent developments, proceedings iau symposium 112, pp. 263-270, 1984
+bob lash's personal homepage is here.
+see the bambi observations of comet shoemaker/levy-9's impact on jupiter!
+bambi home | what's new | software | jupiter observations | sara / amateur radio astronomy
+
+

@@ -1,0 +1,1530 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+aor u.s.a., inc. orange, ca u.s.a. home page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+home of aor, u.s.a., inc.   authority on radio communications
+
+aor, ltd is a japanese communications equipment manufacturer established in 1978, headquartered in tokyo, japan, serves the monitoring enthusiasts, communication professionals, amateur radio operators and electronics industries throughout the world.
+
+
+
+
+		  	espaãol por google
+
+
+
+
+aor home
+what's new
+products
+support
+about us
+contact us
+yt
+tw
+dummy
+
+
+
+
+
+
+
+
+
+receivers
+ar2300
+ar2300 i/q special edition
+ar5001d
+ar5700d
+ar6000
+
+
+ar-dv1
+ar-dv10
+
+ar-iq
+rf front-end
+antennas
+accessories
+others
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ar5700d
+
+a high-performance communications receiver for commercial and governmental applications
+9khz - 3.7ghz super wideband coverage
+tetra, dmr, nxdn, d-star, dpmr, apco 25, yaesu, alinco, d-cr
+trunked tetra gssi group filtering (fitted as standard)
+quality made in japan!
+now controllable via sdr# for advanced functionality!
+
+
+
+
+
+
+
+
+
+
+ar-dv1
+
+the ar-dv1 sdr digital voice receiver is a unique stand-alone 
+									solution to decode mototrbo, dmr, dpmr, apco 25, nxdn, 
+									icom d-star, digital cr, yaesu, kenwood and alinco ej-47u.
+decodes traffic channels of tetra trunking networks!
+new!trunked tetra gssi group filtering (option)
+
+
+
+
+
+
+
+
+
+
+ar-dv10
+
+a new standard for hand-held receivers ! 
+100khz - 1300mhz analog & digital modes
+tetra, dmr, nxdn, dpmr, apco25, d-star, 
+									yaesu c4fm, alinco ej47u and digital cr.
+digital modes auto-detect
+optional cospas-sarsat beacon decoder
+record i/q on sd, playback with sdr# on pc
+decodes traffic channels of tetra trunking networks!
+new!
+									trunked tetra gssi group filtering (option)
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ar2300 i/q special edition
+								in the usa, sales are limited to governmental users.
+
+black-box receiver (computer controlled)
+digital i/q output
+aor software (4 x win, 2 x linux)
+40khz - 3.15ghz
++/- 0.1ppm frequency stability
+now controllable via sdr# for advanced functionality!
+
+
+
+
+
+
+
+
+
+
+
+ar2300
+								in the usa, sales are limited to governmental users.
+
+black-box receiver (computer controlled receiver)
+digital signal processing architecture
+40khz - 3.15ghz
+2,000 channels
+now controllable via sdr# for advanced functionality! (requires option iq5001)
+
+
+
+
+
+
+
+
+
+
+ar5001d
+
+digital signal processing architecture
+40khz - 3.15ghz
+amazing performance and scanning speed
+built-in sd audio recorder
+now controllable via sdr# for advanced functionality! (requires option iq5001)
+
+
+
+
+
+
+
+
+
+
+ar6000
+
+40khz - 6ghz coverage with no interruptionsavailable in the us only to qualified purchasers with documentation.
+digital signal processing architecture
+amazing performance and scanning speed
+built-in sd audio recorder
+now controllable via sdr# for advanced functionality! (requires option iq5001)
+
+
+
+
+
+
+
+
+
+
+ar-iq software
+
+designed exclusively for aor receivers with digital i/q output.
+up to 1mhz can be recorded for later evaluation.
+high recovered audio quality with no deterioration of recorded data.
+spectrum and full color waterfall display.
+
+
+
+
+
+
+
+
+
+
+
+
+
+news update
+
+
+02-03-2025
+the ar-dv1 firmware has been updated to  v.2412a.
+
+
+
+01-16-2025
+build your own 1.5ghz satcom-acars (inmarsat) receiving system with the ar5700d receiver!
+unlock the full potential of your ar5700d
+	
+the ar5700d receiver, capable of receiving signals up to 3.7ghz, opens a gateway to explore signals and data beyond the usual spectrum. for those curious about what lies above 1ghz, here's a practical and exciting project: decoding classic aero standard signals in the 1.5ghz l-band. these signals, known as satcom-acars, are transmitted by inmarsat satellites to aircraft, especially when they are out of vhf acars range.
+at aor headquarters, we created a simple yet effective setup to receive and decode these signals. while not flawless, the system serves as a "proof of concept", combining learning and fun with real-world applications.
+
+
+
+
+
+getting started: tools and setup
+begin your journey with guidance from the jaero software page,(https://jontio.zapto.org/) which offers an excellent conceptual overview. here's what you'll need:
+hardware:
+- receiver: ar5700d (alternatively ar2300iq, ar5001d with iq5001, or ar6000 with iq5001 options)
+- antenna: diy l-band patch antenna (as detailed in the tech minds youtube tutorial) https://www.youtube.com/watch?v=luvppzopmry
+- amplifier: low-noise amplifier (lna), ideally l-band-specific for optimal signal-to-noise ratio. we used the aor ln4000 100mhz-3ghz wide-band amplifier because thatâs we had available for the test, but it is not ideal. you should rather use a specific low-noise amplifier including a filter for the l-band (1.5ghz) for best signal to noise ratio (s/n).
+- coaxial cable: high-quality uhf coaxial cable. we used airspyâs youloop 2m long transmission line (blue cable), which is rated up to 18ghz.
+- computer: a standard windows pc
+software:
+- sdr# by airspy: free receiver control software https://airspy.com/download
+- vb-cable: free virtual audio cable software https://vb-audio.com/cable/
+- jaero by jonti olds: free decoding software (visit site) https://jontio.zapto.org/
+-----
+why choose the ar5700d receiver?
+unlike cheaper sdr dongles, the ar5700d offers:
+- low noise floor: ideal for detecting weak satellite signals
+- frequency accuracy: ensures precise signal reception
+- exceptional image suppression: reduces ghost signals and harmonics
+- high carrier-to-noise ratio (c/n): enhances signal clarity
+
+how it works: our setup in action
+1. antenna: a home-made l-band patch antenna mounted on a camera tripod, built using a 0.5mm thick copper sheet.
+2. signal processing: the ar5700d receiver connects to sdr#, which sends audio to jaero via vb-cable for decoding.
+3. decoding: jaero's interface translates raw aero signal data into readable satcom-acars messages.
+-----
+additional tips for non-i/q receivers
+you can actually decode satcom-acars by using the standard ar2300, ar5001d and ar6000 receivers not fitted with the iq5001 option! simply connect the receiverâs line-out to your pcâs line-in or use a usb audio interface if required.
+
+-----
+discover new horizons with your aor receiver
+this project demonstrates the versatility and potential of aor receivers. we hope it inspires you to explore new applications, learn, and enjoy the fascinating world of satellite communication.
+stay tuned for more innovative ideas and projects demonstrating the range of signals you can receive in high-quality, explore and decode above 1ghz using your aor receiver!
+
+
+
+12-25-2024
+ip access now available for aor i/q receivers!
+we are excited to announce the official release of ip access for our i/q equipped receivers. after a successful testing phase, users can now stream high-quality i/q over lan and the internet using the spyserver software, courtesy of our partners at airspy.
+the receiver models which profit from this enhancement are:
+ar5700d
+ar2300iq
+ar5001d (with the iq5001 option)
+ar6000 (with the iq5001 option)
+enjoy seamless access and streaming capabilities today!
+
+--------
+tips for the best user experience:
+1)    handling the "server is busy" message
+if you encounter a "server is busy" pop-up when starting the remote connection with sdr#, donât worry! simply wait a few seconds and try reconnecting. this delay happens because the boot-up sequence of our receivers takes a few moments to complete.
+2)    fixing choppy audio
+if you experience chopped audio during playback, you can resolve it by adjusting the buffer settings:
+open the spyserver.config file.
+increase the values of input_buffer_size_ms and output_buffer_size_ms to 200.
+save the file and restart spyserver.exe. problem solved!
+3)    optimizing sdr# performance
+for the best performance in sdr#, make sure to:
+activate the agc (automatic gain control) feature.
+click the "learn" button to ensure proper calibration.
+-------
+download the latest sdr# and spyserver at: https://airspy.com/download/
+
+
+
+
+11-21-2024
+the ar-dv10 firmware has been updated to  v.2410a.
+
+
+
+11-14-2024
+
+explore the full potential of our flagship ar5700d receiver with our comprehensive software list!
+attention monitoring hobbyists and professionals! the ar5700d is more than just a receiver â itâs a gateway to a world of incredible possibilities. weâve compiled a complete list of available software to elevate your experience and make the most of your device. whether you're into signal decoding, memory management, or exploring advanced receiver control, thereâs something for everyone. hereâs what you can achieve:
+3rd party software for windows:
+
+sdr# (free)
+features: receiver control, live i/q streaming, recording, and playback.
+https://airspy.com/download/
+spyserver (aor compatibility coming soon) (free)
+features: lan/internet receiver control, live i/q streaming, recording, and playback.
+https://airspy.com/download/
+sigmira (free)
+features: decoding of various narrowband digital modes on hf bands.
+https://www.saharlow.com/technology/sigmira/
+wsjt-x (free)
+features: decoding weak signal digital modes including ft-8.
+https://wsjt.sourceforge.io/wsjtx.html
+multipsk (â¬35)
+features: decoding of various narrowband digital modes on hf bands.
+http://f6cte.free.fr/index_anglais.htm
+ham radio deluxe ($99.95)
+features: amater radio software suite including decoding of various narrowband digital modes on hf bands.
+https://www.hamradiodeluxe.com/
+krypto500 (for government agencies only)
+features: signal analysis and decoding for sigint & comint.
+https://www.comintconsulting.com/
+
+aor windows software for ar5700d:
+
+arl2300local (free)
+features: comprehensive receiver control and memory management.
+http://www.aorusa.com/support/software.html#ar5700d
+ar5700d editing software (free)
+features: effortless memory management.
+http://www.aorusa.com/support/software.html#ar5700d
+tetratest (free)
+features: filter tetra-gssi user groups and custom naming options.
+http://www.aorusa.com/support/software.html#ar5700d
+iq_for_gnuradio (free)
+features: convert i/q from ar-iq3 for use with gnu radio on windows.
+http://www.aorusa.com/support/software.html#ar5700d
+
+aor linux software for ar5700d:
+
+arl2300local (free)
+features: comprehensive receiver control and memory management.
+http://www.aorusa.com/support/software.html#ar5700d-linux
+rel (free)
+features: capture i/q for use with gnuradio and gqrx.
+http://www.aorusa.com/support/software.html#ar5700d-linux
+
+with this arsenal of tools, you can control, program, decode, analyze, and enjoy the thrill of exploring the airwaves like never before. 
+for a list of aor dealers, visit http://www.aorusa.com/dealers/.
+
+
+
+10-30-2024
+
+exciting news! ip access testing underway for aor i/q receivers.
+we're thrilled to share that we are currently testing ip access for several of our high-performance i/q receivers. this enhancement aims to bring even greater versatility to our popular models, allowing users to stream high quality i/q over lan and internet via the spyserver software from our friends at airspy.
+
+the models which wll profit from this enhancement are:
+ar5700d
+ar2300iq
+ar5001d (with the iq5001 option)
+ar6000 (with the iq5001 option)
+stay tuned for more updates!
+
+
+
+10-25-2024
+
+aor products showcased at korea police world expo (kpex) 2024
+we are pleased to announce that our official distributor in korea, goldstar security, is exhibiting aor's receivers at the ongoing korea police world expo (kpex), taking place from october 23rd to october 26th, 2024.
+
+visitors can explore the ar-dv1 digital voice receiver and the ar2300 black-box receiver at the goldstar security booth. these versatile receivers cater to a wide range of users, from casual listeners to professional operators and governmental agencies. whether utilized as standalone devices or integrated into complex systems, aor receivers deliver top-tier performance across various applications.
+golstar security: www.spyshop.co.kr/
+kpex: eng.police-expo.com/
+ar-dv1: www.aoriusa.com/receivers/ar-dv1.html
+ar2300iq: www.aorusa.com/receivers/ar2300iq.html
+
+
+
+
+
+
+10-09-2024
+thank you for joining us at national hamfest 2024!
+we would like to extend our heartfelt thanks to everyone who visited the moonraker booth at the national hamfest 2024, held in the uk on 27th and 28th of september 2024.
+during the event, our official distributor delighted attendees with an exciting giveaway draw, offering the chance to win one of our ar-dv1 digital voice receivers. we are thrilled to announce that theresa is the lucky winner of the ar-dv1 receiver! congratulations, theresa!
+
+we hope you enjoy your new receiver, and for everyone else, stay tuned for more exciting opportunities in the near future. once again, thank you for your continued support and enthusiasm for our products.
+we look forward to seeing you all again at future events!
+moonraker: https://moonrakeronline.com/
+
+
+
+10-01-2024
+new technical supplement for ar5700d digital communications receiver now available
+we are excited to announce the release of the ar5700d technical supplement. this comprehensive document delves deep into the advanced architecture and performance features of our flagship ar5700d digital communications receiver, offering potential buyers and technical experts an in-depth look at its capabilities.
+designed for high-performance applications in signal detection and processing, the ar5700d is built to handle frequencies ranging from 0.1 mhz to 3.7 ghz with precision and reliability. the supplement provides detailed insights into its sophisticated signal flow, innovative image reception suppression techniques, high c/n ratio, low phase noise, consistent gain and minimal harmonic spurs technologies.
+download the ar5700d technical supplement
+ar5700d product page.
+stay ahead with the ar5700d â the ultimate solution for modern digital communications.
+
+
+
+07-23-2024
+exciting news for ar-dv1 and ar-dv10 owners: introducing the 3rd party software "aor ar-dv10 connect" for ar-dv1 and ar-dv10!
+we are thrilled to announce the availability of a fantastic new 3rd party software for win7~11, "aor ar-dv10 connect," specifically designed for our ar-dv1 and ar-dv10 receivers.
+
+developed by depmicro, this free software offers a range of receiver control and memory management features that can significantly enhance the functionality and user experience of your ar-dv1 and ar-dv10 receivers. available in english, french, spanish, italian and german.
+you can download "aor ar-dv10 connect" directly from the depmicro website at https://depmicro.com/en/.
+we encourage all ar-dv1 and ar-dv10 owners to take advantage of this excellent software.
+
+
+
+07-03-2024
+exceptional performance of the ar5700d receiver in challenging conditions (part 2):
+the secret behind its exceptionally low noise floor
+the ar5700d communications receiver sets a benchmark in the sdr market with its exceptionally low noise floor, primarily due to the ltc2205-14 adc chip. this 14-bit, 65msps adc minimizes noise through its high resolution and fast sampling, essential for preserving signal integrity.
+key features contributing to its performance include:
+
+high snr and sfdr: with a signal-to-noise ratio of 78.3db and a spurious-free dynamic range of 98db, the adc excels in distinguishing signal from noise, crucial in varied signal environments. (dither=off   sfdr=103dbfs  @15mhz, dither=on   sfdr=113dbfs  @15mhz)
+dithering and data output randomizer: these options help in reducing quantization noise, enhancing the accuracy of digital outputs.
+ultralow jitter and wide bandwidth: the adcâs 90fsrms jitter and 700mhz bandwidth ensure precise sampling and handling of high-frequency signals without loss of quality.
+
+the following graph showcases how well the adc handles signal conversion at a fundamental frequency of 14.9mhz, with dithering applied, reflecting its pure performance. it clearly depicts the signal-to-noise ratio and the absence of spurious frequencies, which are critical for illustrating the low noise characteristics of the adc.
+
+the integration of these advanced features makes the ar5700d highly effective and reliable for applications demanding high sensitivity and minimal noise interference.
+for more details, visit the ar5700d product page: http://www.aorusa.com/receivers/ar5700d.html
+by the way, our ar2300, ar5001d and ar6000 series receivers feature the same very low noise floor!
+
+
+
+06-24-2024
+exceptional performance of the ar5700d receiver in challenging conditions (part 1)
+we are thrilled to announce a series of insights into the remarkable capabilities of our ar5700d receiver, starting with an in-depth look at its superior noise floor performance.
+our tests are and will be conducted in an electrically noisy office building in the heart of tokyo. this setup is intentionally chosen to push the boundaries and reveal the true prowess of the ar5700d.
+in a recent comparative test, the ar5700d demonstrated its exceptionally low noise floor. the test conditions included no antenna connected, agc turned off, and rf gain set to zero.
+the comparison, featuring the popular sdr receivers rtl-sdr v.3 and airspy r2, highlighted the ar5700dâs advanced engineering. while both the rtl-sdr v.3 and airspy r2 offer excellent performance within their respective price ranges, the ar5700d stands out with its premium components and impeccable shielding, delivering unmatched performance.
+thanks to its superior hardware design, high-quality components and signal processing, the ar5700d excels by achieving a minimal noise floor of -140 dbfs (as measured on the sdr# spectrum screen, see screenshot). such performance is critical for professional and governmental users worldwide who demand the highest standards in signal reception.
+stay tuned for more updates as we continue to explore and reveal the superior specifications and functions that make the ar5700d the preferred choice for discerning professionals across the globe.
+for more details, visit the ar5700d product page: http://www.aorusa.com/receivers/ar5700d.html
+by the way, our ar2300, ar5001d and ar6000 series receivers feature the same very low noise floor!
+
+
+
+
+06-12-2024
+[fr] notre ã©quipe du rã©seau aor en france brille dans les activitã©s radio amateur
+nous sommes fiers de souligner le dã©vouement remarquable de notre ã©quipe du rã©seau aor en france, qui s'engage passionnã©ment dans les activitã©s radio amateur. un article paru ce mois-ci dans la revue radio-ref (juin 2024, #987) rapporte la rã©cente mission en cã´te d'ivoire de frã©dã©ric merle (f5hpe), directeur de prosic, accompagnã© de ses collã¨gues du radioclub f6kop. cette initiative visait ã  soutenir les radioamateurs locaux dans l'amã©lioration de leurs capacitã©s de communication d'urgence.
+
+frã©dã©ric et son ã©quipe ont dã©montrã© un engagement et une expertise exceptionnels, contribuant au dã©veloppement et ã  l'installation d'ã©quipements radio cruciaux. leurs efforts reflã¨tent le dã©vouement profond et l'esprit communautaire qui caractã©risent notre ã©quipe internationale. nous applaudissons leurs contributions et l'impact positif qu'ils ont eu sur la communautã© mondiale des radioamateurs.
+
+lisez l'article (avec l'autorisation aimable de radio-ref):  <pdf> 
+ref (rã©seau des ãmetteurs franã§ais): https://web.r-e-f.org/
+f6kop: https://www.f6kop.com/
+thank you for your continued support!
+
+
+
+06-07-2024
+enhanced instructions for gssi option activation key online purchase
+we're excited to announce improvements to our customer online purchase experience! understanding the needs of our valued customers, we have revamped the instructions for purchasing the activation key for the gssi option on our japanese online store. to make the process as clear and straightforward as possible, we've created a detailed 6-page pdf guide with screenshots that will walk you through each step.
+please note that our shopping cart system is currently available only in japanese. we apologize for any inconvenience this may cause.
+for immediate access to the guide and to purchase the activation key, please visit our purchase site here: https://www.aordirect.jp/html/page25.html
+thank you for your continued support!
+
+
+
+06-03-2024
+ar5700d multi-simultaneous receive capability with sdr# software
+we are excited to announce the latest development for our ar5700d wideband communication receiver. as demonstrated below, users can now leverage the powerful capabilities of the sdr# software to enable multi-simultaneous receive functions in their ar5700d receiver.
+
+this advancement allows for monitoring multiple frequencies concurrently within the maximum bandwidth of the i/q stream, which is 0.9 mhz wide. this significantly enhances the versatility of the ar5700d. the sdr# software from our friends at airspy, integrates seamlessly with the ar5700d to provide a comprehensive and flexible monitoring solution.
+for a demonstration, please watch (and listen to!) the video below. it showcases the sdr# software actively monitoring multiple airband frequencies of tokyo control, tower, approach, and departure. the video also highlights how simple it is to open a new receiver session by just clicking the "plus" icon at the top left of sdr#. the actual number of sessions which can be opened is actually only limited by your pc's processing power.
+
+we believe this enhancement will greatly benefit our users by providing more flexibility and efficiency in their monitoring activities. stay tuned for more demonstrations of what can be achieved by the combination of ar5700d and sdr#.
+you can download the latest version of sdr# from the official airspy website at https://airspy.com/download/
+by the way, the same capabilities also apply to receivers ar2300iq, ar5001d with iq5001 option, and ar6000 with iq5001 option, so why don't you try it out?
+
+
+
+05-14-2024
+we are excited to share a glimpse of the new sdr# version 1920 in action, showcasing its seamless integration with aor i/q receivers.
+the screenshots below demonstrate the user-friendly interface and advanced functionality.
+
+sdr# controlling the ar5700d digital communications receiver
+
+sdr# in its simplest layout for basic control
+
+sdr# in a two monitor layout example, with all function panels open and docked at will
+you can download the latest version from the official airspy website at https://airspy.com/download/ and ensure your system is equipped with .net framework 8 or higher.
+enhance your listening experience by selecting "aor iq" from the source tab in sdr#.
+
+
+
+
+04-26-2024
+exciting update: sdr# now supports aor i/q receivers!
+we're thrilled to announce that our partners at airspy have released version 1920 of the sdr# software, featuring support for aor receivers!
+compatible models are:
+ar5700d
+ar2300iq
+ar5001d (with iq5001 option)
+ar6000 (with iq5001 option)
+download the latest sdr# at: https://airspy.com/download/
+
+
+
+
+04-24-2024
+🚨 important update: wholesale price increase coming june 1, 2024! 🚨
+we are committed to providing you with the highest quality products. due to rising costs in materials, production and operations, we must adjust our wholesale prices starting june 1, 2024 across all products, including receivers, antennas and accessories.
+seize the opportunity to purchase aor products at current prices before they go up! this is your chance to stock up and save.
+visit our trusted distributors now and make the most of our current offers!
+find a distributor near you: http://www.aorusa.com/dealers/
+
+
+
+04-03-2024
+[fr] lors de la derniã¨re ã©dition du salon ond'expo qui a pris ses quartiers ã  ecully (69) le 23 mars, la prã©sence de prosic, notre fidã¨le distributeur franã§ais, a marquã© les esprits. partenaire clã© de l'ã©vã©nement, prosic a brillã© par son stand exceptionnellement fourni, recueillant des avis plus que positifs de la part des visiteurs.
+les retours louaient non seulement le professionnalisme de lâã©quipe prosic mais aussi l'excellence de la sã©lection prã©sentã©e. un produit a particuliã¨rement captã© l'attention : l'ar-dv10, dont la rã©putation n'est plus ã  faire, a continuã© ã  recevoir des ã©loges pour sa performance remarquable.
+l'impact visuel et l'implication de prosic ont indã©niablement enrichi l'expã©rience du salon, tout en mettant en lumiã¨re la passion pour le monde du radio amateurisme.
+grã¢ce ã  cette participation enthousiaste, de nombreuses opportunitã©s nouvelles se dessinent pour les produits aor, promesse dâun futur radieux pour nos activitã©s.
+l'augmentation significative du nombre de visiteurs et leur engagement ont ã©tã© chaleureusement applaudis par les organisateurs. prosic et aor ltd. tiennent ã  remercier tous les participants pour un ã©vã©nement des plus rã©ussis !
+-------------------------
+[en] at the latest ond'expo fair, which was hosted in ecully (france) on march 23, the presence of prosic, our esteemed french distributor, made a significant impact. as a key partner of the event, prosic shone with an exceptionally well-stocked booth, garnering highly positive feedback from visitors.
+the professionalism of the prosic team and the excellence of the showcased selection were unanimously praised. one product, in particular, stood out: the ar-dv10, which has already established a strong reputation, continued to receive commendations for its remarkable performance.
+the striking presence and involvement of prosic undoubtedly enhanced the salon experience, highlighting the enthusiasm for the world of amateur radio.
+this spirited participation has opened up numerous new opportunities for aor products, promising a bright future for our endeavors.
+the significant increase in visitor numbers and their engagement were warmly commended by the organizers. prosic and aor ltd. would like to thank all the participants for a most successful event!
+------------------------
+prosic: https://aor-france.com
+ond'expo: http://www.ondexpo.com
+
+
+
+
+
+02-06-2024
+the ar-dv10 firmware has been updated to v.2307a.
+
+
+
+10-24-2023
+[fr] le samedi 21 octobre 2023, le rendez-vous tant attendu des passionnã©s de radio s'est tenu : le salon hamexpo ã©dition 2023. orchestrã© par le ref (rã©seau des emetteurs franã§ais), cet ã©vã©nement est un incontournable pour les amateurs de radio, non seulement en france, mais ã©galement dans l'ensemble de la sphã¨re francophone.
+notre distributeur, pro-sic, a marquã© sa prã©sence avec un stand dynamique et haut en couleurs. de plus, en signe de reconnaissance de l'importance de cet ã©vã©nement, lâagence nationale des frã©quences a choisi de dã©voiler son vã©hicule de surveillance du spectre, positionnã© stratã©giquement en face des rã©cepteurs ardv1, dv10 et ar5700d.
+un fait marquant : pro-sic a eu l'honneur d'ãªtre le seul exposant dans la zone dã©diã©e aux professionnels, offrant ainsi une visibilitã© optimale. les visiteurs ont eu l'opportunitã© de tester en direct nos rã©cepteurs renommã©s, confirmant l'excellence de leur performance.
+-------------------------
+[en] on saturday, october 21, 2023, the much-anticipated gathering for radio enthusiasts took place: the hamexpo 2023 edition. orchestrated by the ref (rã©seau des emetteurs franã§ais), this event is a must-attend for radio aficionados, not only in france but also throughout the francophone world.
+our distributor, pro-sic, marked its presence with a dynamic and vibrantly colored booth. furthermore, as a testament to the significance of this event, the national frequency agency showcased its spectrum surveillance vehicle, strategically positioned opposite the ardv1, dv10, and ar5700d receivers.
+a notable highlight: pro-sic had the honor of being the only exhibitor in the dedicated professional zone, thus offering optimal visibility. visitors had the opportunity to directly test our renowned receivers, affirming their top-tier performance.
+------------------------
+prosic: https://aor-france.com
+r.e.f: https://web.r-e-f.org/
+hamexpo 2023: https://hamexpo.r-e-f.org/
+
+ 
+
+
+
+
+09-12-2023
+on september 10, the âjournã©e des associationsâ took place in provins, spearheaded by the french radio-club f6kop.
+attendees witnessed captivating live tx/rx tests utilizing the qo-100 es'hail 2 satellite. beyond its primary functions, such as direct tv broadcasting and distribution of governmental and commercial content, es'hail 2 offers a linear transponder for amateur radio services. this encompasses low-power narrow bandwidth voice, morse, and digital communications.
+fred from prosic, our esteemed french distributor and a long-time supporter of the radio-club, showcased the ar-dv10 receiver. with remarkable ease, he received and decoded the amateur radio downlink from es'hail 2 using a off the shelf astra-type satellite dish.
+qo-100 satellite info: https://en.wikipedia.org/wiki/es%27hail_2
+f6kop: https://www.f6kop.com/
+prosic: https://aor-france.com
+
+
+
+2.4ghz tx antenna on top and a refurbished astra type satellite dish at the bottom for rx.
+
+
+ar-dv10 receiving a qso transmission in cw from the qo-100 es'hail 2 satellite. while the dish is receiving the downlink frequencies around 10.489ghz, ar-dv10 is tuning to the downconverted frequencies output by the lnb, at around 739 mhz. in line between the antenna and the receiver are a bias-tee to power the lnb, and an attenuator for optimal signal level.
+
+
+
+
+08-09-2023
+[fr] comme tous les ans, le salon radioamateur de marennes (charente maritime â france) est l'occasion estivale pour les aficionados de la radio de se retrouver au cåur du pays de l'huã®tre.
+en ce jour du 29 juillet 2023, la prã©sence de notre reprã©sentant franã§ais pro-sic a ã©tã© particuliã¨rement remarquã©e, tout comme l'exposition sur leur stand de notre trã¨s fameux ar-dv10.
+pro-sic est le sponsor et partenaire historique du radio-club f6kop.
+le dirigeant de pro-sic a dã©clarã© ãªtre agrã©ablement surpris de l'accueil qui lui a ã©tã© rã©servã© par les organisateurs du salon.
+pro-sic sera prã©sent au salon hamexpo organisã© par le r.e.f., instance nationale des radioamateurs franã§ais, le samedi 21 octobre 2023.
+ref17, l'association radioamateur qui organise le salon radioamateur de marennes: http://ref17.r-e-f.org/
+f6kop: https://www.f6kop.com/
+prosic: https://aor-france.com
+r.e.f: https://web.r-e-f.org/
+hamexpo 2023: https://hamexpo.r-e-f.org/
+
+
+fred of prosic  
+
+left to right, fred of prosic and a member of f6kop
+
+
+
+05-25-2023
+kudos to the aor distributor in france, prosic, for his honorable initiatives for the blind and visually impaired radio amateurs. last april, members of prosic, unaraf (national union of the blind radio-amateurs of france) and f6kop (french radio club) have been honored guests of an event organised in abidjan, capital of the ivory coast, for the benefits of inipa the national ivorian institute for the advancement of the blind.
+prosic and unaraf have already cooperated in the past for the creation of dv1-unaraf, a control software for the ar-dv1 receiver, dedicated to the blind and visually impaired. 
+
+below are some photos of that inipa event in abidjan:
+
+
+mathurin of hyrbrid technology at the left and fred of prosic at the right.
+
+f5anz of unaraf making a demo on "how to use a radio when visually impaired".
+  
+
+left to right, fred of prosic (also rotary int'l representative member), inipa director, tony f5anz of unaraf, mathurin and didier from hybrid technolgy, and children of the inipa.
+
+prosic: https://aor-france.com
+f6kop: https://www.f6kop.com/
+unaraf: https://www.unaraf.fr/
+
+
+
+03-02-2023
+hints on how to decode various digital modes in hf:
+aor already offers unique and very powerful solutions for the pc-less decoding of all the major digital modes present in the vhf and uhf bands (tetra, dmr, nxdn, d-star, dpmr, apco 25, yaesu, alinco, d-cr). 
+those solutions are:
+-the ar5700d, ar-dv1 and ar-dv10 receivers
+-the ar2300, ar5001d and ar6000 receivers with the optional ard300 multi-digital modes decoder (except tetra).
+did you know that with the help of a pc and 3rd party software, you can also decode plenty of other digital modes in the hf bands (below 30mhz)? you have probably heard of rtty, psk31, fsk, sitor-b, stanag, sstv etc. for your convenience, we have selected a couple of popular decoding software solutions for windows, which are still well maintained and affordable for the casual radio listener.
+sigmira
+free!
+http://www.saharlow.com/technology/sigmira/
+ham radio deluxe
+commercial software
+www.hamradiodeluxe.com/
+multipsk
+commercial software
+http://f6cte.free.fr/index_anglais.htm
+wsjt-x (ft-8)
+free!
+https://wsjt.sourceforge.io/wsjtx.html
+please note:
+-the line-out audio of your receiver needs to be connected to your pc sound card's line-in. mic-in is unlikely to work well.
+-the receiver's speaker output, headphones output and discriminator audio output cannot be used for this task.
+-ar-dv1 and ar-dv10 cannot be used as they do not feature any line-out. 
+have fun experimenting!
+
+
+
+12-09-2022
+office relocation
+we are relocating to new business premises.
+our new address will be
+1944 n tustin st #122, orange, ca 92865
+
+
+
+09-20-2022
+multi-receiver control!
+arl2300local for windows is able to control multiple receivers simultaneously, from the same pc. there is actually no limit in the number of receivers you can control, as long as you have a large enough display, or a multi-display setup, to accommodate all the program windows.
+
+arl2300local for windows is a free receiver control & memory management software for our ar2300, ar2300-iq, ar5001d, ar6000, ar5700d receivers.
+main features:
+-local receiver control via usb
+-memory management
+-scan
+-search
+-detached and resizable spectrum display
+-audio recording to receiver sd
+-2band listening
+-offset
+-digital options control (for ar5700d only)
+-simultaneous multi-receiver control on the same pc!
+downloads:
+* arl2300local for windows installation instructions
+* arl2300local for windows software
+* arl2300local for windows user guide
+
+
+
+09-16-2022
+the ar-dv1 receiver firmware has been updated to v.2205a.
+
+
+
+09-07-2022
+the ar-dv10 firmware has been updated to v.2205a.
+
+
+
+09-05-2022
+new software release: arl2300local for windows
+today we are releasing arl2300local for windows, a free receiver control & memory management software for our ar2300, ar2300-iq, ar5001d, ar6000, ar5700d receivers.
+main features:
+-local receiver control via usb
+-memory management
+-scan
+-search
+-detached and resizable spectrum display
+-audio recording to receiver sd
+-2band listening
+-offset
+-digital options control (for ar5700d only)
+and...simultaneous multi-receiver control on the same pc!
+downloads:
+* arl2300local for windows installation instructions
+* arl2300local for windows software
+* arl2300local for windows user guide
+do you prefer controlling our receivers with linux? we got you covered! browse our great linux software solutions here.
+
+
+
+08-25-2022
+coming soon: the windows version of arl2300local!
+arl2300local is a fully featured receiver control & memory management software for our ar2300, ar2300-iq, ar5001d, ar6000, ar5700d receivers.
+
+
+
+
+07-22-2022
+
+
+the user manual addendum for ar-dv10 has been updated with instructions on how to purchase, activate and use the cospas-sarsat distress beacon decoder function.
+this is a revolutionary optional feature which does empower your ar-dv10 to receive the distress signals of cospas-sarsat (plb, epirb, elt) distress beacons! such beacons are activated by persons, aircrafts or vessels in distress. ar-dv10 is the worldâs first hand-held radio receiver to feature this unique function. it allows the ar-dv10 users to receive both the beaconâs analog 121.5mhz homing signal, as well as the digital 406mhz signal which indicates the gps location and id content of the beacon owner. the ar-dv10 will display and log, lat / long coordinates, raw code, 15 hex id and beacon code.
+download the ar-dv10 user manual addendum (refer to the last page of the pdf)
+go to the ar-dv10 product page.
+
+
+
+05-30-2022
+technical bulletin pages for our old legacy receivers: ar8000
+for the enjoyment of our loyal customers still using discontinued legacy aor receivers, today we are releasing a technical bulletin for the ar8000 (500khz-1900mhz) hand-held receiver of 1994.
+this is the 15th and last entry to the technical bulletin pages!
+go to the ar8000 bulleting page.
+
+
+
+05-10-2022
+technical bulletin pages for our old legacy receivers: ar2700
+for the enjoyment of our loyal customers still using discontinued legacy aor receivers, today we are releasing a technical bulletin for the ar2700 (500khz-1300mhz) hand-held receiver of 1995.
+go to the ar2700 bulleting page.
+stay tuned to this news page for other legacy receiver bulletins soon!
+
+
+
+04-28-2022
+the brochure and user manual for rf-6g have been updated to reflect the latest specifications.
+rf-6g is a 500khz-6ghz rf front-end unit with ultra-fast 1ms switching synthesizer, for system integrators. typical applications for rf-6g are the integration into high-end monitoring systems dedicated to wide-band radio monitoring, interference detection and investigation, field-strength measurements, frequency analysis, radio propagation research and close-range detection of illegal eavesdropping devices.
+go to the rf-6g product page.
+
+
+
+04-11-2022
+technical bulletin pages for our old legacy receivers: ar2000
+for the enjoyment of our loyal customers still using discontinued legacy aor receivers, today we are releasing a technical bulletin for the ar2000 (500khz-1300mhz) hand-held receiver of 1991.
+go to the ar2000 bulleting page.
+stay tuned to this news page for other legacy receiver bulletins soon!
+
+
+
+03-22-2022
+technical bulletin pages for our old legacy receivers: ar1500
+for the enjoyment of our loyal customers still using discontinued legacy aor receivers, today we are releasing a technical bulletin for the ar1500 (500khz-1300mhz) hand-held receiver of 1991.
+go to the ar1500 bulleting page.
+stay tuned to this news page for other legacy receiver bulletins soon!
+
+
+
+03-14-2022
+technical bulletin pages for our old legacy receivers: ar1000
+for the enjoyment of our loyal customers still using discontinued legacy aor receivers, today we are releasing a technical bulletin for the ar1000 (0.5-1300mhz) hand-held receiver of 1990.
+go to the ar1000 bulleting page.
+stay tuned to this news page for other legacy receiver bulletins soon!
+
+
+
+03-08-2022
+technical bulletin pages for our old legacy receivers: ar900
+for the enjoyment of our loyal customers still using discontinued legacy aor receivers, today we are releasing a technical bulletin for the ar900 (108-136, 137-174, 220-280, 300-380, 406-470, 830-950mhz) hand-held receiver of 1988.
+go to the ar900 series bulleting page.
+stay tuned to this news page for other legacy receiver bulletins soon!
+
+
+
+03-04-2022
+technical bulletin pages for our old legacy receivers: ar800
+for the enjoyment of our loyal customers still using discontinued legacy aor receivers, today we are releasing a technical bulletin for the ar800 (30-50, 118-175, 436-526, 800-100mhz) hand-held receiver of 1987.
+go to the ar800 series bulleting page.
+stay tuned to this news page for other legacy receiver bulletins soon!
+
+
+
+02-25-2022
+the ar-dv1 firmware has been updated to v.2202b.
+
+
+
+02-07-2022
+compact setup: ar2300 receiver control via arl2300local+ raspberry pi + small lcd
+
+don't want to use a large pc to control your ar2300 receiver? just grab a pi, a small lcd screen and control all receiver functions with ar2300local, our free control software for linux computers.
+for all details, see our previous news dated 2022.01.31.
+
+
+
+02-04-2022
+dual receiver control via arl2300local on a raspberry pi.
+
+as arl2300local uses very little resources, providing you use a powered usb hub, control is not limited to just two receivers!
+for all details, see our previous news dated 01-31-2022.
+
+
+
+01-31-2022
+full receiver control via a raspberry pi (rpi4b/400)!
+
+today we are pleased to release version 4.2.9 of arl2300local, our linux os receiver control software for aor ar5700d, and ar2300 / ar5001d / ar6000 receivers equipped with the iq5001 option.
+arl2300local works on  most debian / ubuntu / raspbian based operating systems, it is therefore not limited to the raspberry pi pc..
+
+improvements over the previous version 4.0.10 are:
+-i/q recording feature addition
+-detached and resizeable spectrum display
+-hovering over signal peak does display the frequency
+
+only aor is offering a receiver control software for linux of this scale, able to control all receiver features!
+* local receiver control via usb
+* simultaneous multi-receiver control on the same pc!
+* memory management
+* scan banks / groups
+* search banks / groups
+* stretchable spectrum display
+* audio recording to receiver sd
+* i/q recording (playback via gqrx or gnuradio)
+* 2band listening
+* offset
+* digital options control (for ar5700d only)
+
+photo: the ar5700d receiver being controlled by a raspberry pi 4b.
+downloads:
+* arl2300local installation instructions (revised for the new version 4.2.9)
+* arl2300local software
+* arl2300local user guide (based on arl2300 client)
+you only have a low power linux pc such as a raspberry pi 2/3series, or an atom/celeron based linux pc? fear not! by using the previous arl2300local version 4.0.10, you can still fully control the ar5700d, ar2300, ar5001d, ar6000 receivers minus the i/q recording and the stretchable spectrum display features.
+download here..
+
+
+
+2022.01.21
+coming soon: a major update for arl2300local for linux!
+arl2300local is a fully featured receiver control & memory management linux software for our ar2300, ar2300 i/q, ar5001d, ar6000, ar5700d receivers.
+
+it's really great, so stay tuned...
+
+
+
+12-21-2021
+technical bulletin pages for our old legacy receivers: ar5000 series
+for the enjoyment of our loyal customers still using discontinued legacy aor receivers, today we are releasing a technical bulletin for the ar5000 series (10khz-2600/3000mhz) tabletop receiver of 1995.
+go to the ar5000 series bulleting page.
+stay tuned to this news page for other legacy receiver bulletins soon!
+
+
+
+12-09-2021
+technical bulletin pages for our old legacy receivers: ar3000a
+for the enjoyment of our loyal customers still using discontinued legacy aor receivers, today we are releasing a technical bulletin for the ar3000a (100khz-2036mhz) tabletop receiver of 1992.
+go to the ar3000a bulleting page.
+stay tuned to this news page for other legacy receiver bulletins soon!
+
+
+
+11-30-2021
+technical bulletin pages for our old legacy receivers: ar3000
+for the enjoyment of our loyal customers still using discontinued legacy aor receivers, today we are releasing a technical bulletin for the ar3000 (100khz-2036mhz) tabletop receiver of 1989.
+go to the ar3000 bulleting page.
+stay tuned to this news page for other legacy receiver bulletins soon!
+
+
+
+11-22-2021
+technical bulletin pages for our old legacy receivers: ar2800
+for the enjoyment of our loyal customers still using discontinued legacy aor receivers, today we are releasing a technical bulletin for the ar2800 (500khz-600mhz, 800-1300mhz) tabletop receiver of 1991.
+go to the ar2800 bulleting page.
+stay tuned to this news page for other legacy receiver bulletins soon!
+
+
+
+10-15-2021
+we have exciting news!
+today is the official release of ar2300 i/q special edition, an enhanced version of the well established ar2300 black-box receiver. ar2300 i/q special edition features an i/q output as standard, and is supplied with a suite of aor software (4 for windows,  2 for linux) , as well as a new updated user manual.
+check the product page and see the amazing things you will be able to do with the powerful ar2300 i/q special edition!
+in the usa, sales are limited to governmental users.
+
+
+
+10-08-2021
+new ar-dv1 firmware release v. 2108b with bug fixes.
+
+
+
+09-27-2021
+bulletin pages for our old legacy receivers: ar7030
+for the enjoyment of our loyal customers still using discontinued legacy aor receivers, today we are releasing an extensive technical bulletin for the famous ar7030 shortwave receiver of 1996.
+go to the ar7030 bulleting page.
+
+stay tuned to this news page for other legacy receiver bulletins soon!
+
+
+
+09-08-2021
+bulletin pages for our old legacy receivers: ar7030
+for the enjoyment of our loyal customers still using discontinued legacy aor receivers, today we are releasing an extensive technical bulletin for the famous ar7030 shortwave receiver of 1996.
+go to the ar7030 bulleting page.
+
+stay tuned to this news page for other legacy receiver bulletins soon!
+
+
+
+08-31-2021
+in our operating manual archive at http://www.aorusa.com/support/discontinued.html we have added two dozens of manuals for legacy receivers and other devices. more than 40 years of aor radio history! 
+
+
+
+08-30-2021
+bulletin pages for our old legacy receivers!
+for the enjoyment of our loyal customers still using discontinued legacy aor receivers, starting today we will be releasing "technical bulletin" pages for some of our old legacy receivers. today we are starting with the famous ar3030 shortwave receiver of 1993.
+go to the ar3030 bulleting page.
+
+stay tuned to this news page for bulletins regarding other legacy receivers soon!
+
+
+
+08-11-2021
+the windows usb driver made by ftdi chip and used for our ar5700d/ar6000/ar5001d/ar2300/sr2200/ar-alpha receivers has been updated to version 2.12.36.4.
+link to aor software page: http://www.aorja.com/support/software.html
+
+
+
+07-19-2021
+new aor antenna released today!
+the da1500 discone antenna (70-1500mhz) is a compact size version of the popular da3200 discone antenna (25-3000mhz).
+product page: http://www.aorusa.com/antennas/da1500.html
+aor antennas band coverage chart: http://www.aorusa.com/antennas/
+
+
+
+
+07-14-2021
+new ar-dv1 firmware release v. 2107a with bug fixes.
+
+
+
+07-08-2021
+decode ft-8 with the ar-dv1 and a raspberry pi!
+did you know that in hf worldwide there are now more qso calls using the digital ft-8 mode than traditional analog modes? here is a nice week-end project to try out with your aor receiver! in the photo below we used the ar-dv1 receiver and a raspberry pi 4 with raspberry pi o.s. the ft-8 decoding software is called wsjt-x and can be easily installed via "add / remove software" in the preferences menu. you also need a cheap usb audio interface to input the sound from the receiver's phones jack.
+in japan there is ft-8 activity on a dozen frequencies from medium wave all the way up to 1.2 ghz! how is it in your country?
+wsjt-x software download site: https://physics.princeton.edu/pulsar/k1jt/wsjtx.html
+have fun!
+
+
+
+
+2021.06.28
+new software release: arl2300local
+today we are releasing arl2300local, a free receiver control software for ar5700d / ar2300 / ar5001d / ar6000 receivers, for debian / ubuntu / raspbian based operating systems!
+this unique solution allows complete receiver control from a small and inexpensive single board computer such as the popular raspberry pi.
+main features:
+-local receiver control via usb
+-memory management
+-scan
+-search
+-spectrum display
+-audio recording to sd
+and...simultaneous multi-receiver control on the same pc!
+downloads:
+* arl2300local installation instructions
+* arl2300local software
+* arl2300local user guide (based on arl2300 client)
+
+
+
+
+06-25-2021
+the free and fully featured ar5700d control software we are currently developing, does work on a wide range of linux operating systems such as raspberry pi o.s, ubuntu, linux mint and twister os. as it uses little resources, it does also work great on fairly low power computers. just imagine the range of possibilities it will bring to your monitoring activities!
+stay tuned...
+
+
+
+
+06-24-2021
+in preparation at aor headquarters: full ar5700d control via raspberry pi!!!
+
+stay tuned...
+
+
+
+06-04-2021
+new updated version 210601 for our free data package which allows ar5700d users to save the i/q stream to a linux pc (including raspberry pi 400 and rpi4b!), to manipulate the stored i/q data in gnuradio and to play it back with gqrx.
+it also works with ar2300/ar5001d/ar6000 receivers equipped with the iq5001 option.
+download english instructions
+download the data package
+have fun experimenting!
+click each image to enlarge
+
+
+
+
+
+06-01-2021
+this is the ar-dv1 receiver receiving a transmission from the qo-100 es'hail 2 amateur radio satellite, at the f6kop radio club.
+kudos to aor-france by prosic for kindly donating the necessary hardware and setting all up, for the enjoyment of all f6kop visitors!
+
+video of ar-dv1 receiving qo-100
+
+satellite dish used to receive qo-100
+radio club de provins f6kop: https://www.f6kop.com/
+qo-100 info: https://en.wikipedia.org/wiki/es%27hail_2
+ar-dv1: http://www.aorja.com/receivers/ar-dv1.html
+prosic: https://www.aor-france.com
+
+
+
+04-16-2021
+we are proud to release today "tetratest", a free aor pc utility for the ar5700d digital communications receiver.
+itâs a tool to facilitate the operation of the receiverâs tetra gssi user group filtering function. it supports custom naming of gssi user groups and ssi user ids!
+
+download this utility. (3.4mb zip)
+download instructions (119kb pdf)
+
+
+
+04-10-2021
+the aor exclusive tetra gssi user group filtering feature of the ar5700d receiver is described in this video. feel free to share!
+
+
+
+
+04-06-2021
+coming soon for the lucky ar5700d digital communications receiver owners!
+an exciting tetra-gssi free pc utility for the ar5700d is in preparation. watch a visual teaser (no sound).
+feel free to share this video!
+
+
+
+
+03-31-2021
+the aor exclusive nxdn / dcr 15-bit scramble decode feature of the ar5700d receiver is described in this video. feel free to share!
+
+
+
+
+03-15-2021
+the ar-dv10 logextract pc utility has been updated to v.8e to add support for tetra t-tc and gssi recordings.
+logextract is a special utility to access the recording logs which the ar-dv10 receiver has written into the wav files.
+download at: http://www.aorja.com/support/ar-dv10_logextract.html
+
+
+
+03-08-2021
+remote control your ar8600mk2 via a raspberry pi!
+
+	  you are a keen raspberry pi user and own our legacy ar8600mk2 receiver? why not joining the two for a very exciting experiment.
+with our free data package downloadable below and a couple of common accessories, you can transform your rpi into a network interface for the ar8600mk2. remote control the receiver and listen to the audio via a java client on another pc on the same network, or from the internet!
+this project is initially from 2014 and all has been recently updated to work on the new raspberry pi o.s, with its new alsa audio implementation.
+download the instructions
+download the rpi server package
+download the client software
+have fun, and feel free to share this information!
+raspberry pi is a trademark of the raspberry pi foundation. http://raspberrypi.org.
+
+
+
+02-28-2021
+the optional tetra gssi group filtering "pro" function for ar-dv1 and ar-dv10 is described in this video. feel free to share!
+
+
+
+
+02-19-2021
+new firmware released today for the ar-dv1 and ar-dv10 digital receivers, with exciting new features!
+ar-dv1 update page
+ar-dv10 update page
+
+
+
+02-12-2021
+manipulate ar-iq3 i/q files in gnu radio...on windows!
+
+another exciting news for our ar5700d users which are more comfortable on windows than on linux!
+today we are releasing another free data package which allows ar5700d users to do exciting things with their i/q recordings with a windows based gnu radio program. the i/q recording is made as usual via the supplied ar-iq3 software, and then modified via a simple python script to make it a compatible signal source in gnu radio. our data package even contains a sample gnu radio template for beginners to be able to play with it right away!
+it also works with ar2300/ar5001d/ar6000 receivers equipped with the iq5001 option.
+ download english instructions
+ download the data package
+have fun experimenting!
+
+
+
+02-03-2021
+great news for linux users, radio tinkerers  and communication system  engineers out there!
+
+	  today we are releasing a free data package which allows ar5700d users to save the i/q stream to a linux pc (including raspberry pi!), to manipulate the stored i/q data in gnuradio and to play it back with gqrx.
+	  it also works with ar2300/ar5001d/ar6000 receivers equipped with the iq5001 option.
+	   download english instructions
+	   download the data package
+have fun experimenting!
+
+
+
+01-08-2021
+the ar5700d digital communications receiver has been extensively reviewed in the 2021 edition of the world radio tv handbook.
+click to download the review.
+(c) posted with permission from wrth publications ltd. visit wrth at www.wrth.com.
+
+
+
+01-06-2021
+for ar-dv10 users: the free 3rd party software "universal scanner audio player" made by eldar nizamutdinov, to playback, search, sort and catalog wav audio recordings, is now compatible with ar-dv10. check it out at: http://www.mediafire.com/file/aub01jii38mkty4/universalscanneraudioplayer.zip/file
+
+
+
+12-04-2020
+[d] die bundesnetzagentur hat am 14. september 2020 eine komplette liste der zugeteilten tetra mobilen netzkennungen fuer deutschland zugeteilt.
+
+
+
+10-30-2020
+we are pleased to announce today the release of a new pc utility for the ar2300 black-box receiver. it allows you to conveniently manage memory channels, memory banks, search banks, scan groups and search groups. download page.
+
+
+
+10-27-2020
+we are pleased to announce today the release of a new pc utility for the ar5001d/ar6000 communications receivers. it allows you to conveniently manage memory channels, memory banks, search banks, scan groups and search groups. download page.
+
+
+
+10-26-2020
+[fr] nouveau logiciel de pilotage rã©cepteur pour nos amis les aveugles et mal-voyants!
+a la demande des membres de lâunaraf (union nationale des aveugles radio-amateurs de france), aor-france by prosic a prã©sentã© la premiã¨re application de pilotage du rã©cepteur ar-dv1, dã©diã©e aux aveugles et mal-voyants. lâapplication nommã©e dv1-unaraf est traduite en audio pour un usage adaptã©. la version anglaise est en cours de test.
+nous sommes trã¨s heureux de cette honorable initiative de prosic, et de cette premiã¨re et belle coopã©ration avec l'unaraf.
+dv1-unaraf sera bientot disponible via l'unaraf sur www.unaraf.fr.
+[e] new receiver control software for the blind and visually impaired!
+at the request of the members of the french unaraf (national union of the blind radio-amateurs of france), aor-france by prosic presented the first control software for the ar-dv1 receiver, dedicated to the blind and visually impaired. this software named dv1-unaraf is translated into audio for suitable use. an english version is currently being tested as well.
+we are very pleased by this honorable initiative from prosic, and the consequent cooperation with the unaraf.
+dv1-unaraf will soon be available via unaraf at www.unaraf.fr.
+
+[fr] tony f5anz, prã©sident de l'unaraf qui teste la premiã¨re ã©bauche du logiciel.        www.unaraf.fr
+[e] tony f5anz, president of the unaraf, testing the beta version of the software.
+
+
+
+10-16-2020
+we are pleased to announce today the release of a new pc utility for the ar5700d digitial communications receiver "ar5700d editing software". it allows you to conveniently manage memory channels, memory banks, search banks, scan groups and search groups. download page.
+
+
+
+10-09-2020
+[d] eine neue facebook gruppe (von dg1dx / visualradio) ist den empfã¤ngern von aor und der software visualradio flash gewidmet. visualradio unterstã¼tzt folgende aor empfã¤nger: 
+ar3000/ar8200/ar5000/sr2200/ar2300/ar5001d/ar6000/ar-dv1/ar5700d.
+https://www.facebook.com/groups/279499243070759/
+
+
+
+09-30-2020
+our friends at visualradio (dg1dx) have kindly created a "receiver-less" spectrum simulation demo version of their new visualradio control software for the ar5700d receiver. give it a try!
+link to download page: https://visualradio.de/downloads
+after installation, you will be asked to select a vrt file (centered on 6mhz or 107.9mhz) and you are ready to go!  this demo has no time limitation and also includes tcp/ip functionality.
+advanced users can also install their "database add-on" for even more functionality. details at www.visualradio.de
+
+
+
+08-24-2020
+[fr] voici un article trã¨s intã©ressant paru il y a quelques jours dans le journal "le moniteur de seine et marne", sur l'application gratuite linker, qui liã©e avec le rã©cepteur aor ar-dv10 (+option dã©codeur de balise cospas-sarsat) permet de rapidement localiser et secourir des personnes dans des lieux difficiles d'accã¨s.
+lire l'article en ligne: https://www.lemoniteur77.com/linker-l-application-de-localisation-traverse-les-frontieres-5411.html
+site du journal "le moniteur de seine et marne": https://www.lemoniteur77.com/
+
+
+
+08-19-2020
+the popular visualradio software made by dg1dx is now fully compatible with our ar5700d digital communications receiver. it features complete receiver control with spectrum display and there are optional addons for lan/internet control and a powerful web based database. see visualradio in action in this short video.
+visualradio website: www.visualradio.de
+
+
+
+07-30-2020
+the client software for the arl2300 ethernet controller has been updated to version 4.0.10 to support the t-tc (tetra traffic channels) mode when used with the ar5700d receiver. however please note that gssi group filtering cannot be supported remotely.
+client software download: http://www.aorusa.com/support/software.html
+ updated arl2300 manual and client software guide download: http://www.aorusa.com/support/manuals.html
+
+
+
+06-08-2020
+we are happy to inform you that both variants of the ar-dv10 (blocked and unblocked) are now being distributed through aor usa inc.
+if you would like to purchase, please contact any of our official dealers listed on our dealer's page (http://www.aorusa.com/aboutus/dealers.html)
+we are also accepting after support for all ar-dv10 that was purchased in the past within the united states. 
+
+
+
+05-25-2020
+press release (may 25, 2020): aor's ar5700d digital communications receiver has been empowered with an amazing and unique new feature: a gssi user group filtering function for trunked tetra network reception!
+
+
+
+05-22-2020
+the client software for the arl2300 ethernet controller has been updated to version 4.0.8 to support the new ar5700d digital communications receiver.
+client software download: http://www.aorusa.com/support/software.html
+updated arl2300 manual and client software guide download: http://www.aorusa.com/support/manuals.html
+
+
+
+05-08-2020
+the ar5700d digital communications receiver has been featured in the may 2020 edition of cq amateur radio magazine in the usa.
+check out the ar56700d spotlight page here.
+   (c) posted with permission from cq amateur radio magazine. visit cq at <www.cq-amateur-radio.com>
+
+
+
+04-03-2020
+the ar5700d digital communications receiver has been reviewed in the april edition of the popular radiouser magazine in the uk.
+check out that detailed review here.
+   (c) courtesy of warners group publications plc, which retains the copyright.
+link to radiouser print/digital subscriptions: http://bit.ly/radiouserapril20
+
+
+
+03-13-2020
+press release (march 13, 2020): aor ltd. wins a bidding related to the tokyo 2020 olympics/paralympics security!
+
+
+03-04-2020
+caution regarding fake news!
+aor ltd. would like to raise your attention regarding an alarming increase of fake news regarding its products, circulating on radio related forums, social media groups such as on facebook, and on fake aor websites.
+the most recent fake news claims that a new ar-dv10 "mk2" version would be released this year. that is totally false.
+as a general rule and for the sake of common sense, we ask our dearest and honest customers never to trust rumours circulating on internet. the only sources of information to be trusted regarding aor products are www.aorja.com, www.aorusa.com  and the websites of our network of official aor dealers as listed on http://www.aorja.com/aboutus/dealers.php and http://www.aorusa.com/aboutus/dealers.html.
+			        
+
+
+02-27-2020
+this is a live demonstration of the hand-held ar-dv10 digital receiver successfully decoding multiple digital signals in auto-mode.
+this unique and very powerful function is also featured on the ar-dv1 digital voice receiver and ar5700d digital communications receiver.
+
+
+
+
+02-24-2020
+video of the hand-held ar-dv10 digital receiver successfully decoding a tetra trunked traffic channel of a governmental entity somewhere in paris-france.
+the same decoding can also be performed by the ar-dv1 digital voice receiver and ar5700d digital communications receiver.
+
+
+
+
+02-12-2020
+the highly anticipated ar5700d digital communications receiver is now officially released! it's our new high-performance analog & digital communications receiver for commercial and governmental applications. check the brochure to discover what specifications and features have been improved, compared to the entry-level ar-dv1 receiver. *here*
+
+
+
+01-16-2020
+decode digital signals from space!
+did you know that our ar-dv1, ar-dv10, ar5700d receivers, or the ard300 external decoder, can allow you to decode d-star repeater voice signals directly received from a amateur radio satellite downlink?
+the following array of cubesat satellites has been operational for a year or two:
+d-star one isat (norad id: 43879)
+d-star one sparrow (43881)
+d-star one lightsat (44393)
+d-satr one exoconnect (44410)
+they all use the same (voice) downlink frequency 435.525 mhz transmitted at 0.8-1.2w..
+real-time tracking information available at www.n2yo.com will allow you to find out when those d-star satellites will cross your skies. with that information and providing you have a tracking antenna, our receivers can bring you a new and unique experience.
+the official d-star one project website: www.d-star.one
+have fun!
+
+
+
+12-16-2019
+new beta firmware 1912a for the ar-dv10 digital receiver brings you numerous exciting new features to try out during the holidays! details *here*. merry x-mas!
+
+
+
+10-23-2019
+video of the ar-dv1 digital voice receiver successfully decoding tetra trunked traffic channels of a train station in paris-france.
+(the lcd shows the mode as being "t-vd" which once was a temporary name used for the present "t-tc" mode)
+the same decoding can also be performed by the hand-held ar-dv10 digital receiver.
+
+
+
+
+10-18-2019
+photo of the ar6000 and ar-dv1 receivers being used by peace keeping forces in the middle-east, for an effective interception and decoding of analog and digital signals. two ar6000 and two ar-dv1 receivers are used side by side in a 19 inch rack, mounted on a military vehicle.  the ar-dv1 receiver on the left is pc controlled via the dv1 manager software made by www.pro-sic.fr .
+
+
+
+
+10-08-2019
+check-out this short video demonstrating the ar-dv10 hand-held digital receiver being used during a cospas-sarsat search and rescue training held by civil security. with ar-dv10 the search and rescue headquarters were able to precisely locate the distress beacon well before the team "in the field" using conventional methods.
+the 406mhz cospas-sarsat distress beacon signal decoder (displaying id, coordinates, raw)  is a commercial option. to enable this feature on your ar-dv10 receiver, you can purchase an unlock key at www.pro-sic.fr .
+
+
+
+
+09-24-2019
+[fr] voici un article trã¨s intã©ressant paru hier dans le journal "la rã©publique de seine et marne", sur les rã©cepteurs aor et leurs applications dans le domaine de la recherche et le secours des personnes dans des lieux difficiles d'accã¨s.
+tã©lã©charger le pdf de l'article.
+
+site du journal "la rã©publique de seine et marne": https://actu.fr/la-republique-de-seine-et-marne/
+
+
+
+09-09-2019
+a very interesting use of the ar-dv10: receiving voice communications from the downlink of a uhf satellite.
+
+are you also using ar-dv1 and ar-dv10 in an unusual setup, or to receive unusual signals and would like to share it with us? send your videos (max.1min) or pictures to mail@aorja.com, and we might publish it on our website for everyone's enjoyment!
+
+
+
+09-05-2019
+hamfair 2019 report:
+we would like to express our sincere gratitude to everyone who came to visit the aor booth on august 31 and september 1, at the hamfair exhibition in tokyo.
+ar-dv1 and ar-dv10 being now the number 1 selling digital receivers in japan, this year we put the emphasis on airband & airport listening, under the topic "make monitoring exciting again!".
+as a matter of fact, tetra's traffic channel decoding feature introduction on our ar-dv1 and ar-dv10 receivers, have caused quite a stir in the japanese  monitoring community, as never before it has been possible to listen to airport staff communications where trunked tetra is used. the airband enthusiasts can now not only listen to communications between aircrafts and the control tower in am, but also to the exciting things happening inside the airport buildings and on the runway, via the tetra mode!
+as a local airport was only a couple of km away from the exhibition hall, visitors had the surprise to be able to listen to "live" t-tc signals at our booth, originating from that airport, just by using a telescopic antenna.
+
+list of exhibited products:
+
+- ar-dv10 hand-held digital receiver (http://www.aorusa.com/receivers/ar-dv10.html)
+- ar-dv1 table-top digital voice receiver (http://www.aorusa.com/receivers/ar-dv1.html)
+- ar-dv1 tai tablet app interface for ios and android (http://www.aorusa.com/receivers/ar-dv1tai.html)
+- sdr# aor linker plug-in for ar-dv1 (https://www.f5hpe.fr/?page_id≡217&lang≡eng)
+- military plate-carrier with molle cases for ar-dv1, ar-dv10 and a 14.4v/9.3a soft li-ion battery (https://www.pro-sic.fr/)
+- ar5700d digital communications receiver (release end of 2019. details will be published at www.aorja.com once available.)
+- ar7400 air band receiver (under development). simultaneous 4 channel air band receiver. scan/search all air band in just 1 second.
+  separate speaker jack output for each channel. 108-137mhz am, 225-400mhz am, 76-108mhz wfm.
+  (release date pending. details will be published at www.aorja.com once available.)
+
+
+
+
+07-11-2019
+we are pleased to announce the release on july 31 of a new and exciting accessory for the ar-dv1 receiver!
+ar-dv1 tai  (tablet app interface for ios and android)
+control the ar-dv1 and listen to the received audio, through your tablet's web browser!
+go to the product page.
+
+
+
+07-01-2019
+repair policy updated
+				        we updated our repair policy on warranty repair, out of warranty repair and the latest list of non-supported products.  click here for further details.
+
+
+
+06-21-2019
+office relocation
+				        we are relocating to new business premises on july 1st, 2019.
+				        our new premises are at 426 west taft avenue, orange, ca 92865
+				        our contact number remains the same. click here for further details.
+
+
+
+04-17-2019
+addition of trunked tetra (traffic channel) decoding to the ar-dv10 firmware. have fun!
+
+
+
+04-03-2019
+have fun experimenting with your ar-dv10 receiver: connect it to another (non-digital decoding) aor receiver and use it as an external digital decoder! details *here*.
+
+
+
+01-28-2019
+
+
+ar-dv1's new trunked tetra decoding feature has been reviewed in the japanese radiolife magazine edition 2019/03. the english transcript can be downloaded *here*.  courtesy of sansai books ltd.
+
+
+
+01-22-2019
+ar-dv1 tetra mode support
+				        the ar-dv1 digital voice receiver is now the world's first and only wideband receiver to decode traffic channels of trunked tetra networks! tetra is used worldwide by government agencies, emergency services, public safety, rail transport, metro, airports, etc... speaking of airports, there is an official list of airports where tetra is used, available on the nippon airport radio services website *here*. the list is somewhat outdated; now it's up to you to power up your ar-dv1 digital voice receiver and find out if your local airport uses tetra or not. enjoy the monitoring!
+
+
+
+01-16-2019
+the new firmware 1812c for ar-dv10 adds the following great features:
+				        - power-save mode
+				        - log recording and playback via a new pc utility.
+go to the firmware download page.
+
+
+
+
+ more..
+
+
+last update: 02-03-2025
+			  
+
+
+
+
+
+
+
+
+
+
+receivers (base & mobile)
+ar2300
+ar2300 i/q special edition
+ar5001d
+ar5700d
+ar6000
+ar-dv1
+ar-iq
+
+
+receivers (handheld)
+ar-dv10
+ 
+rf front-end
+rf-6g
+
+
+antennas
+da1500
+da3200
+da6000
+ma500
+sa7000
+
+
+accessories
+abf128
+mc-600
+gt-1
+as5001
+as5700
+gp5001
+arl2300 / arl5001f
+
+
+other products
+ard300
+ard9800
+
+
+
+
+
+
+
+
+
+
+copyright ©2011 -  aor u.s.a., inc. all rights reserved.
+choose your country or region
+site map
+contact us
+
+
+
+
+
+
+
+
+

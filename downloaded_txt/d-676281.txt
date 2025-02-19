@@ -1,0 +1,407 @@
+
+
+give our abilities time
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+	give our abilities time
+	
+  
+technology, music, and travel from a new york city it consultant and musician.
+
+
+
+
+wednesday, december 12, 2012
+
+
+my raspberry pi
+
+
+
+on a whim, i plunked
+down $35 for a raspberry pi lightweight computer. i have put off blogging about
+it because i have done very little compared to what i see being done. this used
+to make me feel guilty but i realize now that for everyone who you see doing
+something amazing with robots or arduino or 3d vision sensors and roombas,
+there are probably 10 people like me who use it for piracy and as an ssh server
+and whatnot.
+
+
+
+so, here is what i'm
+doing with it:
+
+it downloads tv shows for me
+     from usenet, using sabnzbd
+
+this has allowed me to keep
+      my desktop computer in sleep mode for at least 8 hours of the day when it
+      was previously on all the time. if i'm doing the math right, that saves
+      between $100 to $200 per year, or would save that much if i paid for
+      power (my co-op building doesn't submeter power). the pi draws its power
+      from a blackberry charger so it pulls 0.7w vs. the 120w i calculated my
+      pc drawing when always on, which means it costs maybe $1.85 per year to
+      run.
+because of the above i spent
+      more time than i'm comfortable admitting to facilitate the handoff of mkv
+      files from pi to pc. if you care, i could never get a stable enough samba
+      load to just copy the files from the pi to the pc or vice versa, and scp
+      was super slow, so i use anonymous ftp now. the sole sabnzbd script
+      copies an mkv or mp4 file to a directory and then wakes up the pc via a
+      wake on lan packet. the pc, upon being awakened, has a scheduled task to
+      check the pi for new files via anonymous ftp, and if it finds them,
+      downloads them via ftp and deletes them via the plink command. 
+for laughs, i had the pi run
+      ffmpeg to convert the downloaded mkv files for iphone, but one thing that
+      is better about a pc that draws 200x as much power is that it is much
+      faster. i ran this test twice to be sure but the conversion takes about
+      24 minutes on my pc (8 cores, 2.5 years old) and 12 hours and 24 minutes
+      on the pi (non-overclocked). so as much as i'd like to push
+      non-time-sensitive tasks like overnight conversion of files, i did a lot
+      of traveling recently and really appreciated having last night's shows
+      ready to load onto ipad before heading to the airport at 4:30am. so, the
+      advice is, know your workloads as you decide which workloads translate
+      well to low energy servers and which still require lots of processing
+      (and thus electrical) power.
+
+it facilitates printing from
+     idevices to my hp laserjet via avahi-server and cups (all credit due to this guy)
+after a lot of different
+     attempts, i got it working with xbmc so it can show youtube (using an
+     add-in with a really painful ui) on my tv, i'd like to get it to show
+     amazon digital prime content as well. i don't think the current setup will
+     have a wife acceptance factor so i'm leaving it offline until i have more
+     time to play with it.
+out of guilt that i have used
+     the pi mostly like a small cheap piracy machine, which is a bit of a slap
+     in the face to its legacy as a cheap educational tool for children, i have
+     very recently been using it in service of my 5 1/2 year old's desire to "write
+     a ninjago video game." 
+
+my son and i first started
+      going through online python pygame tutorials to try and teach ourselves
+      how to write a cross-platform game, but python is very similar to real
+      programming and it couldn't hold his attention. it also wasn't clear that
+      games we wrote using pygame would work on the ipad (which was my son's
+      hope) so i gave up on it for now. i had never written in python so i had
+      no head start myself.
+i then looked at scratch,
+      which came preinstalled in my raspbian image, and it seemed to fit the
+      bill. i'm not sure my son understands while loops and conditional
+      operators, but if you look at what scratch provides and how it is built,
+      it is easy to write little programs while explaining the process to a
+      child. 
+so, we have a very cheesy
+      little program called "ninjago kick-butt" where you can move
+      the golden ninja over to snike (these two are characters from the lego
+      ninjago series) and, if you are in proximity to snike, pressing k kicks
+      him and makes him fall over. also you can press s for spinjitsu and the
+      golden ninja does a spinning tornado move which knocks snike over. my son
+      and i spent time picking out images for the characters and background and
+      making the former transparent, and i think he somewhat understands the
+      programming although i do not sense that he has grasped "x" and
+      "y" which are important for the movement options, but then
+      again, no offense to my wife as i know she reads this blog, but i don't
+      know if she would immediately know which direction negative x represents.
+
+i have it available via ssh,
+     but 99% of the time i just ssh in to wake up my pc so i can do things with
+     it using teamviewer.
+
+
+
+
+i was inspired to
+write this when i read that the raspberry pi foundation had finalized
+arrangements to move production of the device from china to the uk where they
+are based. as a not-very-patriotic left-wing american i don't know why this
+moves me but it does. the creators have fulfilled their own dreams by getting
+the pi produced at the same price on british soil as its previous chinese
+manufacture, creating 30 british jobs in the process, and came full circle to
+the bbc micro computers which were designed and built in britain and which
+taught them programming and hardware hacking, and inspired them to create this
+project. why would a government-controlled company design, manufacture and
+market its own computer? that seems to make no sense, but it inspired the three
+core raspberry pi founders to build this thing that has been an amazing
+success, has thousands of british students competing to build cool things, and
+has brought 30 jobs to wales… what could make more sense than that? writ large,
+there are thousands more stories like this. i have nothing against chinese
+manufacturing or the chinese in general but i'm in awe that a $35 computer the
+size of an index card can be made in western europe without compromises for a
+price roughly equivalent to an iphone 5 case. there's a cool article about the
+manufacturing process but in reality i'm mostly excited about the
+innovations people are coming up with on their pis and the fact that a '70s
+government program has led to this flourishing of innovation. and i'm always excited to see my kids get into some sort of nerdy thing they can do with me. 
+
+
+
+# posted by sbreck : 11:41 pm
+          0 comments
+
+
+friday, july 20, 2012
+
+
+what a difference 16 months makes!
+
+
+
+alright, my
+non-existent posting schedule makes this a complete joke, so let's dispense
+with the personal stuff since the two or three people who subscribe to this
+blog know me personally. if not, i have another son who is 2 in addition to the
+one who is now 5, and i also got a new and better job. 
+
+so, in
+the give our abilities time technical world, here's what's new: 
+
+tablet
+
+the new job
+     doesn't do tablet pcs. they don't do windows 7 or office 2010 or onenote, really,
+     either. so i loved that tabletpc, but the world shifted around me in the
+     last 16 months and i don't think i'll ever lay hands on another tabletpc. 
+however, i did get an ipad 2 as an unexpected gift from
+     my parents. at first, since i had just switched from blackberry
+     to iphone (4), i
+     didn't entirely see the utility of it since it just seemed like a big
+     iphone, but i started to enjoy the fact that it was a lightweight device
+     good for sitting on the couch and surfing without having to boot up a big
+     behemoth work laptop that heats up your knees. then i discovered ebooks
+     and the fact that your place in the ebook synced between the iphone and
+     the ipad, so you could read on iphone on the subway and then the ipad
+     would turn right to that page when you were home, and that was cool, too.
+     and then i decided i would make a concerted effort to use it at work, and
+     started using penultimate for note-taking with a spigen sgp kuel h10 stylus, goodreader to read pdfs and
+     annotate/think about stuff in a kind of onenote-like fashion, dropbox to
+     sync them all, and i finally figured out how to get displaylink to work consistently with my
+     work wifi so the ipad could be a portable 2nd monitor, and now i am
+     finding i don't miss the tabletpc that much. i mean, i miss it when it
+     takes 15 minutes to boot my work pc and launch my apps, and writing on the
+     ipad is not the same as the tabletpc, and i wish microsoft had a usable
+     solution for ipad written input (and i've tried mobilenoter but having
+     only their cloud or a service to sync with my pc via wifi doesn't work for
+     me given the way things are set up at work) but in some ways the ipad +
+     laptop combination is more functional, if harder to lug around.
+oh, i do still use onenote,
+     but it's version 2007 since that's the version of office we're on at work.
+     i knew this coming in so the shock and horror took place before i got my
+     hands on my work pc so i'm at peace with it. i still use 2010 at home, and
+     just installed 2013 the other night which seems nice enough so far but, on
+     windows 7, not nearly as radical as screenshots of the metro ui and radial
+     menu would have you believe, but at work it's all about 2007 and local
+     disk repositories (or i set up a share on my laptop hard drive for
+     teammates). and that's ok, i don’t remember what i'm missing.
+
+
+
+
+media center
+
+news that windows
+     media center is dead bums me out a little but i'm not in a huge hurry to switch over
+     to windows 8. one thing that has changed is that i've simplified my
+     environment, so i have a single desktop that does all the downloading and
+     converting of tv shows as well as hosting them for the xbox media center
+     extender, and it's also my pc that i type this on and play unreal
+     tournament 2004 on and run the occasional vm on and stuff. the main reason
+     for this is that my older pc, the previous media center host, died, and i
+     had to hastily move its functions (and disks) to the newer desktop. as a
+     happy accident, my inability to configure dvrmstoolbox to convert mkv files to
+     dvr-ms so they could play on the xbox led me to explore other options,
+     specifically conversion to wtv, which not only works fine but also takes
+     like 30 seconds instead of 30 minutes for dvr-ms. so the death of
+     "seer" and subsumation of its features into "snake"
+     has been a net positive for me.
+having reduced my power usage
+     from two giant desktops running all the time to one, i have been thinking
+     about further reductions. in a gartner presentation in december ("the top 10 strategic
+     technologies for 2012"), i rolled my eyes at "the
+     anti-virtualization project," which posited that certain applications
+     would benefit from being pulled from vm on shared big iron to a small
+     low-power server. then, of course, my wife began to complain about the
+     loud fans on my desktop pc which blasted away to cool all 8 processor
+     cores during the 23 minutes it took to convert downloaded tv shows to
+     iphone. even when idle, the pc's fan still made it noticeable that a
+     relatively large desktop pc is on all the time in my apartment. the truth
+     hit me - if i don't load any shows onto my iphone until 7:30am the next
+     morning, and the newsgroups release them between 11pm and 4am, a really
+     slow device can still convert them in time. and now that i convert to wtv
+     to watch on xbox instead of dvr-ms, that part takes no time at all. 
+consequently, i have just
+     spent $35 on a raspberry pi. though it could also
+     replace the xbox for media center type stuff, or attach to lego robots
+     that i'd like to build with my older son when he gets a little older, for
+     now i am thinking that it might be nice to give this pc, which has been on
+     pretty much non-stop since may 2010, a little break and let something else
+     download the tv shows at night. and maybe convert them for iphone during
+     the day. who knows how slow it will be compared to this 12gb ram, 8-core,
+     ssd+2hdd monster, but it might be nice to not hear the fan, and maybe the
+     apartment would be a degree or two cooler, too. 
+
+
+
+
+finally
+
+i finally said the hell with
+     linksys/cisco, and switched to an asus rt-n56u -- this thing is the jam. i
+     had problems with my wrt610n overheating and having to be turned off all
+     the time, culminating in its heat death after maybe 2 years of service,
+     then i replaced it with an e4200 that died the same night i bought it
+     after i used the setup wizard to update the firmware as it suggested, then
+     best buy didn't have a replacement so they sold me an e3000, which i think
+     was literally just a wrt610n with an "e3000" sticker stuck onto
+     it to make it seem newer. it had the same overheating problems which got
+     worse and worse over a year to the point where i turned it off every night
+     after my wife went to sleep, and then i saw this article which made me think, why am
+     i spending so much time troubleshooting and getting angry about this $250
+     linksys piece of shit when there is a $100 router that everyone loves? so
+     far, i've been really happy with the asus these past six months, it
+     improved my ping in unreal tournament 2004, and i have not had to power
+     cycle it for any reason unlike the linksys which was a monthly occurrence.
+     i'm now using it to host the 1tb drive from my former media center pc via
+     a hard drive docking station and it seems to do that just fine (albeit at
+     a maximum of 10mb/s or ~100mbit, which i'd think should be faster). i
+     expect to continue this in the raspberry pi world.
+dear facebook iphone app, do
+     you somehow get paid by switching me from showing the news in "most
+     recent" order to "top stories"? because the number of times
+     i have to switch it from top stories back to most recent, which is the way
+     i always want to read it, is astonishing and drives me batshit. generally
+     speaking, the facebook app for iphone is slow and annoying, but the fact
+     that it keeps switching the sort order, so i see old stuff on top of new
+     stuff, fills me with a murderous rage.
+too late to tweet this, but i
+     read with amusement an ny times article on potential
+     rim shareholder lawsuits. with all due respect, do any rim shareholders expect
+     to recoup their investment in any way other than by suing rim? to be
+     blunt, does anyone still own rim stock other than to be part of the class
+     seeking damages for rim totally sitting there like morons while every
+     other major smartphone platform took all their lunch money over the course
+     of the last 4 years? is there actually any such thing as a rim stockholder
+     that believes rim is going to rise from their grave and resuscitate the
+     stock? no. you dumb fuckers should have sold 2 years ago, don't sue rim
+     because you were too dumb to read the writing on the wall, which is now in
+     neon orange and basically is the whole wall. that writing says "you
+     lost all your money on this stock two years ago, moron, and it is never
+     coming back. don't sue us because you're a fucking idiot." 
+
+
+
+
+that is all. i may
+post again within the next 6 months. keep your rss reader at the ready.
+
+
+
+--sbreck
+# posted by sbreck : 9:46 pm
+          3 comments
+
+
+sunday, march 27, 2011
+
+
+catching up
+
+(i've tried to write this "catching up" post several times in the last two years but i clearly lack blogging discipline.) here are some things i have done / am working on / am thinking about, categorized by my usual obsessions: tablet / collaboration stuff:·         i now have a thinkpad x201 tablet at work, and just a few weeks ago expensed an intel ssd and loaded our new corporate win7 x64 image on it. it's incredibly fast and i can get almost 2 hours on the small battery, i'd probably get 6 to 8 on the big battery but haven't tested.·         i know i have been blogging for years about how sharepoint is a crappy repository for onenote notebooks, but in the onenote/sharepoint 2010 world, i can declare this fixed. my main notebook at work lives in sharepoint and it has never locked up on me when every previous incarnation of sharepoint has within the first day locked up. and i have both my home pc and my tablet syncing this notebook at all times. can't really comment on how stable it is with active multiuser editing, but for my needs it has been great. media center / video conversions:·         i replaced my ipod 5g ("video") with a 2nd-gen 32gb ipod touch. in apple's classic "whatever you buy now, suck it up and realize that something better will be coming out within 3 months" fashion, this purchase caused me to miss multitasking by a few months and the retina display by about 18 months. i also began harboring iphone envy because of the great browser and facebook app (i shamefully admit that in summer 2009 it didn't really occur to me that an ipod touch could run iphone apps or be used as a browser) but patiently waited its release on verizon. but now i hear that the june/july iphone 5 release will be worth waiting for, and so i am waiting for it. if that release is at&t-only, and its improvements pushed to verizon like 11 months from now, i will have to think about what to do. i currently carry a blackberry tour along with the ipod touch, pretty much everywhere, and i recognize that it's a little ridiculous to have both devices when my employer does not enforce the use of any particular device.·         this past summer, i replaced my linksys dma 2100 with an xbox 360 slim. my home network has had its ups and downs (wireless sometimes has issues, then i installed powerline and it was great for awhile but then starting crapping out during video playback, then i switched back to wireless and turned on wmm and things have been fine, except when my router (linksys wrt610n) has run for about two months, heats up, and resets itself to factory defaults so it needs to be reconfigured) but the xbox has been a much better extender than the dma. only issue is that i never turned off the dma, so when i have network problems or problems with my media center pc, it can fail to log in. i also enjoyed playing the call of duty series, but am too old and unfamiliar with the controller to not get pwned online. ·         my last post was pretty popular regarding mkv conversion to ipod but now it can be told: i use encodehd for all on-demand ipod conversion, and i stole the ffmpeg command line out of its log file to use to automate my mkv to m4v conversion for the ipod. comment if you want the command line or just download encodehd, get a couple of mkvs of the shows you watch and convert them to your preferred format, and look at the command lines it chooses. they were all similar enough that i just use the same one.·         since i have an xbox now, i have an additional option for watching hd content when dvrmstoolbox fails to convert an mkv to dvr-ms. encodehd has a profile for an xbox 360, which converts to an mp4 of some sort. this format is playable both in media center as well as through the xbox native "video library" function. since i have noticed some shows have a tendency to fail to convert in dvrmstoolbox, i adjusted my scripts to place these files in a folder instead of moving to the media center pc for conversion to dvr-ms. my technique for looking at a bunch of encodehd-generated ffmpeg command lines didn't work even for tv shows as these command lines were sufficiently different, and factoring in the occasional movie made it impossible to generate my own command line that worked consistently. then i noticed something in a 2-year-old encodehd changelog, which is that encodehd can be launched from the command line to encode! so this is what i now do:o    sabnzbd post-processing batch files have some "rules" that send non-dvr-ms-encodeable files to an xbox temp directoryo    a scheduled task runs a batch file every 10m to check that directory for files; if they exist it launches encodehd to convert the file for xboxo    that batch file then moves the mkv elsewhere in case something happens (it fails something like 25% of the time because it attempts to launch encodehd while the file is still being copied from the other pc, so it's not "complete" yet and encodehd doesn't know what to do with it) photo / sync / backup stuff:·         i am using the latest windows live photo gallery combined with windows live mesh to replicate pictures among several pcs so that we can tag the best pictures, write commentary in the caption field, and then post them to flickr. what's new since my last post on the topic is that, besides being now having windows 7 on all computers in the house, i have been using the native functionality of photo gallery to upload to flickr. except for a few times, though this has never accepted the file name as the title of the picture in flickr (it repeats the caption), so that i have to fix every picture after i upload it, which has begun annoying me enough recently that i am considering other tactics. but photo gallery has such a nice interface to find tagged items (e.g. i tag pictures to post with "flickr" so i can easily select just those pictures for upload) that i put up with it. hoping for a fix.·         live mesh seems widely complained about on its ms forum but my complaint is one i don't think i've ever found another complaint about, let alone an explanation - it is incapable of recognizing file moves or reorganization or the bringing online of a new pc that already has a copy of those files. the effect is that i have a large number of duplicate, triplicate and in some cases quadruplicate pictures and i don't really know how i can efficiently get rid of them all without looking at each pair/threesome/etc. to make sure i'm not losing commentary or person or descriptive tags. this is one of my projects and i am making slow progress at it.·         i suppose everyone knows that mozy jacked up their price from $55/yr "unlimited" to a pay-per-gb price. in my case, it will go up to $110 or something, which is more than i'm willing to pay. i actually went as far as to inventory what all of the 100gb or so i am backing up: 44gb of pictures, 38gb of videos, 11gb in my documents, and i'm not sure what all else. probably dealing with duplicates will save some space but not enough to not get bent over by the new pricing plan on mozy. so i am not sure if i will find another cloud backup provider (my colleague who referred me to mozy in the first place has switched to backblaze) or if i will find a small repository for my documents and then continue to use live mesh to replicate the rest between pcs in my apartment and periodically take a hard drive to work or to our basement storage closet in case of fire or something. 
+# posted by sbreck : 2:17 pm
+          0 comments
+
+
+saturday, march 14, 2009
+
+
+converting dvr-ms/mkv to ipod
+
+as i mentioned in my prior post, i have been "broadcatching" hd content in x264/mkv format, and converting to dvr-ms to play on my extender, and so far i've been pretty happy with it.  i do have to keep my eye on things more than i'd hoped but it's working fine.however, i had to find a new way to convert downloaded mkv content to the ipod.  (a 30gb "ipod video" or "5g" device.  it's a couple of years old but it has worked fine, and my birthday's coming up in five months and the ipod touch will probably be reasonably priced or replaced with something even more technologically awesome, if my dear readers get the hint :d )  it so happened that i came into possession of a bunch of mkv files for a 10-year-old show i've been watching a lot of, with no xvid copies available online.first attempt: superthus i turned to super as it is free and seems to convert anything to anything else one you figure out its many options.  my first try used these settings, which i, for convenience's sake, exported as ipod_video:output container: mp4 output video codec: mpeg-4output audio codec: aac lcvideo size: 320:240aspect: 4:3 (as i edit this after the fact, should've been 16:9)frame/sec: 30bitrate: 1248 (in retrospect, could've been lower)options: hi quality, top quality, stretch it(audio) sampling freq: 44100channels: 2bitrate: 96(i know it would've been easier to show the picture, but i don't want to confuse my family by using my flickr account which is typically used for showing my entire extended family and friends pictures of my son.)these settings resulted in a 54mb file that had no sound (in wmp, i didn't check itunes/quicktime).  several other attempts (that i cannot now remember, as it's been five days since i started working on this) were similarly slow and unsuccessful.second try: ipodifier/ffmpegi then downloaded ipodifier and set it up to watch the recorded tv directory, figuring that mkv files were automatically converted to dvr-ms via the method documented in my previous blog post, and then ipodifier could pick them up for conversion to ipod video-compatible mp4. seemed simple but, when i launched it, this showed up in the log window over and over:3/8/2009 6:17:23 pm : transcoding started: ffmpeg.exe -y -i "c:\users\public\recorded tv\myfile.dvr-ms" -f mp4 -s 320x240  -acodec libfaac -async 4800 -dts_delta_threshold 1 -threads auto -vcodec libxvid -qscale 7 "s:\temp\myfile-mar 08 09 0330pm{tv}.mp4"3/8/2009 6:17:23 pm : transcoding finished successfully in 0minaccording to the wiki this is related to some sort of problem that mencoder is having with the dvr-ms file causing an infinite transcoding loop, the first of its known issues.  i am having the second known issue but had already renamed the files, so i just tried with a renamed file.  same thing:3/8/2009 6:50:47 pm : transcoding started: ffmpeg.exe -y -i "c:\users\public\recorded tv\myfile.dvr-ms" -f mp4 -s 320x240  -acodec libfaac -async 4800 -dts_delta_threshold 1 -threads auto -vcodec libxvid -qscale 7 "s:\temp\myfile-mar 08 09 0645pm{tv}.mp4"3/8/2009 6:50:48 pm : transcoding abortedso i checked what ffmpeg had to say for itself:c:\program files\ipodifier>ffmpeg.exe -y -i "c:\users\public\recorded tv\myfile.dvr-ms" -f mp4 -s 320x240  -acodec libfaac -async 4800 -dts_delta_threshold 1 -threads auto -vcodec libxvid -qscale 7 "s:\temp\myfile-mar 08 09 0645pm{tv}.mp4"ffmpeg version sherpya-r11050, copyright (c) 2000-2007 fabrice bellard, et al.  libavutil version: 49.5.0  libavcodec version: 51.48.0  libavformat version: 51.19.0  built on nov 18 2007 09:00:58, gcc: 4.2.1 [sherpya]input #0, asf, from 'c:\users\public\recorded tv\myfile.dvr-ms':  duration: 00:43:53.6, start: 0.240000, bitrate: 2265 kb/s    stream #0.0: audio: 0x0000, 48000 hz, stereo, 192 kb/s    stream #0.1: video: mpeg2video, yuv420p, 696x480 [par 320:261 dar 16:9], 9800 kb/s, 23.98 tb(r)output #0, mp4, to 's:\temp\myfile-mar 08 09 0645pm{tv}.mp4':    stream #0.0: video: libxvid, yuv420p, 320x240 [par 4:3 dar 16:9], q=2-31, 200 kb/s, 23.98 tb(c)    stream #0.1: audio: libfaac, 48000 hz, stereo, 64 kb/sstream mapping:  stream #0.1 -> #0.0  stream #0.0 -> #0.1unsupported codec (id=0) for input stream #0.0apparently this file had some sort of conversion problem between mkv and dvr-ms.  a different file from the same batch had ac3 audio and converted with the command line:ffmpeg.exe -y -i "c:\users\public\recorded tv\myfile.dvr-ms" -f mp4 -s 320x240  -acodec libfaac -async 4800 -dts_delta_threshold 1 -vcodec libxvid -qscale 7 "s:\temp\myfile-mar 08 09 0645pm{tv}.mp4"i had to remove ipodifier's suggested "threads auto" option as that doesn't seem to work on my relatively recent build of ffmpeg (svn-r16596-sherpya).  ipodifier was also making a mess of the filename so this was about the point at which i gave up on ipodifier and just used command-line ffmpeg.the size was still tiny (70mb) and you could tell in itunes that the quality was much worse than my ~320mb episodes converted from xvid using my old method.i tried again with qscale 4 (ipodifier's "best" quality) and the result was a 107mb file in ~44 minutes.  i didn't even watch it (because i overwrote it accidentally in the next run).i tried again with qscale 3, having found this article and noting that it seemed to be a better tradeoff between quality and size.  its result was a 140mb file.  on this one, i noticed that in both quicktime and when synced to the ipod the audio goes out of sync pretty early on, and also that the rendered video size was actually 426x240, not 320x240 as i had asked it to convert to.  i guess i don't know what it ought to do in this case, but the program i've been using gives me a letterboxed 320x240.  itunes accepted the import of the video and the ipod showed it properly, but maybe the other program (which typically yields a ~330mb file) is inserting the black bars into the material itself, hence its larger size?  seems silly given that itunes (or maybe the ipod itself) can handle the conversion.pressing on, i tried again with qscale 2, resulting in a 214mb file, and tried again with qscale 1, which created a 721mb file.  both looked great, not noticeably different from each other, but it was with this run that i noticed that both files had out-of-sync audio (though qscale 2 was further off).so i decided to stick with qscale 2, but needed to dig into the settings to fix the audio.  here was the command line i started with, courtesy of ipodifier (minus the "threads auto" option that didn't work in my relatively recent build of ffmpeg):ffmpeg.exe -y -i "c:\users\public\recorded tv\myfile.dvr-ms" -f mp4 -s 320x240  -acodec libfaac -async 4800 -dts_delta_threshold 1 -vcodec libxvid -qscale 2 "s:\temp\myfile-qscale-2.mp4"my guess was that the "async" parameter was the problem.  i also imagined that dts_delta_threshold had something to do with it but i don't actually understand at all what the description ("timestamp discontinuity delta threshold") means.  somebody fixed something at the bottom of this page by setting it to 0 so that may be worth a try as well.  yeah, i'm not that scientific with this shit. i tried async 1 and dts_delta_threshold 0, but the sound was immediately, horribly off.thus i tried async 1 with the dtb_delta_threshold option left off (per this admittedly several-builds-old post on andy vt's forum).  i threw in -threads 2 and it went blazingly fast, but the sound was still worse than with the original async 4800.this post suggested using async 2 so i tried that (with dtb_delta_threshold turned off).  no luck.i tried once more with async 2 and dtb_delta_threshold set to 1, but that didn't work for me, either.  i decided that maybe mkv --> dvr-ms --> mp4 was not that efficient.  but what converted mkv to mp4?third try: xvid4pspgood old videohelp.com.  they offered like 8 ways to convert mkv to ipod mp4 and the simplest used xvid4psp.  though i had no need for any of the formats described in the name of this free product, and was worried that most people are converting for use with newer ipods than mine, i figured it was worth an hour of my time to try given the many frustrating hours i'd spent on the other programs.  on my first try, i used these settings:format: mp4 ipod 5.0g denoise/sharpen: disabledbrightness/contrast: disabledvideo encoding: x264 hq ultra (yeah, it bothered me that only x264 and xvid options were present, but i gave it a try)audio encoding: aac-lc abr 128kthis worked!  the result was 320x184 (which i guess makes sense given the 843 x 480 source resolution) and it was only a ~115mb file, but the play was very smooth and the sound was pinpoint-accurate.i looked at the output in the xvid4psp window to see if i could reverse engineer the command lines and utilities used, but i'm not sure.  clearly it is using the x264 utility for video encoding, and it does appear to output its settings, but i can't tell what it uses for audio or for muxing video and audio back together.the major downside of this utility is that it doesn't appear to have a queue -- it's just one video at a time.  this is exacerbated by the fact that it is much slower than dvr-ms to mp4 via ffmpeg -- that took 7 or so minutes for the file i was using to test, whereas xvid4psp takes about 30 minutes for that same file.  so, i can't queue up a bunch before i go to sleep and have them waiting for me in the morning.  nor can i schedule them until i figure out the underlying utilities that provide the actual conversion.update: i received a comment pointing out that there is a queue -- you load each file and then click save, and then you can load another, and so on until you click encode to convert the whole batch. frankly i'm using encodehd now which supports drag and dropped files, and it does all its work through ffmpeg so it's pretty fast.but, it works and the quality is good.  after a week of trying other methods and failing, that's saying a lot.--sbrecklabels: ipod, itunes, media center
+# posted by sbreck : 3:13 pm
+          4 comments
+
+
+wednesday, march 04, 2009
+
+
+even though i swore off media center…
+
+…and have been happy with the switch, there are a few reasons i still use media center:occasionally there is a conflict between my shows and my wife's shows and she gets dibs because she records so little tv compared to me (and doesn't know how to download her own shows) the dct 6412 that rcn gave me in my hd dvr package only has a 120gb hard drive, so i have seen a few shows get dropped off for lack of space and feel like i'm constantly having to watch shows more frequently than i'd like to keep them therei still don't have pay channels and big love is back on hbothus, for the above reasons, i still have sabnzbd+ and nzb tv running to grab a few shows that i would otherwise have missed, or might like to watch on my ipod.  typically i grab xvid versions with mp3 sound, which as i have mentioned before work fine on my linksys dma 2100 media center extender. but, maybe i have watched enough hd content in the last few months, but i find myself wishing i could watch higher-resolution stuff on the extender.  i've been here many times and tried many different conversions, usually resulting in multiple steps and many hours of conversion followed by disappointment (skips, halts, no sound, way-out-of-sync sound).  but today i noticed ian's link to an engadget hd tutorial on automatically downloading and converting 720p quality content via dvrmstoolbox, so that you can just watch it right in the recorded tv and enjoy skip, ff, resume, etc. at the native resolution of the file.  seemed relatively simple so i gave it a try.first things first, i knew i didn't need utorrent or tvrss since i have the aforementioned sabnzbd+ and nzb tv running to automatically download the tv shows i want.  thus my first step was to download and install dvrmstoolbox.after messing around with the extensions to be watched (need to add .mkv to both watched ext and video types, not just the former as engadget's instructions state), i ran into another problem which is that i think the wrong action ("nativecommdetect" which i'm assuming is the commercial skip processing) is running and my "convert mkv to dvr-ms - mencoder" is never running. to troubleshoot, i:deleted all actions besides my own new action in the processing condition editor -- it still tried to detect commercials changed delay processing from find commercials to ignore (this worked, and as i scanned the comments i found the same advice)i started the sample file (big love 3x06, 1,528mb) at 6:48 pm by dragging it into the recorded tv directory, and it was done 50 minutes later, with a dvr-ms file waiting in the same directory.  in my quick check, it looked fantastic and the audio synced perfectly.so, later, my wife and i cracked open a bottle of prosecco (someone brought it to a brunch we hosted recently) and sat down to watch big love.  less than 10 minutes in, it froze, and then a few minutes later i was offered the chance to reconnect to the media center pc.  i was unable to do so.  after some troubleshooting and cursing, i found that the pc was totally locked up; not even the mouse would move.  coincidence?  i hard-powered it off and tried again.  i hate to use my wife as a guinea pig but i was pretty curious if this was a usable conversion of the show.  fortunately, i made it all the way through the episode without incident so i downloaded a couple more mkv files with which to test.  having made it through two more, i can say that this is working pretty well for me. finally, reliable hd content on the extender without having to do a ton of crazy conversion steps!thus, my thoughts turned to automating it further, such that the conversion takes place once the download is complete.  since all that has to happen to convert the file is to move it into the recorded tv directory, i didn't think it would be too hard since sabnzbd+ allows you to launch scripts.  my read of the documentation didn't seem to make it quite clear what actions launch the script (besides telling it manually in the web console).  regardless, i set a scripts directory within sabnzbd+ (http://yourserver:yourport/sabnzbd/config/directories/) and created a batch file called movemkv.cmd in there.  the batch file contains the following:@echo offecho movemkv.cmd starting against %3...if not exist %1\*.mkv goto :nomkvecho ...moving %1\*.mkv to recorded tv...cd %1move %1\*.mkv "c:\users\public\recorded tv"echo ...movedgoto done:nomkvecho nothing to move:doneecho ...done.exitmarvel at my batch file skills.  um, anyway, if it's not evident, it looks in the path of the newly downloaded file (%1) and if there's an mkv file in there, it moves it to the recorded tv directory.  %3 is the name of the job (which should be "big love 3x06" in the example) -- i'm just using it so i know what's running.  to test, i just created a fake directory and fake mkv file somewhere and ran movemkv.cmd twice.  it worked both times.  i think i might have confused the hell out of dvrmstoolbox with the fake mkv file, though, as it just sat there logging "waiting to process file:" over and over until i deleted the file.then, i turned the batch file on by going to the switches page (/sabnzbd/config/switches/) and choosing movemkv.cmd as the default user script (2nd last option on the right).  to test, i searched newzbin for a small x264 file and downloaded it.  the script worked on the first try and moved the mkv file into recorded tv as i'd hoped, at which point dvrmstoolbox's filewatcher picked it up. sweet!since i figured this out and wrote up the steps, it's been a couple of days and i've watched a couple more files without any hiccups.  the picture is great, the sound is great, and the files start up much faster than xvid files.  and the extender seems a lot more reliable and less likely to crash playing dvr-ms recorded tv than lower-quality xvid files.  the only downside is that the xvid content takes like 7 minutes to download and then you can immediately watch it, so it's closer to instant gratification than downloading a big mkv that takes 25 minutes, and then converting it for an hour.  but when it's fully automated to happen in the middle of the night, so that stuff is waiting for you, it's really great, and i find myself watching stuff on the extender that i already have on my dvr just to avoid fast-forwarding through commercials... enjoy,--sbrecklabels: dma 2100, media center
+# posted by sbreck : 9:34 pm
+          4 comments
+
+
+tuesday, february 10, 2009
+
+
+windows live photo gallery
+
+since i'm the father of a 20-month-old boy, i take a lot of pictures, and put them up on flickr for sharing with family members.   my home pc is on vista and so is my work tablet, so i've been using windows photo gallery to tag the pictures with tags relating to people, places and events, and then tagging the best with a "flickr" tag, dragging these into flickr uploadr, writing up some commentary, and uploading them.  my pictures are all stored in the default location in windows and that directory is shared with my work user and my wife's user account on her (xp) laptop. every so often i get burned out on choosing pictures and writing commentary but the relentless demands of my wife and mother-in-law for fresh pictures never cease.  so i usually still have to choose the pictures to show because my wife doesn't have photo gallery, and then i use outlook to resize them and e-mail them to her, while she writes the commentary in gmail, sends it back to me, and then i paste it into flickr uploadr, one picture at a time.  this does save me time because i don't have to write the commentary, but there has to be a more efficient way. besides this, and more importantly, our son has grown interested in pictures of himself and his relatives and friends, to the degree that he tells us "find picture of oskie [his nickname for himself] pouring cat food at grammy's house" or "picture of oskie and grammy and mommy in the playroom".  the way i had tagged everything made it pretty easy to do that search, though as has been noted in many internet comments, there was no good way to do an "and" search as would be most efficient for my son's two requests -- if you search for grammy mommy it is as if you did grammy or mommy and you get every picture with one or both of them in it.  clicking on the tag for one person and then using the search field to find the other person is how you solve that. since my wife has xp on her laptop, i also had to find something that was like windows photo gallery but worked on xp.  windows live photo gallery seemed to fit the bill so i installed it on all three machines.  the vista machines knew where the pictures should live, and i added my share to my wife's laptop.  it began to process the pictures and build the list of tags and, after many hours, it seemed to have all the tags are in place. first impressions were that live photo gallery was a smarter and fancier version of photo gallery, with better editing tools and the whole people tags thing, and it had the added benefit that it actually ran on my wife's xp pc. however, after a few days of trying to tag pictures on my laptop and home pc and checking to see what syncs, i came to the conclusion that if you share a directory, you can only set people tags on the machine on which the directory is shared.  using my laptop to tag people in pictures in the share sometimes set them, sometimes required dropping back to the gallery and hitting f5 a bunch of times on both computers before they set, and sometimes actually removed all the tags from the pictures. this really started to piss me off and an earlier draft of this blog post had a long rant about it, when finally i took a breath, sat back, and asked myself if i was trying to make the program do something it wasn't meant to do, when in fact what the program wanted me to do was staring me in the face.  so i set up gallery sync between my laptop and home pc, which ties into sync.live.com (the former foldershare).  i connected the laptop and desktop via crossover (the wireless router is in another room) but could see that they were syncing at like 10mbit over wireless, so i turned off wireless and just copied all the stuff over from the laptop manually.  sync was smart enough to figure out that i did that, and just checked everything once i turned wireless back on and sync could sign into live.  i can't blame sync for not knowing that the private ip address was the faster network to connect to my desktop pc. and, now all the people tags work great, and sync really seems to sync changes within 10 seconds, which is less time than it took to make one live photo gallery library see the changes made to its underlying files from another machine. one problem i saw tonight is that some videos and pictures ended up with the wrong "date taken," 1/31, and i can't figure out why this could be or how to fix it besides figuring out the date each actually was taken and fixing it myself.  even odder, the files are fine in the source directory -- i even renamed some of them and saw that they resynced in the little activity window, but they still have the wrong date on my laptop. i've also played with the flickr upload but i'm not sure i've saved a step.  as described many, many words ago in my first paragraph, i tag pictures so i can find them later, and if they are flickr-worthy i tag them with flickr.  what i used to do was then drag this bunch into flickr uploadr, select them all and tag them with oscar (supposedly there are a few viewers of my photostream who subscribed to this tag though i suspect there's just one and his name is matt and he lives in boston and if i told him that i almost never post anything on flickr besides pictures of oscar my full photostream feed would probably suffice), name each picture and write commentary, and then upload the batch.  now i can type into the "caption" field in the same program i tag them with, which has the added benefit of being searchable later down the line.  then again, take a look at this blog very entry -- i'm not known for brevity and this is true of my flickr commentary as well.  there is a couple-sentence limit on the caption field in the picture so i ran out of that.  i also am not sure what to do about the title.  a clever or cute title is key to a well-received flickr picture but i'm not quite sure i want to rename the file given my (justified) lack of trust in windows maintaining an accurate date taken for the life of the file.  img_0540 or whatever places the file in a sequence that will always exist (until i get another camera as i just did, but, what can you do).  so when the pictures are uploaded to flickr from live photo gallery i have to create titles for them, finish my captions if they got cut off, delete all the tags and replace them with oscar (again, i can't blame live photo gallery for my use case, which is to have "private" tags in windows and a far more limited set of "public" tags).  still, i could still use uploadr but i'll stick it out with live photo gallery for the next batch and see whether its advantages (of having the commentary local and searchable) outweigh the disadvantages of requiring post-processing.  (oh, and it takes like 20 seconds to log into flickr when you click publish to flickr.) finally, after all these years of thinking i was too smart for automated sync programs for your camera, i decided what the hell, i'll let live photo gallery figure out which pictures are the latest for me, and put them in the right place.  the first sync didn't know which pictures were newest and created a lot of duplicates in the directory.  there should probably be a setting that figures that if the same file with the same date taken exists in the directory to which you're copying it, it shouldn't copy over those files.  but i used dos find to make a textfile of every file with a (2) in the name and then made a batch file from it which moved everything to a temporary directory (from which i could delete them).  incidentally, vista is an asshole when it comes to searching -- *(2).jpg does not find any files called img_1234 (2).jpg as you would expect.  neither does "dir *(2).jpg" so maybe parentheses are a meaningful wildcard of some sort.  anyhoo, the next time i used live photo gallery to import pictures it properly chose just the newest ones, so i guess it keeps its own records of when an image was imported rather than looking at what's in the directory to which it's importing.  i would also like to import pictures from my laptop but suspect i won't be able to sync the two galleries that closely such that imports from camera to one gallery are recorded in the other gallery.  that, i suppose, argues for doing it based on the contents of the destination directory rather than a separate database.  but i'm willing to risk deleting extras and try it.  labels: "windows live photo gallery" sync
+# posted by sbreck : 12:14 am
+          0 comments
+
+
+saturday, january 03, 2009
+
+
+2008: the year in complaints
+
+having a son has really cut into my blogging but a weight has hung over my head since i noticed a week or so ago that i actually have 10 subscribers on google reader.  instead of writing some long-ass blog entry with detailed, researched complaints, here are some short ones:treo and palm in general -- that company is dead.  i switched to blackberry.  the incredible stability of the verizon blackberry 8830 has been amazing compared to the treo 600, 650, and 700p i suffered with for four years. windows media center -- i actually still use it but not to record tv.  i got an hd dvr from my cable company for $9/mo and there is no way that will ever exceed all the money i spent on media center (pc, ota hd tuner, extender, hard drives, antennas for ota hd, etc.) and i still only get one hd channel reliably.  and the sd cable picture sucked.  when my cable company finally switched to digital (e.g. scrambled) cable it was time to choose media center or choose against media center.  i chose against and so far, i miss 30-second skip (have to fast forward through commercials now) but other than that i have a much better picture and much more reliable recordings and behavior.motorola s9 bluetooth headphones -- these are cool and i got them with gift certificates so i'm not, like, burning with anger at these flaws, but i'm hard pressed to find situations in which the music stream doesn't skip.  and, blackberry's media player won't play audio through the s9 when playing a video, which was a huge disappointment (i was hoping to stop using the ipod and to just use these on my bb to watch videos).  and, the ipod connector thing is so flaky that for days i didn't think it worked with my model of ipod (g5 video).  (the truth is that you have to wake up the ipod from deep suspended mode (where it shows the apple logo to boot up) with the bluetooth adapter connected, then play some music, and only then can you play video.  if you let the music or video playing stop, you can't get it to start the bluetooth thing again.)  i like the idea of having these lightweight headphones that can play music on my blackberry, and sometimes it works great (like if you are standing still on the subway, and turn off the blackberry's cellular antenna) for music, and at the gym it is useful to go cordless with the ipod, but the connection is just flaky.  i will someday get an ipod touch but i do hope that it has a2dp bluetooth built in by that point, working with video.converting video -- i do this a lot as i grow obsessed with a tv series, buy the dvd or download all episodes from the newsgroups, and want to watch them on media center extender at home or on ipod on my commute or on the treadmill at the gym.  for the extender, make sure you get xvid video and mp3 audio.  xvid + ac3 = pitch-shifted audio with silence every 5 seconds.  (i heard that if you used stereo rca jacks ac3 would be fine but that seems like a pain when i have an expensive yamaha ysp amp with a coax digital connection which works fine for everything else.)  so, basically no hd unless you find wmv content specifically converted for xbox but i've found that can skip or have problems as well on the generally underpowered extender.  for ipod, i use this random aimersoft thing that has worked great (though not with ac3).  since i have to convert ac3 stuff to mp3 with autogk for the extender anyway, that leaves the extra step as conversions for the ipod.  but basically it means that my pc is typically running some conversion process at all times.thinkpad x60 tablet with vista -- this is my work pc and has been for close to two years now.  i am growing to hate it but i'm not sure what would be better given that the weight, the battery life with the big 9-cell battery, and the 1400x1050 12" screen are all great.  wireless is flaky as hell (lately i can't switch it off with the hardware switch and then get it working again without a reboot), docking takes minutes and it never remembers that the monitor extends to the left, and the fingerprint reader only lasts for about 6 sleep/wake-up cycles before it is no longer recognized.  that happens with a lot of stuff.  i am rebooting every other day these days and that's bs.  if anyone has suggestions on a business tablet that is a real speed improvement with equivalent weight and screen resolution, i'm all ears.  i have a much longer entry about the treo/blackberry thing among my onenote pages here but i'll save that for another time or maybe it will never leave the drafts.  i'm going to try to blog more and write less in 2009.  happy new year,--sbreck labels: dma 2100, media center, tabletpc, treo, vista
+# posted by sbreck : 12:56 am
+          0 comments
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+about me
+
+name:  sbreck 
+location:  new york, new york, united states 
+view my complete profile
+
+links
+
+sbreck rss feed
+
+
+ 
+
+
+archives
+
+august 2005september 2005october 2005november 2005december 2005january 2006february 2006march 2006april 2006may 2006june 2006july 2006august 2006september 2006october 2006november 2006december 2006january 2007march 2007august 2007september 2007october 2007december 2007january 2008february 2008january 2009february 2009march 2009march 2011july 2012december 2012
+
+
+
+

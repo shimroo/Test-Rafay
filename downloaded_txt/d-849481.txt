@@ -1,0 +1,236 @@
+
+
+
+wlinkin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+	wlinkin
+	
+  
+...for all things.
+
+
+
+tuesday, may 22, 2007
+
+
+
+	 freehand will be missed
+    
+
+
+i knew this was coming, but it still makes me a little sad. if you haven't heard, adobe has officially announced that freehand will no longer be developed. it will still be sold though. see john nack's blog about it. http://blogs.adobe.com/jnack/2007/05/freehand_no_lon.htmlgoodbye freehand.
+
+
+
+posted by wlinkin @ 1:21 pm  
+      
+         0 comments
+
+
+
+
+
+
+monday, october 16, 2006
+
+
+
+	 after effects 7.0 fails to startup
+    
+
+
+i recently uncovered a startup problem with adobe after effects 7.0 pro after installing for the first time. for reference, i'm running windows xp with a nvidia geforce4 mx graphics card that's a few years old now. i also know the problem happens with other nvidia cards as well like the quadro fx. the problem is not the card though, it's the driver.the problem: when i tried to launch after effects, the after effects startup screen would show, but the startup would fail when the status message reached "initializing user interface". i found no help on adobe's site or the blogs so i thought i'd post here.the fix is simple: update your nvidia geforce driver. you can check for your update here if you have an nvidia card (http://www.nvidia.com/content/drivers/drivers.asp). once the new driver was installed, it launched fine. it's always a good idea to keep your video drivers up to date anyway.hope this helps someone else.- wlinkin
+
+
+
+posted by wlinkin @ 3:11 pm  
+      
+         1 comments
+
+
+
+
+
+
+thursday, october 05, 2006
+
+
+
+	 review of adobe after effects 7.0 professional
+    
+
+
+introductioni’ve been a graphic designer and interactive developer for more than 15 years and have been using adobe after effects on a regular basis since version 5.5. after effects is a powerful motion graphics tool, and more, for both video and interactive designers. since the release of macromedia flash 8 with its enhanced video playback capabilities, i’ve used after effects even more to enhance my interactive projects. with after effects 7.0 professional, adobe has created a robust tool that can be a part of any interactive workflow.compact and customizable workspacethe new docked panel interface saves time. with one click access to properties in your panels you don’t need to drag them out of the way to get to what you’re after. everything’s nicely attached so they don’t overlap and get in the way. simply drag the divider bars between panels to customize your workspace. adjacent panels adjust automatically. click and drag them to new “drop zones” to place them wherever you want. you can still create floating palettes if you prefer, which is useful in multiple monitor setups.       default docked panelsdrag and drop panels into new drop zones  of course, once your workspace is set the way you want, you can save it. the built in workspace presets are well thought out as well and i find myself changing them often depending on what i’m doing. with the workspace selection dropdown at the top right of the screen, it’s easy to switch your workspace quickly.a cool new feature is the ability to alter your user interface colors in your preferences. drag the brightness slider far to the left to darken the background and the text automatically inverts! very easy on the eyes. my optometrist would be pleased.  set custom user interface brightness settingseffects, presets and templates galoreif you’re new to after effects or just want to learn how to pull off some new effects, the effects & presets panel is packed with shortcuts to get you up to speed fast. just drag an animation preset or effect to an existing layer in your timeline and play with the settings to get professional results quickly. if you’ve never used after effects’ expressions before, there are several preset examples for you to try out and learn from.besides the effects & presets panel, after effects comes with many more effects and project templates that you can access through adobe bridge. choose “browse” from the “file” menu to launch bridge and begin exploring. you’ll find several backgrounds, transitions, color correction effects and more. to me, the most useful presets are the text effects. there are hundreds to choose from.browse presets using adobe bridge to apply timesaving effectsgraph editorthe new graph editor for animation has some powerful features. click the graph editor button at the top of the timeline to see animated layer and effects properties shown in graph form. the graph will change scale automatically as properties change if you keep the autozoom graph height button selected. select several animated layers on a timeline and you’ll see all the animated properties layed out in the graph. each property is color coded for identification. i recommend opening the graph editor full screen (by pressing the tilde key when your mouse is over the timeline) to see things more clearly though. edit multiple keyframes at once by dragging your mouse around several and stretching the selection rectangle that appears, similar to adobe photoshop’s free transform tool (see image below).the graph editor allows editing of multiple keyframes at once i found the graph editor to be somewhat cumbersome to use compared to other graph editors when it came to adjusting speed values though. you can switch graph modes by right-clicking the graph and choosing either “edit value graph” or “edit speed graph”. in edit value mode, everything works as you’d expect. you can adjust values over time with adobe illustrator-like bezier controls on keyframe points to create eased transitions, or click one of the easy ease buttons to do it for you (see image below). in edit speed mode, however, the bezier controls work differently and can be difficult to adjust. this forced me to leave the graph editor for position and rotation adjustments at least, and use the motion path instead (in the composition window).the graph editor lets you customize values with easy bezier controls in the value editing modeworking with flashafter effects 7.0 has added the ability to output alpha transparent video directly to the flash flv format. previously, you would have to render to a video format like quicktime first. then use either the flash 8 video encoder or the flash authoring tool to convert the video to flv. you’ll notice after effects’ output to flv is slower than using flash 8 video encoder, but that’s because it has to render each frame first, not just re-encode from another video format. keep in mind, if you use cue points in your flvs, you can’t add them directly using after effects flv export. you’ll still need to render a quicktime instead, and add the cue points when encoding through the authoring tool or video encoder.integration with other adobe applicationsadobe after effects 7.0 has given breeze new life for me. since breeze was added to the adobe suite of products a few years back, i was less than impressed with it. however, after using it with the new after effects, it’s become much more valuable as an asset manager and browser.  adobe’s done a good job of integrating its other software packages with after effects 7.0. start a new photoshop file from within after effects and, if you have photoshop cs2, the file will be set up correctly to match your comp’s settings with pixel correction and all. this saves some of the trouble when deciding on square vs. non square pixels in your photoshop assets.   if you use illustrator files in your after effects projects, you’ll love the continuously rasterize setting (see image below). with the setting turned on, your illustrator vector source will keep its razor sharp edges at any scale.       adobe illustrator vector comp layer scaled to 750% with continuously rasterize off        the same comp layer scaled to 750% with continuously rasterize turned onperformanceas far as performance, i was pleasantly surprised how well the new after effects ran on a pc with even the minimum required ram (512mb). i noticed only minor delays during ram previews with motion blur and advanced 3d rendering turned on. obviously, the more ram the better though. everything seems to run faster than previous versions of after effects.conclusionon my wish list for the next version of after effects is a more complete graph editor with fine control over any animated property (in any graph mode). also, since i have used after effects 7.0 on both a macintosh and a pc, i noticed adobe dropped the windows media format from the render output settings in the macintosh version. this common format is a necessity in some shops and should be brought back if possible.   my impression of after effects 7.0 professional, overall, is that it’s much easier to work with than previous versions yet retains its status as a feature-rich tool. you will get your projects done faster and with top notch results. pricing from adobe.com adobe after effects 7.0 professional:   $199.00 upgrade$999.00 full version adobe after effects 7.0 standard:  $99.00 upgrade $699.00 full version 
+
+
+
+posted by wlinkin @ 12:15 pm  
+      
+         0 comments
+
+
+
+
+
+
+wednesday, september 13, 2006
+
+
+
+	 extremely funny: world's worst hacker
+    
+
+
+my buddy ben sent me this. i haven't laughed this hard in a while. read the transcript.http://www.crisscross.com/jp/forum/worlds_worst_hacker%25_irc_t%20ranscript/m_422436/tm.htmenjoy,- wlinkin
+
+
+
+posted by wlinkin @ 4:08 pm  
+      
+         0 comments
+
+
+
+
+
+
+tuesday, march 28, 2006
+
+
+
+	 review of adobe illustrator cs2
+    
+
+
+it's been a while since i've used adobe illustrator for more than converting or  editing someone else’s illustrator source files. as a visual designer and flash  developer, i've used macromedia (now adobe) freehand for years for illustration and print design work. mostly, i’ve preferred freehand’s drawing tools, vector effects and the ever present multi-page layout.i decided to try out illustrator cs2 and see what all the fuss was about. with  adobe’s recent acquisition of macromedia i was initially concerned about the  possibility of freehand's impending doom – forcing me to use illustrator instead. after spending some time with adobe's illustrator cs2, i'm delighted to report my fears have been alleviated.enhanced  workspaceafter  starting illustrator cs2 for the first time i noticed a few things. the new  control palette is a welcome addition. it is context-sensitive, similar to the options palette in photoshop. i find that i use it more than the standard palettes in  most situations.the power of the control palette becomes even more evident especially when working  on a single monitor. keeping palettes away from the work area has always been a  hindrance in previous versions. that’s where the new ability to save personalized  workspaces comes in. this feature has been available in other applications like  flash and i find it invaluable. i immediately setup a workspace with a very tall layers palette and just the necessities for drawing.now more on the control palette. if you’ve used adobe photoshop since version 7.0,  you’ll find it very familiar. options such as fill, stroke, opacity, x/y positioning and object dimensions are immediately available at your fingertips.  quick access to numeric positioning is familiar for those used to working in adobe flash. click on the underlined hyperlink item in the panel and pull up the full palette for that item. beautiful!great tracethe idea  of vector tracing has been around for a long time. they’re a quick way to give photos that illustrated look or to turn a scanned pencil sketch into editable  vector art. and for flash animators, many times it’s a must. i’ve used freehand, flash and adobe streamline in the past to build my tracings. with most of these tools, the accuracy of the final trace had much to be desired. what was missing was accurate fine tuning (especially on thin lines) and adjustability on the fly. adobe has also added some features i didn’t even know i needed. the new live trace feature in illustrator cs2 has set the bar for vector tracing.with a placed raster image selected, you’ll notice the new live trace option in the control palette. click on the live trace button to start your tracing object or  select a preset from the drop down. i liked the ability to save my own presets.once your initial tracing has finished rendering, the handy control palette will  reveal some different choices. change a preset or open the full tracing options  dialog, set number of colors and smallest area traced, expand your trace into  editable vector shapes or make positioning and dimension adjustments all within the control palette.fine tune your tracing in the tracing options dialog. if your image contains small  artifacts and tapered lines, you can increase the blur setting to produce a smoother result. if you’re bringing the final image into flash and would like fewer points, the path fitting setting is very useful.i especially like the ability to output the colors in your tracing to color swatches. you can then adjust the colors in your final image individually. alter a swatch color and see the change immediately in your image.if you’re satisfied with the result and don’t need to adjust the tracing settings again, click the expand button to convert an image to paths. otherwise, leave it alone so you can tweak your settings later. being able to try different trace  settings without destroying the original image (and having to “undo”) is one of the real advantages of live trace.who  needs layers!well, you  shouldn’t be ready to give up using layers just yet. with the addition of the live paint feature though, you can definitely reduce their numbers.if you’ve ever encountered the frustration of trying to fill in areas of color on a drawing where the paths may not be closed, you’ll love live paint. adobe has added an adjustable gap detector which does a good job of detecting gaps between paths. it tends to stay true to the direction of existing paths as well. you may still have to make individual point adjustments at times when your gaps don’t close the way you want them to.at other times when you have overlapping shapes that, again, may not necessarily be closed – live paint saves the day. you can create some interesting cubist artwork this way. no need to use the pathfinder with multiple layers here. just use the live paint selection tool to select either a fill or line segment in overlapped areas and change their color. live paint builds the overlapping shapes automatically, all contained in a single layer.performancestartup time was a bit slow on my dual 1.2ghz/windows xp machine. once started though, i didn’t see any noticeable performance hits even when using some of the more  processor-intensive features.color integritythere's one more thing to mention. when i exported my images from illustrator to flash, the colors seemed to stay intact. in previous versions of illustrator, there  were problems with colors not showing correctly when an image was imported into  flash. i’m glad that issue seems to have been solved.what’s  missing?since i am a (previous) freehand user, i’d like to see a few features added in future  versions of illustrator. multi-page layouts are a timesaver when building subtle variations of an illustration or print layout on multiple pages (without requiring duplicate layers or another file). for doing simple 3d work, illustrator’s 3d effect is fairly sufficient, but a perspective grid would be helpful.conclusionoverall, i’m impressed with what adobe has done in cs2. if you’re unsure about upgrading to cs2 or, like me, have been reluctant to switch from freehand in the past – the new live trace and live paint tools alone may be reason enough.adobe  illustrator cs2 pricing at adobe.com:$169.00 upgrade$499.00 full versionwayne lincolnco-managerpittsburgh flash users group
+
+
+
+posted by wlinkin @ 8:54 am  
+      
+         0 comments
+
+
+
+
+
+
+monday, february 06, 2006
+
+
+
+	 2005-2006 world champion pittsburgh steelers!
+    
+
+
+the steelers won the superbowl!i can't believe i finally get to say that. from 7 and 5 to superbowl xl champions. what an unbelievable season. the steelers have made us all proud to be from pittsburgh.anyone who knows me knows i'm a huge steeler fan. and i have to say, driving home after the superbowl last night through the fort pitt tunnel, when nearly every driver was honking the "here we go" song in unison — i teared up a bit. to create your own "here we go" honking effect en masse, just wave your terrible towel out the window of your car while in the tunnel. try it. it's a truly awesome thing to see and hear.world champs baby! go steelers! 
+
+
+
+posted by wlinkin @ 8:42 am  
+        
+
+
+
+
+
+friday, december 02, 2005
+
+
+
+	 adobe mm deal is done
+    
+
+
+for those of you who haven't heard, it looks like adobe's acquisition of macromedia should be done by saturday, dec. 3rd. here's the link: http://www.adobe.com/aboutadobe/pressroom/pressreleases/200512/120105macracquisitionclose.htmlno reliable news yet on what will be happening with the products. but for those fireworks users out there, it's not looking good. and freehand, well, i just don't want to talk about that.let's go adobe!- wayne
+
+
+
+posted by wlinkin @ 7:41 am  
+        
+
+
+
+
+
+
+
+
+
+
+
+links
+
+macromedia flash weblogs
+nasa
+digg
+pittsburgh flash users group
+
+previous posts
+
+freehand will be missed
+after effects 7.0 fails to startup
+review of adobe after effects 7.0 professional
+extremely funny: world's worst hacker
+review of adobe illustrator cs2
+2005-2006 world champion pittsburgh steelers!
+adobe mm deal is done
+first pittsburgh mfug meeting
+after effects error: sound component, quicktime 7
+remote control people... really!
+
+archives
+
+september 2005
+october 2005
+november 2005
+december 2005
+february 2006
+march 2006
+september 2006
+october 2006
+may 2007
+
+friends
+
+pixelfumes
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+

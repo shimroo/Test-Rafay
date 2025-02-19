@@ -1,0 +1,1017 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+lomont.org
+
+
+
+
+
+
+lomont.org
+(also lomonster.com and clomont.com)
+
+
+
+home
+
+
+writings & talks
+            
+        
+
+blog
+talks
+papers
+
+
+
+computing
+            
+        
+
+software
+screensavers
+graphics
+quantum computing
+
+
+
+misc
+            
+        
+
+math
+puzzles
+riddles
+projects
+lego
+links
+categories
+tags
+
+
+
+personal
+            
+        
+
+about
+photos
+contact
+resume
+
+
+☰
+
+
+
+
+
+
+
+
+
+
+
+this is the homepage of chris lomont, phd. 
+i am a co-founder of hypnocube, maker of fine blinky lights (and other
+      tech items).
+i used to be a research scientist, working at
+      cybernet, initially on quantum
+      computing, although later my time was been spent working on image
+      processing and computer security. 
+i have also been a game developer, a phd student, small business owner,
+      and many other things.
+to see more about me, check out my about page.
+
+
+
+
+date
+event
+
+
+jul 26, 2024
+
+minimaltictactoe
+
+
+
+
+
+
+aug 28, 2023
+
+correct alpha and gamma for image processing
+
+
+
+
+
+jul 23, 2023
+
+ios png errors
+
+
+
+
+
+jun 24, 2023
+
+problems using ssim for image quality comparisons
+
+
+
+
+
+jun 6, 2023
+
+accurate color conversions
+
+
+
+
+
+nov 22, 2022
+
+button debouncing and pattern matching
+
+
+
+
+
+aug 27, 2022
+
+a better quadratic formula algorithm
+
+
+
+
+
+aug 26, 2022
+
+lomont floating point notes
+
+
+
+
+
+dec 7, 2020
+
+rtk gps project
+
+
+
+
+
+jun 23, 2019
+
+chris lomont's lines of code over time
+
+
+
+
+
+jun 1, 2019
+
+new c# syntax and features
+
+
+
+
+
+may 15, 2019
+
+30 algorithms in 60 minutes
+
+
+
+
+
+feb 25, 2019
+
+computation: theory, methods, limitations, and the future
+
+
+
+
+
+jul 21, 2018
+
+intro to wireless communications
+
+
+
+
+
+apr 2, 2018
+
+cryptography best practices 2018
+
+
+
+
+
+mar 14, 2018
+
+intro to functional programming with f#
+
+
+
+
+
+jan 10, 2018
+
+meltdown and modern cpu architecture
+
+
+
+
+
+nov 19, 2017
+
+the cosmic distance ladder
+
+
+
+
+
+nov 1, 2017
+
+walking ant probability problem
+
+
+
+
+
+jun 19, 2017
+
+overview of cryptology
+
+
+
+
+
+may 1, 2017
+
+a universal fractran interpreter in fractran
+
+
+
+
+
+mar 5, 2017
+
+generating uniform random numbers on [0,1]
+
+
+
+
+
+feb 21, 2017
+
+efficient divisibility testing
+
+
+
+
+
+sep 17, 2016
+
+making three not gates from two
+
+
+
+
+
+aug 29, 2016
+
+compression notes
+
+
+
+
+
+aug 29, 2016
+
+lzcl: an embedded compression library
+
+
+
+
+
+aug 23, 2016
+
+average segment length
+
+
+
+
+
+aug 23, 2016
+
+how many prisoners?
+
+
+
+
+
+aug 23, 2016
+
+pick a number
+
+
+
+
+
+jul 1, 2016
+
+test site features
+
+
+
+
+
+jan 1, 0001
+
+
+
+        color conversions this is a quick note for converting byte values colors in 0-255 back and forth to floating-point colors in 0-1.
+the problem a common (yet incorrect) method (shown in c++) looks like this:
+1 2 3 4 5 6 7 8 9 10 11 12 #include <cstdint> // uint8_t // byte color in 0-255 to 32-bit float in 0-1 float coloru8tof32_bad(uint8_t colorb) { return colorb/255.0f; } uint8_t colorf32tou8_bad(float colorf) { return (uint8_t)(colorf*255.
+      
+
+
+july 10, 2016
+after many years of letting this site langush, mostly because it was getting obsolete technology wise (1998 technology!),
+making it hard to update nicely, i have finally started a new website at www.clomont.com.
+my plan is to merge most of this content into it, hopefully keeping a lot of the more popular links and items at the same
+relative locations, then move the new site back to here, and point all my personal sites to the new one.
+
+
+oct 10, 2012
+i added an c# implementation of the newly released sha3 hash algorithm
+on my software page, and a program to compute file hashes.
+here is a zipfile of the vs2012 project (11mb), and
+here is the
+implementation as a html file.
+
+
+aug 5, 2012
+i added a small, single source file qr-code generator to my
+software page. i also added a qr code embedding a zipfile with a qr code generator in it :)
+
+
+july 16, 2012
+i added a nice logic puzzle and solution to my new
+riddles page. the logic puzzle is titled “how many prisoners?”
+
+
+june 8, 2012
+i updated the source
+and executable
+for my small disk utilization utility, diskinfo. see
+my software page.
+
+
+june 8, 2012
+here is a page describing a recent art installation gene and i did in seaham, uk.
+
+
+june 8, 2012
+here are slides for a talk i have given recently:
+introduction to the lambda calculus.
+
+
+june 8, 2012
+it’s been a long time since an update, mostly since i have been very busy. here are slides for
+a talk i have given recently: computability and computation.
+
+
+oct 8, 2011
+over the
+weekend i got it in my head to disassemble the sound rom on the williams
+arcade boards to generate old school arcade sounds from the original
+algorithms. here is a page
+with initial notes and some c# code that reproduces the original
+cycle-accurate algorithms. here are some sample results, decimated down in
+sample rate to 44.1khz wav files:
+one,
+two,
+three,
+four,
+five.
+
+
+oct 7, 2011
+i added a project page on a
+nice wooden torus i designed and made out of laser cut wood. included
+are template files and source code the generate the geometry.
+
+
+sep 27, 2011
+here is a is a command line tool (codestats,
+29k executable,
+31k project file) that gathers statistics about source code in c#, c++, c. read more on the software page.
+
+
+sep 20, 2011
+here (pdf, 223k) is a detailed exposition of how to prove
+r. sabey’s 2004 pandigital
+approximation (1+9^-(6*7))^3^(2^85) to e is accurate to 18457734525360901453873570 digits
+(including the leading 2).
+
+
+sep 12, 2011
+i extended my previous c# fft code to allow for various conventions that
+different fields use in definig the fft. this should make it easier to
+adapt to your specific uses. have fun. read the
+pdf about it, download the
+c# file, view
+the code, or get the whole
+vs 2010 project.
+
+
+aug 29, 2011
+i posted notes for a talk i gave showing how space and time intertwine to form spacetime. a simple. clear, complete derivation is given of the lorenz transform
+and what it implies. experimental evidence is listed.
+here is a 1mb pdf, and here is my
+talks page.
+
+
+aug 25, 2011
+posted an update to the sha-3 candidate code for
+skein since they updated their specification somewhat. i’ve been busy and not posted most of the things
+i have been working on over the past few months. hopefully i can fix that soon.
+hypnocube sales are taking off and keeping the shipping pipeline from china to
+here to retailers takes some time. tomorrow i give a talk about special relativity with an especially direct and simple derivation of the lorenz transform. i will post it soon.
+
+
+june 19, 2011
+bug fix to the ssim code. did not dispose of the bitmap immediately after use, leaving the file handle locked until gc kicked in. now idisposable is respected.
+i also fixed an error in the well512 implementation and an error in my
+uniform spread algorithm in my survey article on random number generation.
+
+
+june 3, 2011
+this article (1.5mb pdf) is an introduction to intel’s advanced vector extensions (avx), written for their developer network.
+it covers the new registers, feature detection, assembler and compiler
+support, and an example using c++ intrisics. the appendix is a brief listing
+of all the avx functions.
+here is the c++ project described in the article (10mb zipfile).
+
+
+apr 7, 2011
+it’s been a while since i posted something due to general business. yesterday i gave the don buckeye talk at eastern michigan university to a group of faculty and students. the topic was
+showing how a common device (i chose an iphone for the concrete example) requires sophisticated mathematics to design and implement. i showed how each math class that an undergrad could take
+and even many graduate courses are required to cover the full breadth of technologies.
+here is a link to the ppt
+(and pdf) slides (including many i did not have time to show). a recording was taken
+which i will post if i can get a copy.
+
+
+sept 12, 2010
+i added several projects to the software page. all are c# programs with sourcecode included. one is an
+x86 intel binary disassembler with pe file reader. one is a
+chess interface.
+one is a planet wars simulation for making bots for the
+university of waterloo competition. the last is a
+4x4 tic tac toe retrograde analysis generator and interface to play with.
+
+
+aug 2, 2010
+i added some content to the last post on laser-cut polyhedra, adding a new smaller version of the previous one.
+see project page for details.
+other than that i’ve been pretty busy with work, finishing the 8x8x8 hypnocube, and coding for fun. hopefully soon i’ll redo this website, add a blog to start writing, and post some papers.
+
+
+apr 25, 2010
+my wife was out of town for two days recently, so i decided to work all night both nights playing with 3d shapes on the laser cutter.
+the result was i designed and built a neat translucent polyhedra (a
+
+truncated icosidodecahedron), about 20 inches across. perhaps we’ll
+sell them and related shapes as kits, since poeple seem to like them, and
+i designed a general way to construct them. see the
+project page for details,
+pictures, and dxf files for your own laser art.
+
+
+apr 25, 2010
+i finally finished my “theory of everything” talk mentioned on the nov 2007 post, and delivered it in three 1-hour talks.
+it explains the background for constructing theories ofâ  everything
+by using symmetry groups to merge quantum mechanics and general
+relativity, motivating it to a technical but non-physicist audience.
+ppt and
+pdf are
+available on my talks page. it was motivated by lisi’s paper, "an
+exceptionally simple theory of everything," but almost exclusively
+covers the background needed to understand the abstract.
+
+
+apr 24, 2010
+at the request of namco, i have redacted all information
+on my pacman emulation pages that contain their material. my first cease
+and desist!
+
+
+feb 7 30, 2010
+i added a small
+c# tcp/ip client/server architecture demo under
+software. it consists of a small server class, a small client class, and a demo program.
+developed for work on the 8x8x8 hypnocube, i’m posting it here for others to use. there is a vs 2010 beta 2 project file (zip).
+
+
+jan 30, 2010
+i spent a few weeks in london and paris, which was fun. working on audio for the
+hypnocube i ran into some fourier transform issues, so spent the last
+week designing and writing up a nice fast fourier transform class in c#.
+it was designed to be small, free, decently performing. in the process i
+made a real to complex fft that is twice as fast as the usual
+fft,perfectly suited for audio processing. read the
+pdf about it, download the
+c# file, view
+the code, or get the whole
+vs 2010 project.
+
+
+dec 7, 2009
+i posted a tool i wrote for investigating directory sizes on multiple drives and for finding duplicated files. both an
+executable (400k) and a
+visual studio 2010 beta project
+(156k zip)
+are available. it was written in c#, and has some interesting wpf items such as an interactive pie chart and multithreaded tasks interacting with the ui nicely.
+see the software page for details.
+
+
+dec 6, 2009
+i posted two articles i wrote for game programming gems 8[amazon.com]. i was able to keep the copyright for publishing on the web, so i can post them here. the lamer of the articles is titled
+“secure channel communication” (138k pdf) and is an overview of items to consider when designing game network protocols.
+the better article is
+“introduction to x64 assembly” (368k pdf) which covers many aspects of assembly
+programming on x64 systems, including register set overview (wuth mmx and sse), assembler support, interfacing with c/c++, and details on the calling convention used on x64 systems. both papers are on
+my papers page.
+
+
+sept 4, 2009
+it’s been a while since a post - i went climbing in idaho, i bought a robotron 2084 upright arcade machine, i wrote a lot of software, gave several talks, and have been busy. i posted a c# implementation for structural similarity index (ssim) image comparison under software. here is an executable, a html version of the code, and a project file.
+
+
+april 27, 2009
+i posted a c# implementation for arithmetic compression/decompression under software. here is the cs file and here is arithcomp.htmlhtml of the code. finally, here is a project file. have fun.
+
+
+april 14, 2009
+i posted a c# implementation for a skiplist under software. here is the cs file and here is html of the code. finally, here is a project file. verdict - skiplist is better than .nets sortedlist, but worse than sorteddictionary. oh well, it was a learning experience implementing all the interfaces.
+
+
+mar 29, 2009
+i posted a global illumination renderer in c# on the software page. command line exe, sample scene, and the complete sourcecode (vs2008 c#) are available.
+
+
+mar 15, 2009
+i added another software item: a simple fullscreen wpf overlay app that demos simple physics. as usual it is placed on the software page, complete with c# sourcecode (vs2008 project file).
+
+
+mar 8, 2009
+i added a few software items: a c# implementation of skein, one of the hash functions contending for a sha-3 candidate. i also added an interactive mandelbrot c# program that can use multithreaded c#, sse, openmp, and other methods to render mandelbrots in realtime. there is also a (very slow) infinite precision method included, all with source code. runs under vista x64.
+
+
+jan 17, 2009
+during a trip to key west, my wife wanted a tetris game, so i wrote one in c#, .net, and wpf. source code is included on my software page. here is a zipfile with the exe and config file (119k).
+
+
+dec 11, 2008
+i posted a program with source that converts visual studio code into html under software. here is an example of the output the program makes, and here is the exe, and here is a zipfile of the (visual studio 2008, .net 3.5, c#) source tree. happy hacking :)
+
+
+dec 2, 2008
+over the last two months i have been doing the project euler (www.projecteuler.net) problems in c# (and some in the new mathematica 7!) to learn the language better. over the thanksgiving weekend i finally finished all of the current (219 of 219) problems. i (username lomont) am usually ranked in the top 10 of 50,000+ users and now want to get the top score, then i may retire from the competition. i also may post hints and/or solutions to the problems on my website.
+
+
+oct 22, 2008
+been busy again :)  i have a lot of items to post, but only time to do a few. so here is a very detailed description of pacmanemulation.htmpac-man hardware, and here is
+a pacmanasm.htmlcommented disassembly of the z80 sourcecode. also posted is a xp and vista usuable fmtracker ported from my old dos days fmtracker. i added opl2 chip
+emulation to make it usuable without needing the old adlib chips. included are songs and complete c++ sourcecode. see the software page for more. things i hope to post soon are a paper i wrote
+on embedding data in zip (rfc1950) files in the choices made during the compression phase. this came about writing a better compressor for .net in c# than the
+included deflatestreams, which are horribly broken.
+
+
+july 20, 2008
+it’s been a busy four months. i bought a house, among other things. here is a talk i gave in may titled “c# for c++ programmers.” as much as i hate to admit it, c# is a very good language, and using it makes me a lot more productive. currently the seminar i run at work, "weekly programming fun," is covering a lot of c# development. many programmers are learning it at cybernet. 
+i also changed hosts, so this site is still on shaky ground, and my email is slightly flaky. finally we’ve been seling a lot of hypnocubes and hypnosquares; at sometimes it takes a bit of time and scheduling to keep things flowing smoothly.
+a final note - we’re back on finishing the 8x8x8 hypnocubes, and have switched (tentatively) from the gumstix to an embeddedarm ts-7800, which is a sweet sbc.
+
+
+march 23, 2008
+i updated my lego program from last time to make a nice screensaver, including many models. the screensaver assembles/disassembles lego models, and includes c# sourcecode. check out the screensavers section of my software page.
+
+
+feb 24, 2008
+i added program (with c# sourcecode) to view lego cad files to the software page. it is my first c# program, and comprises a weekends worth of work, totalling about 2500 lines of code. there is no way i could have done this so quickly in c++, so i may have to start doing all my play coding in c#. i also built the behemoth 1800+ piece technic 8421 mobile crane lego kit and posted pics and a video on my lego page. to top off the lego triumvirate posting, for testing my viewer i modeled the technic kits 854 go kart and technic 853 car chassis from my childhood and posted the ml-cad files to my lego page.
+
+
+feb 8, 2008
+games programming gems 7 was released [amazon.com], and due to copyright deals i worked out i am able to post my two articles on my papers page. the first one deals with implementing subdivision surfaces (pdf 254k) for geometry, including details on creases, corners, textures, normals, data structures, and pointers for high performance implementations, all in one handy place. the second one is an overview of various pseudo-random number generation (prng) algorithms (pdf 136k), and presents fast code for a very useful class of prngs introducued by l’ecuyer, the well algorithms. these are better than the popular mersenne twister in many ways, and were constructed by the same researchers.
+
+
+nov 18, 2007
+i posted slides (powerpoint, pdf, powerpoint 2007) on my papers and talks page for a talk i gave recently on special relativity to a group of engineers. the point was to
+derive e=mc2 from simple ideas. there is also historical and biographical information leading up the ideas of special relativity. coming soon:
+garrett lisi’ “an exceptionally simple theory of everything” for engineers and non-physics scientists. although likely not the final theory of everything, it contains a lot of fascinating math and shows how theoretical physics fits reality to beautiful symmetries.
+
+
+oct 14, 2007
+i recently analyzed in depth the excel 2007 formatting bug. here is a link to my results page, here is the pdf (500kb) and here is a link to my papers page where it is canonically referenced. enjoy, and send comments/corrections.
+
+
+sept 4, 2007
+i just returned from a labor day hiking/biking trip in the upper penninsula. fun fun :)  
+also i posted a solution on my puzzle page to a 51 piece wooden burr puzzle at the request of a puzzle collector.
+
+
+aug 21, 2007
+i added a 256-color demo for the coco3 to my color computer (coco) page. it includes assembly code. use as directed.
+
+
+aug 18, 2007
+i was recently (well, now a few months ago) offered a job at google in mountain view, california. after consulting with my wifey, we decided not to take the job. however the interview process was interesting, long, and harder than any i’ve ever heard of. however, i answered all their questions, and hope to post a complete story about it soon (after i review my legal requirements!)
+
+
+aug 18, 2007
+i spent today (saturday) reworking a lemmings tool i wrote over a weekend about a year ago. it is now ready for primetime. it can decode six dos lemmings games, and is the base for a lemmings clone i hope to do. go directly to the lemmings page, or get the exe as a 115kb zipfile download (requires .net 2.0). or check out the software page for general software goodness.
+
+
+aug 2, 2007
+i just returned from a two week climbing, hiking, and shooting trip in idaho. along the trip i made a big update to my color computer hardware reference(1mb, pdf). see my color computer page for the announcement.
+
+
+july 7, 2007
+after a recent discussion of how many digits of a transcendental number could be computed in a finite amount of ram, i concluded that the thue-morse constant is likely the best candidate for the transcendental number. i wrote a program on an old 8-bit computer (the trs-80 color computer 3) that computed the tm constant to a massive 10^314013 digits (but it will never practically finish - the univers will end first). see my color computer page for assembly sourcecode and a program using similar techniques to compute 287273 digits of e.
+
+
+may 17, 2007
+under software i posted an ataxx game clone (2.8mb zipfile) i wrote. it plays quite strongly (i cannot beat it above level 3, and i am usually good at such games). have fun!
+
+
+may 6, 2007
+under software i posted a 6309/6809 disassembler (115k zipfile) i wrote. i also updated my color computer page with some info and my intended plan to write a c compiler (with certain c++ extensions for making cleaner code).
+
+
+apr 6, 2007
+under papers, misc other writings, i added a detailed explanation of how i developed (as a beginner) an exploit for the recent ani file handling vulnerabilty under microsoft windows nt, 2000, xp, 2003, and vista. here is a pdf (183k) detailing the flaw and attack, and here is a exploitani.zipzipfile (193k) with related files. rename the cursors back to ani at your own risk!
+
+
+mar 17, 2007
+under software, i added a c++/cli implementation of conway’s game of life (6mb, source and 4000+patterns), using bill gosper’s hashlife algorithm. the program comes with sourcecode, and is about 5000 lines of c++ code. also included are 4000+ patterns collected from around the web.
+
+
+mar 16, 2007
+under software, i added a c++ four fours program (36k). this program figures out how to write positive integers using only four 4’s, and user selected operators. for example, 12 = 4*(4-4/4), 10 = sqrt(4)*4 + 4/sqrt(4), etc. output is a csv file easily viewed in excel.
+
+
+jan 25, 2007
+for a break from trying to get our 8x8x8 cube running (damn linux under gumstix makes hardware hacking troublesome), i decided to write some compression routines. i wanted most of all a fast, small overhead decompression engine, for adding data to embedded items. i started making up a method, which turned out to be a variant of lz77/lzss, but i think my handling of literal runs makes my method compress better. for small datasets it outperforms the common and slick quicklz library. hooray! my attempt to make a compression routine is apparently a decent one! the result is under my utilities section in under software, or you can jump directly to this page.
+
+
+dec 27, 2006
+under software, i added a spinning cube (61k exe), each face containing a zooming in and out mandelbrot set, rendered using a glsl pixel shader (requires at least shader model 3.0). hopefully i’ll clean the source and release source soon.
+
+
+dec 21, 2006
+i updated my free sudoku[wikipedia] program, fixing some painting problems and adding some niceties. click here to get the executable, and here to see the page. it is useful for creating and finding solutions to puzzles, but is very much a beta (representing about 20 hours of work in my spare time). oddly enough, one university of michigan engineering freshman person wanted me to write such a program for his programming assignment (i looked him up from his email, and googled the assignment). what is the world coming to when even um engineering students try this type of cheating?
+
+
+nov 4 , 2006
+i uploaded a command line utility (ren2.exe) with c++ sourcecode to do file renaming using regular expressions to the software utilities section. this allows you to do much more powerful group file renames, and has a html preview to show how files will be renamed before doing the changes. it is beta, so please send any feedback on it.
+
+
+aug 18, 2006
+i uploaded a rectangle packing program with c++ source (104k) to the software page, utilities section. this program visually packs a list of rectangles into a given rectangle as best as it can, and is fast. since the general problem is np-complete, there is no known efficient algorithm. future improvements could allow rotations of the rectangle, and a 2 pass version to get better packing. uses include part placement, texture map merging, and many others.
+
+
+aug 9, 2006
+i have uploaded a beta version of an online password hasher. let me know of improvements, errors, or if the entire idea is flawed.
+
+
+aug 9, 2006
+due to numerous requests for me to release my metaballs screensaver without the nag screen, i have done so. pick it up from the screensaver page.
+
+
+jul 25, 2006
+i spent the weekend in retro-computing, developing an assembly-code mandelbrot renderer for my trs-80 color computer 3. the resulting sourcecode, emulator and development information, and programs are under the software page or the direct color computer page.
+
+
+jun 20, 2006
+gene and i finally turned on our site to sell our 3d led cubes, at www.hypnocube.com. we now have 4x4x4 rgb cubes for sale as kits and completed cubes. be sure to check out the videos and the instructions on how to build such a cube! hopefully soon i will finish the pages on this site for the hypnocube.
+
+
+jun 19, 2006
+i implemented a loop subdivision renderer (104k) in opengl/c++, which i placed under the software section. it is not optimized, since i plan to implement the full gamut of corners, boundaries, normal interpolation, texturing, color interpolation, and creases before trying to make it fast. a final version might be gpu based if i have time.
+
+
+apr 2, 2006
+due to numerous requests for code to my logitech g15 keyboard system info tool, i added a download for the source (124k). for details, look for the g15 tool on my software/utilities page or the direct g15tool page.
+
+
+mar 11, 2006
+i added a new system info tool that runs on the logitech g15 keyboard screen. check out my software/utilities section or the direct page for more info. also posted under software/games are a tictactoe engine with source and a zombie infection simulation with source. i wrote both to help train developers where i work - they implement various sample brains to learn about c/c++ and ai development in a more interesting manner than usual.
+
+
+mar 11, 2006
+sorry it’s been so long since a post. i have been travelling and playing (vegas, acapulco, ny), building a new pc, and writing several interesting programs i hope to post later today. gene foulk and i continued building our 3d led cube (main page, part i, part ii, part iii, part iv, videos). we have created nice pcbs, cases, and a new 4096 color rgb 4x4x4 cube. we also registered the website www.hypnocube.com for selling these cubes as soon as we work out some final issues. stay tuned!
+
+
+dec 3, 2005
+gene foulk and i continued building a led cube (main page, part i, part ii, part iii, videos). we added some pictures of the new 8x8x8 cube, and show a lot of the work involved. improvements to the 4x4x4 cube include: many more programming features, rock solid images, more visualizations, more symmetries, more transitions, pcb and case design, and almost production quality results. we hope to have kits for sale soon, and are working to get them manufactured and placed in stores.
+
+
+sept 30, 2005
+i added a preliminary sudoku[wikipedia] program, free for download. click here to get the executable, and here to see the page. it is useful for creating and finding solutions to puzzles, but is very much a beta (representing about 10 hours of work in my spare time).
+
+
+sept 4, 2005
+gene foulk and i continued building a led cube (main page, part i, part ii) this past month we added a lot of programming and hardware modifications, resulting in a 256 color led cube. see the new page for details, or click here (15mb) and here (15mb) for the latest videos.
+
+
+august 5, 2005
+an article titled “floating point tricks” was accepted to appear in the book series games programming gems, in volume 6, appearing spring 2006. this article shows how one can design fast algorithms by using clever access of the bit representations of the ieee 754 floating point format, which is de facto on most computer and video game consoles. for a more detailed abstract see my papers page. for complete details, buy the book!
+
+
+july 31, 2005
+gene foulk and i started building a led cube (main page, part i). this weekend we made a 4x4x4 bicolor prototype controlled from an 18f4620 pic. we will beef it up over the next few weeks and build two large cubes (one each, greedy bastards…), at least 8x8x8 and perhaps as large as 13x13x13. it all depends on cost, timing problems, current drain, and moon phase…..
+
+
+june 17, 2005
+my superballs prank won the gold medal on a gizmodo office prank contest. i have a page on this site for the video, which was hosted once at purdue’s math site. however, the resulting traffic caused them to pull the page. go to my superball prank page for more!
+
+
+june 7, 2005
+i updated my high-performance, free aes code. it now has a much easier to use interface, and supports some block chaining modes for increased security. you can find it under software.
+
+
+may 11, 2005
+i added two new papers. “taming the floating-point beast” details methods to improve floating point comparison performance, in some cases by a factor of 20! the other is a solution to a hard integral problem i have doodled with since high school.
+
+
+feb 24, 2005
+i released a beta version of an mp3 id3v1 and id3v2 tag editing tool called "chris lomont’s tagtastic tagrasterizer" under my software\utilities section. it is more featured than most (probably all) commercial ones. it is written in c++.net. let me know how it works for you!
+
+
+feb 24, 2005
+i added a section for a new consulting (removed 2019) business i am starting with some others i know, under the consulting navigation link.
+
+
+jan 20, 2005
+i rewrote the site using php, and updated the photos section. now i only have to add some mysql stuff to have a completely interactive website :)
+
+
+jan 10, 2005
+i added a simple webcounter to the software page that i wrote while on a christmas trip to hawaii (maui, to be specific).
+
+
+nov 16, 2004
+added pictures of some of my 3d puzzles, and a page about a 3d burr puzzle i created.
+
+
+nov 9, 2004
+added a new screensaver - an animated mandelbrot set screensaver that requires opengl and a fast video card. see the screensavers section for more!
+
+
+oct 29, 2004
+added version 0.43b of an emule client that does not share your files back (for you leeches out there). see the software section, under miscellaneous. i also added a lot of photos to the site, so be sure to waste your time and my bandwidth by looking through them.
+
+
+oct 21, 2004
+i placed a new paper, “the hidden subgroup problem - review and open problems” online at my publications page. it covers what is known about the hsp (which is the central issue in quantum computing algorithms), corrects proofs, unifies notation, and presents a good overview of state of the art.
+
+
+oct 19, 2004
+after trying to obtain historical stock data for simulations, and finding out how expensive it is to buy, i collected it myself. and now i will seriously undercut the other vendors! this page sells 700mb of historical stock data.
+
+
+oct 05, 2004
+added three talks i give under my publications page. the talks are "quantum computing 101," "math and videogames," and "mathematics and insanity." i also added links to a joint column with ed pegg at maa online on angelic and evil numbers.
+
+
+sep 24, 2004
+added a 2d and 3d maze generation program with source under miscellaneous  software.
+
+
+sep 20, 2004
+added a page and videos (20mb) (8.5mb) for a practical joke i played at work involving two thousand superballs. you should see this if you like good jokes :)
+
+
+sep 10, 2004
+had a paper on geometric algebra accepted for publication in a book - publications. (added a regular expression file renamer with source to utilities.) update: somehow i lost my renamer…..
+
+
+aug 08, 2004
+i added a lot of software to the utilities and other computer sections, mostly stuff i have been playing with over the last few months. all are beta, but many are useful. included are
+
+
+
+jun, 2004
+began rewriting website with css ideas from www.kernelthread.com and www.csszengarden.com, and with standards conforming xhtml.
+
+
+apr 09, 2004
+i added two papers to the math section: one on a quantum pattern matching algorithm, and one on a fast quantum algorithm for computing the fourier transform over abelian groups.
+
+
+mar 06, 2004
+been a while since i updated this site. i've been busy writing code and trying to prove theorems. a recent work: the us currency screen saver. view images here.
+
+
+sep 18, 2003
+started giving a seminar on quantum computation at purdue. see my new quantum computing page for details.
+
+
+sep 08, 2003
+added a new paper, proving doing convolution or correlation of quantum states is physically impossible, thereby ending research along those directions. see the math papers section, or http://arxiv.org/abs/quant-ph/0309070
+
+
+aug 10, 2003
+new  knotsaver screen saver posted under software section, made of animated mathematical knots. see the pictures !
+
+
+jul 13, 2003
+new paper posted: quantum circuit identities under the papers section. in it i construct all one qubit identities of length less than four from a set of unitary operations.
+
+
+may 29, 2003
+
+
+
+apr 26, 2003
+
+
+
+mar 13, 2003
+added a new screen saver - 3d string art. see the screen savers page. it uses a very nice antialiased properly gamma corrected line algorithm from a paper by nelson, which is the best line algorithm i have seen for doing nice work.
+
+
+feb 28, 2003
+added a paper under the math section explaining the magic constant 0x5f3759df floating around the net for inverse square root code, and i show that 0x5f375a86 is probably a better choice.
+
+
+dec 20, 2002
+posted a paper showing how to use fixed point math, polynomial approximation, and forward differencing to speed up numerous computer applications, with an example being a circular gradient fill algorithm.
+
+
+nov 30, 2002
+posted a paper showing a simple proof that the utilities problem is unsolvable. it is equivalent to the graph k3,3 being nonplanar.
+
+
+nov 12, 2002
+added files to the (new) professional section - resume, cv (removed 2019), and stuff needed for academic applications.
+
+
+aug 10, 2002
+added a program to solve cross sums - see the computer page or the direct link.
+
+
+apr 20, 2002
+updated a paper on curves for publication.
+
+
+mar 07, 2002
+expanded my lego page, with lego mindstorms creations. i added a new clock built with lego. i also added a file format converter that converts mlcad lego cad files into an intermediate text format, with all geometry simplified and normals smoothed, as well as a real3d plugin that imports/exports the file format to make the process more flexible.
+
+
+jan 22, 2002
+added a lego page, with lego mindstorms creations. i also added excel templates here (removed 2019) and here (removed 2019) under the classes page (removed 2019) to make the gradesheets for purdue math ta's easier to do. look at both templates before choosing.
+
+
+nov 12, 2001
+added a a good new metaballs screen saver, and solutions to the "four four's" problem: write the integers from 1 to 100 using 4 4's to construct each number (actually, i found i can do up to around 150….) (note: mar 2007 - this program and results have been superseeded by my c++ fourfours program - see the software page)
+
+
+jul 24, 2001
+added a hp48/49 calculator page and a program with source code that displays spinning 3d scaled polyhedra. it also can be found on hpcalc.org.
+
+
+may 19, 2001
+cleaning of site, and reworking layout. added many new programs (knots, mandelsaver, and more), some new  graphics (molecular animations, some test images), a humor page (removed 2019), a math paper, and css for easier future updating of layout.
+
+
+nov 21, 2000
+added a short video showing the symmetry between a cube and tetrahedron.
+
+
+nov 02, 2000
+added source code for aes - advanced encryption standard. 
+added a cool new polyhedral screen saver under screen savers. 
+added neat morphing graphics demo: rings
+
+
+may 10, 2000
+added aâ  list of irreducible polynomials that generate different finite fields for some work i was doing.
+
+
+feb 29, 2000
+added a tutorial under the computer page to show how to do a simple win32 c++ application under  microsoft's visual c++ 6.0.â â  (note: win2000 has properly noted feb 29 as a leap day. no bugs here)
+
+
+feb 04, 2000
+played around to get a new look for the icons on top.
+
+
+oct 02, 1999
+added a photo to my personal page taken at a local restaurant.
+
+
+aug 01, 1999
+added a new screen saver i wrote from ideas of hugo elias under the software page.
+
+
+jul 28,1999
+more solutions to hartshorne's algebraic geometry under my math page.
+
+
+jul 18,1999
+added solutions to hartshorne's algebraic geometry under my math page.
+
+
+may 21, 1999
+updated this website to take a break from studying.
+
+
+sep 02, 1998
+this site was thrown together in about 30 minutes to test this server. more later…. (4 digits avoid y2k).
+
+
+
+find the hidden message....
+
+can i host a gecko? aardvarks in summer crave the herbs excreted routinely. hogweed
+        colonizes all of the aardvark pack; daises of drowsy dent, dig, and distract. can
+        an asexual astronaut abide? centralist! if icebergs irritate into i, icemakers impinge.
+        a bamboo cabdriver did eavesdrop firsthand. got hastier ideas? a baldheaded
+        beast baroness of backbiting bachelors badgers both bookworms. damp bogs scare
+        aardvarks! as one abominable anagram obscures a sadist, zero vaccinated taxmen
+        do weeklong mixers. an icebreaker mimicked arthritic jellyfish. wanderer bimbos
+        of ubiquity, apocalypse did fret agronomy! oh, shall the gimp be i? a quartet kibbitzing
+        banned lunatic sacrilege.
+      
+chris lomont, 2005 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+lots of pages served since may 21, 1999
+
+
+
+all contents of this site are copyright 1997-2024 chris lomont, 
+    unless otherwise noted.  all rights reserved. terms 
+    of use
+
+
+
+
+
+
+
+
+
+sorry, your browser does not support javascript!
+
+

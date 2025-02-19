@@ -1,0 +1,520 @@
+
+
+
+
+the lunacy of artemis (idle words)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ â« why not mars
+
+
+24.5.2024
+the lunacy of artemis
+
+
+
+introduction
+a note on apollo
+i. the rocket
+ii. the capsule
+iii. the orbit
+
+iv. gateway
+v. the lander
+vi. refueling
+vii. conclusion
+notes
+
+
+a little over 51 years ago, a rocket lifted off from cape canaveral carrying three astronauts and a space car.  after a three day journey to the moon, two of the astronauts climbed into a spindly lander and made the short trip down to the surface, where for another three days they collected rocks and did donuts in the space car. then they climbed back into the lander,  rejoined their colleague in orbit, and departed for earth. their capsule splashed down in the south pacific on december 19, 1972.  this mission, apollo 17, would be the last time human beings ventured beyond low earth orbit. 
+
+if you believe nasa, late in 2026 americans will walk on the moon again. that proposed mission is called artemis 3, and its lunar segment looks a lot like apollo 17 without the space car. two astronauts will land on the moon, collect rocks, take selfies, and about a week after landing rejoin their orbiting colleagues to go back to earth. 
+
+but where apollo 17 launched on a single rocket and cost $3.3 billion (in 2023 dollars), the first artemis landing involves a dozen or two heavy rocket launches and costs so much that nasa refuses to give a figure (one veteran of nasa budgeting estimates it at $7-10 billion).[1]  the single-use lander for the mission will be the heaviest spacecraft ever flown, and yet the mission's scientific returnâa small box of rocksâis less than what came home on apollo 17. and the whole plan hinges on technologies that haven't been invented yet becoming reliable and practical within the next eighteen months. 
+
+you donât have to be a rocket scientist to wonder whatâs going on here. if we can put a man on the moon,  then why can't we just go do it again?  the moon hasnât changed since the 1960âs, while every technology we used to get there  has seen staggering advances.  it took nasa eight years to go from nothing to a moon landing at the dawn of the space age. but today, twenty years and $93 billion after the space agency announced our return to the moon, the goal seems as far out of reach as ever.[2]
+articles about artemis often give the programâs tangled backstory.   but i want to talk about artemis as a technical design, because thereâs just so much to drink in. while nasa is no stranger to complex mission architectures, artemis goes beyond complex to the just plain incoherent. none of the puzzle pieces seem to come from the  same box. half the program requires breakthrough technologies that make the other half unnecessary.  the rocket and spacecraft nasa spent two decades building canât even reach the moon.  and for reasons no one understands, thereâs a new space station in the mix.
+
+in the past, whatever oddball project nasa came up with, we at least knew they could build the hardware. but artemis calls the agencyâs competence as an engineering organization into question.  for the first time since the early 1960's, it's unclear whether the us space agency is even capable of putting astronauts on the moon. 
+
+
+
+a note on apollo
+in this essay i make a lot of comparisons to project apollo. this is not because i think other mission architectures are inferior, but because the early success of that program sets such a useful baseline.  at the dawn of the space age, using rudimentary technology, american astronauts landed on the moon six times in seven attempts.  the moon landings were nasaâs greatest achievement and should set a floor for what a modern mission, flying modern hardware, might achieve.
+
+advocates for artemis insist that the program is more than apollo 2.0. but as weâll see, artemis can't even measure up to apollo 1.0. it costs more, does less, flies less frequently, and exposes crews to risks that the steely-eyed missile men of the apollo era found unacceptable.   it's as if ford in 2024 released a new model car that was slower,  more accident-prone, and ten times more expensive than the model t.  
+
+when a next-generation lunar program canât meet the cost, performance, or safety standards set three generations earlier, something has gone seriously awry. 
+
+
+
+i. the rocket
+the jewel of artemis is a big orange rocket with a flavorless name, the space launch system (sls).  sls looks like someone started building a space shuttle and ran out of legos for the orbiter. there is the familiar orange tank, a big white pair of solid rocket boosters, but then the rocket just peters out in a 1960âs style stack of cones and cylinders. 
+
+the best way to think of sls is as a balding guy with a mullet: there are fireworks down below that are meant to distract you from a sad situation up top.  in the case of the rocket, those fireworks are a first stage with more thrust than the saturn v, enough thrust that the boosted core stage can nearly put itself into orbit.  but on top of this monster sits a second stage so anemic that even its name (the interim cryogenic propulsion stage) is a kind of apology. for eight minutes sls roars into the sky on a pillar of fire.  and then, like a cork popping out of a bottle, the tiny icps emerges and drifts vaguely moonwards on a wisp of flame. 
+
+with this design, the minds behind sls achieved a first in space flight, creating a rocket that is at the same time more powerful and less capable than the saturn v.  while the 1960âs giant could send 49 metric tons to the moon,  sls only manages 27 tonsânot enough to fly an apollo-style landing, not enough to even put a crew in orbit around the moon without a lander. the best sls can do is slingshot the orion spacecraft once around the moon and back, a mission that will fly under the name artemis 2.  
+
+nasa wants to replace icps with an âexploration upper stageâ  (the project has been held up, among other things, by a near-billion dollar cost overrun on a launch pad). but even that upgrade wonât give sls the power of the saturn v.  for whatever reason, nasa designed its first heavy launcher in forty years to be unable to fly the simple, proven architecture of the apollo missions.
+
+of course, plenty of rockets go on to enjoy rewarding, productive careers without being as powerful as the saturn v.   and if sls rockets were piling up at the michoud assembly facility like cordwood, or if nasa were willing to let its astronauts fly commercial, it would be a simple matter to split artemis missions across multiple launches. 
+
+but nasa insists that astronauts fly sls. and sls is a âone and doneâ rocket, artisanally hand-crafted by a workforce that likes to get home before traffic gets bad. the rocket can only launch once every two years at a cost of about four billion dollars[3]âabout twice what it would cost to light the rocketâs weight in dollar bills on fire[4]. 
+
+early on, sls designers made the catastrophic decision to reuse shuttle hardware, which is like using fabergã© eggs to save money on an omelette.  the sls core stage recycles space shuttle main engines, actual veterans of old shuttle flights called out of retirement for one last job.  refurbishing a single such engine to work on sls costs nasa $40 million, or a bit more than spacex spends on all 33 engines on its superheavy booster.[5] and though the shuttle engines are designed to be fully reusable (the main reason they're so expensive), every sls launch throws four of them away. once all the junkyards are picked clean, nasa will pay aerojet rocketdyne to restart production of the classic engine at a cool unit cost of $145 million[6]. 
+
+the story is no better with the solid rocket boosters, the other piece of shuttle hardware sls reuses.  originally a stopgap measure introduced to save the shuttle budget, these heavy rockets now attach themselves like barnacles to every new nasa launcher design. to no oneâs surprise, retrofitting a bunch of heavy steel casings left over from shuttle days has saved the program nothing. each sls booster is now projected to cost $266 million, or about twice the launch cost of a falcon heavy.[7]  just replacing the asbestos lining in the boosters with a greener material, a project budgeted at $4.4m, has now cost nasa a quarter of a billion dollars.  and once the leftover segments run out seven rockets from now,  sls will need a brand new booster design, opening up fertile new vistas of overspending. 
+
+costs on sls have reached the point where private industry is now able to develop, test, and launch an entire rocket program for less than nasa spends on a single engine[8].  flying sls is like owning a classic carâeverything is hand built, the components cost a fortune, and when you finally get the thing out of the shop, you find yourself constantly overtaken by younger rivals. 
+
+but the cost of sls to nasa goes beyond money.   the agency has committed to an antiquated frankenrocket just as the space industry is entering a period of unprecedented innovation. while other space programs get to romp and play with technologies like reusable stages and exotic alloys, nasa is stuck for years wasting a massive, skilled workforce on a dead-end design. 
+
+the sls program's slow pace also affects safety. back in the shuttle era, nasa managers argued that it took three to four launches a year to keep workers proficient enough to build and launch the vehicles safely.  a boutique approach where workers hand-craft one rocket every two years  means having to re-learn processes and procedures with every launch.
+
+it also leaves no room in artemis for test flights. the program simply assumes success, flying all its important 'firsts' with astronauts on board. when there are unanticipated failures, like the extensive heat shield spalling and near burn-through observed in artemis 1,[9] the agency has no way to test a proposed fix without a multi-year delay to the program. so they end up using indirect means to convince themselves that a new design is safe to fly, a process ripe for error and self-delusion.
+
+
+
+
+
+ii. the capsule
+orion, the capsule that launches on top of sls, is a relaxed-fit reimagining of the apollo command module suitable for todayâs larger astronaut. it boasts modern computers, half again as much volume as the 1960âs design, and a few creature comforts (like not having to poop in a baggie) that would have pleased the apollo pioneers.
+
+the capsuleâs official name is the orion multipurpose crew vehicle, but finding even a single purpose for orion has greatly challenged nasa.  for twenty years the spacecraft has mostly sat on the ground, chewing through a $1.2 billion annual budget. in 2014, the first orion flew a brief test flight. eight short years later, orion launched again, carrying a crew of instrumented mannequins around the moon on artemis 1.  in 2025 the capsule (by then old enough to drink) is supposed to fly  human passengers on artemis 2. 
+
+orion goes to space attached to a basket of amenities called the european service module. the esm provides orion with solar panels, breathing gas, batteries, and a small rocket that is the capsuleâs principal means of propulsion. but because the esm was never designed to go to the moon, it carries very little propellantâfar too little to get the hefty capsule in and out of lunar orbit.[10]
+and orion is hefty. originally designed to hold six astronauts, the capsule was never resized when the crew requirement shrank to four.  like an empty nesterâs minivan, orion now hauls around a bunch of mass and volume that it doesnât need. even with all the savings that come from replacing apollo-era avionics, the capsule weighs almost twice as much as the apollo command module. 
+
+this extra mass has knock-on effects across the entire artemis design. since a large capsule needs a large abort rocket, sls has to haul orion's massive launch abort systemâseven tons of dead weightânearly all the way into orbit. and reinforcing the capsule so that abort system won't shake the astronauts into jelly means making it heavier, which puts more demand on the parachutes and heat shield, and around and around we go. 
+
+
+size comparison of the apollo command and service module (left) and orion + european service module (right)
+whatâs particularly frustrating is that orion and esm together have nearly the same mass as the apollo command and service modules, which had no trouble reaching the moon.  the difference is all in the proportions. where apollo was built like a roadster, with a small crew compartment bolted onto an oversized engine, orion is the dodge journey of spacecraftâa chunky, underpowered six-seater that advertises to the world that you're terrible at managing money.
+
+
+
+iii. the orbit
+the fact that neither its rocket or spaceship can get to the moon creates difficulties for nasaâs lunar program.  so, like an aging crooner transposing old hits into an easier key, the agency has worked to find a âlunar-adjacentâ destination that its hardware can get to.
+
+their solution is a bit of celestial arcana called near rectilinear halo orbit, or nrho.  a spacecraft in this orbit circles the moon every 6.5 days, passing 1,000 kilometers above the lunar north pole at closest approach, then drifting out about 70,000 kilometers (a fifth of the earth/moon distance) at its furthest point.  getting to nrho from earth requires significantly less energy than entering a  useful lunar orbit, putting it just within reach for sls and orion.[11]
+to hear nasa tell it, nrho is so full of advantages that itâs a wonder we stay on earth.  spacecraft in the orbit always have a sightline to earth and never pass through its shadow. the orbit is relatively stable, so a spacecraft can loiter there for months using only ion thrusters. and the deep space environment is the perfect place to practice going to mars. 
+
+but nrho is terrible for getting to the moon. the orbit is like one of those european budget airports that leaves you out in a field somewhere, requiring an expensive taxi.  in artemis, this taxi takes the form of a whole other spaceshipâthe lunar landerâwhich launches without a crew a month or two before orion and is supposed to be waiting in nrho when the capsule arrives. 
+
+ once these two spacecraft dock together, two astronauts climb into the lander from orion and begin a day-long descent to the lunar surface. the other two astronauts wait for them in nrho, playing hearts and quietly absorbing radiation.
+
+apollo landings also divided the crew between lander and orbiter. but those missions kept the command module in a low lunar orbit that brought it over the landing site every two hours.  this proximity between orbiter and lander had enormous implications for safety. at any point in the surface mission, the astronauts on the moon could climb into the ascent rocket, hit the big red button, and be back sipping tang with the command module pilot by bedtime.  the short orbital period also gave the combined crew a dozen opportunities a day to return directly to earth. [12]
+sitting in nrho makes abort scenarios much harder. depending on when in the mission it happens, a stricken lander might need three or more days to catch up with the orbiting orion. in the worst case, the crew might find themselves stuck on the lunar surface for hours after an abort is called, forced to wait for orion to reach a more favorable point in its orbit. and once everyone is back on orion, more days might pass before the crew can depart for earth. these long and variable abort times significantly increase risk to the crew, making many scenarios that were survivable on apollo (like apollo 13!) lethal on artemis. [13]
+the abort issue is just one example of  nrho making missions slower.  nasa likes to boast that orion can stay in space far longer than apollo, but this is like bragging that youâre in the best shape of your life after the bank repossessed your car.  it's an oddly positive spin to put on bad life choices. the reason orion needs all that endurance is because transit times from earth to nrho are long, and the crew has to waste additional time in nrho waiting for orbits to line up.  the artemis 3 mission, for example, will spend 24 days in transit, compared to just 6 days on apollo 11. 
+
+nrho even dictates how long astronauts stay on the moonâsurface time has to be a multiple of the 6.5 day orbital period. this lack of flexibility means that even early flag-and-footprints missions like artemis 3 have to spend at least a week on the moon, a constraint that adds considerable risk to the initial landing.  [14]
+in spaceflight, brevity is safety. there's no better way to protect astronauts  from the risks of solar storms, mechanical failure, and other mishaps than by minimizing slack time in space. moreover, a safe architecture should allow for a rapid return to earth at any point in the mission.   thereâs no question astronauts on the first artemis missions would be better off with orion in low lunar orbit. the decision to stage from nrho is an excellent example of nasa designing its lunar program in the wrong directionâletting deficiencies in the hardware dictate the level of mission risk. 
+
+ï¿¼
+
+
+
+
+
+early diagram of gateway. note that the segment marked 'human lander system' now dwarfs the space station.
+iv. gateway
+i suppose at some point we have to talk about gateway.  gateway is a small modular space station that nasa wants to build in nrho.  it has been showing up across various missions like a bad smell since before 2012.  
+
+early in the artemis program, nasa described gateway as a kind of celestial truck stop, a safe place for the lander to park and for the crew to grab a cup of coffee on their way to the moon.  but when it became clear that gateway would not be ready in time for artemis 3, nasa re-evaluated.  reasoning that two spacecraft could meet up in nrho just as easily as three, the agency gave permission for the first moon landing to proceed without a space station.
+
+despite this open admission that gateway is unnecessary, building the space station remains the core activity of the artemis program. the three missions that follow that first landing are devoted chiefly to gateway assembly.  in fact, initial plans for artemis 4 left out a lunar landing entirely, as if it were an inconvenience to the real work being done up in orbit.
+
+this is a remarkable situation. itâs like if you hired someone to redo your kitchen and they started building a boat in your driveway. sure, the boat gives the builders a place to relax, lets them practice tricky plumbing and finishing work, and is a safe place to store their tools. but all those arguments will fail to satisfy. you still want to know what building a boat has to do with kitchen repair, and why youâre the one footing the bill. 
+
+nasa has struggled to lay out a technical rationale for gateway. the space station adds both cost and complexity to artemis, a program not particularly lacking in either.  requiring moon-bound astronauts to stop at gateway also makes missions riskier (by adding docking operations) while imposing a big propellant tax. aerospace engineer and pundit robert zubrin has aptly called the station a tollbooth in space.  
+
+even gateway defenders struggle to hype up the station. a common argument is that gateway may not ideal for any one thing, but is good for a whole lot of things. but that is the same line of thinking that got us sls and orion, both vehicles designed before anyone knew what to do with them. the truth is that all-purpose designs don't exist in human space flight. the best you can do is build a spacecraft that is equally bad at everything. 
+ 
+but to search for technical grounds is to misunderstand the purpose of gateway.  the station is not being built to shelter astronauts in the harsh environment of space, but to protect artemis in the harsh environment of congress. nasa needs gateway to navigate an uncertain political landscape in the 2030âs. without a station, artemis will just be a series of infrequent multibillion dollar moon landings, a red cape waved in the face of the office of management and budget.  gateway armors artemis by bringing in international partners, each of whom contributes expensive hardware. as nasa learned building the international space station, this combination of sunk costs and international entanglement is a powerful talisman against program death.   
+
+gateway also solves some other problems for nasa.  it gives sls a destination to fly to, stimulates private industry (by handing out public money to supply gateway), creates a job for the astronaut corps, and guarantees the continuity of human space flight once the iss becomes uninhabitable sometime in the 2030âs. [15]
+that last goal may sound odd if you donât see human space flight as an end in itself.  but nasa is a faith-based organization, dedicated to the principle that taxpayers should always keep an american or two in orbit.  itâs a little bit as if the national oceanic atmospheric administration insisted on keeping bathyscapes full of sailors at the bottom of the sea, irrespective of cost or merit, and kneecapped programs that might threaten the continuous human benthic presence. you canât argue with faith.
+
+from a bureaucratâs perspective, gateway is nasaâs ticket back to a golden era in the early 2000's when the space station and space shuttle formed an uncancellable whole, each program justifying the existence of the other.  recreating this dynamic with gateway and sls/orion would mean predictable budgets and program stability for nasa well into the 2050âs.  
+
+but artemis was supposed to take us back to a different golden age, the golden age of apollo.  and so thereâs an unresolved tension in the program between building gateway and  doing interesting things on the moon. with artemis missions two or more years apart, itâs inevitable that gateway assembly will push aspirational projects like a surface habitat or pressurized rover out into the 2040âs. but those same projects are on the critical path to mars, where nasa still insists weâre going in the late 2030âs. the situation is awkward.
+
+so that is the story of gatewayâunloved, ineradicable, and as weâll see, likely to become the sole legacy of the artemis program.
+
+
+ï¿¼
+
+
+
+v. the lander
+the lunar lander is the most technically ambitious part of artemis.  where sls, orion, and gateway are mostly a compilation of nasa's greatest hits, the lander requires breakthrough technologies with the potential to revolutionize space travel. 
+
+of course, you canât just call it a lander.  in artemis speak, this spacecraft is the human landing system, or hls. nasa has delegated its design to two private companies, blue origin and spacex.  spacex is responsible for landing astronauts on artemis 3 and 4, while blue origin is on the hook for artemis 5 (notionally scheduled for 2030).  after that, the agency will take competitive bids for subsequent missions. 
+
+the spacex hls design is based on their experimental starship spacecraft, an enormous rocket that takes off on and lands on its tail, like 1950âs sci-fi.   there is a strong âemperorâs new clothesâ vibe to this design.  on the one hand, it is the brainchild of brilliant spacex engineers and passed nasa technical review. on the other hand, the lander seems to go out of its way to create problems for itself to solve with technology. 
+
+
+an early spacex rendering of the human landing system, with the apollo lunar module added for scale.
+to start with the obvious, hls looks more likely to tip over than the last two spacecraft to land on the moon, which tipped over.   it is a fifteen story tower that must land on its ass in terrible lighting conditions, on rubble of unknown composition, over a light-second from earth.  the crew are left suspended so high above the surface that they need a folding space elevator (not the cool kind) to get down.  and yet in the end this single-use lander carries less payload (both up and down) than the tiny lunar module on apollo 17. using starship to land two astronauts on the moon is like delivering a pizza with an aircraft carrier. 
+
+amusingly, the sheer size of the spacex design leaves it with little room for cargo.  the spacecraft arrives on the moon laden with something like 200 tons of cryogenic propellant,[16] and like a fat man leaving an armchair, it needs every drop of that energy to get its bulk back off the surface.  nor does it help matters that all this cryogenic propellant has to cook for a week in direct sunlight.
+
+other, less daring lander designs reduce their appetite for propellant by using a detachable landing stage. this arrangement also shields the ascent rocket from hypervelocity debris that gets kicked up during landing.  but hls is a one-piece rocket; the same engines that get sandblasted on their way down to the moon must relight without fail a week later. 
+
+ given this fact, itâs remarkable that nasaâs contract with spacex doesnât require them to demonstrate a lunar takeoff. all spacex has to do to satisfy nasa requirements is land an hls prototype on the moon.  questions about ascent can then presumably wait until the actual mission, when we all find out together with the crew whether hls can take off again.[17]
+this fearlessness in design is part of a pattern with starship hls.  problems that other landers avoid in the design phase are solved with engineering.  and itâs kind of understandable why spacex does it this way. starship is meant to fly to mars, a much bigger challenge than landing two people on the moon. if the basic starship design canât handle a lunar landing, it would throw the companyâs whole mars plan into question. spacex is committed to making starship work, which is different from making the best possible lunar lander.
+
+less obvious is why nasa tolerates all this complexity in the most hazardous phase of its first moon mission. why land a rocket the size of a building packed with moving parts?  itâs hard to look at the hls design and not think back to other times when a room full of smart nasa people talked themselves into taking major risks because the alternative was not getting to fly at all. 
+
+itâs instructive to compare the hls approach to the design philosophy on apollo. engineers on that progam were motivated by terror; no one wanted to make the mistake that would leave astronauts stranded on the moon.  the weapon they used to knock down risk was simplicity. the lunar module was a small metal box with a wide stance, built low enough so that the astronauts only needed to climb down a short ladder. the bottom half of the lm was a descent stage that completely covered the ascent rocket (a design that showed its value on apollo 15, when one of the descent engines got smushed by a rock).   and that ascent rocket, the most important piece of hardware in the lander, was a caveman design intentionally made so primitive that it  would struggle to find ways to fail.  
+
+on artemis, it's the other way around: the more hazardous the mission phase, the more complex the hardware. it's hard to look at all this lunar machinery and feel reassured, especially when nasa's own aerospace safety advisory panel estimates that the orion/sls portion of a moon mission alone (not including anything to do with hls) already has a 1:75 chance of killing the crew. 
+
+
+
+
+vi. refueling
+since nasaâs biggest rocket struggles to get orion into distant lunar orbit, and hls weighs fifty times as much as orion, the curious reader might wonder how the unmanned lander is supposed to get up there.
+
+nasaâs answer is, very sensibly, ânot our problemâ. they are paying blue origin and spacex the big bucks to figure this out on their own. and as a practical matter, the only way to put such a massive spacecraft into nrho is to first refuel it in low earth orbit. 
+
+like a lot of space technology, orbital refueling sounds simple, has never been attempted, and canât be adequately simulated on earth.[18]  the crux of the problem is that liquid and gas phases in microgravity jumble up into a three-dimensional mess, so that even measuring the quantity of propellant in a tank becomes difficult.  to make matters harder, starship uses cryogenic propellants that boil at temperatures about a hundred degrees colder than the plumbing they need to move through.  imagine trying to pour water from a thermos into a red-hot skillet while falling off a cliff and you get some idea of the difficulties. 
+
+to get refueling working, spacex will first have to demonstrate propellant transfer between rockets as a proof of concept, and then get the process working reliably and efficiently at a scale of hundreds of tons. (these are two distinct challenges).  once they can routinely move liquid oxygen and methane from starship a to starship b, theyâll be ready to set up the infrastructure they need to launch hls. 
+
+
+
+the plan for getting hls to the moon looks like this: a few months before the landing date, spacex will launch a special variant of their starship rocket configured to serve as a propellant depot. then they'll start launching starships one by one to fill it up. each starship arrives in low earth orbit with some residual propellant; it will need to dock with the depot rocket and transfer over this remnant fuel.   once the depot is full, spacex will launch hls, have it fill its tanks at the depot rocket, and send it up to nrho in advance of orion. when orion arrives, hls will hopefully have enough propellant left on board to take on astronauts and make a single round trip from nrho to the lunar surface.
+
+getting this plan to work requires solving a second engineering problem, how to keep cryogenic propellants cold in space.  low earth orbit is a toasty place, and without special measures, the cryogenic propellants starship uses will quickly vent off into space.  the problem is easy to solve in deep space (use a sunshade), but becomes tricky in low earth orbit, where a warm rock covers a third of the sky.  (boil-off is also a big issue for hls on the moon.)
+
+
+ itâs not clear how many starship launches it will take to refuel hls.  elon musk has said four might be enough; nasa assistant deputy associate administrator lakiesha hawkins says the number is in the âhigh teensâ.  last week, spacex's kathy lueders gave a figure of fifteen launches.
+
+the real number is unknown and will come down to four factors:
+
+
+how much propellant a starship can carry to low earth orbit.
+what fraction of that can be usably pumped out of the rocket. 
+how quickly cryogenic propellant boils away from the orbiting depot.
+how rapidly spacex can launch starships.
+
+spacex probably knows the answer to (1), but isnât talking.  data for (2) and (3) will have to wait for flight tests that are planned for 2025.  and obviously a lot is riding on (4), also called launch cadence.  
+
+the record for heavy rocket launch cadence belongs to the space shuttle, which flew nine times in the calendar year before the challenger disaster. second place belongs to the saturn v, which launched three times during a four and a half month period in 1969.    in third place is falcon heavy, which flew six times in a 13 month period beginning in november 2022. 
+
+for the refueling plan to work, starship will have to break this record by a factor of ten, launching every six days or so across multiple launch facilities. [19]  the refueling program can tolerate a few launch failures, as long as none of them damages a launch pad. 
+
+thereâs no company better prepared to meet this challenge than spacex. their falcon 9 rocket has shattered records for both reliability and cadence, and now launches about once every three days.  but it took spacex ten years to get from the first orbital falcon 9 flight to a weekly cadence, and starship is vastly bigger and more complicated than the falcon 9. [20]
+working backwards from the official schedule allows us to appreciate the time pressure facing spacex. to make the official artemis landing date, spacex has to land an unmanned hls prototype on the moon in early 2026. that means tanker flights to fill an orbiting depot would start in late 2025.  this doesnât leave a lot of time for the company to invent orbital refueling, get it working at scale, make it efficient, deal with boil-off, get starship launching reliably, begin recovering booster stages,[21] set up additional launch facilities, achieve a weekly cadence,  and at the same time design and test all the other systems that need to go into hls. 
+
+lest anyone think iâm picking on spacex, the development schedule for blue originâs 2029 lander is even more fantastical. that design requires pumping tons of liquid hydrogen between spacecraft in lunar orbit, a challenge perhaps an order of magnitude harder than what spacex is attempting. liquid hydrogen is bulky, boils near absolute zero, and is infamous for its ability to leak through anything (the shuttle program couldn't get a handle on hydrogen leaks on earth even after a hundred some launches).  and the rocket blue origin needs to test all this technology has never left the ground. 
+
+the upshot is that nasa has put a pair of last-minute long-shot technology development programs between itself and the moon.  particularly striking is the contrast between the ambition of the hls designs and the extreme conservatism and glacial pace of sls/orion.  the same organization that spent 23 years and 20 billion dollars building the world's most vanilla spacecraft demands that spacex darken the sky with starships within four years of signing the initial hls contract. while thrilling for spacex fans, this is pretty unserious behavior from the nationâs space agency, which had several decades' warning that going to the moon would require a lander. 
+
+all this to say, it's universally understood that there wonât be a moon landing in 2026. at some point nasa will have to officially slip the schedule, as it did in 2021, 2023, and at the start of this year.  if this accelerating pattern of delays continues, by yearâs end we might reach a state of continuous postponement, a kind of scheduling singularity where the landing date for artemis 3 recedes smoothly and continuously into the future. 
+
+otherwise, it's hard to imagine a manned lunar landing before 2030, if the artemis program survives that long.
+
+
+
+vii. conclusion
+i want to stress that thereâs nothing wrong with nasa making big bets on technology.  quite the contrary, the audacious hls contracts may be the healthiest thing about artemis. visionaries at nasa identified a futuristic new energy source (space billionaire egos) and found a way to tap it on a fixed-cost basis.  if spacex or blue origin figure out how to make cryogenic refueling practical, it will mean a big step forward for space exploration, exactly the thing nasa should be encouraging. and if the technology doesnât pan out, weâll have found that out mostly by spending muskâs and bezosâs money.  
+
+the real problem with artemis is that it doesnât think through the consequences of its own success.  a working infrastructure for orbital refueling would make sls and orion superfluous.  instead of waiting two years to go up on a $4 billion rocket, crews and cargo could launch every weekend on cheap commercial rockets, refueling in low earth orbit on their way to the moon. a similar logic holds for gateway.  why assemble a space station out of habitrail pieces out in lunar orbit, like an animal, when you can build one on earth and launch it in one piece? better yet, just spraypaint âgatewayâ on the side of the nearest starship, send it out to nrho, and save nasa and its international partners billions.  having a working gas station in low earth orbit fundamentally changes what is possible, in a way the sls/orion arm of artemis doesn't seem to recognize.
+
+conversely, if spacex and blue origin canât make cryogenic refueling work, then nasa has no plan b for landing on the moon. all the artemis program will be able to do is assemble gateway.  promising taxpayers the moon only to deliver iss jr. does not broadcast a message of national greatness, and is unlikely to get congress excited about going to mars.  the hurtful comparisons between american dynamism in the 1960âs and whatever it is we have now will practically write themselves. 
+
+what nasa is doing is like an office worker blowing half their salary on lottery tickets while putting the other half in a pension fund.  if the lottery money comes through, then there was really no need for the pension fund. but without the lottery win, thereâs not enough money in the pension account to retire on. the two strategies don't make sense together.
+
+thereâs a ârealistâ school of space flight that concedes all this but asks us to look at the bigger picture. weâre never going to have the perfect space program, the argument goes, but the important thing is forward progress. and artemis is the first program in years to survive a presidential transition and have a shot at getting us beyond low earth orbit.  with artemis still funded, and starship making rapid progress, at some point weâll finally see american astronauts back on the moon.
+
+but this argument has two flaws. the first is that it feeds a cycle of dysfunction at nasa that is rapidly making it impossible for us to go anywhere.    holding human space flight to a different standard than nasaâs science missions has been a disaster for space exploration.  right now the exploration systems development mission directorate (the entity responsible for manned space flight) couldnât build a toaster for less than a billion dollars.  incompetence, self-dealing, and mismanagement that end careers on the science side of nasa are not just tolerated but rewarded on the human space flight side.  before we let the agency build out its third white elephant project in forty years,  itâs worth reflecting on what we're getting in return for half our exploration budget.
+
+the second, more serious flaw in the ârealistâ approach is that it enables a culture of institutional mendacity that must ultimately be fatal at an engineering organization. we've reached a point where nasa lies constantly, to both itself and to the public. it lies about schedules and capabilities. it lies about the costs and the benefits of its human spaceflight program. and above all, it lies about risk. all the institutional pathologies identified in the rogers report and the columbia accident investigation board are alive and well in artemisâgroupthink, management bloat, intense pressure to meet impossible deadlines, and a willingness to manufacture engineering rationales to justify flying unsafe hardware.
+
+do we really have to wait for another tragedy, and another beautifully produced presidential commission report, to see that artemis is broken? 
+
+
+notes
+[1]  without nasa's help, it's hard to put a dollar figure on a mission without making somewhat arbitrary decisions about what to include and exclude. the $7-10 billion estimate comes from a bush-era official in the office of management and budget commenting on the nasa spaceflight forum
+
+and that $7.2b assumes artemis iii stays on schedule.  based on the fy24 budget request, each additional year between artemis ii and artemis iii adds another $3.5b to $4.0b in common exploration to artemis iii.  if artemis iii goes off in 2027, then it will be $10.8b total.  if 2028, then $14.3b.
+
+in other words, it's hard to break out an actual cost while the launch dates for both artemis ii and iii keep slipping.
+ 
+ nasa's own inspector general estimates the cost of just the sls/orion portion of a moon landing at $4.1 billion. 
+
+
+[2]  the first us suborbital flight, friendship 7, launched on may 15, 1961. armstrong and aldrin landed on the moon eight years and two months later, on july 21, 1969.  president bush announced the goal of returning to the moon in a january 2004 speech, setting the target date for the first landing "as early as 2015", and no later than 2020.
+
+[3] nasa refuses to track the per-launch cost of sls, so it's easy to get into nerdfights. since the main cost driver on sls is the gigantic workforce employed on the project, something like two or three times the headcount of spacex, the cost per launch depends a lot on cadence.    if you assume a yearly launch rate (the official line), then the rocket costs $2.1 billion a launch. if like me you think one launch every two years is optimistic, the cost climbs up into the $4-5 billion range.   
+
+
+[4] the sls weighs 2,600 metric tons fully fueled, and conveniently enough a dollar bill weighs about 1 gram. 
+
+[5] spacex does not disclose the cost, but it's widely assumed the raptor engine used on superheavy costs $1 million.   
+
+
+
+[6]  the $145 million figure comes from dividing the contract cost by the number of engines, caveman style. others have reached a figure of $100 million for the unit cost of these engines. the important point is not who is right but the fact that nasa is paying vastly more than anyone else for engines of this class.
+
+
+[7] $250m is the figure you get by dividing the $3.2 billion booster production and operations contract to northrop grumman by the number of boosters (12) in the contract.  source:  office of the inspector general. for cost overruns replacing asbestos, see the oig report on nasaâs management of the space launch
+system booster and engine contracts.  the department of defense paid $130 million for a falcon heavy launch in 2023. 
+
+[8]  rocket lab developed, tested, and flew its electron rocket for a total program cost of $100 million. 
+
+[9] in particular, the separation bolts embedded in the orion heat shield were built based on a flawed thermal model, and need to be redesigned to safely fly a crew. from the oig report:
+
+
+separation bolt melt beyond the thermal barrier during reentry can expose the vehicle to hot gas ingestion behind the heat shield, exceeding orionâs structural limits and resulting in the breakup of the vehicle and loss of crew. post-flight inspections determined there was a discrepancy in the thermal model used to predict the boltsâ performance pre-flight. current predictions using the correct information suggest the bolt melt exceeds the design capability of orion.
+
+the current plan is to work around these problems on artemis 2, and then redesign the components for artemis 3. that means astronauts have to fly at least twice with an untested heat shield design. 
+
+
+
+
+[10] 
+orion/esm has a delta v budget of 1340 m/s. getting into and out of an equatorial low lunar orbit takes about 1800 m/s, more for a polar orbit.  (see source.)
+
+[11] 
+it takes about 900 m/s of total delta v to get in and out of nhro, comfortably within orion/esm's 1340 m/s budget.  (see source.)
+
+[12] 
+in carrying the fire, apollo 11 astronaut michael collins recalls carrying a small notebook covering 18 lunar rendezvous scenarios he might be called on to fly in various contingencies. if the lunar module could get itself off the surface, there was probably a way to dock with it.
+
+for those too young to remember, tang is a powdered orange drink closely associated with the american space program. 
+
+
+[13] for a detailed (if somewhat cryptic) discussion of possible artemis abort modes to nrho, see hls nrho to lunar surface and
+back mission design, nasa 2022.
+
+
+[14]
+the main safety issue is the difficult thermal environment at the landing site, where the sun sits just above the horizon, heating half the lander. if it weren't for the nrho constraint, it's very unlikely artemis 3 would spend more than a day or two on the lunar surface. 
+
+[15]
+the iss program has been repeatedly extended, but the station is coming up against physical limiting factors (like metal fatigue) that will soon make it too dangerous to use.
+
+[16] this is my own speculative guess; the answer is very sensitive to the dry weight of hls and the boil-off rate of its cryogenic propellants. delta v from the lunar surface to nrho is 2,610 m/sec.  assuming hls weighs 120 tons unfueled, it would need about 150 metric tons of propellant to get into nrho from the lunar surface. adding safety margin, fuel for docking operations, and allowing for a week of boiloff gets me to about 200 tons. 
+
+
+[17]
+recent comments by nasa suggest spacex has voluntarily added an ascent phase to its landing demo, ending a pretty untenable situation. however, there's still no requirement that the unmanned landing/ascent demo be performed using the same lander design that will fly on the actual mission, another oddity in the hls contract.
+
+
+[18]
+to be precise, i'm talking about moving bulk propellant between rockets in orbit. there are resupply flights to the international space station that deliver about 850 kilograms of non-cryogenic propellant to boost the station in its orbit, and there have been small-scale experiments in refueling satellites. but no one has attempted refueling a flown rocket stage in space, cryogenic or otherwise. 
+
+
+
+[19]
+
+both spacex's kathy lueders and nasa confirm starship needs to launch from multiple sites.  here's an excerpt from the minutes of the nasa advisory council human exploration and operations committee meeting on november 17 and 20, 2023:
+
+
+mr. [wayne] hale asked where artemis iii will launch from. [assistant deputy aa for moon to mars lakiesha] hawkins said that launch pads will be used in florida and potentially texas. the missions will need quite a number of tankers; in order to meet the schedule, there will need to be a rapid succession of launches of fuel, requiring more than one site for launches on a 6-day rotation schedule, and multiples of launches. 
+
+[20] falcon 9 first flew in june of 2010 and achieved a weekly launch cadence over a span of six launches starting in november 2020. 
+
+
+[21] recovering superheavy stages is not a nasa requirement for hls, but it's a huge cost driver for spacex given the number of launches involved. 
+
+
+
+
+ â« why not mars
+
+
+
+
+
+
+idle words
+
+brevity is for the weak
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+frequent topics
+antarctica
+argentina
+art aviation bio blogs canada china food france iraq meta nyc poland politics rant space tech travel vermont web work
+
+
+
+
+
+greatest hits
+the alameda-weehawken burrito tunnel
+the story of america's most awesome infrastructure project.
+argentina on two steaks a day eating the happiest cows in the world
+scott and scurvy  why did 19th century explorers forget the simple cure for scurvy?
+no evidence of disease a cancer story with an unfortunate complication.
+controlled tango into terrain 
+trying to learn how to dance in argentina
+dabblers and blowhards calling out paul graham for a silly essay about painting
+attacked by thugs warsaw police hijinks
+dating without kundera practical alternatives to the slavic dave matthews
+a rocket to nowhere a space shuttle rant
+best practices for time travelers
+the story of john titor, visitor from the future
+100 years of turbulence
+ the wright brothers and the harmful effects of patent law
+
+
+every damn thing
+
+2020 mar
+apr
+jun
+aug
+sep
+oct
+2019 may
+jun
+jul
+aug
+dec
+2018 oct
+nov
+dec
+2017 feb
+sep
+2016 may
+oct
+2015 may
+jul
+nov
+2014 jul
+aug
+2013 feb
+dec
+2012 feb
+sep
+nov
+dec
+2011 aug
+2010 mar
+may
+jun
+jul
+2009 jan
+feb
+mar
+apr
+may
+jun
+jul
+aug
+sep
+2008 jan
+apr
+may
+aug
+nov
+2007 jan
+mar
+apr
+may
+jul
+dec
+2006 feb
+mar
+apr
+may
+jun
+jul
+aug
+sep
+oct
+nov
+2005 jan
+feb
+mar
+apr
+jul
+aug
+sep
+oct
+nov
+dec
+2004 jan
+feb
+mar
+apr
+may
+jun
+jul
+aug
+oct
+nov
+dec
+2003 jan
+feb
+mar
+apr
+may
+jun
+jul
+aug
+sep
+oct
+nov
+dec
+2002 may
+jun
+jul
+aug
+sep
+oct
+nov
+dec
+
+
+your host
+maciej cegåowski
+maciej @ ceglowski.com
+
+threat
+please ask permission before reprinting full-text posts or i will crush you.
+
+
+
+
+
+       this is where a douchier person would write 'colophon'
+    
+
+

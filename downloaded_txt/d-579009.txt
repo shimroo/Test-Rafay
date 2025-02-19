@@ -1,0 +1,596 @@
+
+
+
+
+
+
+
+
+
+crossfire - the multiplayer adventure game
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+jump to main content
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+home
+clients
+
+dockwindow client
+gtk-v2 client (linux)
+gtk-v2 client (macos)
+gtk-v2 client (windows)
+jx client
+
+
+servers
+
+metaserver
+metaserver 2
+metaserver info
+linux
+macos x - x11
+sparc solaris
+windows
+
+
+requirements
+guides
+
+character guide
+
+attributes
+character creation howto
+
+race & class combinations
+primers
+starter guides
+
+
+class/profession
+race summary
+
+fire hatchling guide
+fireborn guide
+
+
+
+
+crossfire handbook
+
+ch. 1 - introduction
+ch. 2 - about characters
+ch. 3 - playing
+ch. 4 - magic system
+ch. 5 - skill system
+ch. 6 - equipment
+ch. 7 - hints on playing
+appendix a - player commands
+appendix b - skills
+appendix c - crossfire pantheon
+
+
+map guide
+
+acceptable maps
+general suggestions
+features to avoid
+shops
+technical suggestions
+
+
+map walkthroughs
+
+beginners
+newbie tower
+stores
+
+
+orc knuckle
+survival guide
+
+combat
+bands and partiese
+basic suggestions
+interesting techniques
+magic and religion
+technical things
+useful binding and such
+tip credits
+
+
+
+
+game info
+
+introduction
+summary
+screenshots
+faq
+commands
+world map
+
+
+resources
+
+bitmask decoder
+discord channel
+irc channel
+mailing lists
+traffic
+web forum
+website news
+twitch
+wiki
+youtube
+
+
+spoilers
+
+alchemy
+amulets
+armour
+artifact weapons
+attack messages
+bows
+bracers
+cloaks
+helmets
+magic
+
+prayer list
+wizardry spells
+spell table
+spells: a to d
+spells: e to h
+spells: i to l
+spells: m to p
+spells: q to t
+spells: u to z
+
+
+map summaries
+
+sorted by level
+brittany (brest)
+city of scorn
+caterham
+darcap (dtabb)
+euthville ruins
+fiery mountain
+lake country
+lone town
+navar city
+port joseph
+pupland
+red island
+santo dominion
+separate areas
+stoneville
+valley of the three sisters
+wolfsburg
+
+
+monsters
+
+monsters: a to d
+monsters: e to h
+monsters: i to l
+monsters: m to p
+monsters: q to t
+monsters: u to z
+
+
+other clothing
+rings
+shields
+weapons
+amulets/talisman
+holy symbols
+
+
+development
+
+code docs
+copyright
+cvs
+debugging tips
+git
+license
+map editors
+svn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+  
+crossfire is an open source, cooperative multiplayer 
+          graphical rpg and adventure game. since its initial release, crossfire 
+          has grown to encompass over 150 monsters, about 3000 maps to explore, 
+          an elaborate magic system, 13 races, 15 character classes, a system 
+          of skills, and many artifacts and treasures. crossfire is based in a 
+          medieval fantasy world and is similar to other games of this genre.
+announcements, updates & changes:
+quick links:
+crossfire website news | crossfire wiki news | crossfire atlas news | latest client file releases | mailing list archives & information | other information
+crossfire website news:
+feb 12, 2025
+
+crossfire will also be showing at con of the north 2025 as a ticketed event and also available through open gaming - if a computer is available, you are welcome to sit down and play!
+
+
+gitstats update for archetypes, gridarta, gtkv2 client, jx client, maps, and server
+gitlog update for  archetypes, gridarta, gtkv2 client, jx client, maps, and server
+doxygen update for gridarta, gtkv2 client, jx client and server
+
+ 
+crossfire wiki news:
+jan 18, 2025
+
+for other user visible updates and changes to crossfire, visit theâ crossfire trafficâ page on the wiki
+updates for the crossfire wiki are also shown on the recent changes page
+
+
+
+jx client
+
+ update the minimal supported java version to java 17 
+ use correct constant in build script 
+ update download file name and checksum used in the gradle build file 
+ update changelog with build.gradle changes 
+ fix “watch stats god_name” script command 
+
+maps
+
+ add small fence section for nicer merging with nearby wall sections to darcap orc pits. cosmetic change, no functional changes. 
+ add map entrance coordinates to darcap orc pits 
+ add map difficulty level 1 to darcap orc pits 
+ fill in empty space with blocked archetype in fun zone sphere racing map 
+ add map entrance coordinates to fun zone sphere racing lobby 
+ update wood wall sections for nicer  merging with doorways in darcap circus illusions. cosmetic change only,  no functional changes. 
+ fill in empty space with blocked tiles to fun zone sumo wrestling 
+ fill in empty space with blocked tiles in darcap tower defense 
+ add map entrance coordinates to darcap circus roller 1 
+ cosmetic wall changes with how swall sections merge with nearby walls darcap circus roller 1 map. no functional changes. 
+ add map entrance coordinates to darcap circus roller 2 
+ add map entrance coordinates to darcap circus roller 3 
+ add map entrance coordinates to darcap circus shooting gallery 
+ cosmetic changes to woodwall sections for nicer merging in darcap circus shooting gallery. no functional changes. 
+ replace no_magic and unholy ground tiles with no_spell tiles in darcap circus shooting gallery 
+ add fence sections on the top and bottom edge of the shooting table in darcap circus shooting gallery 
+ replace woodwall sections for nicer merging with nearby walls in darcap circus show of strength. no fuctional changes. 
+ replace woodwall sections for nicer merging with nearby walls in darcap circus wheel of chance. no functional changes. 
+ add map entrance coordinates to darcap circus wheel of chance. 
+ replace a table with with a stone floor tile so the rewards drops in the intended location in darcap circus wheel of chance 
+ add sand tiles beneath the pit archetypes related to the reward area in darcap circus wheel of chance 
+ replace wall section for nicer  merging with nearby walls in darcap circus double your bet. cosmetic  change, no functional changes. 
+ add an intro sign and summary to darcap circus wheel of chance - like the other circus maps 
+ update swall section for nicer  merging with nearby wall sections in fernicious fenx family pet  emporium. cosmetic change only, no functional changes. 
+ make the walls match the shop  graphic walls (brown) that is used in the world map for molthir's  potionshop in darcap. cosmetic change, no functional changes. 
+ move some wall sections and fence  sections around to make nicer wall merging around the sarcophagus room  in st. andreas the ravenous map. cosmetic change, no functional changes. 
+ add different ground tiles around the church perimeter in st. andreas the ravenous map. cosmetic change, no functional changes. 
+ add different ground tiles around the building perimeter in waterfront inn. cosmetic change, no functional changes. 
+ give the darcap library a two tile  width around the building perimeter. update world map and darcap  library, upper floor entrance coordinates to match the changes on the  main floor. 
+ change library to library (to match the name scheme of the main floor) in darcap library, upper floor map 
+ change difficulty level of darcap library from 0 to 8 as this is more in line with nearby maps in that region 
+ change the flooring under the  perimeter walls to flagstone, add cobblestone tiles at the front doors  of darcap library. cosmetic change, no functional changes. 
+ add move_block all parameter and  no_spells tiles outside the darcap library entrance doors so players can  not access the outside perimeter of the map 
+ remove duplicate grass tiles in marposist's maze in darcap 
+ update the msg text on the locked door on what key is needed in marposist's maze in darcap 
+ redesign the exit from marposist's maze to the world map - replace the wood door with a magic exit 
+ update entrace area of marposist's maze to include an opening door triggered by buttons. 
+ update map entrance coordinates to marposist's maze to work better with commit previous commit, 1eb819 
+ expand the exterior border of park  of isolation, update world map for new entrance coordinates, update  capitalization of the park map name in the darcap world map 
+ add map entrance coordinates to pirate warehouse map in darcap 
+ remove duplicate no_spell tiles from courthouse map in darcap 
+ add map entrance coordinates to  scartis's fine wine map, update map entrance coordinates from darcap  world map to the fine wine map 
+ change the flooring under the  perimeter walls to flagstone in scartis's fine wine in darcap. cosmetic  change, no functional changes. 
+ add instructional sign next to the dragon express in santo dominion 
+ add instructional sign next to the dragon express in stoneville / dragon island 
+ add instructional sign next to the dragon express in scorn (port area of scorn) 
+ add instructional sign next to the dragon express just outside brest / kingdom of brittany 
+ add instructional sign next to the dragon express just outside darcap 
+ add instructional sign next to the dragon express just outside navar 
+ automatically say hello to dragon when applied
+              
+ this solves the problem of players  not knowing how to interact with the dragon after applying it out of  habit by starting a dialog 
+
+
+
+
+
+crossfire atlas news:
+december 22, 2024
+
+map image updates
+            
+a small shop
+acme inc. of brest
+administration, level 1
+brest armour
+brest cvt
+brest food store
+brest imperial post office
+brest magic
+brest seaside tavern
+brest trade market
+brest weapons
+shrine of valkyrie
+scrolls galore
+sport center
+strange old wizard
+underground
+
+
+content updates
+            
+items
+monsters
+readable
+
+
+
+latest client file releases:
+
+
+client: 
+              select a client based on the os that you wish to use while playing 
+              crossfire, required 
+
+
+ package 
+ version 
+ date 
+ download 
+ file info 
+
+
+ dockwindow
+0.8.11
+2025-jan-29
+download
+
+changelog
+
+
+
+ gtk-v2 client, linux 
+1.75.3
+2024-apr-10
+download
+
+changelog
+md5sum
+                  39f8efc273aaee00533b4cb7c5b00df6/li>
+                sha1
+                  4bd98f8a478eb662fde4ffc746a24d47a2616e01
+sah256
+                  2ade184bc5ccfc3b56666d8ef93050dfc1ec1f62ebd9d3d923371e1859b01c47
+
+
+
+gtkv2 client, macos
+snapshot
+2024-nov-20
+download
+note: macos 11 big sur and newer
+
+md5sum
+                  9a34cd027a4204421e401ed5c7fc3753
+sha1
+                  7900cf506e5e1c8209e58af640e90efec0b284b7
+sha256
+                  9ce035600312bcdbfdb880dd49a10cb682249093a1263f6679c770e60a46c5af
+
+
+
+ gtk client, windows 
+snapshot
+2025-jan-13
+.exe download
+                note: the .zip is the complete client with related .dll files, etc. while the .exe is the client wrapped in an nsis installer
+
+changelog
+md5sumaa980f435886a9d6fe2c302fda70ac2c
+
+sha17c9f01a023afaf83266ee6d75cb5f1636b8a96af
+sha256bff24de52d33d50405eaaee0f3ad8e8e314a4d35e667768204dcd6398e8b32d8
+
+
+
+ jx client
+snapshot
+2025-jan-31
+download
+
+changelog
+md5sum556a524f47acea4d557bf04557bbf935
+sha111bb8a8696345175ec83dff761e4259fe5262be4
+sha256a3ac3d818d67a6a44852658ca180012ab09048eac53284fe3a9c20152241f2c3
+
+
+
+jx client.exe
+snapshot
+2025-jan-31
+download
+
+changelog
+md5sum54507c52f7fc053216d970d7f329e734
+sha173b0f194de265036c950cd47f3176d41bd75bb02
+sha2567e03bfcd0736d8731b251f2209e0d81694eed8d0fb9792b4e4144870bfbe296a
+
+
+
+jxclient-latest.exe
+snapshot
+daily build
+download
+
+changelog
+sha512
+
+
+
+
+for a complete list of available clients, visit the clients page. 
+for those who are looking to host their own server, 
+            visit the server page. 
+for those looking to create new or modify existing maps, visit the map editor page.
+
+mailing list archives & information:
+
+ crossfire announcement list:
+http://mailman.metalforge.org/mailman/listinfo/crossfire-announce 
+ crossfire cvs list:
+http://lists.sourceforge.net/mailman/listinfo/crossfire-cvs 
+ crossfire discussion list:
+http://mailman.metalforge.org/mailman/listinfo/crossfire/ 
+ crossfire maps discussion list:
+http://lists.sourceforge.net/lists/listinfo/crossfire-maps 
+
+other information:
+
+ visit the crossfire board for questions, comments and discussion. 
+visit the crossfire wiki for documentation
+character 
+            creation info and other walkthroughs
+view the level experience table
+online channels for tech support, development discussion, game help & hints, and other ideas via irc or discord
+
+ 
+ 
+
+
+ 
+
+start
+
+howto play 
+
+
+
+
+new to crossfire 
+
+introduction
+requirements
+clients
+faq
+
+
+
+
+new players 
+
+cf handbook
+survival guide
+player stats
+commands
+
+
+
+ 
+
+
+
+
+
+
+
+ ^ back to top
+home |  screen 
+          shots |  intro |  download |  clients |  mailing lists |  metaserver |  faq |  requirements |  news
+site map |  site 
+          index
+page last updated: 
+          wednesday, 12-feb-2025  17:12 
+          cst (-0600 gmt) 
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+site hosted by: real time enterprises, inc.
+contact info: leaf@real-time.com
+
+
+
+
+
+sourceforge
+license
+web forum
+wiki
+download
+crossfire atlas
+
+crossfire - the multiplayer adventure game
+
+
+
+

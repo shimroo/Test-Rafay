@@ -1,0 +1,568 @@
+
+
+
+
+
+
+charles hayden's home page
+
+
+
+
+
+
+
+
+
+
+email:
+
+    home: cchayden@gmail.com
+
+
+adress:
+     5930 mont blanc place nw
+     issaquah, wa 98027
+
+
+phone: 
+
+
+
+ 
+  425 522-3776
+    alt: 425 647-7574
+
+
+
+
+
+
+ 
+
+
+ 
+
+
+
+ 
+new stuff
+
+
+
+
+trekking in nepal
+
+
+
+
+my northwest
+hiking blog
+
+
+
+cloudmaster
+overview
+
+
+
+cloudmaster
+(open source aws job manager)
+
+
+
+mrtoolkit
+(open source hadoop toolkit)
+
+
+
+memorable
+adidas ads
+
+
+
+photo
+gallery
+
+
+
+ 
+hikes and adventures -- with pictures
+
+
+
+
+my hikes
+and adventures
+
+
+
+catskill
+hikes and adventures
+
+
+
+ 
+
+miscellaneous
+
+
+
+
+eliza in java
+
+
+
+my
+software
+
+
+
+my
+resume
+
+
+
+family
+photo gallery
+
+
+
+asterisk@home
+setup
+
+
+
+per
+brinch hansen archives
+
+
+
+
+
+
+
+
+
+places to run
+
+
+
+
+near
+lincroft avaya
+
+
+
+near
+holmdel bell labs
+
+
+
+near
+murray hill bell labs
+
+
+
+navesink
+area
+
+
+
+fair
+haven
+
+
+
+
+
+
+
+running with a
+gps
+
+
+
+memorable
+adidas ads
+
+
+
+driving
+to work (sonus)
+
+
+
+scheme
+interpreter, feb 2003
+
+
+
+my job,
+
+
+
+ 
+other illustrated subjects
+
+
+
+
+ben's
+rice graduation (may 2000)
+
+
+
+family
+snapshots (october 1999)
+
+
+
+silver
+wedding anniversary (june 1999)
+
+
+
+philadelphia
+marathon (november 1999)
+
+
+
+jersey
+shore marathon (april 1999)
+
+
+
+family
+snapshots (december 1988)
+
+
+
+family
+snapshots (1997)
+
+
+
+
+
+
+
+
+
+building a house
+(1992)
+
+
+
+pictures taken at
+work (bell labs)
+
+
+
+aerial
+photos of new jersey
+
+
+
+panoramas
+
+
+
+
+
+
+
+
+
+carrie's
+home page
+
+
+
+ben's home
+page
+
+
+
+our dogs' page
+
+
+
+ 
+
+my
+interests
+
+
+
+
+running, basketball,
+ballroom dancing. 
+
+
+
+hiking, backpacking. 
+
+
+
+maps, navigation, gps. 
+
+
+
+distributed software
+systems. currently i am working
+with amazon
+web services as a platform.
+
+
+
+embedded languages,
+especially for use in distributed
+applications.  i have a particular interest in scheme.
+      
+
+
+
+ruby
+and rails.
+i like ruby because it combines the simplicity and elegance of scheme
+and smalltalk with the practicality and pragmatism of c++, java, and
+php. i like rails because it does away with so much of the tedious
+"busy work" of web based applications, and lets me get right to the
+interesting parts. 
+
+
+
+ 
+my job
+microsoft
+i am having a great time
+working at microsoft.  the ambition
+and the talent here are impressive.  i am working on the
+software
+that connects one messenger user to another.  hundreds of
+milions
+of them.  a truly demanding challenge.  
+new
+york times digital
+the
+new york times is a wonderful company to work for.
+ stimulating
+environment, a lot of smart, dedicated, and energetic people.
+ it
+is really rewarding working where people believe in the mission of the
+company.  the management there treated me with great respect,
+even
+though i was brand new in the industry.  i was really starting
+to
+contribute, working with hadoop on ec2 gleaning information from the
+massive log files.  i built a computation framework on top of
+hadoop, inspired by (but better than) google's sawzall.  using
+the
+framework, i could create log analysis programs in a page of code or
+less.  i hope that this framework can be released as in
+open-souce
+project.
+avaya
+until recently, i worked at avaya. 
+i designed
+and built software that provides the sip infrastructure for a whole
+range of switching
+products.  i was responsible for a provisioning system, whic
+kept al the sbscriber
+information and distributed it to the run-time components in the
+system.  then i
+designed and built a duplex redundancy system, which would take over in
+seconds if the
+primary system failed.  finally i designed a geo-redundancy
+system that was more
+loosely coupled but more resiliant to failures.  
+the latter depended on a data
+replication system that i
+designed (and patented) that
+distributed data in a database among members of a distributed system.
+the replication
+system, which did far more than any commercial system available, could
+do transparent
+upward and downward (master to slave and also slave to master)
+replication, could
+replicate subsets of the data to different replicas, could translate on
+the fly between
+schema versions (to later or eralier versions), was based on updates as
+well as audits (so
+it would converge given any combination of starting states), and was
+reconfigurable
+without any administration (new nodes coul come online without changing
+any config files
+or running any commands on the master).
+obviously i am very proud of
+this replication system, which
+handles many real-world
+problems that existing systems ignore: needing to upgrade a distributed
+network a piece at
+a time while continuing to offer service, the ability to back up and
+restore any network
+element (master or replia) and have the replication cope by converging,
+handling
+unreliable cmmunication, etc.  and all of this took care of
+itself -- no
+administration was needed or exposed -- because the customer wants a
+phone system, not to
+become a distributed database manager.
+my
+patent at avaya:
+
+
+
+
+data distribution in a
+distributed communication
+network (pending) 
+
+
+
+my
+thoughts on avaya (2008)
+in its first few years after
+spinoff from lucent, avaya
+retrenched, paid down the big
+debt they inherited, and did well by introducing successful new
+products.  i was part
+of that, and it felt good to be producing products of value. 
+now the company
+direction seems to have been captured by a succession of true
+believers, which take the
+products in their chosen drection.  first decentralization,
+then centralization, then
+decentralization, now centralization.  first pure sip, then
+sip as an interface to
+traditional telephony, then pure sip.  first a
+hardware/software turnkey solution,
+then a software-only product for use on customers' own hardware, then
+back to a bundled
+solution.  first, "let's be standards compliant" then "let's
+be
+leaders in establishing standards" then "let's ignore standards and
+make our own
+extensions."  at the end, the company leadership was taken
+over by people from a
+sales background, who hired more salespeople and laid off most
+developers, intending to
+oem products from other suppliers.
+sonus
+before that i worked at sonus
+networks, building
+a class 5 softswitch for ip-based telephony.  this was fun
+because we started with a
+clean slate -- nothing but bare hardware with solaris, and built
+everthing.  i
+designed the switching application framework and the fundamental
+telephony features (two
+way calling, call hold, feature access codes, call forwarding, and
+three way calling).
+  
+the dotcom crunch affected
+sonus, and they had to mothball the
+class 5 softswitch
+project for a while, but they revived it and it is still going
+strong.  last i heard
+they have never found a bug in my application framework, and each time
+they need to add a
+feature, they go in and find that i
+had already thought of
+that.  son in
+five years, it has never needed any enhancement.  
+my
+thoughts on bell labs (2000): 
+i used work at bell labs --
+part of lucent technologies. after
+20 years with the
+company, i finally gave up hope that it would get its act together, so
+i left.  for
+many years i was content to design and build great products that were
+doomed to failure in
+the marketplace because of poor marketing or sales.   what
+finally convinced me to
+leave was when we couldn't even design good products.
+since i left bell labs, it has
+seen one disaster after
+another: its stock has fallen 80%
+90%, it has fired its ceo, it has come under sec investigation, it has
+restated its
+earnings several times.  now i wonder if it will survive
+(note: it didn't -- it is
+now alcatel, an continuing to suffer).  i am really sorry to
+see it come to this - so
+much squandered.
+my
+patents at bell labs: 
+
+
+
+
+computer
+telephony user interface 4,653,090
+
+
+
+
+audiographics
+teleconferencing 4,953,159 
+
+
+
+my
+projects at bell labs: 
+
+
+
+
+the last project i
+worked on was the lucent
+softswitch.  i was involved in providing an external
+programming interface for it.  the first step was making the
+standards, which means i was heavily involved in jtapi,
+      jain,
+and parlay.
+
+
+
+before that i worked
+implementing voicexml,
+a
+language for programming telephone media systems such as voice response
+systems.
+
+
+
+i  worked for a
+time as an internal consultant
+to teams in lucent who were exploring the adoption of windows nt and
+especially com and dcom.  i helped organizations who wanted to
+use this technology in their products.
+
+
+
+in 1997 and 1998 i was
+part of a team developing the
+virtual telephone.  we announced this product at ctexpo in
+march 1998, and i
+was there to
+demonstrate it in
+action.  unfortunately, lucent
+cannot see the value in this product, and has decided not to market it.
+
+
+
+
+cchayden@gmail.com
+
+
+
+
+
+
+
+
+
+

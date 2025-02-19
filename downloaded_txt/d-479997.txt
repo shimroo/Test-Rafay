@@ -1,0 +1,679 @@
+
+
+
+
+
+
+matt croydon::postneo – what comes next?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+matt croydon::postneo
+
+
+
+
+
+
+archivescategories
+
+
+
+
+
+
+
+
+busy making things: @mc, notes, tinycast, github, links, photos.
+
+explaining my weird, uncontrollable podcasting workflow
+july 26, 2015
+posted in journalism, projects
+a little background
+i’ve been podcasting lately, mostly for fun and to play with technology that i haven’t had an excuse to play with before. i hadn’t had a ton of time to listen to podcasts much until i moved down to austin, texas last summer. we live in the northern suburbs and i take a train downtown every workday.
+after listening to some podcasts i wanted to see if i could fill that commute time with something productive, so i started recording short podcasts on my phone from the front seat of my car after writing scripts on the train. this quickly turned in to buying some dedicated equipment: a tascam dr-44wl recorder, an audio technica at897 shotgun microphone, and a rotating array of studio microphones from a local rental house and borrowed from friends.
+i also started learning everything i could about podcasting production and audio storytelling. i basically slurped up everything at transom.org with a straw, and continue to do so on a regular basis. i followed every link on this american life’s make radio page. i follow a bunch of people that make great podcasts and great radio, signed up for a bunch of newsletters, and generally immersed myself in this world i was learning more and more about.
+i still struggle a little with bringing the drama and spinning a great narrative, but i think i’ve got a lot of the fundamental skills down, it’s just time to iterate and get better. i’ve settled on a format that i like, covering a single subject in about 4-6 minutes or so. some of my best shows so far cover a disastrous software bug that killed people in a medical machine called therac-25 and a kind of personal essay about me dealing with perfectionist paralysis. you can listen to more shows at tinycast.in or subscribe via wherever you get your podcasts from.
+the uncontrollable workflow
+i’m a little weirded out by the workflow of a typical tinycast episode, mostly because it feels like parts of it are somehow beyond my control. more accurately, i’m not quite sure how my brain works sometimes.
+pretty much every episode starts out as a single line entry in a note in the notes app that’s with me all the time. this is where i jot down a rough thought or topic i might like to cover. sometimes it’s just a word or two, sometimes it’s a paragraph if i have some initial thoughts on direction or specific things to consider.
+ideas tend to ferment there. sometimes i’ll do a little ambient research to see if there’s a unique story or a new way of looking at it, or if the subject itself is random enough that most people have probably never heard of it.
+then, at some random and undetermined point in time, inspiration strikes. i’ll start doing research in earnest, and start collecting an outline of ideas and links in google docs. a lot of the time i’ll also take a trip to the perry-castañeda library at ut austin. the sixth floor is my favorite.
+from there i turn the outline in to a script, writing like i speak. given the format and the time (and my ability to say uhh and um a lot), scripting, editing, then recording works well for me.
+once i have about two to two and a half pages of script that have gone through a couple rounds of edits, it’s time to record. this involves our awesomely huge walk-in closet that has just the right amount of stuff in it to provide an acoustically dead space to record in. i usually do one or two full takes through the script (reading from an ipad), re-recording any mistakes i make and sometimes trying different approaches to certain areas of the script.
+every once in awhile i’ll have a listen and decide to try again, but usually it’s time to head to the next step: a rough edit of the vocal track. for this i use a digital audio editor (daw) called auria, which works on the ipad. it’s fully featured and has a selection of plug-ins as well. i also make use of fabfilter‘s compressor, limiter, and eq plugins. if you’re looking to do the same on a computer, audacity is the obvious free choice, reaper looks like a great low-cost option, and pro tools is the crazy expensive but industry standard option if you’re going to be doing a lot of collaboration.
+the rough edit involves removing any mistakes i’ve made and choosing between two or three takes of a passage that either gave me trouble or one i thought might have multiple interpretations. i move edits and removals to a second muted track in case i want to revisit them later.
+you’re almost done/so far to go
+once a rough edit is in place and i’ve confirmed that i’m in the right ballpark time-wise, it’s time to find some music beds and apply any sounds or ambience that are appropriate for the episode. licensing music for podcasts can be tricky. i’m a pretty conservative guy when it comes to laws and licensing, but i think i’ve landed on some personal guidelines that i’m comfortable with. i’m not a lawyer and this isn’t advice, but it works for me.
+first off, i’m comfortable using creative commons attribution only licenses, commonly abbreviated cc-by. for content licensed cc-by, the simple act of announcing the author and work during credits and linking back in the show notes more than covers both the letter and the spirit of the license. kevin macleod has an amazing selection of music licensed this way. i’ve also used tracks from josh woodward and chris zabriskie. i also made sure to pick up their music on bandcamp or find a way to make sure they know how much i appreciate them licensing their music the way they do.
+free music archive is a great way to discover cc-by music, but you have to be careful since there’s a lot of stuff licensed under a non-commercial license (cc-by-nc) and things marked no derivatives. creative commons search also links out to custom searches for soundcloud and other sources.
+there’s also a lot of really good stuff that can be licensed without losing an arm or a leg. chad crouch has a great collection of production music at sound of picture with great rates for podcasts. kevin macleod’s music can be licensed on his site as well. the mysterious breakmaster cylinder licenses ridiculously great beats and production music via person b productions.
+selecting and using music is another extremely unscientific part of the process. a lot of the time i know when something is just “it” or works for a specific tone or cadence i’m looking for. a lot of the time i’ll move words and music around a little bit until they line up and just work. i wish i could explain this part of the process a little better but that’s all i’ve got.
+wrapping up
+once a mix feels right in my sony mdr-7506 headphones or my presonus eris e5 monitors, it’s time to walk the mix to stock iphone earbuds and the car stereo, two places where everything has to sound correct. this is also the time that i compare the loudness of the episode to other podcasts i listen to. loudness is a thing that i understand at a high level but still struggle with details on sometimes. rob byers has a solid intro on transom and paul figgiani has written some great stuff on the google+ podcast technology resources community. i try to stay a little quieter than -16 lufs but recently messed up and shipped an episode with the music beds way too quiet trying to hit that number. always walk the final final mix.
+once the mix is locked down i export wavs and m4as. the m4a file gets uploaded via transmit for ios to the bucket for my amazon cloudfront distribution. this acts as my content distribution network (cdn). i also upload the m4a to soundcloud. the wav gets converted to an mp2 file for prx, the public radio exchange.
+as soon as all that is done, i copy the script (now the transcript) over to my wordpress install, add the link to the audio file so that it gets picked up in podcast clients. i also add any links or other references in addition to the hyperlinked transcript. then i push the publish button.
+actually concluding
+it turns out that all of this is a pretty huge amount of work for what amounts to about a 5 minute podcast. i really like the level of polish that episodes have, but i do still miss some of the spontaneity of my earlier episodes. i may break out shorter quicker episodes elswhere at some point. they’re a different kind of fun.
+there’s also a lot of room for innovation, streamlining, and pain point reduction in the mobile podcast production tooling space. lots of people are working on it but i don’t think anyone has landed on the right features that would allow me to produce something like the tinycast all from a single app without a ton of steps. i’d probably settle for two: one for production and the other for distribution.
+there you have it. a little look in to my process, and maybe more about my brain than you cared to know. if you’re interested in creating a podcast or other thing of your own the best advice i can give you is to just do it, get it out there, and if you stick with it you’ll likely want to make it better. everything else should fall in to place from there.
+
+
+
+and we’re back
+january 5, 2014
+posted in php, weblogs
+after a short 101 days of downtime, postneo.com is back.  sorry about that.
+the very ancient vps that the site was on died one day and never came back. i figured that it would be a huge pain to bring it back online but it actually went pretty quickly.
+i brought up a new box at digitalocean since i had been meaning to try them out.  it’s still early but i’m definitely impressed. i ended up moving all of my small utility box stuff off of cloud servers and on to this new box as well.
+the first thing to do was to bring back the old blog back up on the new box with a new web stack (nginx instead of lighttpd) with nothing but a mysql dump and my web content.  once the database was loaded, content put in place, and configuration updated i was good to go. aside from the fact that it pretty much just worked in its new home, the thing that blew my mind about wordpress was that the upgrade from 3.1.2 circa 2011 to 3.8 was about as quick and simple as it gets. i followed the instructions and was on the latest release in literally 10 minutes.
+there’s definitely a lesson to be learned there in how to delight and amaze your users as we write our software. i was delighted and amazed as a user and humbled as a software developer by this collection of php files that “just worked.”
+
+
+
+parsing csv data in scala with opencsv
+july 28, 2011
+posted in java, open source, scala
+one of the great things about scala (or any jvm language for that matter) is that you can take advantage of lots of libraries in the java ecosystem.  today i wanted to parse a csv file with scala, and of course the first thing i did was search for scala csv.  that yielded some interesting results, including a couple of roll-your-own regex-based implementations.  i prefer to lean on established libraries instead of copying and pasting code from teh internet, so my next step was to search for java csv.
+the third hit down was opencsv and looked solid, had been updated recently, and was apache-licensed.  all good signs in my book.  it’s also in the main maven repository, so adding it to my sbt 0.10.x build configuration was easy:
+
+librarydependencies += "net.sf.opencsv" % "opencsv" % "2.1"
+
+the syntax for sbt 0.7.x is similar, but you should really upgrade:
+
+val opencsv = "net.sf.opencsv" % "opencsv" % "2.1"
+
+once that configuration change is in place, running sbt update will let you use opencsv in either your project or the shell via sbt console.
+there are a couple of simple usage examples on the opencsv site along with a link to javadocs.  the javadocs are currently for the development version (2.4) and include an improved iterator interface that would be useful for larger files.
+let’s parse some csv data in scala.  we’ll use a csv version of violations of 14 cfr 91.11, 121.580 & 135.120, affectionately known as the unruly passenger dataset (as seen in the django book):
+
+year,total
+1995,146
+1996,184
+1997,235
+1998,200
+1999,226
+2000,251
+2001,299
+2002,273
+2003,281
+2004,304
+2005,203
+2006,136
+2007,150
+2008,123
+2009,135
+2010,121
+
+you can download the raw data as unruly_passengers.txt.
+here’s a full example of parsing the unruly passengers data:
+
+import au.com.bytecode.opencsv.csvreader
+import java.io.filereader
+import scala.collection.javaconversions._
+
+val reader = new csvreader(new filereader("unruly_passengers.txt"))
+for (row <- reader.readall) {
+    println("in " + row(0) + " there were " + row(1) + " unruly passengers.")
+}
+
+this will print out the following:
+
+in year there were total unruly passengers.
+in 1995 there were 146 unruly passengers.
+in 1996 there were 184 unruly passengers.
+in 1997 there were 235 unruly passengers.
+in 1998 there were 200 unruly passengers.
+in 1999 there were 226 unruly passengers.
+in 2000 there were 251 unruly passengers.
+in 2001 there were 299 unruly passengers.
+in 2002 there were 273 unruly passengers.
+in 2003 there were 281 unruly passengers.
+in 2004 there were 304 unruly passengers.
+in 2005 there were 203 unruly passengers.
+in 2006 there were 136 unruly passengers.
+in 2007 there were 150 unruly passengers.
+in 2008 there were 123 unruly passengers.
+in 2009 there were 135 unruly passengers.
+in 2010 there were 121 unruly passengers.
+
+there are a couple of ways to make sure that the header line isn't included.  if you specify the seperator and quote character, you can also tell it to skip any number of lines (one in this case):
+
+val reader = new csvreader(new filereader("unruly_passengers.txt"), ",", "\"", 1)
+
+alternatively you could create a variable that starts true and is set to false after skipping the first line.
+also worth mentioning is the javaconversions import in the example.  this enables explicit conversions between java datatypes and scala datatypes and makes working with java libraries a lot easier.  without this import we couldn't use scala's for loop syntactic sugar.  in this case it's implicitly converting a java.util.list to a scala.collection.mutable.buffer.
+another thing to be aware of is any cleaning of the raw field output that might need to be done.  for example, some csv files often have leading or training whitespace.  a quick and easy way to take care of this is to trim leading and trailing whitespace: row(0).trim.
+this isn't the first time i've been pleasantly surprised working with a java library in scala, and i'm sure it won't be the last.  many thanks to the developers and maintainers of opencsv and to the creators of all of the open source libraries, frameworks, and tools in the java ecosystem.
+
+
+
+social graph analysis using elastic mapreduce and pypy
+may 4, 2011
+posted in open source, projects, python
+a couple of weeks back i read a couple of papers (who says what to whom on twitter and what is twitter, a social network or a news media?) that cited data  collected by researchers for the latter paper.
+this 5 gigabyte compressed (26 gigabyte uncompressed) dataset makes for a good excuse to use mapreduce and mrjob for processing.  mrjob makes it easy to test mapreduce jobs locally as well as run them on a local hadoop cluster or on amazon’s elastic mapreduce.
+designing mapreduce jobs
+i usually find myself going through the same basic tasks when writing mapreduce tasks:
+
+examine the data input format and the data that you have to play with.  this is sometimes explained in a metadata document or you may have to use a utility such as head if you’re trying to look at the very beginning of a text file.
+create a small amount of synthetic data for use while designing your job.  it should be obvious to determine if the output of your job is correct or not based on this data.  this data is also useful when writing unit tests.
+write your job, using synthetic data as test input.
+create sample data based on your real dataset and continue testing your job with that data.  this can be done via reservoir sampling to create a more representative sample or it could be as simple as head -1000000 on a very large file.
+run your job against the sample data and make sure the results look sane.
+configure mrjob to run using elastic mapreduce.  an example configuration can be found in conf/mrjob-emr.conf but will require you to update it with your credentials and s3 bucket information before it will work.
+run your sample data using elastic mapreduce and a small number of low-cost instances.  it’s a lot cheaper to fix configuration problem when you’re just
+running two cheap instances.
+once you’re comfortable with everything, run your job against the full dataset on elastic mapreduce.
+
+analyzing the data
+this project contains two mapreduce jobs:
+
+jobs/follower_count.py
+a simple single-stage mapreduce job that reads the data in and sums the number of followers each user has.
+jobs/follower_histogram.py
+this is a two-phase mapreduce job that first sums the number of followers a each user has then for each follower count sums the number of users that have that number of followers.  this is one of many interesting ways at looking at this raw data.
+
+running the jobs
+the following assumes you have a modern python and have already installed mrjob (pip install mrjob or easy_install mrjob or install it from source).
+to run the sample data locally:
+
+$ python jobs/follower_count.py data/twitter_synthetic.txt
+
+this should print out a summary of how many followers each user (represented by id) has:
+
+5       2
+6       1
+7       3
+8       2
+9       1
+
+you can also run a larger sample (the first 10 million rows of the full dataset mentioned above) locally though it will likely take several minutes to process:
+
+$ python jobs/follower_count.py data/twitter_sample.txt.gz
+
+after editing conf/mrjob-emr.conf you can also run the sample on elastic mapreduce:
+
+$ python jobs/follower_count.py -c conf/mrjob-emr.conf -r emr \
+ -o s3://your-bucket/your-output-location --no-output data/twitter_sample.txt.gz
+
+you can also upload data to an s3 bucket and reference it that way:
+
+$ python jobs/follower_count.py -c conf/mrjob-emr.conf -r emr \
+ -o s3://your-bucket/your-output-location --no-output s3://your-bucket/twitter_sample.txt.gz
+
+you may also download the full dataset and run either the follower count or the histogram job.  the following general steps are required:
+
+download the whole data file from kwak, haewoon and lee, changhyun and park, hosung and moon, sue via bittorrent.  i did this on a small ec2 instance in order to make uploading to s3 easier.
+to make processing faster, decompress it, split it in to lots of smaller files (split -l 10000000
+for example).
+upload to an s3 bucket.
+run the full job (it took a little over 15 minutes to read through 1.47 billion relationships and took just over an hour to complete).
+
+
+python jobs/follower_histogram.py -c conf/mrjob-emr.conf -r emr \
+-o s3://your-bucket/your-output-location --no-output s3://your-split-input-bucket/
+
+speeding things up with pypy
+while there are lots of other things to explore in the data, i also wanted to be able to run pypy on elastic mapreduce.  through the use of bootstrap actions, we can prepare our environment to use pypy and tell mrjob to execute jobs with pypy instead of system python.  the following need to be added to your configuration file (and vary between 32 and 64 bit):
+
+# use pypy instead of system python
+bootstrap_scripts:
+- bootstrap-pypy-64bit.sh
+python_bin: /home/hadoop/bin/pypy
+
+this configuration change (available in conf/mrjob-emr-pypy-32bit.conf and conf/mrjob-emr-pypy-64bit.conf) also makes use of a custom bootstrap script found in conf/bootstrap-pypy-32bit.sh and conf/bootstrap-pypy-64bit.sh).
+a single run of “follower_histogram.py“ with 8 “c1.xlarge“ instances took approximately 66 minutes using elastic mapreduce’s system python.  a single run with pypy in the same configuration took approximately 44 minutes.  while not a scientific comparison, that’s a pretty impressive speedup for such a simple task.  pypy should speed things up even more for more complex tasks.
+thoughts on elastic mapreduce
+it’s been great to be able to temporarily rent my own hadoop cluster for short periods of time, but elastic mapreduce definitely has some downsides.  for starters, the standard way to read and persist data during jobs is via s3 instead of hdfs which you would most likely be using if you were running your own hadoop cluster. this means that you spend a lot of time (and money) transferring data between s3 and nodes.  you’re not bringing the data to computing resources like a dedicated hadoop cluster running hdfs might.
+all in all though it’s a great tool for the toolbox, particularly if you don’t have the need for a full-time hadoop cluster.
+play along at home
+all of the source code and configuration mentioned in this post can be found at social-graph-analysis and is released under the bsd license.
+
+
+
+literate diffing
+april 30, 2011
+posted in open source, python
+the other day i found myself wanting to add commentary to a diff.  there are code review tools such as reviewboard and gerrit that make commenting on diffs pretty easy.  github allows you to comment on pull requests and individual commits.
+these are all fantastic tools for commenting on diffs, but i kind of wanted something different, something a little more self-contained.  i wanted to write about the individual changes, what motivated them, and what the non-code implications of each change might be.  at that point my mind wandered to the world of lightweight literate programming using tools like docco, rocco, and pycco.
+a literate diff might look something like this (using python/bash style single-line comments):
+
+# extend pygments' difflexer using a non-standard comment (#) for literate diffing using pycco.
+diff -r cfa0f44daad1 pygments/lexers/text.py
+--- a/pygments/lexers/text.py	fri apr 29 14:03:50 2011 +0200
++++ b/pygments/lexers/text.py	sat apr 30 20:28:56 2011 -0500
+@@ -231,6 +231,7 @@
+             (r'@.*\n', generic.subheading),
+             (r'([ii]ndex|diff).*\n', generic.heading),
+             (r'=.*\n', generic.heading),
+# add non-standard diff comments.  this has to go above the text capture below
+# in order to be active.
++            (r'#.*\n', comment),
+             (r'.*\n', text),
+         ]
+     }
+
+it turns out that it’s pretty easy to process with patch, but comes with a catch.  the patch command would blow up quite spectacularly if it encountered one of these lines, so the comments will have to be removed from a literate diff before being passed to patch.  this is easily done using awk:
+
+cat literate.diff | awk '!/\#/' | patch -p0
+
+if you’re using a dvcs, you’ll need -p1 instead.
+since i’m using a non-standard extension to diffs, tools such as pygments won’t know to syntax highlight comments appropriately.  if comments aren’t marked up correctly, pycco won’t be able to put them in the correct spot.  this requires a patch to pygments and a patch to pycco.  i’m kind of abusing diff syntax here and haven’t submitted these patches upstream, but you can download and apply them if you’d like to play along at home.
+i still think tools like github, reviewboard, and gerrit are much more powerful for commenting on diffs but was able to make pycco output literate diffs quick enough that i thought i’d share the process.  these tools are no excuse for clearly commenting changes and implications within the code itself, but i do like having a place to put underlying motivations.  here’s an example of a literate diff for one of my commits to phalanges, a finger daemon written in scala.  it’s still a pretty contrived example but is exactly what i was envisioning when my mind drifted from diffs to literate programming.
+
+
+
+pypy is fast (and so can you)
+march 18, 2011
+posted in python
+i’ve known for some time that pypy (python implemented in a subset of the language called rpython) is fast.  the pypy speed charts show just how fast for a lot of benchmarks (and it’s a little slower in a few areas too).
+after seeing a lot of pypy chatter while pycon was going on, i thought i’d check it out.  on os x it’s as simple as brew install pypy.  after that, just use pypy instead of python.
+the first thing i did was throw pypy at a couple of project euler problems.  they’re great because they’re computationally expensive and usually have lots of tight loops.  for the ones i looked at, pypy had a 50-75% speed improvement over cpython.  david ripton posted a more complete set of euler solution runtimes using pypy, unladen swallow, jython, psyco, and cpython.  almost all of the time, pypy is faster, often significantly so.  at this point it looks like the pypy team is treating “slower than cpython” as a bug, or at the very least, something to improve.
+the latest stable release currently targets python 2.5, but if you build the latest version from source it looks like they’re on their way to supporting python 2.7:
+$ ./pypy-c 
+python 2.7.0 (61fefec7abc6, mar 18 2011, 06:59:57)
+[pypy 1.5.0-alpha0] on darwin
+type "help", "copyright", "credits" or "license" for more information.
+and now for something completely different: ``1.1 final released:
+http://codespeak.net/pypy/dist/pypy/doc/release-1.1.0.html''
+>>>> 
+there are a few things to look out for when using pypy.  the entire standard library isn’t built out, though the most commonly used modules are.  pypy supports ctypes and has experimental but incomplete support for the python c api.  pypy is built out enough to support several large non-trivial projects such as twisted (without ssl) and django (with sqlite).
+pypy is definitely one of many bright futures for python, and it’s fast now.  if you’ve been thinking about checking it out, perhaps now is the time to take it for a spin.
+
+
+
+getting to know scala
+february 28, 2011
+posted in java, scala, web services
+over the past couple of weeks i’ve been spending some quality time with scala.  i haven’t really been outside of my python shell (pun only slightly intended) since getting to know node.js several months back.  i’m kicking myself for not picking it up sooner, it has a ton of useful properties:
+
+the power and speed of the jvm and access to the java ecosystem without the verbosity
+an interesting mix of object-oriented and functional programming (which sounds weird but works)
+static typing without type pain through inferencing in common scenarios
+a repl for when you just want to check how something works
+an implementation of the actor model for message passing and erlang-style concurrency.
+
+getting started
+the first thing i did was try to get a feel for scala’s syntax.  i started by skimming documentation and tutorials at scala-lang.org.  i quickly learned that programming scala was available on the web so i started skimming that on a plane ride.  it’s an excellent book and i need to snag a copy of my bookshelf.
+after getting to know the relatively concise and definitely expressive syntax of the language, i wanted to do something interesting with it.  i had heard of a lot of folks using netty for highly concurrent network services, so i thought i would try to do something with that.  i started off tinkering with (and submitting a dependency patch to) naggati2, a toolkit for building protocols using netty.
+after an hour or so i decided to shelve naggati and get a better handle on the language and netty itself.  i browsed through several scala projects using netty and ended up doing a mechanistic (and probably not very idiomatic) port of a java echo server.  i put this up on github as scala-echo-server.
+automation is key
+because my little app has an external dependency, i really wanted to automate downloading that dependency and adding it to my libraries.  at quick glance, it looked like it was possible to use maven with scala, and there was even a scala plugin and archetype for it.  i found the right archetype by typing mvn archetype:generate | less, found the number for scala-archetype-simple, and re-ran mvn archetype:generate, entering the correct code and answering a couple of questions.  once that was done, i could put code in src/main/scala/com/postneo and run mvn compile to compile my code.
+it was about this time that i realized that most of the scala projects i saw were using simple-build-tool instead of maven to handle dependencies and build automation.  i quickly installed it and easily configured my echo server to use it.  from there my project was a quick sbt clean update compile run from being completely automated.  while i’m sure that maven is good this feels like a great way to configure scala projects.
+something a little more complex
+after wrapping my head around the basics (though i did find myself back at the scala syntax primer quite often), i decided to tackle something real but still relatively small in scope.  i had implemented several archaic protocols while getting to know node.js, and i thought i’d pick one to learn scala and netty with.  i settled on the finger protocol as it existed in 1977 in rfc 742.
+the result of my work is an open source project called phalanges.  i decided to use it as an opportunity to make use of several libraries including configgy for configuration and logging and ostrich for statistics collection.  i also wrote tests using specs and found that mocking behavior with mockito was a lot easier than i expected.  basic behavior coverage was particularly useful when i refactored the storage backend, laying the groundwork for pluggable backends and changing the underlying storage mechanism from a list to a hashmap.
+wrapping up
+scala’s type checking saved me from doing stupid things several times and i really appreciate the effort put in to the compiler.  the error messages and context that i get back from the compiler when i’ve done something wrong are better than any other static language that i can remember.
+i’m glad that i took a closer look at scala.  i still have a lot to learn but it’s been a fun journey so far and it’s been great to get out of my comfort zone.  i’m always looking to expand my toolbox and scala looks like a solid contender for highly concurrent systems.
+
+
+
+installing pylucene on osx 10.5
+february 11, 2009
+posted in apple, java, python
+i was pleasantly surprised at my experience installing pylucene this morning on my osx 10.5 laptop.  the installation instructions worked perfectly without a hiccup.  this may not be impressive if you’ve never installed (or attempted to install) pylucene before.
+i tried once a year or so back and was unsuccessful.  the build process just never worked for me and i couldn’t find a binary build that fit my os + python version + java version combination.
+check out pylucene:
+
+$ svn co http://svn.apache.org/repos/asf/lucene/pylucene/trunk pylucene
+
+build jcc.  i install python packages in my home directory and if you do so too you can omit sudo before the last command, otherwise leave it in:
+
+$ cd pylucene/jcc
+$ python setup.py build
+$ sudo python setup.py install
+
+now we need to edit pylucene’s makefile to be configured for osx and python 2.5.  if you use a different setup than the one that ships with osx 10.5, you’ll have to adjust these parameters to match your setup.
+edit the makefile:
+
+$ cd ..
+$ nano makefile
+
+uncomment the 5 lines below the comment # mac os x (python 2.5, java 1.5).  if you have installed a different version of python such as 2.6, there should be a combination that works for you.  here’s what i uncommented:
+
+# mac os x  (python 2.5, java 1.5)
+prefix_python=/usr
+ant=ant
+python=$(prefix_python)/bin/python
+jcc=$(python) -m jcc --shared
+num_files=2
+
+save the file, exit your editor, and build pylucene:
+
+$ make
+
+if it doesn’t build properly check the settings in your makefile.
+after a successful build, install it (again you can omit sudo if you install python packages locally and not system-wide):
+
+$ sudo make install
+
+now verify that it’s been installed:
+
+$ python
+python 2.5.1 (r251:54863, nov 11 2008, 17:46:48)
+[gcc 4.0.1 (apple inc. build 5465)] on darwin
+type "help", "copyright", "credits" or "license" for more information.
+>>> import lucene
+>>>
+
+if it imports without a problem you should have a working pylucene library.  rejoice.
+
+
+
+sphinx search with postgresql
+february 6, 2009
+posted in open source, python
+while i don’t plan on moving away from apache solr for my searching needs any time soon, jeremy zawodny’s post on sphinx at craigslist made me want to take a closer look.  sphinx works with mysql, postgresql, and xml input as data sources, but mysql seems to be the best documented.  i’m a postgresql guy so i ran in to a few hiccups along the way.  these instructions, based on instructions on the sphinx wiki, got me up and running on ubuntu server 8.10.
+install build toolchain:
+
+$ sudo aptitude install build-essential checkinstall
+
+install postgres:
+
+$ sudo aptitude install postgresql postgresql-client \\
+postgresql-client-common postgresql-contrib \\
+postgresql-server-dev-8.3
+
+get sphinx source:
+
+$ wget http://www.sphinxsearch.com/downloads/sphinx-0.9.8.1.tar.gz
+$ tar xzvf sphinx-0.9.8.1.tar.gz
+$ cd sphinx-0.9.8.1
+
+configure and make:
+
+$ ./configure --without-mysql --with-pgsql \\
+--with-pgsql-includes=/usr/include/postgresql/ \\
+--with-pgsql-lib=/usr/lib/postgresql/8.3/lib/
+$ make
+
+run checkinstall:
+
+$ mkdir /usr/local/var
+$ sudo checkinstall
+
+sphinx is now installed in /usr/local.  check out /usr/local/etc/ for configuration info.
+create something to index:
+
+$ createdb -u postgres test
+$ psql -u postgres test
+test=# create table test (id integer primary key not null, text text);
+test=# insert into test (text) values ('hello, world!');
+test=# insert into test (text) values ('this is a test.');
+test=# insert into test (text) values ('i have another thing to test.');
+test=# -- a user with a password is required.
+test=# create user foo with password 'bar';
+test=# alter table test owner to foo;
+test=# \\q
+
+configure sphinx (replace nano with your editor of choice):
+
+$ cd /usr/local/etc
+$ sudo cp sphinx-min.conf.dist sphinx.conf
+$ sudo nano sphinx.conf
+
+these values worked for me.  i left configuration for indexer and searchd unchanged:
+
+source src1
+{
+  type = pgsql
+  sql_host = localhost
+  sql_user = foo
+  sql_pass = bar
+  sql_db = test
+  sql_port = 5432
+  sql_query = select id, text from test
+  sql_query_info = select * from test where id=$id
+}
+
+index test1
+{
+  source = src1
+  path = /var/data/test1
+  docinfo = extern
+  charset_type = utf-8
+}
+
+reindex:
+
+$ sudo mkdir /var/data
+$ sudo indexer --all
+
+run searchd:
+
+$ sudo searchd
+
+play:
+
+$ search world
+
+sphinx 0.9.8.1-release (r1533)
+copyright (c) 2001-2008, andrew aksyonoff
+
+using config file '/usr/local/etc/sphinx.conf'...
+index 'test1': query 'world ': returned 1 matches of 1 total in 0.000 sec
+
+displaying matches:
+1. document=1, weight=1
+
+words:
+1. 'world': 1 documents, 1 hits
+
+use python:
+
+cd sphinx-0.9.8.1/api
+python
+>>> import sphinxapi, pprint
+>>> c = sphinxapi.sphinxclient()
+>>> q = c.query('world')
+>>> pprint.pprint(q)
+{'attrs': [],
+ 'error': '',
+ 'fields': ['text'],
+ 'matches': [{'attrs': {}, 'id': 1, 'weight': 1}],
+ 'status': 0,
+ 'time': '0.000',
+ 'total': 1,
+ 'total_found': 1,
+ 'warning': '',
+ 'words': [{'docs': 1, 'hits': 1, 'word': 'world'}]}
+
+if you add new data and want to reindex, make sure you use the --rotate flag:
+
+sudo indexer --rotate --all
+
+this is an extremely quick and dirty installation designed to give me a sandbox
+to play with.  for production use you would want to run as a non-privileged user
+and would probably want to have an /etc/init.d script for searchd or run it
+behind supervised.  if you’re looking to experiment with sphinx and mysql,
+there should be plenty of documentation out there to get you started.
+
+
+
+kansas primary 2008 recap
+august 6, 2008
+posted in django, journalism, python
+i’m winding down after a couple of very long days preparing for our coverage of the 2008 kansas (and local) primaries.  as always it’s been an exhausting but rewarding time.  we’ve come a long way since the first election i wrote software for and was involved with back in 2006 (where election night involved someone accessing an as/400 terminal and shouting numbers at me for entry).  our election app has become a lot more sophisticated, our data import process more refined, and election night is a whole lot more fun and loads less stressful than it used to be.  i thought i’d go over some of the highlights while they’re still fresh in my mind.
+
+our election app is definitely a success story for both the benefits of structured data and incremental development.  each time the app gets a little more sophisticated and a little smarter.  what once wasn’t used until the night of the election has become a key part of our election coverage both before and after the event.  for example, this year we had an overarching election section and also sections for indivudual races, like this section for the douglas county commission 2nd district democratic primary.  these sections tie together our coverage of the individual races: stories, photos and videos about the race, our candidate profiles, any chats we’ve had with the candidates, campaign finance documents, and candidate selectors, an awesome app that has been around longer than i have that lets users see which candidates they most agree with.  on election night they’re smart enough to display results as they come in.
+  
+this time around, the newsroom also used our tools to swap out which races were displayed on the homepage throughout the night.  we lead the night with results from leavenworth county, since they were the first to report.  the newsroom spent the rest of the nice swapping in one or more race on the homepage as they saw fit.  this was a huge improvement over past elections where we chose ahead of time which races would be featured on the homepage.  it was great to see the newsroom exercise editorial control throughout the night without having to involve editing templates.
+
+on the television side, 6 news lawrence took advantage of some new hardware and software to display election results prominently throughout the night.  i kept catching screenshots during commercial breaks, but the name of the race appeared on the left hand side of the screen with results paging through on the bottom of the screen.  the new hardware and software allowed them to use more screen real estate to provide better information to our viewers.  in years past we’ve had to jump through some hoops to get election results on the air, but this time was much easier.  we created a custom xml feed of election data that their new hardware/software ingested continuously and pulled results from.  as soon as results were in our database they were on the air.
+the way that election results make their way in to our database has also changed for the better over the past few years.  we have developed a great relationship with the douglas county clerk, jamie shew and his awesome staff.  for several elections now they have provided us with timely access to detailed election results that allow us to provide precinct-by-precinct results.  it’s also great to be able to compare local results with statewide results in state races.  we get the data in a structured and well-documented fixed-width format and import it using a custom parser we wrote several elections ago.
+state results flow in via a short script that uses beautifulsoup to parse and import data from the kansas secretary of state site.  that script ran every few minutes throughout the night and was updating results well after i went to bed.  in fact it’s running right now while we wait for the last few precincts in hodgeman county to come in.  this time around we did enter results from a few races in leavenworth and jefferson counties by hand, but we’ll look to automate that in november.
+as always, election night coverage was a team effort.  i’m honored to have played my part as programmer and import guru.  as always, it was great to watch christian metts take the data and make it both beautiful and meaningful in such a short amount of time.  many thanks go out to the fine folks at douglas county and all of the reporters, editors, and technical folk that made our coverage last night possible.
+
+
+
+djangocon!
+august 1, 2008
+posted in django, journalism
+i’m a little late to the announcement party, but i’ll be attending djangocon and sitting on a panel about django in journalism with maura chace and matt waite.  the panel will be moderated by our own adrian holovaty.
+i think the panel will be pretty fantastic but i can’t help be just as terrified as my fellow panelists.  i love that we’ll have both journalist-programmers and programmer-journalists on the panel, and i love that django is so often the glue that brings the two together.
+djangocon is going to be awesome.
+
+
+
+natalie anne croydon
+june 1, 2008
+posted in web services
+
+last weekend, our first child, natalie anne croydon was born.  i’ve been trying to keep up with flickr photos and updated my twitter feed a lot during the labor and delivery process (what a geek!).  thanks to everyone for their kind words and congratulations.
+for more pictures, check my flickr archive starting on may 24 or my photos tagged “natalie”.
+
+
+
+arduino: transforming the diy uav community
+may 12, 2008
+posted in open source
+it’s been pretty awesome watching the homebrew uav community discover and embrace arduino.  back in january community leader chris anderson discovered and fell in love with arduino.  today he posted information and the board design for an arduino-powered uav platform.  because everything is open, it’s very easy to combine functionality from other boards in order to reduce the cost:
+the decision to port the basic stamp autopilot to arduino turned out to be an unexpected opportunity to make something really cool. i’ve taken jordi’s open source rc multiplexer/failsafe board, and mashed it up with an arduino clone to create “ardupilot”, perhaps the cheapest autopilot in the world. ($110! that’s one-third the price of paparazzi)
+as with their other projects, the uav schematics, board design, and arduino control software will be released before they’re done.  it’s quite awesome to realize just how cheap the arduino-based autopilot is:
+that’s a $110 autopilot, thanks to the open source hardware. by comparison, the basic stamp version of this, with processor, development board and failsafe board, would run you $300, and it’s not as powerful
+i’ve been quite impressed by how quickly the arduino autopilot has gotten off the ground (pun only slightly intended).  the decision to port the existing basic stamp code to arduino was made just over a week ago.  while i haven’t seen the control code, it looks like the team are well on their way.
+i love it when geek topics collide, and this is about as good as it gets.  i’ll be keeping a close eye on the ardupilot, and i can’t wait to see it in the skies.
+
+
+
+this whole number reuse thing has gone too far
+may 4, 2008
+posted in mobile
+this madness needs to stop!
+
+espoo, finland – nokia today unveiled a trio of mobile devices that balance stunning and sophisticated looks with the latest in mobile functionality. all three devices, the nokia 6600 fold, the nokia 6600 slide and the nokia 3600 slide present a smooth, minimalist design and an appealing array of easy-to-use features. the devices range in price from 175 eur to 275 eur before taxes and subsidies and are expected to start shipping during the third quarter of 2008.
+
+i know that nokia have a finite set of product names when we’re talking about 4 digit numbers.  aside from the nseries and eseries and a handful of other products, nokia are pretty keen on assigning 4 digit numbers as product names.  while often confusing, at least it avoids product names like razr or env.  i don’t quite get the naming of the 6600 fold and the 6600 slide though.  either someone in espoo has the attention span of a goldfish or they expect that s60 consumers do.
+us s60 owners are a pretty loyal and knowledgeable bunch.  we do our research and know our history.  i may be wrong, but i’d venture that a good number of s60 users could name a dozen or more s60 models from the 7650 to the n-gage to the n95.  surely a good chunk of us would rattle off the 6600 in the process.  we might also remember the 3600 as the awkward american cousin of the 3650.
+you know, that business phone from 2003 that brought significant hardware and software upgrades to the table compared to the 7650 and the 3650.  i sure remember it as if it were yesterday.
+every once in awhile someone raises a stink about nokia reusing a product number.  usually it’s a product number from the 80’s or 90’s and the word “classic” is attached to the new phone.  i’m ok with that.  i just think that it’s a little early to be reusing a product code from 2003 in a market segment of geeks and power users.
+
+
+
+python for s60: back in the saddle
+march 28, 2008
+posted in mobile, python
+i had the opportunity to meet jã¼rgen scheible and ville tuulos, authors of the mobile python book at pycon a few weeks ago.  they graciously gave me a copy of their book, which is an absolutely fantastic guide to writing s60 apps in python.  it seems like every time i look away from python for s60 it gets better, and this time was no exception.  everything is just a little more polished, a few more apis are supported (yay sensor api!), and the community and learning materials available have grown tremendously.
+while i didn’t get a chance to hang out too long during the sprints, i did pull together some code for a concept i’ve wanted to do for a long time: a limpet webcam that i can stick on something and watch it ride around the city.  specifically i thought it would be cool to attach one to a city bus and upload pictures while tracing its movements.
+so here’s my quick 19 line prototype that simply takes a picture using the camera api and uploads the saved photo using ftplib copied over from the python 2.2.2 standard library.  it’s called webcam.py.  i haven’t run it since pycon, so the most recent photo is from the pys60 intro session.
+working with pys60 again was absolutely refreshing.  i write python code (using django) at work but writing code for a mobile device again got the creative juices flowing.  i’m trying to do more with less in my spare time, but i definitely need to make more time for pys60 in my life.
+
+
+
+pycon 2008
+march 13, 2008
+posted in python
+i’m headed out the door to pycon 2008.  yay!
+
+
+
+covering kansas democratic caucus results
+february 5, 2008
+posted in django, journalism, projects
+i think we’re about ready for caucus results to start coming in.
+we’re covering the caucus results at ljworld.com and on twitter.
+turnout is extremely heavy.  so much so that they had to split one of the caucus sites in two because the venue was full.
+later…
+how did we do it?
+we gained access to the media results page from the kansas democratic party on friday afternoon.  on sunday night i started writing a scraper/importer using beautifulsoup and rouging out the django models to represent the caucus data.  i spent monday refining the models, helper functions, and front-end hooks that our designers would need to visualize the data.  monday night and in to tuesday morning was spent finishing off the importer script, exploring google charts, and making sure that ben and christian had everything they needed.
+after a few hours of sleep, most of the morning was spent testing everything out on our staging server, fixing bugs, and improving performance.  by early afternon ben was wrapping up ktka and christian was still tweaking his design in photoshop.  somewhere between 1 and 2 p.m. he started coding it up and pretty soon we had our results page running on test data on the staging server.
+while the designers were finishing up i turned my focus to the planned twitter feed.  thanks to some handy wrappers from james, i wrote a quick script that generated a short message based on the caucus results we had, compared it to the last version of the message, and sent a post to twitter if the message had changed.
+
+once results started coming in, we activated our coverage.  after fixing one quick bug, i’ve been spending most of the evening watching importers feed data in to our databases and watching the twitter script send out updates.  because we’ve been scraping the kansas democratic party media results all night and showing them immediately, we’ve been picking up caucuses seconds after they’ve been reported and have been ahead of everything else i’ve looked at.
+
+because we just recently finished moving our various kansas weekly papers to ellington and a unified set of templates, it was quite trivial to include detailed election results on the websites for the lansing current, baldwin city signal, basehor sentinel, the chieftain, the de soto explorer, the eudora news, shawnee dispatch, and the tonganoxie mirror
+
+while there are definitely things we could have done better as a news organization (there always are), i’m quite pleased at what we’ve done tonight.  our servers hummed along quite nicely all night, we got information to our audience as quickly as possible, and generally things went quite smoothly.  many thanks to everyone involved.
+
+
+
+we’re hiring!
+january 22, 2008
+posted in django, journalism, python
+wow, the django job market is heating up.  i posted a job opening for both junior and senior-level django developers on djangogigs just a few days ago, and it has already fallen off the front page.
+so i’ll mention it again: we’re hiring!  we’re growing and we have several positions open at both the junior and senior level.  we’d love to talk to you if you’ve been working with django since back in the day when everything was a tuple.  we’d love to talk to you if you’re smart and talented but don’t have a lot of (or any) django experience.
+definitely check out the listing at djangogigs for more, or feel free to drop me a line if you’d like to know more.
+
+
+
+google apps for your newsroom
+january 7, 2008
+posted in journalism, projects
+i like to think that i’m pretty good at recognizing trends.  one thing that i’ve been seeing a lot recently in my interactions with the newsroom is that we’re no longer exchanging excel spreadsheets, word files, and other binary blobs via email.  instead we’re sending invites to spreadsheets and documents on google docs, links to data visualization sites like swivel and manyeyes, and links to maps created with google mymaps.
+using these lightweight webapps has definitely increased productivity on several fronts.  while as much as we would love every foia request and data source to come in a digital format, we constantly see data projects start with a big old stack of paper.  google spreadsheets has allowed us to parallelize and coordinate data entry in a way that just wasn’t possible before.  we can create multiple spreadsheets and have multiple web producers enter data in their copious spare time.  i did some initial late night data entry for the ku flight project (jacob and christian rocked the data visualization house on that one), but we were able to take advantage of web producers to enter the vast majority of the data.
+sometimes the data entry is manageable enough (or the timeline is tight enough) that the reporter or programer can handle it on their own.  in this case, it allows us to quickly turn quick spreadsheet-style data entry in to csv, our data lingua franca for data exchange.  once we have the data in csv form we can visualize it with swivel or play with it in manyeyes.  if all we’re looking for is a tabular listing of the data, we’ve written some tools that make that easy and look good too.  on larger projects, csv is often the first step to importing the data and mapping it to django objects for further visualization.
+awesome webapps that increase productivity aren’t limited to things that resemble spreadsheets from a distance.  a few weeks back we had a reporter use google’s awesome mymaps interface to create a map of places to enjoy and avoid while traveling from lawrence, ks to miami, fl for the orange bowl.  we pasted the kml link in to our ellington map admin and instantly had an interactive map on our site.  a little custom template work completed the project quite quickly.
+it all boils down to apps that facilitate collaboration, increase productivity, and foster data flow.  sometimes the best app for the job sits on the desktop (or laptop).  increasingly, i’ve found that those apps live online—accessable anywhere, anytime.
+
+
+
+2008 digital edge award finalists
+december 20, 2007
+posted in django, journalism
+the 2008 digital edge award finalists were just announced, and i’m excited to see several world company sites and projects on there as well as a couple of sites running ellington and even the absolutely awesome django-powered politifact.com.
+at work we don’t do what we do for awards.  we do it to serve our readers, tell a story, get information out there, and do it as best we can.  at the same time even being nominated as finalists is quite an honor, and evokes warm fuzzy feelings in this programmer.
+here are the various world company projects and sites that were nominated (in the less than 75,000 circulation category):
+
+most innovative multimedia storytelling: 24 hours in lawrence (ljworld.com)
+best local guide or entertainment site: lawrence.com
+best design and site architecture: ljworld.com
+best overall news site: ljworld.com
+
+not too shabby for a little media company in kansas.  i’m particularly excited about the ljworld.com nominations since it hasn’t been too long since we re-designed and re-launched the site with a lot of new functionality.  scanning the finalists i also see a couple of other sites running ellington as well as several special projects by those sites.
+as someone who writes software for news organizations for a living i’m definitely going to take some time this morning to take a look at the other finalists.  i’m particularly excited to check out projects from names that i’m not familiar with.
+
+
+
+
+older posts→
+
+
+
+
+
+matt croydon::postneo
+copyright 2002-2023
+ powered by wordpress 
+
+
+
+
+
+
+
+

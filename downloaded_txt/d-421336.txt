@@ -1,0 +1,885 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rob farley - you could win from here!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skip to main  |
+      skip to sidebar(left) |
+      skip to sidebar(right)
+
+
+
+
+
+
+rob farley - you could win from here!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rob farley
+
+
+
+
+rob farley has been consulting in it since completing a computer science degree with first class honours in 1997. before moving to adelaide, he worked in consultancies in melbourne and london. he runs the development department in one of australia's leading it firms, as well as doing database application consultancy and training. he heads up the adelaide sql server user group, and holds several microsoft certifications.
+
+rob has been involved with microsoft technologies for most of his career, but has also done significant work with oracle and unix systems. his preferred database is sql server and his preferred language is c#. recently he has been involved with microsoft learning in the us, creating and reviewing new content for the next generation of microsoft exams.
+
+over the years, rob's clients have included bp oil, onelink transit, accenture, avanade, australian electorial commission, the chartered institute of personnel and development, the royal borough of kingston, help the aged, unisys, department of treasury and finance (vic), national mutual, the bible society and others.
+
+
+
+links
+
+
+my aussenal podcast
+arsenal football club
+sql in australia
+diplomacy
+
+
+
+
+blogs
+
+
+alastair waddell
+andrew coates
+athena pawlowski
+chuck sterling
+clarke scott
+darren neimke
+darryl burling
+dave glover
+dave lemphers
+david gardiner
+dr neil roodyn
+frank arrigo
+geoff orr
+greg low
+jeff wharton
+jesper johansson
+michael kleef
+mitch wheat
+nick randolph
+paul stovell
+peter ward
+should you be here?... mail me
+
+
+
+
+
+
+did you mean to come here? my blog is now at http://msmvps.com/blogs/robfarley
+
+
+
+03 january 2007
+
+
+
+reminder of change-of-address
+
+
+
+quick reminder to anyone still using this blog that new posts are no longer appearing here. you'll need to check http://msmvps.com/blogs/robfarley for new posts.
+
+
+
+
+posted by
+rob farley
+
+
+at
+11:36 am
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+08 october 2006
+
+
+
+moving / merging my blog
+
+
+
+i'm looking to move my blog across to msmvps.com - if i can merge the two somehow, then i will do so, but for the time being please start also checking msmvps.com/blogs/robfarley . the rss feed will remain at http://feeds.feedburner.com/robfarley/ .
+
+
+
+
+posted by
+rob farley
+
+
+at
+11:34 am
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+05 october 2006
+
+
+
+fellow mvp (name dropping)
+
+
+
+so far, one of the best things about being an mvp is access to the mvp newsgroups, where some of the heroes of sql hang out. i'm not sure i'll fit in, but it is very flattering to have someone like adam machanic blog that i showed him something (of course, i'm sure this is a once-off).
+
+
+
+
+posted by
+rob farley
+
+
+at
+5:57 pm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+04 october 2006
+
+
+
+to be colleagued
+
+
+
+i think there needs to be a new word in the dictionary, to describe those times when a colleague comes over to your desk and takes time from you. actually, it might not be a colleague, and they might just take time from you in some other way, like via the telephone or an instant messaging system.obviously when someone colleagues you, it's urgent to them, and you have to treat it urgently too. it stops what you're doing for a few moments. it's not a bad thing - sometimes it can be just what you need to get a fresh perspective on the work you're doing, but it's definitely something which i think needs a verb. "interrupted" doesn't describe well, because it has negative connotations. and besides, you could get colleagued for a long period if someone drags you into a meeting.
+
+
+
+
+posted by
+rob farley
+
+
+at
+1:24 pm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+02 october 2006
+
+
+
+mvp photo
+
+
+
+this is a decent list. darren, grant, greg & greg are all really great guys. i feel honoured to be a part of this crowd, and can't help but think that there are other names that should be there too.i need to get a decent photo of myself sorted. perhaps there will be someone at wagga who is good at taking photos.
+
+
+
+
+posted by
+rob farley
+
+
+at
+5:28 pm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rob farley - mvp
+
+
+
+more letters... these ones are certainly very nice. :)i'll write more when i have time. i'm just leaving for the public-holiday church picnic.
+
+
+
+
+posted by
+rob farley
+
+
+at
+11:16 am
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+30 september 2006
+
+
+
+more on primes
+
+
+
+i've changed my algorithm a bit, so that it starts with the low-hanging fruit.insert into dbo.rf_primesfound (num)select 2 union allselect 3 union allselect 5 union allselect 7 union allselect 11 union allselect 13 union allselect 17 union allselect 19 union allselect 23 union allselect 29 union allselect 31;declare @biglimit int;set     @biglimit = 1000000;declare @limit int;set     @limit = 32;declare @oldlimit int;set     @oldlimit = 32;declare @start datetime, @end datetime;set     @start = current_timestamp;while @limit < @biglimitbegin    select @oldlimit = @limit, @limit = @limit * @limit;    if @limit > @biglimit set @limit = @biglimit;    insert into dbo.rf_primesfound    select p.num    from dbo.nums n1        join        dbo.rf_primesfound f            on n1.num between 2 and @limit / f.num        right join        dbo.nums p            on p.num = f.num * n1.num    where f.num is null    and p.num > @oldlimit     and p.num <= @limit;endset     @end = current_timestampselect  @start as start_time, @end as end_time,        datediff(ms, @start, @end) as duration,        count(*) as primes_found, @limit as limitfrom    dbo.rf_primesfoundselect * from dbo.rf_primesfoundthis gets down to 7 seconds, which isn't quite as good as ward's 5. i do wonder what other improvements i could make, but i have a few other things to sort out this weekend (like my talk for the sql code camp next weekend).
+
+
+
+
+posted by
+rob farley
+
+
+at
+1:18 pm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+primes
+
+
+
+a challenge is always good. ward pond has a way of finding prime numbers.my machine isn't as chunky as some, so my numbers are different. but...i think ward's performance largely comes from the fact that his starting point assumes he has found all the primes up to 31 already. so i adjusted his query a little, commenting out the section where he had all the previously done primes:insert  into dbo.primes (prime)select  numfrom    dbo.numswhere  /*(num % 2  <> 0 or num = 2)and    (num % 3  <> 0 or num = 3)and    (num % 5  <> 0 or num = 5)and    (num % 7  <> 0 or num = 7)and    (num % 11 <> 0 or num = 11)and    (num % 13 <> 0 or num = 13)and    (num % 17 <> 0 or num = 17)and    (num % 19 <> 0 or num = 19)and    (num % 23 <> 0 or num = 23)and    (num % 29 <> 0 or num = 29)and    (num % 31 <> 0 or num = 31)and     */ num <> 1and     num <= @limit..and having a different starting place for @lastset @last = 1 --31i set @limit to 10,000, and it ran in 350 ms. his original query did it in only 60ms, which tells me that starting at 31 makes a massive difference, and is definitely a good idea. but let's see how another algorithm might compare, with both systems starting at 2.i'm starting with a prepopulated auxiliary table of numbers, just as he did. i'm using the same counting mechanism as him.declare @limit int;set     @limit = 10000;declare @start datetime, @end datetime;set     @start = current_timestamp;insert into dbo.rf_primesfoundselect p.numfrom dbo.nums n1    join    dbo.nums f        on n1.num between 2 and @limit        and f.num between 2 and sqrt(@limit)        and f.num <= @limit / n1.num    right join    dbo.nums p        on p.num = f.num * n1.numwhere f.num is nulland p.num between 2 and @limitset     @end = current_timestampselect  @start as start_time, @end as end_time,        datediff(ms, @start, @end) as duration,        count(*) as primes_found, @limit as limitfrom    dbo.rf_primesfoundselect * from dbo.rf_primesfoundi set @limit to 10,000, and my one ran in 170 ms.ok, so let's see how well they scale. let's try for 100,000. mine took 1673ms. his took 3243ms.for 1,000,000, mine took 21 seconds. his took 55 seconds. but when i let him start at 31, his took about 5 seconds.i think the difference comes down to the fact that ward is going through the list one prime at a time, whereas i'm taking a set-based approach and just filtering them all out at once.i feel like there would be ways of improving it even more, but will be someone else's challenge.i definitely think the way to go is to start with the low-hanging fruit. perhaps there are ways that i could improve mine to take a few steps to get the low-hanging fruit first... not today though.
+
+
+
+
+posted by
+rob farley
+
+
+at
+12:13 pm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+29 september 2006
+
+
+
+ownership chaining
+
+
+
+i've put an article together about ownership chaining at http://sqlblogcasts.com/blogs/rob_farley/articles/1140.aspx
+
+
+
+
+posted by
+rob farley
+
+
+at
+3:04 pm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+auxiliary table of numbers
+
+
+
+there are all kinds of ways that an auxiliary table of numbers can be useful. just today i used one to generate a bunch of test data.if you want your own table of nums, try this:create table dbo.nums (num int not null primary key);insert into dbo.nums (num) select 1;insert into dbo.nums (num) select 2;gocreate procedure dbo.topup(@max int) asbegin if ((select count(*) from nums) < @max) begin  while ((select count(*) from nums) < @max/2)  begin   insert into dbo.nums (num) select num + count(*) over() from nums;  end;  insert into dbo.nums (num)  select n  from (select num + count(*) over() as n from nums) t  where n <= @max; end;end;this will start your table off very small, but you can call the topup procedure every time you need it. for example, if you know you're going to need to have to it go as high as the number of rows in the blah table, do:declare @newmax intselect @newmax = count(*) from blahexec dbo.topup @newmax--before your query that uses nums.
+
+
+
+
+posted by
+rob farley
+
+
+at
+11:26 am
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+older posts
+
+home
+
+
+
+
+  subscribe to:
+  
+rss 2.0 (feedburner)
+
+
+
+
+
+
+
+subscribe
+
+
+
+
+
+
+mvp
+
+
+
+i'm a sql server mvp
+
+
+
+contact me
+
+
+msn msgr: rob_farley@hotmail.com
+yahoo msgr: robjfarley
+skype: rob_farley
+email: rob_farley@hotmail.com
+
+
+
+
+blog archive
+
+
+
+
+
+
+
+
+        ▼ 
+      
+
+
+
+2007
+
+(1)
+
+
+
+
+
+        ▼ 
+      
+
+
+
+january
+
+(1)
+
+reminder of change-of-address
+
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2006
+
+(133)
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(21)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(19)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(23)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(16)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(20)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2005
+
+(87)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(21)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(24)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(22)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(7)
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1513 @@
+
+
+debian/rules
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+about 
+   debian/rules, thoughts from no-one important
+   mike beattie
+mike@ethernal.org 
+
+
+syndicate
+
+
+
+
+
+categories
+
+debian - 3
+hacking - 10
+lca - 6
+life - 18
+photography - 1
+random - 25
+travel - 4
+work - 6
+
+
+archives
+←february→
+
+mo
+tu
+we
+th
+fr
+sa
+su
+
+
+ 
+ 
+ 
+ 
+ 
+1
+2
+
+
+3
+4
+5
+6
+7
+8
+9
+
+
+10
+11
+12
+13
+14
+15
+16
+
+
+17
+18
+19
+20
+21
+22
+23
+
+
+24
+25
+26
+27
+28
+ 
+ 
+
+
+
+
+other blogs 
+planet debian
+planet linux australia
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+wed, 07 jun 2006
+
+i speak proper england!
+
+(... well, i like to think i can!)
+so, on a completely unimportant website that i frequent, i've ended up being a
+moderator on the site forums. something about knowing *nix and php apparently..
+anyway, i've always had a beef with the way english is used and abused on the
+internet. you know, all those abbreviations, and incorrect word usage that just
+seethes "i'm an illiterate prick." u, 2, ur, da, r, etc etc.. and also the so
+incredibly common misuse of your/you're and they're/there/their. gah. yech.
+anyway, this particular site is no exception. some of the users have appalling
+habits. (ab)using my powers as a moderator, i've started to demand some care and
+attention to the most glaring errors - mainly towards my most intense pet peeve,
+misuse of "your" and "you're".
+looking for a place that describes all this stuff well, i stumbled across this
+site. i couldn't have said it better. thank you sarah d. bunting!
+(i especially liked, and agree with this:
+
+and no, in fact, i don't know what you mean when you write me a hate mail that
+reads, "you're site sucks," because that doesn't mean anything. because it's
+grammatically incorrect. because you've substituted a contraction of a verb
+phrase for an adjective, thus rendering the sentence nonsensical. and it makes
+you look stupid, and therefore i cannot take you seriously.
+
+)
+
+
+
+[23:10]
+[/random] 
+[permanent link]
+
+
+fri, 07 apr 2006
+
+planarity
+
+seriously, i'm not just responding to only you erich.. anyway, that's an
+evil thing to post on a friday (for me). i can see i'll get no work done now.
+*sigh*.
+oh, i found an example of your solution:
+
+
+
+
+[21:11]
+[/random] 
+[permanent link]
+
+
+thu, 06 apr 2006
+
+and now for something completely clichéd..
+
+check this out... (as i write this, it's about to tick over the 2,000,000
+he's wanting.)
+i'm not entirely sure what to think.. not a bet i'd take, i don't think. (yes, i
+am a male, but i just couldn't do that...)
+
+
+
+[08:55]
+[/random] 
+[permanent link]
+
+
+
+a solution for blocking ssh probers/scanners.
+
+erich, there's a much easier solution to blocking those ssh scanning
+bastards... some nice friendly iptables rules! (i forward ssh to an internal
+system, so this is in the forward chain.. use the input chain otherwise)
+### catch ssh probes
+iptables -a forward -p tcp --dport 22 -d <local net> -o eth0 -s 0/0 -i ppp0
+         -m state --state new
+         -m recent --rcheck --hitcount 3 --seconds 60 --name ssh_probers
+         -j log --log-prefix "adaptive-fw ssh prober: "
+
+iptables -a forward -p tcp --dport 22 -d <local net> -o eth0 -s 0/0 -i ppp0
+         -m state --state new
+         -m recent --update --hitcount 3 --seconds 60 --name ssh_probers
+         -j drop
+
+iptables -a forward -p tcp --dport 22 -d <local net> -o eth0 -s 0/0 -i ppp0
+         -m state --state new
+         -m recent --set --name ssh_probers
+         -j accept
+
+so, in the input chain, you wouldn't use -o, and -d would be
+the ip on your external link.. in this example, ppp0.
+what it does, is uses the ipt_recent module, tracking connections from
+a given ip. 3 incoming connections in 60 seconds will cause the remote host to
+be blocked. of course, this affects normal logins too, so for known hosts, it
+pays to insert a rule beforehand that does a -j accept.
+i'm enjoyng the very short log entries for a given ssh scanning host in my
+logcheck mail :).update 2006/04/07: whoops...
+sorry erich, didn't notice that :)
+
+
+
+
+[08:51]
+[/hacking] 
+[permanent link]
+
+
+mon, 03 apr 2006
+
+a small side trip..
+
+so, today, i've just arrived back from sydney with a few of my fellow lca 2006
+organisers where we'd been attending the annual lca ghosts meeting.
+next year, as you all know, lca will be held at unsw in sydney, australia. the
+venue looks great, and a lot of the ideas the seven team have in the pipeline
+sound fantastic. if they pull a couple of them off, then this is going to be a
+fairly significant turning point in lca growth. all things considered, this will
+make lca 2007 even better than lca 2006.. if that's even possible :).
+raewyn also came along on this little trip, so that she could have a little
+holiday, and go shopping - also to add some stamps to her passport, she'd never
+been outside of new zealand before.. one of her memorable comments was something
+like "that's really the sydney opera house, not just a postcard". she spent some
+of her time with the wife of one of the other 2006 organisers, who was there
+just for the shopping. this may not have been a good thing.
+we didn't get to do a whole lot together, since i was tied up for most of the
+weekend at jeff and pia's place. we did however manage to slip in a visit to see
+a good friend (bod, for those that know him), a bridgeclimb, a diamond
+ring, and a wander around the city on sunday evening. i'd highly recommend the
+bridge climb, if you can manage to go around dusk, it's fantastic to watch the
+sunset in the west over the blue mountains. we also had a lovely dinner after
+the climb on saturday with everyone else at james squire brewery down on the
+king st wharf. i had the kangaroo - there's something pleasing about eating a
+national icon :)
+yeah, for those of you that read that last paragraph and went "diamond ring?!?
+wha?!".. i finally gave in, and proposed to raewyn on the top of the sydney
+harbour bridge. i'm still coming to terms with having a fiancé, rather than just
+a girlfriend :).
+for those that are wondering, how do you take the ring up on
+the bridge, when you can't carry loose items? well, it turns out it's not
+uncommon for guys to propose on the bridge.. so the bridgeclimb folk have this
+thing called an erd - an engagement ring device. basically an elastic armband
+with a ribbon attached. the ring is placed over one side of the ribbon, and the
+two ends are placed through a small plastic toggle - like the one you have on
+your sleeping bag cover. when you are up on the bridge, you loosen the toggle,
+and place the ring on the appropriate finger, hold hands together, and slide the
+elastic from you to your (now) fiancé. it's a bit hard to describe, but it works
+quite well.
+anyway, this happened underneath what the aussies call 'blinky bill' - the
+flashing red light on the top of the bridge used as a bit of a
+warning/navigation aid to aircraft. our climb group were on the western arch of
+the bridge awaiting the descent, and the group behind were on the eastern arch
+after just arriving. both erupted into applause, and cheering when i went down
+on one knee... quite an experience! the amusing anecdote of the whole thing was
+about 3-4 minutes later, as we were descending, raewyn said "oh my god, i'm
+engaged" - it had just sunk in.. at that dinner afterwards? we walked up to join
+the others, and they erupted into more applause and cheering, in front of the
+all the other diners.. bastards.
+right, now back to the real topic... the seven crew really do have this lca job
+all sorted out, and sydney in january 2007 is the place to be.. hell, even i'm
+tempted to put in a paper submission this time around - normally i'd try and
+avoid it!
+(i need to get back into this blogging thing again, it's so easy to just fall
+out of the habit when you get busy with other things.. i promise to try harder
+from now on!)
+
+
+
+[08:05]
+[/lca] 
+[permanent link]
+
+
+sun, 17 jul 2005
+
+harry potter and the half-blood prince.
+
+erm.. yeah, i think i mentioned before that i don't do book reviews, but i
+couldn't help myself. despite what appears to me to be a larger proportion of
+people my age and with my interests thinking the harry potter series to be a bit
+childish, i've found them very entertaining. and a good story line to boot.
+so, a few weeks ago i dropped by a local bookstore to pre-order a copy - raewyn
+and i had an agreement that i would be allowed to read the book first, as she is
+a significantly faster reader than i, and has a habit of letting plot secrets
+out before you get to finish it after her.. as such, i spent most of the 26
+hours after it was released reading the sixth installment of the series, harry
+potter and the half-blood prince. i decided to use the release as a location
+for a bit of photography practice with my new 20d..
+
+
+the young chap in the first image had been waiting at the front of the queue for
+about 2.5 hours.. not for me!
+i met a reporter at the store, and we discussed what he'd been chatting to some
+of the folks in the queue. a good point was raised - the length, complexity,
+and general tone of story had changed with each successive book to match the
+capabilities and understanding of the original target audience - younger teens,
+who now, 8 years after harry potter and the philosophers stone graced
+bookstore shelves, are approaching their early twenties.
+now, to the story - i do heartily apologise to anyone who reads past this
+paragraph - here is your warning: spoilers follow, if you want to read this
+book, i highly recommend you bog off now... i repeat, spoilers follow.
+for those that just want to know what happens, in a longwinded and badly
+constructed sentence, here goes; harry discovers jealousy, and falls for ginny
+weasley, ron and hermione do the courting dance, but neither get to the point of
+actually admitting fondness to each other, snape's a traitor, malfoy wants to be
+a traitor, harry learns about tom riddle's past, and ultimately begins to
+understand with the help of dumbledore, what he has to do to defeat voldemort,
+and dumbledore is killed (by snape).
+the story starts of rather slow, and with little intrigue compared to the finale
+of the previous book. because of this, i kept thinking "wow, i'm this far
+through, what could really happen now that's bad?" (little did i know!).
+eventually, things kicked into life, as harry learnt about riddle's past with
+help from private lessons with dumbledore involving the pensieve. basically,
+voldemort has created six horcruxes (objects that are used to store a parts of a
+soul) which must be found and destroyed before voldemort himself can be killed.
+one such horcrux was riddle's diary that harry destroyed back in the chamber of
+secrets. after learning of this crucial information, the book comes to a
+screaming finale as harry and dumbledore journey to find and destroy another
+horcrux (which turns out to be fake, but that's inconsequential at this point).
+during the course of the story, harry becomes more and more convinced that
+malfoy is up to no good, but hermione and ron are not quite so sure - it turns
+out he was right, malfoy had become a death eater in his fathers stead, and
+voldemort had placed upon him the task of killing dumbledore. early in the
+story, when we are unaware of what the task is, snape is approached by malfoy's
+fearful mother who insists that snape make an unbreakable vow to protect malfoy,
+and to carry out the task if he fails - needless to say, he does, since malfoy
+appears to not be up to the task.
+this early meeting with malfoy's mother, is where we are first introduced to the
+possibility that snape may well be a traitor to the order of the phoenix. i was
+finding it hard to believe to start with, but it's been such a recurring theme
+throughout the entire series that he is suspected by many to not be as faithful
+as dumbledore thinks, that it becomes much easier to swallow. although, this
+very belief of dumbledore's, plays a large part in his demise. sadly, it
+tarnishes the character somewhat - but thinking back, dumbledore does admit to
+harry that even he makes mistakes. it's a shame that he only realises that his
+faith in snape is wrong at the very end.
+but what about stopping voldemort acquiring the philosophers stone you ask? that
+comes up - at the time, snape thinks it is only quirrell after the stone.. there
+are other such points, and questions asked of apparent contradictions throughout
+the story.. all are answered, and quite satisfactorily in my opinion.
+anyway, to conclude, i'll state that this is another very good installment from
+rowling - she's done well, and i honestly do look forward to the seventh, and i
+believe final, book in the series.
+oh, and who is the half-blood prince? i'm afraid that i am going to leave that
+one for those that actually read the book!
+
+
+
+[02:26]
+[/random] 
+[permanent link]
+
+
+thu, 14 jul 2005
+
+my new toy!
+
+(i think this deserves a whole new section in my blog!)
+so, yesterday morning, i finally managed to get myself the toy i've wanted for
+some time - a canon eos 20d digital slr. i've played with a couple of
+these really neat devices before (thanks michael!), and i've had
+gte ever since.
+i'd also played with a 300d in the past, but it would be silly to purchase that
+now, with the new 350d on the market. when i checked out the 350d a month or two
+ago, i just could not come to terms with the overly plastic feel..  it just
+wasn't heavy enough for an slr!
+anyway, i've been having some good fun, although the 18-55mm ef-s lens in the
+kit is definitely pretty limiting, but it appears to be adequate to start with -
+but i couldn't help myself - today i was in the store again, and ended up buying
+a second hand 90-300mm ef lens.. now, that one is fun!
+so, i haven't done a whole lot of shooting yet, but i've taken a couple which
+are currently up on the lca2006 website being used as in a random rotation
+for the left hand header image. look for the modern building (otago uni's
+information services building), and the night shot of the town hall.
+
+
+
+[12:01]
+[/photography] 
+[permanent link]
+
+
+wed, 13 jul 2005
+
+call for papers
+
+well, last night we opened the cfp for linux.conf.au 2006.. i've
+been slack, and haven't blogged about it till now, because it was at about 1am
+last night that we got things to a suitable stater. and, we're still ironing out
+small bugs with the cfp submission pages - but that shouldn't stop you from
+submitting an abstract!
+we most definitely want you to submit a paper, if you've got something cool that
+you want to talk about - it's a great excuse to make a trip to new zealand, and
+observe some of the great scenery we have (lotr anyone?), or, maybe you'd like
+to hang out with some of the other cool people that will be here to present
+something awesome! :p
+so, get to it, go and register as an author and submit a paper! (be
+sure to read the guidelines and condtions for submission).
+
+
+
+[11:13]
+[/lca] 
+[permanent link]
+
+
+tue, 05 jul 2005
+
+it's a website!
+
+well, we are still here, i promise! we finally have our website up
+and running.. i've also just updated dns, so linux.conf.au should point
+to the right place now too... (if not, give dns a chance to propogate)
+things may seem quiet on the publicity front, but that'll change in the next
+month, look out for some regular site updates, and more! we'll be openning the
+cfp rsn (that's reeeeeeeal, not real), so keep your ears to the ground.. now's
+your chance to make a trip to nz and have the boss pay for it!
+
+
+
+[02:52]
+[/lca] 
+[permanent link]
+
+
+thu, 09 jun 2005
+
+which tablet pc?
+
+john goerzen blogs of trying to decide which tabletpc to get.. the hp
+tc1100 of course!
+i'm using one - all bits of hardware apart from the sd card reader, and
+the tablet 'buttons' (that you press with the stylus) light up under linux.
+although, i haven't tried very hard with either of these... the keyboard is
+detachable as he wants too - it's just usb.
+
+
+
+[01:49]
+[/random] 
+[permanent link]
+
+
+wed, 01 jun 2005
+
+like, duh.
+
+ok, so i'm a dufus. i previously blogged about keysigning with caff, and
+how easy it was. well, caff uses a perl module that uses your mta to make its
+deliveries - from your local user account. anyone sense the problem yet? since
+my laptop has a hostname that's resolvable only within my personal home lan,
+nearly half of all the keysigning i did never actually went anywhere... it got
+to my smtp server, sat there for a while due to the remote servers
+rejecting/deferring due to a non-resolvable envelope sender, and then promptly
+got deleted once the retries failed. wibble.
+so, i grepped my laptop hostname out of the exim logs, found the unique exim ids
+within, grepped those out into individual files, and did a little shell hackery
+to work out who's email addresses didn't get a key delivered. luckily, caff
+keeps a nice working directory of the keys you've signed, and the mail messages
+it sent - so, now i've got 80 odd messages that i'll be reinserting into my mta
+queue, and sending on their way - after adding the appropriate line to my smtp
+server's exim.conf:
+# rewrite stuff from my laptop, so it's got a valid envelope domain.
+^(.*)@flatbed\.int\.ethernal\.org$  $1@ethernal.org sf
+
+anyway, to those of you out there that are about to get spammed with old
+messages, i apologise - but they *are* only about 3 weeks old. if you're
+lucky, i may feel like updating all the date: headers, but i dunno... seems like
+too much work.
+oh - how did i find these? i was futzing around trying to get exim4 working on
+my new laptop, specifically so i could use caff, to sign aj's new key, and
+discovered the log entries on my smtp server of the failed deliveries. anthony,
+i hope you feel special :p
+
+
+
+[00:48]
+[/random] 
+[permanent link]
+
+
+tue, 31 may 2005
+
+kingdom of heaven
+
+drew, one of my lca2006 organising committee, had some free movie tickets
+that were due to expire today. he and his partner would not be able to use them,
+so he gave them to me yesterday. raewyn and i are going out for dinner with
+friends tonight (which also happens to be because an offer expires today), so we
+went to see a movie last night - kingdom of heaven.
+it was pretty good actually - the story was interesting, and the characters
+believable (but i did slightly expect orlando to do some crazy leaping around on
+a giant elephant... er hang on, wrong movie). the tale is of the crusades, and
+of balian's travels to, and subsequent defence of jerusalem. one thing that
+piqued my interest, was that king baldwin was a leper. i now have an interest to
+learn more about leprosy...
+
+
+
+[21:04]
+[/life] 
+[permanent link]
+
+
+
+hey, me too!
+
+david starkoff talks of bagging qantas... i've done it too, but not
+to a huge extent, i was just pretty miffed that my bag was lost on a short hop
+like that... dumbasses.
+anyway, reading david's link to this, i thoroughly enjoyed this
+comment:
+
+i doubt it- those carriers aren't infested with eeo and wrongful dismissal
+laws. business and 1st class in qf aren't bad- you have pillowbiters and manky
+old slappers all over you like a cheap suit; bit different back in the dog-box
+though. any of the asian carriers shit all over qf for service from a great
+height; i don't know about ba, haven't used them for a while but they used to
+have great fat old bags with smiles from the "bumper book of british dental
+hygiene" who looked like they should be behind the counter of the local
+chippie. us airlines are even worse than qantas- continental had some walrus
+who couldn't even fit her fat arse down the aisle of a dc10 so they sacked
+her, she sued and was re-instated, hopefully as a wheel chock. ther sooner tg,
+sq, mh and even jl get access to domestic legs the better- likelyhood? zero.
+comment by pb -- 12/1/2005 @ 9:01 am
+
+all in all, yeah, i've noticed that everytime i end up flying with qantas, i
+feel dirty when i disembark. the service is crap, the plane feels sterile rather
+than cosy, and you just get that feeling of "are we there yet?" nagging at you
+the whole way. about the only thing going for them is that they serve alcohol on
+domestic flights :> (alcohol on flights is bad, i know, but it's my choice
+noddy, so bog off :p).
+
+
+
+[20:44]
+[/travel] 
+[permanent link]
+
+
+mon, 30 may 2005
+
+my new tablet pc..
+
+so, for various reasons, i've moved from my trusty old toshiba te2000 to a much
+smaller, and cooler, hp tc1100 tablet pc. basically the toshy decided
+to croak it (whilst at lca2005.. *mutter*) - turns out the connector between
+the internal power board and the motherboard was damaged. in the hope that it
+would be useful to one of my co-organisers for lca2006, it is now repaired
+and in his possesion. anyway, i digress...
+so, it's pretty slick device, and i've spent an amount of time over the last 5
+days getting all the neat bits of hardware working with a fresh debian install
+(i just couldn't do the ubuntu thing, it feels too much like two-timing).
+everything, bar the little digitizer 'pad button' things, is working, including
+the lovely little smartlink winmodem (haven't tested it yet, but i can talk
+to it with minicom).
+for those that are clever, they'll recognise it as the tablet that both
+bdale and edale^w, er.. elizabeth were using at lca2005. bdale mentioned to
+me that he couldn't seem to get both the digitizer and accelerated graphics (via
+the official nvidia driver) to work together. i now wonder what problem he was
+having, as i didn't do anything special and it's working fine. i was worried
+though as i had it working well under the nv driver, but to get rotation working
+with xrandr i had to change to the nvidia driver. so, now elizabeth will be
+jealous - i can now happily play tuxracer, and design new courses with the
+digitizer under gimp without restarting x :) .
+i mentioned xrandr, because you can't use a tablet and not have the ability to
+flip around into "portrait" mode and use it as a tablet is meant to be used!
+after some fiddling, it was correctly rotating.. sadly, the x wacom driver
+didn't have the ability to rotate whilst x was running - you could happily add
+the "rotate" option to the inputdevice entry in xorg.conf (yeah, xfree86 sucks,
+ok?), but that would require an x restart. the effect is somewhat disturbing
+when you attempt to use the stylus on the rotated screen.. :)
+a little hunting uncovered this patch which appears to solve my problem.
+after downloading dilinger's xorg source package, i was able to patch a
+recent linuxwacom driver, and slip it into the package build instead of the
+older version of the module there (if anyone would like a copy of my
+wacom_drv.o, email me). i also needed to build an updated xsetwacom
+that knew about the newly available 'rotate-while-running' feature.
+after all that, i now have a 3d accelerated display with a working stylus, that
+can be easily rotated to a portrait mode with these two commands:
+xrandr -o left
+xsetwacom set "wacom stylus" rotate ccw
+
+so, some software to top things off. this chap wrote a nice little perl tool
+called tabatha that does a nice job of providing a little menu that you can
+access via the side buttons on the tablet (i use hotkeys for this, after mapping
+the keys to unused keycodes with setkeycodes somewhere in
+/etc/init.d). but, he really should have worked out that sudo
+would be a better tool to use within the config than making you run it as
+root.  it appears i'm going to have to package this particular tool...
+for stylus input, i'm using both xvkbd and xstroke, the latter of
+which it appears i'll have to package too. and finally, a useful looking tool
+that works really well, and i'm so far enjoying immensely, is gournal (which
+will be the third new package i have to churn out). gournal is a note taking
+application that looks like it supports a networked collaborative mode, and also
+saves into a useful format - svg.
+well, that's enough boring detail for now - i guess at some stage i'll have to
+note down all the gory details on a webpage for future reference and for others
+to look at.. but i should be doing some work :)
+
+
+
+[04:49]
+[/hacking] 
+[permanent link]
+
+
+tue, 24 may 2005
+
+ghosts.
+
+so, ghosts of lca's past is over for this year.. jon oxer, anthony
+towns, mark tearle, steven hanley, martin pool,
+tony breeds*, jeremy kerr and michael davies descended on
+dunedin, and spent the weekend with my committee and i discussing our progress
+organising lca2006, and passing on all that valuable knowledge that should
+make our task somewhat easier...
+*: lazy sod needs a blog!
+they're all on an lca-ghosts list, and i've contemplated kicking the other two
+list owners off and making the list requre unsubscription authorization, then
+demand help of them over the next 8 months.. muhahaha! but, nah, i couldn't do
+that. they're all great guys :).
+anyway, the airport was suffering with late arrivals on friday due to fog in
+other centres, but only up to an hour, so it wasn't too bad. we were very lucky
+though, the weekend saw enough fog around the city that the airport was closed
+until around about the time of the first departing flight on monday morning that
+tony was on.
+anyway, as steven mentioned after his ghosts session for the
+lca2005 crew, i also found that with 14 people in attendance, we still
+managed to make it through the agenda and then some, without a lot of long
+winded topic diversion... people tended to speak up only when it was really
+required - something that appears to happen when everyone is on target with the
+same goals.
+so, we've got 8 months (approximately), to pull off a great conference, but i
+think we've got things pretty much sussed and under control - it's just all that
+tedious legwork now to make the plan happen. the conference is going to
+absolutely rock, i know it, and anyone who decides to give this one a miss will
+sorely regret it!update 2005/05/25: i'm wrong, so sue me!
+so, it appears that tony does indeed have a blog, it's here.
+
+
+
+
+[09:15]
+[/lca] 
+[permanent link]
+
+
+wed, 18 may 2005
+
+a waste of time?
+
+alexander schmehl posted a small, somewhat complex and inefficient shell
+snippet..
+he must have been very bored - it finds any occurence of a given two
+letter combination, that has only one result when running 'apt-cache search
+<xy>' on it.. give me strength!
+(the easiest way to work something like this out, is to take the given snippet,
+and reflow it into a multi-line indented format that you can read)
+
+
+
+[22:08]
+[/hacking] 
+[permanent link]
+
+
+tue, 17 may 2005
+
+abusing keytool
+
+well, we've got this horrible java portal thingee running at work as a pilot to
+deciding if we actually want to run some sort of single sign-on portal for staff
+and students... it's nice, in that i don't have to do much, other than make sure
+the machine runs, and the tomcat service stays up - we've got a little 'portal
+team' that's doing all the hard work.
+so, anyway, tptb decided they wanted a calendar portlet - sadly nothing out
+there for uportal is of any usable quality, so they wanted to use a php
+calendar served via apache+php in the back end, to an iframe channel in the
+portal. yech. but, ok. my only stipulation was that the back end server would
+detect if it wasn't being run in the iframe, and redirect people to the portal
+proper, in an attempt to stop people finding the calendar url and accessing it
+directly.
+well, to cut a long story short, the production system is served over ssl,
+whereas the dev system isn't. the dev system worked fine, the production didn't.
+it boiled down to the fact that the calendar installation for the production
+system wasn't on ssl, and this was throwing a spanner in the works with how the
+portal's iframe proxy thingee was requesting the calendar pages. solution?
+enable ssl on the calendar url.
+so, the private key for the ssl certificate we're using, is hidden away in a
+java keystore. the cert is easy to get out for apache to use, but the key isn't.
+so, a little googling, and i found this. very very useful. so, basically,
+you can do this:
+wget http://mark.foster.cc/pub/java/exportpriv.java
+javac exportpriv.java
+keytool -list -keystore <keystore> -storepass <password>  # (to get the approprate alias)
+java exportpriv <keystore> <alias> <password> > exported.key
+
+viola :)
+
+
+
+[00:08]
+[/work] 
+[permanent link]
+
+
+fri, 13 may 2005
+
+no thanks to bdale...
+
+well, actually, it really is thanks to bdale that you may have received
+a few mails from me containing gpg signatures... he made me feel somewhat guilty
+about the number of keys that i've got credentials for that i hadn't gotten
+around to signing..
+so, i've only got a page of signing to do from debconf3, and then i'm caught up.
+i'll do a bdale and suggest that if you're sitting on a few pending keys to
+sign, get cracking! caff makes it so easy, without the hassle of that cabot
+stuff.
+
+
+
+[10:09]
+[/random] 
+[permanent link]
+
+
+
+was is worth it?
+
+i spotted this on michael ellerman's blog, who's syndicated on
+planet linux australia.
+i wasn't really expecting the content, but hell, it certainly makes you stop and
+think.. obviously something bush didn't do.
+
+
+
+[20:27]
+[/random] 
+[permanent link]
+
+
+thu, 12 may 2005
+
+the x config
+
+well, i've had at least one email asking about the x config for my triple head
+setup.. so, i thought i'd chuck it up here, explaining the relevant
+bits.
+ok, to start with, you need to make sure your serverflags section turns
+on xinerama:
+section "serverflags"
+    ...
+    option  "xinerama"  "1"
+    ...
+endsection
+
+then, you need to create some device sections for each head - with a
+dual head nvidia card, you can use the screen option to distinguish
+between the outputs - i'm not sure if this is specific to the nvidia driver.
+with multiple cards, you must specify the busid option - you can find
+out what the correct value is for your card by running 'x -scanbus' and
+checking the output (which on my system gets sent to
+/var/log/xfree86.0.log).
+here's what i use (first two are on a dual head agp card, the third is the pci
+card):
+section "device"
+    identifier  "nvidia geforce fx 5200 - 0"
+    driver      "nvidia"
+    busid       "pci:1:0:0"
+    option      "nvagp" "1"
+    screen      0
+endsection
+
+section "device"
+    identifier  "nvidia geforce fx 5200 - 1"
+    driver      "nvidia"
+    busid       "pci:1:0:0"
+    option      "nvagp" "1"
+    screen      1
+endsection
+
+section "device"
+    identifier  "nvidia geforce2 mx400"
+    driver      "nvidia"
+    busid       "pci:5:9:0"
+    option      "nvagp" "1"
+endsection
+
+next up, you need to create some relevant screen sections to go with
+each of the above. childs play - this is so far, all bog standard x stuff. i
+have:
+section "screen"
+    identifier  "screen <x>"
+    device      "<device>"
+    monitor     "hp l1925"
+    defaultdepth    24
+    subsection "display"
+        depth       24
+        modes       "1280x1024"
+    endsubsection
+endsection
+
+finally, you need to add each screen to your serverlayout
+section, to create a virtual definition of how your physical displays are set
+up. i have the following (note that the logical order of my displays in relation
+to the devices defined above is '2-0-1' from left to right)
+section "serverlayout"
+    identifier  "default layout"
+    screen      0 "screen 0"
+    screen      1 "screen 1" rightof "screen 0"
+    screen      2 "screen 2" leftof "screen 0"
+    inputdevice ....
+    ....
+endsection
+
+and that's it. x is clever enough to do the rest for you. i'm currently using
+xfree86 on debian unstable, but i'd imagine the x.org setup would be somewhat
+similar.
+and just for reference, this is the device section i used before going
+to 3 heads, which shows how to use twinview:
+section "device"
+    identifier  "nvidia geforce fx 5200"
+    driver      "nvidia"
+    busid       "pci:1:0:0"
+    option      "nvagp"             "1"
+    option      "twinview"
+    option      "secondmonitorhorizsync"    "30-82"
+    option      "secondmonitorvertrefresh"  "60"
+    option      "twinvieworientation"       "rightof"
+    option      "connectedmonitor"      "crt,crt"
+    option      "metamodes"   "1280x1024,1280x1024; 1280x1024,null"
+endsection
+
+you can use twinview when you have more that two displays, if you're only
+using one nvidia card. (this is how jon oxer is still using twinview)
+
+
+
+[02:26]
+[/work] 
+[permanent link]
+
+
+
+whew!
+
+well, i've spent a few hours over the last 2-3 days slowly converting all the
+entries in my blog to use markdown syntax, mainly thanks to andrew
+cowie's entry regarding his escapades into the blogosphere. i'd wanted to
+get this sorted out for some time, since i was sick of writing html for
+relatively simple formatting.
+andrew's rss2.0 and atom feed code, munges with $env{tz}, but sadly it appears
+the ctime() that blosxom uses doesn't react well to it being set,
+so i took andrew's code, and added a couple of splatterings of "delete
+$env{tz};" to get around this. (basically posts on your web version appear
+with gmt too, rather than just what's in your syndicated feeds).
+the result of this, is that i now have rss20 and atom 'flavours', in blosxom
+speak, for my blog. i decided to use some of those funky little feed icons too.
+now, at some stage, i may even get around to learning some css to change the
+look and feel of things... who knows!
+
+
+
+[22:23]
+[/hacking] 
+[permanent link]
+
+
+wed, 11 may 2005
+
+drool worthy
+
+so, yesterday, the extra pci video card i ordered arrived at work for my work
+desktop.. ahh! so he's going to do dual-head you say. no! triple head actually..
+:) and i oh so very much like it.. it's a damn shame i can't have this at home.
+
+the new card happens to be an nvidia gf2 mx400. having two cards, means that
+doing what's called "twinview" on the first is no longer possible. basically
+the nvidia driver would present a nice wide display to the x server, where in
+actual fact the driver internally is telling the card to use both outputs. as
+opposed to the x server actually knowing that there's more than one head being
+used.
+now, i have the x server knowing about all three heads, and running the xinerama
+extension. before, the nvidia driver was using it's internal xinerama extension,
+which meant that to the x server, this one really big display was split in two.
+i don't know how the x internals work, but i'd imagine that the configuration
+now, will have the x server copying between the different video memories when
+you drag windows between the heads. whereas before, as one big display, it was
+only one video memory to x.. obviously, there's a performance hit here. you
+notice it for sure, when you drag a really huge firefox window between
+the heads. small windows are hardly affected.
+now, 3 heads, or speedy window drags between heads? i'm willing to take that
+trade off :)
+update 2005/05/11: bastard
+
+
+
+
+[23:06]
+[/work] 
+[permanent link]
+
+
+
+just for mako..
+
+i was out last night for an hour or so, attempting to find a few of the
+waypoints for a multi-cache geocache with raewyn.. that's a complete other
+story, which i won't tell now (or probably ever, for that matter).
+anyway, on the way home we decided to pop by the little dairy[1] that
+sells this wondrous thing called "country fried chicken" - yes, a kfc ripoff.
+but, the chips[2] are so much better.
+whilst there, i spied a neat little sign that instantly reminded me of mako,
+and his fascination with cultural language differences... please excuse
+the quality, i currently do not have a digital camera, and i was limited to the
+640x480 crap that my pocketpc/phone/camera/thing can do. enjoy:
+
+
+
+translations for the silly americans:
+[1]: corner store, or 7/11 i guess.
+[2]: fries.
+
+
+
+
+[22:51]
+[/random] 
+[permanent link]
+
+
+sat, 07 may 2005
+
+just another day...
+
+...that happens to be my birthday. so, now that i'm officially an adult in my
+insurance company's eyes, my premium for the car policy will drop.. :)
+raewyn has been harrassing me all week - "what do you want for your birthday?",
+and yesterday she finally went shopping to try any find something... i ended up
+getting some questions via sms messages that were indicating the general theme
+of what i was going to be getting.. well, ok, they were actually quite explicit.
+anyway, so last night she gave me the present she bought - the entire
+blackadder series on dvd (yes, real british comedy! none of this us canned
+laughter bollocks).  mmmmmmm.  so, now, after dropping her at work, i'll go and
+do that morning stuff (s**t, shower, shave, as is said here), then blob in front
+of the dvd player for the morning.
+i wonder if the day will get any better? the complete set of open all hours,
+or even dad's army would just rock!
+
+
+
+[20:55]
+[/life] 
+[permanent link]
+
+
+fri, 06 may 2005
+
+unread hell
+
+
+*sigh*
+(that's liferea, in case you didn't know - i'm such a slack bastard when it
+comes to staying up to date.. you don't want to see my mailboxes)
+
+
+
+[08:22]
+[/random] 
+[permanent link]
+
+
+
+duty free booze - part 2
+
+previously, i blogged about passing through sydney on my way home from
+lca2005, and purchasing some duty free alcohol...
+so, it turns out that downtown duty free were unable to do the 'free bottle for
+pickup' thing, and ended up offering me a complete refund of the au$150. sweet!
+i followed all of their directions - fax a letter with a copy of the receipt, my
+credit card details, and proof that i actually had a bottle of 12yo glenlivet,
+not 21 (basically just quote the barcode number).
+that was about a week and a half ago. i received no return phonecall confirming
+that they'd received my fax.. i was in the dark (damn, faxes are so last
+century... i'm amazed they still exist). worrying, a little, since i knew a
+refund from an australian company to my visa would take a little more than 3-4
+days, i decided to just call and verify that they'd received my fax...
+well, that was the rudest customer service rep i'd ever dealt with. i introduced
+myself, and asked if i could speak to the person i'd been dealing with about a
+refund due to an incorrect pickup.. they must not get many of these, as the rep
+knew about it, and said she'd pass me on to the person who knew what was
+happening (her boss probably). anyway, she neglected to put me on hold as she
+spoke to this person who must have been nearby, as i could hear the other person
+saying things along the lines of "just tell him that we've put the refund
+through, and that's all we're doing" - this was where the rep started getting
+rude with me.. about this time i was desperately trying to get the point across
+that i just wanted to know if they'd received my fax and things were underway.
+after that call, i decided i didn't like downtown very much - it wasn't my fault
+they screwed up, and i don't see why i should be paying $100 extra for something
+i didn't even want in the first place.. i was happy that they'd offered me a
+refund, but all i really wanted was for the bottle i had to be traded for the
+bottle i wanted. it's all water under the bridge anyway....
+now, this morning, i checked my bank balances via my banks internet banking
+website, and i noticed that my visa appeared to have a drastically different
+balance to what i was expecting... the refund came through! woot! so, how am i
+celebrating? by getting drunk on extremely nice 12 year old glenlivet, that's
+how! it's even nicer, because the price is right!
+now, i just need to convince one of the ghosts of past lca attendees to purchase
+me the bottle i wanted, and i'll reimburse them when they get here... :)
+
+
+
+[07:55]
+[/life] 
+[permanent link]
+
+
+tue, 26 apr 2005
+
+on duty free, and booze.
+
+ok, so, lca2005 was great, and i had a wonderful time catching up with all these
+folks that i hadn't seen in ages. excellent.
+anyway, as is your duty when you travel abroad, you must buy alcohol in duty
+free on the way home. i did this. let's say why first - on this particular trip,
+i wasn't really wanting to get anything for us (my girlfriend and i).. the
+cupboard at home is stocked quite well. but, i did owe a workmate a small debt,
+and he said he'd love to get a bottle of his favourite whiskey as payment.
+it happens to be a 21 year old glenlivet. expensive, mmk? ok, this is fine, i do
+owe him that much, so the price isn't an issue. anyway, i arrive in sydney from
+canberra, and spend a good day catching up with another debian developer (bod),
+and get to do a little geocaching - sweet, i had some travel bugs to drop off.
+to the airport with enough time to check in, get through security, and do the
+things i need to do (and you still end up waiting.. grr).
+so, i wandered towards the immigration/security place, and stumbled across
+downtown duty free. i had a little poke around, wondering if they had a 21yo
+glenlivet. turns out they do. woot! and i only came into the store, because they
+had an au$5 for 200ml of johnnie walker black label deal! mmmm. after purchasing
+both, with a little interlude whilst i jumped onto the net with my pda to
+transfer some funds to my visa for the purchase, i dutifully wandered off to do
+the immigration/security thing. no worries. came out the other side, fetched my
+duty free purchases from the collection point on the other side(tm), and boarded
+the plane to head to auckland. arrived in auckland - whilst waiting on the
+flight to disembark, i had a peek in the duty free bag. there was a 200ml bottle
+of jw.  cool. and a bottle of 12yo glenlivet. swee... hold on! 12 year
+old?!%^@!#!?  f**k!.
+turns out they'd screwed up and packed the wrong bottle into the bag at the
+collection point. so, i have since done the deed and called to harrass them -
+they've given me 1 of 2 options:
+
+take a refund from the 21yo price to the 12yo price - ~au$100 (a bottle of
+21yo scotch is expensive, remember?)
+have someone pick up a 21yo bottle from a downtown store for me, on their way
+to nz. this has the advantage of giving me a free 12yo.
+
+you can tell which option i want, right?
+so, there happens to be a group of aussies coming to dunedin in just under a
+month for ghosts of past lca's.. i can hopefully swing one of them to drop by
+and grab it for me.. but, if anyone else is heading to nz sooner - please drop
+me a line, i'd love to organise with you to pick it up for me!
+the moral of the story? either never purchase stuff duty free at one of those
+pre-immigration display stores, or always check what you pick up at the
+collection point, to see if it matches the receipt you get.
+
+
+
+[00:46]
+[/life] 
+[permanent link]
+
+
+sun, 24 apr 2005
+
+and so it begins...
+
+well, i thought i'd better write an entry considering lca2005 is over, and it's
+now my ballgame for 2006... *gulp*.
+so, the conference was cool, lots of neat people about to chat to, and a few
+stressed organisers to observe... the future feels somewhat foreboding. they did
+a wonderful job though, and credit to them. they can now relax, and enjoy the
+fact that they have lives. or do they?
+anyway, the talks were good, and a lot of variety was to be had. sadly, i
+managed to miss a few - mainly due to clashes, and also because i spent a fair
+bit of time annoying the organisers. lots of questions and stuff. the only ones
+who don't get away with relaxing are those that are coming to ghosts next month,
+and tony, who's joining my team for logistical reasons.
+it's become a bit of a 'thing' that i'm a 'fan boy' or some such - i blame aj
+and elmo, they kept saying it. i had a huge number of people asking me about
+getting "bdale fan club" buttons (you know, the american name for badges). no
+thanks to elizabeth garbee for that one. i'll actually make an excuse here, and
+say i was just schmoozing the cool people to make sure they'll come next year of
+course! (hey, elmo: you little ripper!)
+so, my little presentation at the conf close sucked, but that's ok, it wasn't
+meant to be anything spectacular! putting that aside, in jeff smith^wwaugh's
+words, "rock on!" - dunedin will rock, and we'll make sure of it. make sure you
+come if you can, it's a great place!
+so, does anyone have a contact to get good "mates rates" price on psychological
+treatment? i have a feeling i'll need it in about 10 months...
+
+
+
+[01:57]
+[/lca] 
+[permanent link]
+
+
+sun, 27 mar 2005
+
+ampersand breakages in xml feeds.
+
+jose carlos garcia sogo writes of reports that one of his blog entries was
+disrupting some feed readers, and that he was given the impression it was his
+fault.. it wasn't.
+i've just starting using liferea after
+reading that julian danjou is giving it a go.
+i noticed that liferea was throwing up a nice big red warning stating the feed
+was broken when clicking on "planet debian" in the feed list. after a bit of
+investigation, i found that jose's feed was fine, it was the one that planet
+was giving - somewhere along the line, it had decided to change jose's
+"&amp;" into "&" (i hope those render properly!)
+so, basically, it's a bit ripe of people to blame the source, when it's actually
+an aggregator in between that's taking a perfectly good feed and breaking it.
+i'd call that a bug, wouldn't you?
+
+
+
+[22:58]
+[/random] 
+[permanent link]
+
+
+tue, 08 feb 2005
+
+on lca, and 2006.
+
+so, it's now been publicly announced. i've heard horror stories about
+organising this thing, so lets just hope they are just that... stories. :)
+
+
+
+[19:18]
+[/lca] 
+[permanent link]
+
+
+sat, 05 feb 2005
+
+that geocaching bug...
+
+i've known about geocaching for quite some time, but never really gotten
+into it, until joeyh mentioned it a while back. since he wrote that
+article, i've been slowly gearing up to have a go.
+since i've got one of those pocket pc things for work, i thought i should find
+some software for it to record all of my cache attempts, and store the
+information from the website that i'd need for them. there's a few little gems
+available, which is good - currently i'm only using gpxsonar (horrible
+site), until i get an interface cable to link my etrex with the pocket pc, when
+i'll start using g7toce. i'm hoping to find something better that will let
+me do the gps stuff on the handheld.. but that would probably be better with a
+bluetooth gps receiver.  anyway, i digress...
+sooo, today, i finally get around to going out and having a decent go at this
+thing... what a rush! it really is a bug, and i'm definitely addicted. i'll have
+to try and pick up a travel bug before i go to lca2005 - i'll try to
+bring one back too. well, i usually don't like to subscribe to pay services, but
+this is one i'm happy to, since its fun, and it's nice to know that payment will
+help keep the website running. and the ulterior motive, is that you need to be a
+paid member to be able to download gpx files of multiple caches - great for
+things like gpxsonar above.
+so, on my first day of caching, i got 8 caches - one of which was an ftf (first
+to find), and another was a multi-cache (follow clues from the start to the
+actual cache). a successful day, i think.
+anyway, if you have a gps receiver, get into geocaching - it's fun, it helps get
+you out and about (exercise is a good thing, mmmk?), and it's just generally
+geeky! and you get to call non-cachers "muggles"! :)
+
+
+
+[09:38]
+[/life] 
+[permanent link]
+
+
+thu, 13 jan 2005
+
+then things will get ugly...
+
+... if we 
+made debhelper build-essential.
+package: debhelper
+...
+depends: perl (>= 5.6.0-16), coreutils | fileutils (>= 4.0-2.1), file (>= 3.23-1), dpkg-dev (>= 1.7.0), 
+         html2text, debconf-utils (>= 1.1.1), binutils, po-debconf
+
+but, scott, you do have a good point. 92% of the archive is not an insignificant
+amount.
+
+
+
+[21:01]
+[/debian] 
+[permanent link]
+
+
+wed, 05 jan 2005
+
+it's not called giving up
+
+it's called stopping. what are you giving up?
+jesus, as much as i applaud your success at stopping smoking, it annoys me
+when it's made out to be some sort of epic challenge that has to be overcome,
+and kept at bay.
+when you can mentally be on top of it from the start, it's no issue.
+for anyone else that's planning to stop this year, go and read this.
+i swear that it will change your view on smoking and nicotine addiction, and
+you'll have stopped without all the struggle that everyone else whinges about.
+
+
+
+[21:03]
+[/life] 
+[permanent link]
+
+
+tue, 21 dec 2004
+
+mmj connectors..
+
+bdale, i've got a few mmj connectors lying around... but sadly i'm not keen
+on giving any of them up - but i will give this bit of info - a correctly wired
+rj11 connector, with its tab block sliced off, fits nicely into an mmj socket
+and works a charm.
+
+
+
+[21:52]
+[/hacking] 
+[permanent link]
+
+
+wed, 08 dec 2004
+
+not since!
+
+not to finger point... but..
+i'm no english geek (but i am somewhat of an anal-retentive prick about such
+things) - using "since" as in "the cable modem has been acting weird since a
+while" is incorrect... being a native english speaker, the reason is not
+forthcoming to me (i think it's incorrect to use it in the past tense?). i guess
+this is because you're never really taught all the semantic rules of your native
+language, since you're brought up with it, not taught it.  to me it just sounds
+wrong!  (it should be "... for a while")
+could some english/language geek please clarify this?
+anyway, apart from that... mcd's is a bad thing to eat on an empty stomach...
+making me feel slightly nauseous, so here i am stuck up at 2320 writing this
+blog entry.update 2004/12/09: thanks!
+ok, thanks to all those that responded with a clarification! now that i think of
+it, i did know the reasoning, i just didn't think about it enough.. anyway, it
+has nothing to do with tense - you use 'since' when you're talking about a
+defined point in time, and 'for' when you're talking about a duration. compare
+"the cable modem has been acting weird since monday" with "the cable
+modem has been acting weird for a while".
+
+
+
+
+[09:21]
+[/random] 
+[permanent link]
+
+
+tue, 09 nov 2004
+
+stoned on duty
+
+as much as the title of this entry seems intriguing, i'm sorry, it's just a
+book title. i wouldn't normally do a book review type thing, but this is a rare
+case where i've read something that deserves to be mentioned.
+anyway, stoned on duty is a book about the escapades of a new zealand
+undercover police officer by the name of peter williamson, and how what he did in
+his job helped to bring down a large portion of the coromandel marijuana scene.
+it also goes on to explain how he coped (or not) with drug addiction after
+returning to uniformed duty.  both he and his wife became heavy marijuana users
+(she was an undercover officer too), and continued to be so after returning to
+uniformed duty, where they grew apart, seperated, and generally ran completely
+off the rails.
+there's a really good bit about how he was on duty in a smaller city south of
+here, where he'd collected a teenage vandal from a bottle store, and placed him
+in the holding cell, but not locked the door - it was a new lock, and he hadn't
+learnt the trick to locking it yet. suffice to say, the teenager managed to
+leave the police station, and go home. peter's reaction was purely one of "oh
+well, i really don't give a fuck". he sorted out the problem privately with the
+store owner and the teenager to avoid having to tell his boss about what had
+happened (small town, he knew who the teenager was, and where he lived).
+the book itself is not about a sob story of this police officer, but more about
+attempting to draw attention to how the brass in the force never acknowledged
+that its undercover agents were becoming drug addicts, and basically didn't want
+to have to deal with the problems this entails (officers committing purjury to
+convict a criminal. "no your honour, i was simulating smoking the drug when
+this took place" - how can the jury believe an officer that was stoned?).  the
+official line was that the force did not condone actual use of drugs in an
+undercover operation, but those at the coal face knew that if they didn't,
+they'd be picked as cops pdq.
+peter has his life back on track now. he left the force in 1990 on
+recommendation of his doctor and psychiatrist (or psychologist, i forget), since
+he was a danger to himself, other police officers, and the public with his drug
+use. after fighting for compensation, and making some publicity about the
+problem, he's moved on to other things... and, he actually lives in the same
+city as me, and is a good friend of one of my workmates.
+now there's a reason that i was loaned this book to read, but i'll let you
+speculate...
+
+
+
+[23:05]
+[/random] 
+[permanent link]
+
+
+sun, 31 oct 2004
+
+my condolences...
+
+andrew, my condolences. byron looked like a pretty laid back cat, with one
+hell of a personality - it's like losing a close friend when pets pass away.
+one of my previous cats, by the name of "sawyer" (long story), lived at home in
+the country with my father. after i went to high school in the city, i never
+saw much of him. when i discovered one weekend that i was home that he had been
+hit by a car, i was quite upset (with my father too, it was a while before that
+weekend, and he hadn't told me at the time it happened).
+anyway, andrew, give him a good burial spot, it sounds like he deserves it.
+
+
+
+[04:45]
+[/life] 
+[permanent link]
+
+
+thu, 28 oct 2004
+
+mythtv
+
+ok, so i've had a mythtv box for quite some time, but recently i've done some
+cooler stuff with it - i've also got a local friend who's done some pretty neat
+stuff with it too. well, indirectly - not really with myth per-se, but with
+stuff myth uses (you should see his satellite dish farm).
+to start with, said local friend had a spare dvb-s card that he wasn't using,
+and i mentioned some time ago i was interesting in getting - so he sold it to
+me... (must pay him..) the house i'm renting at the moment already had a small
+dish on it, pointing at optus b1.  the previous tenants had satellite tv,
+from the local provider, sky, which has a presence on b1. the goverment
+owned broadcaster also has some fta stations on it, which are the target.
+anyway, after futzing around, and upgrading the myth box to a 2.6 kernel for
+support of the dvb-s card, i get things working, but not in mythtv. takes me a
+good week to work out that the dvb testing utility in the setup program
+hardcodes the lnb values for a universal lnb, as opposed to a ku band lnb that
+are all too common here. grr. grr. grr. so i finally get things working in myth.
+damn, that dvb-s picture is crisp.
+right, about this time, i also noticed that the xmltv source i was using to get
+epg data dried up - an old website that was discontinued by the entity that
+owned it - somehow tied up with the broadcaster, but i don't know for sure. this
+is where the local friend comes in. drew has been mucking around with pulling
+the epg data out of the dvb-s stream that the paytv provider (sky) has on b1 -
+and he was successful. the added bonus is that he provides the data in xmltv
+format..
+so, the next problem was that the audio i was feeding from the myth box into the
+tv was really low, so i had the mixer wound all the way up so you could hear
+things - but playing videos was still really really quiet.. turns out that the
+sound card is emitting line-level audio, but the tv is expecting something with
+a little more meat...
+to solve this, i decided to purchase a simple stereo ampilifier kit from the
+local radio-shack-alike, dick smith electronics.  the k-5008 looked
+like it'd do the job nicely.
+after building, then realising that i'd wired the 9v supply socket backwards,
+sadly, after i'd fried the chip... then purchasing a replacement chip,
+i had a working amp that meant i could finally wind down the volume in the
+software mixer, and actually have decent audio across the board within mythtv.
+excellent.
+i'm still pissed off that i managed to wire the socket wrong, when i
+swear i checked it at least three times before i
+soldered it...
+the only downside, is that now it's actually possible to hear the 'muted' audio
+emerging from the line-in (for the tv tuner card)... it is very faint, and as
+long as you don't wind the tv volume up too far, you can't hear it...
+
+
+
+[23:14]
+[/hacking] 
+[permanent link]
+
+
+tue, 19 oct 2004
+
+serial consoles (and other stuff)
+
+well, i'm sure we've all done this before, but i'll blog about it anyway,
+because i'm different, dammit. i did go one step further though.
+over the last couple of weeks, i've been productive at home, for the first time
+in a long while... i'm not sure what prompted it, but i think it has something
+to do with the fact i had to move my office and radio shack downstairs, to the
+cold room, next to the garage (where the rack of servers happens to be). this
+was prompted because the s.o. required the room i was using, since she wanted to
+create a spare bedroom/her space area. this is all fine, except that i had a lot
+of really heavy stuff in there, including two big desks, a filing cabinet, and
+an hf radio station.
+anyway, moved all this stuff, and started setting up the new room the way i
+wanted it, which meant running a new cat5 cable, and getting antenna feed lines
+sorted out... (unfortunately, i'm going to be without a decent hf antenna until
+i can work out the best way to put one up in the new location...)
+through all this, i scavenged the 33.6k modem out of my old desktop, and lugged
+the machine half built as a firewall replacement down to the new office - these
+things prompted me to put them to use... now the 33.6k is in my 'network' server
+(dns, dhcp, etc), being used as a modem with sendpage, so i can feed myself
+pager messages through the telco's tap number. pretty neat. i rummaged around
+and found the 40g drive that i couldn't decide what to do with, and stuck that
+in the mail/web server to use as a file store - it's now also a file server.
+finished building the replacement firewall, and put it in production. (much
+better as a full woody, with a faster cpu, rather than that old 486dx40 with too
+little ram, and a really old insecure kernel).
+the room was previously being used as storage of my collected hardware, so that
+stuff is now out in the garage... must get some shelving for them... anyway, the
+cupboard in the room was also being used for storage, so i decided to pull out
+the two powermac 7200's, and putting the contents together as one system with a
+larger amount of ram, and two hdd's. installed this, and discovered that
+quik is pretty cool... no macos needed there. inside these
+things is like a damned faraday cage, so the new machine got christened as
+faraday.  (this now makes my home network have 5 out of the supported 11
+architectures of woody.. i386, hppa, alpha, sparc, powerpc. - just need to get
+that mipsel box going now..)
+anyway, after doing all this, i decided i should get all these systems some
+upgraded, and packaged kernels... so after installing grub, and installing the
+respective kernels, they're all up to date. (and the root fs on the firewall
+is too small, so i had to purge the running kernel to get the new one on - i
+hate rebooting systems like this...)
+now, because i have a stallion easyserver ii in the rack, with serial
+cables to everything in there, i decided to get all of these servers going with
+serial consoles....  a fiddle here, a tweak there, and a few
+reboots later, i can see each machine boot in a telnet window from my laptop
+upstairs...
+oh, and to top it all off, i decided to run a longer cat5 serial cable up to the
+lounge, and have a dec vt520 terminal there - great for nload on the firewall!
+
+
+
+[22:42]
+[/hacking] 
+[permanent link]
+
+
+mon, 04 oct 2004
+
+etxraorindary!
+
+aoccdrnig to a rscheearch at an elingsh uinervtisy, it deosn't  mttaer
+in waht oredr the ltteers in a wrod are, the olny iprmoetnt tihng is
+taht frist and lsat ltteer is at the rghit pclae. the rset can be a
+toatl mses and you can sitll raed it wouthit porbelm. tihs is bcuseae
+we do not raed ervey lteter by it slef but the wrod as a wlohe.
+just a random post... the above came around a social list at work a few months
+back...
+[apologies to non-english speakers.. who may find the above harder to read than
+the rest of us]
+
+
+
+[02:19]
+[/random] 
+[permanent link]
+
+
+
+
+    
+
+
+
+
+
+
+

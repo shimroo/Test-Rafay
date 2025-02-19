@@ -1,0 +1,398 @@
+
+
+
+
+
+
+
+
+
+tales of a code monkey - ... the adventures of a guy making software.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			skip to content		
+
+
+
+tales of a code monkey
+… the adventures of a guy making software.
+
+menu
+
+
+home
+lucene.net.objectmapping
+azure queue agent library
+about
+privacy policy
+ 
+
+
+
+
+
+
+
+
+deprecation notice 
+
+hi there!
+this post is to notify anybody interested, that this page in its current form is soon going to disappear / is going to be turned off soon. relevant content has already been moved to a new location, https://flrx39.net, or it will be moved there shortly.
+ 
+
+author  rogerposted on january 6, 2023categories uncategorized 
+
+
+
+copy files with powershell remoting 
+
+recently, at work, i found myself in the situation where i needed to copy some file from my workstation to a jump box. now of course, on linux i’d just use rsync or scp. but our it doesn’t like provisioning linux boxes and therefore uses windows for jump servers too, so no luck here. luckily, i could convince them to turn on and allow powershell remoting, so with some simple scripts i can still easily copy files over without using smb and looking at more hassle with it.
+
+function copy-localtoremote(
+    [parameter(mandatory = $true)] $localpath,
+    [parameter(mandatory = $true)] $remotepath,
+    $computername = 'my.default.target.host'
+) {
+    invoke-command -computername $computername `
+        {
+            param($path, $content)
+            set-content -path $path -value $content `
+                -asbytestream
+        } `
+        -argumentlist $remotepath,(
+            get-content $localpath raw -asbytestream)
+}
+
+function copy-remotetolocal(
+    [parameter(mandatory = $true)] $remotepath,
+    [parameter(mandatory = $true)] $localpath,
+    $computername = 'my.default.source.host'
+) {
+    invoke-command -computername $computername `
+        {
+            param($path)
+            get-content -path $path -raw -asbytestream
+        } `
+        -argumentlist $remotepath |
+    set-content -path $localpath -asbytestream
+}
+
+new-alias -name 'ltr' -value 'copy-localtoremote'
+new-alias -name 'rtl' -value 'copy-remotetolocal'
+
+as you can see, this is quite simple. obviously, functions above can only copy one file at a time though. maybe in the future i’ll build something that can copy entire file structures recursively. i also haven’t spent any time looking at how efficient it is to pass streams this way. in fact, i wouldn’t be surprised at all if this would perform poorly for large files. but then again, i’m mostly pushing around scripts and config files, so this works just fine.
+ 
+
+author  rogerposted on september 24, 2021september 24, 2021categories software engineeringtags powershell 
+
+
+
+cheap and secure cloud backups 
+
+i’ve wanted to find a good provider of cheap and secure cloud backups for a while. i’ve compared some cloud drive providers, but didn’t quite like those. they usually have very limited free plans, somewhat pricey paid plans (e.g. 50gb for about 24$ a year for onedrive), or like in the case of google no information available at all. by the way, “google one is coming soon” isn’t an announcement that i want to look at for more than a few days when looking for pricing info.
+then, i’ve looked at pricing of cloud storage providers, such as aws, azure and google cloud. those offer storage around 1 cent ($0.01) per gb per month. that’s a quarter of the onedrive cost! it’s even less if you consider their archive offerings (aws glacier, archive in azure, coldline storage for google). the cheapest offering here is from microsoft at 0.2 cents ($0.002) per gb per month, but with some usage caveats. since the point of backups is to keep them for a long time, this quickly adds up though.
+now i’ve written a line or two of code before, so i figured i could as well write my own tool for this. so here is bart, the backup and restore tool. note that at this point i do not offer bart as a ready-to-use executable, but only as mit-licensed source code. in addition, bart currently works only with azure blob storage – or with storage mounted into the machine’s file system. however, adding other cloud providers/archive destinations should be relatively easy, given the interfaces used in the tool.
+security
+in terms of security, bart encrypts every file before storing it in the archive destination. a user-provided password is used together with a randomly generated salt to derive a key for encryption with aes. on first use of any archive destination, bart generates a random salt, and each archive has its own password and salt. to avoid anybody with access to the archive destination from even snooping the names of your files, the names are hashed (sha1) and the hashes used to store the encrypted files. this has the disadvantage that renaming/moving a file results in another file in the destination archive, though.
+usage
+once you compiled bart, you can use it as follows.
+
+./bart [-name string] [-path string] [-m noop|restore|delete] -acct string -key string
+  -name string
+        the name of the backup archive. (default "backup")
+  -path string
+        the path to the directory to backup and/or restore. (default ".")
+  -m string
+        a behavior for files missing locally: 'noop' to do nothing, 'restore' to restore them from the backup, 'delete' to delete them in the backup archive. (default "noop")
+  -acct string
+        the azure storage account name.
+  -key string
+        the azure storage account key.
+
+sources
+the sources are on github @ https://github.com/rokeller/bart.
+conclusion
+i’ve used bart for backup of some photos/videos for a while now. for the about 42gb i have uploaded so far my monthly bill from microsoft is about 42 cents ($0.42). those months where i upload new files the cost is a little higher (a few cents usually) because of the extra transactions. my backed up files are encrypted. if this isn’t cheap and secure cloud backups, what is?
+
+
+author  rogerposted on september 28, 2018september 28, 2018categories software engineeringtags azure, backup, cloud, code, golang, oss, security 
+
+
+
+fix slow kubectl on windows 
+
+over the last few days i noticed that when i use kubectl to manage a k8s test cluster in azure, it takes forever to actually carry out the operations remotely. today i took some time to debug this. here’s how to fix a slow kubectl on windows.
+get verbose output
+i started with changing the log level, and capturing the details, like this:
+
+kubectl get pods -v=20
+
+the good news is, given that the commands worked so slowly, i had enough time to just read what was going on, and even understand where the problem was. if it’s not so slow, it helps to redirect stderr to a file, like this:
+
+kubectl get pods -v=20 2> err.txt
+
+in my case, it turned out that the command was going through a cache which was on the h: drive. that may not mean much to you, but my employer’s it maps the h: drive to the (remote) home directory. they also set the homedrive, homepath and homeshare environment variables on login. homedrive in particular is set to h:. given that windows (unlike linux) by default doesn’t come with a home environment variable, kubectl for windows tries to make up by constructing the home path using homedrive and homepath. so kubectl ended up caching everything on a remote share, some 8500 km away. needless to say, the lag between my workstation and the remote share is noticable.
+how to fix slow kubectl on windows
+so, how do you fix this? well, it’s actually very easy: set the home environment variable to a local directory, run kubectl again, and now it’s a lot faster. in powershell, for that session, i just did
+
+$env:home = $env:userprofile
+
+now what’s left for me is to try and convince the it department to stop using the homedrive and homeshare for remote users. that’s the tough part ð
+
+
+author  rogerposted on april 10, 2018april 11, 2018categories software engineeringtags azure, containers, k8s, kubectl, kubernetes 
+
+
+posts navigation
+page 1
+page 2
+…
+page 14
+next page
+
+
+
+
+
+
+
+search
+
+
+
+			search for:		
+
+
+
+		search	
+
+tags
+.net
+active directory
+authentication
+azure
+baking
+c#
+cloud
+code
+compiler
+cymbeline
+database
+debug
+iis
+instrumentation
+json
+linq
+lucene
+lucene.net
+mail
+me
+meta
+microsoft
+oberon
+ocs
+performance
+pie
+poetry
+powershell
+recipes
+rest
+rgs
+rtm
+script
+search
+security
+silverlight
+soap
+spam
+sxs
+ui
+wcf
+web 2.0
+windows
+xml
+xslt
+
+
+
+
+recent posts
+
+
+deprecation notice
+
+
+copy files with powershell remoting
+
+
+cheap and secure cloud backups
+
+
+fix slow kubectl on windows
+
+
+lucene.net.objectmapping for .net standard 2.0
+
+
+
+june 2023
+
+
+m
+t
+w
+t
+f
+s
+s
+
+
+
+
+ 1234
+
+
+567891011
+
+
+12131415161718
+
+
+19202122232425
+
+
+2627282930
+ 
+
+
+
+« jan
+ 
+ 
+categories
+
+cooking
+
+fun
+
+it's the arts
+
+outdoors
+
+software engineering
+
+uncategorized
+
+
+archive archive
+
+select month
+ january 2023  (1)
+ september 2021  (1)
+ september 2018  (1)
+ april 2018  (1)
+ december 2017  (1)
+ december 2015  (1)
+ april 2015  (1)
+ february 2015  (1)
+ january 2015  (3)
+ april 2014  (1)
+ march 2014  (1)
+ february 2014  (3)
+ december 2010  (1)
+ july 2010  (1)
+ may 2010  (1)
+ april 2010  (1)
+ march 2010  (2)
+ february 2010  (1)
+ december 2009  (1)
+ november 2009  (1)
+ october 2009  (1)
+ august 2009  (3)
+ july 2009  (5)
+ june 2009  (1)
+ april 2009  (1)
+ march 2009  (4)
+ february 2009  (4)
+ january 2009  (6)
+ september 2008  (4)
+ february 2005  (1)
+
+
+meta
+
+log in
+entries feed
+comments feed
+wordpress.org
+
+also check out quicknote and jsonprettyprint.
+
+
+ 
+
+
+
+home
+lucene.net.objectmapping
+azure queue agent library
+about
+privacy policy
+ 
+
+tales of a code monkey
+privacy policy 
+					proudly powered by wordpress				
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,177 @@
+
+
+
+
+
+
+
+junkfilter : junk mail filtering with procmail
+
+
+
+
+
+
+
+spam filtering with procmail
+current version: 20030115
+
+
+
+about junkfilter
+
+
+junkfilter is a
+procmail
+-based filter system for electronic mail.  procmail is a popular and
+powerful mail-processing program available for nearly all unix systems.
+this means that junkfilter doesn't work on windows, aol,
+hotmail, yahoo! mail, juno, webtv, or any other type of system--just unix
+(bsd, linux, solaris, etc.).
+
+junkfilter filters a wide range of spam using many different
+types of filters.  it is configurable on a systemwide or per-user
+basis.  is unsolicited commercial email (uce) filling up your mailbox?
+can't stand the thought of webmail-style throwaway email addresses?
+take control of your inbox: filter out 90+% of that spam with
+junkfilter.
+
+
+
+copyright and terms of use
+
+
+junkfilter is copyright 1997-2002 gregory sutter.
+
+junkfilter is free software; you can use it under a 
+bsd-style license.
+
+older releases of junkfilter were licensed under the terms of version 2 of the 
+gnu general public license
+as published by the free software foundation.
+
+
+
+
+obtaining junkfilter
+
+
+i strongly suggest that you 
+read the readme file before you download or try to install.
+
+then you can:
+
+download the current release,
+view the files in the current release,
+browse the cvs tree [sourceforge.net], or
+checkout from anonymous cvs [sourceforge.net].
+
+
+if you are a freebsd user, you 
+may want to use the
+
+freebsd port/package of junkfilter instead.
+
+you can also download older releases, but i really don't
+recommend it.
+
+
+
+mailing list
+
+
+junkfilter has several mailing lists:
+
+
+junkfilter-announce@groups.yahoo.com
+this is a one-way moderated list for announcements related to
+junkfilter.  to subscribe, send a message to
+
+junkfilter-announce-subscribe@groups.yahoo.com.
+in addition, this list is available on the web at
+
+http://www.groups.yahoo.com/group/junkfilter-announce/.
+
+junkfilter-users@groups.yahoo.com
+ this list is available for discussions and questions regarding
+junkfilter.  to subscribe, send a message to
+
+junkfilter-users-subscribe@groups.yahoo.com.
+in addition, this list is available on the web at
+
+http://www.groups.yahoo.com/group/junkfilter-users/.
+
+junkfilter-misses@lists.sourceforge.net
+this list is for spam that is processed by, but not successfully
+filtered by, junkfilter.  there are certain conditions that must be
+met before spam is forwarded to the list; please read the section
+entitled "helping improve junkfilter" in the
+readme file.  you probably do not
+want to subscribe to this list unless you plan to help improve
+junkfilter's spam catching abilities.
+this list is available on the web at
+
+http://lists.sourceforge.net/lists/listinfo/junkfilter-misses/.
+
+
+
+
+help improve junkfilter!
+
+
+help improve junkfilter!
+if you know procmail, or would like an example of a working
+procmail-based tool of medium complexity to play with or 
+hack around on, take a look at the junkfilter code.  there 
+are lots of ways to improve the system.  please submit 
+bugs (and preferably patches) to the management systems at
+sourceforge:
+
+
+bugs:  
+http://sourceforge.net/tracker/?atid=113498&group_id=13498&func=browse
+
+patches:
+http://sourceforge.net/tracker/?atid=313498&group_id=13498&func=browse
+
+
+bugs, patches, questions, and comments may also be posted
+to the junkfilter-users mailing list or to the author.  note
+that emailing the author directly has the lowest probability
+of receiving a timely response. 
+
+
+
+if you can't use junkfilter
+
+
+(if you don't have procmail or access to procmail (through a shell 
+account on your isp), you could
+try myles white's 
+filtering strategies for popular programs such as eudora, outlook,
+netscape, and pegasus. they're not as good as procmail, but they're a
+whole lot better than nothing.)
+
+
+
+contact
+
+
+i hope the junkfilter junk mail filtration system is of use to 
+you.  please contact the author for
+more information.
+
+.
+.
+
+
+
+
+
+gregory sutter,
+gsutter@zer0.org
+$id: index.html,v 1.29 2003/01/16 01:44:52 gsutter exp $
+created 1997/07/06
+
+
+

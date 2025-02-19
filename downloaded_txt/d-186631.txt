@@ -1,0 +1,579 @@
+
+
+
+a neighborhood of infinity
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+	a neighborhood of infinity
+	
+  
+
+
+
+
+
+
+sunday, september 15, 2024
+
+
+
+	 
+	 what does it take to be a hero? and other questions from statistical mechanics.
+	 
+    
+
+
+1 we only hear about the survivorsin the classic star trek episode errand of mercy, spock computes the chance of success:captain james t. kirk : what would you say the odds are on our getting out of here?mr. spock : difficult to be precise, captain. i should say, approximately 7,824.7 to 1.and yet they get out of there. are spock’s probability computations
+unreliable? think of it another way. the galaxy is a large place. there
+must be tens of thousands of spocks, and grocks, and plocks out there
+on various missions. but we won’t hear (or don’t want to hear) about
+the failures. so they may all be perfectly good at probability theory, but
+we’re only hearing about the lucky ones. this is an example of survivor
+bias.2 simulationwe can model this. i’ve written a small battle simulator for a super-simple
+made up role-playing game...and the rest of this article can be found at github(be sure to download the actual pdf if you want to be able to follow links.)
+
+
+
+posted by sigfpe at sunday, september 15, 2024
+0 comments
+
+
+
+
+
+
+saturday, september 07, 2024
+
+
+
+	 
+	 how to hide information from yourself in a solo rpg
+	 
+    
+
+
+a more stable version of this article can be found on github.the problemsince the early days of role-playing games there has been debate over which rolls the gm should make and which are the responsibility of the players. but i think that for “perception” checks it doesn’t really make sense for a player to roll. if, as a player, you roll to hear behind a door and succeed, but you’re told there is no sound, then you know there is nothing to be heard. but you ought to just be left in suspense.if you play a solo rpg the situation is more challenging. if there is a probability p of a room being occupied, and probability q of you hearing the occupant if you listen at the door, how can you simulate listening without making a decision about whether the room is occupied before opening the door? i propose a little mathematical trick.
+
+helena listening, by arthur rackhamsimulating conditional probabilitiessuppose p(m) = p and p(h|m) = q (and p(h|not m) = 0). then p(h) = pq. so to simulate the probability of hearing something at a new door: roll to see if a monster is present, and then roll to hear it. if both come up positive then you hear a noise.but...but...you object, if the first roll came up positive you know there is a monster, removing the suspense if the second roll fails. well this process does produce the correct (marginal) probability of hearing a noise at a fresh door. so you reinterpret the first roll not as determining whether a monster is present, but as just the first step in a two-step process to determine if a sound is heard.but what if no sound is heard and we decide to open the door? we need to reduce the probability that we find a monster behind the door. in fact we need to sample p(m|not h). we could use bayes’ theorem to compute this but chances are you won’t have any selection of dice that will give the correct probability. and anyway, you don’t want to be doing mathematics in the middle of a game, do you? there’s a straightforward trick. in the event that you heard no noise at the door and want to now open the door: roll (again) to see if there is a monster behind the door, and then roll to listen again. if the outcome of the two rolls matches the information that you know, ie. it predicts you hear nothing, then you can now accept the first roll as determining whether the monster is present. in that case the situation is more or less vacuously described by p(m|not h). if the two rolls disagree with what you know, ie. they predict you hear something, then repeat the roll of two dice. keep repeating until it agrees with what you know. in generalthere is a general method here though it’s only practical for simple situations. if you need to generate some hidden variables as part of a larger procedure, just generate them as usual, keep the variables you observe, and discard the hidden part. if you ever need to generate those hidden variables again, and remain consistent with previous rolls, resimulate from the beginning, restarting the rolls if they ever disagree with your previous observations.in principle you could even do something like simulate an entire fight against a creature whose hit points remain unknown to you. but you’ll spend a lot of time rerolling the entire fight from the beginning. so it’s better for situations that only have a small number of steps, like listening at a door.
+
+
+
+
+posted by sigfpe at saturday, september 07, 2024
+0 comments
+
+
+
+
+
+
+monday, august 21, 2023
+
+
+
+	 
+	 what does it mean for a monad to be strong?
+	 
+    
+
+
+this is something i put on github years ago but i probably should have put it here.
+
+here's an elementary example of the use of the list monad:
+
+
+> test1 = do
+>   x <- [1, 2]
+>   y <- [x, 10*x]
+>   [x*y]
+
+
+we can desugar this to:
+
+
+> test2 = [1, 2] >>= \x -> [x, 10*x] >>= \y -> [x*y]
+
+
+it looks like we start with a list and then apply a sequence (of length 2) of functions to it using
+bind (>>=). this is probably why some people call monads workflows and why the comparison has been
+made with unix pipes.
+
+but looks can be deceptive. the operator (>>=) is right associative and test2 is the same as test3:
+
+
+> test3 = [1, 2] >>= (\x -> [x, 10*x] >>= \y -> [x*y])
+
+
+you can try to parenthesise the other way:
+
+
+> -- test4 = ([1, 2] >>= \x -> [x, 10*x]) >>= \y -> [x*y]
+
+
+we get a "variable not in scope: x" error. so test1 doesn't directly fit the workflow model. when
+people give examples of how workflow style things can be seen as monads they sometimes use
+examples where later functions don't refer to variables defined earlier. for example at the link i
+gave above the line m >>= x-> (n >>= y-> o) is transformed to (m >>= x-> n) >>= y-> o which
+only works if o makes no mention of x. i found similar things to be true in a number of tutorials,
+especially the ones that emphasise the kleisli category view of things.
+
+but we can always "reassociate" to the left with a little bit of extra work.  the catch is that the
+function above defined by y-> ... "captures" x from its environment.  so it's not just one
+function, it's a family of functions parameterised by x.  we can fix this by making the dependence
+on x explicit.  we can then pull the inner function out as it's no longer implicitly dependent on
+its immediate context.  when compilers do this it's called lambda lifting.
+
+define (the weirdly named function) strength by
+
+
+> strength :: monad m => (x, m y) -> m (x, y)
+> strength (x, my) = do
+>   y <- my
+>   return (x, y)
+
+
+it allows us to smuggle x "into the monad".
+
+and now we can rewrite test1, parenthesising to the left:
+
+
+> test5 = ([1, 2] >>= \x -> strength (x, [x, 10*x])) >>= \(x, y) -> [x*y]
+
+
+this is much more like a workflow. using strength we can rewrite any (monadic) do expression as a
+left-to-right workflow, with the cost of having to throw in some applications of strength to carry
+along all of the captured variables. it's also using a composition of arrows in the kleisli category.
+
+a monad with a strength function is called a strong monad. clearly all haskell monads are strong as i
+wrote strength to work with any haskell monad. but not all monads in category theory are strong.
+it's a sort of hidden feature of haskell (and the category set) that we tend not to refer to explicitly.
+it could be said that we're implicitly using strength whenever we refer to earlier variables in our
+do expressions.
+
+see also nlab.
+
+
+> main = do
+>   print test1
+>   print test2
+>   print test3
+>   -- print test4
+>   print test5
+
+
+
+
+
+posted by sigfpe at monday, august 21, 2023
+0 comments
+
+
+
+
+
+
+sunday, march 05, 2023
+
+
+
+	 
+	 constructing clifford algebras using the super tensor product
+	 
+    
+
+
+some literate haskell but little about this code is specific to haskell...
+
+
+> {-# language datakinds #-}
+> {-# language typefamilies #-}
+> {-# language typeoperators #-}
+> {-# language undecidableinstances #-}
+> 
+> import ghc.typelits
+
+
+introduction
+this is a followup to geometric algebra for free and more low cost geometric algebra.
+
+in those articles i showed how you could build up the clifford algebras like so:
+
+
+type cliff1  = complex r
+type cliff1' = split r
+type cliff2  = quaternion r
+type cliff2' = matrix r
+type cliff3  = quaternion cliff1'
+type cliff3' = matrix cliff1
+type cliff4  = quaternion cliff2'
+type cliff4' = matrix cliff2
+type cliff5  = quaternion cliff3'
+...
+
+
+i used cliffn as the clifford algebra for a negative definite inner product and
+cliffn' for the positive definite case.
+it's not a completely uniform sequence in the sense that cliffn is built from cliffn' for dimension two lower and you use a mix of matrix and quaternion.
+
+the core principle making this work is that for type constructors  implemented like matrix, quaternion etc. we have the property that
+
+
+
+eg. matrix (quaternion float) is effectively the same thing as matrix float  quaternion float.
+
+but john baez pointed out to me that you can build up the cliffn algebras much more simply enabling us to use these definitions:
+
+
+> type cliff1 = complex float
+> type cliff2 = complex cliff1
+> type cliff3 = complex cliff2
+> type cliff4 = complex cliff3
+> type cliff5 = complex cliff4
+
+
+
+...
+
+
+or even better:
+
+
+> type family cliff (n :: nat) :: * where
+>   cliff 0 = float
+>   cliff n = complex (cliff (n - 1))
+
+
+but there's one little catch.
+we have to work, not with the tensor product, but the super tensor product.
+
+we define complex the same way as before:
+
+
+> data complex a = c a a deriving (eq, show)
+
+
+previously we used a definition of multiplication like this:
+
+
+instance num a => num (complex a) where
+  c a b * c c d = c (a * c - b * d) (a * d + b * c) 
+
+
+we can think of c a b in complex r as representing the element  .
+the definition of multiplication in a tensor product of algebras is defined by .
+so we have    .
+
+this means that line of code we wrote above defining * for complex isn't simply a definition of multiplication of complex numbers, it says how to multiply in an algebra tensored with the complex numbers.
+
+let's go super!
+a superalgebra is an algebra graded by  where  is the ring of integers modulo 2.
+what that means is that we have some algebra  that can be broken down as a direct sum  (the subscripts live in ) with the property that multiplication respects the grading, ie. if  is in  and  is in  then  is in .
+
+the elements of  are called "even" (or bosonic) and those in  "odd" (or fermionic). often even elements commute with everything and odd elements anticommute with each other but this isn't always the case. (the superalgebra is said to be supercommutative when this happens. this is a common pattern: a thing x becomes a superx if it has odd and even parts and swapping two odd things introduces a sign flip.)
+
+the super tensor product is much like the tensor product but it respects the grading.
+this means that if  is in  and  is in  then  is in .
+from now on i'm using  to mean super tensor product.
+
+multiplication in the super tensor product of two superalgebras  and  is now defined by the following modified rule:
+if  is in  and  is in  then .
+note that the sign flip arises when we shuffle an odd  left past an odd .
+
+the neat fact that john pointed out to me is that
+.
+
+we have to modify our definition of * to take into account that sign flip.
+
+i initially wrote a whole lot of code to define a superalgebra as a pair of algebras with four multiplication operations and it got a bit messy.
+but i noticed that the only specifically superalgebraic operation i ever performed on an element of a superalgebra was negating the odd part of an element.
+
+so i could define superalgebra like so:
+
+
+class superalgebra a where
+  conjugation :: a -> a
+
+
+where conjugation is the negation of the odd part.
+
+(i'm not sure if this operation corresponds to what is usually called conjugation in this branch of mathematics.)
+
+but there's a little efficiency optimization i want to write.
+if i used the above definition, then later i'd often find myself computing a whole lot of negates in a row.
+this means applying negate to many elements of large algebraic objects even
+though any pair of them cancel each other's effect.
+so i add a little flag to my conjugation function that is used to say we want an extra negate and we can
+accumulate flips of a flag rather than flips of lots of elements.
+
+
+> class superalgebra a where
+>   conjugation :: bool -> a -> a
+
+
+here's our first instance:
+
+
+> instance superalgebra float where
+>   conjugation false x = x
+>   conjugation true x = negate x
+
+
+this is saying that the conjugation is the identity on float but if we
+want to perform an extra flip we can set the flag to true.
+maybe i should call it conjugationwithoptionalextranegation.
+
+and now comes the first bit of non-trivial superalgebra:
+
+
+> instance (num a, superalgebra a) => superalgebra (complex a) where
+>   conjugation e (c a b) = c (conjugation e a) (conjugation (not e) b)
+
+
+we consider  to be even and  to be odd. when we apply the conjugation to  then we can just apply it directly to .
+but that  flips the "parity" of  (because tensor product respects the grading) so we need to swap when we use the conjugation.
+and that should explain why conjugation is defined the way it is.
+
+now we can use the modified rule for  defined above:
+
+
+> instance (num a, superalgebra a) => num (complex a) where
+>   frominteger n = c (frominteger n) 0
+>   c a b + c a' b' = c (a + a') (b + b')
+>   c a b * c c d = c (a * c - conjugation false b * d)
+>                     (conjugation false a * d + b * c) 
+>   negate (c a b) = c (negate a) (negate b)
+>   abs = undefined
+>   signum = undefined
+
+
+for example, conjugation false is applied to the first  on the rhs because  implicitly represents an  term and when expanding out the product we shuffle the (odd)  in  left of . it doesn't get applied to the second  because  and  remain in the same order.
+
+that's it!
+
+tests
+i'll test it with some examples from cliff3:
+
+
+> class hasbasis a where
+>   e :: integer -> a
+
+> instance hasbasis float where
+>   e = undefined
+
+> instance (num a, hasbasis a) => hasbasis (complex a) where
+>   e 0 = c 0 1
+>   e n = c (e (n - 1)) 0
+
+> make a b c d e f g h =
+>   c (c (c a b) (c c d))
+>     (c (c e f) (c g h))
+
+> e1, e2, e3, e21, e31, e32, e321 :: cliff 3
+> e1 = e 0
+> e2 = e 1
+> e21 = e2 * e1
+> e3 = e 2
+> e31 = e3 * e1
+> e32 = e3 * e2
+> e321 = e3 * e2 * e1
+
+> main = do
+>     print (e1 * e1 + 1 == 0)
+>     print (e31 * e31 + 1 == 0)
+>     print (e3 * e3 + 1 == 0)
+>     print (e21 * e21 + 1 == 0)
+>     print (e2 * e2 + 1 == 0)
+>     print (e32 * e32 + 1 == 0)
+>     print (e321 * e321 - 1 == 0)
+>     print (e3 * e2 * e1 - e321 == 0)
+>     print (e2 * e1 - e21 == 0)
+>     print (e3 * e1 - e31 == 0)
+>     print (e3 * e2 - e32 == 0)
+>     print (e21 * e32 - e31 == 0)
+
+
+observation
+the implementation of multiplication looks remarkably like it's the cayley-dickson construction.
+it can't be (because iterating it three times gives you a non-associative algebra but the clifford algebras are associative).
+nonetheless, i think comparison with cayley-dickson may be useful.
+
+efficiency
+as mentioned above, before i realised i just needed the conjugation operation i wrote the above code with an explicit split of a superalgebra into two pieces intertwined by four multiplications.
+i think the previous approach may have a big advantage - it may be possible to use variations on the well known "speed-up" of complex multiplication that uses three real multiplications instead of four.
+this should lead to a fast implementation of clifford algebras.
+
+also be warned: you can kill ghc if you turn on optimization and try to multiply elements of high-dimensional clifford algebras.
+i think it tries to inline absolutely everything and you end up with a block of code that grows exponentially with .
+
+note also that this code translates directly into many languages.
+
+
+
+
+posted by sigfpe at sunday, march 05, 2023
+0 comments
+
+
+
+
+
+
+
+
+
+
+
+about me
+
+name:  sigfpe 
+
+view my complete profile
+
+
+previous posts
+
+what does it take to be a hero? and other question...
+how to hide information from yourself in a solo rpg
+what does it mean for a monad to be strong?
+constructing clifford algebras using the super ten...
+some pointers to things not in this blog
+why is nuclear fusion so hard?
+running from the past
+a tail we don't need to wag
+what is a photon?
+self-referential logic via self-referential circuits
+
+archives
+
+may 2005
+june 2005
+july 2005
+august 2005
+september 2005
+october 2005
+november 2005
+december 2005
+january 2006
+february 2006
+march 2006
+april 2006
+may 2006
+june 2006
+july 2006
+august 2006
+september 2006
+october 2006
+november 2006
+december 2006
+january 2007
+february 2007
+march 2007
+april 2007
+may 2007
+june 2007
+july 2007
+september 2007
+october 2007
+november 2007
+december 2007
+january 2008
+february 2008
+march 2008
+april 2008
+may 2008
+june 2008
+july 2008
+august 2008
+september 2008
+october 2008
+november 2008
+december 2008
+january 2009
+february 2009
+march 2009
+april 2009
+may 2009
+june 2009
+july 2009
+september 2009
+october 2009
+november 2009
+december 2009
+january 2010
+february 2010
+march 2010
+april 2010
+may 2010
+july 2010
+august 2010
+september 2010
+november 2010
+december 2010
+january 2011
+february 2011
+april 2011
+may 2011
+june 2011
+july 2011
+august 2011
+october 2011
+january 2012
+february 2012
+march 2012
+april 2012
+november 2012
+december 2012
+january 2013
+april 2013
+october 2013
+february 2014
+april 2014
+may 2014
+august 2016
+october 2016
+january 2017
+february 2017
+june 2017
+july 2017
+august 2017
+october 2017
+october 2018
+december 2018
+september 2020
+march 2023
+august 2023
+september 2024
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+

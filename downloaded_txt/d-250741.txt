@@ -1,0 +1,148 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+welcome to codestore, jake howlett's web developer e-zine - lotus domino, flex, asp.net mvc and more
+
+
+
+
+
+
+
+
+
+
+
+menu
+
+
+
+home
+blogs
+surveys
+sandbox
+search
+
+
+
+a tool i made to export from notes to sql (etl) tue 14 jan 2014
+as i watch all my customers leaves notes/domino behind, all i can do is try and assist as best i can. as part of this process i've found myself creating a notes-to-sql export tool.    the tool is notes-based and involves the following three part process: step 1. loop through and analyse every single document in the target database and build a list of all unique combinations of form + field + data-type. for each combination it finds, a notes document is created which lists the form name, the field name and the type of data (text, authors, rich text, numbers etc) the resulting list is then analysed and any duplicate fields (conflicting data types) or unnecessary fields are removed. step 2. taking the results of step 1 it then builds the sql tables (using the document's unid as the table's primary key). for each form it creates a table of the same name. for each field related to that form it creates a column in the sql table with the equivalent data type. step 3. finally, step 3 populates the sql tables with data by once again looping all documents in the database and exporting each document to a new row in sql according to the map of form-fields we've decided on. once it's done we can then go in to sql and define relationships between parent/child document by joining the tables in a database diagram. although as an enhancement to the tool it could be a part of the export process that we define these rules. as part of the initial configuration of the tool you can tell it which forms to ignore, which fields ignore, which fields to always treat as unids etc. once the data is in sql then you can do the t and l of the etl process. attachments? for attachments there's a special table called files which stores the unid and filename of any files found during the export. these files are detached to disk and the path to them stored in the "files" table. for any given row of any of the sql tables you can find the associated attachments by looking in the files table for a matching unid. taking it to market? i've always known i need a product to sell. could this be it? it's some way off being ready to sell directly off the shelf. however, with some support from yours truly i reckon it could be used in most situations or tailored to work where it doesn't quite fit. if you're interested in using the tool to migrate data from lotus notes to sql server (or any other rdbms system) then drop me a line on jake.howlett@rockalldesign.com.  there are 27 comments in 14 threads read - add
+the perfect desk quest - 2013 update (part 2) wed 11 dec 2013
+back in march i updated you all on how my on-going quest for the perfect desk was coming along. here now is another update. question: can you ever have too many monitors or enough "real estate" desktop size? answer: no! here's how my desk looks now:  from left to right, there's a (newly-added) dell u2713h (showing os x), a dell u2711 and a samsung syncmaster 245b (both showing the same windows 7 pc). all in there are 9,676,800 pixels glaring back at me!!  aside from adding a brand new monitor (which, by the way is amazing and i can't recommend it enough) the main difference is that there is only one keyboard and mouse, which shared between win and mac using synergy km.  synergy is brilliant and, again, i can't recommend it enough. it's been recommended to me on here previously, several times. why oh why i didn't try it out before i don't know. well, i do. it's because i don't like the idea of having to run daemons on my pcs. which is a stupid reason and i'm so glad i saw sense. it's like a kind of magic seeing your mouse move from windows to mac without even the slightest hint of a lag. for the first day or so i'd just keep needlessly moving between the two just to watch it happen. after a while it's almost possible to start thinking of them both as the same pc! the mouse itself has to move about 3" to travel between the extremities of all three screens! i use the mac mini for video editing, the occasional php coding (coda 2) and for running various versions of windows inside parallels virtual machines for testing sites in different versions of ie. until now, using the mac wasn't great. the monitor was small and attached square to the wall. to use for any length of time meant moving one keyboard out the way, moving over the other and re-positioning my chair. the old monitor was also too small to do os x justice or for any kind of effective video editing. all those issues have now been resolved. is it my perfect desk though? no! but it's, way, way, way better than before. not perfect though. the quest continues... there are 6 comments in 5 threads read - add
+recovering a laptop after forgetting windows and bios password wed 4 dec 2013
+my sis-in-law loves a bargain (she's from yorkshire!) and recently rang to ask me (via her sister, my wife) if i'd be able to recover a laptop she'd been offered, before she went ahead and bought it.  apparently the owner of the laptop had forgotten the windows password and had written the laptop off as worthless, so was willing to sell for next-to-nothing. i said yes, i'd able to do something with it. what i didn't realise was that it might have a bios password, which it did! initially i'd thought it would be as simple as sticking in a windows install cd and building from scratch. however, without the bios password i couldn't change the boot order of the disks to get it to boot from cd. i tried google and there's lots of complicated hacks out there, as well as bios removal tools for sale. none of the hacks worked for me. nor did stripping the laptop down to hot-wire jumpers or remove the cmos battery (which was un-removable). then i had a brainwave. the simple, fool-proof solution if you find yourself wanting to boot from cd on a laptop (or pc for that matter) where you can't modify the bios try this:  remove the hard drive insert the windows install cd start the laptop hope that bios fails-over to the cd after not finding a hard drive if it boots from the cd, while that's happening, quickly re-insert the hard drive. by the time windows is ready to install the hard drive will be there remove the old disk partitions and start afresh hey presto. worked for me. hope it helps somebody else. there are 7 comments in 2 threads read - add
+rockall design now in its 11th year! fri 1 nov 2013
+rockall design ltd (the little company i run from the office-slash-garage in my garden) was 10 years old yesterday. it's customary on this day each year that i plot a chart of turnover growth over the years. so, here it is:  as you can see it's been a bumper year.  last year i put down what, at the time, i thought was a good year to:  long hours and 'hard' work. but mainly luck! this year is much the same. although, if i thought i was doing long hours back then i had no idea what was in store this past year.  i was reluctant to show the chart as it may seem like i'm showing off and nobody likes a show off (note however that i leave the actual number involved a mystery). suffice to say, i would have posted the chart no matter which direction the line would have gone this year.  at what cost success? i hear people talk about this thing called a work/life balance, whatever that might be. it's gotten to the point for me now where all i seem to do is work. not only that but, when i'm not working, it's work that i'm thinking about and i find it hard to switch off. luckily i love what i do. but there are other things i love. my family being top of that list. i used to have a self-imposed rule of not working at the weekend. lately even that golden rule has gone out the window. people sometimes say to me "i'd love to work from home" or "it must be great being your own boss". at which point i normally snap up the chance to poor my heart out about the loneliness and how you're never your own boss. you will always have a boss and answer to somebody.  once upon a time i had a group of friends i saw regularly and had a few hobbies i enjoyed.  then there's this website! what happened there?! well, if you turn my company growth chart upside down, it could just as well be a plot of the number of readers this site has had over the years. as my takings have shot up over the last couple of years the readers of this site have plummeted.  i'm overdoing it on the moaning though. in reality i'm happy with how things are. i'm earning more money than i ever dreamt possible. i know it won't/can't continue and i'm making sure i make as much hay as i can while the sun's shining. being self-employed means i have to provide for my own retirement. i'm not greedy or obsessed by money, but it would be crazy for me not to take the opportunity to capitalise on any chances i'm given to earn.   still domino? i'm sure the question on everybody's lips (well, at least on those of the people who've not stopped reading the site) is "what technology is earning your crust just lately?". this time last year i said it was lotus domino that was responsible for most of rockall's turnover. this year however the picture has changed and, whilst domino is still in the equation, it's now microsoft dynamics crm and asp.net mvc that i'm working with.  whether dynamics crm remains in the picture long term or not i don't know. it certainly feels like it's got a brighter (more lucrative) future for it than domino does. it's an interesting product and hopefully i'll find time to write about it here soon. right, back to work. so much to do.... there are 16 comments in 14 threads read - add
+using font awesome icons in fireworks mon 14 oct 2013
+  the font-based web icons from font awesome is brilliant. especially when used in conjunction with bootstrap. you can quickly and easily add any one of the icons to your html buttons (or many other elements for that matter). like so:  sometimes though, you can't use web fonts. either you can't rely on them being supported or, for some other reason, you just want to use an image file. that was the case for me recently and i wanted an image file of an exclamation mark. here's how easy it was using font awesome and adobe fireworks to create images based on font icons. first step is to download and install the font awesome font to your pc. then open the character map program and select the font awesome font, as below:  in there you can view, select and copy any one of the icons. with it copied to the clipboard, you can then switch to fireworks, start a new canvas, select the text tool (or press "t"), click on the canvas somewhere and paste in the icon. you can then resize and re-colour as you wish, as below:  note that fireworks is a vector-based drawing app and you can break apart (ctrl+shift+p) the icons so that you can re-define their shape by dragging corners and points around, like below, where, for no particular reason, i've made the point wider:  the only limit is your creativity (or lack thereof, as shown here). hey, look, i made a download button with a picture of a cloud in it:  if you get stuck trying to find the icon you want from within character map then here's a tip that may help. find the icon on the website and on there they show you the unicode code, which you can type in to character map to find the icon, as below.  have fun! future of fireworks fireworks is brilliant. why of why adobe have decided to scrap it i don't know. i only hope it either goes open source or the version i currently own keeps working for as long as i have need of a graphics tool. there are 4 comments in 2 threads read - add
+ more blog entries are available in the archive »
+
+
+
+latest comments
+
+darryn sullivan on the perfect desk quest - 2013 update (part 2) about 4 years ago
+wumrlvwz on the big domino view search test about 4 years ago
+wumrlvwz on the big domino view search test about 4 years ago
+wumrlvwz on the big domino view search test about 4 years ago
+wumrlvwz on the big domino view search test about 4 years ago
+wumrlvwz on the big domino view search test about 4 years ago
+wumrlvwz on the big domino view search test about 4 years ago
+wumrlvwz on the big domino view search test about 4 years ago
+wumrlvwz on the big domino view search test about 4 years ago
+wumrlvwz on the big domino view search test about 4 years ago
+wumrlvwz on the big domino view search test about 4 years ago
+wumrlvwz on the big domino view search test about 4 years ago
+
+
+
+let's get social
+
+me on twittter
+me on google+
+rss feed for this site
+me on linkedin
+my pins
+my code on github
+my vimeo videos
+
+
+about this websitecodestore is all about web development.  concentrating on lotus domino, asp.net, flex, sharepoint and all things internet.
+your host is jake howlett who runs his own web development company called rockall design and is always on the lookout for new and interesting work to do.
+you can find me on twitter and on linked in.
+read more about this site »
+latest survey
+is lotusscript still relevant?i tend to code purely in lotusscript 36%
+i now only maintain existing lotusscript code 9%
+i use both, choosing whichever is right for the task 27%
+i used to use lotusscript, but now only use java 8%
+who cares, as long as it gets the job done 17%
+
+comment or vote here »
+elsewhere
+
+ we hereby name this portrait technique: portrait inception! next...tue 02 oct 2012
+ choosing lenses: when to use which lens and whysat 22 sep 2012
+ symphonyonline.co.ukwed 22 aug 2012
+ jungledragon celebrates 5,000 awesome wildlife imagestue 07 aug 2012
+ httpwatch 8.4: supports firefox 14 and seleniummon 30 jul 2012
+ pull down to refreshwed 25 may 2011
+ tutorial: styling the actionbartue 17 may 2011
+ interesting chart mapping the life, death, and …mon 18 apr 2011
+
+more links are available in the archive »
+some demos
+dext is a downloadable domino database chock-full of the following demos and more:
+pdf files based on templatesflex document explorerfile generation without disk i/oaccessible ajax surveysxss-proof formmultiple key typeaheadsbackup database contents to zip filedocument rating systemdocument sorting with ajaxwordy datestolerant html processing
+checkbox stylingmany-to-many document hierarchycalendar-like viewsform validationdomino directory name picker widgetinviewedit view processing agentajax dblookup functionsimple dojo ajaxcolour-shaded viewssprite-based buttonsgoogle gears demo
+to download dext take a look in the sandbox
+
+
+
+
+
+top
+
+home
+blogs
+surveys
+sandbox
+search
+
+
+
+
+
+
+
+about
+contact
+other sites
+rss → content
+rss → comments
+my wishlist
+
+
+
+copyright © 2000 - 2025 jake howlett of rockall design ltd
+this site is kindly hosted by prominic.net - domino hosting smarties.
+looking for group accommodation in the uk?
+
+ 
+

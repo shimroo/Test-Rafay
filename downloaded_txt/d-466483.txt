@@ -1,0 +1,247 @@
+
+
+
+
+
+
+
+
+miqrogroove – digital ideas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		skip to content	
+
+
+
+miqrogroove
+digital ideas
+menu and widgets
+
+
+
+
+tags
+authoritative restore
+goodnotes
+gps navigation
+haraka
+iis6
+iis 8
+ipad
+mobile alerts
+ms office
+mysql
+offline files
+owncloud
+php
+power management
+rdp
+social networking
+symfony
+system state
+technology trends
+ubuntu 20.04
+visio 2010
+vpn
+windows 8
+windows 10
+windows 2003
+windows 2012
+windows updates
+windows xp
+wordpress
+wrt54g
+
+
+
+
+search for:
+
+
+
+pagescontact
+site map
+ 
+
+
+
+
+
+
+
+autowiring of non-shared services 
+
+with the symfony framework, most objects are supposed to live in the service container.  this facilitates an “autowire” of all the class constructors, plus a great deal of magic from the debug tools.
+most objects are supposed to be “shared” as well.  this is symfony’s substitute for the singleton pattern.  it helps prevent duplication of “services”.  however, services don’t always fit this pattern.
+one of the symfony configuration tutorials divides object classes into only two types.  in that limited example, objects would have to be “services that do work” or “models that hold data”.  again, services don’t always fit into this pattern.
+continue reading autowiring of non-shared services 
+
+posted on september 17, 2023january 17, 2024categories systems engineeringtags php, symfonyleave a comment on autowiring of non-shared services 
+
+
+
+smart host config for haraka v3.0 
+
+this is the 4th post in a series about setting up an outbound smtp server with dkim signing and smart host forwarding. here you will learn how to configure an existing haraka server to forward all outgoing mail to another smtp server.  in this update, i will explain a simplified built-in method that is available thanks to bug fixes published after i wrote the old post for v2.8.
+continue reading smart host config for haraka v3.0 
+
+posted on july 16, 2023july 16, 2023categories systems engineeringtags haraka, ubuntu 20.04leave a comment on smart host config for haraka v3.0 
+
+
+
+rdp certificate error 
+
+here’s a vague error message from the windows 10 remote desktop connection client:
+the connection has been terminated because an unexpected server authentication certificate was received from the remote computer.
+this was popping up in a message box on a specific client during every connection attempt.  the message box can be closed and there are no other options.  the server’s certificate chain was correct.  rebooting the server did not help.
+in this case, the certification authority had been renewed but not yet imported to this client’s trusted root store.
+the solution was to type “manage computer certificates” at the client’s start menu and then import the missing ca certificate.  after that, the client connected normally.
+
+
+posted on september 15, 2022categories systems engineeringtags rdp, windows 10leave a comment on rdp certificate error 
+
+
+
+ms access crashes on “select ?” query 
+
+i found another way to force ms access to crash to desktop, and it’s shockingly simple.
+sub sqltest()
+    dim query as adodb.command
+    set query = new adodb.command
+    with query
+        .activeconnection = currentproject.connection
+        .commandtext = "select ?"
+        .parameters.append .createparameter(, adchar, , 1, "a")
+        .execute
+    end with
+end sub
+continue reading ms access crashes on “select ?” query 
+
+posted on april 16, 2022april 17, 2022categories systems engineeringtags ms officeleave a comment on ms access crashes on “select ?” query 
+
+
+
+adding dkim with haraka 
+
+this is the 3rd post in a series about setting up an outbound smtp server with dkim signing and smart host forwarding. here you will learn how to configure an existing haraka server to sign all outbound emails with a dkim header.
+after setting up the libraries, config files, system service, and smart host forwarding, adding the dkim plugin should seem like a breeze.  i’m including a couple extra steps where the documentation didn’t quite get me all the way to the finish line.
+domainkeys identified mail, in case you weren’t familiar with it, allows the sending server to use a cryptographic signature, storing the public decryption key in a dns record.  the receiver can then verify the signing server has a key for that domain.
+continue reading adding dkim with haraka 
+
+posted on january 14, 2022august 26, 2024categories securitytags harakaleave a comment on adding dkim with haraka 
+
+
+
+smart host config for haraka 
+
+update: this post was written for haraka v2.8.  please see also smart host config for haraka v3.0
+this is the 2nd post in a series about setting up an outbound smtp server with dkim signing and smart host forwarding.  here you will learn how to configure an existing haraka server to forward all outgoing mail to another smtp server.
+part of the credit for this solution goes to matt’s hacking blog which got me pointed in the right direction after a morning of futile config file editing.  it just needed some updates, tweaks, and longer explanations of how to make it work.
+the core trick here is a custom plugin.  i already had an smtp service account with dns made easy, so i used that as an example for my forward smart host.  i created a file named /etc/haraka/plugins/dnsmadeeasy.js
+continue reading smart host config for haraka 
+
+posted on january 14, 2022july 16, 2023categories systems engineeringtags harakaleave a comment on smart host config for haraka 
+
+
+
+installing haraka in ubuntu 20.04 
+
+this is the first post in a series about setting up an in-house outbound smtp server with dkim signing and smart host forwarding.  here you will find the steps to install the haraka smtp server, configure it to accept outbound mail, and run it as a system service.
+requirement: node.js
+you will need the npm command to install haraka, and i found it was not available by default.  to read the official instructions for this step, reference this page:
+node.js binary distributions
+this is how i did it:
+curl -fssl https://deb.nodesource.com/setup_current.x | sudo -e bash -
+
+apt install nodejs
+the haraka application
+with the prerequisites met, it’s as simple as this:
+npm install -g haraka
+continue reading installing haraka in ubuntu 20.04 
+
+posted on january 14, 2022july 16, 2023categories systems engineeringtags haraka, ubuntu 20.04leave a comment on installing haraka in ubuntu 20.04 
+
+
+
+ms access crashes on treeview.nodes.clear 
+
+i found a specific situation where ms access always crashes to desktop.  here are the ingredients:
+a bound form with a microsoft treeview control, version 6.0.form’s “allow additions” property set to “no”treeview populated using the form_current() event.prior to populating the treeview, calling .nodes.clear on the treeview object.to set up the crash, filter the form to an empty recordset.click on the home ribbon and the toggle filter button.
+download testcase file: treeview-testcase.accdb
+workaround
+in the form_current() event, add a doevents command immediately before nodes.clear.
+set mytree = me.treeview0.object
+doevents
+mytree.nodes.clear
+
+
+posted on may 21, 2021may 21, 2021categories systems engineeringtags ms officeleave a comment on ms access crashes on treeview.nodes.clear 
+
+
+
+instr performance for vba 
+
+i solved a mysterious bottleneck last night while working with large string values in ms access.  my vba code was reading a file to a string variable, checking several values near the beginning of the string, and then manipulating and saving the string to the database.
+oddly, one of the slowest parts of my code was the several instr calls that were only checking the first few hundred bytes of the string.  i could alleviate part of the problem by copying the beginning of my file to a shorter string value, but in so doing i also noticed unexpected results from the instr return value.
+continue reading instr performance for vba 
+
+posted on may 21, 2021categories systems engineeringtags ms officeleave a comment on instr performance for vba 
+
+
+
+forcing php to sort like mysql 
+
+if you ever have to do a case-insensitive array sort in php, you will eventually notice that the results don’t match the mysql latin1_swedish_ci collation.  they just aren’t the same.  the difference comes from a set of six characters that fall between the upper-case and lower-case alpha characters of iso-8859-1.
+specifically, [ \ ] ^ _ ` are the troublemakers.  a simple example would involve sorting the phrases “hello” and “[hello]”.  in mysql, “hello” comes first.  in php, “hello” comes last.
+if this is driving you crazy, all you will need to do is trick php into using an upper-case sort instead of a lower-case sort.
+$strings = ['hello', '[hello]', 'hello'];usort( $strings, 'mysql_simulator' );var_dump( $strings );function mysql_simulator( $a, $b ) {    return strcmp( strtoupper( $a ), strtoupper( $b ) );}
+i hope this will save you some of the research in solving that pesky little difference.
+
+
+posted on october 21, 2020categories systems engineeringtags phpleave a comment on forcing php to sort like mysql 
+
+
+posts navigation
+page 1
+page 2
+…
+page 6
+next page
+
+
+
+
+
+
+miqrogroove.com copyright © 1996 – 2025 by robert chapin
+			reproduction of content on this website requires written authorization.
+
+
+
+
+
+
+
+
+
+

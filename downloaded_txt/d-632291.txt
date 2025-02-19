@@ -1,0 +1,679 @@
+
+
+
+
+        jmri: a java model railroad interface
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skip to main content
+
+skip to main content
+
+
+
+
+
+
+
+
+
+
+
+releases
+applications
+hardware
+help index
+manuals
+developers
+acknowledgements
+
+
+
+
+
+
+help & more 
+
+
+releases
+applications
+hardware
+help index
+manuals
+developers
+acknowledgements
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+jmri® is...
+
+
+decoderpro®
+a great tool for programming decoders, simplifying the job of configuring dcc decoders from your
+            computer
+panelpro™
+design and operate control panels that reflect the real-time state
+		    of your railroad and let you control it
+dispatcherpro™
+a system for dispatching, grouping your roster and throttles
+operationspro™
+build trains from your roster and print train manifests that detail the work your
+		    train crews will perform
+soundpro™
+a set of tools for using audio with jmri
+cool uses
+people have used jmri to do some great things for the model railroad community.
+		our gallery page highlights some of these.
+		also, there are many apps with jmri connections.
+
+
+
+
+
+tools
+jmri tools for working with your layout:
+         
+common tools:
+
+throttles
+turnouts
+lights
+sensors
+signaling
+consisting
+reporters
+memory variables
+stringios
+
+
+blocks:
+
+
+blocks
+sections
+transits
+
+
+routing and control:
+
+routes
+lroutes
+entry exit (nx)
+logix
+logixng
+
+
+other:
+
+audio
+ctc tools
+fast clocks
+id tags
+speedometer
+timetable
+virtual sound decoder
+where used
+permissions
+
+
+system-specific...
+web server tools...
+
+
+
+
+
+
+
+
+layout automation
+use jmri to automate parts of your layout and operations:
+           
+signaling
+warrants
+dispatcher
+routes
+lroutes
+entry/exit routing
+logix
+logixng
+scripting
+automate with java
+ctc tools
+
+
+
+
+
+
+
+
+
+
+supported hardware
+devices, command stations, networks, and protocols:
+		  
+anyma dmx
+arduinos
+atlas commander
+bachrus
+bidib
+can bus networks
+cbus®
+c/mri
+cti electronics (acela)
+cvp easydcc
+dcc4pc
+dcc-ex ex-commandstation
+dcc++
+dcc specialities
+digi xbee
+digikeijs (digirails)
+digitrax
+dmx 512 (powerline)
+esu ecos
+fleischmann
+hornby
+insteon (powerline)
+lcc
+lenz
+lionel tmcc
+loconet
+maple systems
+märklin cs2
+merg
+modbus
+mqtt
+mrc
+nac services rps
+nce
+oak tree systems
+opendcc
+openlcb
+pi engineering raildriver
+powerline
+protrak grapevine
+qsi quantum programmer
+raspberry pi
+rfid readers
+roco
+sprog dcc
+sprog dcc generation 5
+srcp server
+tams master control
+tractronics secsi
+uhlenbrock intellibox
+viessmann commander
+wangrow system one
+wifi throttles
+
+x10 (powerline)
+xpressnet
+zimo mx-1
+ztc controls
+
+
+
+
+
+
+
+
+jmri setup and installation
+ jmri environments...
+		    
+windows
+macos
+linux (multiple vers)
+raspberry pi os on raspberry pi
+debugging an installation
+
+
+
+
+
+
+
+
+jmri help:
+
+contents
+index
+
+glossary
+faq
+
+
+
+
+      donate to jmri.org
+
+
+
+
+
+ 
+
+
+
+ 
+
+ 
+
+what is jmri?
+
+
+
+
+
+
+
+the jmri project is building tools for model railroad computer control.
+                we want it to be usable to as many people as possible,
+                so we're building it in java to run anywhere,
+                and we're trying to make it independent of specific hardware systems.
+jmri is intended as a jumping-off point for hobbyists
+                who want to control their layouts with a computer
+                without having to create an entire system from scratch.
+
+
+you can manage your locomotive rosters and easily program your decoders using
+                decoderpro®.
+you can build control panels and control your layout using
+                panelpro™ to set up signaling and other functions.
+                operationspro™
+                lets you create manifests that route cars across your railroad from shipper to receiver,
+                and provide train crews with operating instructions.
+going beyond the basics, you can use logix to
+                automate your layout's behavior, interface with x10 and insteon systems to control your
+                layout room's lights
+                and write
+                scripts to extend the capabilities
+                of the system.
+
+
+
+
+
+
+
+
+            as an open source project, jmri is evolving in many directions at once. you can get
+            involved at as many levels:
+
+ learn about jmri:
+
+check out the
+                    online help and
+                    faqs
+follow the decoderpro
+                    manual
+study the panelpro faqs
+                    and jmri clinics
+(or switch to our french online help)
+
+ kick the tires:
+
+download jmri
+                    install it on windows, macos or linux
+connect it to your layout
+
+share your experiences:
+
+browse or join
+                     the jmri users groups.io group
+
+ help extend and develop the program code:
+
+look
+                    under the hood
+
+get the source code
+browse or subscribe to the
+                jmri-developers mailing list
+
+make a small donation to help defray the costs of keeping jmri
+                going.
+                 donate... 
+
+
+whatever it is that you choose to do with jmri, and however you get involved,
+            welcome to our community!
+
+ 
+downloadable releases
+
+
+
+jmri 5.10 production release
+
+download 5.10
+                    released on december 15, 2024.
+                    
+                    jmri 5.10 is recommended for new users. it is the most
+                    recent stable production release.
+for more information, see the
+                    jmri 5.10 release note,
+                    which also contains the download links.
+
+
+
+jmri 5.11.3 test release
+
+
+                    released on february 9, 2025.
+                    
+                    this is the next in a series working toward the next jmri production release 5.12
+                    probably in june 2025.
+
+                    
+                    for more information on this test release, please read the
+                    jmri 5.11.3 release note,
+                    which also contains the download links.
+                    
+release 5.10 is the current "production" release, recommended
+                    for first-time users.
+                
+
+
+jmri 4.26 production
+                    release
+
+
+                    released on december 22, 2021.
+                    
+                    jmri 4.26 is recommended for jmri users with computers
+                    that can only run java 8; later releases require java 11 or later.
+for more information, see the
+                    jmri 4.26 release note,
+                    which also contains the download links.
+
+
+
+jmri 3.10.1 production
+                    release
+
+
+                    released on january 11, 2015.
+                    
+                    jmri 3.10.1 is recommended for jmri users with computers
+                    that can only run java 1.6.
+for more information, see the
+                    jmri 3.10.1 release note,
+                    which also contains the download links.
+
+
+
+jmri 2.14.1 production
+                    release
+
+
+                    released on july 15, 2012.
+                    
+                    jmri 2.14.1 is recommended for jmri users with computers
+                    that can only run java 1.5.
+for more information, see the
+                    jmri 2.14.1 release note,
+                    which also contains the download links.
+
+
+
+
+
+jmri at 25 and 10,000 updates
+
+
+
+
+
+                jmri is celebrating its 25th birthday!  it first started to come together in october of 1999. it's come a long way since!
+                
+                we're also celebrating the 10,000 
+                contributed update 
+                to the jmri source code. thanks to 
+                all the people who've worked on jmri over the years.
+                
+                for more information, see 
+                    here.
+            
+
+mr slam formatter: another "jmri connections" application
+
+
+
+
+
+                tim mann has created "model railroad switch list and manifest formatter (mr slam formatter)"
+                as an additional way to create custom railroad paperwork from jmri information.
+                for more info, see our community connections page
+                or go directly to
+                the program's website
+
+
+new "how to" explanations for operations
+
+
+
+
+
+            there's a new series of introductory "how to" explanations for jmri operations.
+            these provide step-by-step instructions for doing the first things needed to get started with operations.
+		   
+
+check out the "jmri clinics" page
+
+
+
+
+
+            several users have contributed their clinics for our
+			clinics page.  there are both conventional handout
+			and slides clinics, and also some neat interactive clinics for decoderpro®
+			and panelpro™.
+			
+			some jmri clinics from past nmra national and other conventions are also included.
+		   
+
+additional applications with jmri connections
+
+
+
+
+
+           hobbyists have created applications that work with jmri
+           to provide extra capabilities. in addition, some commercial vendors have
+           created applications that work with, add data to, or take data from jmri.
+           see the 
+           community/connections directory for a list and links.
+           new applications can be added at any time!
+           
+
+your smart phone as a
+                throttle
+
+
+
+
+
+
+
+                    you can use your iphone, ipad or android phone as a throttle with jmri.
+                    
+                    after you download
+                    and install a program onto your phone, you can connect it
+                    wirelessly to your computer running jmri, which in turn will run your layout.
+                    imagine friends visiting your layout and running trains from their mobile device,
+                    without having to bring throttles.
+                    
+                    for more information, see the
+                    feature page.
+                
+
+run locos in a
+                browser
+
+
+
+
+
+
+
+                    you can control your layout directly from your computer, smartphone or tablet, without the need
+                    to download and install any application.
+                    the current web browsers running on these devices are able to manage the resources and features needed to replace physical throttles.
+                    just start the jmri web server on your jmri computer, open http://<your jmri server>/web/webthrottle.html and enjoy it.
+                    for more information, please visit the
+                    webthrottle - web control for locos, panels, turnouts and routes page.
+                
+
+jmri on raspberry pi
+
+
+
+
+
+                    the raspberry pi is becoming increasingly popular as a small and cheap computer.
+                    jmri will operate under the raspbian operating system (debian version of linux).
+                    follow the installation instructions..
+                
+
+online help
+
+
+
+
+
+                    the jmri applications have a built-in help system. it has lots of information, including
+                    overviews and window-specific information.  the pages are simple html, and users are
+                    encouraged to
+                    add missing information.
+                    the help information is available online via either the
+                    index or
+                    table of contents.
+                
+
+decoder id pages
+
+
+
+                    our "decoder id" pages provide easy access to all sorts of information
+                    about decoders.
+                    they are automatically created from the current decoderpro definitions.
+                    
+                    contribute more information to our decoder definitions, and help these pages become even more useful!
+
+
+kam dispute ends!
+
+
+
+
+
+                    jmri is an informal open-source software group.
+                    we do this for the joy of model railroading, and don't produce anything for profit.
+                    
+                    one of our members has spent four years in the federal courts
+                    defending our right to continue
+                    against an individual who has attacked us with
+                    bogus patent threats, cybersquatting, copyright infringement and other illegal acts.
+
+                    
+                    we are extremely pleased to announce that this case has been
+                    settled.
+                    the agreement ends the dispute, and gives everybody involved a way to move forward.
+                    this is a victory for jmri and open-source software in general.
+
+                
+
+jmri wins duke's choice award
+
+
+
+
+
+sun microsystems (since 2010 part
+                    of oracle)
+                    has awarded jmri a
+                    2006 duke's choice award.
+                    also called a "dukie", this award is given
+                    annually to "some of the most clever, practical, and inspirational java technology applications on the planet".
+                    the award was presented at the
+                    annual javaone conference on may 14th by james gosling.
+                    
+                    jmri won for its community, its use of java technology to empower people all over the world to contribute,
+                    and for the impact it's had.
+                
+
+where our visitors live
+
+
+
+ 
+
+
+
+
+thanks and congratulations to
+           
+            all who contributed! contact us via the jmri users groups.io
+        group.
+        
+copyright © 1997 - 2025 jmri community.
+        jmri®, decoderpro®, panelpro™, dispatcherpro™, operationspro™, signalpro™, soundpro™, trainpro™, logix™, logixng™ and associated logos are our trademarks.
+        additional information on copyright, trademarks and licenses is linked here.
+
+
+
+        view the
+        
+
+
+
+ 
+ 
+ 
+
+
+

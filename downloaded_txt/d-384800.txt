@@ -1,0 +1,218 @@
+
+
+
+
+
+
+
+cirt.net | suspicion breeds confidence
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skip to main content
+
+
+
+
+
+
+
+
+			    			    	cirt.net			    			
+suspicion breeds confidence
+
+
+
+
+
+
+
+
+
+niktodownload
+development
+mail list
+related projects
+products & swag
+press
+
+nikto docs
+davtest
+default password db
+other codelw_buid_req
+clickjack testing
+cms explorer
+svnpristine
+site crunch
+mp3 duplicate finder
+hg-decode
+nessus plugins
+
+about cirt.netdavid
+sullo
+advisories
+
+ 
+
+
+
+ 
+
+
+ 
+
+
+
+
+
+
+
+
+
+join nikto-announce list
+
+email address  *
+
+first name  *
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+nikto 2.5.0 released!
+
+
+nikto 2.5.0 has now been released!
+
+please note: breaking changes to json and xml output may have occurred. if you rely on these formats please test before upgrading.
+
+the nikto 2.5.0 version contains hundreds of updates over several years, including the highlights below.
+
+ipv6 support (thanks to @richardleach)
+updated db_checks format uses multiple reference 
+
+read more about nikto 2.5.0 released!
+ 
+
+
+
+nikto: interactive
+
+
+so you have nikto going, but you’re not really sure what’s happening, or how long the scan is going to take?
+no problem.
+nikto has several interactive features you can use while a scan is in progress. if you just want to find out the current status, simply press the space bar to find out what the program is doing, how many requests have been made, and a guesstimate of how long the rest is going to take. you can automate this output every 500 requests by turning on progress reporting by pressing ‘p’ (similarly, pressing it again will turn it off). 
+
+read more about nikto: interactive
+ 
+
+
+
+nikto: replay findings with the save option
+
+
+when running nikto, you have the ability to save all findings in plaintext files by using the -save option. this option takes one argument, a directory name, which will be used or created to save all findings, one per text file. 
+each file will be named in the following format: hostname_port_date_testid.txt 
+
+read more about nikto: replay findings with the save option
+ 
+
+
+
+nikto: installing and updating
+
+
+it's no secret that the -update option hasn't done much in quite a while. this is not because the nikto project is dead or idle... it's simply because the update/release process requires manual work from humans (there is an open ticket on replacing the update system entirely).
+in the meantime: run nikto directly from the git repo.
+this is your best bet for keeping completely up-to-date, benefitting from the latest checks and enhancements, and keeping your installation running smoothly. 
+
+read more about nikto: installing and updating
+ 
+
+
+
+git extractor
+
+
+i promised last time that i would do a git extractor and, yes, i came across a site in the real world that used git to manage its releases. a quick script later and i had its web.config file and all of the internal goodies.
+there's a much more detailed write up and the tool at the corporate blog of the company i work for.
+ 
+
+read more about git extractor
+ 
+
+
+
+mercurial extractor
+
+
+this is an expansion of part of a talk i did for owasp east midlands.
+if you actually read the articles posted up here you may have read about the svnpristine extractor that was written in october 2012 and not released until february 2013 (hey, it takes me a while).
+tools: tools & utils 
+
+read more about mercurial extractor
+ 
+
+pages1
+2
+3
+4
+5
+6
+7
+next ›
+last »
+ 
+
+
+ 
+
+ 
+
+
+copyright © 2025 cirt.net
+designed by  zymphonies
+
+
+ 
+
+

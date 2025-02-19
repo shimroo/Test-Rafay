@@ -1,0 +1,291 @@
+
+
+
+
+actualités - informaticien.be
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+se connecter  
+
+
+se connecter
+inscription
+mot de passe perduconnexion:
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+[actualités] un lycéen a créé une version de linux qui s'exécute dans un fichier pdf[actualités] n'importe qui pouvait modifier le site web doge de musk[actualités] intel prépare une attaque contre les gpu haut de gamme de nvidia et amd[actualités] un nokia lumia ressuscité avec l'âme de l'iphone se : l'incroyable expérience...[actualités] nintendo abandonne le programme de fidélité my nintendo gold points[actualités] iphone air : ceux qui l'ont déjà vu disent qu'il sera fabriqué comme ça[actualités] spotify nous demandera plus de qualité : combien coûtera spotify music pro[actualités] aptoide ouvre son magasin d'applications aux consommateurs de toute l'union euro...[actualités] reddit prévoit de verrouiller certains contenus derrière un paywall cette ann�...[actualités] iphone se 4 : tout ce que vous voulez savoir sur le nouvel iphone à petit prix[articles]
+    symphonia[articles]
+    neptunia riders vs dogoos[articles]
+    ninja gaiden 2 black[articles]
+    runny bunny[articles]
+    the legend of heroes : trails through daybreak ii[articles]
+    ravenswatch - legendary edition[articles]
+    les ravages fait par la fraude à l’identité basée ia, par eset research[articles]
+    montezuma's revenge - the 40th anniversary edition[articles]
+    star wars: episode i: jedi power battles[articles]
+    phantom brave : the last hero
+
+
+
+
+actualités
+lettre d'information
+proposer une actualité
+archives
+actualités
+articles
+programmation
+press release
+matériel
+logiciels
+livres
+interviews
+derniers commentaires
+jeux vidéos
+xbox one
+xbox 360
+wii u
+psp
+ps4
+ps3
+pc
+ds
+gamecube
+3ds
+forum
+derniers messages
+informatique
+fun
+divers
+logithèqueblogsdivers
+a propos
+annonceurs
+contact
+recherche
+rss
+
+
+
+  
+un lycéen a créé une version de linux qui s'exécute dans un fichier pdf
+publié le: 18/02/2025 @ 19:45:14: par nic007 dans "linux"
+  
+si vous travaillez avec du matériel limité ou souhaitez utiliser le moins de ressources possible, vous choisirez souvent un système d'exploitation basé sur linux. dans le passé, différentes variantes du système d’exploitation ont pu fonctionner sur une variété d’appareils obscurs. plus récemment, le célèbre amateur dmitry grinberg a réussi à exécuter une image debian avec un noyau linux simplifié 4.4.292+ sur un intel 4004 de 1971. cependant, le processus de démarrage a pris près de cinq jours complets . la variante linux, qui a été créée par un lycéen anonyme avec le nom d'utilisateur github ading2210 (ou vk6_ sur reddit), n'est pas non plus particulièrement pratique. mais les conditions dans lesquelles fonctionne le système sont d’autant plus impressionnantes. la version nommée « linuxpdf » se trouve dans un fichier pdf. il peut être exécuté dans n’importe quel navigateur internet basé sur chromium tel que google chrome ou microsoft edge . pour rendre cela possible, une version spécialement adaptée de l'émulateur risc-v tinyemu est utilisée. le code est « compilé avec une ancienne version d'emscripten qui utilise asm.js au lieu de webassembly », explique ading2210 sur la page github du projet .
+
+lorsque les utilisateurs démarrent l’implémentation linux, ils sont accueillis par une fenêtre grise créée à l’aide de caractères ascii. cependant, le développeur n’est pas satisfait de la vitesse de sa variante linux. parce que « le noyau linux prend environ 30 à 60 secondes pour démarrer dans le fichier pdf, ce qui est plus de 100 fois plus lent que la normale ». cependant, cela serait dû à la désactivation du compilateur juste-à-temps dans la version actuelle du moteur pdf de chrome. il n’y a rien à faire à ce sujet pour le moment. il y a environ un mois, un projet similaire d'ading2210 avait déjà fait sensation. avant de se tourner vers linux, il exécutait le jeu de tir classique doom au format pdf de manière similaire . avec environ douze fps et des commandes wasd, le titre est en fait étonnamment jouable. si vous souhaitez tester la variante doom, vous pouvez également la trouver sur son propre site web . ici aussi, l'utilisation d'un navigateur basé sur chromium est requise.
+lire la suite (0 commentaires)
+
+  
+n'importe qui pouvait modifier le site web doge de musk
+publié le: 18/02/2025 @ 19:42:53: par nic007 dans "internet"
+  
+l' initiative du département de l'efficacité gouvernementale (doge) lancée par elon musk visait à rendre le gouvernement américain plus efficace et plus moderne. mais le projet se trouve désormais au centre d’une grave faille de sécurité : le site officiel doge.gov présente de graves failles de sécurité et peut apparemment être modifié ou défiguré par n’importe qui. deux développeurs web indépendants ont découvert que la base de données à partir de laquelle le site web doge obtient ses informations est facilement accessible à des tiers. cela permet aux personnes non autorisées d’ajouter ou de modifier des entrées qui sont ensuite affichées directement sur le site web officiel du gouvernement. pour démontrer la vulnérabilité, les experts ont ajouté deux entrées de test. ceux-ci étaient encore visibles sur le site web en direct des heures après la découverte. comme le rapporte 404 media , le site web de doge ne semble pas être hébergé sur des serveurs gouvernementaux ordinaires. au lieu de cela, il semble utiliser un service cloudflare pages, ce qui soulève des questions sur la sécurité et l’intégrité de la plateforme. un développeur a décrit le site comme « comme s'il avait été entièrement bricolé » et a souligné « des tonnes d'erreurs et de détails fuyant dans le code source du site ». la découverte de cette vulnérabilité est particulièrement explosive car doge aurait eu accès à des bases de données sensibles de diverses agences gouvernementales, dont le département du trésor. ce n’est pas non plus la première critique de la compétence et de la diligence de l’équipe du doge, qui serait composée principalement de diplômés universitaires inexpérimentés.
+
+elon musk a récemment salué l'initiative doge comme un modèle de transparence lors d'une conférence de presse à la maison blanche. il a souligné que toutes les actions du département seront publiées sur le site web du doge et sur son compte x associé. cependant, au moment de cette déclaration, le site était encore largement vide. ce n'est qu'au cours des derniers jours que doge.gov a été rempli de contenu. en plus des contributions du x-account, diverses statistiques sur le gouvernement américain et ses employés sont désormais présentées. toutefois, la qualité et l’origine de ces données sont discutables.
+lire la suite (0 commentaires)
+
+  
+intel prépare une attaque contre les gpu haut de gamme de nvidia et amd
+publié le: 18/02/2025 @ 19:40:13: par nic007 dans "intel"
+  
+après le lancement des cartes graphiques « arc battlemage », intel prépare probablement déjà la prochaine génération. ces dernières semaines, les rapports se sont accumulés selon lesquels le géant des puces électroniques envisageait un bond en avant technologique avec les gpu portant le nom de code celestial. intel se concentre apparemment sur deux innovations importantes : une nouvelle architecture de puce appelée xe3p et peut-être, pour la première fois, la production dans ses propres installations de fabrication. l'architecture xe3p pourrait apporter des améliorations significatives en termes de performances et d'efficacité. similaire aux dernières générations de gpu d'amd et de nvidia , cela pourrait permettre des avancées dans la mise à l'échelle de l'ia, le traitement des données et la génération d'images. cela pourrait aider intel à réduire davantage l’écart technologique avec ses concurrents.
+
+comme le rapporte le célèbre leaker raichu sur twitter/x, intel envisage apparemment également de produire les puces celestial dans ses propres usines plutôt que chez tsmc comme auparavant. cela donnerait à l’entreprise plus de contrôle sur le développement et la production. mais cela comporte également un risque de retard, auquel intel a été confronté à plusieurs reprises dans le passé. le passage à une production interne serait remarquable. jusqu'à présent, intel faisait produire à la fois les gpu arc alchemist et battlemage actuels par le fabricant sous contrat taïwanais tsmc. la production interne de puces a longtemps été considérée comme le talon d’achille d’intel. ces dernières années, l'entreprise a toutefois investi massivement dans de nouvelles installations de production et semble désormais convaincue que les problèmes de rendement et autres difficultés similaires appartiennent désormais au passé.
+
+c'est une nouvelle passionnante pour les joueurs et les passionnés de pc. intel a déjà été en mesure de commercialiser des produits milieu de gamme solides avec des cartes battlemage telles que l'arc b580. cependant, ils sont encore loin d’égaler les modèles haut de gamme de nvidia et amd . avec celestial, intel pourrait désormais faire un pas vers la classe supérieure. celestial pourrait arriver sur le marché fin 2025 ou début 2026 au plus tôt.
+lire la suite (0 commentaires)
+
+  
+un nokia lumia ressuscité avec l'âme de l'iphone se : l'incroyable expérience...
+publié le: 18/02/2025 @ 19:38:19: par nic007 dans "mobile"
+  
+les fans de l'ancien nokia lumia seront heureux de le voir ressuscité avec l'âme d'un iphone se. ce que nous venons de dire n'est pas de la science-fiction , étant donné qu'un utilisateur est apparu en ligne qui a transformé son ancien smartphone de la série lumia pour le faire fonctionner avec ios. nous parlons de la transformation d'un nokia lumia 1020 en une sorte d' iphone se 2022 , actuellement le dernier modèle milieu de gamme lancé par apple. le nokia lumia 1020 était l'un de ces modèles nokia qui ont marqué l'histoire de windows phone , le système d'exploitation de microsoft dédié aux smartphones. il s’agit d’un segment qui est désormais mort et enterré , même si on ne peut apparemment pas en dire autant de l’attrait qu’il suscite. l'utilisateur de reddit oceandepth95028 a transformé son vieux lumia 1020 en iphone se. le lumia n’était désormais plus qu’une carcasse , une coquille de composants matériels qui ne fonctionnaient plus d’aucune façon. cependant, il a pris un nouveau souffle grâce à l'intégration du logiciel ios que l'on retrouve sur l'iphone se 2022.
+
+la transformation n’a pas été indolore, car comme on pouvait s’y attendre, certains changements matériels ont également été nécessaires . par exemple, la résolution de prise de vue de l'appareil photo a dû être réduite à 12 mégapixels, contre les excellents 41 mégapixels du capteur 2/3 pouces du lumia 1020. le flash ne peut plus fonctionner, et touch id a été remappé sous l'appareil photo en l'absence du composant physique. le port de charge a été remplacé au profit de l'ancien lightning. en bref, ce nokiapple lumiphone 1020 se, comme l’a nommé son créateur, est plus une expérience qu’autre chose. si vous souhaitez en savoir plus, nous vous renvoyons au post officiel sur reddit
+lire la suite (0 commentaires)
+
+  
+nintendo abandonne le programme de fidélité my nintendo gold points
+publié le: 18/02/2025 @ 19:37:12: par nic007 dans "consoles"
+  
+nintendo arrête l'attribution de points gold dans le programme de récompenses my nintendo . à compter du 25 mars 2025, les clients ne recevront plus de nouveaux points gold. toutefois, les points déjà collectés restent valables et peuvent toujours être utilisés pour des réductions dans le nintendo eshop. jusqu'à la date limite, les clients peuvent toujours collecter des points or lors de l'achat de contenu numérique dans le nintendo eshop ou sur le site web officiel de nintendo. les précommandes effectuées avant le 24 mars 2025 rapporteront toujours des points, quelle que soit la date de sortie du jeu. la condition préalable est que le paiement soit traité avec succès. l'annulation ou la résiliation du paiement n'entraînera aucun crédit de gold points. pour les jeux nintendo switch physiques enregistrés via une carte logicielle, les points gold ne sont également disponibles que si le jeu est publié au plus tard le 24 mars 2025. après cela, cette option n'est plus disponible. les points déjà collectés restent valables 12 mois et peuvent continuer à être échangés contre des réductions jusqu'à leur date d'expiration.
+lire la suite (0 commentaires)
+
+  
+iphone air : ceux qui l'ont déjà vu disent qu'il sera fabriqué comme ça
+publié le: 18/02/2025 @ 14:41:01: par nic007 dans "apple"
+  
+depuis plusieurs mois, on parle de l' iphone air (ou peut-être de l'iphone 17 air ), c'est-à-dire du nouveau modèle d'iphone ultra-fin qui devrait faire ses débuts d'ici la fin de l'année en même temps que le reste de la gamme iphone 17. à l'heure actuelle, la plupart des rumeurs s'accordent sur plusieurs aspects, que nous pouvons pratiquement tenir pour acquis : il aura une épaisseur comprise entre 5 et 6 mm , disposera d'un seul appareil photo (probablement de 48 mégapixels), d'un écran oled d'environ 6,5" et prendra la place du modèle plus , qui sera donc mis au placard. mais qu'en est-il du design de l'iphone 17 air , à la place ? on peut s'en faire une idée très claire grâce à la nouvelle vidéo ftp : jon prosser, l'auteur de la vidéo et leaker bien connu, affirme avoir vu le design final de l'iphone 17 air.  l'aspect le plus frappant de cette conception est évidemment le positionnement de la caméra, qui est contenue dans une longue bosse de caméra qui occupe presque toute la partie arrière.  et avouons-le, cela rappelle un peu trop le design du pixel.
+
+
+
+il serait très inhabituel qu'apple adopte un design complètement nouveau qui est déjà associé à une autre marque, mais il est toujours possible que cela se produise, surtout s'il existe des raisons techniques pour vouloir une section d'appareil photo oblongue. par exemple, apple a peut-être choisi d’allonger la partie saillante de la caméra afin de réduire l’épaisseur globale du reste du téléphone. de plus, selon prosser, toute la gamme iphone 17 sera réalisée ainsi : apple aurait donc décidé d'adopter une nouvelle identité visuelle pour ses iphones, laissant de côté le design actuel où les caméras étaient enfermées dans une petite bosse de caméra carrée sur le côté gauche.
+
+il est difficile de dire pour le moment si jon prosser a raison sur le nouveau design de la gamme iphone 17, même si, ces dernières semaines, d'autres rumeurs ont suggéré un design similaire et il y a même eu ceux qui ont créé une vidéo conceptuelle pour donner une idée de ce à quoi il ressemblera dans la main. enfin, si vous êtes curieux de savoir à quoi vous attendre en termes d'autres caractéristiques techniques, l'iphone 17 air devrait partager plus ou moins les mêmes spécifications que les autres modèles d'iphone 17 : nouvelle puce a19 , 8 go de ram, écran ltpo oled (avec taux de rafraîchissement jusqu'à 120 hz et dynamic island), et enfin, le premier modem propriétaire d'apple , le même qui fera ses débuts très bientôt sur l'iphone se 4 .
+lire la suite (0 commentaires)
+
+  
+spotify nous demandera plus de qualité : combien coûtera spotify music pro
+publié le: 18/02/2025 @ 14:38:27: par nic007 dans "musique"
+  
+spotify music pro pourrait être le nom du nouveau service audio premium du géant du streaming musical, et il ne sera pas gratuit pour les abonnés spotify premium . au cours des dernières heures, des détails importants sont arrivés sur la prochaine innovation que spotify pourrait lancer. ce n’est certainement pas la première fois que le service audio de qualité de spotify fait parler de lui . le lancement de ce service fait l'objet de rumeurs depuis 2021, lorsqu'on supposait qu'il arriverait sous le nom de spotify hifi . au cours des dernières heures, de nouveaux détails sur l'affaire sont arrivés de bloomberg . selon ce qui vient d'être rapporté, spotify pourrait lancer le service sous le nom de music pro , une option qui nécessitera un paiement supplémentaire pour tout le monde et qui devrait offrir une série d'exclusivités. il y aura certainement une qualité audio supérieure . aucun détail technique spécifique n'a émergé à ce sujet mais, selon des fuites précédentes, il devrait s'agir d'un son sans perte . mais ce n’est pas seulement une question de qualité.
+
+les abonnés à spotify music pro peuvent en effet avoir accès à des options supplémentaires . on parle de la possibilité de générer des remix musicaux à partir de différentes chansons de différents artistes, des remix qui feront probablement appel à l' intelligence artificielle . en dehors de cela, l’accès aux billets de concert comporterait également certains avantages , comme un accès anticipé aux préventes ou des billets pour les places les plus recherchées. reste à savoir dans quelles conditions. des confirmations sont également arrivées concernant le prix . selon de nouveaux rapports, spotify music pro devrait coûter 5,99 $ de plus par mois aux états-unis. un tarif qui s'ajouterait clairement à celui de spotify premium pour les abonnés. reste à voir si les mêmes chiffres resteront en europe. après de nombreuses rumeurs, nous n'avons toujours pas de date exacte pour le lancement de ce nouveau service de spotify. selon ce que vient de rapporter bloomberg, la plateforme vise à lancer spotify music pro d'ici la fin de l'année .
+lire la suite (0 commentaires)
+
+  
+aptoide ouvre son magasin d'applications aux consommateurs de toute l'union euro...
+publié le: 18/02/2025 @ 14:23:47: par nic007 dans "ios"
+  
+aptoide  annonce aujourd'hui le lancement complet d'  aptoide pour ios  dans l'union européenne. tous les utilisateurs d'iphone dans les pays de l'ue peuvent désormais accéder à la première boutique d'applications alternative gratuite sur le système d'exploitation ios. la  version bêta d'aptoide pour ios  a été lancée en juin 2024 et a depuis attiré des dizaines de milliers d'utilisateurs précoces, qui ont été parmi les premiers à essayer une nouvelle façon d'accéder aux jeux sur leurs appareils mobiles apple.  ans le cadre du lancement d'  aptoide pour ios , une fonctionnalité inédite de versions d'applications a été introduite, qui permet aux utilisateurs d'installer et de profiter d'anciennes versions de leurs applications préférées.  contrairement aux structures de mise à jour rigides des marchés d’applications traditionnels, aptoide permet aux utilisateurs de personnaliser librement leur expérience, ce qui était auparavant exclusif aux utilisateurs d’android.
+ la dernière mise à jour d'aptoide pour ios est désormais disponible. rendez-vous sur fr.aptoide.com/ios pour  la télécharger.
+lire la suite (0 commentaires)
+
+  
+reddit prévoit de verrouiller certains contenus derrière un paywall cette ann�...
+publié le: 17/02/2025 @ 15:07:43: par nic007 dans "internet"
+  
+reddit prévoit d'introduire un paywall cette année, a déclaré le pdg steve huffman lors d'une session ask me anything (ama) enregistrée en vidéo jeudi. huffman avait déjà montré son intérêt pour l'introduction potentielle d'un nouveau type de subreddit avec « du contenu exclusif ou des zones privées » auxquelles les utilisateurs de reddit pourraient accéder à titre payant. interrogé cette semaine sur les projets de certains redditors de créer « du contenu que seuls les membres payants peuvent voir », huffman a déclaré : "c'est un travail en cours en ce moment, donc celui-là arrive... nous y travaillons en ce moment même."
+
+interrogé sur les « nouvelles fonctionnalités clés que vous prévoyez de déployer pour reddit en 2025 », huffman a répondu, en partie : « les subreddits payants, oui. » le paywall de reddit ne s’appliquerait apparemment qu’à certains nouveaux types de subreddits, et non à tous les subreddits actuellement disponibles. en août, huffman a déclaré que même avec un contenu payant, reddit gratuit « continuerait d’exister, de croître et de prospérer ». un aspect essentiel de tout plan potentiel visant à faire payer les utilisateurs de reddit pour accéder au contenu des subreddits est de déterminer comment les utilisateurs de reddit concernés seront rémunérés. reddit pourrait avoir plus de mal à faire en sorte que des modérateurs bénévoles gèrent les discussions sur les subreddits payants, s’il utilise des modérateurs bénévoles. il serait également nécessaire d’équilibrer le contenu payant et gratuit pour éviter de polariser une grande partie de la base d’utilisateurs actuelle de reddit.
+lire la suite (0 commentaires)
+
+  
+iphone se 4 : tout ce que vous voulez savoir sur le nouvel iphone à petit prix
+publié le: 17/02/2025 @ 14:59:26: par nic007 dans "apple"
+  
+apple s'apprête à lancer le nouvel iphone se 2025 , qui est le nouveau modèle d'iphone « abordable » : il sera dévoilé le 19 février 2025. cet appareil, le quatrième modèle de la gamme se, représente une évolution majeure par rapport aux générations précédentes de la gamme abordable, avec des améliorations significatives tant au niveau du design que des fonctionnalités. alors que la théorie la plus largement acceptée est qu'apple conservera la marque se, et que le nouvel appareil s'appellera donc iphone se 4 (ou iphone se 2025), des rumeurs récentes indiquent qu'apple pourrait abandonner l'acronyme « se » au profit de « iphone 16e ». dans ce cas, apple choisirait d’ aligner le nouveau modèle sur la série principale d’iphone. ce choix marquerait une rupture claire avec le passé, positionnant l’appareil comme une partie intégrante de la gamme principale plutôt que comme un modèle autonome. le nouvel iphone se aura un design similaire à celui de l' iphone 14 , avec un écran oled de 6,1 pouces. ce sera un grand pas en avant en termes de design : adieu au bouton home avec touch id et au look iphone du "passé", avec de larges bords au-dessus et en dessous de l'écran, au profit d'un écran qui occupe toute la face avant de l'appareil, avec une encoche et face id pour déverrouiller avec votre visage. 
+
+sous le capot, l'appareil sera équipé de la puce a18 et de 8 go de ram, garantissant des performances élevées et le support d' apple intelligence , le système d'intelligence artificielle générative d'apple. côté appareil photo, une seule caméra arrière de 48 mégapixels est attendue , une amélioration notable par rapport aux 12 mégapixels de la génération précédente. le capteur sera probablement le même que celui déjà vu sur la série iphone 15, avec la possibilité d'obtenir un excellent zoom 2x en recadrant l'image.  la caméra frontale sera de 12 mégapixels et intégrera les capteurs nécessaires à face id. de plus, l'appareil sera doté d'une batterie de 3 200 mah, d'un chargement usb-c et d'une prise en charge du chargement sans fil magsafe jusqu'à 15 w.
+
+l’une des fonctionnalités clés du nouvel iphone se 2025 sera l’intégration d’apple intelligence. cet appareil se positionnera comme le point d'entrée le plus abordable pour accéder aux fonctionnalités avancées d'intelligence artificielle d'apple, qui jusqu'à présent n'étaient disponibles que sur l'iphone 15 pro et au-dessus. l'entreprise souhaite convaincre les propriétaires d'anciens iphones de passer à un modèle supérieur en proposant des outils d'assistance basés sur l'ia, tels que la reconnaissance avancée d'objets dans l'appareil photo, des outils de révision de texte et d'autres fonctionnalités d'assistance contextuelle dans les applications quotidiennes. avec l'iphone se 2025, apple donnera aux utilisateurs accès à une expérience d'ia complète, sans avoir besoin d'investir dans les modèles les plus récents et les plus chers.
+
+l'annonce officielle du nouvel iphone à petit budget est attendue le 19 février 2025. bien que le prix n'ait pas encore été confirmé, il devrait augmenter par rapport à la génération précédente, justifié par l'augmentation de l'espace de stockage de base (de 64 go à 128 go ). aux états-unis, on parle d'un prix de départ possible de 499 $ (contre 429 $ pour la génération précédente), tandis qu'en europe, il pourrait se situer autour de 579 à 599 € (contre 529 € pour la génération précédente). avec ces fonctionnalités, le nouvel iphone économique se présente comme un choix intéressant pour ceux qui veulent un appareil moderne et performant sans avoir à faire face aux dépenses des modèles haut de gamme.
+lire la suite (0 commentaires)
+
+
+
+ forum - derniers messages
+
+
+bavardagesaujourd'hui, je rénove ou je construis ^^
+		
+
+softwareproblème sur windows 10
+		
+
+réseaux et télécomproblème wifi (poe)
+		
+
+
+softwarepostfix - need help
+		
+
+
+bavardagesoh râge oh désespoir !
+		
+
+programmationenregistrement client et envoi mail
+		
+
+softwaresécurité macbook
+		
+
+
+hardwareconseil matos réseau?
+		
+
+hardwarenvidia shield android tv
+		
+
+
+softwaretransformer de l'audio en texte
+		
+
+
+ derniers articles publiés
+
+nintendo switchsymphonia
+  
+
+playstation 5neptunia riders vs dogoos
+  
+
+playstation 5ninja gaiden 2 black
+  
+
+playstation 5runny bunny
+  
+
+playstation 5the legend of heroes : trails through daybreak ii
+  
+
+
+
+
+
+
+
+informaticien.be -  © 2002-2025 akretiosprl
+       - generated via kelare
+
+the akretio network: akretio -
+      freedelity -
+      kelcommerce - votre publicité sur informaticien.be ? 
+
+
+
+
+
+
+
+
+
+
+
+
+

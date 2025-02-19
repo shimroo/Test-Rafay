@@ -1,0 +1,355 @@
+
+
+engine tech
+
+
+
+
+
+
+
+
+
+
+
+   main   -  technical database  -  engine tech  -  modifications encyclopedia  -  media   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+engine specifications
+
+
+
+
+ 
+1993 - 1995
+1995 - 1998
+1999
+2000 - 2001
+
+
+type
+l32
+l36 3800 series ii
+l36 3800 series ii
+l36 3800 series ii
+
+
+configuration
+ohv 60° v6
+ohv 90° v6
+ohv 90° v6
+ohv 90° v6
+
+
+displacement
+3.4l (204 ci)
+3.8l (231 ci)
+3.8l (231 ci)
+3.8l (231 ci)
+
+
+engine block
+cast iron
+cast iron
+cast iron
+cast iron
+
+
+bore
+3.62 in
+3.8 in (96.52 mm)
+3.8 in (96.52 mm)
+3.8 in (96.52 mm)
+
+
+stroke
+3.31 in
+3.4 in (86.36 mm)
+3.4 in (86.36 mm)
+3.4 in (86.36 mm)
+
+
+compression ratio
+9.0:1
+9.4:1
+9.4:1
+9.4:1
+
+
+firing order
+1-2-3-4-5-6
+1-6-5-4-3-2
+1-6-5-4-3-2
+1-6-5-4-3-2
+
+
+ 
+
+
+fuel
+87 octane
+87 octane
+87 octane
+87 octane
+
+
+fuel system
+sfi
+sfi
+sfi
+sfi
+
+
+fuel pressure
+? psi (ignition on)
+			3-10 psi loss at idle
+48-55 psi (ignition on)
+			3-10 psi loss at idle
+48-55 psi (ignition on)
+			3-10 psi loss at idle
+48-55 psi (ignition on)
+			3-10 psi loss at idle
+
+
+injector size
+17 lbs (ac delco 217-301)
+22 lbs (ac delco 217-306)
+22 lbs (ac delco 217-306)
+22 lbs (ac delco 217-1436)
+
+
+ 
+
+
+cylinder heads
+cast iron
+cast iron
+cast iron
+cast iron
+
+
+combustion chamber
+?
+64 cc
+64 cc
+64 cc
+
+
+intake valve
+1.720 in
+1.800 in
+1.800 in
+1.800 in
+
+
+exhaust valve
+1.430 in
+1.520 in
+1.520 in
+1.520 in
+
+
+ 
+
+
+exhaust manifold
+cast
+cast
+cast
+tubular
+
+
+intake manifold @ tb
+straight
+angled
+straight
+straight
+
+
+throttle body
+50 mm
+65 mm hitachi
+65 mm hitachi
+65 mm hitachi
+
+
+maf
+?
+ac delco
+ac delco
+ac delco
+
+
+thermostat
+195°
+195°
+180°
+180°
+
+
+oil
+5w-30
+10w-30
+10w-30
+10w-30
+
+
+oil pressure @ ot
+50-65 psi @ 2400 rpm
+60 psi @ 1850 rpm
+60 psi @ 1850 rpm
+60 psi @ 1850 rpm
+
+
+ 
+
+
+flywheel horsepower
+160@4500 rpm
+200@5200 rpm
+200@5200 rpm
+200@5200 rpm
+
+
+flywheel torque
+200@3500 rpm
+225@4000 rpm
+225@4000 rpm
+225@4000 rpm
+
+
+
+
+cam specs
+how bore and stroke affect cubic inches
+pulse width / duty cycle table at various rpm's
+
+3.4 wiring pinouts (coming soon)
+3.8 wiring pinouts
+
+part numbers
+gm performance parts (coming soon)
+
+
+formulas / calculations
+
+3800 history
+chevy production 90 degree - v6 engine
+chevy production 60 degree - v6 engine
+
+ 
+links 
+octane rating
+ 
+
+3800 pcm operation
+thermostat
+maf sensor
+fuel injection
+fuel injection filters 
+
+
+ 
+3800 pcm operation 
+
+the 3800 computer has several modes of operation:
+
+starting mode
+
+when the ignition is turned on the pcm energizes the fuel pump relay for two seconds, allowing the fuel pump to build up pressure. the pcm then checks the engine coolant temperature (ect) sensor and the throttle position (tp) sensor. during cranking, the pcm checks the crankshaft position signal in order to determine the proper air/fuel ratio for starting. the pcm controls the amount of fuel delivered in the starting mode by changing how long the fuel injectors are energized. this is done by pulsing the fuel injectors for very short times.
+
+run mode
+
+the run mode has two conditions called open loop and closed loop. when the engine is first started and engine speed is above 725 rpm, the system is in open loop operation. in open loop the pcm ignores the signal from the heated oxygen sensor (ho2s), and calculates the air/fuel ratio based on inputs from the tp, ect, maf sensors. the system remains in open loop until the following conditions are met:
+
+1. the ho2s has a varying voltage output showing that it is hot enough to operate properly (this depends on temperature).
+2. the ect has reached a specific temperature (reported to be 170 degrees).
+3. a specific amount of time has passed since starting the engine.
+
+when these conditions are met, the system enters closed loop. in closed loop the pcm changes fuel injector on-time based on the signal from the ho2s. this allows the air/fuel ratio to stay very close to 14.7:1.
+
+acceleration mode
+
+the pcm provides extra fuel when it detects a rapid increase in throttle position and airflow. 
+
+
+ 
+thermostat 
+
+the 3800 comes stock with a 195 degree (96-97) and a 180 degree (98+) thermostat. a common mod is to replace the thermostat with a 160 degree to increase fuel enrichment, the real facts are: 
+a 160 just lowers the initial opening temperature, you still can run at 200 degrees or more, thereby creating wide temperature variations to and in the block and heads. you want your engine as hot as you can get it without pre-ignition (which triggers the knock (timing) retard). efficiency of the engine goes up the more heat the cylinder heads retain - up to the point of pre-ignition, all other things being equal. so you want it just cool enough so that the pcm does not retard the timing. a cool engine draws heat out of the combustion process - less vapor (combustion) pressure, less ability to do work (push the piston down). not to mention the possibility of oil contamination from unburned fuel (due to lower temps). pre-ignition can be reduced also by using higher octane gasoline. reducing the temperature also impacts the ect sensor, as discussed above in "pcm operation." the reported ect set temperature is 170 degrees, thereby forcing the pcm into closed loop condition by "timing out." at which point the the desired goal of increasing the fuel enrichment goes away anyway, as the ho2 sensors will control the enrichment to maintain 14.7:1. 
+
+
+ 
+maf sensor 
+
+the maf sensor uses hot wires inserted in a known cross sectional area to measure airflow. the maf sensor and the iat sensor output signals to the pcm determine the injector pulse time during open loop condition. the maf output signal is dependant on the resistance in the wire due to the wire temperature. the temperature is a function of the air velocity, as the faster the velocity the lower (cooler) the wire temperature. so, as the velocity of the air increases (acceleration) the wire cools and sends a signal to the pcm to lengthen the pulse time of the injectors to deliver more fuel in order to maintain the desired a/f ratio of 14.7:1.
+
+in front of the heated wire is a screen. many people are suggesting that improved airflow will be gained by cutting the screen out of the maf.  it is not recommend that this be done on an f-body.  most people mistake this screens purpose as preventing debris from hitting the hot wires in the maf (that is what the air filter is for). actually the screen is a bank of straightening vanes used to straighten the airflow before passing by the hot wires. eddies and vortices (turbulence) in the maf will cause inaccurate readings. straightening vanes are used in most mass flow measurement situations where 10 diameters of straight upstream conduit are not available. the f-body intake does not meet this requirement. 
+
+an accurate maf sensor is critical for the engine's fuel/air ratio adjustments.  so, what happens when the screen is removed?  the flow (mass) is the same, but without the screen (which is a restriction) the velocity is lower. lower velocity means a hotter wire temperature which equates to a lower flow!  so the pcm adjusts the injectors to provide less fuel. since the ho2 sensors do not provide input when the maf is online the pcm does not adjust for the lean condition, until it goes back into closed loop condition. 
+
+
+ 
+fuel injection 
+
+fuel injection vs carburetion - an overview
+
+carburetors, no matter how sophisticated are riddled with compromises. sized for maximum horsepower they lose low speed drivability and midrange torque. booster venturis, constant velocity slides, and spray bars all hinder the free passage of air and render the airflow "dirty". fuel injection offers increased sophistication through the use of fast acting electronics and preprogrammed functions to give your engine the lightning fast response and drivability that carburetors cannot match. electronic control of cold start, warm-up cycles, accelerator pump functions and altitude or barometric corrections are but a few of the advantages of digital electronic fuel injection. the biggest or most immediate advantage is in the area of drivability. there is no need for choke levers or long ware-ups, and no need to rejet for atmospheric or altitude changes. electronics give a much more precise control over fuel delivery than any mechanical device can. better control means more power and much quicker throttle response.
+
+system design
+
+electronic fuel injection can be broken down into three types:
+
+(1) pure speed density systems;
+(2) mass flow sensing systems; and
+(3) closed loop oxygen sensing in either mass flow sensing or digital speed density format.
+
+pure speed density system
+
+of the three, pure speed density systems are the simplest. these designs are preprogrammed to a set of rpm, load and throttle angle values which totally control fuel delivery. if you change cams, bore, stroke, or even exhaust systems the calibration is out the window as these systems are non correcting. you must reprogram with a computer or attempt gross movements with screw type potentiometers to set your calibrations. if you are right on they work fine, but differing conditions or mechanical changes render them useless.
+
+mass flow sensing system
+
+mass flow sensing systems are extremely accurate, delivering fuel according to actual air consumed. although they are accurate and reliable, these designs severely limit airflow and are very slow responding. high performance was not a consideration in their design. a second type of mass flow sensing is either hot wire (f-body) or hot film designs which use heated elements to measure input air mass. they are not suitable for high performance use for three reasons:
+
+(1) they are subject to false output signals due to pulsation’s in the inlet tract which provide unwanted cooling events to the hot sensor element.
+(2) mass flow meters cannot be located near the inlet valve or turbocharger impellers thus they require a lengthy inlet tract with a single-point restrictive entry.
+(3) mass flow systems were conceived as accurate emissions controls, not high performance systems. 
+closed loop oxygen sensing with mass flow sensing
+
+this is the system used on the 3800 series ii. 
+
+
+ 
+fuel injection filters 
+
+fuel injectors and injection fuel pumps should not be operated without filters designed specifically for fuel injection. gas tanks and in-tank filters cannot be trusted to provide the filtration necessary to guarantee trouble-free long term operation of pumps and injectors. the fuel pump must be prefiltered to a 70 microns or less and the fuel injectors to an even finer degree (5 microns). do not use any 'billet aluminum' style filters that use sintered bronze or paper elements as these are too restrictive and do not provide the filtration capacity necessary. 
+
+
+
+
+
+© 2001-2024 firebirdv6.com/camarov6.com. all rights reserved.
+questions or concerns? feel free to contact us. curious who we are? meet the admin!
+don't forget to check out our site use policies and privacy statement.
+

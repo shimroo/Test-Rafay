@@ -1,0 +1,1168 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+forum du club des développeurs et it pro - messages des blogs récents - blogs
+
+
+
+
+
+
+
+identifiantmot de passeloading...mot de passe oublié ?je m'inscris ! (gratuit)
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+forums
+tutoriels
+faq
+blogs
+chat
+newsletter
+emploi
+études
+droit
+club
+
+
+ 
+
+
+
+
+di/dsi solutions d'entreprise
+
+di/dsi solutions d'entreprise
+big data
+bpm
+business intelligence
+data science
+erp / pgi
+crm
+sas
+sap
+sécurité
+droit informatique et entreprise
+onlyoffice
+
+cloud
+
+cloud computing
+oracle
+azure
+ibm cloud
+
+ia
+
+intelligence artificielle
+
+alm
+
+alm
+agile
+merise
+uml
+
+microsoft
+
+microsoft
+.net
+microsoft office
+visual studio
+windows
+asp.net
+typescript
+c#
+vb.net
+azure
+
+java
+
+java
+java web
+spring
+android
+eclipse
+netbeans
+
+dév. web
+
+développement et hébergement web
+ajax
+apache
+asp
+css
+dart
+flash / flex
+javascript
+nodejs
+php
+ruby & rails
+typescript
+web sémantique
+webmarketing
+(x)html
+
+edi
+
+edi
+4d
+delphi
+eclipse
+jetbrains
+labview
+netbeans
+matlab
+scilab
+visual studio
+windev
+visual basic 6
+lazarus
+qt creator
+
+programmation
+
+programmation
+débuter - algorithmique
+2d - 3d - jeux
+assembleur
+c
+c++
+c#
+d
+go
+kotlin
+objective c
+pascal
+perl
+python
+rust
+swift
+qt
+xml
+autres
+
+sgbd
+
+sgbd & sql
+4d
+access
+big data
+data science
+db2
+firebird
+interbase
+mysql
+nosql
+postgresql
+oracle
+sybase
+sql-server
+mongodb
+
+office
+
+microsoft office
+access
+excel
+word
+outlook
+powerpoint
+sharepoint
+microsoft project
+openoffice & libreoffice
+onlyoffice
+
+mobiles
+
+mobiles
+android
+ios
+
+systèmes
+
+systèmes
+windows
+linux
+arduino
+hardware
+hpc
+mac
+raspberry pi
+réseau
+green it
+sécurité
+systèmes embarqués
+virtualisation
+informatique quantique
+crypto, nft & blockchain
+
+
+
+
+
+
+
+
+tutorielsfaqwebinaireslivrestéléchargementssourcesdébatswikidicohumour 
+
+
+
+
+
+
+
+
+ 
+
+
+
+vous n'êtes pas encore inscrit sur developpez.com ? inscrivez-vous gratuitement !
+
+
+
+
+
+
+
+
+
+quoi de neuf ?
+
+
+forum
+
+
+blogs
+
+
+billets récents
+meilleurs billets
+blog des utilisateurs
+
+
+projets
+
+
+
+
+
+
+
+
+
+
+recherche avancée
+
+
+
+
+
+
+
+
+blogs
+messages des blogs récents
+
+
+
+
+
+
+
+
+
+
+messages des blogs récents
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ma minute m  - table.replacevalue
+
+
+
+par 
+informer
+, aujourd'hui à 01h35 
+
+
+
+
+
+					table.repalcevalue cest pas si simple que ça !
+
+
+
+code  :
+sélectionner tout -
+	visualiser dans une fenêtre à part
+1234567table.replacevalue (
+   table as table,                  // param 1
+   oldvalue as any,               // param 2
+   newvalue as any,             //param3
+   replacer as function,        // param 4
+   columnstosearch as list   // param 5
+) as table
+ 
+replacer est une fonction avec 2 méthodes natives toutes deux case sensitive.
+
+
+
+code  :
+sélectionner tout -
+	visualiser dans une fenêtre à part
+12
+replacer.replacetext ( text as nullable
+
+
+					...
+					
+
+
+mis à jour aujourd'hui à 10h14 par informer
+
+
+								tags:
+								
+custom function,
+	
+
+	
+		each,
+	
+
+	
+		function personnalisée,
+	
+
+	
+		langage m,
+	
+
+	
+		power query,
+	
+
+	
+		table.replacevalue
+
+
+
+catégories
+
+sans catégorie
+
+
+
+
+
+
+
+
+
+
+
+0 commentaires
+
+en lire plus...
+
+
+
+
+
+
+
+
+
+
+[actualité]
+second pack de ressources offertes pour le mois de février 2025 sur fab
+
+
+
+par 
+littlewhite
+, 15/02/2025 à 09h56 
+
+
+
+
+
+					second pack de ressources offertes pour le mois de février 2025 sur fab
+
+unreal technologies offre de nouvelles ressources disponibles pour le mois de février 2025 :
+un environnement d'aspect médiéval en ruine ;un module pour la gestion des entrées utilisateur ;une ville dans un monde post apocalyptique ;
+
+
+
+
+								tags:
+								
+marketplace,
+	
+
+	
+		ressources,
+	
+
+	
+		téléchargement,
+	
+
+	
+		unreal engine
+
+
+
+catégories
+
+2d / 3d / jeux
+
+
+
+
+
+
+
+
+
+
+
+0 commentaires
+
+
+
+
+
+
+
+
+
+
+
+[actualité]
+db2 for z/os : créer un calendrier
+
+
+
+
+
+
+par 
+escartefigue
+, 31/01/2025 à 16h30 
+
+
+
+
+
+					créer un calendrier par requête est un besoin fréquent et assez simple à mettre en uvre.
+
+les fonctions date et chaîne de caractères étant assez différentes d'un dialecte sql à l'autre en fonction du sgbd-r sous-jacent, voici la variante db2 for z/os, qu'on pourra assez facilement décliner pour tout autre sgbd-r.
+
+ici, le calendrier contiendra une ligne par date avec :
+le n° du jour dans la semaine au format iso (de 1=lundi à 7=dimanche) ;le libellé du jour,
+
+					...
+					
+
+
+								tags:
+								
+calendrier;db2;sql
+
+
+
+catégories
+
+sans catégorie
+
+
+
+
+
+
+
+
+
+
+
+0 commentaires
+
+en lire plus...
+
+
+
+
+
+
+
+
+
+
+[actualité]
+premier pack de ressources offertes pour le mois de février 2025 sur fab
+
+
+
+par 
+littlewhite
+, 30/01/2025 à 21h39 
+
+
+
+
+
+					premier pack de ressources offertes pour le mois de février 2025 sur fab
+
+unreal technologies offre de nouvelles ressources disponibles pour le mois de février 2025 :
+un gestionnaire d'interaction ;un ensemble de vases en argile ;un environnement de style asiatique ;
+
+
+
+
+								tags:
+								
+jeux,
+	
+
+	
+		marketplace,
+	
+
+	
+		ressources,
+	
+
+	
+		téléchargement,
+	
+
+	
+		unreal engine
+
+
+
+catégories
+
+2d / 3d / jeux
+
+
+
+
+
+
+
+
+
+
+
+0 commentaires
+
+
+
+
+
+
+
+
+
+
+
+[actualité]
+[python fastapi] [zigbee2mqtt] piloter un interrupteur on/off en html/css avec un bouton zigbee
+
+
+
+
+
+
+par 
+f-leb
+, 20/01/2025 à 09h00 (le blog de f-leb)
+
+
+
+
+
+					dans un précédent billet (bouton connecté zigbee, connexion mqtt en python avec eclipse paho-mqtt), je jouais déjà avec un bouton-poussoir connecté en zigbee. je me contentais alors d'afficher la détection du clic sur le bouton dans un terminal.
+
+cette fois, je crée un serveur qui sert une page web avec une checkbox html décorée en css pour représenter un interrupteur on/off. le but est de faire basculer cet interrupteur à chaque clic sur le bouton sans fil zigbee.
+
+
+
+
+
+					...
+					
+
+
+								tags:
+								
+asyncio,
+	
+
+	
+		fastapi,
+	
+
+	
+		mqtt,
+	
+
+	
+		websocket,
+	
+
+	
+		zigbee2mqtt
+
+
+
+catégories
+
+python
+	
+,
+
+	
+		raspberry pi
+	
+,
+
+	
+		python
+	
+,
+
+	
+		programmation
+
+
+
+
+
+
+
+
+
+
+
+0 commentaires
+
+en lire plus...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+page 1 sur 483
+123451151101
+...
+
+dernière
+
+aller à la page:  
+
+
+
+
+
+
+
++ créer un blog
+
+
+
+
+
+
+
+
+
+billets récents
+
+
+billets récents
+
+
+meilleurs billets
+
+
+meilleurs billets
+
+
+meilleurs blogs
+
+
+meilleurs blogs
+
+
+
+
+
+
+
+
+
+ma minute m  - table.replacevalue (informer)
+
+		
+
+informer aujourd'hui
+		
+
+
+
+
+second pack de ressources offertes pour le mois de février 2025 sur fab (littlewhite)
+
+		
+
+littlewhite 15/02/2025
+		
+
+
+
+
+db2 for z/os : créer un calendrier (escartefigue)
+
+		
+
+escartefigue 31/01/2025
+		
+
+
+
+
+premier pack de ressources offertes pour le mois de février 2025 sur fab (littlewhite)
+
+		
+
+littlewhite 30/01/2025
+		
+
+
+
+
+[python fastapi] [zigbee2mqtt] piloter un interrupteur on/off en html/css avec un bouton zigbee (le blog de f-leb)
+
+		
+
+f-leb 20/01/2025
+		
+
+
+
+
+second pack de ressources offertes pour le mois de janvier 2025 sur fab (littlewhite)
+
+		
+
+littlewhite 18/01/2025
+		
+
+
+
+
+
+en voir plus...
+en voir plus...
+en voir plus...
+
+
+
+
+
+
+
+
+ commentaires récents
+			
+
+
+il n'y a aucun commentaire récent à afficher.
+
+
+
+en voir plus...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				rechercher dans les blogs
+			
+
+
+contenant le texte :
+						
+
+
+
+						rechercher dans les intitulés uniquement
+					
+
+
+
+recherche avancée
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				catégories
+			
+
+
+
+
+
+java
+
+
+
+android
+
+
+
+dotnet
+
+
+
+c#
+
+
+
+vb.net
+
+
+
+asp.net
+
+
+
+windows phone
+
+
+
+développement web
+
+
+
+html / css
+
+
+
+javascript
+
+
+
+php
+
+
+
+programmation
+
+
+
+c
+
+
+
+c++
+
+
+
+perl
+
+
+
+python
+
+
+
+objective c
+
+
+
+2d / 3d / jeux
+
+
+
+
+
+
+
+
+
+
+		archives
+	
+
+
+
+
+						 
+						
+							<
+						
+						 
+					
+
+février 2025
+
+
+						   
+					
+
+
+di
+lu
+ma
+me
+je
+ve
+sa
+
+
+19
+
+20
+
+21
+
+22
+
+23
+
+24
+
+25
+
+26
+
+27
+
+28
+
+29
+
+30
+
+31
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+21
+
+22
+
+23
+
+24
+
+25
+
+26
+
+27
+
+28
+
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nous contacter
+developpez.com
+haut de page
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+contacter le responsable de la rubrique accueil
+			
+
+nous contacter
+participez
+hébergement
+publicité / advertising
+informations légales
+
+© 2000-2025 - www.developpez.com
+
+

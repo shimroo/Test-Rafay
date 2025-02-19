@@ -1,0 +1,1539 @@
+
+
+
+stockfetcher
+
+
+
+
+
+
+
+ 
+
+
+toggle navigation
+
+
+
+
+ 
+search examples new filter myfilters watchlists forums indicators  
+tools 
+searchwatchlistschart+find similarreport tool (flash required)filter phrasesusage guide 
+ join now 
+sign in
+
+sign in 
+
+
+sign in - forgot id/password?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+all
+
+
+
+allexampleshelpindicatorsforums
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+what is stockfetcher
+how does it work
+user guide
+
+
+
+
+
+new to stockfetcher?
+stockfetcher is a powerful and easy-to-use stock screener. based on stockfetcher"s text-based filtering you can use plain-english phrases to build your custom stock screens. 
+	    
+	    
+
+/* macd bearish cross */
+
+		macd(12,26,9) fast line crossed below macd(12,26,9) slow line
+		
+		and close is above 5.00
+		
+		and average volume(30) is above 250000
+		
+
+
+[view another example]
+
+
+	    using an easy to learn set of stockfetcher constructs, you can build technical filters to find the stocks you want. for example, using the crossed above phrase, you can quickly find various technical crossovers:
+	    show stocks where rsi(14) crossed above 30
+[view example]
+add some basic price and volume parameters and you can further control the scope of the matches returned:
+	    show stocks where rsi(14) crossed above 30
+	      and close is above 5.00
+	      and average volume(30) is above 250000
+[view example]
+to learn more about the screening language, feel free to try any of the examples.
+	    additionally, download our user guide.
+
+
+
+
+
+
+
+
+stockfetcher user guide 
+for advanced stock screening, the stockfetcher user guide helps you unleash the power of stockfetcher!
+		    
+
+
+
+some of the areas covered:
+ description and usage for all of the indicators available.
+ syntax details and instructions for building screens.
+ special commands to improve charts and results.
+ entire reference section for additional details and research.
+ several examples and exercises for hands-on learning.
+download the stockfetcher user guide- pdf, 2.2mb
+download the stockfetcher user guide- compressed zip, 1.6mb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+quick examples
+
+
+
+
+
+ma 13/50 bullish cross 
+
+
+symbollastchg(%)volumetqqq88.794.2146,460,100aur9.4246.0539,681,500upst84.16-5.1919,781,600mgm40.3717.4617,992,400wmb57.464.8213,615,800view full results
+
+
+
+
+
+supported indicators
+
+
+build your filters from over 125 indicators.
+
+
+absolute price oscillator (apo)
+absolute value (abs)
+absolute volume oscillator (avo)
+acceleration bands
+accumulation distribution
+accumulation swing index (asi)
+aroon up/down/oscillator
+average true range
+average true range (weighted)
+average volume
+bollinger %b
+bollinger bands® (upper
+bollinger oscillator
+bollinger width
+candlestick patterns
+center of gravity
+chaikin's money flow (cmf)
+chaikin's volatility
+chande momentum oscillator (cmo)
+chandelier exit
+close-to-open gap
+commodity channel index (cci)
+comparative relative strength
+connors rsi
+correlation(corr)
+count -- occurrences
+cup and handle
+custom exponential moving average (cema)
+custom moving average (cma)
+custom rsi (crsi)
+custom weighted moving average (cwma)
+day change / absolute day change
+day position
+day range / average day range / day point range
+days since (days)
+demarker
+detrended price oscillator (dpo)
+directional movement indcators +di
+donchian channels
+double bottom
+
+
+ergodic candlestick oscillator
+ersi
+fibonacci retracement lines
+fisher transform
+force index
+forecast oscillator
+historical volatility
+indposition
+inertia
+intraday intensity
+intraday momentum index (imi)
+inverse fisher transform (rsi)
+keltner channels (upper
+klinger oscillator (kvo)
+kst
+linear regression channels
+linear regression indicator
+linear regression slope
+logarithm (log)
+mass index
+maximum (max)
+minimum (min)
+momentum
+money flow index
+moving average (displaced)
+moving average (exponential)
+moving average (simple)
+moving average (weighted)
+moving average convergence divergence (macd)
+moving average envelopes
+negative volume index (nvi)
+on balance volume(obv)
+open
+optionable
+otcbb
+p/e ratio
+parabolic sar
+percent price oscillator (ppo)
+percent volume oscillator(pvo)
+pivot points (pp
+positive volme index (pvi)
+
+
+price and volume trend (pvt)
+price rate of change
+projection bands (upper/lower)
+projection oscillator
+qstick
+relative momentum index (rmi)
+relative strength index (rsi)
+relative volatility index (rvi)
+rsquared
+sign
+single symbol indicator comparison (ind)
+slope of
+smoothed rate of change
+standard deviation
+standard error (stderr)
+standard error bands
+standard error channels
+stochastic momentum indicator
+stochastics
+stochastics (double)
+stochastics (full)
+stochrsi
+sum
+support and resistance
+swing index
+t3 moving average
+td range expansion index (tdrei)
+time series forecast
+triangle patterns
+trix
+true strength index (tsi)
+ultimate oscillator
+variables (set)
+vertical horizontal filter (vhf)
+volume
+volume rate of change
+volume weighted macd (vwmacd)
+volume weighted moving average(simple)
+williams %r
+williams accumulation/distribution
+
+
+view all indicators
+
+
+
+
+sectors and industries
+
+
+
+
+ last (%)1 month (%)1 year (%)
+aerospace (62) [+]-0.8
+-1.3
+19.1
+
+aerospace - defense (28)-0.3
+-3.7
+5.4
+
+aerospace - defense equipment (32)-1.3
+1.2
+32.6
+
+electronics - military (2)-0.5
+-7.9
+-25.5
+
+auto-tires-trucks (105) [+]1.4
+-2.5
+-24.9
+
+auto - domestic (26)-0.0
+-14.9
+-43.9
+
+auto - foreign (11)1.7
+16.0
+-33.9
+
+auto - truck original parts (56)1.8
+-1.4
+-19.6
+
+auto - truck replacement parts (9)0.5
+2.7
+-3.2
+
+engines - internal combustion (2)1.1
+4.7
+40.6
+
+rubber tires (1)17.3
+6.7
+-21.9
+
+basic materials (217) [+]-2.0
+4.5
+16.5
+
+agriculture products (7)-2.4
+-6.2
+1.4
+
+chemical - diversified (25)-1.8
+-0.7
+-10.5
+
+chemical - plastics (3)2.6
+-7.0
+-7.8
+
+chemical - specialty (30)-0.2
+2.3
+-1.5
+
+fertilizers (8)-0.0
+-3.5
+6.4
+
+mining - gold (43)-4.0
+13.0
+52.7
+
+mining - iron (2)1.7
+4.3
+4.1
+
+mining - misc (54)-2.8
+3.9
+7.7
+
+mining - non ferrous (8)-2.6
+11.3
+40.8
+
+mining - silver (8)-4.3
+11.7
+82.4
+
+paper and related products (9)-1.2
+-4.9
+12.9
+
+steel - producers (14)0.7
+8.0
+-7.1
+
+steel - specialty (6)1.2
+-3.8
+26.4
+
+business services (422) [+]-0.3
+2.1
+-1.2
+
+advertising marketing services (32)-1.9
+-6.0
+-14.5
+
+auction valuation services (3)-0.5
+1.0
+18.8
+
+business information (11)1.1
+8.0
+1.4
+
+business office products (4)0.7
+-1.7
+-1.4
+
+business services (32)-0.5
+1.6
+-9.7
+
+consulting (13)-1.1
+-2.2
+7.8
+
+financial transaction services (43)0.3
+4.6
+13.2
+
+government services (2)-0.6
+-14.4
+-24.7
+
+outsourcing (12)-0.1
+-1.4
+11.0
+
+staffing (16)0.1
+-3.6
+-19.9
+
+technology services (229)-0.5
+4.5
+-1.3
+
+waste removal svcs (25)1.7
+-6.8
+1.6
+
+computer and technology (701) [+]-0.3
+5.9
+7.7
+
+business software services (3)0.7
+4.8
+-12.5
+
+communication network software (5)-0.6
+2.9
+46.9
+
+communications components (16)-3.2
+-2.7
+9.9
+
+communications infrastructure (5)-1.6
+20.2
+35.0
+
+computer - integrated systems (13)1.6
+2.2
+-2.4
+
+computer - micro (3)2.0
+4.2
+29.1
+
+computer - mini (1)0.6
+55.1
+-18.3
+
+computer - networks (12)-0.2
+3.9
+25.1
+
+computer - optical (1)-1.2
+-2.0
+-19.5
+
+computer - services (10)2.3
+16.6
+1.8
+
+computer - software (35)-0.5
+7.6
+7.5
+
+computer - storage devices (7)0.5
+8.5
+19.7
+
+computers - peripheral equipment (10)1.3
+8.7
+12.3
+
+electrical - manufacturing (9)-0.7
+-2.1
+-24.1
+
+electrical power (4)-5.6
+1.3
+-39.8
+
+electronic manufacturing (5)0.4
+3.8
+36.7
+
+electronic misc services (3)-0.1
+-10.1
+21.8
+
+electronic test equipment (4)-1.4
+-3.7
+3.1
+
+electronics - connectors (2)-1.2
+-6.8
+-11.2
+
+electronics - measuring inst (6)-0.8
+-1.1
+-12.4
+
+electronics - misc components (29)-0.3
+-0.1
+1.2
+
+electronics - parts distrib (4)1.4
+0.8
+22.1
+
+electronics - semiconductors (49)0.4
+-1.5
+-6.7
+
+electronics products - misc (49)-0.5
+-4.4
+-8.5
+
+fiber optics (2)1.6
+4.8
+60.1
+
+industrial controls (7)-0.2
+-0.9
+12.7
+
+industrial scientific (3)-1.9
+-11.1
+6.5
+
+internet - content (20)1.7
+6.5
+11.4
+
+internet - services (42)0.0
+15.6
+15.0
+
+internet - software (192)-0.5
+10.0
+11.2
+
+internet services - delivery (6)-2.5
+2.4
+17.8
+
+internet software services (15)-0.3
+10.7
+27.2
+
+it services (46)-2.3
+4.7
+0.2
+
+lasers - systems and components (5)3.2
+1.0
+-28.2
+
+nanotechnology (2)0.4
+-0.8
+-4.2
+
+office automation and equipment (1)0.8
+49.8
+158.3
+
+satellite communication (8)-2.7
+23.9
+77.9
+
+security (2)1.4
+1.6
+-13.5
+
+semi analog and mixed (10)0.7
+-3.1
+2.1
+
+semi discretes (2)4.9
+22.0
+-47.2
+
+semi fab foundries (1)1.0
+1.2
+58.0
+
+semi general (5)4.7
+6.7
+7.1
+
+semi power (1)-0.3
+-3.3
+-21.2
+
+semi radio frequency (4)-0.6
+6.1
+26.0
+
+semi-eqpt material services (2)1.7
+22.7
+-4.2
+
+semi-eqpt photomask (1)-1.1
+-5.4
+-34.2
+
+semi-eqpt wafer fabrication (2)-1.3
+3.7
+0.3
+
+wireless equipment (15)0.5
+3.9
+17.9
+
+wireless national (13)-0.5
+10.3
+2.1
+
+wireless non-us (9)0.1
+5.2
+13.6
+
+conglomerates (32) [+]4.0
+5.3
+-16.2
+
+conglomerates - div operations (32)4.0
+5.3
+-16.2
+
+construction (116) [+]0.4
+-1.7
+12.6
+
+building - cmt and cnt and ag (8)0.7
+-4.4
+1.4
+
+building - heavy construction (9)-1.1
+-5.0
+60.3
+
+building - maint and service (4)-2.5
+4.7
+80.0
+
+building - mobile homes and rv (6)2.2
+-0.2
+-0.9
+
+building - residential and comm (17)1.1
+-4.0
+2.9
+
+building and construction - misc (30)0.7
+-2.7
+7.2
+
+building products - air heating (7)0.7
+-4.5
+32.1
+
+building products - ltg fx (5)3.1
+0.2
+11.0
+
+building products - wood (12)0.2
+4.3
+-12.9
+
+engineering and r&d services (17)-0.8
+-0.3
+10.5
+
+paint and related products (1)0.6
+-0.4
+13.1
+
+consumer discretionary (331) [+]1.1
+3.4
+2.5
+
+appliances - household (2)1.4
+-6.5
+-9.9
+
+audio and video products (9)0.7
+-3.4
+-8.1
+
+broadcast - radio and tv (27)1.6
+5.7
+-5.7
+
+cable tv (7)0.6
+0.6
+3.5
+
+consumer products - misc discretionary (27)-0.1
+-3.4
+-16.9
+
+consumer services - misc (11)-0.2
+4.1
+6.5
+
+furniture (14)0.3
+0.5
+-10.4
+
+gaming (46)2.6
+6.6
+4.3
+
+hotels and motels (14)0.5
+5.9
+15.8
+
+leisure and recreation services (39)1.2
+-1.6
+9.7
+
+leisure and recreational products (28)4.7
+7.9
+-6.9
+
+media conglomerates (21)-0.6
+6.6
+29.4
+
+movie and tv production and dist (8)1.0
+21.3
+55.2
+
+precious metals and jewelry (2)-2.8
+-4.4
+-28.4
+
+schools (31)0.3
+8.3
+8.5
+
+shoes and related apparel (9)-0.5
+-3.9
+-2.8
+
+textile - apparel (24)0.5
+-3.9
+-8.5
+
+textile - home furnishings (5)-0.0
+4.2
+-7.8
+
+tools - hand held (2)0.1
+-1.3
+4.6
+
+toys and game and hobby (5)-2.2
+14.0
+-5.9
+
+consumer staples (183) [+]-0.1
+0.3
+-7.5
+
+agriculture operations (28)0.6
+-7.2
+-21.6
+
+beverages - alcohol (16)0.5
+-1.1
+-28.5
+
+beverages - soft (17)-0.0
+9.3
+32.0
+
+consumer products - misc staple (39)-1.0
+3.0
+-8.0
+
+cosmetics and toiletries (7)1.3
+-7.4
+-54.1
+
+food - confectionery (3)-1.5
+4.3
+-6.3
+
+food - dairy products (1)2.2
+0.3
+92.0
+
+food - meat products (7)1.5
+20.2
+-12.1
+
+food - misc and diversified (47)-0.2
+-0.7
+-8.5
+
+funeral services and related (3)-1.6
+-3.9
+19.9
+
+publishing - books (4)0.5
+-2.4
+-13.0
+
+publishing - newspapers (4)-0.6
+-11.9
+27.1
+
+soap and cleaning products (1)-1.9
+0.3
+9.6
+
+tobacco (6)-0.2
+3.2
+33.1
+
+finance (1220) [+]0.1
+4.7
+13.1
+
+banks - foreign (39)0.8
+7.0
+35.1
+
+banks - major regional (10)0.7
+5.0
+35.3
+
+banks - midwest (32)-0.2
+6.6
+26.7
+
+banks - northeast (107)-0.3
+7.0
+23.8
+
+banks - southeast (69)-0.0
+5.9
+24.9
+
+banks - southwest (18)-0.4
+5.0
+23.9
+
+banks - west (32)0.1
+3.0
+26.2
+
+finance - consumer loans (19)1.2
+12.0
+26.1
+
+finance - investment brokers (24)1.0
+10.7
+46.0
+
+finance - investment funds (247)0.2
+3.9
+7.6
+
+finance - investment mgmt (50)0.4
+3.0
+12.3
+
+finance - leasing companies (2)-0.5
+3.2
+-8.8
+
+finance - misc services (115)0.8
+2.3
+2.9
+
+finance - mortgage and rel svs (19)0.2
+7.6
+13.7
+
+finance - savings and loan (36)-0.3
+4.0
+19.6
+
+finance - sbic and commercial (39)0.7
+5.5
+9.0
+
+insurance - accident and health (6)-0.9
+2.6
+16.4
+
+insurance - brokers (12)0.5
+6.8
+16.1
+
+insurance - life (15)0.6
+11.6
+30.4
+
+insurance - multi line (36)-0.2
+7.2
+21.4
+
+insurance - property and casualty (44)-1.3
+3.0
+10.8
+
+real estate developers (17)1.2
+0.2
+-9.2
+
+real estate operations (44)1.1
+6.0
+-3.1
+
+reit - equity trust other (104)-0.7
+2.0
+0.2
+
+reit - equity trust resident (26)-0.6
+2.8
+3.3
+
+reit - equity trust retail (22)-1.7
+-0.2
+18.9
+
+reit - mortgage trusts (31)-0.4
+6.8
+-6.3
+
+securities exchanges (5)-1.1
+4.2
+16.1
+
+industrial products (205) [+]0.0
+-2.0
+0.5
+
+containers - metal and glass (3)0.5
+-0.1
+7.7
+
+containers - paper products (13)0.7
+3.1
+14.2
+
+glass products (3)-2.4
+-20.1
+-20.8
+
+industrial robotics (1)1.6
+13.5
+-23.6
+
+industrial services (18)0.5
+-1.5
+-18.5
+
+machinery - construct and mining (6)0.6
+3.0
+-2.3
+
+machinery - elect utilities (2)-0.7
+-7.2
+3.4
+
+machinery - electrical (15)1.5
+-11.1
+-4.4
+
+machinery - farm (8)1.2
+5.1
+-13.5
+
+machinery - general industrial (40)-0.4
+0.2
+11.6
+
+machinery - material handling (1)-0.1
+-42.2
+-53.4
+
+machinery - printing (1)-1.5
+4.5
+-58.3
+
+machinery - thermal processing (2)-3.0
+-18.2
+-4.1
+
+machinery - tools and related (7)0.6
+6.0
+-3.6
+
+metal production and fabrication (13)0.7
+3.7
+12.1
+
+metal products - distribution (3)-2.0
+-10.2
+-9.6
+
+metal products - fasteners (1)-0.4
+2.8
+-0.4
+
+office supply and forms (5)1.1
+-1.0
+-18.3
+
+pollution controls (11)-0.4
+-8.4
+4.4
+
+printing - commercial (4)-4.5
+-3.2
+0.6
+
+protection - safety (30)-1.2
+-6.8
+1.5
+
+rubber and plastics (4)1.2
+8.3
+-11.1
+
+steel - pipe and tube (6)0.8
+2.0
+17.4
+
+textile - products (2)1.6
+1.3
+-8.4
+
+uniform and related (2)-0.9
+-10.3
+-3.6
+
+wire and cable products (4)2.4
+8.7
+1.4
+
+medical (1135) [+]0.8
+2.6
+-17.9
+
+large cap pharma (9)-1.1
+3.1
+-2.4
+
+medical - biomedical (567)1.2
+2.2
+-21.4
+
+medical - dental suppliers (17)-0.3
+-5.1
+12.1
+
+medical - drugs (191)0.9
+-1.5
+-26.7
+
+medical - generic drugs (12)1.5
+-7.6
+-14.6
+
+medical - hmo (8)-0.9
+-2.5
+-15.9
+
+medical - hospitals (6)1.5
+3.5
+-0.2
+
+medical - nursing homes (3)-0.7
+3.1
+0.8
+
+medical - outpatient and hm care (18)-0.8
+-0.9
+5.5
+
+medical information systems (47)-0.9
+18.9
+-22.4
+
+medical instruments (101)0.2
+4.1
+-5.9
+
+medical products (88)0.5
+1.6
+-7.6
+
+medical services (68)0.0
+10.2
+-13.3
+
+oils-energy (284) [+]0.2
+-2.0
+4.0
+
+biofuels (4)0.6
+-10.6
+-4.4
+
+coal (9)-3.8
+-4.9
+-9.9
+
+e&p mlp (4)-0.2
+-10.8
+-12.1
+
+emerging markets integrated (1)4.3
+8.0
+-22.3
+
+international e&p (3)0.6
+-11.1
+-21.8
+
+oil -   exploration and product (7)0.3
+-7.1
+31.8
+
+oil -   integrated (4)-0.8
+0.5
+0.1
+
+oil - field services (24)-0.1
+-2.8
+19.5
+
+oil - international integrated (16)0.7
+-4.4
+-0.5
+
+oil - production and pipeline (10)-0.2
+0.5
+36.5
+
+oil - refining and marketing (11)1.4
+-3.1
+-24.7
+
+oil - us exploration and product (43)0.9
+-7.4
+8.3
+
+oil - us integrated (19)1.6
+3.7
+18.8
+
+oil - us royalty trusts (13)1.4
+-3.8
+-19.4
+
+oil and gas - drilling (9)-2.6
+-15.3
+-31.7
+
+oil field machinery and equip (13)0.3
+1.8
+16.0
+
+oil gas prod pipeline mlp (7)0.5
+1.1
+47.9
+
+oil refining and marketing mlp (8)1.2
+5.6
+22.2
+
+other alt energy (59)-0.5
+2.2
+9.9
+
+solar (20)1.2
+1.5
+-50.7
+
+retail-wholesale (239) [+]-0.0
+4.1
+2.7
+
+building products retail - wholesale (7)0.2
+1.1
+17.6
+
+food items - wholesale (6)-1.8
+16.1
+12.8
+
+internet commerce (52)0.6
+8.0
+5.9
+
+retail - apparel and shoes (43)0.1
+-2.2
+-9.6
+
+retail - catalog shopping (1)2.0
+-6.6
+21.9
+
+retail - consumer electronics (3)2.2
+3.9
+1.3
+
+retail - convenience stores (2)-1.8
+4.5
+37.5
+
+retail - discount (8)-1.1
+0.8
+-0.1
+
+retail - drug stores (3)2.1
+-20.4
+-52.1
+
+retail - home furniture (12)0.7
+3.0
+-7.8
+
+retail - jewelry (5)1.4
+-5.3
+-30.6
+
+retail - mail order (2)2.6
+12.1
+-9.2
+
+retail - misc and diversified (18)-0.5
+-2.7
+4.6
+
+retail - regional dept stores (3)-0.9
+4.2
+-21.8
+
+retail - restaurants (48)-0.8
+7.8
+11.9
+
+retail - supermarket (6)-0.7
+6.8
+19.6
+
+retail - wholesale auto and trucks (11)-0.3
+10.2
+14.2
+
+retail - wholesale auto parts (8)-0.7
+8.0
+8.9
+
+retail - wholesale computers (1)0.6
+-6.3
+-5.6
+
+transportation (150) [+]0.3
+-3.2
+-2.6
+
+transportation - air freight (6)2.1
+-2.6
+9.6
+
+transportation - airline (25)2.7
+2.9
+11.7
+
+transportation - equip and lease (10)1.0
+0.6
+30.6
+
+transportation - rail (6)-0.6
+-5.1
+-21.8
+
+transportation - services (36)-1.0
+-2.2
+8.1
+
+transportation - ship (53)-0.3
+-8.1
+-18.6
+
+transportation - truck (14)0.6
+-0.1
+-1.9
+
+
+view all sectors ...
+view all industries ...
+
+
+
+
+
+
+
+help
+
+
+
+
+
+introduction
+all topics
+user guide
+filter phrases
+
+
+create filter
+example filters
+indicator index
+
+
+
+
+
+
+
+
+
+
+chart+
+find similar
+
+
+
+
+
+
+	    enter a stock symbol below to view the chart and saved filter matches:
+
+
+
+
+
+
+
+
+	    search for stock with similar price patterns:
+	    
+
+
+
+
+
+
+
+
+
+
+forums
+
+
+	discuss stock screens, technical analysis,and find answers from over 100,000 forum posts. 
+
+	general discussion
+filter exchange
+announcements
+indicators
+more...
+
+
+
+sectors
+
+aerospace
+, auto-tires-trucks
+, basic materials
+, business services
+, computer and technology
+, conglomerates
+, construction
+, consumer discretionary
+, consumer staples
+, finance
+, industrial products
+, medical
+, oils-energy
+, retail-wholesale
+, transportation
+, unclassified
+, utilities
+more...
+
+
+
+industries
+
+advertising marketing services
+, aerospace - defense
+, aerospace - defense equipment
+, agriculture operations
+, agriculture products
+, appliances - household
+, auction valuation services
+, audio and video products
+, auto - domestic
+, auto - foreign
+, auto - truck original parts
+, auto - truck replacement parts
+, banks - foreign
+, banks - major regional
+, banks - midwest
+, banks - northeast
+, banks - southeast
+, banks - southwest
+, banks - west
+, beverages - alcohol
+, beverages - soft
+, biofuels
+, broadcast - radio and tv
+, building - cmt and cnt and ag
+, building - heavy construction
+more...
+
+
+
+
+
+
+
+
+
+
+
+stockfetcher tools
+filter editor
+my filters
+watch lists
+chart+
+find similar stocks
+shared lists
+
+
+
+
+
+
+popular resources
+stockfetcher forums
+indicator list
+filter phrases
+examples
+site search
+sector/industry list
+usage guide
+
+
+
+
+support
+contact us
+support home
+
+subscriber
+subscriber benefits
+
+
+
+
+settings
+chart
+results
+myfilters
+
+
+
+               
+
+
+*** disclaimer *** stockfetcher.com does not endorse or suggest any of the securities which are returned in any of the searches or filters. they are provided purely for informational and research purposes. stockfetcher.com does not recommend particular securities. stockfetcher.com, vestyl software, l.l.c. and involved content providers shall not be liable for any errors or delays in the content, or for any actions taken based on the content.
+copyright 2022 - vestyl software l.l.c.•terms of service | license | questions or comments? contact us
+eod data sources: ddfplus & csi data
+quotes delayed during active market hours. delay times are at least 15 mins for nasdaq, 20 mins for nyse and amex. delayed intraday data provided by ddfplus
+
+this site is protected by recaptcha and the google
+    privacy policy and
+    terms of service apply. 
+
+

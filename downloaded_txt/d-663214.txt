@@ -1,0 +1,444 @@
+
+
+
+javago
+
+
+
+
+
+
+
+ 
+ 
+
+
+ 
+  dommage que vous n'ayez pas java, vous manquez cette applet 
+          javago ! 
+the javago applet would be here if you had java !  
+          
+ 
+le 
+        chargement peut prendre plus d'une minute, mais après c'est rapide. 
+loading can take some time, more than a minute, but after it works 
+        fast. 
+
+
+  
+        for java 1.1 : javago v1.00
+
+ 
+
+        javago v0.17
+guide 
+        - rules - download - documentation 
+        & code - new - future 
+        - bugs   
+
+
+
+
+cette 
+                applet est freeware, seule recommendation, écrivez-moi pour 
+                me donner vos remarques sur javago. 
+ 
+this applet 
+                is freeware, only recommendation, mail me your remarks 
+                on javago. 
+
+
+
+
+
+ 
+ 
+
+guide d'utilisation 
+        / user guide
+
+
+
+
+menu 
+              principal / main menu
+
+
+
+
+
+
+ 
+              - "n/n"
+lance la configuration 
+              des paramètres (taille du go-ban, handicap et komi) d'une nouvelle 
+              partie. appel du menu "new".
+to configure a new game (go-ban size, handicap and komi). call 
+              of "new" menu.
+  
+          
+
+ 
+              - "l/l"
+pour charger 
+              une partie au format sgf (ou mgt) sur le web ou sur votre disque 
+              dur. appel du menu "load".
+to load a game in sgf (or mgt) format on the web or on your hard 
+              disk. call of "load" menu.
+  
+          
+
+
+
+ 
+              - "s/s"
+pour sauver 
+              une partie au format sgf sur votre disque dur. selectionner le texte 
+              et copier le vers votre éditeur préféré. puis sauver le avec une 
+              extension ".sgf", il est alors chargeable par javago... 
+              
+to save a game in sgf format on your hard disk. select text to 
+              be copied to your favorite editor. and save it with an ".sgf" 
+              extension, it is then loadable with javago... 
+  
+          
+
+ 
+              - "p/p"
+passe. sur le 
+              deuxième pass : comptage du score , clicker sur les chaines mortes 
+              pour les supprimer, reclicker sur pass pour arrêter le comptage. 
+              
+pass. on second pass : scoring, click on dead chains to remove 
+              them, reclick on pass to stop scoring.
+  
+          
+
+
+
+ 
+va au premier 
+              coup d'une partie.
+go to first move of a game. 
+  
+          
+
+ 
+              - "<"
+recule d'un 
+              coup dans une partie.
+go one move before in a game. 
+  
+          
+
+
+
+ 
+              - ">" or "w/w"
+avance d'un 
+              coup dans une partie.
+go one move ahead in a game. 
+  
+          
+
+ 
+              - ">|"
+va au dernier 
+              coup d'une partie.
+go to last move of a game. 
+  
+          
+
+
+
+ 
+              - ">#"
+va au coup "n" 
+              d'une partie.
+go to move "n" of a game. 
+  
+          
+
+ 
+              - "x/x"
+supprime les 
+              contrôles pour laisser le maximum de place au goban.
+remove controls to leave maximum space to th goban.
+  
+          
+
+
+
+  
+              - "o/o"
+détache/attache 
+              l'applet à la page.
+detach/attach the applet on the page.
+  
+          
+
+flèches / arrows
+déplace le curseur, 
+              avec "shift" passe au dessus des pierres.
+move the keyboard cursor, with "shift" pass over the 
+              stones.
+  
+          
+
+
+
+
+menu 
+              "new" / "new" menu
+
+
+
+
+
+
+ 
+              - "n/n"
+lance la nouvelle 
+              partie.
+start a new game.
+  
+          
+
+ 
+              - "l/l"
+même action 
+              que dans le menu principal.
+same action than in main menu.
+  
+          
+
+
+
+ 
+              - "s/s"
+même action 
+              que dans le menu principal.
+same action than in main menu.
+  
+          
+
+
+définit la taille 
+              du go-ban. 
+set go-ban size. 
+  
+          
+
+
+
+
+définit le handicap. 
+              
+set the handicap. 
+  
+          
+
+
+définit la komi. 
+              la valeur du komi par défaut est de 5.5, sauf s'il y a handicap 
+              : 0.5 .
+set komi. default value for komi is 5.5 or 0.5 if handicap 
+              game.
+  
+          
+
+
+
+
+menu 
+              "load" / "load" menu
+
+
+
+
+
+
+ 
+              - "n/n"
+même action 
+              que dans le menu principal.
+same action than in main menu.
+  
+          
+
+ 
+              - "l/l"
+charge l'item 
+              sélectionné (format mgt ou sgf) si c'est un fichier , sinon si c'est 
+              un répertoire liste le répertoire.
+load the selected item (mgt or sgf format) if it is a file, 
+              or if it's a directory list the directory.
+  
+          
+
+
+
+ 
+              - "s/s"
+même action 
+              que dans le menu principal.
+same action than in main menu.
+  
+          
+
+
+permet de choisir 
+              un fichier ou un répertoire à charger.
+              to select a file or a directory to be loaded. 
+  
+          
+
+
+
+ 
+
+règles / rules
+règles 
+        du jeu de go / rules 
+        of the game of go
+
+ 
+
+téléchargement / 
+        download
+télécharchez javago 
+        / javago.zip (43ko-v0.17) / download 
+        javago
+après téléchargement, 
+        il suffit d'extraire les fichiers de javago.zip dans un répertoire, puis 
+        d'ouvrir le fichier javago.html dans votre browser compatible java. 
+        dans certains cas (vieux browsers) il faut affecter la variable classpath 
+        avec le nom de ce répertoire et rebooter la pc (ajouter la ligne "set 
+        classpath=c:\repertoire\javago" dans le fichier "c:\autoexec.bat").
+after download, you only have to extract files from javago.zip to one 
+        directory, 
+and open javago.html in your java compatible browser. in some case 
+        (old browser) you have to set your classpath variable to this directory 
+        and then reboot your pc (add this line: "set classpath=c:\path\javago" 
+        in "c:\autoexec.bat" file ). 
+
+ 
+
+documentation & 
+        code
+javago 
+        developper documentation (v0.17) : 
+        guide de programmation pour le package javago
+development guide with javago package
+javago code
+
+
+sgffile.java
+controlgame.java
+game.java
+goban.java
+infojavago.java
+
+
+infoscore.java
+intersection.java
+javago.java
+move.java
+constants.java
+
+
+
+ 
+
+nouveautés / new
+javago v0.17 / 18 
+        july 1997
+
+fonction save, 
+          par coupier/coller seule façon de sauver des données dans une applet 
+          java.
+          save function by drag and drop, only way to safety save datas with a 
+          java applet.
+
+javago 
+        release notes : les autres versions de javago / other javago's 
+        versions features
+
+ 
+
+versions futures 
+        / futures versions :
+
+langue paramétrable 
+          (pour la version française au moins) / langage choice (for french 
+          version at least)
+client igs ? / 
+          igs client ?
+versions 3d, vrml 
+          ? / 3d, vrml versions ?
+
+
+ 
+
+bugs
+
+le raffraichissement 
+          de l'écran supprime le score
+          refresh suppress scoring... 
+seule la version 
+          ".zip" locale permet d'accéder aux sites web contenant des 
+          parties de pros.
+only local ".zip" version offer the ability to access web 
+          site with pro games. 
+la version ".zip" 
+          locale ne marche pas avec netscape navigator v4 si le classpath pointe 
+          vers les classes javago comme recommandé. marche sinon mais ne permet 
+          pas d'accéder aux sites web.
+local ".zip" version doesn't work with netscape navigator 
+          v4 if classpath is well set as recommended. works either, but don't 
+          allow to access web sites. 
+comportement différents 
+          de "load" sur la version ".zip" locale en fonction 
+          du navigateur
+
+
+avec netscape 
+              navigator, tout va bien...
+avec internet 
+              explorer v3, v4, il faut créer un fichier "index.html" 
+              contenant la description du répertoire...
+
+different behaviour 
+            for "load" on local ".zip" version depending on 
+            browser 
+
+with netscape 
+              navigator, that's ok...
+with internet 
+              explorer v3, v4, you have to create an "index.html" file 
+              describing you directory...
+
+
+
+ecrivez-moi 
+        / mail me si vous trouvez des bugs / if you find bugs. 
+        
+
+
+
+
+
+ contact
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+

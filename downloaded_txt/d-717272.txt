@@ -1,0 +1,2143 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+so what co-operative
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skip to main  |
+      skip to sidebar
+
+
+
+
+
+
+so what co-operative
+
+
+
+oracle, mysql, and it related stuff from the front lines.
+
+
+
+
+
+
+
+
+
+
+
+
+friday, may 11, 2012
+
+
+
+
+
+
+
+optimizer funkiness...
+
+
+
+
+
+i have two simple tables that i want to join in an outer join:
+
+sql> @bug32052.sql
+sql> set feedback on
+sql> 
+sql> drop table jh1;
+
+table dropped.
+
+sql> create table jh1 (x number(10));
+
+table created.
+
+sql> 
+sql> drop table jh2;
+
+table dropped.
+
+sql> create table jh2 (x number(10));
+
+table created.
+
+sql> 
+sql> insert into jh1 values (1);
+
+1 row created.
+
+sql> commit;
+
+commit complete.
+
+sql> 
+sql> select count(*) from jh1;
+
+  count(*)                                                                      
+----------                                                                      
+         1                                                                      
+
+1 row selected.
+
+sql> 
+sql> select count(*) from jh2;
+
+  count(*)                                                                      
+----------                                                                      
+         0                                                                      
+
+1 row selected.
+
+sql> 
+
+
+
+i write a simple outer join query...
+
+
+
+
+sql> select jh1.x, jh2.x from jh1
+
+  2  full outer join jh2 on jh2.x = jh1.x;
+
+...and i expect to get a "1" from jh1 and a null value from jh2:
+
+
+
+         x          x                                                           
+
+---------- ----------                                                           
+
+         1                                                                      
+
+
+
+1 row selected.
+
+
+
+sql> 
+
+
+
+perfect, that's what i am expecting.  except in one of my dbs, i get this:
+
+
+
+
+
+sql> select jh1.x, jh2.x from jh1
+
+  2  full outer join jh2 on jh2.x = jh1.x;
+
+
+
+no rows selected
+
+
+
+sql> 
+
+
+
+
+hmm, interesting.  after a little detective work, i find on one database my execution plan is:
+
+
+
+
+sql> select jh1.x, jh2.x from jh1
+
+  2  full outer join jh2 on jh2.x = jh1.x;
+
+
+
+         x          x
+
+---------- ----------
+
+         1
+
+
+
+1 row selected.
+
+
+
+
+
+execution plan
+
+----------------------------------------------------------
+
+plan hash value: 1813927128
+
+
+
+----------------------------------------------------------------------------------
+
+| id  | operation             | name     | rows  | bytes | cost (%cpu)| time     |
+
+----------------------------------------------------------------------------------
+
+|   0 | select statement      |          |     1 |    26 |     5  (20)| 00:00:01 |
+
+|   1 |  view                 | vw_foj_0 |     1 |    26 |     5  (20)| 00:00:01 |
+
+|*  2 |   hash join full outer|          |     1 |    26 |     5  (20)| 00:00:01 |
+
+|   3 |    table access full  | jh2      |       |       |     2   (0)| 00:00:01 |
+
+|   4 |    table access full  | jh1      |     1 |    13 |     2   (0)| 00:00:01 |
+
+----------------------------------------------------------------------------------
+
+
+
+predicate information (identified by operation id):
+
+---------------------------------------------------
+
+
+
+   2 - access("jh2"."x"="jh1"."x")
+
+
+
+note
+
+-----
+
+   - dynamic sampling used for this statement (level=2)
+
+
+
+
+
+statistics
+
+----------------------------------------------------------
+
+         10  recursive calls
+
+          0  db block gets
+
+         17  consistent gets
+
+          0  physical reads
+
+          0  redo size
+
+        391  bytes sent via sql*net to client
+
+        359  bytes received via sql*net from client
+
+          2  sql*net roundtrips to/from client
+
+          0  sorts (memory)
+
+          0  sorts (disk)
+
+          1  rows processed
+
+
+
+
+and on the db where the query comes back with no rows, it's:
+
+
+
+
+sql> select jh1.x, jh2.x from jh1
+
+  2  full outer join jh2 on jh2.x = jh1.x;
+
+
+
+no rows selected
+
+
+
+
+
+execution plan
+
+----------------------------------------------------------
+
+plan hash value: 2793306587
+
+
+
+-----------------------------------------
+
+| id  | operation            | name     |
+
+-----------------------------------------
+
+|   0 | select statement     |          |
+
+|   1 |  view                | vw_foj_0 |
+
+|   2 |   merge join         |          |
+
+|   3 |    sort join         |          |
+
+|   4 |     table access full| jh2      |
+
+|*  5 |    sort join         |          |
+
+|   6 |     table access full| jh1      |
+
+-----------------------------------------
+
+
+
+predicate information (identified by operation id):
+
+---------------------------------------------------
+
+
+
+   5 - access("jh2"."x"="jh1"."x")
+
+       filter("jh2"."x"="jh1"."x")
+
+
+
+note
+
+-----
+
+   - rule based optimizer used (consider using cbo)
+
+
+
+
+
+statistics
+
+----------------------------------------------------------
+
+          1  recursive calls
+
+          0  db block gets
+
+          3  consistent gets
+
+          0  physical reads
+
+          0  redo size
+
+        298  bytes sent via sql*net to client
+
+        353  bytes received via sql*net from client
+
+          1  sql*net roundtrips to/from client
+
+          1  sorts (memory)
+
+          0  sorts (disk)
+
+          0  rows processed
+
+
+
+
+so it looks like we have an issue with the rule based optimizer.  i confirm the issue by passing the /*+ rule */ hint on both databases and get the wrong results.  i then use the /*+ dynamic_sampling=7 */ hint on both and get the correct results.
+
+
+
+while i know i can get around the issue by setting optimizer_dynamic_sampling=7 in my init.ora file, i am reluctant because i don't know what other queries it will mess up.  i have an sr with oracle to try and explain why it works one way on one db and one way on the other.
+
+
+
+environment:
+
+
+11.2.0.2 with the same patches applied on both ohs.
+linux x86_64
+basically same parameters on both dbs (which is probably where i am going wrong).
+
+
+
+
+
+
+
+posted by
+
+
+
+jeff hunter
+
+
+
+
+at
+
+6:00 pm
+
+
+
+1 comment:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+monday, march 12, 2012
+
+
+
+
+
+
+
+when will rhel6 be certified?
+
+
+
+
+
+red hat enterprise linux has been out since november of 2010.  here we are 16 months later and it's not certified for database use by oracle yet.
+
+yes, i know the database can be installed on rhel6.  in fact, i have it running in my development environment right now with no issues related to the os/db integration.  try to get oracle support to help you on those platforms for an issue unrelated to the os and they still tell you they can't help you because the os isn't certified.
+
+red hat has submitted the results of their testing to oracle almost a year ago!
+
+granted, tikanga is fine for most stuff.  but when the rest of your organization has moved on to santiago, it's hard to justify why the 5% of oracle machines need to be on the old version of the os.
+
+some interesting posts on the topic by tim hall:
+what if oracle 11gr2 never gets certified on rhel6?
+oracle database 11gr2 on rhel6: certified or not?
+
+
+
+
+
+posted by
+
+
+
+jeff hunter
+
+
+
+
+at
+
+11:41 am
+
+
+
+1 comment:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+labels:
+dba,
+oracle
+
+
+
+
+
+
+
+
+
+
+
+tuesday, january 24, 2012
+
+
+
+
+
+
+
+resumes & job objectives
+
+
+
+
+
+i've been reviewing a lot of resume's lately.  please tell me, what is the purpose stating your "job objective"?  isn't it implied that your objective is to find a new job, specifically my job? i assume you're dynamic and technical and your vast expertise will help my company conquer the world.
+
+also, what is the purpose of summarizing your experience on the first page and then giving me eight more pages of the stuff you just summarized?  seriously, doesn't resume mean summary?
+
+i've been at this for 20+ years, my resume is 2 pages.  i don't need to know you did export/import at every one of your jobs for the last 12 years.
+
+back to the stack...
+
+
+
+
+
+posted by
+
+
+
+jeff hunter
+
+
+
+
+at
+
+6:11 pm
+
+
+
+4 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+labels:
+dba,
+oracle
+
+
+
+
+
+
+
+
+
+
+
+monday, january 09, 2012
+
+
+
+
+
+
+
+for people that have managers
+
+
+
+
+
+interesting take on what managers are thinking: http://quickbase.intuit.com/blog/2012/01/09/10-things-your-boss-isnt-telling-you/
+
+
+
+
+
+posted by
+
+
+
+jeff hunter
+
+
+
+
+at
+
+9:00 pm
+
+
+
+1 comment:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+labels:
+dba,
+mysql,
+oracle
+
+
+
+
+
+
+
+
+
+
+
+tuesday, november 01, 2011
+
+
+
+
+
+
+
+is sql*plus resumable?
+
+
+
+
+
+i am using resumable space for a lot of my operations.  however, it  seems as though the sql*plus copy command doesn't respect the resumable  feature?
+
+note, i am issuing an "alter session enable resumable timeout 14400"  through a login trigger.  i know this works because if i do the same  type of operation through an insert/select through a dblink, my session  waits for more space to be added.
+user@whouse1.us> select sysdate from dual;
+
+sysdate
+-------------------
+11/01/2011 15:48:45
+
+elapsed: 00:00:00.03
+user@whouse1.us> copy from user1/pw@proddb.us to user/password@whouse1.us 
+append dest_table (f1, f2, f3) using select f1, f2, f3 from source_table;
+
+array fetch/bind size is 1000. (arraysize is 1000)
+will commit after every 1000 array binds. (copycommit is 1000)
+maximum long size is 80. (long is 80)
+
+error:
+ora-01653: unable to extend table user.dest_table by 4096 in tablespace jh_test
+
+user@whouse1.us> select sysdate from dual;
+
+sysdate
+-------------------
+11/01/2011 15:49:01
+
+elapsed: 00:00:00.03
+is resumable space not available with sql*plus copy?
+
+
+
+
+
+posted by
+
+
+
+jeff hunter
+
+
+
+
+at
+
+4:07 pm
+
+
+
+4 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+labels:
+dba,
+oracle
+
+
+
+
+
+
+
+
+
+
+
+wednesday, september 28, 2011
+
+
+
+
+
+
+
+interesting error
+
+
+
+
+
+we just upgraded one of our 10.2.0.3 dbs to 11.2.0.2 plus some patches.  today an interesting ora-07445 was thrown to the alert.log:
+
+ora-07445: exception encountered: core dump [__intel_new_memcpy()+382] [sigill] [addr:0x3fe5cae] [pc:0x3fe5cae] [illegal operand] []
+
+searching metalink didn't get us anywhere, so we opened a tar (or itar, or sr, or servreq, or whatever the heck they are calling them these days).  while oracle support was looking at the issue, i looked at the query generating the error:
+
+select nvl(t.value, null) from table t where t.id = 12345;
+
+huh?  if the value is null, substitute a null?  wtf?
+
+presto-changeo...
+
+select t.value from table t where t.id = 12345;
+
+...and the error goes away.
+
+is it a bug on oracle's side? sure.
+
+is it a stupid thing to do on our side? you betcha.
+
+
+
+
+
+posted by
+
+
+
+jeff hunter
+
+
+
+
+at
+
+6:11 pm
+
+
+
+5 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+labels:
+dba,
+oracle
+
+
+
+
+
+
+
+
+
+
+
+thursday, september 15, 2011
+
+
+
+
+
+
+
+common sense
+
+
+
+
+
+developer:
+i am running this query:
+delete from tab;
+it's been running since 2pm yesterday.  can you make it go faster?
+
+dba:
+you shouldn't delete 80m rows in a single transaction.  you should have used truncate instead of delete.  i have killed your session and it will be a while before it completes.
+
+developer (5 minutes later):
+i tried truncate but it says my table is locked.
+
+dba:
+i know, the table will be locked up for a while while the transaction rolls back.
+
+developer:
+can you make it go faster?
+
+dba:
+i have turned on _transmogrify_delete_queries on so that is the best i can do.
+
+developer:
+thanks!! that should definitely help!!!
+
+
+
+
+
+posted by
+
+
+
+jeff hunter
+
+
+
+
+at
+
+10:11 am
+
+
+
+5 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+labels:
+dba,
+oracle
+
+
+
+
+
+
+
+
+
+
+
+
+
+older posts
+
+home
+
+
+
+
+subscribe to:
+posts (atom)
+
+
+
+
+
+
+facebook badge
+
+jeff huntercreate your badge
+
+
+
+pageviews past week
+
+
+
+
+
+
+
+
+contributors
+
+
+jeff hunter
+oracledoc
+
+
+
+
+best of (imho)
+
+
+metalink favorites
+backup top 11
+mysql to an oracle dba, part i
+mysql to an oracle dba, part ii
+mysql to an oracle dba, part iii
+mysql to an oracle dba, part iv
+before insert, part i
+before insert, part ii
+wicked ora-27054, part i
+wicked ora-27054, solved
+trace it!
+top n
+setting up multiple listeners
+
+
+
+
+blog archive
+
+
+
+
+
+
+
+
+        ▼ 
+      
+
+
+
+2012
+
+(4)
+
+
+
+
+
+        ▼ 
+      
+
+
+
+may
+
+(1)
+
+optimizer funkiness...
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(2)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2011
+
+(14)
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(2)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2010
+
+(22)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(11)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2009
+
+(15)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(3)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2008
+
+(26)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(2)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2007
+
+(48)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(10)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2006
+
+(112)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(10)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(16)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(13)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2005
+
+(108)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(14)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(13)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(13)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(16)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(14)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(15)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(15)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(8)
+
+
+
+
+
+
+
+
+
+blogroll
+
+
+andy c
+bob schmuck
+confessions of a database geek
+david aldridge
+doug burns
+joel spolsky
+jonathan lewis
+kevin closson
+moans nogood
+niall lichfield
+oracle wtf
+pete finnigan
+peter scott
+planet mysql
+robert vollman
+sheeri kritzer
+the dizwell blog
+tim hall
+tom kyte
+
+
+
+
+swag
+
+
+
+
+
+
+
+subscribe...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+get the so what co-operative delivered to you email:delivered by feedburner
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,371 @@
+
+
+
+
+
+
+
+
+
+
+yumdap.net blog | opensource, linux, punk rock and games
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+yumdap.net blog
+opensource, linux, punk rock and games
+
+
+menü
+zum inhalt springen
+
+
+
+
+
+
+
+
+per ssh auf alte kisten
+
+
+
+aus sicherheitsgründen sind bei ssh bestimmte algorithmen deaktiviert. wenn man nun z.b. alte netzwerkhardware rumliegen hat, auf die erst mal ein firmwareupdate drauf muss, scheitert es schon daran, dass man nicht mal mehr per ssh drauf kommt.
+ein möglicher fehler kann sein, dass der typ des host-schlüssels nicht mehr unterstützt wird.
+unable to negotiate with 192.168.1.1 port 22: no matching host key type found. their offer: ssh-dss
+die fehlermeldung sagt es schon, hier müssen wir ssh-dss wieder aktivieren. das geht entweder einmalig
+ssh -ohostkeyalgorithms=+ssh-dss root@192.168.1.1
+oder dauerhaft in der ~/.ssh/config, falls sich der host nicht updaten lässt:
+
+host 192.168.1.1
+  hostkeyalgorithms=+ssh-dss
+
+eine weitere problemquelle ist die verschlüsselung selbst:
+unable to negotiate with 192.168.1.2 port 22: no matching cipher found. their offer: aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+auch hier kann man wieder direkt in der kommandozeile oder in der konfiguration abhilfe schaffen.
+ssh -c aes256-cbc root@192.168.1.2
+bzw.
+
+host 192.168.1.2
+  ciphers +aes256-cbc
+
+
+
+2 antworten 
+
+			dieser beitrag wurde am 13. april 2021 von dakira in linux, tools veröffentlicht. schlagworte: apple, linux, oss, tools, ubuntu.								
+
+
+
+
+mit wireguard die corporate firewall knacken
+
+
+
+ich befinde mich aktuell öfter mal innerhalb einer konzern-it, wo so ziemlich alles abgeschottet ist. nach außen sind lediglich ports 80 und 443 tcp und 500 udp offen (für ipsec vpn). man hat also nicht mal die möglichkeit sich per ssh irgendwo einzuloggen.
+als abhilfe habe ich mir jetzt einen wireguard vpn-server in die cloud gestellt. als basis dient ein minimales ubuntu 20.04. wenn man von openvpn kommt erscheint einem die einrichtung, wie ein kinderspiel. sämtlicher traffic geht durch das wireguard vpn. da es auf udp-basis läuft und man das tcp-over-tcp-problem umgeht ist alles rasend schnell.
+tipp: oft wird in so geschlossenen umgebungen mindestens noch ipsec vpn erlaubt, so dass man port 500 udp nutzen kann.
+ablauf
+
+auf dem server und allen clients werden ein public/private schlüsselpaar erzeugt. der public key des servers muss dann auf allen clients hinterlegt werden während sämtliche public keys der clients auf dem server hinterlegt werden müssen.
+alle clients bekommen feste ip-adressen (es gibt kein dhcp)
+zuerst wird der also server installiert und konfiguriert.
+danach installiert man wireguard auf den clients und hinterlegt deren public keys auf dem server
+
+installation server
+
+// als root auf dem ubuntu 20.04 server
+apt install wireguard iptables ufw
+// schlüssel generieren
+wg genkey | tee /etc/wireguard/server.key | wg pubkey | tee /etc/wireguard/server.pub
+
+konfigurationsdatei /etc/wireguard/wg0.conf mit folgendem inhalt erstellen (inhalt_server_key entspr. anpassen, für inhalt_client_pub siehe weiter unten). allowed-ips ist hier jeweils die ip die dem client zugewiesen wird.
+
+[interface]
+address = 10.10.0.1/24
+postup = iptables -a forward -i %i -j accept; iptables -t nat -a postrouting -o eth0 -j masquerade
+postdown = iptables -d forward -i %i -j accept; iptables -t nat -d postrouting -o eth0 -j masquerade
+listenport = 500
+privatekey = inhalt_server_key
+[peer]
+publickey = inhalt_client1_pub
+allowedips = 10.10.0.2/32
+[peer]
+publickey = inhalt_client2_pub
+allowedips = 10.10.0.3/32
+
+in der datei /etc/sysctl.conf die zeile net.ipv4.ip_forward=1 aktivieren und mit sysctl -p einlesen. zur absicherung ufw konfigurieren (s. z.b. ubunutuusers wiki).
+installation client
+    
+die client-konfiguration zeige ich hier am beispiel des mac-clients. unter ubuntu läuft das analog, aber ohne grafische oberfläche. wenn man einen „leeren tunnel“ erstellt, wird automatisch ein public/private keypair erzeugt. den public key kopiert man zunächst wie oben gezeigt in die konfiguration des servers. nun die konfiguration wie folgt ergänzen:
+
+[interface]
+privatekey = client_private_key
+address = 10.10.0.2/32
+dns = 1.1.1.1, 1.0.0.1
+[peer]
+publickey = server_public_key
+allowedips = 0.0.0.0/0
+endpoint = 123.123.123.1:500
+persistentkeepalive = 25
+
+die adresse sollte analog zu der in der server-konfiguration sein. dns trägt man ein wie gewünscht. unter peer trägt man den public key des servers ein und als endpoint ip und port des servers. über allowedips wird hier festgelegt welche ips durch das vpn geschickt werden. 0.0.0.0/0 bedeutet, dass der gesamte traffic durch das vpn geroutet wird.
+hakt man noch die on demand kästchen an, wird dafür gesorgt, dass das vpn immer (auch bei verbindungswechseln) aktiv ist.
+wireguard auf dem server automatisch starten
+für einen ersten test kann man auf dem server mit wg-quick up wg0 den server starten und sich nun mit dem client verbinden.
+läuft das kann man mit systemctl enable wg-quick@wg0 wireguard automatisch starten lassen.
+vpn über 443?
+was ist, wenn port 500 auch dicht ist? in diesem fall würde man normalerweise auf 443 ausweichen. wireguard ist allerdings udp-only. wenn 443 nur für tcp freigegeben ist kommt man so also nicht weiter. eine möglichkeit ist die nutzung von tools wie udptunnel oder udp2raw. beides hat bei mir aber nicht zuverlässig funktioniert, so dass ich in diesem fall wohl doch eher zu openvpn über tcp greifen würde.
+
+
+2 antworten 
+
+			dieser beitrag wurde am 11. august 2020 von dakira in linux, tools veröffentlicht. schlagworte: linux, oss, tools, wireguard.								
+
+
+beitragsnavigation
+← ältere beiträge
+
+
+
+
+
+
+
+suche nach:
+
+
+
+schlagwörter
+apple
+fritzbox
+games
+git
+gitea
+gnome
+laravel
+linux
+oss
+php
+plesk
+seafile
+sublime
+tools
+ubuntu
+wireguard
+
+
+
+
+neueste beiträge
+
+
+per ssh auf alte kisten
+
+
+mit wireguard die corporate firewall knacken
+
+
+gta v unter linux spielen
+
+
+hacktober!
+
+
+windows spiele direkt per steam play unter linux
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+lade kommentare …
+
+
+
+ 
+
+
+verfasse einen kommentar …
+
+
+
+
+e-mail (erforderlich)
+
+
+
+name (erforderlich)
+
+
+
+website
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

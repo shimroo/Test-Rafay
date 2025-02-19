@@ -1,0 +1,870 @@
+
+
+
+ron lichty
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+	ron lichty
+	
+  
+thoughts on random acts of software development leadership...
+
+
+
+sunday, august 13, 2023
+
+
+
+	 projects for which agile is inappropriate
+ by ron lichty  
+
+
+
+i encountered agile for the first time in 1999. a decade later, i was not only coaching my own teams in it but also teaching it to friends’ teams. one of the questions i repeatedly heard, in those days, was, “is agile appropriate for every kind of software project?”i wracked my brain for some possible kind of software development for which agile wouldn’t be a fit. i didn’t have a good response.the answer leapt out at me a few years later. it was staring me in the face. i’d been stymied because i was looking for a kind of software. the answer was instead a kind of environment. micromanaged environments. agile is not a fit for command-and-control management.micromanagement disrupts agile. micromanagement prevents best teams. micromanagement prevents learning. micromanaged teams become order takers.agile’s self-organizing teams call for everyone on the team to step up. micromanagement causes everyone to step back.for teams to self-organize, they must be nurtured, not thwarted. for most teams, self-organization holds promise to be the most powerful part of agile – and possibly the most fragile. over the course of two decades introducing agile into my teams and in the past decade parachuting into organizations purportedly already agile, i’ve repeatedly run into organizations signed up for the ceremonies and practices – sprints, standups, planning, points, backlogs, frequent delivery and the rest – without ever embracing the values and mindset behind them. that is, i’ve repeatedly run into organizations that need to let go of “telling” and embrace “teaming.”ask any group of product people who’ve been at it for a while to think back to their best team ever and they’ll never describe a team that was micromanaged. instead, when asked to describe that “best team,” they’ll come up with characteristics like “respect” and “trust” and “shared purpose” and “we had each other’s backs.” they’ll also, in a nanosecond, sign up to be on a team like that again.in its aristotle study of what distinguishes its high-performance teams, google identified a singular standout defining characteristic, “psychological safety.” the study further described psychological safety as everyone at the table feeling welcome to speak up, each team member speaking about equally, and each feeling listened to. it could be identified visually by “equality in distribution of conversational turn-taking.”daniel pink calls out autonomy as a key to intrinsically motivating people and teams, in his eye-opening best seller drive: the surprising truth about what motivates us. “intrinsically motivated people usually achieve more than their reward-seeking counter-parts,” pink notes.agile gives those of us who are managers the role of “servant leaders.” in its manifesto, agile calls out building projects around motivated individuals, trusting to get the job done, face-to-face conversation, and self-organizing teams – teams that reflect and tune and adjust. servant leadership means we managers are not the directors but the facilitators and enablers. we’re looking to create cultures in which teamwork and psychological safety and autonomy thrive – in which everyone in our organizations, right down to the interns, are leaders, each one of us leading from our unique expertise and experience. make no mistake, few interns are leading software architecture – but our interns likely do have insights from their boilerpot of sometimes edgy schoolwork that’s worth listening to and learning from. (and if they don’t, we probably hired the wrong interns!)agile practices are useful. they’re designed to support great teams. even in the context of micromanagement, agile practices can make a difference – but in micromanaged environments, their benefit is severely limited. it’s incumbent upon us managers to support agile practices by crafting the culture and the environment for great teams to emerge and thrive – not by telling teams what to do but by setting objectives and boundaries and then turning our focus to nurturing teams to deliver their best. only by avoiding telling and by nurturing teaming do we offer our organizations the possibility to deliver their best.————this post was originally written for and appears in the book, 97 things every engineering manager should know, edited by camille fournier.image by steve buissinne via pixabay
+
+
+
+posted by ron lichty @ 1:01 pm  
+      
+         0 comments
+
+
+
+
+
+
+saturday, august 05, 2023
+
+
+
+	 development metrics? try devex
+ by ron lichty  
+
+
+
+if you read my post on never, ever, ever, letting story points or velocity be used as a performance metric, you are likely aware of my skepticism around software developer and development metrics. in that post, i called out jerry muller’s thin book, the tyranny of metrics, for capturing the inane insistence on metrics to “measure" developer productivity. muller quotes andrew natsios in defining an increasingly problematic, increasingly common human condition that natsios labeled “obsessive measurement disorder: an intellectual dysfunction rooted in the notion that counting everything… will produce better policy choices and improved management.” muller devoted his book to debunking that belief. you also likely know my appreciation for work by nicole forsgren and others - their book accelerate, and their dora studies, which focused not on attempting development and developer metrics, but rather on leveraging very tangible delivery metrics. (worth watching: good talk by emily nakashima on leveraging dora for kpis.)more recently forsgren and co-coauthors delivered space: actually looking at developer productivity.now forsgren with yet another set of coauthors has looked into developer experience - devex - not just tools, but human factors such as having clear goals for projects and feeling psychologically safe on a team. devex has been shown to have a substantial impact not only on developers' performance and productivity, but also on their satisfaction and engagement, and on employee retention. and how do we measure devex?complete with real-world examples.image by lukas bieri via pixabay
+
+
+
+posted by ron lichty @ 1:30 pm  
+      
+         0 comments
+
+
+
+
+
+
+sunday, july 16, 2023
+
+
+
+	 kanban or scrum?
+ by ron lichty  
+
+
+
+i’ve been asked by more than one team i’m training: kanban or scrum?of course, the first answer is to ask if you’re even being agile. there are way too many teams doing scrum or doing kanban, and way too few teams being agile!while agile values and principles apply equally to scrum and kanban, scrum and kanban do not equally support agile values and principles required for different kinds of work. scrum, with its aspirational sprint goal, its sprint planning ceremony, its daily scrums to ensure teams come together at least daily to replan, and its end-of-sprint demo and retrospective, supports teamwork taking on a larger product or project, one set of increments at a time: the team supporting every one of its members every day as they together encounter, share and resolve challenges and deliver the increments.when kanban teams set and hold themselves accountable to appropriate work-in-progress limits, the need for everyone with a piece of the story to finish before anyone can be finished can motivate internal teamwork that drives completion and delivery. but kanban can feel much more oriented to piecework and more difficult to connect the team to customers and larger outcomes and impacts, given lack of a larger (sprint) goal. output over outcomes. that leads us, whenever possible, to leverage scrum for projects and products and kanban for rolling-requests teams that need to change up their backlogs daily to ensure appropriate customer responsiveness. if you find yourselves with a product team using kanban, you’ll need to devote more focus to connecting members of the team to customers, impact and mission in addition to each other. and with kanban’s lack of regular cadence, retrospectives can become irregular and experiments (for more team joy, better thruput, higher quality, …) too infrequent.on the other hand, outside pressure applied to scrum teams can cause them to focus on output instead of outcomes; and lack of value-focus can lead to standups that devolve to status meetings, planning ceremonies that focus on output rather than outcomes, demos that teams sleep-walk through, and retrospectives that seldom or never yield an experiment to try in the coming sprint.there are, of course, other choices than scrum or kanban - i’d urge teams to seriously consider overlaying either with as many xp engineering practices (pair or ensemble programming, test driven development, continuous integration/continuous deployment, continuous refactoring, …) as is viable - or mix a cocktail of the best of all three - and to look at emerging approaches like shape up or fast. but it’s inevitably scrum vs kanban about which i’m asked.regardless whether scrum or kanban or something else, teams need to be diligent in asking if they’re being agile - if their practices are delivering on the promises of teamwork and customer focus embedded in agile’s values and principles and core to being agile.
+
+
+
+posted by ron lichty @ 10:25 pm  
+      
+         0 comments
+
+
+
+
+
+
+monday, august 22, 2022
+
+
+
+	 developers: customer empathy!
+ by ron lichty  
+
+
+
+uncle bob martin once noted, “writing clean code is what you must do in order to call yourself a professional developer.”that’s not enough. to call yourself a professional developer you must also write usable code. code that results in transparent-to-your-users and transparent-to-your-users’-goals functionality. users should feel as if it’s not even there, it just does what they expect, it transparently lets them get their jobs done.i was at apple from ’91-94, managing development of the ux of the mac, the mac finder. i found myself hiring for "customer empathy", not just stellar c++. “customer empathy” were not words that were even used then. i made them up to try to describe what i was looking for: developers who were focused not just on code but on the people counting on it to accomplish their goals. the rest of the computing world would surely catch up with my hiring requirements in 5 years and be doing the same. (7 years? 10?) it’s been 25 years.one of my mac finder team developers reminded me recently that i’d memorably shared, as model for an engineering work practice, an experience from my pre-programming days, when i’d been a journalist on a daily newspaper. it was the era of hot-wax paste-up. once i’d finished my news or feature story, a layout artist would precisely position strips of computer-set story copy onto dummy pages, weaving them around photos, using a roller to adhere them to the page.it was eye-opening the first time but i was amazed over and over: when layout felt wrong to him or to me, he didn’t hesitate to strip the dummy of all copy and photos and completely start over. it wasn’t just my job to tell the story; it was his, too. on behalf of reader and story, not only did i edit my story mercilessly, but he was willing to be merciless to get story and photos laid out perfectly - multiple times if need be - to let the story leap off the page - to give the story the meaning and the power it deserved. it was more important to get the ux of the layout right - to tell the story graphically not just verbally - than to feel any compunction about ripping it off the page and beginning again.i urged my mac finder team to have that same willingness - eagerness, even - on behalf of our users and our functionality - to ensure it served our users superbly. if we felt a whiff of unevenness, if our ux designer expressed any concern or saw any user test falter, if we heard any question from any corner, … then we should evaluate and reevaluate if we’d achieved that purpose. and it not, then we should redo it. even if it required rework multiple times. our customers and users deserved that.everyone’s customers and users deserve our getting ux right. even if it means tearing out code and starting over. 25 years since i imagined a world of user delight - users delighted with their software - all of their software - all users - there’s still too much focus on fixed scope and fixed dates - and nowhere near enough on customer empathy.how long must we wait before customer empathy is a hiring requirement for every software developer, and our businesses stop delivering mediocre-at-best user experiences?
+
+
+
+posted by ron lichty @ 12:00 am  
+      
+         1 comments
+
+
+
+
+
+
+friday, april 30, 2021
+
+
+
+	 measuring productivity
+ by ron lichty  
+
+
+
+ never, ever, ever, let story points or velocity be used as a performance metric. in fact, don’t share points and velocity outside the team. they’re not only not useful outside the team, they can be counterproductive.because points (and velocity) are team-unique, they are useless for comparing teams. one team’s points and velocity have no validity to any other team. none. zero. points are a measure of pace, not a measure of performance. they’re team-useful, not of use to anyone outside the team. not for any purpose i can think of.nor are they useful for externally measuring a team’s productivity, as team velocity will vary naturally based on factors outside the team’s control.story points derived from rapid, effective relative sizing, combined with velocity, can be very useful to teams themselves, and to delivering predictability to teams’ stakeholders. points and velocity enable teams to be predictable: they offer the ability to walk down the team’s project backlog and draw a watermark - a predictor of where the team will likely be - three to four months from now. then we can do some agile product planning: if we draw a line there, a watermark, we can ask ourselves and our stakeholders, do we have the right stuff above the line? predictability is not a principle in agile development. just a result. we get better predictability from agile development - from relative sizing plus velocity - than anything else i've ever seen used in software. of course, if we’re truly agile, we’re likely to insert stories and change story order before we get to the watermark. each of those is a conversation we can have about priorities and the effect on the watermark of swapping stories in and out.story points are also really useful to product managers and product owners (and managers!) to understand the ease or difficulty of features and stories. they give product owners particular insight into backlog ordering, enabling them to enable the team, at every sprint planning, to always be delivering the most customer delight the team can provide. but back to my warning: points and velocity are not a performance measure! attempting to use them to measure performance is not only useless, but terribly, terribly counterproductive. knowing points and velocity are being watched will cause smart people to game them. (note: all software teams are full of smart people!) gamed points are useless not only as a metric but worse, gaming points makes them useless for helping teams be predictable!i quickly copied down a client's rule of thumb a few years ago: what gets measured gets manipulated. it’s the most succinct summary of the biggest problem with metrics - and certainly of using points and velocity as a metric - that i've ever heard or read. (i'm a collector of useful rules of thumb. there are 300 of them in our book, managing the unmanageable, and we’ve continued to collect them online.)based on my client’s rule of thumb, let me re-state the previous observation: use points as a metric, and the number of points delivered in every sprint will go up. productivity won't, but points will. any team of smart people who are aware that management thinks points matter will game them. measure points, and the inevitable gaming will make points useless as a metric. with the added injury - a major one! - that gamed points are then made useless for the team to leverage internally to be predictable. gamed, they’ve become meaningless.as sally elatta, cofounder of agilityhealth, says, "if you ever use metrics to punish or reward, you’ll never see the truth again."ethan bernstein’s harvard business school study, the transparency paradox field experiment, showed dramatic hits to quality and performance just from workers being aware of being watched. workers who were encouraged to experiment to improve their process but whose process was constantly monitored for productivity not only saw teams game the system but showed significant performance and quality degradation over giving the teams autonomy to just show results. todd lankford kindly translated bernstein’s factory-floor study to software development in his post, how transparency can kill productivity in agile.add to all that the cost of morale due to flawed management conclusions based on points measures. "your team isn't delivering as many points as that other team." or "work harder so your velocity goes up!" using points and velocity to measure productivity is as counter-productive as measuring lines of code or butt-hours-in-seats. productive teams are happy teams. measuring team happiness - and team health - is a much better metric to gauge productivity than points and velocity.and ultimately, what we need to care about is customer happiness: not inputs and outputs but outcomes. are we delighting customers? are we delivering the most value with the highest quality? are we delivering the right things, and delivering them right?as sanja bajovic pointed out when i first fostered this message as an online discussion, “one of the issues may be that measuring story points is so easy. all tools support it. measuring customers’ happiness is more complex.” sanja’s point is one of the core ones that jerry muller cites in his book, the tyranny of metrics. to paraphrase muller (only slightly), the appeal of metrics is based in good part on the notion that development teams will be unresponsive if they are opaque, and more effective if they are subject to external monitoring. that’s not a useful notion. muller quotes andrew natsios in defining an increasingly problematic, increasingly common human condition that natsios labeled “obsessive measurement disorder: an intellectual dysfunction rooted in the notion that counting everything… will produce better policy choices and improved management.” muller devoted his book to debunking that belief.in the same online discussion about points and velocity, jeremy pulcifer added color to my own arguments when he observed that “points are useful in helping order the backlog, the value-proposition. leaking that metric is a very bad practice.”points and velocity, unwatched outside the team, give the team and its product owner the ability to, when management asks what you're planning, walk them over to your card wall and say, things will likely change - that's the point - but with our velocity today as a measure, we're likely to be here 3 months from now. do you agree, knowing what we know today, that this is the right order and that we have the right stuff above the line?... that's a useful conversation.i should, perhaps, note that i find predictability does require stable teams and truly relative sizing to be able to leverage velocity to set predictable watermarks. given stable teams and truly relative sizing as pre-requisites, i repeatedly see teams deliver to the watermark, plus or minus 20% (with the caveat, of course, that if/when the backlog changes, they’ve adjusted the watermark to match). in software development, that’s a remarkable level of predictability.product owners have responsibility to keep stakeholders clued in to what to expect. walking them up to the card wall and walking them through the ordered backlog of upcoming and future stories can be useful. sharing velocity charts with stakeholders, on the other hand, is pretty unuseful: velocity is not meaningful outside the team; what stakeholders really want to know is what value they can expect and when.so what metrics are worth focusing on? i do find some usefulness to measuring, end of each sprint, the number of stories a team finishes vs. the number they committed to, or the number of story points a team finishes vs. the number of story points they committed to. with the caveat that what’s being measured is not productivity but the team’s ability to plan. teams good at planning regularly finish somewhere between 85 percent and 110 percent of their points - regularly complete their plan 80-plus percent of the time. everybody, just everybody, knows whether teams are, end-of-sprint, delivering what they said they would at the sprint’s beginning. when teams regularly deliver the stories they promised, when they honestly say at the beginning, this is the high-value customer stuff we believe we can deliver, and then 80+ percent of the time demo that stuff visibly end-of-sprint, everyone relaxes and lets them keep delivering value without (or with less) interference.teams find it terribly counterproductive when outside voices pressure teams with messages like, "c'mon, you can do more.”as an engineering manager, i watch commitment-vs-completion primarily both to make sure team members are not under some false idea that they should pressure themselves to increase velocity - and to make sure someone else isn't doing that sort of pressuring to them. in the absence of either of those two, it's to coach them to be more effective at planning.effective sprint planning is core to building trust with stakeholders. only if the team demonstrates predictability in its sprint planning and delivery can the team be convincing to stakeholders with regard to months-out watermarks drawn in the backlog.again, outside forces can undercut teams. we’ve probably all experienced otherwise well-meaning managers and project managers who push their teams to plan for more points than they’ve been delivering. when you see this happening, you may want to suggest what i do: adding paper to a printer doesn’t make it print faster. velocity is a measure of pace. if you think your team is capable of a higher pace, then invite the team to retrospect on what might make them more effective and happier; remove the impediment that’s standing in their way; bring in a trainer or coach to tune weak practices to be more effective; or facilitate your team’s engagement as a team (google’s aristotle study calls out “psychological safety” as the differentiator, and how to watch for it; em campbell-pretty calls out culture-first agile in her book tribal unity).here are other metrics i consider:1) outcomes. i want to see visible progress - product increments - being demo'd end-of-every-sprint - progress delivering some increment(s) of the product functionality that customers value most. 2) happiness. i seek to find measures for both customer happiness and team happiness.3) tripartite metrics. i’m attracted to measures advocated by one of scrum's creators, jeff sutherland, who suggests measuring cycle time, escaped defects, and team happiness. important: in my opinion, neither of the first two is useful without the other two.4) team engagement. progress in team ownership and team engagement (and progress in identifying effective practices and adopting and learning them) is critical. fundamentally, software development is a team sport; we said this in our book managing the unmanageable eight years ago, but it continues to hit home for me that software development is a team sport. while measures of team happiness may be representative of ownership and engagement, in my opinion evaluating progress toward team ownership and team engagement relies mostly on judgment from experienced leaders: managers, scrum masters and coaches. it's the bane of our analytical engineering brains that we must rely on experienced judgment over metrics we can analytically measure in evaluating software development. but i’ve seen nothing better.5) psychological safety. google’s study told us we can observe it: when everyone at the table feels like they have the opportunity to speak up, we see “equality in distribution of conversational turn-taking”: no one dominates, no one is silent.6) finally, as i said above, i have suggested to any number of product people and teams (with caveats, mind you) that they consider measuring number of stories delivered.as i (and so many others) have noted, when human beings know they are being measured for performance, they’ll game whatever metrics you’re measuring (even if it’s subconsciously - we innately know what's good for us!). so before we use a metric, we need to really think deeply about how it might be manipulated. regarding number of stories delivered… that means we must ask how people might game measuring stories-delivered. one obvious way would be to split a story into multiple, smaller stories: same work, more stories. but good news! smaller stories are better! while splitting stories can be hard, there's pretty universal agreement that smaller stories (or if we're not doing agile, more granular requirements or smaller tasks) are better for a variety of reasons, from clarity to develop-ability to debug-ability to faster validation that we're on the right track. gaming story throughput by making stories smaller not only benefits a product team’s members but also benefits the software development itself. it's one of the very few metrics for which human-manipulation has such a positive side effect. (i've heard stories told of teams that proclaimed they could not split stories further, only to very creatively find useful new ways to split stories after management started measuring numbers of stories.)but i would add a caution: this positive side effect is not the only side effect. another way to put more stories into production is to spend less time on their quality and on testing them. regardless of your metrics, be very careful. side effects will likely be rampant.there has been some really good writing on metrics - articles and posts that explore both possibilities and concerns. here are a few i review from time to time:• from pivotal labs: don't measure velocity but volatility, cycle time, rejection rate• genius overview of metrics by ron jeffries• genius overview of metrics by sean mchugh• wonderful study of team productivity through the lens of devops metrics: accelerate, by nicole forsgren, jez humble and gene kim - a must-read, in my opinion
+
+
+
+posted by ron lichty @ 5:16 pm  
+      
+         2 comments
+
+
+
+
+
+
+monday, september 07, 2020
+
+
+
+	 taking agile remote: process and tools
+ by ron lichty  
+
+
+
+
+
+“in-person is the gold standard,” i heard a colleague say. we were discussing the impact of the pandemic on team communications. 
+
+the impact of the pandemic, of course, is that there’s almost no in-person to be had. our software development world is now almost entirely remote.
+
+our world was a long way from the gold standard prior to the pandemic. i was far from first to the party when, at apple 30 years ago, i outsourced development to a programming team in ohio. despite the best intentions of the agile manifesto’s signers, when they stated, “the most efficient and effective method of conveying information to and within a development team is face-to-face conversation,” the trend continued with organizations scattering teams around the world, and some - some i managed - entirely remote.
+
+but let me step back…
+
+i was first introduced to agile in the form of xp 21 years ago, 1999, when i was at schwab, and i soon began managing, leading and coaching agile teams. my first consulting engagement introducing agile was 10 years later. it was 2009, and i was advising a startup trying to find its path. while it had been following a north star that had mostly stayed the same, the path had veered every which way - a real challenge for a product team trying to execute what had been a six-month waterfall plan that was now into its 15th month. 
+
+even a modicum of agile practices, i thought, would help this startup and its team. the team already had the building blocks: feature names in a spreadsheet. if we just ordered them effectively and developed in short iterations, the team ought to deliver a cadence of product increments with much earlier customer outcomes. 
+
+before ordering features, i facilitated discussion of what “done” should mean - a definition team members could apply to every feature. then we transcribed their features out of excel onto 3x5 cards so we could relatively size them, snaking the story cards back and forth on a conference room table until we had them in size order, waiting to make a second pass to add “points” numbers. the sizing was crucial to backlog ordering, in which we stack-ranked the features so they were ordered not just by value but, taking size into account, roi. the ordered backlog then supplied fodder for the team to plan sprints, each of which would deliver a product increment - the highest-value features we could complete in two weeks. with customer-focused plans each targeting just two weeks, the team executed. 
+
+a colocated team plus practices and mindset. relatively easy transition to relatively agile. dramatically better than what they’d done before.
+
+lots of teams weren’t colocated, of course, maybe even most, but most of the ones reaching out to me, early days, were colocated in one or several distributed locations.
+scrum for distributed teams 
+
+when product development was in several locations, i sometimes found myself on the road, while other times was teaching remotely. i was soon delivering the presentation parts of training using some of zoom's predecessors - skype, webex, google hangouts and adobe connect. jira and a ton of other tools provided a facsimile of cards on a wall. definitions of done could be collaboratively composed in google docs or confluence. wikis worked reasonably well for capturing retrospective observations and learnings. 
+
+but a key part of agile backlog grooming relies on ordering by roi, or “bang for the buck”, which in turn relies on relative sizing of stories to supply the “buck” — the “i” in “roi” — the relative investment required. i wasn’t much impressed with planning poker - i’d much earlier learned a technique much more powerful — the team two-pass relative sizing method that steve bockman devised - snaking. 
+
+snaking is a two-step process: first the entire team sorts the stories by relative time and complexity on a conference table, resulting in a snake of 80 or 100 stories in ascending order by how long they’ll take relative to each other.
+
+
+
+
+agile two-pass sizing by a colocated team: in a typical case, it takes a team 3-4 hours to snake 80-150 stories (in this case 120), from smallest story to largest epic and add points
+
+
+then, after labeling the smallest story card a ‘1’, the team continues to label stories 1s until there is a card that is clearly no longer a 1 but twice that, so labels it a ‘2’; and so on.
+
+less than half a day. simple, fast, collaborative, and powerful when the team is in person. even most distributed teams were in person - they were essentially groupings of in-person teams distributed from each other. but some weren’t. some were entirely remote.
+
+as simple as card-sorting and card-labeling seems, i’d found no tool to support it for entirely remote teams. i had been looking for years. could card wall tools suffice? nope, they’d never considered my use case. (no, not even trello. not even close.) google draw? not really. spreadsheets? not on your life. list tools? hard, very hard, to swap card order. powerpoint, maybe? put each story on a slide and switch to slide sorter view? but powerpoint begins with cards in a grid - very different from starting from a stack of 3x5s and putting one at a time onto the sorting “table” in the relative position it belongs. 
+
+and then, an entirely remote team
+
+i’d stopped looking for a workable tool when, in 2015, a team in rural maine asked if i could fly out to help their product team be more predictable. one problem - while headquarters was in rural maine, the programmers were not. at least most of them weren’t. turns out there aren’t a lot of .net developers in rural maine. there lay the problem. the programmers were scattered across the country. 
+
+i described relative sizing to my new client - creating a snake of cards on a conference room table. and they described this tool called realtimeboard (now renamed miro) that they  were using for retrospectives - virtual stickies on a virtual whiteboard - that they thought might do the trick.
+
+i was stoked.
+
+miro was the first tool i’d encountered that really let entirely remote teams accomplish relative sizing. 
+
+it was pretty easy to get started with miro. much as we’d transcribed feature names out of excel onto a stack of 3x5 cards, now we were scribing them onto a stack of virtual cards in miro. (a few months later, miro and jira had api integration, at which point miro auto-generated a bevy of cards, each an instance of a ticket in jira.)
+
+relative sizing
+
+to teach teams the sizing technique, i start with a warm-up exercise, asking students to size fruits. we start with 12 fruits. agile stories typically have a “why” and the why for all 12 fruits is the same — “i want to eat some fruit” — it’s just the fruits that differ.
+
+
+
+fruit-sizing exercise — when teams are colocated
+
+
+the exercise is for the team to put the 12 fruit cards in order: not based on how long to eat the fruit, but based on the effort required - the combined “cost” of preparing a serving of the fruit and cleaning up after eating it (much as, in software, we need to combine development and testing efforts). twelve cards are a small enough number to get a quick first experience with snaking. i give teams five minutes to put them in order by effort, three more minutes to number them with the usual modified set of fibonacci numbers.
+
+it turned out that miro was a pretty good tool for remote teams to snake the relative cost of 12 fruit.
+
+
+
+fruit-sizing exercise — 4 teams worked simultaneously, each on their own “sorting table”
+
+
+the more complicated next exercise is a scrum-ified version of the xp game, in which teams size then order a backlog of puzzle and game activity "stories" (for example, sorting cards or calculating a bunch of sums), then plan and execute short sprints, their goal  to deliver the most customer value. here, miro was able to not only emulate conference-table sizing, but also a card wall from backlog to sprint plan to user-acceptance-test to done, as well as the activities themselves.
+
+
+
+the scrum game —three teams working simultaneously, each with their own stories, sorting table and card wall
+
+
+finally, i facilitate workshops during which teams size stories from their own software projects. it’s common for a team to have fifty or eighty or a hundred or more stories in its project backlog. provided we limit the number to a maximum of 150, we size them all. 
+
+the most recent study of product team performance - a survey of teams all over the world - revealed that higher performing teams tend to work from backlogs more than three months long. and those teams have sized not just the stories selected for the next iteration but all of their backlog’s features, epics and stories.
+
+comparing miro with a real conference table
+
+during snaking, when the team gets beyond a dozen stories and wants to insert a story somewhere in the middle, the difference between cards on a table and an online scrum board becomes apparent. making physical space on a table is something we learned to do as children. whereas we have to learn the interface to leverage an online tool to move a bunch of cards at a time.
+
+on a real-life table, we usually snake the cards back and forth. but i discovered that, on a virtual table, rather than snaking cards back and forth, it is easier to organize the cards in rows, one above the next, snaking from the end of each row of cards back to the beginning of the next row, each row arranged from smallest to largest, left to right.
+
+
+
+snaking a virtual team's stories is more easily done in rows
+
+
+in my experience, where snaking is easier on a table, rows are easier in virtual space. if the team developing miro ever delivers a feature to automatically insert a card into a matrix of rows of cards, it may make virtual sizing easier than real-space sizing! but for the moment, in-person - people proximity - the gold standard - still wins. but miro is pretty good. it integrates with jira. and i’m delighted to report that miro is no longer alone in providing this functionality. a year ago i was engaged by a client already using a remarkably similar tool, mural.
+
+delivering a scrum experience
+
+one of the things my clients love about my scrum trainings is that they're immersive. i run classes as agile projects. i put up a card wall with a backlog of relatively sized "learning stories" that have been ordered to always be delivering the next-highest-value learning. much as we do with software project stories, my learning stories have relative story points. at the end of one-hour “sprints,” i update a burn-up chart, yielding emergent velocity that predicts how many of the learning stories in our backlog we will likely complete by the end of class. this makes the class experiential — i’m not just teaching about scrum, but immersing my classes in it.
+
+setting all that up for real-world teaching is time-consuming. a few days beforehand, learning stories get handwritten onto scores of giant stickies for each class. day of class, i arrive 45 minutes beforehand to transform a classroom wall into a backlog of learning stories poised to, one by one, march across the card wall, from “backlog” through “in progress” to “done”. i prep a second wall with flipchart pages: one the burn-up chart, others blank to record students’ hopes and wants from the class, and later what they’ve learned and will take away. 
+
+while learning miro and getting my first remote workshops set up was as tedious and slow as getting ready for my first classroom trainings years before, it provided a remarkable facsimile. even better, it turned out downright handy for subsequent classes: once i'd set up my online scrum board for the first class, i found i could save it off and reload the setup as the basis for subsequent classes.
+
+
+
+training scrum board of learning modules, each notated with a relative story-point size, as class begins
+
+
+          
+scribing student hopes for their learning - and, hourly, updating a burn up chart - were similarly straightforward
+
+retrospectives, too
+
+that first client five years ago that introduced me to miro had been using it for retrospectives. bobbie manson from mingle analytics had been leveraging miro to run one of the best agile retrospectives i had yet seen. (i emulate her approach when, at the end of my virtual classes, we retrospect on the training, both to help students cement their learnings and to get feedback on what i can improve.)
+
+
+
+retrospective by students, after three days’ agile training & workshops
+
+
+
+
+because i think it’s been the stumbling block for distributed teams, though, it’s snaking - the agile relative sizing practice, in which we use cards on a virtual whiteboard in place of cards on a table - that makes using miro and mural so expedient. relative sizing, because it forms the backbone on which velocity and predictability are based, is one of the practices i see teams continue to heavily leverage long after class completes. and the tools' usefulness is significantly enhanced by their integration with jira: epics and stories are easily exported from jira into miro or mural; when the team determines relative points and writes them on cards on the miro board, they are automatically updated through the api to the tickets in jira.
+
+as steve bockman, relative ordering’s creator, has noted, the ordering technique is equally useful for relative valuing:
+
+product owners snake stories from most-value-to-customers to least. 
+product organizations snake project opportunities from most contribution to company objectives to least. 
+tech leads and architects snake tech debt and other technical product backlog items from most urgent and highest risk to least. 
+engineering leaders snake engineering, infrastructure and debt projects the same.
+
+relative value divided by relative size yields roi - return on investment - bang for the buck. it’s a useful guide to seeing what to do first and next and next after that. 
+
+prior to the pandemic, i had trained teams spread across as many as a dozen different geographies as well as remote teams on other continents. then, a combination of skype and miro had not only let me train teams in remote locations and scattered across geographies, but also enabled those distributed teams to continue to use agile’s powerful, collaborative techniques and practices after i was gone. 
+
+having five years of experience with a remote collaborative tool gave me a major headstart to serving suddenly remote teams with the onset of the pandemic. a combination of high quality conferencing like zoom and virtual whiteboarding like miro and mural provide a serviceable stand-in for physical cards, card walls, sizing, ordering, charts and all the rest - for every team.
+
+
+
+
+
+
+
+
+posted by ron lichty @ 11:15 pm  
+      
+         4 comments
+
+
+
+
+
+
+saturday, may 30, 2020
+
+
+
+	 high performance teams know where they’re headed
+ by ron lichty  
+
+
+
+
+
+
+our 2019 study of product team performance, released this month, reveals that high performance teams tend to work from backlogs more than three months long. and those teams have sized all of their backlog’s features, epics and stories, not just the stories selected for the next iteration.
+
+each study of product team performance - this is the sixth study we’ve undertaken - surveys team members on thousands of product teams around the world, asking them to characterize their team’s performance - high performing, low performing, or something in between - and to share their experiences and approaches. our data analyst then looks for and identifies correlations between practices and team performance.
+
+this year’s study - based on our survey that wrapped up in december - identified six practices and characteristics that highly correlate with high performance teams:
+
+awareness of and alignment with their company’s business strategy (only a quarter of teams!)
+accountability to customer satisfaction targets (barely more than half)
+innovation process maturity company-wide (less than 10% report their companies are mature)
+product managers spend at least 30 percent of their time in the field (only 11 percent do)
+using profitability as a criterion to prioritize requirements (less than two-fifths do)
+sizing all of the stories in a requirements backlog that is sufficient in size to represent more than three months’ effort (less than a fifth do)
+
+
+the question we asked in the survey about the latter: 
+do individual contributors size all the stories or requirements in the backlog or just those that have been selected for the next iteration?
+
+
+
+
+reading the chart from the right, the answers revealed that almost 16% of teams don’t size their stories at all. sadly, 17.9% have only an iteration or two of stories in their backlog at any time. two-thirds have quarter-plus-length backlogs, but only 17% size that entire backlog up front. 
+
+what stunned us were the correlations: 
+    ▪    the 17% that had quarter-plus-length backlogs and sized the whole backlog correlated with the highest performing teams
+    ▪    the teams with only a sprint or two of stories in their backlogs correlated with the lowest performing teams
+
+to the low-performing teams, clearly product managers and product owners providing their teams with a bare minimum of stories are struggling. by barely staying ahead of their teams’ development capacity, product people aren’t providing enough stories to be able to ensure the team is focused on the highest value work, there’s no roi-based stack-ranking to be had, they’re likely guessing with regard to what to do next, and stories are likely not well-formed with their acceptance criteria likely incomplete.
+
+to the high-performing teams, we have no way of knowing that they’re using low-cost, no-waste estimating techniques like steve bockman’s relative sizing method (also known as snaking, laddering, and the team estimation game). in fact, sizing a quarter-plus backlog seems counter-intuitive given we all know that few teams deliver much more than half of a backlog that long, what with estimates being guesstimates and particularly the introduction of new work and adjustments to work incumbent from getting early feedback and iteratively delivering the highest-value increments of the product. 
+
+but given the correlation with high performance, it’s clear that the cost of sizing the whole backlog is offset by product managers being able to fold size impacts into their thinking. they’re able to avoid the waste of stack-ranking unreasonably costly stories at the top of the backlog. and given that relative sizing takes less than half a day and doubles as an exercise during chartering to familiarize the team with where product managers think development needs to be headed, sizing the entire backlog can be a low-cost entry point to high performance.
+
+take a look at all of our survey results - and at the six correlations with high performance - by getting a copy of the study itself. my own web page devoted to the study of product team performance has a pointer to the study just released - pointers to several earlier ones - and summaries of all the earlier studies.
+
+there are also callouts to correlations we found in each previous year’s study of product team performance specific to software development performance, among them these practices and characteristics that correlate with high performance teams:
+    ▪    definitions of done crafted by the team
+    ▪    effective standups held daily
+    ▪    standout team onboarding 
+    ▪    quality product management
+    ▪    cross-functional collaboration and trust
+
+read more!
+
+
+
+posted by ron lichty @ 8:28 pm  
+      
+         2 comments
+
+
+
+
+
+
+monday, december 16, 2019
+
+
+
+	 better standups
+ by ron lichty  
+
+
+
+
+what makes a standup effective?
+
+
+
+
+
+
+we know, from the study of product team performance, that the highest performing teams hold effective standups daily. not every other day, not every third day, not occasionally. daily.
+
+
+
+but what constitutes an effective standup?
+
+
+
+i’ve stepped into scores of software development organizations in the last seven years, between taking interim vp engineering roles, advising business and product leaders on team effectiveness, and training and coaching teams and executives in agile. i’ve definitely seen highly ineffective standups: ones with no sense of urgency, no 15-minutes-or-less timebox (or no enforced timebox), no focus. those are the egregious problems.
+
+
+
+but there are several fundamental steps to high effectiveness i see all too few teams taking.
+
+
+
+these days, while most teams have a notion of “the three questions” - answers to which each team member shares with the team each day - few teams address those questions effectively. and almost none have a sense of what underlies those questions - what the standup is actually for: how are we doing? are we on track to successfully deliver the plan we set out at the beginning of our sprint? if not, how can we adjust?
+
+
+
+let’s start with the three questions: when the three questions are answered perfunctorily - as i’m sorry to say i mostly see - the standup is not a re-planning meeting. it’s just a status meeting. i’m even more sorry to occasionally find it relegated from face-to-face to slack. i get it, when little more is happening than sharing status - but these teams are losing so much opportunity for it to be so much more.
+
+
+
+of the three questions, the one that is almost always dealt with effectively is the one about impediments: every day, every standup, sharing anything that’s standing in my way - with follow-ups by any and all who can help. calling out impediments daily and responding to them actively will speed our team and our delivery.
+
+
+
+but the other two of the three questions are too often answered with “what did i do yesterday?” and “what will i do today?” that’s not what i want to hear. what i want to hear is “what i accomplished yesterday” and “what i’m going to accomplish today.” “did” and “doing” lend themselves to answers like “i worked on the subsystem yesterday” and “i’m going to keep working on the subsystem today” - which are wholly uninformative. they give our team much less insight than if we answer “what part of the subsystem did i accomplish yesterday?” and “what part will i accomplish by tomorrow?” 
+
+
+
+the power of basing the two questions on “accomplish” is twofold:
+
+
+
+1) it signals my team when i’m in trouble. if yesterday i told the team i intended to accomplish yy part of xxx, and i didn’t, that’s a heads-up that i’m not on track for my part of the sprint plan (and if anyone else on the team has time, maybe they might want to offer to help me).
+
+
+
+2) by telling my team what i intend to accomplish, i’m exercising one of the core principles of time management: if i tell myself what i’ll accomplish a short time from now, i’m more likely to; if i tell teammates, i’m even more likely to.
+
+
+
+the point of the standup - and the point of the two questions - is to see how we’re doing against our plan and to re-plan if necessary. software can be wildly unpredictable - if we’ve hit a rough patch, we want our teammates to know that the work is more than we anticipated, that we’re likely now overcommitted, that maybe we could use help, or perhaps we need to re-think how we’ve divvied up the work, or to re-plan what we can reasonably finish by end-of-sprint.
+
+
+
+standups too easily devolve to be status meetings. just this nuance begins to bring opportunity for teamwork back into the standup routine - opportunity for all of us to together consider how to keep our sprint plan on track.
+
+
+
+but even with improved wording, just doing a go-round of the three questions can be all too status-ish and too me-ish, and not enough about us, about our plan, about how we’re doing as a team. to bring team and teamwork into focus, for the past few years i’ve been coaching a standup-closing practice i learned from cathy simpson, who learned it from kalpesh shah at the scrum gathering 2015: cathy and i both got excited realizing that just by leveraging a simple fist-to-five, we could shift the conversation from “me” to “us” while getting a daily sense of the team’s confidence in its plan.
+
+
+
+
+
+
+
+if you’ve never used fist-to-five, it’s a quick way to get the sense of a group of people in response to a question. on a given signal, each team member raises a hand and votes their answer with a number of fingers. in this case, the question is “how confident are we that we’ll make our sprint plan?” five fingers signals total confidence we’ll make the plan. four fingers signals high confidence. a fist is zero confidence - basically, i don’t think we have any chance of making our plan; one or two fingers not much better. 
+
+
+
+if, in response to the question, there are any votes other than 4s and 5s, my practice is to ask the team to discuss what it would take to get all votes to 4s and 5s. often it’s just one or two developers who are struggling - is there someone who can come to their aid, someone who is on or even ahead of schedule with the work they’ve taken on who can help. 
+
+
+
+on the other hand, we may face the situation where there’s no recovery possible. how useful to know that at this point, as opposed to discovering end-of-sprint that we didn’t finish one or more stories. knowing earlier in the sprint lets our product owner be intentional about which story or stories we should put back in the backlog. it won’t be a random story that’s not finished at the end of the sprint, but one that has the least value for the sprint, and for which our product owner now has time to reset expectations with stakeholders that it will not be completed in this sprint. 
+
+
+
+once we’ve adjusted our plan to get it back on track, a fist-to-five should give us 4s and 5s. and we’re back on our way.
+
+
+
+the nuances i’ve called out are the kinds of things we might call “hacks,” but they really ought to be referred to as making our standups more effective - getting standups back to their intended purpose.
+
+
+
+if you look up the definition of “scrum”, you’ll find, in its rugby definition, that it’s a way “to restart the game.” no surprise, then, that the daily standup is itself sometimes called a daily scrum. it lets us re-start our “game” every day. but the standup only works as a restarting and replanning meeting when we’re all engaged together working as a team, focused together on making our software development hum.
+
+
+
+
+
+
+posted by ron lichty @ 1:26 pm  
+      
+         3 comments
+
+
+
+
+
+
+friday, june 29, 2018
+
+
+
+	 scaling teams
+ by ron lichty  
+
+
+
+
+
+
+
+
+ask any scrum coach
+about ideal team size and you’ll likely get the same answer: 7 plus or minus 2.
+that is, 5 to 9 team members doing the actual planning and work of the sprint:
+developers, testers, sometimes designer or writer or some other role in the 7
++/- 2, maximum-9-sized team (actually 11 with the scrum master and product
+owner).
+
+
+
+so what do we do when
+we grow from maximum-9 to a 10th team member?
+
+
+
+splitting into two (or
+three!) teams seems fractious, siloing, so why do we want to cap teams at nine?
+why would we split them?
+
+
+
+first, let’s recognize
+that suggesting that the ideal team size is “7 +/- 2” is just plain
+wrong. even the smallest of those is too many for “ideal.” by a lot. 
+
+
+
+the ideal team is much
+smaller. software development is a team sport. team sports are gated by
+collaboration and communication (the daily scrum: gee, a team sport, maybe we
+should all talk with each other once a day, huh?). so given communication is
+gating, what’s the ideal team size?
+
+
+
+one. by that definition
+1 person is the ideal team. when the team is a single person, all the
+communication is internal to a single brain - neuron-to-neuron. 
+
+
+
+but not much software
+these days gets built by teams of one! in fact, you can argue that one is not a
+team. my coauthor mickey mantle observes, from his dozens of years managing
+software development, that the number of programmers on an ideal team is
+3-4.  “assuming the teams are competent,
+a small team will usually outperform a larger team, hands down, and by a significant
+amount,” he notes. and former medium vp engineering daniel pupius, now co-founder
+& ceo of range, protests that for team sports,
+diversity of perspectives is as vital as communication. “a sole genius isn't
+going to solve problems in the way a group can.” but to reduce the noise and
+friction while driving toward lossless communication, daniel, like mickey,
+would opt for teams of just 3 if 3 were enough to solve the problem at hand.
+ 
+
+
+
+so agile’s “7 +/- 2” is
+a maximum “ideal” team size.
+
+
+
+where’d maximum-9 come
+from? team theory. again, team sports are gated by collaboration and
+communication, so think about the number of lines of communication required for
+various-sized teams: two people require only one line of communication; three
+people require three lines of communication; four people, six lines of
+communication; five people, ten lines of communication… lines of communication
+are triangular. somewhere around 8 or 9 or 10 people, and lines of
+communication have exceeded any and all likelihood that necessary communication
+will take place.
+
+
+
+mickey observes, “rarely
+have i seen productive cross functional teams that number more than a dozen
+people.”
+
+
+
+daniel notes that his experience
+is more aligned “with 3 to 7, or 5 +/- 2 as ideal team size. and i think
+there are papers that suggest group dynamics shift at 8 people.”
+
+
+
+so what do we do when we grow beyond our
+“maximum 7” or “maximum 8” or “maximum 9” team-size boundary – when we add one
+more team member? 
+
+there are several
+things that can be done:
+
+
+
+1.    keep the team intact
+
+2.    split the team
+
+3.    cell division
+
+4.    hybrid split
+
+
+
+1.  keep the
+team intact
+
+first recognize that the
+“maximum of 9” is really just a guideline – it’s not a law! 
+
+
+
+in certain cases it may
+make more sense to simply add an additional team member. when this is done
+consciously, and recognizing the increased communication burden that an
+additional team member adds, you can take steps to make communication as
+effective as possible. 
+
+
+
+this may not be the
+best solution, but it is one to consider.
+
+
+
+2.  split the
+team
+
+how do we split into
+two (or three) teams?
+
+
+
+there’s an
+(unfortunate) tendency to split by components. it’s a tendency because it seems
+to make sense to put like-minded, like-tooled, common-best-practices people
+together, and because it makes for a management model: we can have a team of
+database developers managed by a former database developer; a team of front-end
+developers managed by a former front-end developer; a team of business logic
+developers managed by a former business logic developer. in that way, each of
+those teams gets a manager, mentor and coach who understands them. 
+
+
+
+but our goal is not to
+deliver components. we were (almost every single one of us) hired to deliver
+customer functionality that delights users. component groups cannot deliver
+features or epics or stories without multiple component teams working together
+to do so. the lines of communication within component teams are optimized for
+sharing best practices within the specialty; but the teams end up having
+fundamental dependencies on each other. the communications overhead - the high bandwidth
+communication required to deliver delight to customers - is between teams.
+expensive. ouch.
+
+
+
+the most effective
+scaling models i’ve seen leverage cross-functional teams. each cross-functional
+team has all the skillsets, from interface layer to business logic to data, all
+on the same team, to deliver customer functionality that delights users. while
+same-skilled folks are scattered across cross-functional teams, we still need
+managers who understand and can mentor and coach them, so we assign managers
+not to teams but to same-skilled folks.
+
+
+
+i know several models
+that leaders and teams have found workable. all typically divide developers
+into cross-functional teams based on interface or functionality - most easily
+by how the interface splits functionality to present it to users. 
+
+
+
+
+
+henrik kniberg: splitting teams based on how the interface exposes functionality.
+
+
+
+
+henrik kniberg draws a
+picture of dividing up spotify’s interface in just this way in his paper on
+scaling at spotify.
+
+
+
+
+henrik kniberg: squads and chapters
+
+
+
+
+notice in his
+organizational drawing that teams (which he calls squads) are vertical and
+don’t have managers; same-skilled folks (whom he organizes horizontally into “chapters”
+that span squads), on the other hand, are led by a same-skilled manager. so
+database developers are each assigned to teams, but all the database developers
+are also members of one of those chapters, and formally report to a database
+manager for mentoring, hr, best practices sharing, and assignment purposes.
+
+
+
+3.  cell
+division
+
+one approach to split a
+growing team is what my former razorfish colleague steve gray calls cell
+division; as he describes the typical scenario, when a team has exceeded its
+effective size, a smaller area of functionality is identified that a smaller
+part of the team can be spawned off to address.
+
+
+
+former medium vp
+engineering daniel pupius notes, “i do feel the 9-12 person range is a really
+awkward size for an engineering team. i've had success with the "cell
+division" model, where instead of creating even splits at each point in
+time you peel off more stable islands, while a larger core group deals with a
+larger and less-defined surface area. in medium's case it was a small team
+peeling off to focus on the needs of the professional publisher. that
+small team eventually grew to be 25 people and went through its own sequence of
+cell-division.
+
+
+
+4.  hybrid split
+
+when i was interim vp engineering
+for a portland company last fall, i inherited one of those larger teams and we
+invented a “team/subteams” hybrid model that both kept the larger team intact
+and split it into smaller ones. the team numbered half again more than the
+ideal max. product management had identified three workstreams of customer
+functionality that needed addressing. the team divided into three sub-teams,
+each of which was (mostly) cross-functional and could deliver the three feature
+areas. 
+
+
+
+but it wasn’t clear
+that the three feature areas would be long-running streams of features that
+would support long-running, stable teams. not only was stability at the larger
+team level, still, but team members were all working within a pretty monolithic
+code base. and large as it was, there was good sharing in a highly functional
+standup that the larger team held each morning. 
+
+
+
+so we kept the
+large-team standup for the sharing phase (the standup’s three questions, and
+identifying resolution discussions that needed to occur, particularly
+cross-subteam ones; this phase of the standup took the larger team of 15-18
+typically 11-12 minutes). it was followed immediately by the (re)planning phase
+of the standup: a few minutes of (re)planning by sub-teams, each in front of
+its own physical card wall, in which each small team viewed its own backlog and
+discussed how it was doing on its sprint plan and who needed help, and moved
+cards across its board. the approach maintained the camaraderie and
+transparency of the larger team, while accomplishing (re)planning work in
+smaller teams.
+
+
+
+the take-away
+
+given software
+development is a team sport, and team sports are gated by communication, we
+should all be constantly observing how our teams are communicating, and we
+should expect that we’ll need to evolve our team structures as we add (or
+subtract) people. 
+
+
+
+have you seen effective
+models for splitting teams other than those i called out?
+
+
+
+the models i’ve called
+out subdivide into cross-functional teams that take on lifetime ownership of
+functions users want to accomplish. by so doing, we give teams end-to-end
+ability to deliver those functions and avoid dependencies, handoffs and
+high-bandwidth communication overhead that is characteristic of dividing into
+component teams. 
+
+
+
+regardless of approach,
+remember that it is communication that prevents siloing. keeping the larger
+team intact while breaking out sub-teams - the hybrid model - is one mechanism
+that worked for one team. it will likely work for them for a while, until they
+grow their team too large for that model, too. at that point keeping
+communication flowing becomes a challenge both to product management
+(translating vision to features to stories) and to engineering management
+(translating customer wishes to design approach and architecture). daniel
+pupius notes, “the next super awkward phase hits around 30 persons.”
+
+
+
+(many thanks to daniel pupius, rich mironov, steve gray and mickey mantle for their insights and thoughts on this stuff!) 
+ 
+
+
+
+posted by ron lichty @ 9:54 am  
+      
+         12 comments
+
+
+
+
+
+
+
+
+
+
+
+about me
+
+name:  ron lichty 
+location:  san francisco and seattle 
+ron lichty has been managing software development and product organizations for over 25 years - transforming chaos to clarity and making software development “hum” - as a manager, director, and vp of engineering, vp of product, and cto in organizations from tiny start-ups to fortune 500 companies. his fifth book, "managing the unmanageable: rules, tools, and insights for managing software people and teams", first published by addison wesley in 2012, has been translated into four languages; pearson brought out its second edition in 2020. ron launched a consulting practice in 2012 to advise and coach engineering and product leaders about making their organizations hum; to train teams and executives in making their process more effectively agile; to coach software development leaders in role effectiveness, and from time to time to parachute into organizations as an interim vp engineering. he also coauthors the periodic study of product team performance. his conference talks include the importance of user groups, teamwork, and community in software development; the critical roles managers play whose teams have gone agile; and transforming software development from chaos to clarity.
+view my complete profile
+
+
+
+
+     interim vp engineering,   
+          ron lichty consulting, inc. 
+   
+   author,   
+          managing the unmanageable 
+   
+   co-author,   
+          study of product team performance 
+   
+   co-chair, silicon valley  
+   
+engineering leadership community 
+
+
+
+
+previous posts
+
+projects for which agile is inappropriate
+development metrics? try devex
+kanban or scrum?
+developers: customer empathy!
+measuring productivity
+taking agile remote: process and tools
+high performance teams know where they’re headed
+better standups
+scaling teams
+novel tech truths
+
+archives
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+

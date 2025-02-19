@@ -1,0 +1,918 @@
+
+
+
+phpinfo()
+
+
+
+php version 5.6.40
+
+
+
+system linux p3plzcpnl505578.prod.phx3.secureserver.net 4.18.0-553.27.1.lve.1.el8.x86_64 #1 smp wed nov 20 15:58:00 utc 2024 x86_64 
+build date nov  9 2024 23:04:56 
+configure command  './configure'  '--build=x86_64-redhat-linux-gnu' '--host=x86_64-redhat-linux-gnu' '--target=x86_64-redhat-linux-gnu' '--program-prefix=' '--prefix=/opt/alt/php56' '--exec-prefix=/opt/alt/php56' '--bindir=/opt/alt/php56/usr/bin' '--sbindir=/opt/alt/php56/usr/sbin' '--sysconfdir=/opt/alt/php56/etc' '--datadir=/opt/alt/php56/usr/share' '--includedir=/opt/alt/php56/usr/include' '--libdir=/opt/alt/php56/usr/lib64' '--libexecdir=/opt/alt/php56/usr/libexec' '--localstatedir=/var' '--sharedstatedir=/usr/com' '--mandir=/opt/alt/php56/usr/share/man' '--infodir=/opt/alt/php56/usr/share/info' '--cache-file=../config.cache' '--with-libdir=lib64' '--with-config-file-path=/opt/alt/php56/etc' '--with-config-file-scan-dir=/opt/alt/php56/link/conf' '--disable-debug' '--disable-opcache' '--enable-calendar' '--enable-dbx=shared' '--enable-exif' '--enable-ftp' '--enable-gd-native-ttf' '--enable-shmop' '--enable-sockets=shared' '--enable-xml' '--with-bz2' '--with-exec-dir=/usr/bin' '--with-freetype-dir=/usr' '--with-gettext' '--with-gmp' '--with-iconv' '--with-jpeg-dir=/usr' '--with-layout=gnu' '--with-libxml-dir=/opt/alt/libxml2/usr' '--with-mcrypt=shared,/usr' '--with-mhash' '--with-pic' '--with-png-dir=/usr' '--with-readline' '--with-tidy=shared,/usr' '--with-vpx-dir=/usr' '--with-webp=/opt/alt/libwebp' '--with-xpm-dir=/usr' '--with-zlib' '--with-zlib-dir=/usr' '--without-gdbm' '--without-pear' '--with-curl=/opt/alt/curlssl11/usr' '--with-mssql=shared,/opt/alt/freetds11/usr' '--with-openssl-dir=/opt/alt/openssl11' '--with-openssl=/opt/alt/openssl11' '--with-pcre-regex=/opt/alt/pcre/usr' '--with-pdo-dblib=shared,/opt/alt/freetds11/usr' '--with-t1lib=/opt/alt/t1lib/usr' '--with-kerberos=/opt/alt/krb5/usr' '--with-interbase=shared,/usr' '--with-pdo-firebird=shared,/usr' '--enable-phpdbg' '--with-litespeed' '--enable-bcmath=shared' '--enable-dba=shared' '--with-db4=/usr' '--enable-dom=shared' '--enable-fileinfo=shared' '--enable-intl=shared' '--enable-json=shared' '--enable-mbregex' '--enable-mbstring=shared' '--enable-pcntl' '--enable-pdo=shared' '--enable-phar=shared' '--enable-posix=shared' '--enable-soap=shared' '--with-sqlite3=/opt/alt/sqlite/usr' '--enable-sysvmsg=shared' '--enable-sysvshm=shared' '--enable-sysvsem=shared' '--enable-wddx=shared' '--enable-xmlreader=shared' '--enable-xmlwriter=shared' '--enable-zip=shared' '--with-enchant=shared,/usr' '--with-gd=shared' '--with-icu-dir=/opt/alt/libicu57/usr' '--with-pdo-odbc=shared,unixodbc,/usr' '--with-pspell=shared' '--with-recode=shared,/usr' '--with-unixodbc=shared,/usr' '--with-xmlrpc=shared' '--with-pdo-pgsql=shared,/usr' '--with-pgsql=shared,/usr' '--with-imap=shared,/opt/alt/libc-client11' '--with-imap-ssl=/opt/alt/openssl11' '--with-ldap=shared,/opt/alt/openldap11' '--with-ldap-sasl' '--with-snmp=shared,/opt/alt/net-snmp11/usr' '--with-pdo-sqlite=shared,/opt/alt/sqlite/usr' '--with-xsl=shared,/usr' 'build_alias=x86_64-redhat-linux-gnu' 'host_alias=x86_64-redhat-linux-gnu' 'target_alias=x86_64-redhat-linux-gnu' 'cflags=-o2 '-g' '-pipe' '-wall' '-werror=format-security' '-wp,-d_fortify_source=2' '-wp,-d_glibcxx_assertions' '-fexceptions' '-fstack-protector-strong' '-grecord-gcc-switches' '-specs=/usr/lib/rpm/redhat/redhat-hardened-cc1' '-specs=/usr/lib/rpm/redhat/redhat-annobin-cc1' '-m64' '-mtune=generic' '-fasynchronous-unwind-tables' '-fstack-clash-protection' '-fcf-protection' '-fno-strict-aliasing' '-wno-pointer-sign'' 'ldflags= '-l/opt/alt/krb5/usr/lib64' '-l/opt/alt/cyrus-sasl/lib64' '-wl,-rpath=/opt/alt/krb5/usr/lib64,-rpath=/opt/alt/cyrus-sasl/lib64' '-wl,-rpath=/opt/alt/libxml2/usr/lib64,-rpath=/opt/alt/libicu57/usr/lib64,-rpath=/opt/alt/libwebp/lib64' '-l/opt/alt/openssl11/lib64' '-l/opt/alt/libc-client11/lib64' '-l/opt/alt/openldap11/lib64' '-l/opt/alt/net-snmp11/usr/lib64' '-l/opt/alt/libssh211/usr/lib64' '-wl,-rpath=/opt/alt/curlssl11/usr/lib64,-rpath=/opt/alt/openssl11/lib64,-rpath=/opt/alt/t1lib/usr/lib64,-rpath=/opt/alt/pcre/usr/lib64,-rpath=/opt/alt/openldap11/lib64,-rpath=/opt/alt/freetds11/usr/lib64,-rpath=/opt/alt/net-snmp11/usr/lib64,-rpath=/opt/alt/libssh211/usr/lib64,-rpath=/opt/alt/libc-client11/lib64'' 
+server api lsapi v8.1 cloudlinux 1.3 
+virtual directory support disabled 
+configuration file (php.ini) path /opt/alt/php56/etc 
+loaded configuration file /opt/alt/php56/etc/php.ini 
+scan this dir for additional .ini files /opt/alt/php56/link/conf 
+additional .ini files parsed /opt/alt/php56/link/conf/alt_php.ini
+ 
+php api 20131106 
+php extension 20131226 
+zend extension 220131226 
+zend extension build api220131226,nts 
+php extension build api20131226,nts 
+debug build no 
+thread safety disabled 
+zend signal handling disabled 
+zend memory manager enabled 
+zend multibyte support provided by mbstring 
+ipv6 support enabled 
+dtrace support disabled 
+registered php streamshttps, ftps, compress.zlib, compress.bzip2, php, file, glob, data, http, ftp, phar
+registered stream socket transportstcp, udp, unix, udg, ssl, sslv3, sslv2, tls, tlsv1.0, tlsv1.1, tlsv1.2
+registered stream filterszlib.*, bzip2.*, convert.iconv.*, string.rot13, string.toupper, string.tolower, string.strip_tags, convert.*, consumed, dechunk, mcrypt.*, mdecrypt.*
+
+
+
+
+this program makes use of the zend scripting language engine:zend engine v2.6.0, copyright (c) 1998-2016 zend technologies
+
+
+configuration
+bcmath
+
+bcmath support enabled 
+
+
+directivelocal valuemaster value
+bcmath.scale00
+
+bz2
+
+bzip2 support enabled 
+stream wrapper support compress.bzip2:// 
+stream filter support bzip2.decompress, bzip2.compress 
+bzip2 version 1.0.6, 6-sept-2010 
+
+calendar
+
+calendar support enabled 
+
+core
+
+php version 5.6.40 
+
+
+directivelocal valuemaster value
+allow_url_fopenonon
+allow_url_includeoffoff
+always_populate_raw_post_data00
+arg_separator.input&&
+arg_separator.output&&
+asp_tagsoffoff
+auto_append_fileno valueno value
+auto_globals_jitonon
+auto_prepend_fileno valueno value
+browscapno valueno value
+default_charsetutf-8utf-8
+default_mimetypetext/htmltext/html
+disable_classesno valueno value
+disable_functionsno valueno value
+display_errorsoffoff
+display_startup_errorsoffoff
+doc_rootno valueno value
+docref_extno valueno value
+docref_rootno valueno value
+enable_dlonon
+enable_post_data_readingonon
+error_append_stringno valueno value
+error_logerror_logerror_log
+error_prepend_stringno valueno value
+error_reporting3276732767
+exit_on_timeoutoffoff
+expose_phponon
+extension_dir/opt/alt/php56/usr/lib64/php/modules/opt/alt/php56/usr/lib64/php/modules
+file_uploadsonon
+highlight.comment#ff8000#ff8000
+highlight.default#0000bb#0000bb
+highlight.html#000000#000000
+highlight.keyword#007700#007700
+highlight.string#dd0000#dd0000
+html_errorsonon
+ignore_repeated_errorsoffoff
+ignore_repeated_sourceoffoff
+ignore_user_abortoffoff
+implicit_flushoffoff
+include_path.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php
+input_encodingno valueno value
+internal_encodingno valueno value
+log_errorsonon
+log_errors_max_len10241024
+mail.add_x_headeroffoff
+mail.force_extra_parametersno valueno value
+mail.logno valueno value
+max_execution_time3030
+max_file_uploads2020
+max_input_nesting_level6464
+max_input_time-1-1
+max_input_vars10001000
+max_multipart_body_parts-1-1
+memory_limit128m128m
+open_basedirno valueno value
+output_buffering40964096
+output_encodingno valueno value
+output_handlerno valueno value
+post_max_size32m32m
+precision1414
+realpath_cache_size16k16k
+realpath_cache_ttl120120
+register_argc_argvoffoff
+report_memleaksonon
+report_zend_debugonon
+request_ordergpgp
+sendmail_fromno valueno value
+sendmail_path/usr/sbin/sendmail -t -i/usr/sbin/sendmail -t -i
+serialize_precision1717
+short_open_tagonon
+smtplocalhostlocalhost
+smtp_port2525
+sql.safe_modeoffoff
+sys_temp_dirno valueno value
+track_errorsoffoff
+unserialize_callback_funcno valueno value
+upload_max_filesize32m32m
+upload_tmp_dirno valueno value
+user_dirno valueno value
+user_ini.cache_ttl300300
+user_ini.filename.user.ini.user.ini
+variables_orderegpcsegpcs
+xmlrpc_error_number00
+xmlrpc_errorsoffoff
+zend.detect_unicodeonon
+zend.enable_gconon
+zend.multibyteoffoff
+zend.script_encodingno valueno value
+
+ctype
+
+ctype functions enabled 
+
+curl
+
+curl support enabled 
+curl information 8.11.0 
+age 11 
+features 
+asynchdns yes 
+charconv no 
+debug no 
+gss-negotiate no 
+idn yes 
+ipv6 yes 
+krb4 no 
+largefile yes 
+libz yes 
+ntlm yes 
+ntlmwb no 
+spnego yes 
+ssl yes 
+sspi no 
+tls-srp yes 
+protocols dict, file, ftp, ftps, gopher, gophers, http, https, imap, imaps, ldap, ldaps, mqtt, pop3, pop3s, rtsp, scp, sftp, smb, smbs, smtp, smtps, telnet, tftp, ws, wss 
+host x86_64-redhat-linux-gnu 
+ssl version openssl/1.1.1w 
+zlib version 1.2.11 
+libssh version libssh2/1.10.0 
+
+date
+
+date/time support enabled 
+"olson" timezone database version 2016.10 
+timezone database internal 
+default timezone utc 
+
+
+directivelocal valuemaster value
+date.default_latitude31.766731.7667
+date.default_longitude35.233335.2333
+date.sunrise_zenith90.58333390.583333
+date.sunset_zenith90.58333390.583333
+date.timezoneutcutc
+
+dom
+
+dom/xml enabled 
+dom/xml api version 20031129 
+libxml version 2.10.2 
+html support enabled 
+xpath support enabled 
+xpointer support enabled 
+schema support enabled 
+relaxng support enabled 
+
+ereg
+
+regex library bundled library enabled 
+
+exif
+
+exif support enabled 
+exif version 1.4 $id: cad29b729548e4206f0697710cc9e177f26fdff3 $ 
+supported exif version 0220 
+supported filetypes jpeg,tiff 
+
+
+directivelocal valuemaster value
+exif.decode_jis_inteljisjis
+exif.decode_jis_motorolajisjis
+exif.decode_unicode_intelucs-2leucs-2le
+exif.decode_unicode_motorolaucs-2beucs-2be
+exif.encode_jisno valueno value
+exif.encode_unicodeiso-8859-15iso-8859-15
+
+fileinfo
+
+fileinfo support enabled 
+version 1.0.5 
+libmagic 517 
+
+filter
+
+input validation and filtering enabled 
+revision $id: 5b79667bd9a68977a9b4f7505223a8e216e04908 $ 
+
+
+directivelocal valuemaster value
+filter.defaultunsafe_rawunsafe_raw
+filter.default_flagsno valueno value
+
+ftp
+
+ftp support enabled 
+
+gd
+
+gd support enabled 
+gd version bundled (2.1.0 compatible) 
+freetype support enabled 
+freetype linkage with freetype 
+freetype version 2.9.1 
+t1lib support enabled 
+gif read support enabled 
+gif create support enabled 
+jpeg support enabled 
+libjpeg version 6b 
+png support enabled 
+libpng version 1.6.34 
+wbmp support enabled 
+xpm support enabled 
+libxpm version 30411 
+xbm support enabled 
+webp support enabled 
+
+
+directivelocal valuemaster value
+gd.jpeg_ignore_warning00
+
+gettext
+
+gettext support enabled 
+
+gmp
+
+gmp support enabled 
+gmp version 6.1.2 
+
+hash
+
+hash support enabled 
+hashing engines md2 md4 md5 sha1 sha224 sha256 sha384 sha512 ripemd128 ripemd160 ripemd256 ripemd320 whirlpool tiger128,3 tiger160,3 tiger192,3 tiger128,4 tiger160,4 tiger192,4 snefru snefru256 gost gost-crypto adler32 crc32 crc32b fnv132 fnv1a32 fnv164 fnv1a64 joaat haval128,3 haval160,3 haval192,3 haval224,3 haval256,3 haval128,4 haval160,4 haval192,4 haval224,4 haval256,4 haval128,5 haval160,5 haval192,5 haval224,5 haval256,5  
+
+i360
+
+i360 paramvalue
+i360 state activated 
+i360 mode log 
+i360 blamer true 
+i360 path to log data sock:/opt/imunify360/lib/proactive.sock 
+i360 log type 2 
+i360 send on shtdwn 0 
+i360 report on kill 0 
+i360 build for 5.6.40 
+i360 signs 250130 
+i360 signs path /usr/share/i360-php-opts/sigs/8.2/.rules.v2 
+i360 pkg ver 8.2.7 
+i360 hdb ver 1739631289 
+i360 hdb entries 17787 
+
+iconv
+
+iconv support enabled 
+iconv implementation glibc 
+iconv library version 2.28 
+
+
+directivelocal valuemaster value
+iconv.input_encodingno valueno value
+iconv.internal_encodingno valueno value
+iconv.output_encodingno valueno value
+
+imagick
+
+imagick moduleenabled
+imagick module version 3.7.0 
+imagick classes imagick, imagickdraw, imagickpixel, imagickpixeliterator, imagickkernel 
+imagick compiled with imagemagick version imagemagick 7.1.1-43 q16-hdri x86_64 22550 https://imagemagick.org 
+imagick using imagemagick library version imagemagick 7.1.1-43 q16-hdri x86_64 22550 https://imagemagick.org 
+imagemagick copyright (c) 1999 imagemagick studio llc 
+imagemagick release date 2024-12-22 
+imagemagick number of supported formats:  280 
+imagemagick supported formats 3fr, 3g2, 3gp, a, aai, ai, apng, art, arw, ashlar, avci, avi, avif, avs, b, bayer, bayera, bgr, bgra, bgro, bie, bmp, bmp2, bmp3, brf, c, cal, cals, canvas, caption, cin, cip, clip, cmyk, cmyka, cr2, cr3, crw, cube, cur, cut, data, dcm, dcr, dcraw, dcx, dds, dfont, dng, dot, dpx, dxt1, dxt5, epdf, epi, eps, eps2, eps3, epsf, epsi, ept, ept2, ept3, erf, exr, farbfeld, fax, ff, fff, file, fits, fl32, flv, fractal, ftp, fts, ftxt, g, g3, g4, gif, gif87, gradient, gray, graya, group4, gv, hald, hdr, heic, heif, histogram, hrz, htm, html, http, https, icb, ico, icon, iiq, info, inline, ipl, isobrl, isobrl6, j2c, j2k, jbg, jbig, jng, jnx, jp2, jpc, jpe, jpeg, jpg, jpm, jps, jpt, json, k, k25, kdc, label, m, m2v, m4v, mac, map, mask, mat, matte, mdc, mef, miff, mkv, mng, mono, mos, mov, mp4, mpc, mpeg, mpg, mpo, mrw, msl, msvg, mtv, mvg, nef, nrw, null, o, ora, orf, otb, otf, pal, palm, pam, pango, pattern, pbm, pcd, pcds, pcl, pct, pcx, pdb, pdf, pdfa, pef, pes, pfa, pfb, pfm, pgm, pgx, phm, picon, pict, pix, pjpeg, plasma, png, png00, png24, png32, png48, png64, png8, pnm, pocketmod, ppm, ps, ps2, ps3, psb, psd, ptif, pwp, qoi, r, radial-gradient, raf, ras, raw, rgb, rgb565, rgba, rgbo, rgf, rla, rle, rmf, rsvg, rw2, rwl, scr, screenshot, sct, sfw, sgi, shtml, six, sixel, sparse-color, sr2, srf, srw, stegano, sti, strimg, sun, svg, svgz, text, tga, thumbnail, tiff, tiff64, tile, tim, tm2, ttc, ttf, txt, ubrl, ubrl6, uil, uyvy, vda, vicar, vid, viff, vips, vst, wbmp, webm, webp, wmf, wmv, wmz, wpg, x, x3f, xbm, xc, xcf, xpm, xps, xv, xwd, y, yaml, ycbcr, ycbcra, yuv 
+
+
+directivelocal valuemaster value
+imagick.allow_zero_dimension_images00
+imagick.locale_fix00
+imagick.progress_monitor00
+imagick.set_single_thread11
+imagick.shutdown_sleep_count1010
+imagick.skip_version_check00
+
+imap
+
+imap c-client version 2007f 
+ssl support enabled 
+kerberos support enabled 
+
+
+directivelocal valuemaster value
+imap.enable_insecure_rshoffoff
+
+inotify
+
+version 0.1.1 
+
+intl
+
+internationalization supportenabled
+version 1.1.0 
+icu version 57.1 
+icu data version 57.1 
+
+
+directivelocal valuemaster value
+intl.default_localeno valueno value
+intl.error_level00
+intl.use_exceptions00
+
+json
+
+json support enabled 
+json version 1.2.1 
+
+libxml
+
+libxml support active 
+libxml compiled version 2.10.2 
+libxml loaded version 21002 
+libxml streams enabled 
+
+mbstring
+
+multibyte support enabled 
+multibyte string engine libmbfl 
+http input encoding translation disabled 
+libmbfl version 1.3.2 
+
+
+mbstring extension makes use of "streamable kanji code filter and converter", which is distributed under the gnu lesser general public license version 2.1.
+
+
+multibyte (japanese) regex support enabled 
+multibyte regex (oniguruma) backtrack check on 
+multibyte regex (oniguruma) version 5.9.5 
+
+
+directivelocal valuemaster value
+mbstring.detect_orderno valueno value
+mbstring.encoding_translationoffoff
+mbstring.func_overload00
+mbstring.http_inputno valueno value
+mbstring.http_outputno valueno value
+mbstring.http_output_conv_mimetypes^(text/|application/xhtml\+xml)^(text/|application/xhtml\+xml)
+mbstring.internal_encodingno valueno value
+mbstring.languageneutralneutral
+mbstring.strict_detectionoffoff
+mbstring.substitute_characterno valueno value
+
+mcrypt
+
+mcrypt supportenabled
+mcrypt_filter supportenabled
+version 2.5.8 
+api no 20021217 
+supported ciphers cast-128 gost rijndael-128 twofish arcfour cast-256 loki97 rijndael-192 saferplus wake blowfish-compat des rijndael-256 serpent xtea blowfish enigma rc2 tripledes  
+supported modes cbc cfb ctr ecb ncfb nofb ofb stream  
+
+
+directivelocal valuemaster value
+mcrypt.algorithms_dirno valueno value
+mcrypt.modes_dirno valueno value
+
+mhash
+
+mhash support enabled 
+mhash api version emulated support 
+
+mysql
+
+mysql supportenabled
+active persistent links 0 
+active links 0 
+client api version 3.3.12 
+mysql_module_type no value 
+mysql_socket /var/lib/mysql/mysql.sock 
+mysql_include no value 
+mysql_libs no value 
+
+
+directivelocal valuemaster value
+mysql.allow_local_infileonon
+mysql.allow_persistentonon
+mysql.connect_timeout6060
+mysql.default_hostno valueno value
+mysql.default_passwordno valueno value
+mysql.default_portno valueno value
+mysql.default_socket/var/lib/mysql/mysql.sock/var/lib/mysql/mysql.sock
+mysql.default_userno valueno value
+mysql.max_linksunlimitedunlimited
+mysql.max_persistentunlimitedunlimited
+mysql.trace_modeoffoff
+
+mysqli
+
+mysqli supportenabled
+client api library version 3.3.12 
+active persistent links 0 
+inactive persistent links 0 
+active links 0 
+client api header version 10.6.18-mariadb 
+mysqli_socket /var/lib/mysql/mysql.sock 
+
+
+directivelocal valuemaster value
+mysqli.allow_local_infileonon
+mysqli.allow_persistentonon
+mysqli.default_hostno valueno value
+mysqli.default_port33063306
+mysqli.default_pwno valueno value
+mysqli.default_socketno valueno value
+mysqli.default_userno valueno value
+mysqli.max_linksunlimitedunlimited
+mysqli.max_persistentunlimitedunlimited
+mysqli.reconnectoffoff
+mysqli.rollback_on_cached_plinkoffoff
+
+openssl
+
+openssl support enabled 
+openssl library version openssl 1.1.1w  11 sep 2023 
+openssl header version openssl 1.1.1w  11 sep 2023 
+openssl default config /opt/alt/openssl11/etc/pki/tls/openssl.cnf 
+
+
+directivelocal valuemaster value
+openssl.cafileno valueno value
+openssl.capathno valueno value
+
+pcntl
+
+pcntl supportenabled
+
+pcre
+
+pcre (perl compatible regular expressions) support enabled 
+pcre library version 8.41 2017-07-05 
+
+
+directivelocal valuemaster value
+pcre.backtrack_limit10000001000000
+pcre.recursion_limit100000100000
+
+pdo
+
+pdo supportenabled
+pdo drivers mysql, sqlite 
+
+pdo_mysql
+
+pdo driver for mysqlenabled
+client api version 3.3.12 
+
+
+directivelocal valuemaster value
+pdo_mysql.default_socket/var/lib/mysql/mysql.sock/var/lib/mysql/mysql.sock
+
+pdo_sqlite
+
+pdo driver for sqlite 3.xenabled
+sqlite library 3.45.2 
+
+phar
+
+phar: php archive supportenabled
+phar ext version 2.0.2 
+phar api version 1.1.1 
+svn revision $id: 6e5cec2462a6ded53d4379ea9a69487a60d5c43c $ 
+phar-based phar archives enabled 
+tar-based phar archives enabled 
+zip-based phar archives enabled 
+gzip compression enabled 
+bzip2 compression enabled 
+openssl support enabled 
+
+
+
+phar based on pear/php_archive, original concept by davey shafik.phar fully realized by gregory beaver and marcus boerger.portions of tar implementation copyright (c) 2003-2009 tim kientzle.
+
+
+directivelocal valuemaster value
+phar.cache_listno valueno value
+phar.readonlyonon
+phar.require_hashonon
+
+posix
+
+revision $id: 5f4acc20904b1406142f2a0ede068db048c77e77 $ 
+
+readline
+
+readline supportenabled
+readline library 7.0 
+
+
+directivelocal valuemaster value
+cli.pagerno valueno value
+cli.prompt\b \> \b \> 
+
+reflection
+
+reflectionenabled
+version $id: 5f15287237d5f78d75b19c26915aa7bd83dee8b8 $ 
+
+session
+
+session support enabled 
+registered save handlers files user  
+registered serializer handlers php_serialize php php_binary  
+
+
+directivelocal valuemaster value
+session.auto_startoffoff
+session.cache_expire180180
+session.cache_limiternocachenocache
+session.cookie_domainno valueno value
+session.cookie_httponlyoffoff
+session.cookie_lifetime00
+session.cookie_path//
+session.cookie_secureoffoff
+session.entropy_fileno valueno value
+session.entropy_length00
+session.gc_divisor10001000
+session.gc_maxlifetime14401440
+session.gc_probability11
+session.hash_bits_per_character55
+session.hash_function00
+session.namephpsessidphpsessid
+session.referer_checkno valueno value
+session.save_handlerfilesfiles
+session.save_path/opt/alt/php56/var/lib/php/session/opt/alt/php56/var/lib/php/session
+session.serialize_handlerphpphp
+session.upload_progress.cleanuponon
+session.upload_progress.enabledonon
+session.upload_progress.freq1%1%
+session.upload_progress.min_freq11
+session.upload_progress.namephp_session_upload_progressphp_session_upload_progress
+session.upload_progress.prefixupload_progress_upload_progress_
+session.use_cookiesonon
+session.use_only_cookiesonon
+session.use_strict_modeoffoff
+session.use_trans_sid00
+
+shmop
+
+shmop support enabled 
+
+simplexml
+
+simplexml supportenabled
+revision $id: d7077fc935154236afb4fe70814ba358efdbdca4 $ 
+schema support enabled 
+
+soap
+
+soap client enabled 
+soap server enabled 
+
+
+directivelocal valuemaster value
+soap.wsdl_cache11
+soap.wsdl_cache_dir/tmp/tmp
+soap.wsdl_cache_enabled11
+soap.wsdl_cache_limit55
+soap.wsdl_cache_ttl8640086400
+
+spl
+
+spl supportenabled
+interfaces countable, outeriterator, recursiveiterator, seekableiterator, splobserver, splsubject 
+classes appenditerator, arrayiterator, arrayobject, badfunctioncallexception, badmethodcallexception, cachingiterator, callbackfilteriterator, directoryiterator, domainexception, emptyiterator, filesystemiterator, filteriterator, globiterator, infiniteiterator, invalidargumentexception, iteratoriterator, lengthexception, limititerator, logicexception, multipleiterator, norewinditerator, outofboundsexception, outofrangeexception, overflowexception, parentiterator, rangeexception, recursivearrayiterator, recursivecachingiterator, recursivecallbackfilteriterator, recursivedirectoryiterator, recursivefilteriterator, recursiveiteratoriterator, recursiveregexiterator, recursivetreeiterator, regexiterator, runtimeexception, spldoublylinkedlist, splfileinfo, splfileobject, splfixedarray, splheap, splminheap, splmaxheap, splobjectstorage, splpriorityqueue, splqueue, splstack, spltempfileobject, underflowexception, unexpectedvalueexception 
+
+sqlite3
+
+sqlite3 supportenabled
+sqlite3 module version 0.7-dev 
+sqlite library 3.45.2 
+
+
+directivelocal valuemaster value
+sqlite3.extension_dirno valueno value
+
+standard
+
+dynamic library support enabled 
+path to sendmail /usr/sbin/sendmail -t -i 
+
+
+directivelocal valuemaster value
+assert.active11
+assert.bail00
+assert.callbackno valueno value
+assert.quiet_eval00
+assert.warning11
+auto_detect_line_endings00
+default_socket_timeout6060
+fromno valueno value
+url_rewriter.tagsa=href,area=href,frame=src,input=src,form=fakeentrya=href,area=href,frame=src,input=src,form=fakeentry
+user_agentno valueno value
+
+tokenizer
+
+tokenizer support enabled 
+
+xml
+
+xml support active 
+xml namespace support active 
+libxml2 version 2.10.2 
+
+xmlreader
+
+xmlreader enabled 
+
+xmlrpc
+
+core library version xmlrpc-epi v. 0.51 
+php extension version 0.51 
+author dan libby 
+homepage http://xmlrpc-epi.sourceforge.net 
+open sourced by epinions.com 
+
+xmlwriter
+
+xmlwriter enabled 
+
+zlib
+
+zlib supportenabled
+stream wrapper compress.zlib:// 
+stream filter zlib.inflate, zlib.deflate 
+compiled version 1.2.11 
+linked version 1.2.11 
+
+
+directivelocal valuemaster value
+zlib.output_compressionoffoff
+zlib.output_compression_level-1-1
+zlib.output_handlerno valueno value
+
+additional modules
+
+module name
+litespeed
+
+environment
+
+variablevalue
+lsphp_enable_user_ini on 
+path /usr/local/bin:/usr/bin:/bin 
+temp /tmp 
+tmp /tmp 
+tmpdir /tmp 
+pwd / 
+
+php variables
+
+variablevalue
+_server["lsphp_enable_user_ini"]on
+_server["path"]/usr/local/bin:/usr/bin:/bin
+_server["temp"]/tmp
+_server["tmp"]/tmp
+_server["tmpdir"]/tmp
+_server["pwd"]/
+_server["http_accept"]*/*
+_server["http_accept_encoding"]gzip, deflate
+_server["http_connection"]keep-alive
+_server["content_length"]0
+_server["http_host"]www.arslanmb.org
+_server["http_user_agent"]myscript/1.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/121.0.0.0 safari/537.36
+_server["unique_id"]z7ddjwwaskkzjf9o6qjv8gaaaki
+_server["script_url"]/
+_server["script_uri"]http://www.arslanmb.org/
+_server["user_id"]2020182
+_server["server_signature"]no value
+_server["server_software"]apache
+_server["server_name"]www.arslanmb.org
+_server["server_addr"]107.180.26.91
+_server["server_port"]80
+_server["remote_addr"]101.53.234.133
+_server["document_root"]/home/markarslan/public_html
+_server["request_scheme"]http
+_server["context_prefix"]no value
+_server["context_document_root"]/home/markarslan/public_html
+_server["server_admin"]webmaster@arslanmb.arsgenco.com
+_server["script_filename"]/home/markarslan/public_html/index.php5
+_server["remote_port"]23019
+_server["server_protocol"]http/1.1
+_server["request_method"]get
+_server["query_string"]no value
+_server["request_uri"]/
+_server["script_name"]/index.php5
+_server["php_self"]/index.php5
+_server["request_time_float"]1739637645.5259
+_server["request_time"]1739637645
+_env["lsphp_enable_user_ini"]on
+_env["path"]/usr/local/bin:/usr/bin:/bin
+_env["temp"]/tmp
+_env["tmp"]/tmp
+_env["tmpdir"]/tmp
+_env["pwd"]/
+
+
+php credits
+
+php group
+thies c. arntzen, stig bakken, shane caraveo, andi gutmans, rasmus lerdorf, sam ruby, sascha schumann, zeev suraski, jim winstead, andrei zmievski 
+
+
+language design & concept
+andi gutmans, rasmus lerdorf, zeev suraski, marcus boerger 
+
+
+php authors
+contributionauthors
+zend scripting language engine andi gutmans, zeev suraski, stanislav malyshev, marcus boerger, dmitry stogov, xinchen hui, nikita popov 
+extension module api andi gutmans, zeev suraski, andrei zmievski 
+unix build and modularization stig bakken, sascha schumann, jani taskinen 
+windows port shane caraveo, zeev suraski, wez furlong, pierre-alain joye, anatol belski 
+server api (sapi) abstraction layer andi gutmans, shane caraveo, zeev suraski 
+streams abstraction layer wez furlong, sara golemon 
+php data objects layer wez furlong, marcus boerger, sterling hughes, george schlossnagle, ilia alshanetsky 
+output handler zeev suraski, thies c. arntzen, marcus boerger, michael wallner 
+
+
+sapi modules
+contributionauthors
+aolserver sascha schumann 
+apache 1.3 (apache_hooks) rasmus lerdorf, zeev suraski, stig bakken, david sklar, george schlossnagle, lukas schroeder 
+apache 1.3 rasmus lerdorf, zeev suraski, stig bakken, david sklar 
+apache 2.0 filter sascha schumann, aaron bannert 
+apache 2.0 handler ian holsman, justin erenkrantz (based on apache 2.0 filter code) 
+caudium / roxen david hedbor 
+cgi / fastcgi rasmus lerdorf, stig bakken, shane caraveo, dmitry stogov 
+cli edin kadribasic, marcus boerger, johannes schlueter, moriyoshi koizumi, xinchen hui 
+continuity alex leigh (based on nsapi code) 
+embed edin kadribasic 
+fastcgi process manager andrei nigmatulin, dreamcat4, antony dovgal, jerome loyet 
+isapi andi gutmans, zeev suraski 
+litespeed george wang 
+nsapi jayakumar muthukumarasamy, uwe schindler 
+phpdbg felipe pena, joe watkins, bob weinand 
+phttpd thies c. arntzen 
+pi3web holger zimmermann 
+sendmail milter harald radi 
+thttpd sascha schumann 
+tux sascha schumann 
+webjames alex waugh 
+
+
+module authors
+moduleauthors
+bc math andi gutmans 
+bzip2 sterling hughes 
+calendar shane caraveo, colin viebrock, hartmut holzgraefe, wez furlong 
+com and .net wez furlong 
+ctype hartmut holzgraefe 
+curl sterling hughes 
+date/time support derick rethans 
+db-lib (ms sql, sybase) wez furlong, frank m. kromann 
+dba sascha schumann, marcus boerger 
+dom christian stocker, rob richards, marcus boerger 
+enchant pierre-alain joye, ilia alshanetsky 
+ereg rasmus lerdorf, jim winstead, jaakko hyvätti 
+exif rasmus lerdorf, marcus boerger 
+fileinfo ilia alshanetsky, pierre alain joye, scott macvicar, derick rethans 
+firebird driver for pdo ard biesheuvel 
+ftp stefan esser, andrew skalski 
+gd imaging rasmus lerdorf, stig bakken, jim winstead, jouni ahto, ilia alshanetsky, pierre-alain joye, marcus boerger 
+gettext alex plotnick 
+gnu gmp support stanislav malyshev 
+iconv rui hirokawa, stig bakken, moriyoshi koizumi  
+imap rex logan, mark musone, brian wang, kaj-michael lang, antoni pamies olive, rasmus lerdorf, andrew skalski, chuck hagenbuch, daniel r kalowsky 
+input filter rasmus lerdorf, derick rethans, pierre-alain joye, ilia alshanetsky 
+interbase jouni ahto, andrew avdeev, ard biesheuvel 
+internationalization ed batutis, vladimir iordanov, dmitry lakhtyuk, stanislav malyshev, vadim savchuk, kirti velankar 
+json omar kilani, scott macvicar 
+ldap amitay isaacs, eric warnke, rasmus lerdorf, gerrit thomson, stig venaas 
+libxml christian stocker, rob richards, marcus boerger, wez furlong, shane caraveo 
+mcrypt sascha schumann, derick rethans 
+ms sql frank m. kromann 
+multibyte string functions tsukada takuya, rui hirokawa 
+mysql driver for pdo george schlossnagle, wez furlong, ilia alshanetsky, johannes schlueter 
+mysql zeev suraski, zak greant, georg richter, andrey hristov 
+mysqli zak greant, georg richter, andrey hristov, ulf wendel 
+mysqlnd andrey hristov, ulf wendel, georg richter, johannes schlüter 
+oci8 stig bakken, thies c. arntzen, andy sautins, david benson, maxim maletsky, harald radi, antony dovgal, andi gutmans, wez furlong, christopher jones, oracle corporation 
+odbc driver for pdo wez furlong 
+odbc stig bakken, andreas karajannis, frank m. kromann, daniel r. kalowsky 
+openssl stig venaas, wez furlong, sascha kettler, scott macvicar 
+oracle (oci) driver for pdo wez furlong 
+pcntl jason greene, arnaud le blanc 
+perl compatible regexps andrei zmievski 
+php archive gregory beaver, marcus boerger 
+php data objects wez furlong, marcus boerger, sterling hughes, george schlossnagle, ilia alshanetsky 
+php hash sara golemon, rasmus lerdorf, stefan esser, michael wallner, scott macvicar 
+posix kristian koehntopp 
+postgresql driver for pdo edin kadribasic, ilia alshanetsky 
+postgresql jouni ahto, zeev suraski, yasuo ohgaki, chris kings-lynne 
+pspell vlad krupin 
+readline thies c. arntzen 
+recode kristian koehntopp 
+reflection marcus boerger, timm friebe, george schlossnagle, andrei zmievski, johannes schlueter 
+sessions sascha schumann, andrei zmievski 
+shared memory operations slava poliakov, ilia alshanetsky 
+simplexml sterling hughes, marcus boerger, rob richards 
+snmp rasmus lerdorf, harrie hazewinkel, mike jackson, steven lawrance, johann hanne, boris lytochkin 
+soap brad lafountain, shane caraveo, dmitry stogov 
+sockets chris vandomelen, sterling hughes, daniel beulshausen, jason greene 
+spl marcus boerger, etienne kneuss 
+sqlite 3.x driver for pdo wez furlong 
+sqlite3 scott macvicar, ilia alshanetsky, brad dewar 
+sybase-ct zeev suraski, tom may, timm friebe 
+system v message based ipc wez furlong 
+system v semaphores tom may 
+system v shared memory christian cartus 
+tidy john coggeshall, ilia alshanetsky 
+tokenizer andrei zmievski, johannes schlueter 
+wddx andrei zmievski 
+xml stig bakken, thies c. arntzen, sterling hughes 
+xmlreader rob richards 
+xmlrpc dan libby 
+xmlwriter rob richards, pierre-alain joye 
+xsl christian stocker, rob richards 
+zip pierre-alain joye, remi collet 
+zlib rasmus lerdorf, stefan roehrich, zeev suraski, jade nicoletti, michael wallner 
+
+
+php documentation
+authors mehdi achour, friedhelm betz, antony dovgal, nuno lopes, hannes magnusson, georg richter, damien seguy, jakub vrana, adam harvey, peter cowburn 
+editor philip olson 
+user note maintainers daniel p. brown, thiago henrique pojda 
+other contributors previously active authors, editors and other contributors are listed in the manual. 
+
+
+php quality assurance team
+ilia alshanetsky, joerg behrens, antony dovgal, stefan esser, moriyoshi koizumi, magnus maatta, sebastian nohn, derick rethans, melvyn sopacua, jani taskinen, pierre-alain joye, dmitry stogov, felipe pena, david soria parra, stanislav malyshev, julien pauli, stephen zarkos, anatol belski, remi collet, ferenc kovacs 
+
+
+websites and infrastructure team
+php websites team rasmus lerdorf, hannes magnusson, philip olson, lukas kahwe smith, pierre-alain joye, kalle sommer nielsen, peter cowburn, adam harvey, ferenc kovacs, levi morrison 
+event maintainers damien seguy, daniel p. brown 
+network infrastructure daniel p. brown 
+windows infrastructure alex schoenmaker 
+
+php license
+
+
+
+this program is free software; you can redistribute it and/or modify it under the terms of the php license as published by the php group and included in the distribution in the file:  license
+
+this program is distributed in the hope that it will be useful, but without any warranty; without even the implied warranty of merchantability or fitness for a particular purpose.
+
+if you did not receive a copy of the php license, or have any questions about php licensing, please contact license@php.net.
+
+
+

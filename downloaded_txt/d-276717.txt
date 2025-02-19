@@ -1,0 +1,492 @@
+
+
+stuart cheshire
+
+
+
+
+
+
+
+
+stuart cheshire
+
+wizard without portfolio,
+apple computer, inc.
+
+
+
+
+
+*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+index:
+| research
+| books
+| publications
+| rfcs
+
+| software
+| rants
+| links
+| personal data
+| contact info
+| pgp key
+|
+research
+i worked at stanford with
+david cheriton's
+distributed systems group
+and then with
+mary baker's
+mosquitonet
+research group on wireless networking and mobile computing, using
+metricom spread-spectrum packet radios and
+linux.
+
+books
+zero configuration networking: the definitive guide (november 2005)
+published by o'reilly media
+
+tricks of the mac game programming gurus
+(july 1995)
+contributing author (networking chapter)
+
+research publications
+ruckus wifi evaluation. (pdf, april 2006, 15 pages)
+evaluation of the mf2900 (base station) and mf2501 (client) 802.11g wireless devices from ruckus wireless.
+
+nagle's algorithm and delayed ack. (html, may 2005)
+tcp performance problems caused by interaction between nagle's algorithm and delayed ack.
+
+consistent overhead byte stuffing, ton paper. (pdf, april 1999, 15 pages)
+stuart cheshire and mary baker, "consistent overhead byte stuffing."
+ieee/acm transactions on networking, april 1999
+this is an improved version of the sigcomm paper; it is a little longer, but the descriptions are a little easier to understand, and it also includes hdlc in the experiments comparing cobs to other stuffing methods.
+also available in (crude)
+html form.
+also available:
+c reference implementation to perform cobs encoding and decoding.
+consistent overhead byte stuffing,
+phd dissertation. (postscript, march 1998)
+the full 152 pages of my phd dissertation. contains everything in the transactions on networking paper, and more. only for the truly enthusiastic.
+
+
+consistent overhead byte stuffing,
+sigcomm paper. (postscript, september 1997, 12 pages)
+stuart cheshire and mary baker, "consistent overhead byte stuffing."
+sigcomm '97, september 1997.
+also available in (crude)
+html form.
+also available are the
+slides from the sigcomm talk (postscript).
+
+latency
+and the quest for interactivity. (pdf, november 1996)
+stuart cheshire, "latency and the quest for interactivity".
+white paper commissioned by volpe welty asset management, l.l.c., for
+the synchronous person-to-person interactive computing environments
+meeting, san francisco, november 1996.
+also available in (crude) html form.
+see also it's the latency, stupid, the rant that was the precursor to this paper.
+
+internet mobility 4x4.
+(postscript, august 1996)
+stuart cheshire and mary baker, "internet mobility 4x4."
+sigcomm '96, august 1996.
+also available in (crude) html form.
+
+supporting mobility
+in mosquitonet. (postscript, january 1996)
+mary g. baker, xinhua zhao, stuart cheshire and jonathan stone,
+"supporting mobility in mosquitonet" proceedings of the 1996
+usenix technical conference, january 1996.
+
+experiences with a wireless network
+in mosquitonet. (postscript, august 1995)
+stuart cheshire and mary baker, "experiences with a wireless network
+in mosquitonet." proceedings of the ieee hot interconnects symposium
+'95, august 1995. also republished in ieee micro, february 1996.
+
+rfcs
+rfc 6887 port control protocol (pcp), april 2013
+category: standards track
+abstract: the port control protocol allows an ipv6 or ipv4 host to control how incoming ipv6 or ipv4 packets are translated and forwarded by a network address translator (nat) or simple firewall, and also allows a host to optimize its outgoing nat keepalive messages.
+
+rfc 6886 nat port mapping protocol (nat-pmp), april 2013
+category: informational
+abstract: this document describes a protocol for automating the process of creating network address translation (nat) port mappings. included in the protocol is a method for retrieving the external ipv4 address of a nat gateway, thus allowing a client to make its external ipv4 address and port known to peers that may wish to communicate with it. from 2005 onwards, this protocol was implemented in apple products including mac os x, bonjour for windows, and airport wireless base stations. in 2013, nat port mapping protocol (nat-pmp) was superseded by the ietf standards track rfc "port control protocol (pcp)", which builds on nat-pmp and uses a compatible packet format, but adds a number of significant enhancements.
+
+rfc 6874 representing ipv6 zone identifiers in address literals and uniform resource identifiers, february 2013
+category: standards track
+abstract: this document describes how the zone identifier of an ipv6 scoped address, defined as <zone_id> in the ipv6 scoped address architecture (rfc 4007), can be represented in a literal ipv6 address and in a uniform resource identifier that includes such a literal address. it updates the uri generic syntax specification (rfc 3986) accordingly.
+
+rfc 6763 dns-based service discovery, february 2013
+category: standards track
+abstract: this document specifies how dns resource records are named and structured to facilitate service discovery. given a type of service that a client is looking for, and a domain in which the client is looking for that service, this mechanism allows clients to discover a list of named instances of that desired service, using standard dns queries. this mechanism is referred to as dns-based service discovery, or dns-sd.
+
+rfc 6762 multicast dns, february 2013
+category: standards track
+abstract: as networked devices become smaller, more portable, and more ubiquitous, the ability to operate with less configured infrastructure is increasingly important. in particular, the ability to look up dns resource record data types (including, but not limited to, host names) in the absence of a conventional managed dns server is useful.
+
+rfc 6761 special-use domain names, february 2013
+category: standards track
+abstract: this document describes what it means to say that a domain name (dns name) is reserved for special use, when reserving such a name is appropriate, and the procedure for doing so. it establishes an iana registry for such domain names, and seeds it with entries for some of the already established special domain names.
+
+rfc 6760 requirements for a protocol to replace the appletalk name binding protocol (nbp), february 2013
+category: informational
+abstract: one of the goals of the authors of multicast dns (mdns) and dns-based service discovery (dns-sd) was to retire appletalk and the appletalk name binding protocol (nbp) and to replace them with an ip-based solution. this document presents a brief overview of the capabilities of appletalk nbp and outlines the properties required of an ip-based replacement.
+
+rfc 6709 design considerations for protocol extensions, september 2012
+category: informational
+abstract: this document discusses architectural issues related to the extensibility of internet protocols, with a focus on design considerations.  it is intended to assist designers of both base protocols and extensions.  case studies are included.  a companion document, rfc 4775 (bcp 125), discusses procedures relating to the extensibility of ietf protocols.
+
+rfc 6335 internet assigned numbers authority (iana) procedures for the management of the service name and transport protocol port number registry, august 2011
+category: best current practice
+abstract: this document defines the procedures that the internet assigned numbers authority (iana) uses when handling assignment and other requests related to the service name and transport protocol port number registry.  it also discusses the rationale and principles behind these procedures and how they facilitate the long-term sustainability of the registry.this document updates iana's procedures by obsoleting the previous udp and tcp port assignment procedures defined in sections 8 and 9.1 of the iana allocation guidelines, and it updates the iana service name and port assignment procedures for udp-lite, the datagram congestion control protocol (dccp), and the stream control transmission protocol (sctp).  it also updates the dns srv specification to clarify what a service name is and how it is registered.
+
+rfc 6281 understanding apple's back to my mac (btmm) service, june 2011
+category: informational
+abstract: this document describes the implementation of apple inc.'s back to my mac (btmm) service.  btmm provides network connectivity between devices so that a user can perform file sharing and screen sharing among multiple computers at home, at work, or on the road.  the implementation of btmm addresses the issues of single sign-on authentication, secure data communication, service discovery, and end-to-end connectivity in the face of network address translators (nats) and mobility of devices.
+
+rfc 6055 iab thoughts on encodings for internationalized domain names, february 2011
+category: informational
+abstract: this document explores issues with internationalized domain names (idns) that result from the use of various encoding schemes such as utf-8 and the ascii-compatible encoding produced by the punycode algorithm.  it focuses on the importance of agreeing on a single encoding and how complicated the state of affairs ends up being as a result of using different encodings today.
+
+rfc 5505 principles of internet host configuration, may 2009
+category: informational
+abstract: this document describes principles of internet host configuration. it covers issues relating to configuration of internet-layer parameters, as well as parameters affecting higher-layer protocols.
+
+rfc 5227 ipv4 address conflict detection, july 2008
+category: standards track
+abstract: when two hosts on the same link attempt to use the same ipv4 address at the same time (except in rare special cases where this has been arranged by prior coordination), problems ensue for one or both hosts.  this document describes (i) a simple precaution that a host can take in advance to help prevent this misconfiguration from happening, and (ii) if this misconfiguration does occur, a simple mechanism by which a host can passively detect, after the fact, that it has happened, so that the host or administrator may respond to rectify the problem.
+this 2008 document is the foundation for the 2005 document rfc 3927, ipv4 link-local addressing. ipv4ll can be viewed as a combination of two simple technologies: a random number generator to pick addresses, coupled with ipv4acd to tell when it has picked a bad one. however, ietf politics was such that the idea of detecting address conflicts was very contentious, so the more complicated document (random number generator + acd) was published first, and then the simpler document (acd alone) was published three years later. if they'd been published in the other order, the ipv4ll document would have been much shorter, because it would have simply referenced rfc 5227 for how to detect address conflicts, instead of duplicating the text.
+
+rfc 4436 detecting network attachment in ipv4 (dnav4), march 2006
+category: standards track
+abstract: the time required to detect movement between networks and to obtain (or to continue to use) an ipv4 configuration may be significant as a fraction of the total handover latency in moving between points of attachment.  this document synthesizes, from experience in the deployment of hosts supporting arp, dhcp, and ipv4 link-local addresses, a set of steps known as detecting network attachment for ipv4 (dnav4), in order to decrease the handover latency in moving between points of attachment.
+
+rfc 3927 dynamic configuration of ipv4 link-local addresses, may 2005
+category: standards track
+abstract: to participate in wide-area ip networking, a host needs to be configured with ip addresses for its interfaces, either manually by the user or automatically from a source on the network such as a dynamic host configuration protocol (dhcp) server. unfortunately, such address configuration information may not always be available. it is therefore beneficial for a host to be able to depend on a useful subset of ip networking functions even when no address configuration is available. this document describes how a host may automatically configure an interface with an ipv4 address within the 169.254/16 prefix that is valid for communication with other devices connected to the same physical (or logical) link.
+ipv4 link-local addresses are not suitable for communication with devices not directly connected to the same physical (or logical) link, and are only used where stable, routable addresses are not available (such as on ad hoc or isolated networks). this document does not recommend that ipv4 link-local addresses and routable addresses be configured simultaneously on the same interface.
+
+rfc 3442 dhcpv4 classless static route option, november 2002
+category: standards track
+abstract: this document defines a new dynamic host configuration protocol (dhcp) option which is passed from the dhcp server to the dhcp client to configure a list of static routes in the client. the network destinations in these routes are classless — each routing table entry includes a subnet mask.
+
+rfc 3397 dhcpv4 domain search option, november 2002
+category: standards track
+abstract: this document defines a new dynamic host configuration protocol (dhcp) option which is passed from the dhcp server to the dhcp client to specify the domain search list used when resolving hostnames using dns.
+
+rfc 3396 encoding long options in dhcpv4, december 2002
+category: standards track
+abstract: this document specifies the processing rules for dynamic host configuration protocol (dhcpv4) options that appear multiple times in the same message. multiple instances of the same option are generated when an option exceeds 255 octets in size (the maximum size of a single option) or when an option needs to be split apart in order to take advantage of dhcp option overloading. when multiple instances of the same option appear in the options, file and/or sname fields in a dhcp packet, the contents of these options are concatenated together to form a single option prior to processing.
+
+
+presentations
+zero configuration networking with bonjour,
+google engedu talk, november 2005
+presentation given at internal google engineering meeting, also recorded and made available publicly on google video.
+
+stuart cheshire on ipv6 adoption,
+ietf 72 technical plenary session, dublin, ireland, wednesday 30th july 2008
+panel discussion on "ipv6 experiences from the field"
+
+software projects
+sleep proxy service
+the bonjour sleep proxy wakes your mac automatically when you access it over the network.
+
+ichatautolocationstatus
+ichatautolocationstatus sets your ichat status automatically, according to your network connectivity, which it uses as an indicator of your physical location.
+
+
+etherpeg
+etherpeg shows you all the jpegs (and gifs) going by on your network.
+
+bolo
+networked multi-player tank battle game for the apple macintosh.
+
+stuart's macintosh ppp scripts for
+metricom ricochet packet radios
+two scripts to speed up and simplify use of metricom's "ricochet" radios
+with apple remote access or open transport ppp.
+
+natural order
+macintosh system extension that improves sorting order for items
+that have numbers in the name.
+
+witch
+macintosh printer driver for epson, hp, canon and kodak printers
+
+macintosh authenticator
+user authentication for print accounting
+
+software librarian
+licence management for macintosh applications
+
+
+macintosh programming notes
+a collection of code snippets, bits of advice, and other miscellanea
+about programming the mac.
+
+
+stuu
+a super-fast uu decoder (more than 1mb per second on powermac 6100/60)
+
+
+singletalk
+a local loop-back appletalk adev, so that you can keep appletalk
+active without draining the battery power on your powerbook, and without
+tying up the serial port that you wanted to connect your modem to.
+
+
+metritalk
+a macintosh appletalk driver for metricom's 900mhz packet radios.
+
+
+starmode
+radio ip
+a linux packet radio driver for metricom's 900mhz packet radios.
+
+
+linux 2.0.x patches
+various linux kernel enhancements
+
+
+radioscope
+this is not my work, but it's listed here because it uses the
+strip protocol (and because it's really cool). radioscope is a
+software-controlled digital oscilloscope designed by
+elliot poger.
+for its interface to the outside world the radioscope uses a metricom
+radio in its "starmode" packet datagram mode. radioscope implements
+the strip protocol, and a functional subset of udp and ip, all in 1800
+bytes of motorola 68hc11 8-bit microcontroller code. a huge testament,
+i think, to the elegance of datagram protocols. if the radioscope had
+used a connection-oriented device like a hayes modem for its interface
+to the outside world it would have taken a lot more than 1800 bytes of
+code to make it work — having to do dial-up/hang-up,
+connect/disconnect/reconnect, modem initialization strings, etc.,
+etc., etc. using connectionless udp datagram packets not only allows
+anyone anywhere on the internet to communicate with the radioscope
+without having to first "dial" its "modem"; it also allows any number
+of people to be communicating with the radioscope at the same time,
+because you're not limited to only having one person at a time be
+"connected" to it. all in all, a great piece of work. check it out!
+
+
+ppctoolbox
+over tcp
+it's not every day that steve jobs shows off your work
+in his keynote speech to thousands of people at a large conference...
+
+stuart's rants
+the atm paradox (july 1998)
+reservations only really work well when you have enough bandwidth
+that you don't need them.
+
+nbp/ip
+(name binding protocol over ip) (july 1997)
+the world is crying out for easier-to-use ip, especially for
+small-office and home networks. nbp/ip would bring some of appletalk's
+legendary ease of use to ip, allowing ip to be used across the room as
+well as across the world.
+
+aol (january 1997)
+my nightmare trying to set up aol for my family. i can't imagine
+how a computer novice copes with this.
+
+failures count more than
+successes (august 1996)
+user-experience is defined by the times when a computer doesn't
+work, not by the times when it does.
+
+visioneer paperport
+(august 1996)
+great product, lousy company. anyway, here's a useful tip for
+paperport users.
+
+it's the latency, stupid
+(may 1996)
+forget bandwidth — latency is the tough problem.
+includes results of performance
+tests done with a variety of modems, isdn connections, and "cable modems"
+see also latency and the quest for interactivity, a white paper covering similar issues.
+
+stuart's law of
+networkdynamics (may 1996)
+for every network service there's an equal and opposite network disservice.
+
+the 'monopoly' effect
+(april 1995)
+don't let the weaker players get bored in your multi-player game.
+
+stuart's law of
+quadratic reliability (april 1995)
+why writing networked games is so hard.
+
+apple needs better
+advertising (september 1994)
+maybe i can do better. well, maybe i can't, but there's no harm
+trying, right?
+
+using video recorders for
+backup (august 1994)
+a high-speed high-capacity backup system virtually for free.
+i wonder why no one ever did it.
+
+software patents (january 1994)
+why software patents threaten to cripple progress in the computer
+industry.
+
+initial comments on
+applescript (january 1994)
+what's good. what's bad.
+
+smarter power management for
+laptop computers (october 1993)
+humans may be unpredictable, but application software often isn't.
+why make the os guess when the next disk access is going to happen,
+when a simple api could allow applications to tell it?
+
+billions and trillions
+what is this thing with american billions anyway?
+
+links
+infohighway
+tai jin on the "information superhighway" highway.
+
+a
+quick critique of java
+by brian wilson.
+
+sprong
+by maf vosburgh
+an excellent c construct for macintosh programmers, invented by
+maf vosburgh.
+
+learn
+to program your macintosh
+a great collection of macintosh programming resources, collected by
+kris johnson.
+
+www.energyconsumption.org
+resources to measure, monitor, and conserve energy at home. (currently hosted by energy.techhouse.org at brown university.)
+
+personal data
+"magazine-style" biography
+for
+magazines and academic publications that need a brief description
+of who i am and what i've done.
+
+curriculum vitae (resume)
+in adobe postscript form and
+in
+microsoft rich text format (rtf) form.
+
+education and other history
+1998-present: wizard without portfolio, apple computer, inc.
+2003: named at position 19 on the mac daily journal "power 25" list of the 25 most influential people in the macintosh industry.
+march 1998: ph.d., computer science,
+stanford university
+computer science department,
+palo alto, california,
+associated with:
+
+david cheriton's
+distributed systems
+group
+stanford
+residential computing
+mary baker's
+operating systems and
+networking group
+
+
+june 1996: m.sc., computer science,
+stanford university.
+june 1994 - september 1994: summer intern at
+apple computer working on
+quickdraw 3d.
+june 1992: m.a.,
+computer science,
+sidney sussex college,
+cambridge.
+june 1988 - september 1990: software engineer at
+madge networks.
+september 1986 - june 1989: b.a.
+computer science,
+sidney sussex college,
+cambridge.
+september 1980 - june 1986:
+
+bishop vesey's grammar school,
+in sutton coldfield, near
+birmingham, england.
+
+bishop vesey's grammar school is 500 years old, and when i was
+there in the 1980s, it had no computer science program whatsoever,
+i think because they assumed that computers would be merely a passing
+fad. this may not have been a bad thing, because my enthusiasm for the
+field was not crushed in boring classes. (i expect bishop vesey's does
+teach computer science these days.) to track down old friends, take
+a look at the
+registry of old veseyans.
+
+
+in 1998, between finishing my phd and starting work full-time at apple, i built a deck.
+several friends were interested to see my progress, so each day i took some
+photos with my quicktake 200
+digital camera so you can see my progress. on the subject of the
+quicktake 200 camera, i found an absolutely excellent source of
+information at the
+quicktake
+200/fuji ds-7 users' page.
+2006, swimming pool by swan pools, san jose.
+unlike my deck, which i built myself,
+this time we're paying someone else to do the work.
+contact information
+
+e-mail
+used to be <something>@cs.stanford.edu; had to remove email address because of spam.
+sadly i do not have time to check my old cs.stanford.edu address
+very often, so that is no longer a good way to reach me. guessing my
+new email address is left as an exercise for the reader :-)
+phone
+home +1 (408) 288-6685
+apple +1 (408) 974-3207
+mastodon
+@stuartcheshire@mastodon.social
+
+pgp key
+
+-----begin pgp public key block-----
+version: 2.3
+mqcpai1gadeaaaeeanlhw8gptmmaizqhb6uloolnjknaijybw28tqzyg2yk2a0bi
+hwwn3gqjtdp6v0xawwvnuky0qa18ohyjqwwnj702a6xjh+urycwgkutr1wzht8ce
+thb4znhladncfxagpuazxcby4wqlmohoi5dyk+x1w8ctvtupdd4ackd0iyfpabeb
+aag0lvn0dwfydcbdagvzaglyzsa8cgdwlw1hawxac3r1yxj0y2hlc2hpcmuub3jn
+pg==
+=2amf
+-----end pgp public key block-----
+key fingerprint: 89ca af8d 445f dd21  db7c 894c 6e5f 41ef
+
+
+
+

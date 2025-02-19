@@ -1,0 +1,160 @@
+
+
+
+
+ 
+error
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ohio runner
+
+
+
+
+
+
+
+
+
+
+home
+
+
+race calendar
+
+
+  - add your race
+
+
+pace chart
+
+
+running quotes
+
+
+newsletter
+
+
+advertise
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+500 error
+
+sorry, an error has occured and since we are out running,we couldn't do anything about it.
+
+
+
+                    if you want to bring this error to our attention, please email
+webmaster@ohiorunner.com
+                        be sure to copy and paste everything inside this box into the email:
+
+system.data.entity.core.entityexception: the underlying provider failed on open.
+stack trace:    at system.data.entity.core.entityclient.entityconnection.open()
+   at system.data.entity.core.objects.objectcontext.ensureconnection(boolean shouldmonitortransactions)
+   at system.data.entity.core.objects.objectcontext.executeintransaction[t](func`1 func, idbexecutionstrategy executionstrategy, boolean startlocaltransaction, boolean releaseconnectiononsuccess)
+   at system.data.entity.core.objects.objectquery`1.<>c__displayclass41_0.<getresults>b__0()
+   at system.data.entity.sqlserver.defaultsqlexecutionstrategy.execute[tresult](func`1 operation)
+   at system.data.entity.core.objects.objectquery`1.getresults(nullable`1 formergeoption)
+   at system.data.entity.core.objects.objectquery`1.<system.collections.generic.ienumerable<t>.getenumerator>b__31_0()
+   at system.data.entity.internal.lazyenumerator`1.movenext()
+   at system.collections.generic.list`1..ctor(ienumerable`1 collection)
+   at system.linq.enumerable.tolist[tsource](ienumerable`1 source)
+   at ohiorunner.managers.eventmanager.recentlyadded(entities db) in ohiorunner\managers\eventmanager.cs:line 45
+   at ohiorunner.controllers.homecontroller.index() in ohiorunner\controllers\homecontroller.cs:line 14
+   at lambda_method(closure , controllerbase , object[] )
+   at system.web.mvc.controlleractioninvoker.invokeactionmethod(controllercontext controllercontext, actiondescriptor actiondescriptor, idictionary`2 parameters)
+   at system.web.mvc.async.asynccontrolleractioninvoker.<>c.<begininvokesynchronousactionmethod>b__9_0(iasyncresult asyncresult, actioninvocation innerinvokestate)
+   at system.web.mvc.async.asyncresultwrapper.wrappedasyncresult`2.callenddelegate(iasyncresult asyncresult)
+   at system.web.mvc.async.asynccontrolleractioninvoker.endinvokeactionmethod(iasyncresult asyncresult)
+   at system.web.mvc.async.asynccontrolleractioninvoker.asyncinvocationwithfilters.<>c__displayclass11_0.<invokeactionmethodfilterasynchronouslyrecursive>b__0()
+   at system.web.mvc.async.asynccontrolleractioninvoker.asyncinvocationwithfilters.<>c__displayclass11_2.<invokeactionmethodfilterasynchronouslyrecursive>b__2()
+   at system.web.mvc.async.asynccontrolleractioninvoker.endinvokeactionmethodwithfilters(iasyncresult asyncresult)
+   at system.web.mvc.async.asynccontrolleractioninvoker.<>c__displayclass3_6.<begininvokeaction>b__4()
+   at system.web.mvc.async.asynccontrolleractioninvoker.<>c__displayclass3_1.<begininvokeaction>b__1(iasyncresult asyncresult)
+inner exception: 
+a network-related or instance-specific error occurred while establishing a connection to sql server. the server was not found or was not accessible. verify that the instance name is correct and that sql server is configured to allow remote connections. (provider: named pipes provider, error: 40 - could not open a connection to sql server)
+stack trace:    at system.data.providerbase.dbconnectionpool.trygetconnection(dbconnection owningobject, uint32 waitformultipleobjectstimeout, boolean allowcreate, boolean onlyonecheckconnection, dbconnectionoptions useroptions, dbconnectioninternal& connection)
+   at system.data.providerbase.dbconnectionpool.trygetconnection(dbconnection owningobject, taskcompletionsource`1 retry, dbconnectionoptions useroptions, dbconnectioninternal& connection)
+   at system.data.providerbase.dbconnectionfactory.trygetconnection(dbconnection owningconnection, taskcompletionsource`1 retry, dbconnectionoptions useroptions, dbconnectioninternal oldconnection, dbconnectioninternal& connection)
+   at system.data.providerbase.dbconnectioninternal.tryopenconnectioninternal(dbconnection outerconnection, dbconnectionfactory connectionfactory, taskcompletionsource`1 retry, dbconnectionoptions useroptions)
+   at system.data.sqlclient.sqlconnection.tryopeninner(taskcompletionsource`1 retry)
+   at system.data.sqlclient.sqlconnection.tryopen(taskcompletionsource`1 retry)
+   at system.data.sqlclient.sqlconnection.open()
+   at system.data.entity.infrastructure.interception.internaldispatcher`1.dispatch[ttarget,tinterceptioncontext](ttarget target, action`2 operation, tinterceptioncontext interceptioncontext, action`3 executing, action`3 executed)
+   at system.data.entity.infrastructure.interception.dbconnectiondispatcher.open(dbconnection connection, dbinterceptioncontext interceptioncontext)
+   at system.data.entity.sqlserver.defaultsqlexecutionstrategy.<>c__displayclass2_0.<execute>b__0()
+   at system.data.entity.sqlserver.defaultsqlexecutionstrategy.execute[tresult](func`1 operation)
+   at system.data.entity.core.entityclient.entityconnection.open()
+inner exception: 
+the system cannot find the file specified
+stack trace: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+© copyright 1999 - 2025 ohiorunner.com
+
+
+
+
+
+
+
+
+

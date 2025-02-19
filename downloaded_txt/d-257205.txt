@@ -1,0 +1,331 @@
+
+
+
+
+
+
+grumpy gamer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+home
+
+
+contact
+
+
+archives
+
+
+about
+
+
+rss
+
+
+mastodon
+
+
+grumpy gamer
+ye olde grumpy gamer blog. est. 2004
+
+
+
+
+
+
+death by scrolling
+
+
+				feb 2, 2025
+			
+
+first screen shot from my new game called death by scrolling.
+
+i started working on this game back in 2019. it started out great and everybody i showed it to loved it, but it was simple. everyone asked for progression and “game” stuff and over the next six months i proceeded to ruin it.
+then a little game called return to monkeys island came along and i took the next two years to build that with dave grossman and a wonderful team.
+monkey island ended and i started working on a new game i dubbed “rpgtbd”.  it was a classic zelda-like pixel art rpg and was a lot of fun. i brought on an artist (craig) and a designer (elissa) to help.
+when i first started rpgtbd everyone told me that it’s unrealistic to do a open world rpg with a small team. morons. what do they know?
+well, a lot actually.
+it became obvious that my vision for the game was never going to get done and on top of that i was spending a lot of money so something had to give.  i could pay off the contracts for craig and elissa and call it a day.
+but i had all this wonderful art and a nice quest and exploration system from rpgtbd it felt odd to let them go to waste.
+then i remembered death by scrolling. i shared the prototype with elissa and she really liked it. there is something about the game that i could never let go of.
+i rebuilt the whole project, stripping out all the stupid stuff and returned it to the core of the game back when it was fun.
+over the next 3 months elissa and i added back pieces bit-by-bit with a nice progression system, story, quests and challenges.
+it’s not going to be everybody’s cup of tea, but elissa and i get lost in playing it when we should be testing a new feature, so i guess that’s good.
+elissa and craig leave the project on march 1 then it’s just me for a few months and then release it in 2025.
+this time for sure.
+
+
+
+
+
+
+damage poll
+
+
+				jan 26, 2025
+			
+
+i recently asked on mastodon how a player would expect damage to be computed in an rpg.
+(base_damage + extra_damage) * damage_buff
+
+or
+(base_damage * damage_buff) + extra_damage
+
+general consensus is there was no consensus.
+
+the one thing people did agree on was that the skill/weapon description should say what the order of operation is.
+fair enough.
+i am worried about the amount of information that needs to be conveyed to players.  the game needs to work well on the switch and the steam deck with limited screen size.  i play a lot of games where the 20-something devs with perfect eyesight spent too much time looking at the game on a large monitor. i’ve purposely kept the text large enough to read on a small screen. it means i need to be succinct.
+some people suggested that players should be able to order the weapons/skills as they wanted. this is problematic since weapons/skills come in a very random order and a ui to reorder them seems like a lot of work and not really what the game is about.
+it also doesn’t matter what order the weapons/skills are evaluated. i compute damage_buff then compute damage_extra when the weapon/skill is acquired. later on those are used to compute damage and that is where the order matters.
+it’s also basically an action game and players shouldn’t get too deep into stat management for a character that is going to last a few minutes.
+maybe i’m wrong about that.
+i think i will opt for the 1st method since it allows for bigger numbers and that is something players do want.
+
+
+
+
+
+
+12 days of crunch time mention
+
+
+				jan 18, 2025
+			
+
+i’m a big fan of tim cane’s youtube channel.
+if i was going to have a youtube channel, i would want it to be like his but talking about adventure games, not rpgs. maybe someday.
+so imagine my delight when he posted this:
+
+
+
+clayton and i wrote this poem many years ago, but not much as changed.
+i’ve never met tim cane but hope to someday. maybe he will come to new zealand.
+
+
+
+
+
+
+hugo
+
+
+				jan 13, 2025
+			
+
+!! p.s. static site is now live on grumpygamer.com !!
+i spent the last weekend converting grumpygamer.com to a static website using hugo.
+i don’t really know why. the old dynamic site was working fine.
+it’s still hosted it on my server but there is no php, etc. i may move it to a static site hosting platform.
+if your reading this, you’re on the new static site.
+so far hugo has been great. it’s go mark-up language is a little odd, but i’m used to it now.
+the old site used markdown but i added some odd new rules and porting all the posts over was kind of a pain. wrote a php script that pulled down all the posts and wrote them out as json. i then wrote a python script to find all my odd markdown hacks and convert them to the standard markdown that hugo uses.
+all in all, it only took a few hours and now it render 90% right. there are still a few goofy tags i need to fix by hand.
+the images were hosted on a cdn and i moved them locally. i’ve become concerned with the complexity of software. i’m getting to the point where i want everything under my control and simple.
+the thimbleweed park dev blog was a complicated mess of databases and servers. something went wrong and the whole thing collapsed. i ending up rendering the whole site out as static html and just hosting that since it wasn’t changing.
+i would have been better off with a static site from the beginning, hence this move to hugo.
+one of the reasons i haven’t posted much was the complexity to writing an article
+i’m hoping this will be easier.
+the one big issue is comments.
+i shut down comments after the return to monkey island shit storm and i’ve been reluctant to turn them back on. can’t we all just get along.
+comments on a static site are an tricky issue. there are some third party solutions like disqus but i worry about big comment sucking up personal information of anyone who comments on my site.
+i did watch a youtube video about how to add comments to a hugo site and it just requires a little javascript and i can hook it into my existing comment system.
+the good news if that system goes down all i lose are the comments, not the whole site.  i might give that a try at some point.
+things i still need to do:
+
+make the site responsive to changes in window size (i.e. mobile)
+fix up the missing markdown.
+get rss working again so the old url still works.
+clean up my crappy css.
+get social media cards working again.
+write some new posts that makes this all worth it.
+
+i’d also like the site to be built with ci when i push it.
+
+p.s. i decided not to do this. a simple and quick rsync command gets it to my server and it’s one less thing i need to worry about. remember, this was about keeping it simple.
+
+if you notice anything odd or broken, let me know on mastodon
+
+p.s. i work on my website on the weekends, weekdays are for working on my game. see you next sat.
+
+
+
+
+
+
+
+april fools' 2024
+
+
+				apr 1, 2024
+			
+
+as the world spins into chaos, the one constant that brings stability into your world is knowing that grumpygamer.com will always remains april fools’ joke free.
+
+
+
+
+
+
+quest feedback
+
+
+				nov 27, 2023
+			
+
+i recently asked on mastodon about favorite quests. i’ve collected some of the responses here. i apologize that i can’t credit the individuals who posted, but you can find them there. i need to update grumpygamer so i can post rich mastodon links.
+if you have a favorite, post it on mastodon and @ me.
+
+baldur’s gate 3 quest to safe arabella on the druid’s grove is a turning point for me. (1) you have options on how to act and what to do after you acted, (2) these choices impact the game and future choices, both in the near future and far future; and (3) when playing for the first time i didn’t feel like i had a choice, there was only thing my character would have done.
+i like sidequest with “treasure hunt” like the maps in red dead redemption
+i like tiny quests about interpersonal relationships, like resolving a conflict between a mortician and his gravedigger employee in ultima 6, or babysitting a dock worker’s daughter in citizen sleeper.
+the tarrey town quest arc from zelda breath of the wild is one of my all time favorites. it’s really just a series of supply fetch quests and “find yet another character whose name rhymes with ‘son’ (in this big huge open world)” but it feels like you are helping establish an entire new town in the wilderness - leaves you with a genuine “i helped people” feeling. after which it becomes a real town that is quite a useful outpost with lots of new quests it opens up in turn.
+i like quests where you have to run around between a few characters, doing small tasks for them or delivering messages between them to get them to work together eventually.
+like with getting olga and boris to make up in quest for glory 4, or the chinese hitmen quest in vtm: bloodlines.
+quests that leave lasting impact on the game world (like rebuilding a village, changing the landscape, that sort of thing)
+one that comes to mind is having to sneakily follow someone to find out what they’re up to without them noticing
+i’ll have to come back to this, but i think scenarios are important. why you are doing the quest isn’t always as important as what you do during the quest.
+i’m currently playing through baldurs gate 3 and in one instance i began fighting one group of enemies, only for another to show up that distracted them. essentially you have to use this distraction effectively to win the fight because it collects the enemies in a group and the interjecting enemy eventually leaves. if you didn’t do enough with it, you are left with an army of enemies.
+i also like murder mysteries. locked in a house or something, talk to people, figure out who is the killer.
+there was another game where during a fight a fire is spreading, so you have to manage the fight while getting distance from the fire. if you move too quick the enemies are able to surround you, too slow or let someone get knocked down, the fire gets them.
+i don’t think it’s super important for a game to be incredibly hard or easy or whatever. i think the sweet spot for video games is ‘hard enough that i need to pay attention, and no harder.’
+different outcomes for people or places. for example, depending on your efficiency on solving the quest (or on decisions), you save a family or they get killed; or someone gets in debt with you and will help you later or he will hire killers to slay you; you may save a town from evil wizards or it may be cursed with fatal consequences
+i like quests with options. say i need to get inside the castle. is my only option stealth? or could i bribe the guard, or seduce the guard, or distract the guard, or find an old tunnel from the monastery?
+quests that do world building. i loved all the side quests in the witcher 3 for example. they were all unique little stories in the witcher universe, making the game more immersive as you played it.
+there was one in neverwinter nights with a glass sphere that contained a parallel world? and one in dragon age with a mouse hole. - canâ´t remember exactly.generally ones that are less predictable but logical to solve.
+i always liked questions where i brought npcs back together or highly political strategic ones ;)
+i love it when quests are smaller pieces of bigger quests. for example in gta when you do heists, a few missions set up the heist then you perform the actual heist which makes use of the earlier things you did.
+i love ones that involve mystery. the dark brotherhood questline in tes: oblivion comes to mind. specifically “whodunit”, where you participate in a murder mystery party where you are the murderer.
+first thing that came to mind was the spell book in king’s quest 6. travel around gathering ingredients (which didn’t feel tedious as you needed to island-hop for other story & puzzle reasons) then cast spells that advance the story. not all spells were required due to different ways to win the game.
+helping a npc gets you a pet/sidekick
+https://en.wikipedia.org/wiki/the_bloody_baron
+may i chime in? i like quests which turn out to be something completely different than you expect, and where the good writing/setup makes you forget that its a scripted event. rpg or adventure, makes no difference. most memorable quest: warhead on amiga, where you eatch constrictor annihilate the entire sirius fleet with single missile (while going la-de-da), and then you get mission from your headquarters to go and attack it
+i’m fine with them being tiny impacts on the world. if i’m fetching an hat for the person, the person wears it after. if i fetch an item for a shopkeeper, it increases stock
+if there’s a side quest where i need to make medicine because someone is sick, i need to do it immediately
+the quests where we need to make choices (maybe moral ones) with consequences hard to predict. hag quest in baldur’s gate 3 is one of my favourite quests, for example.
+legend of mana, the lamp selling quest: https://mana.fandom.com/wiki/lumina_(location)#faeries’_light you had to learn the dudbears’ language and answer their questions. https://gamefaqs.gamespot.com/ps/25652
+i like the help korok to reach his friend in tears of the kingdom. (although many seem to prefer to torture them) most of it because of the sound. the koroks really sound sad and distressed but when you put them together you hear the sound of relief. “helping them” is a good theme by itself but the sound really adds to the feeling and role play.
+i like quest for adding new team members that was old chaps from the original once
+quests that affect the ending for sure, even if it’s an extra sprite in the lineup. it blew my child mind they you can save luca’s mom from losing her legs in chrono trigger and it affected that particular line of endings (game has over a dozen). it’s a thing you end up having to do regardless, a little action sequence, but it’s hard enough to not telegraph in any way that it’s actually possible to win and save your mom. like it seems as if you’re supposed to simply relive trauma.
+i like the ones that get initiated by the player - technically, it’s you who just walked up to a random person and tried to ask what’s up.
+one i did yesterday while playing mario rpg. the quest triggers when you arrive in a town and you meet a trio of characters that tell you they hid something around the world, and they give you clues like “it’s genuine a wooden flower” or “under a green bed”. you have to revisit and find these things. i liked it, solving the clues made me feel smart, and the places i revisited felt deeper now.
+the “small favor” ones, where you start with a very simple task but it slowly unfurls into an endless quest.
+i really like the quests that seem simple at first but reveal a lot of world behind them. like, the initial quest is “get me some widgets” but you start looking into why there’s a widget shortage and you discover the frobnicator is down due to sabotage because there are warring factions of frobnicator builders and their disagreements are deep-seated, sensible, and not trivially solvable. then the wish fulfillment part is that you solve them.
+the ones where, just when you have everything ready to turn in for a reward, you suddenly get new information casting doubt on whether you should do so, and have to make a choice about which side to take. it’s that moment of player agency right after a stretch of non-agency, doing stuff because someone else told you to.
+i like quests where you’ve been manipulated to side with someone. you do their quest, and then they destroy the town, kill the king, release the kraken etc..setting you up for quests to undo what you did.
+the ones that stick with me involve making choices that seem unconnected until later (e.g. the treatment of specific monsters in witcher 3 affecting the fates of characters you may or may not meet) or that build connections with people and places (like how completing a fetch quest or taking care of a problem aids in reconstructing a colony in xenoblade chronicles).
+mass effect 2 - been a while but i recall caring enough about the party members that doing their personal quests seemed like an intrinsically motivated thing to do. basically either give me a good enough motivation to do the quest, or keep the downside/extra effort low. and please don’t try to abuse my fomo.
+witcher 3 - practicum quest. funny, and builds  npc character (which they don’t do much with after). i also enjoy the simpler contracts as “go there, kill huge thing” fits the game.
+the hunted hotel from vampire bloodlines is one quest i will always remember. not because is a brilliant quest, but because the twist of the mood of the game. suddenly, i’m in a horror game and still it uses the mechanics from the general game. i love that quest.
+i just did a quest* in guildwars2 where i collected bits of a renowned family’s tapestry from all over the world, starting in the previous big expac. like the snargle goldclaw achievements (look him up), i liked how this connected to the changing world of the story, but on the fringes. it connected to npcs i’d heard arguing about mass-producing artisan blankets now that borders were open and…
+“signs of the sojourner” has beautifully done quests. there’s an overarching quest to learn about your mom, and progress comes naturally through conversation games (the game’s main mechanic). you receive additional tasks, like to bring back vinegar or a musical instrument, and if you don’t complete these, the outcome of your game is changed. then there are fetch quests for individual characters and exit ramps through certain characters. it’s very artfully put together, to me.
+some memorable quests: in “dragon’s dogma,” breaking into the duke’s castle to rescue a princess. also, stealing a ring for the duke, forging it, giving him the forgery, and using the original to rob him dry.
+anything which has a lasting effect on the gameworld. megaton in fallout 3 being an easy example.
+the purification quest in oblivion at the end of the dark brotherhood questline, when you have to kill al the npcs of the brotherhood you have been getting quests from and interacting with. it felt so weird.
+
+
+
+
+
+
+
+speed running monkey island
+
+
+				jun 2, 2023
+			
+
+i recently did an interview about speed running monkey island (i’ll post a link when it’s available).
+one of the topics was how speed runners dislike random events and the end of monkey island 2 has a lot of randomness around when lechuck appears. i was asked how this worked and to be honest that was a long time ago and i don’t remember every little scrap of code. it is also possible that i didn’t write it.  but what i do have is the scumm source code for monkey island 2 and i tracked down the code.
+lechuck-appearance-chance is 4
+lechuck-appearance-interval is 300
+times-lechucks-appeared-recently += 1
+foo = (3 - times-lechucks-appeared-recently)
+foo = (random foo)
+if (!foo) {		; after he's popped up a couple times he's likely to disappear for a while
+    times-lechucks-appeared-recently = 0
+    lechuck-appearance-chance is 10	; that is, 1 in 10
+    lechuck-appearance-interval is 500
+}
+if (magic-doll) {	; speed him way up after you make the doll
+    if (owner-of needle is selected-actor) {	; and have the needle
+        lechuck-appearance-chance is 2
+        lechuck-appearance-interval is 120
+    }
+}
+there are some other random conditions about what item you picked up last, etc, but this is the core of it.
+p.s. if you’re wondering my scumm uses - in variable names, it’s because it started out as a variant of lisp.
+p.p.s. it’s also worth noting that this is for the original mi2, the special editions and scummvm might have changed how this works.
+
+
+
+
+
+
+unions
+
+
+				may 3, 2023
+			
+
+i posted this chain on mastodon, but am reposting it here…
+getting ai to write your game dialog is about the same as getting some c- high school student to do it. at least with the later you be giving a high school student a job.
+i really hope the tv writers can get something meaningful from the strike. i’m skeptical only because big companies taking advantage of creatives is burnt into their dna. i see this all the time. thimbleweed park was the first game i ever saw anything from. i am getting something from rtmi but it’s small. i’ve created a lot over the years and only made other people rich.
+i support the game industry unionizing, not only to create reasonable working hours, but also to stop companies from getting rich off our hard creative work. i don’t think game writers should be part of the wga, the businesses are too different, and i’ve seen the cluster fuck of hollywood unions trying to get into games.
+unions can also be their own oppressive mess but it’s probably slightly better than what we have now. i do worry about how rigid unions would hamper true indie game work.
+
+
+
+
+
+
+loom
+
+
+				apr 3, 2023
+			
+
+all the dialogs in return to monkey island were done in a format called yack. these were created for thimbleweed park and (very) loosely based on ink.
+during the secret of monkey island and lechucks revenge, these were all hand-coded in scumm and a pain in the [redacted].
+the goal is to free the writer from “programming” and focus just on the writing and logic of the scene.
+in lines like guybrush(38260,"{fist_pump}yes!") the guybrush is a macro to replaces the text with “@38260:guybrush”. this removes the text from the compiled code and forces the engine to look it up in the translation file as well as directing the vo to play the correct audio. everything is linked to the id 38260 including the actor’s scripts.
+{fist_pump} calls an animation on actor saying the line and (mocking) is direction for the actor and ignored by the engine.
+the writer will write (for example):
+guybrush: “aye, cobb.”
+and then towards the end of production a python script turns it into
+guybrush: guybrush(38219,“aye, cobb.”)
+adding the unique line ids.
+enjoy cobb…
+
+
+
+
+
+
+next >>
+
+
+
+
+
+unless otherwise noted, all content is copyright 2004-2025 ron gilbert. unauthorized use under penalty of death by dismemberment and/or fine not less than one million dollars. use of content of grumpygamer.com to train ai is expressly forbidden without written approval from a human (me) (v5.0)
+
+
+
+

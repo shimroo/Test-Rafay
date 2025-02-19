@@ -1,0 +1,451 @@
+
+
+
+
+
+
+
+
+
+sonn | the home of steven o. noble
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sonn
+
+search
+
+
+primary menu
+skip to content
+
+dsiow
+
+
+
+
+
+
+
+search for:
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+cloud computing, open networking
+
+the cloud reminds me of home automation
+
+september 2, 2019 snoble leave a comment
+
+
+
+after working with a few different cloud providers (aws, azure, gcp) and talking to quite a few cloud automation companies, it has become clear that cloud services are quite similar to the home automation space.
+if you just need one (device|service), it can be simple to setup but extending it is not. 
+for example, if we compare adding a new “smart” light switch vs spinning up a new virtual machine. both are only good for one thing until you either connect them to other devices or a controller.
+sometimes things stop working and you don’t know why so you have to (power cycle|reset) them
+you can buy your (devices|services) from different vendors, but you need a way to bridge them together (zigbee + crestron, aws + gcp). multi-cloud and poly-cloud fit this example well.
+security is paramount. if your (front door lock|private data) is connected to the system, the system needs to be secure.
+you can pay a lot of money to consultants to build the system and have no idea how to manage the system
+for controllers, you can have a very simple point and click interface with no advanced features that will turn (devices|services) on/off. or you can have a complex controller that allows you to configure things exactly as you want.  you can also operate without a controller and have a limited set of people who know how to maintain the system.
+
+
+cloudhome automationmulti-cloud
+
+
+ 
+
+
+open networking
+
+open networking evangelism
+
+september 10, 2015 snoble leave a comment
+
+
+
+today i am proud to announce that i have joined the big switch team as an open networking/sdn evangelist.  big switch is a leader in the sdn space and their recent releases of big cloud fabric 3.0  and big monitoring fabric (read rob coote’s impressions from nfd10) are significant accomplishments.
+i believe the free flow of information and ideas is key to the development of the networking community.  big switch’s focus on the open network linux, indigo and floodlight open source projects fit well with my vision.
+tracing back to my days of bbsing, i have focused on being open and have been willing to share information and ideas.  i published my first newsletter, dsiow (dos sysops in an os/2 world) back in 1994,  when i ran virtualized dos based bbss in os/2 dos emulators.  the goal of my newsletter was simple, help others to run better systems by sharing information on how i and others setup their os/2 systems.
+moving to more recent activity, i helped found the network device education foundation (netdef) and made router analysis and sdn testing projects under netdef, continuing my goal of providing free, open data about networking devices and software.
+in july, as part of netdef, i gave a standing room only talk at the opendaylight summit, wrote blog posts on and posted some videos on sdn migration.
+so the big question is, what will i focus on?
+first and foremost: working with the community surrounding open network linux (onl), a key part of the open networking ecosystem.  open network linux is a free, open source network operating system (nos) that runs on open networking hardware from both branded vendors (e.g. dell), “whitebox” switches from accton, quanta and many other devices.
+secondly, i will be helping big switch to extend its thought leadership in the sdn space by working with the open networking community and industry to refine and focus the way that big switch interacts and supports the open networking community.
+third, i will be working with customers explaining the value big cloud fabric and big monitoring fabric, products that are built on top of big switch open source initiatives.
+outside of big switch, i will continue to serve as president of the board of netdef and on the onf software leadership council among other projects.
+i am excited to join the fantastic team at big switch and help move open networking forward.
+
+big switchopen network linuxopen networking
+
+
+
+open networking
+
+deconstructing white box pricing
+
+march 23, 2015 snoble 1 comment
+
+
+
+the issue with cost comparisons
+as open networking has grown, we see discussions about the cost of “white box” vs vendor switches and questions if the difference in cost is real.
+vendor boxes such as the juniper qfx3500 qfx5100, cisco nexus 3172, brocade icx 7750 are compared against odm boxes such as the edge-core 5712-54x and quanta t3048-ly8.
+the numbers provided in many of the reports are cursory and not exposing some of the issues it decision makers have to address.
+devices covered in this article
+i looked at a few comparable devices and their associated costs including hardware, software and support.  the devices are the following:
+juniper qfx3500 qfx5100 (it has been pointed out that the 3500 is a trident+ and i should really compare the 5100 which is a tridentii).
+cisco nexus 3172
+brocade icx 7750
+pica8 5101 (it has been pointed out that the 5101 uses a freescale p2020 dual-core cpu, the only non-x86 cpu box listed)
+edge-core as5712-54x (running either cumulus linux or pica8 picos)
+licensing and support
+when you buy a license for cumulus networks cumulus linux, you are also provided with a network operating system with full l3 routing features.  you are also provided with 24×7 support as part of the license.
+with juniper’s qfx3500 qfx5100 you get l3 routing features, and with the cisco nexus and brocade’s icx 7750, you get a base l2 os with limited l3 features,  none of these products include support.
+pica8 like cisco, sells their os and in different flavors, an l2 and a full l3 version.  pica8 does not bundle support with their software license.
+all of the vendors offer support running anywhere from $800-$1600 a year and offering either software only or software and hardware support.
+creating the comparison
+i use the word reasonable to mean that the products are generally the same and that the comparison is as close as possible
+a reasonable comparison between a cisco nexus 3172 at $14,000 with no support and no software would be a edge-core as5712-54x at $6750 running pica8 l2 software for $2199 and a total of $8949 making it 36% less.
+a reasonable comparison between a cisco nexus 3172 with l3 software ($19,000) a juniper qfx5100 ($21,000) or a brocade icx 7750 with l3 software  ($20,000) with no support  would be edge-core as5712-54x at $6750 running pica8 l3 software for $3199 and a total of $9949. or you can buy a bundled version of the p5101 from netgate for $9940 a ~50% difference.
+a reasonable comparison between a cisco nexus 3172 with 5 years 8x5xnbd support and l3 software (total cost $24,000), a juniper qfx5100 with 8x5xnbd support (total cost $27,500) or a brocade icx 7750 with l3 and 8x5xnbd support (total cost ($23,420) would be a pica8 p5101 with a pica8 l3 license and support for $14,410 or  edge-core as5712-54x at $6750 running cumulus linux for $4,499 for a total of $11,249 a minimum of 50% less.
+summary
+no matter how you run the numbers, the difference is significant, with a odm solution being 45% (fully loaded with 5 years support) to 64% (a basic l2 switch) of the cost (from most to least expensive) of the juniper qfx5100, cisco nexus 3172,  or a brocade icx 7750
+update
+changing out the juniper qfx3500 for the qfx5100 added about $2500 to the price.
+
+
+
+
+
+open networking
+
+a question to forrester about the white box myth
+
+march 16, 2015 snoble leave a comment
+
+
+
+i sent this email to forrester earlier and will be awaiting their reply.
+update: forrester replied almost immediately, forwarded to their data team.
+update 2: the data team does not believe the data came from them and andre kindness has stated that the information came from him.
+update 3: from twitter discussions, andre has stated that he used a non-supported (no smartnet), no frills nexus, which would be 14k street.
+
+the cumulus software he used includes 24×7 support and a l3 forwarding license, which means the same would need to be included in he nexus configuration to be a correct comparison.
+update 4:
+forrester has supplied a copy of the report and i have done some analysis.  i have supplied my feedback and will continue to work with forrester to hopefully clarify the costs shown in the report.
+original letter:
+greetings,
+i have been going over the numbers that jim duffy published from andre kindness’ report “the myth of whitebox switches” https://www.forrester.com/the+myth+of+whitebox+network+switches/fulltext/-/e-res118267 and i am unable to determine the source of the numbers.
+i asked andre and forrester about this on twitter and andre said “i’m not sure what u are saying. if u read the report all the numbers are publically available. i’m assuming white box report.”
+i am unable to find the publicly available numbers that andre points out exist, all i can find is the purchasable report, which is not public.
+can you provide me with the cost basis that andre uses for the following slide http://images.techhive.com/images/article/2015/02/white-box-chart-100570427-large.idge.jpg as used by jim duffy in his article about disaggregation in the networking space http://www.networkworld.com/article/2890335/data-center/will-network-disaggregation-play-in-the-enterprise.html
+
+in the slide andre puts together the numbers for a 6.6 year cost of ownership for the accton 5712 and the cisco nexus 3172pq and the numbers come out within 1k of each other, $13,339 for the accton/cumulus and $14,198 for the cisco nexus.
+where does andre get the pricing for the nexus?  even using government pricing, a heavily discounted nexus 3172pq is still $11,760 and the cost of smartnet service is about 1k a year.  that would bring the numbers to ~17k not including taxes, duties, etc.
+for the accton as5712, his numbers are closer, the public non-discounted hardware being $6570 and software being $2849 (3 year) or 4,499 (5 year) but not anywhere near the costs of the cisco.
+i plan to put all of this data out publicly, for no cost, and use it when training end users at public events (again for no cost). i will publish first on sonn.com (my personal blog) and once i can assemble everything with confidence, i will put the breakdown on routeranalysis.com where we do completely open testing of network devices for the public good.
+thank you for your time
+steven noble
+
+
+
+
+
+open networking
+
+open networking and support
+
+march 8, 2015 snoble leave a comment
+
+
+
+i spent most of my drive back from sacramento this afternoon recording thoughts about open networking, onie, cisco, hp, juniper, brocade, testing and support.  it is going to take some time to go through and get all of the relevant data out, so i decided to put some of my talking points here.
+1.) the onie on nexus 9000 announcement/recall from cisco is helpful to the open networking community:
+when any networking vendor and especially a large one like cisco announces support for open networking, such as onie on the nexus 9000 (even if it is just “roadmap”), it is a huge gain for the community.
+there are multiple values to having onie available on hardware, the ability to load another nos is just one of them.  one that gets overlooked is that onie allows customers to utilize the same deployment/testing bootstrap configuration across multiple systems.
+while we would love to see cisco support other nos on their boxes, just supporting onie, even on the roadmap, is a huge step in the industry.
+2.) the hp/cumulus announcement is important not only to hp/cumulus, it’s also valuable to the open networking industry in general and will lead to better open networking products.
+while the announcement from hp can be simplified down to “hp will sell accton switches running cumulus linux”, the benefits to the community are much broader.
+the real story is between the lines: hp will _support_ open networking.  having a vendor the size of hp provide support for an open networking platform is highly valuable to the community.
+in order to support the products, hp will be running accton switches in their labs, doing pocs and putting resource into testing, documentation and other important work.
+while we know the hardware is good (end users via reselling have been running accton, quanta and other odm switches for a long time), customers are still getting used to dealing with odm equipment.  having hp stand behind accton while running cumulus linux is much bigger than the two companies.
+3.) junipers involvement in the open compute networking project is important.
+by providing an open switch design and a version of junos that runs on open networking switches, juniper has put a solid name behind open networking.  running junos on linux (via kvm) is going in a direction that i believe the industry needs to move in. the move supports the concept that there can be a separation between the os and the network applications.
+i believe that differentiation in open networking will come from the network applications, not the hardware or base operating system.
+4.) coming back around to the announcement of onie on nexus 9k.
+both the junos on linux and nexus nx-os systems run on top of wind river yocto linux.  two different top vendors running on the same base os provides another proof point to how open open networking devices could be.
+
+
+
+
+
+open networking
+
+open networking: cisco and juniper
+
+february 22, 2015 snoble 1 comment
+
+
+
+this is the first in a set of blog posts in which i hope to cover the idea of open and it’s value to the dominant players in different networking spaces.
+(disclaimer: i am the president of the network device education foundation, inc. a non-profit that has projects such as opensourcerouting (quagga) and router analysis.  my personal goal is to educate and help the network community, big and small, to build better networks through knowledge.)
+introduction
+there has been a lot of discussion on twitter, blogs and other social sites (linkedin, etc) about the coming software defined apocalypse.  whether the discussion is about software defined networks, data centers, or enablers (such as odm switches), there is a general picture that the software defined products / enablers are trying to destroy dominant player x in the space.  i view things differently: now is the time for the dominant players to focus more on extending their strategy to include open in order to defend their market share.
+information necessary to explain my point
+lets look at some facts :
+1.) most if it not all network device vendors sell one or more rebranded odm device.
+an example odm would be advantech, which has been around for over 30 years and builds odm appliances sold by many networking companies.
+2.) google was very upfront with networking vendors about their networking needs, yet google’s needs were not fulfilled, therefore google and later facebook looked for ways to provide for their own needs.
+my statements on twitter
+earlier on twitter i made a few statements
+1.) the day an enterprise can buy a cisco router/switch and put a different nos on it is the day cisco gets it.
+2.) cisco, juniper and vmware have a few years of dominance left.
+3.) by a few i mean a minimum of two years before someone offers a competing product that is well supported and the enterprises can accept.
+
+ 
+my goal with the tweets was not to proclaim the death of cisco/juniper/vmware, but to bring attention to the fact that over time open solutions will catch up and that it is up to the dominant companies to maintain their dominance.  i am going to exclude vmware from this post as this post focuses on networking hardware and vmware/virtualization requires its own post.
+my view of the industry need
+the value of open networking and openness in general is not just cost, it’s also features, functionality and most of all flexibility.
+the open networking market is being hit with “me too, but cheaper!” products that can take the place of cisco/juniper/huawei/etc devices.  these products also offer advanced features, but this is not a compelling driver for enterprises at this time as support (i.e. 24x7x365 phone/email/patches) is limited.
+enterprises are looking for flexible devices that provide stable, supported feature sets and allow for future functionality. companies like cisco and juniper have very good support systems, but open networking will catch up in the next few years.
+why a few years?
+my view is that in order for open networking to take hold in the enterprise the hardware and software needs to be out and tested for at least a year if not two.  while software and hardware exists, and the hardware has been tested (remember odms have been around for a while), the software is still young and most of the testing has been done by bespoke operators with specific needs.  enterprises buy cisco and juniper because they trust the brands and the network operating systems are proven.
+current openness within cisco and juniper
+i think it’s important to note that over the last two decades, cisco has done a lot of work to bring alternate operating systems onto their platforms, especially the 6500 (with ayr).  it’s also important to note that juniper’s junos was and still is based on freebsd.
+*** update – mr joel krauska informed me on twitter that ayr also ran on the cisco 7200, gsr and on pc platforms. ***
+cisco has recently announced onie on the nexus 9000, but does not officially support other noses.
+juniper has also embraced open networking with the introduction of the ocx1100 and has worked to decouple their hardware and software.
+what can cisco, juniper and others do?
+in my mind, it is clear that open networking will dominate the enterprise space in the next 2-5 years. this means that cisco and juniper need to develop open networking strategies focusing on the value of their software running on what will eventually be commodity switches.  having a cisco or juniper nos on the facebook wedge would provide enterprises with the support they need while allowing the enterprises to feel secure that they have the ability to choose best of breed for their situation.
+cisco and juniper (and others) can also focus on providing support for other network operating systems on their current hardware, by providing a hal, allowing their customers to deploy what they need.  as both cisco and juniper have some rebranded odm products, a hal for those would be a straightforward project.
+the value of allowing other nos on cisco and juniper’s current hardware is great and the downside is minor, especially as cisco and juniper focus on opening and extending their noses.
+
+ciscofacebookgooglejuniperopen sourcewedge
+
+
+ 
+
+
+open networking
+
+the value of the facebook wedge and 6-pack switches
+
+february 12, 2015 snoble 2 comments
+
+
+
+innovation is core to the internet and competition is good for consumers.  while this is true,  facebook is innovating, but not competing, even if cisco claims they are.
+since the beginning of networking, there have been hacks. no device or feature fits every customer.  whether these hacks were in the form of scripts, hardware modifications, software features or complete systems, they were born out of need.  facebook has a need.
+i have been in the industry long enough to have seen companies like blizzard, akamai, hotmail and many others conquer scale issues. the initial solutions were ugly (motherboards screwed directly to metal shelves..) but they were brought on by a need that was not being fulfilled by the computer industry.
+we are in the same place today, but in the networking space.  companies like google, facebook and amazon are hampered by the products that are being offered by the big players, cisco, juniper, etc.  it’s not just price, it’s also features, functionality and support.
+so with that background, it is easy to see why facebook, google and smaller companies like ngi “sdn for real” would build (or design) their own routing/switching hardware.  these companies already did it for their server infrastructure, and a switch, at it’s core, is just a specialized computer.  it wasn’t long ago that many of the main internet routers were repurposed mini computers with multiple interface cards, such as the ans risc system/6000-based t-3 routers.
+another driver helping google, facebook and others build switches is the availability of open source networking software.  while routing stacks such as gated, zebra, etc have existed for a long time (again, back to the repurposed mini computers) the availability of “whitebox” or open switching hardware and features like dpdk from intel are a more recent occurrence. this open hardware allows people to utilize open source networking software such as quagga.
+from the support side, one of the benefits of open source software is the ability for companies to modify, patch and tailor the software to their needs.  this is very different from the previous support model where companies would have to go to their vendor, ask for a fix/feature and wait.  today companies can change it themselves, hire someone to change it or wait for the feature/fix to come in a later release.
+ 
+
+facebookgoogleopen sourcequaggawedge
+
+
+
+corporate culture
+
+what does it mean to be in acquisition “talks”?
+
+october 14, 2014 snoble leave a comment
+
+
+
+my twitter feed feels like a trading floor rumor mill.  rumors of big switch networks, plurabis networks, square all to be acquired.  yet an unrumored (at least from my twitter feed) acquisition happened: cloudscaling acquired by emc. the constant stream of acquisition rumors is starting to out pace the rumors of hacks.
+let’s be clear about something: if an executive at one company talks to someone in business development at another company, merger or acquisition is assumed (normally acquisition). realistically, m&a talks are always happening, and for good reason: companies need to focus on success and ruling out m&a is a bad idea.  as companies grow, there may be a need for a cash infusion (box and dropbox are good examples).  the money can come from vcs, strategic investments, ipo or acquisition by a company with access to funds (apple, google, etc).
+there are great success stories in m&a and there are companies that are built by acquiring other companies for their technology and people (cisco, emc to name a few).  there are also horror stories of companies being acquired just to be shut down (meebo is an example) and companies being acquired for their parts due to running out of runway (i have a few of these in my past).
+while it is fun to feel involved in the behind the scenes, secret world of mergers and acquisitions, the reality is: if there are synergies between two companies, there have probably been, or are acquisition talks or at least internal discussions regarding them.  we are all correct, but as seen with the recent twitch acquisition, the outcome will probably be totally different.
+
+
+
+
+
+uncategorized
+
+new song releases – but what shall i do? and once in your life
+
+january 6, 2014 snoble leave a comment
+
+
+
+my musical activity has increased recently with the release of a few songs via distrokid.
+but what shall i do? a piano/guitar/trumpet song i wrote and dedicated to my son, james. (link from amazon)
+once in your life, a song built off of a 25 year old piano riff and dedicated to my late uncle, skip. (link from amazon)
+also available on itunes
+ 
+ 
+
+
+
+
+
+corporate culture
+
+being the cto of a startup – the six month mark
+
+august 11, 2013 snoble leave a comment
+
+
+
+as many of you know, i am the chief technical officer of sideband networks, a still-in-stealth startup using real-time analytics to assist in the networking space.  i was previously vp of technology for xdn, who re-invented the content delivery space and was acquired by fortinet.
+with the six-month anniversary of my joining with my fellow ex-exodus friend, zane taylor coming up around the corner, i thought i would share some of what i have learned so far.
+
+the chief part of your title means you must lead by example:  you are the technical center of the company.  the decisions you make, the work that you do, must push the company in the direction of success.
+pivoting is natural, do it intelligently: in the early stages of company building, there will be times when you must make hard decisions.  you might need to change hardware vendors, or stick with one may not be optimal in the long term.  there may be decisions about software strategy where time and money are involved.  the best way to pivot, is to do it carefully and if at all possible, in a minor way.  micro-pivots are easy to deal with and are strategic to tightening up the focus of the company.
+when you are doing things that have not been achieved before, celebrate the small victories:  the company looks to the cto to validate the direction and progress of the product(s).  know what your customers are looking for and when milestones are hit, point them out.
+above all, don’t be afraid to get your hands dirty:  sometimes you have to cable up some new equipment, deliver boxes to customers or clean off a desk for a new employee.  embrace these tasks and do what you want your other employees to do.
+
+being a cto is not just about evangelizing products and solutions.  it’s about being a thought leader and focusing on the future, how to get there and the future includes now.
+
+
+
+posts navigation
+
+1
+2
+next → 
+
+
+
+
+
+the home of steven o. noble
+
+
+
+search for:
+
+
+
+
+
+recent posts
+
+
+the cloud reminds me of home automation
+
+
+open networking evangelism
+
+
+deconstructing white box pricing
+
+
+a question to forrester about the white box myth
+
+
+open networking and support
+
+
+recent commentswhite-box switch | ivannexus on deconstructing white box pricingopen networking evangelism | sonn on dsiowjoel krauska (@cajoel) on open networking: cisco and junipersnoble on the value of the facebook wedge and 6-pack switchesjeff on the value of the facebook wedge and 6-pack switchesarchives
+
+september 2019
+september 2015
+march 2015
+february 2015
+october 2014
+january 2014
+august 2013
+
+categories
+
+cloud computing
+
+corporate culture
+
+open networking
+
+uncategorized
+
+
+meta
+
+log in
+entries feed
+comments feed
+wordpress.org
+
+ 
+
+
+
+
+
+					proudly powered by wordpress				
+
+
+
+
+
+
+
+
+
+
+

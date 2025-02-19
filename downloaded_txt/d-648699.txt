@@ -1,0 +1,93 @@
+papascottpapascott is a personal weblog by scott hanson.twitter: @scotthansondefacebook: scotthansondegithub: papascottaboutsearcharchives: 2021 2020 2019 2018 2017 2016 2015 2014 2013 2012 2011 2010 2009 2008 2007 2006 2005 2004 2003 2002 2001 2000 1999 mcdonald's nordheide-harburgpowered by gatsby, older posts by jekyll, styled by lanyon, served by netlify, code and posts at github.© 2022. all rights reserved.papascott savin' it up for friday night 🥁papascott.de is now scotthanson.de14 dec 2021i'm rebranding! i'm now using my name as my digital identity.
+"papascott" arose from a whim when i started my blog on edithispage.com in december 1999, since we were going to become parents that very month. my wife and i were calling each other papascott and mamamaus, as silly expectant parents will do. i ended up using papascott as my handle for most services when signing up.
+i've been changing my handles to "scotthansonde" over the past few months. i've been reviving my blog over the past few weeks, and i've done the same here. the new blog has a new design (thanks yinka!) and a new back end (eleventy). i've put my posts from 2021 there to get started. so from now on follow me on scotthanson.de, if you like!use caddy to map https to pagepark30 nov 2021i've started a github repository at papascott/drummernotes for my notes and code about drummer. i'm cross-posting my first note on using caddy with pagepark here. pagepark is a"simple node.js folder-based http server that serves static and dynamic pages for domains". it isn't about drummer per se, but would be a possible path for drummer itself to run under https. this post is also a test of uploading markdown from drummer directly to a gatsby blog. 
+caddy is a very easy way to implement https for your pagepage domains. it is a web server that can do automatic https, automatically provisioning tls certificates (from let's encrypt) for a domain and keep them renewed. it can even obtain tls certificates on demand for your pagepark domains, without out having to configure the domains in caddy.
+how to
+here is an example of setting up caddy on an existing pagepark installation on a digital ocean server running ubuntu (assuming you have domains in your domains folder and have mapped port 80 to pagepark using iptables as in the instructions).
+
+
+install the official caddy package für ubuntu per their instructions.  this automatically starts and runs caddy as a systemd service.
+
+
+open the caddy configuration file in the nano editor with sudo nano /etc/caddy/caddyfile
+
+
+replace the entire contents with:
+{
+  on_demand_tls {
+    ask http://localhost:1339/isdomainvalid
+    interval 2m
+    burst    5
+  }
+}
+https:// {
+  tls {
+    on_demand
+  }
+  reverse_proxy localhost:1339
+}
+
+
+
+restart the caddy service with sudo service caddy restart
+
+
+test https for one of your domains in the terminal with curl: e.g. curl https://www.example.com. this first time it will take several seconds for caddy to request and obtain a certificate. it may even fail the first time, but then try again. the content of the index page of your domain should be printed to the terminal. that means it works!
+
+
+this configuration means that both http (over iptables) and https (over caddy) will work for your domains!
+further cases and questions
+running caddy without iptables mapping
+if you have not mapped port 80 to pagepark, the configuration above will also listen to port 80 and redirect http requests to https.
+if you'd rather not redirect port 80, you can add a section for http and disable redirects like this:
+{
+  auto_https disable_redirects
+  on_demand_tls {
+    ask http://localhost:1339/isdomainvalid
+    interval 2m
+    burst    5
+  }
+}
+http:// {
+  reverse_proxy localhost:1339
+}
+https:// {
+  tls {
+    on_demand
+  }
+  reverse_proxy localhost:1339
+}
+
+removing iptables mapping so caddy can handle http
+to delete an iptables rule you have to know the rule number. you can list the nat rules with
+sudo iptables -t nat -v -l -n --line-number
+the output will look something like this:
+
+the number in front of the rule is the rule number. to delete these two rules, we need two commands
+sudo iptables -t nat -d prerouting 1
+sudo iptables -t nat -d output 1
+
+(changing the 1 at the end if your rule number is different).
+what are the 'ask', 'interval' and 'burst' in the configuration?
+they are for security purposes. they limit certificate requests to only domains configured in pagepage, and limits the rate of those requests. otherwise an attacker can bombard your server with certificate requests for domains you don't even serve.
+what about default domains?
+domains that are not explicitly in the domains directory will not be served automatic certificates. you can check the caddy documentation for adding domains explicitly to the caddy configuration.push an outline with github actions05 nov 2021i've never worked with github actions before, but when thinking about how to push an outline from drummer to github i thought i'd take a look.
+actions are in yaml files saved in a special directory .github/workflowsin your repository. they can run when something happens in the repository (like a push or a pull request) or can be triggered externally (with an api call). the action starts a virtual machine, runs commands, then shuts down.
+fetching an outline from drummer and committing it to the repository was pretty easy...
+name: fetch-opml
+on: [workflow_dispatch]
+jobs:
+  fetch-opml:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - shell: bash
+          run: |
+            git config --global user.name "github action"
+            git config --global user.email "papascott@gmail.com"
+            curl http://drummer.scripting.com/scotthansonde/papascott-de.opml -o papascott-de.opml
+            git add papascott-de.opml
+            git commit -m "fetched at `date`" --allow-empty
+            git push origin main
+
+nb: this post was written in markdown, not drummer, since i don't know yet how to render code blocks from opml. still diggin'!

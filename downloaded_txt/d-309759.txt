@@ -1,0 +1,183 @@
+
+
+
+aloxamento de páxinas web
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+aloxamento de páxinas web 
+portal educativo
+buscador de centros
+base de datos
+
+ 
+
+
+seccións
+
+
+normas de uso
+administración da base de datos
+
+
+
+
+
+a consellería de educación e ordenación universitaria pon a disposición de todos os centros educativos de galicia este servizo coa finalidade de dar soporte aos seus espazos web.
+
+cambios de configuración no servidor (centros.edu.xunta.es)
+
+coa finalidade de mellorar a seguridade deste servidor realizáronse os seguintes cambios:
+
+desactivouse o acceso mediante webdav.
+suprimiuse o ftpweb. calquera subida de contidos deberá realizarse a través dun cliente ftp dende a rede educativa (rede do centro)
+o servidor xa non se comporta como cliente de internet. esto siginifica que aquelas páxinas que obteñan contidos de sitios non aloxados no dominio edu.xunta.es, deixarán de funcionar. para restaurar este servizo, deberá realizarse unha petición á uac indicanto a url á que se desexa acceder e unha xustificación da necesidade do devandito acceso. 
+o flag safe_mode de php activouse para todos os espazos sen excepción. se algún centro precisa imperativamente que se lle desactive, deberá xustificalo cunha petición a uac e certificar que o software que vai usar está actualizado e será mantido.
+desactivaronse as utilidades contador de visitas e formmail. 
+
+
+
+
+
+
+
+
+
+cambio na configuración do servidor
+
+ 
+estimados usuarios.
+ 
+por motivos de seguridade e de funcionalidade do servidor de aloxamentos das aplicacións web dos centros neste servidor (centros.edu.xunta.es) vémonos na obriga de variar a súa  configuración realizando as seguintes accións:
+ 
++ register_globals:
+    - configuración actual: register_globals = on
+    - configuración futura: register_globals = off
+ 
+este cambio puidera ser que provocase mal funcionamento nas páxinas creadas polos usuarios ou en paquetes de portais ou foros antigos, polo que será convinte que os administradores dos espazos web dos centros educativos revisen a codificación das súas páxinas e/ou aplicacións para comprobar que non sufrirán percance ningún co cambio desta configuración ou adaptalas segundo a necesidade.
+ 
+as páxinas que forman parte do proxecto webs dinámicas ofertado pola consellería de educación e o.u. non se verán afectadas por esta modificación así como aquelas outros espazos que empreguen paquetes actualizados ás versións máis recentes dos portais máis estendidos.
+ 
+para máis información sobre o cambio da directiva register_globals pode visitar a páxina http://es.php.net/register_globals.
+
+
+
+
+
+
+
+¿ por qué se cortou sen previo aviso o servizo de aloxamento o luns día 26 de marzo ?
+
+contexto 
+tal e como se detallou no documento descritivo da actualización, os cambios realizados no servizo de aloxamento de páxinas web foron moi numerosos e inevitablemente van a ter impacto nas páxinas aloxadas na actualidade, sobre todo no relacionado coa nova versión de php (5.2) e coa nova codificación da base de datos mysql (utf-8).
+problemas detectados 
+durante as primeiras horas do luns 26 de marzo, o equipo da área de sistemas e comunicacións detectou os seguintes problemas:
+
+algunhas aplicacións php estaban a visualizar incorrectamente os caracteres acentuados porque seguían a comunicarse coa base de datos utilizando a codificación latin1. exemplos disto son coppermine photo gallery e algunhas versións vellas drupal e moodle. o perigo non era tanto a visualización dos caracteres acentuados, senón o feito de que algunhas destas aplicacións estaban a almacenar a información na base de datos cunha codificación incorrecta.  
+a nova ferramenta de administración de base de datos, phpmyadmin, estaba a ofrecer un rendemento pésimo cando o número de tablas era alto. esta situación prodúcese debido a unha deficiencia no rendemento por parte de mysql no acceso ao esquema information_schema que devolve os metadatos da base de datos. tal deficiencia é un bug recoñecido na actualidade por mysql (#19588) que está previsto resolverse nas vindeiras versións. 
+algúns dos portais baseados en drupal que se parchearon de oficio para evitar unha incompatibilidade no manexo das sesión relacionada coa nova versión de php non quedaron correctamente parcheados.
+algunhas apliacións non permitían subir arquivos debido ás novas restriccións de seguridade implantadas na nova plataforma.
+algunhas aplicacións preparadas para versións anteriores de php 5.2 amosan avisos relacionados con variables non definidas (undefined variable). esto débese a que a partir da versión 5.0 de php é obrigatorio declarar todas as variables antes de utilizalas.
+
+medidas correctivas 
+dada a entidade dalgúns destes problemas decidiuse cortar o servizo e implementar as seguintes accións:
+
+facer que, por defecto, todas as conexións coa base de datos establezan a codificación utf-8. para elo configurouse o servidor mysql para que cada conexión entrante faga un set names 'utf8'. a pesar deste cambio algunhas aplicacións poden seguir amosando incorrectamente os caracteres acentuados porque están preparadas para codificacións iso-8859-1 ou iso-8859-15. nas próximas horas proporcionaranse neste portal guías explicativas sobre este tema.
+actualizouse a versión de phpmyadmin por unha que non faga uso intensivo do esquema information_schema. deste xeito o problema de rendemento de phpmyadmin quedou subsanado.
+volveronse a parchear de oficio a maior parte das páxinas baseadas na ferramenta drupal. deste xeito, a maioría destas páxinas deberían funcionar correctamente.
+reconfiguráronse as restriccións de seguridade axustando os parámetros para que a subida de arquivos volva a funcionar.
+investigáronse posibles solucións para os avisos relacionados con variables non definidas. neste caso, desgracidamente, non é posible aplicar de oficio parches correctivos. as aplicacións que amosen este tipo de avisos deben ser actualizadas dun dos seguintes xeitos:
+
+
+declarando as variables antes de utilizalas.
+chamando á función isset('<variable>') para comprobar se a variable está definida antes de utilizala.
+se a aplicación é xenérica, por exemplo software libre, descargar unha versión compatible con php 5.2 e actualizala.
+
+
+
+
+
+
+
+
+
+actualización do servidor
+
+motivación da actualización 
+durante os días 20, 21, 22 e 23 o servizo de aloxamento de páxinas web estivo pechado para realizar unha actualización xeral da súa arquitectura. os motivos que conducirón á planificación desta actualización foron numerosos e poderoros, podendo destacarse os seguintes:
+
+o servizo estivo sen actualizarse globalmente dous anos, período no que somentes se aplicaron parches de seguridade. 
+o software base estaba obsoleto.
+recentemente producíronse incidentes de seguridade que non se puideron subsanar adecuadamente a través de parches sobre a arquitectura existente.
+moitos usuarios demandaban unha actualizacíón para poder instalar ferramentas educativas e de xestión de contidos máis recentes. 
+
+arquitectura implantada 
+
+sistema operativo: opensuse 10.2
+base de datos: mysql 5.0.26 
+servidor web: 2.2.3
+linguaxe de programación de páxinas dinámicas: php 5.2.1
+
+proceso de actualización
+o proceso da actualización non foi sinxelo para o equipo da área de sistemas e comunicacións, xa que no servizo de aloxamento atópanse activos máis de 600 páxinas webs, todas elas moi diversas tecnolóxicamente. baixo este contexto, calquera cambio, por moi pequeno que este sexa, pode xerar un gran impacto e inhabilitar moitas páxinas web. coa finalidade de mitigar na medida do posible este impacto, foron realizados os seguintes cambios sobre as páxinas e bases de datos existentes na actualidade:
+
+aplicouse un parche a tódalas páxinas baseadas no sistema de xestión de contidos drupal, dado que as aloxadas no servizo non son totalmente compatibles coa nova versión de php. para elo foron modificados os arquivos sites/default/settings.php e drupal/sites/default/settings.php. pode atoparse unha copia do arquivo anterior coa extensión .old. 
+o charset o collation da base de datos mudaron cara utf8 e utf8_spanish_ci, respectivamente. tódalas bases de datos foron convertidas a este novo xogo de caracteres. somentes nesta estapa invertironse dous días completos de migración, sendo preciso executar procesos deseñados a media que tardaron máis de 10 horas en completarse. a complexidade desta conversión foi moi alta porque as bases de datos existenes non se atopaban todas no mesmo charset. con todo, hai un pequeno número de excepcións nesta conversión:
+
+
+as columnas que contiñan claves que en utf-8 superaban o máximo permitido por mysql (1000 bytes) foron codificadas en latin1.
+durante a inserción dos datos existentes algunhas columnas con restriccións de unicidade conducían a duplicados porque o novo collation utf8_spanish_ci considera os caracteres con acento igual que os caracteres sin acento para que os resultados nunha ordenación sexan correctos. estas columnas foron establecidas ao collation utf8_bin, que considera os caracteres anteriores como distintos, pero que ordenará os caracteres con acento despois dos que non teñen acento. 
+
+
+novidades
+a parte da actualización do software base,  aa renovación da arquitectura de aloxamento aporta as seguintes novidades:
+
+a codificación de todo o sistema está basada en utf8. 
+a carga de contidos pode realizarse dende fora da rede educativa mediante un cliente de ftp baseado en web.
+a administración da base de datos realizarase con phpmyadmin. 
+entrou en funcionamento un portal específico dedicado ao servizo de aloxamento.  
+
+problemas que poden presentarse coa nova arquitectura
+ a renovación da arquitectura pode producir os seguintes problemas:
+
+algunhas páxinas poden mostrar avisos ou deixar de funcionar totalmente debido ao cambio nas versións de mysql e php. os centros que se atopen nesta situación deberán actualizalas para que se axusten á nova arquitectura.
+algunhas páxinas poden amosar incorrectamente os caracteres acentuados porque o software de base que utilizan non soporta a nova codificación utf8. os centros que se atopen nesta situación deberán o seu software para que opere coa nova codificación.
+
+o futuro
+no relacionado coa planificación futura deste servizo de aloxamento, o equipo da área de sistemas e comunicacións establecerá como obxectivo realizar unha ou dúas actualizacións anuais do software base, dependendo da evolución dos sistemas e da carga de traballo do equipo. 
+ 
+
+
+
+
+
+ 
+ consellería de educación e ordenación universitaria - xunta de galicia
+
+ 
+ 
+
+
+
+

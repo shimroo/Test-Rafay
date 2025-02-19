@@ -1,0 +1,927 @@
+
+
+
+openfx
+
+
+
+
+
+
+
+
+
+
+   welcome 
+
+
+
+
+
+     to openfx - 3d modelling, animation and rendering... >>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   update 
+
+
+
+
+
+     openfx 2.4 enhanced image mapping and character animation... >>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+news
+about
+tutorials
+gallery
+resources
+building
+developer
+download
+mail
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+25.07.2021
+install file restored and new host. -- posted by webmaster.
+ 
+
+
+
+the install file has been restored to the website.  openfx is now hosted on its own server. response might be a little slower than before. 
+
+
+
+09.04.2017
+updated build and inclusion of websites for book our graphics book and our book on virtual reality. -- posted by webmaster.
+ 
+
+
+
+an updated build and the inclusion of the website for our books "practical algorithms for 3d computer graphics.  www.openfx.org/pa3dgofx  and "hitchhikers guide to virtual reality.  www.openfx.org/hhgvr  
+
+
+
+027.08.2015
+minor addition. -- posted by webmaster.
+ 
+
+
+
+a new build is available - with some small additions that improve the importation of .obj files and animation sequences. the renderer also has an additional flag on the control page to turn on/off (on by default) the caching of models loaded between frames. 
+
+
+
+07.03.2015
+minor revisions. -- posted by webmaster.
+ 
+
+
+
+a new build is available - with some fixes for the general object file importer and improved stl export (binary) that uses openfx's coordinate units. this will enable the design module to build objects that can be instantiated on a 3d printer without re-scaling. 
+
+
+
+01.02.2015
+minor revisions. -- posted by webmaster.
+ 
+
+
+
+a few minor changes to inmprove the efficiency of the ray-tracing renderer and vertex selection in the designer. 
+
+
+
+12.08.2014
+new source and build files. -- posted by webmaster.
+ 
+
+
+
+the tools used to build openfx have been updated with build files for visual studio  2003.net (the original build tools) vs-2008, vs-2010 and vs-2013 (any of these tools can now be used to build openfx.) the binary release is now build with visual studio 2010. please note that some 3rd party libraries and the microsoft windows sdk version 6.1 (baseclasses) are required for openfx). the 3rd party libaries are: the 3d studio export library, the assimp general 3d format import library and the visualization toolkit). we include our build of these libraries for download from the web site.) 
+
+
+
+01.08.2014
+additional file format input. -- posted by webmaster.
+ 
+
+
+
+additional 3d model data format  collada(dae)/wavefront/x/lightwave ca be imported into the designer. these new importers use the "open asset import library" (assimp) to provide the functionality. if you want to build the generalinput dll file you will need to use visual studeio 2008 or later, and a compatible version of the assimp library built into a static library (and you will need to adjust include paths as appropriate). the assimp library can be obtained from  assimp.sourceforge.net 
+
+
+
+19.05.2014
+revised bone skinning algorithm. -- posted by webmaster.
+ 
+
+
+
+a revised algorithm has been installed in the renderer to perform "mesh skinning" over the skeleton when a robot actor is animated. the full details are available in the revised "rubbre bones/skeleton" pages in the help files or in the documents section of the web site. rubber bones and mesh skinning 
+
+
+
+28.04.2014
+new 3ds mesh importer. -- posted by webmaster.
+ 
+
+
+
+a new 3ds mesh importer based on the  3dsftk library give a much improved import of 3ds meshes. appropriate image maps and materials are created as well as correctly aligned surface image map textures. 
+
+
+
+03.03.2014
+some additions to the gallery with model files. -- posted by webmaster.
+ 
+
+
+
+an image of a stuart engine and the model and animation files been added to the gallery. 
+
+
+
+11.02.2014
+some updates to the gallery. -- posted by webmaster.
+ 
+
+
+
+some images from a collection of a user's models has been added to the gallery. 
+
+
+
+31.01.2014
+update to release version 2.4 -- posted by webmaster.
+ 
+
+
+
+this new version includes some bug fixes - to the postprocessor (flames and atmosphere), and the html help files. an updated non-windows renderer is included with much better operation. no documentation is ready yet for this. 
+
+
+
+16.12.2013
+update to release version 2.4 -- posted by webmaster.
+ 
+
+
+
+this new version includes a bug fix in the animator to the robot editor windows that caused a crash if the tool was started twice by an accelerator key. the robot opengl window has also been augmented to draw all the object vertices in addition to the bone's bounding boxes (see new icon on the toolbar for this option.) two new menu commands have been adde to assist in character animation. time shift the keyframes of the selected actor and displace all the movement keyframes for the selected actor. the shift values are specified in terms of the current coordinates. 
+
+
+
+15.12.2013
+cross-platform renderer code -- posted by webmaster.
+ 
+
+
+
+the folder renderg and associated makefiles are added to the source code - this (work still in progress) code allows the renderer to be executed on non-windows platforms. it has been tested in ubuntu linux and mac osx. work will continue. 
+
+
+
+24.10.2013
+new release version 2.4 -- posted by stuart.
+ 
+
+
+
+this new version includes some updates to the code and its documentation. the main change is the ability to render stereoscopic images and movies. the renderere control dialog contains a new tick box to render stereo ouptut to either jps or left over right avi files. the camera settings in the animator specifies the eye separation and the parallax depth. 
+
+
+
+19.08.2013
+update with additional stereoimage viewer. -- posted by stuart.
+ 
+
+
+
+a new imagepreviewer applciation that will present anaglyph stereopsis images using red/cyan, green/magenta and amber/blue system. 
+
+
+
+11.05.2013
+source update. -- posted by stuart.
+ 
+
+
+
+additional documentation has been created for the animator code and there are some small bug fixes. a new download of the lastest build has been posted. a source update update will be posted soon. 
+
+
+
+17.03.2013
+source update. -- posted by stuart.
+ 
+
+
+
+additional commenting has been added to the renderer code, specifically in the windows user interface code.. 
+
+
+
+14.02.2013
+new release. -- posted by stuart.
+ 
+
+
+
+updated distribution and source. there are no user changes. the source code has had major changes to improve its layout and a new source code download is also available. the svn code reflects the revisions. 
+
+
+
+28.01.2013
+developer documentation. -- posted by stuart.
+ 
+
+
+
+the doxygen documentation has been updated to include a full spec of the main data structures.. 
+
+
+
+17.01.2013
+developer documentation. -- posted by stuart.
+ 
+
+
+
+the documentation on "how to develop plug-ins" is complete. see the developers' page for details. the first verion of the source code documentation is now available on the developers' page. it is estimated that it will take from 6 to 9 months to complete this task. 
+
+
+
+06.01.2013
+website update. -- posted by stuart.
+ 
+
+
+
+the web site has been re-organised to allow documentation on how to write plugins for openfx to be posted. this will occur gradually over the next few weeks. 
+
+
+
+14.12.2012
+source distribution updated. -- posted by karen.
+ 
+
+
+
+the source code zip archive as been updated to reflect the recent december installation release. 
+
+
+
+10.12.2012
+help files updated. -- posted by stuart.
+ 
+
+
+
+the html help files used by openfx have been updated to provide information about the new features. a new gallery iamge and animation have been added. a tutorial on using the rubberbones has been added. 
+
+
+
+03.12.2012
+december release -- posted by stuart.
+ 
+
+
+
+the monthly release (build 11955) is now available. this includes a minor fix in the designer shrink wrap function. 
+ also, the "insert skeleton" tutorial is now complete.
+ 
+
+
+
+29.11.2012
+additional background material -- posted by stuart.
+ 
+
+
+
+new documents on the openfx approach to 3d animation and modelling, particle systems the ray-tracing renderer, and character animation. 
+
+
+
+28.11.2012
+exporting character animation for virtools -- posted by karen.
+ 
+
+
+
+a document explaining how to use openfx to create characters and character animation sequences for virtools (the virtual reality environment.) 
+
+
+
+20.11.2012
+robot sequence tutorial -- posted by stuart.
+ 
+
+
+
+the robot sequence tutorial is now complete. 
+
+
+
+18.11.2012
+shrink wrap tutorial -- posted by stuart.
+ 
+
+
+
+the shrink wrapping tutorial is now complete. 
+
+
+
+15.11.2012
+new tutorials -- posted by stuart.
+ 
+
+
+
+in the next round of tutorial additions we plan to cover rubber bones, shrink wrapping, paint maps, export and using robots and particle systems. 
+
+
+
+06.11.2012
+designer gallery addition -- posted by stuart.
+ 
+
+
+
+information about additional features in the image map painting in the designer has been added to the designer gallery. 
+
+
+
+25.10.2012
+openfx and windows 8 -- posted by stuart.
+ 
+
+
+
+openf/x is compatible with windows 8 and will install to a desktop tile as well as all the other usual elements. 
+
+
+
+18.10.2012
+openfx 2.3 released -- posted by stuart.
+ 
+
+
+
+openfx is back! we are currently updating the openfx.org website. in the mean time refer to the queen's university web site at openfx 
+
+
+
+04.06.2012
+version 2.2. released -- posted by stuart.
+ 
+
+
+
+an updated version of openfx (2.2) is available. this includes some new items and improved features.e.g.  more efficient ray-tracing, a new bones and weights systems for character animation and an improved mapping coordinate painting system.  there are also additional imaging effects. 18th april 2012:
+ 
+
+
+
+04.10.2010
+version 2.1 released -- posted by stuart.
+ 
+
+
+
+ an updated version of openfx (2.1) will be available soon. this includes several new feature in the designer module and a revised ray-tracer module that is more efficent.
+ 20th november 2010:
+ 
+
+
+
+04.6.2009
+version 2.1 released -- posted by stuart.
+ 
+
+
+
+ 20th november 2010:
+ an updated version of openfx (2.04) has been posted on the web site. 
+ the designer stores the selection state of each vertex in the .mfx file. this enables you to retain the hidden state of parts of a model during editing sessions.  it does not affect the visibility during rendering.
+ some other minor bug fixes have been implemented.
+ 
+
+
+
+15.09.2007
+openfx 2.0 released -- posted by anil madhavapeddy.
+ 
+
+
+
+the final version of openfx 2.0 has been released and is available for download with the source code.  an updated user manual and tutorial is also present on the resources page to get y ou started with this new release.  enjoy! 
+
+
+
+30.06.2007
+openfx 2.0 beta3 bugfix and source release available -- posted by anil madhavapeddy.
+ 
+
+
+
+the third beta of openfx 2.0 is available as a bugfix release for download, along with source code.  as before, be careful not to permanently overwrite your old model files from openfx 1.x when experimenting with this beta release. 
+
+
+
+20.05.2007
+openfx 2.0 beta2 available, with hardware gpu rendering -- posted by anil madhavapeddy.
+ 
+
+
+
+the long-awaited update to openfx to include hardware rendering is now available for download, with the following changes:  source built with visual studio solution files. experimental hardware gpu rendering.  many (not all) programmable shaders are working.  a few of these are nvidia hardware specific and ati hardware is known to have issues with, for example, the blisters shader. a particle actor is installed which only works with the gpu renderer.  effects include flames, clouds, sparks, inferno, moving fire and fluids flowing from a pipe. ofx model formats changed to accommodate maps and materials. in this new regime each polygon/face can have an image map and a material applied to it. the old openfx 1.x face descriptions can still be used for basic properties like colour and smoothing but all the texturing must now be done through the materials. image mapping has been significantly changed with some of the attributes that previously were attached to individual faces now applied to the image map itself (e.g tiling or shading). all vertices now carry image map coordinates. the new model files now embed the image maps directly, so there is no need to store them separately. we strongly recommend that you do not erase or overwrite any of your older model or animation files from openfx 1.x and make new copies of them for use with the 2.x beta.  
+
+
+
+06.11.2006
+minimal openfx 1.7 now also available -- posted by anil madhavapeddy.
+ 
+
+
+
+for the more bandwidth-challenged among you, a minimal download of openfx 1.7 without the example files is now also available from the download section. 
+
+
+
+03.11.2006
+openfx 1.7 released -- posted by anil madhavapeddy.
+ 
+
+
+
+openfx 1.7 is now available from the download section.  this is a maintainance release, consisting primarily of bug-fixes.  a feature release will hopefully be available around christmas. 
+
+
+
+05.02.2006
+openfx forum available -- posted by anil madhavapeddy.
+ 
+
+
+
+some enterprising openfx users (thanks jodie reynolds!) have set up an on-line forum as an alternative to the mailing lists.  this should be a much easier way for people to swap their 3d works of art, so register straight away!  the forum is accessible at www.openfxforum.org, and has been added to the site sidebar as well. 
+
+
+
+22.09.2005
+openfx 1.5 released, with environment mapping support -- posted by anil madhavapeddy.
+ 
+
+
+
+openfx 1.5 is now available from our download section, including example files and sample image maps for the new features.
+ the gallery also contains movies illustrating them in action.
+ 
+new plugin animation effect for more realistic wave meshes for water modelling
+new cubic environment mapping support
+misc bug fixes
+
+
+
+
+
+14.09.2004
+pdf manual and tutorial available -- posted by anil madhavapeddy.
+ 
+
+
+
+stuart ferguson has assembled a convenient couple of pdf documents of the manual and tutorial for those of you who like a printed reference while
+ using openfx.  you can grab them from the resources page.
+ 
+
+
+
+22.07.2004
+openfx 1.1 released! -- posted by anil madhavapeddy.
+ 
+
+
+
+dr. stuart ferguson has announced that a new version of openfx is available for download.
+ this version fixes some minor bugs and adds a major feature of stereography
+ support.
+ 
+on supported hardware (with a 3-pin din plug) and opengl left/right
+ buffering capability you can visualise your model animations and make 3d movies in stereo
+the opengl window in the designer animator has been extended to support a stereo flag on the opengl window.
+in the animator module you select the parallax separation via a slider
+in the ofxview.exe program you can make your models spin with 3d depth perception
+if you render two flc files for left and right eye views you can use the ggplay.exe
+ utility to play back the movies in stereo. try out the example stereo animations in the
+ record deck and the underwater_stereo file
+a directdraw player ddplay.exe is also included in the distribution so that
+ flc and avi movies rendered with ofx can be played back in full screen mode
+
+
+
+
+
+21.07.2004
+site upgrade, mailing lists fixed -- posted by anil madhavapeddy.
+ 
+
+
+
+thanks to dominic ludlam, the site now runs off statically generated pages, allowing us to switch to a faster web
+ server.  also, the mailing lists are now fixed and operational again.
+ 
+
+
+
+23.05.2003
+3d graphics book by author of openfx -- posted by anil madhavapeddy.
+ 
+
+
+
+if you are interested in learning more about the fundamentals of 3d graphics, then don't forget that stuart ferguson (the author of openfx) has written a book
+ titled "practical algorithms
+ for 3d computer graphics".  you can order the book from the publisher
+ a.k.peters.
+ 
+
+
+
+08.10.2002
+metashape plugin available -- posted by dominic ludlam.
+ 
+
+
+
+rodney butrymowicz has written another great designer plugin, implementing a metashape modelling plugin.  it's available now from
+ the plugins page.
+ 
+
+
+
+01.10.2002
+smooth subdivision plugin available -- posted by dominic ludlam.
+ 
+
+
+
+rodney butrymowicz has written a smooth subdivide plugin for the design module, available from the
+ plugins page.
+ 
+
+
+
+29.01.2002
+minimal installation available -- posted by anil madhavapeddy.
+ 
+
+
+
+a small, minimal installation of openfx is available that weighs in at a mere 4mb. it doesn't include a lot of the sample textures and images that the full version does.
+ you can download it here!
+ 
+
+
+
+20.07.2001
+nurbs image contributed to the gallery -- posted by dominic ludlam.
+ 
+
+
+
+melissa hall has contributed a a nice demonstration of what can be achieved using nurbs.  check them out in the
+ image gallery.
+ 
+
+
+
+20.06.2001
+more animations added -- posted by dominic ludlam.
+ 
+
+
+
+another extremely impressive animation from rodney butrymowicz has been added to the gallery.
+ this time it demonstrates the 'cloth draping' effect which models a deformable material
+ being dropped onto a hard surface.
+ 
+
+
+
+16.05.2001
+physics simulation animations added to the gallery -- posted by dominic ludlam.
+ 
+
+
+
+rodney butrymowicz has sent in a demonstration of the physics simulation code he developed for the original softfx.  check out the
+ animations in the gallery.  this looks like
+ a very impressive addition supporting many features such as many different forces
+ (eg. electromagnetic, gravity, muscles, drag) and a motion constraint system.
+ 
+
+
+
+05.05.2001
+french tutorials now available! -- posted by dominic ludlam.
+ 
+
+
+
+jean-luc songa butera has translated all the openfx tutorials into french!  they are available at the tutorials page.  a list
+ of available languages is displayed at the top of each tutorial so choose your tutorial
+ then choose your language.
+ 
+
+
+
+13.04.2001
+more imagemaps added -- posted by dominic ludlam.
+ 
+
+
+
+chris cothrun has created some very nice cloudy sky images that you can use in your animations.  they are available in the imagemap
+ resources page.
+ 
+
+
+
+20.03.2001
+animator shortcut documents available -- posted by dominic ludlam.
+ 
+
+
+
+keith kelly has submitted his animator keyboard shortcut documentation
+ which is now available in the resources page.
+ 
+
+
+
+12.03.2001
+more resources available -- posted by dominic ludlam.
+ 
+
+
+
+we now have a new image map section in the resources page which contains collections of
+ image maps for use in your animations and
+ models.  we also have a
+ new tutorial available.
+ 
+
+
+
+09.03.2001
+more resources available -- posted by dominic ludlam.
+ 
+
+
+
+the resources page has been updated with many more resources for users of openfx.  recent additions include more tutorials, a new plugin
+ repository thanks to stuart and documentation of
+ key bindings in openfx thanks to
+ keith kelly.
+ 
+
+
+
+18.02.2001
+resources page added -- posted by dominic ludlam.
+ 
+
+
+
+i've added a new resources page.  this will grow into a collection of useful information and material for users of openfx.
+ as usual, contributions are most welcome, so if you have anything interesting
+ related to openfx that you'd like to share with the community, please
+ let us know!
+ 
+
+
+
+13.02.2001
+mirror sites update -- posted by nick.
+ 
+
+
+
+we now have our main us mirror site available once again, after the sheer volume of requests made it necessary to perform some system
+ maintainance on the machine itself. also, we have noticed a number
+ of europe-based users connecting to castaway, who would be better
+ served from prune. in order to make this clearer, prune.flirble.org
+ is now marked as a european mirror site instead of a uk one.
+ 
+
+
+
+11.02.2001
+development pages are available -- posted by dominic ludlam.
+ 
+
+
+
+i've just put up the beginnings of our development pages, so if you're interested in contributing to openfx, check them out.  more
+ information will be added to them soon - watch this space!
+ 
+
+
+
+11.02.2001
+new mirror site added -- posted by dominic ludlam.
+ 
+
+
+
+suso banderas had very kindly donated some web space and bandwidth to mirror openfx.  the links are in our
+ downloads page so if you've been having trouble getting
+ openfx, please try again.
+ 
+
+
+
+10.02.2001
+ftp connection problems -- posted by nick.
+ 
+
+
+
+we're currently suffering a little from all the recent publicity, so if you're having difficulty connecting to the ftp servers, please be patient. if you retry in a couple
+ of hours, you may have better luck.
+ 
+
+
+
+10.02.2001
+download problems solved -- posted by anil madhavapeddy.
+ 
+
+
+
+we got a bit overwhelmed by the number of download requests that came through to our main ftp site, and were forced to take it down as the leased line got saturated.
+ the mirror sites kindly provided by flirble
+ are now up and running, and should hopefully work fine.  if not, please drop the
+ users list a line, and we'll try to work it out.
+ 
+
+
+
+09.02.2001
+installation hint -- posted by anil madhavapeddy.
+ 
+
+
+
+if you are installing the 1.0 binary release. you have to install it in the root folder of the drive for the moment, so that the example paths don't get mixed up.
+ for example d:\openfx is fine.  this is being looked at for the next
+ version, so that the absolute file-paths can be replaced with something relative.
+ 
+
+
+
+09.02.2001
+openfx-1.0 released! -- posted by anil madhavapeddy.
+ 
+
+
+
+here we go!  the first 1.0 release of openfx is here!  proceed to the downloads page and grab 
+ yourself a copy!  we have made full and cut-down binary versions available, and 
+ they have a nice installshield interface to make it easy to install.
+ don't forget to read through the extensive help (which will soon be online), 
+ and feel free to join our mailing lists with your
+ thoughts.
+ 
+
+
+
+21.01.2001
+first release imminent -- posted by anil madhavapeddy.
+ 
+
+
+
+stuart just dropped me the latest copy of the openfx source-code, and i will import it into cvs, and place the 1.0 version
+ of the binaries and sourcecode onto the ftp site for download.  keep your eyes peeled!
+ 
+
+
+
+15.01.2001
+binary beta released to public -- posted by anil madhavapeddy.
+ 
+
+
+
+a full binary snapshot of openfx for the win32 platform is now available, complete with installshield interface to make for easy installation, and a 
+ good collection of sample models and animations.  please proceed to the 
+ downloads section for the list of ftp sites you
+ can retrieve it from.
+ 
+
+
+
+10.01.2001
+openfx website up and running! -- posted by anil madhavapeddy.
+ 
+
+
+
+after a bit of delay, we're pleased to unveil the new openfx website for your browsing pleasure.  it is still very much under development, 
+ but many thanks for the hard work that salman
+ and dominic ludlam put in to make this site pleasant
+ on the eyes, and easy to update.  if you have any problems with it, please
+ contact webmaster@openfx.org with your queries.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+     
+  
+
+
+
+
+

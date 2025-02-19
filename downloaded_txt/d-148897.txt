@@ -1,0 +1,332 @@
+
+
+
+
+
+
+burton systems software - tlib version control
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+       
+       what does tlib do?
+       click to find out.
+ 
+       
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+25-oct-2019:  tlib has a minor
+       compatibility issue with recent version of windows. it seems that they do not allow
+       win32 programs to store files in the c:\ root directory, which is where tlib for windows
+       stores its tlib.ini file by default. if a win32 program tries to access a file in the c:\
+       directory, windows puts the file in the %userprofile%\appdata\local\virtualstore\
+       folder, instead.
+       (that's usually c:\users\[windowsuser]\appdata\local\virtualstore\)
+        
+       that can be very confusing. it means that when two different programs look at a file in the
+       c:\ root folder, they may see completely different files.
+        
+       the solution is to configure a tlibini environment variable, e.g., tlibini=c:\mainworkdir\
+       to tell tlib where to store its tlib.ini file.
+        
+       this problem also affects the tlib installer. by default, tlib installs to c:\tlib\ but under
+       recent versions of windows to make that work you must first manually create the c:\tlib\ folder,
+       because if the installer creates the folder it will go in c:\users\[windowsuser]\appdata\local\virtualstore\
+       instead of the correct location.
+      
+        
+10-apr-2018:  note our new phone number: 919-481-2183 +1 919-244-3316  (also, we've discontinued the fax line.)
+        
+10-aug-2016:  dropbox fixup tool! 
+       dropbox burned us!  it renamed several dozen current tlib libraries with
+       "conflicted copy" in the name (so, for example, tlib library abc.pl____$ became
+       "abc (owner-pc's conflicted copy 2016-08-02).pl____$"), and replaced them with
+       old versions: shorter, and with older file dates, with no warning whatsoever.
+       to fix the mess, you need to compare the current version of each file with the
+       "conflicted copy" version, and verify that the longer version is the same as
+       the shorter version, except with additional data appended, and then make the
+       longer version the current version. so we wrote a little program to do it.
+       if you need it, see the downloads page.
+       
+23-dec-2005:  email glitch!  due to a mailserver problem,
+       we apparently lost all emails sent to us between 3:37 pm and 9:17 pm on december 23, 2005.
+       if you sent us an email during that time period, please resend it!
+       we apologize for the inconvenience.
+       also, as always, please include the words "tlib version control" in the subject line,
+       to ensure that your message gets past our anti-spam filters.
+16-jun-2004: now available:
+       download the 30-day time-limited trial version
+       of tlib version control.
+19-may-2004: tlib version control 5.54k released! 
+       see release.html for details.
+
+17-nov-2003: because we
+       were getting buried in a daily avalanche of spam, we have installed
+       anti-spam filtering on our mail server.  you can bypass the filter,
+       and ensure that your email to us gets through to us, by mentioning
+       "tlib version control" anywhere in the subject line.
+19-sep-2003: we're pleased
+       to report that burton systems software weathered hurricane
+       isabel 
+       without significant damage.
+7-aug-2003: a somewhat improved
+       preliminary pdf version of the tlib reference manual is now available
+       on this web site.
+        
+       
+
+
+   
+
+
+
+
+
+
+burton systems software
+ po box 4157    109 black bear ct
+   cary, nc 27513-4941   usa
+   tel:  (919) 481-0149        (919) 481-2183
+fax: (919) 481-3787  (no more fax!)
+     
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+  
+      
+ general info & tech support: 
+      
+
+(when sending us email, please mention "tlib version control" anywhere
+      on the subject line, to reduce the likelihood that we will
+      overlook your mail among flood of spam that we receive)
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+search this site:
+
+
+
+find using all words
+find using any word
+
+
+
+
+ 
+
+ (powered by freefind)
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ web site by
+
+
+
+
+
+   
+
+
+
+
+
+
+      last modified:  19-nov-23 (version 142)
+ copyright © 1997-2018, burton systems software.
+       note: the “last modified” dates and version numbers on
+      these web pages are maintained automatically by tlib.
+        
+         
+select server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         monitor this page for changes
+       
+
+
+
+
+
+
+
+
+
+it's private
+
+ by
+              changedetection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

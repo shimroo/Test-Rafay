@@ -1,0 +1,1132 @@
+
+
+
+the hibernate team blog on everything data - in relation to
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+orm
+
+
+
+search
+
+
+
+validator
+
+
+
+reactive
+
+
+
+repositories
+
+
+others
+
+
+blog
+
+
+forums
+
+
+
+follow us
+
+
+
+
+
+
+
+
+
+
+menu
+
+
+
+
+
+
+skip to navigation
+
+
+skip to content
+
+
+
+
+
+
+
+
+orm
+search
+validator
+reactive
+repositories
+others
+
+blog
+forums
+community
+
+
+follow us
+
+
+
+
+
+
+
+
+
+
+in relation to
+
+
+
+
+the hibernate team blog on everything data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+home
+
+
+
+feed
+
+
+
+
+tags
+
+
+aerogear
+
+
+arquillian
+
+
+bean validation
+
+
+byteman
+
+
+cdi
+
+
+ceylon
+
+
+commonhaus
+
+
+community
+
+
+develocity
+
+
+discussions
+
+
+eclipse
+
+
+elasticsearch
+
+
+events
+
+
+github
+
+
+hana
+
+
+hibernate data repositories
+
+
+hibernate ogm
+
+
+hibernate orm
+
+
+hibernate reactive
+
+
+hibernate search
+
+
+hibernate shards
+
+
+hibernate validator
+
+
+hiring
+
+
+infinispan
+
+
+interview
+
+
+jboss as
+
+
+jboss asylum
+
+
+jboss forge
+
+
+jboss tools
+
+
+jpa
+
+
+jsf
+
+
+jsr 352
+
+
+jakarta data
+
+
+jakarta ee
+
+
+jakarta persistence
+
+
+java ee
+
+
+lucene
+
+
+newsletter
+
+
+off topic
+
+
+performance
+
+
+picketlink
+
+
+quarkus
+
+
+releases
+
+
+rich faces
+
+
+seam
+
+
+security
+
+
+supply chain
+
+
+weld
+
+
+wildfly
+
+
+asylum
+
+
+git
+
+
+minishift
+
+
+swarm
+
+
+
+
+
+authors
+
+
+andrea boriero
+
+
+
+
+brett meyer
+
+
+
+
+chris cranford
+
+
+
+
+christian beikov
+
+
+
+
+davide d'alto
+
+
+
+
+emmanuel bernard
+
+
+
+
+fabio massimo ercoli
+
+
+
+
+gail badner
+
+
+
+
+guillaume smet
+
+
+
+
+gunnar morling
+
+
+
+
+hardy ferentschik
+
+
+
+
+jan schatteman
+
+
+
+
+marco belladelli
+
+
+
+
+max andersen
+
+
+
+
+ray tsang
+
+
+
+
+sanne grinovero
+
+
+
+
+scott marlow
+
+
+
+
+stephane epardaud
+
+
+
+
+steve ebersole
+
+
+
+
+vlad mihalcea
+
+
+
+
+yoann rodière
+
+
+
+
+
+more...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hibernate 7 beta 4 is now available
+
+
+
+posted by
+
+
+
+gavin king
+
+
+
+   |   
+
+feb 13, 2025
+
+  
+
+
+hibernate orm
+
+
+
+
+
+
+
+
+the fourth beta release of hibernate 7 is now available.
+
+along with many bugfixes and minor improvements, this release features the following enhancements:
+
+
+
+the brand-new restriction, path, and range apis make it easy to add programmatic restrictions to hql queries or jakarta data repository methods in a completely type-safe way.
+
+
+the package org.hibernate.graph was completely re-engineered, fixing a number of long-standing issues with our implementation of the jakarta persistence entitygraph api.
+
+
+statelesssession is now able to make use of the second-level cache, reflecting the changing role of this very important api in the hibernate ecosystem.
+
+
+reactive repositories backed by hibernate reactive are now a documented feature of hibernate data repositories.
+
+
+the hibernate-jfr module was enhanced to send more events to java flight recorder.
+
+
+hql now provides portable sha(), md5(), and hex() functions.
+
+
+hibernate processor now features much better support for inner classes.
+
+
+
+
+
+
+
+read more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hibernate reactive 2.4.5.final released
+
+
+
+posted by
+
+
+
+davide d'alto
+
+
+
+   |   
+
+feb 11, 2025
+
+  
+
+
+hibernate reactive
+
+
+releases
+
+
+
+
+
+
+
+
+hibernate reactive 2.4.5.final is now available!
+
+this release is compatible with hibernate orm 6.6.7.final,
+and upgrades the vert.x sql client to 4.5.12.final.
+
+it also contains a couple of bug fixes:
+
+
+
+#1904 propertyaccessexception when creating a new object with a one-to-one association
+
+
+#2079 don’t ignore return value of reactiveupdaterowscoordinatoronetomany#deleterows
+
+
+
+the full list of changes is available on github.
+
+
+
+
+
+read more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+why you should care about the jdbc fetch size
+
+
+
+posted by
+
+
+
+gavin king
+
+
+
+   |   
+
+jan 24, 2025
+
+  
+
+
+hibernate orm
+
+
+
+
+
+
+
+
+last week, jeroen borgers asked on twitter for a standard way to set the jdbc fetch size in jpa, that is, for hibernate’s query.setfetchsize() to be added to the standard apis.
+this took me slightly by surprise, because nobody has ever asked for that before, but i asked him to go ahead and open an issue.
+after some discussion, i think i’m satisfied that his actual needs can be met in a different way, but the discussion did help to draw my attention to something important: the default jdbc fetch size for the oracle driver is 10.
+
+now, i would never pretend to be an expert in oracle performance tuning, and i don’t use oracle every day.
+even so, i felt like this is something that i definitely should have known off the top of my head, after so many years working with jdbc.
+
+out of curiosity, i ran a poll on twitter, which was shared by franck pachot among others:
+
+
+
+
+
+read more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hibernate reactive 2.4.4.final released
+
+
+
+posted by
+
+
+
+davide d'alto
+
+
+
+   |   
+
+jan 22, 2025
+
+  
+
+
+hibernate reactive
+
+
+releases
+
+
+
+
+
+
+
+
+hibernate reactive 2.4.4.final is now available!
+
+this release is compatible with hibernate orm 6.6.5.final.
+
+it also contains a couple of bug fixes:
+
+
+
+#2026 unexpectedaccesstothedatabase error when merging a detached entity with a to-many association
+
+
+#2060 classcastexception when using embedded identifiers
+
+
+
+the full list of changes is available on github.
+
+
+
+
+
+read more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hibernate reactive 2.4.3.final released
+
+
+
+posted by
+
+
+
+davide d'alto
+
+
+
+   |   
+
+dec 20, 2024
+
+  
+
+
+hibernate reactive
+
+
+releases
+
+
+
+
+
+
+
+
+hibernate reactive 2.4.3.final is now available!
+
+this release is compatible with hibernate orm 6.6.4.final.
+
+the full list of changes is available on github.
+
+
+
+
+
+read more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hibernate search 8.0.0.alpha1 is out
+
+
+
+posted by
+
+
+
+marko bekhta
+
+
+
+   |   
+
+dec 17, 2024
+
+  
+
+
+hibernate search
+
+
+lucene
+
+
+elasticsearch
+
+
+releases
+
+
+
+
+
+
+
+
+we just published hibernate search 8.0.0.alpha1,
+the first alpha release of the next major version of hibernate search.
+
+this version brings metric aggregations, logging improvements, a new lucene backend and more.
+
+hibernate search 8.0 sets jdk 17 as a baseline and is no longer compatible with jdk 11.
+
+it also upgrades lucene and hibernate orm dependencies and includes compatibility with the latest
+elasticsearch and opensearch versions.
+
+
+
+
+
+read more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hibernate reactive 3.0.0.beta1 released
+
+
+
+posted by
+
+
+
+davide d'alto
+
+
+
+   |   
+
+dec 17, 2024
+
+  
+
+
+hibernate reactive
+
+
+releases
+
+
+
+
+
+
+
+
+hibernate reactive 3.0.0.beta1 is now available!
+
+this release is compatible with hibernate orm 7.0.0.beta3.
+
+the full list of changes is available on github.
+
+
+
+
+
+read more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hibernate validator 9.0.0.cr1 is out
+
+
+
+posted by
+
+
+
+marko bekhta
+
+
+
+   |   
+
+dec 13, 2024
+
+  
+
+
+hibernate validator
+
+
+releases
+
+
+
+
+
+
+
+
+we just published hibernate validator 9.0.0.cr1,
+the first candidate release of the new 9.0 series of hibernate validator.
+
+this series targets jakarta ee 11. it is the implementation of the jakarta validation 3.1.
+
+since the previously released 9.0.0.beta3, we spent some time on various build improvements,
+tidied up a few things and addressed various reports from the community and our testing.
+
+with this release, we no longer publish relocation poms for the old org.hibernate group id.
+
+there also are some dependency updates and bug fixes.
+
+
+
+
+
+read more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hibernate validator 8.0.2.final is out
+
+
+
+posted by
+
+
+
+marko bekhta
+
+
+
+   |   
+
+dec 13, 2024
+
+  
+
+
+hibernate validator
+
+
+releases
+
+
+
+
+
+
+
+
+hibernate validator 8.0.2.final maintenance release is out.
+
+this release contains some documentation
+and constraint violation message translation updates
+as well as a few bug fixes.
+
+
+
+
+
+read more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hibernate search 7.2.2.final maintenance release
+
+
+
+posted by
+
+
+
+marko bekhta
+
+
+
+   |   
+
+nov 25, 2024
+
+  
+
+
+hibernate search
+
+
+lucene
+
+
+elasticsearch
+
+
+releases
+
+
+
+
+
+
+
+
+we are pleased to announce the release of hibernate search 7.2.2.final.
+
+this release brings a couple bug fixes and dependency upgrades.
+
+
+
+
+
+read more
+
+
+
+
+«1 2 ...189 190 » 
+
+
+
+
+
+
+
+
+projects
+
+hibernate orm
+hibernate search
+hibernate validator
+hibernate reactive
+hibernate data repositories
+hibernate ogm
+hibernate tools
+other projects
+
+
+
+follow us
+
+blog
+twitter
+
+
+
+contribute and community
+
+community resources
+our github organization
+submit a bug
+our forums
+report a security issue
+
+
+
+
+
+
+
+
+
+
+
+back to top
+
+
+
+
+
+
+
+

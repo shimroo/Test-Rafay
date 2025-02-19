@@ -1,0 +1,452 @@
+
+
+
+
+gimpfoo.de  
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+mitchs blog
+
+
+
+
+
+goat invasion in gimp
+april 17th, 2012 
+
+once upon a time, like 5 weeks ago, there used to be the longstanding plan to, at some point in the future, port gimp to gegl.
+we have done a lot of refactoring in gimp over the last ten years, but its innermost pixel manipulating core was still basically unchanged since gimp 1.2 days. we didn’t bother to do anything about it, because the long term goal was to do all this stuff with gegl, when gegl was ready. now gegl has been ready for quite a while, and the gegl porting got assigned a milestone. was it 2.10, 3.0, 3.2, i don’t remember. we thought it would take us forever until it’s done, because nobody really had that kind of time.
+about 5 weeks ago, i happened to pick up øyvind kolås, aka pippin the goatkeeper to stay at my place for about a week and do some hacking. after one day, without intending it, we started to do some small gegl hacking in gimp, just in order to verify an approach that seemed a good migration strategy for the future porting.
+the problem: all the gimpimage’s pixels are stored in legacy data structures called tilemanagers, which are kept by high level objects called gimpdrawables. each layer, channel, mask in gimp is a gimpdrawable.
+a typical way to do things is:
+tilemanager *tiles = gimp_drawable_get_tiles (drawable);
+pixelregion region;
+pixel_region_init (®ion, tiles, x, y, w, h, true);
+
+/* do legacy stuff on the pixel region in order to change pixels */
+after the gegl porting, things would look like that:
+geglbuffer *buffer = gimp_drawable_get_buffer (drawable);
+
+/* do gegl stuff on the buffer, like running it through a graph in order to change pixels */
+just, how would we get there? replacing the drawable’s tile manager by a buffer, breaking all of gimp at the same time while we move on porting things to buffers instead of tile managers? no way!
+the solution: a geglbuffer’s tiles are stored in a gegltilebackend, and it’s possible to write tile backends for arbitrary pixel storage, so why not write a tile backend that uses a legacy gimp tilemanager as storage.
+after a few hours of hacking, pippin had the gimptilebackendtilemanager working, and i went ahead replacing some legacy code with gegl code, using the new backend. and it simply worked!
+the next important step was to make gimpdrawable keep around a geglbuffer on top of its tilemanager all the time, and to add gimp_drawable_get_buffer(). and things just kept working, and getting easier and easier the more legacy code got replaced by gegl code, the more geglbuffers were being passed around instead of tilemanagers and pixelregions.
+what was planned as a one week visit turned into 3 weeks of gegl porting madness. at the time this article is written, about 90% of the gimp application’s core are ported to gegl, and the only thing really missing are gegloperations for all layer modes.
+as a totally unexpected extra bonus, there is now even a gegl buffer tile backend in libgimp, for plug-ins to use, so also plug-ins can simply say gimp_drawable_get_buffer(drawable_id), and use all of gegl to do their stuff, instead of using the legacy pixel region api that also exists on the plug-in side.
+gimp 2.10’s core will be 100% ported to gegl, and all of the legacy pixel fiddling api for plug-ins is going to be deprecated. once the core is completely ported, it will be a minor effort to simply “switch on” high bit depths and whatever color models we’d like to see. oh, and already now, instead of removing indexed mode (as originally planned), we accidentally promoted indexed images to first class citizens that can be painted on, and even color corrected, just like any other image. the code doing so doesn’t even notice because gegl and babl transparently handle the pixel conversion magic.
+the port lives in the goat-invasion branch in git. that branch will become master once gimp 2.8 is relased, so the first gimp 2.9 developer release will already contain the port in progress.
+if you want to discuss gimp and gegl things with us face to face, join us at this year’s libre graphics meeting in vienna, in two weeks from now, a lot of gimp people will be there; or simply check out the goat-invasion branch and see the goats yourself.
+if you have some euros to spare, consider donating them to libre graphics meeting, it’s one of the few occasions for gimp developers, and the people hacking on other projects, to meet in person; and such meetings are always a great boost for development.
+during the 3 crazy weeks, quite some work time hours were spent on the port, thanks to my employer lanedo for sponsoring this via “labs time”.
+
+posted in english, gimp, site | 72 comments »
+
+
+gimp on gtk+ 3.0
+october 24th, 2010 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+at the gtk+ hackfest in a coruna i managed to get gimp almost completely (minus one dialog and most plug-ins) running on gtk+ 3.0.
+this turned out to be a great tool for finding bugs in the new gtk+. in fact, i found quite a few of them while still completing the port. some bugs i fixed right away, others were fixed by fellow hackfest hackers. even while writing this post (the image was of course cropped with the ported gimp), two more popped up and will eventually be fixed.
+
+posted in english, gimp, places | 23 comments »
+
+
+kuh
+september 12th, 2009 
+
+
+
+
+
+
+
+
+diese kuh, wohnhaft oberhalb von flumserberg, wollte mich doch wirklich auf die hörner nehmen. unglaublich! im hintergrund die churfirsten und dahinter der säntis.
+
+posted in german, places | 3 comments »
+
+
+omg it’s alive!
+august 2nd, 2009 
+
+i heared rumors that my blog is dead.
+however the report of its death has been greatly exaggerated.
+
+posted in english, site | no comments »
+
+
+using the mac os x menubar
+august 30th, 2007 
+
+finally, after quite some debugging (of the very same bug for months), i committed preliminary support for the global mac os x menubar to gimp trunk.
+itâ€™s the result of a project iâ€™ve been involved with at imendio. check the project page.
+for seeing the coolness without compiling yourself, check the video.
+
+posted in english, gimp | 16 comments »
+
+
+wilberstreet
+november 1st, 2006 
+
+antenne made a new gimp wallpaper!
+
+enjoy wilberstreet: 1280×854, 1280×1024, 1400×1050, 1600×1200
+
+
+
+posted in english, gimp | 1 comment »
+
+
+gimp statt photoshop
+october 18th, 2006 
+
+jetzt ist es amtlich!  –  stand ja schließlich im spiegel 😉
+ein mit gimp gemachtes bild hat beim spiegel bildbearbeitungs-wettbewerb gewonnen. glückwünsche an den erfolgreichen manipulator!
+
+
+
+posted in german, gimp | 2 comments »
+
+
+pdb and plug-in refactoring
+may 2nd, 2006 
+
+one of the last remaining bits of antique code in the gimp are the parts that talk to plug-ins, namely the plug-in handling code itself, and the pdb (procedural database) which provides a way for plug-ins to call gimp’s internal functionality and which keeps all procedures provided by plug-ins.
+everything was organized around some crufty c-structs, lived in files without proper namespace, and was basically untouched by all the refactoring that was happening during the last few years. to illustrate the evilness: the pdb did not even really know which of its procedures were dynamically allocated, and which were constant structs that are defined at compile time (not to speak of the part where perl code generated perl code that generated perl code that…). this had to stop.
+right after lgm, i entered refactoring mode:
+
+all the perl-that-generates-perl stuff had to die. every procedure definition in the pdb files (tools/pdbgen/pdb/*.pdb, they are still perl) now looks the same: inargs, outargs, code.
+the homemade system to specify a procedure’s arguments and return values doesn’t exist any more. everything is based on gparamspec now. a lot of new gimp-specific param specs was added in app/core/gimpparamspecs.c.
+  
+the procedure’s arguments from the same prehistoric era had to go too. procedures now take and return everything as gvalue, organized as gvaluearray.
+procedures are gobjects now (app/pdb/gimpprocedure.c). their memory-management was modernized a bit (they have memory management now). plug-in procedures are a proper gimpprocedure subclass now (app/pdb/gimppluginprocedure.c), which made lots of code much more straightforward (they were separate structs before which had a pointer to the procedure they implement).
+the pdb is now an object itself (app/pdb/gimppdb.c), instead of a bunch of global variables with some api around. the pdb instance emits signals when procedures are added or removed, so the gui can for example create menu items for new plug-in procedures. no more direct calls from the core to the gui via the ugly gui-vtable.
+
+the plug-in system is a similar mess, closely related to the pdb, but even worse. it has seen some refactoring, but just to the point where it was unavoidable to fix misbehavior or to get rid of calling deprecated glib apis. while the pdb cleanup has come a long way, i’m still in the middle of chopping and re-assembling the plug-in stuff:
+
+lots and lots of global variables have been moved to a new object, the gimppluginmanager (app/plug-in/gimppluginmanager.c). well they were not really global variables before, but members of the global gimp instance, which is supposed to be the only “global” variable in the gimp, but that doesn’t make much difference here.
+lots of functions are now methods of the gimppluginmanager, which greatly helps finding them. before, it was mostly unclear which function belonged to the plug-in instances themselves, and which to the infrastructure around that keeps is all together.
+
+that’s where i am today, but there are still quite some hacks ahead before the stuff can be called “finished”:
+the plugin struct (app/plug-in/plug-in.c) has to become an object, and this object needs some signals. some code needs to listen to these signals, so cross-calling between unrelated scopes doesn’t happen any more. at some point people will even be able to understand how the plug-ins’ memory management is supposed to work 😉 currently the calls to plug_in_ref() and plug_in_unref() are not really in places where one would expect them. i bet there is more uglyness that will go away as soon as i find it.
+now what are the benefits from all this work? well, refactored code looks soooo much nicer 🙂
+but seriously:
+
+the refactored code does look nicer, is easier to read and understand, is easier to change and fix.
+the pdb can check the passed arguments much better now. thanks to gparamspec gimp can tell a plug-in/script developer which of the passed arguments was wrong in which way.
+every argument has a default value now. after gimp 2.4 this will allow us to change the plug-in side of calling pdb procedures to something that has named parameters with default values. no more breaking scripts just becuase somebody added an optional argument.
+(actually, optional arguments were impossible before).
+now that it’s all cleaned up, people != hardcore_longtime_developers can understand and change it.
+and many other benefits that usually show up after the refactored code is in use for some time.
+
+and now, please get gimp from cvs and test it until it breaks. then report the bug so the new pdb will be as solid as the old one.
+
+
+
+
+posted in english, gimp | 2 comments »
+
+
+hochwasserente
+february 13th, 2006 
+
+die hochwasserente in wangen markiert den pegelstand des jahrhunderthochwassers von 1999. da alle gelenke der ente beweglich sind, trifft man sie meistens total verrenkt an.
+
+
+
+
+posted in german, places | no comments »
+
+
+night skiing
+february 7th, 2006 
+
+while spending some time in the south of germany, i took the opportunity to do some night skiing.
+
+the location is really nice. as an extra goodie, there is a small wooden cabin at the top of the lift, where they serve some small dishes and drinks. we stayed there until the lights were turned off, and had to go down in the dark, which isn’t exactly easy after two beers 🙂
+
+
+
+posted in english | no comments »
+
+
+die spree ist zugefroren
+january 10th, 2006 
+
+
+inzwischen ist’s winter und der blick von der terrasse ist immer noch schön. heute morgen mal mit zugefrorener spree.
+
+
+
+posted in german, places | 1 comment »
+
+
+oberbaum herbstimpression
+november 8th, 2005 
+
+
+heute bei sonnenuntergang war der blick über berlin wieder mal besonders sehenswert.
+
+
+
+posted in german, places | no comments »
+
+
+be carefull. put your lugages out side the room.
+october 6th, 2005 
+
+ich war heute beim berliner kunstsalon, so einer art “kunstmesse” in den ehemaligen flohmarkhallen bei der arena. ich muß sagen ich war positiv überrascht, nachdem ich seltsame sachen gehört hatte (kunst in cubicles…?). ok, es war nicht die beste ausstellung aller zeiten, aber es waren viele dinge drunter, die mir einfach gefallen haben. und ja, die einzelnen künstler waren in “kästchen” untergebracht, aber das ganze war sehr offen und weiträumig (und schließlich muß man ja wände einziehen, damit die bilder wo hängen können, oder?)
+komischerweise hab ich das hier als allererstes gesehen:
+
+kleines manko trotzdem: unter einem “salon” stell ich mir eigentlich was kuscheligeres vor als ne riesige helle halle wo im prinzip zu viel hängt als daß man es sich auf einmal angucken kann… na ja.
+
+
+
+posted in german | 1 comment »
+
+
+an early glance at gimp on os x
+october 6th, 2005 
+
+i’m very excited today 🙂 my co-worker anders carlsson has spent the last two months with starting a port of gtk+ to the mac os x cocoa framework, so gtk+ applications will eventually run natively (without needing x11) on that platform.
+the port is still in its early stages and incomplete, but after these few weeks it’s already complete enough to give compiling gimp a try.
+i was trying to run gimp on the port for about a week now, but the port was not complete enough, so i almost fell apart when i tried it again after anders’ latest commits last night:
+
+wheeeeeeeeeeee! this is just amazing, especially after just two months of hacking. and anders will continue improving it. the source will be public soon for others to help improving, and i will definitely keep gimp running on it constantly. this will be a lot of fun!
+(disclaimer: the screenshot above is really a very early state, gimp was just generous enough to not crash but show these three windows instead. it will be constantly improving, both look-and-feel and desktop-integration wise, so please don’t complain that gimp on os x should actually look a bit different ;))
+
+
+posted in english, gimp | 47 comments »
+
+
+uncyclopedia.org
+september 24th, 2005 
+
+i ran across uncyclopedia.org before, but really discovered it last night. i couldn’t stop laughing for hours, this site is so full of crack, it’s unbeleivable.
+read for example the truth about gnome and kde, learn what hides behind this alphabet thing and wonder why you never thought about these truths before.
+(and no, they have no idea about bielefeld either)
+
+
+
+
+posted in english | 2 comments »
+
+
+everybody loves eric raymond
+september 12th, 2005 
+
+so, m$ tried to hire esr, funny…
+i wonder if they shouldn’t just insist, despite his even more funny answer.
+
+
+
+posted in english | 1 comment »
+
+
+east berlin, pa
+september 12th, 2005 
+
+und wir dachten alle, ost-berlin war mal… denkste 🙂
+
+
+
+posted in german | 1 comment »
+
+
+wahlplakate
+september 10th, 2005 
+
+die bundeszentrale fã¼r politische bildung rockt (irgendwie zumindest…). jedenfalls hat sie ne sammlung aller bundestags-wahlplakate seit 1949 online gestellt, auãÿerdem alle wahlwerbespots.
+leider sind die plakate nicht in anstã¤ndiger auflã¶sung vorhanden und die spots sind realvideo, trotzdem schick!
+
+
+posted in german | 1 comment »
+
+
+deutschland 1929
+september 10th, 2005 
+
+gefunden auf boingboing: schöne alte schwarz-weiß aufnahmen aus allen teilen deutschlands.
+
+ne menge zeuch, sicher erkennt jeder das eine oder andere wieder.
+
+
+posted in german | 1 comment »
+
+
+das fliegende spaghettimonster
+september 5th, 2005 
+
+oder auch fliegende spagettimonster (nach neuer rechtschreibung) ist die gottheit der religion der pastafari und nebenbei ein herrlicher schlag ins gesicht des kansas school board.
+
+ein schönes beispiel dafür, daß man dummheit, wie groß sie auch sein mag, am besten mit humor beikommt. weiter so!
+
+
+posted in german | no comments »
+
+
+3… 2… 1… 10!
+august 30th, 2005 
+
+it could easily have been forgotten, but federico remembered it. gimp is going to be 10 years old on november 21st 🙂
+
+that cries for a birthday party, doesn’t it?
+
+
+posted in english, gimp | 3 comments »
+
+
+even more paper prototyping
+august 27th, 2005 
+
+it seems to become popular: sven and antenne already mentioned it in their blogs. now akkana peck has created a small script that allows to do “paperless menu prototyping” using gimp layers.
+just enter a newline-separated list of words and the script will create an image featuring each word on a layer that can be dragged around. add some guides for proper alignment, some separators and soon you’ll have a prototype that you can share with others, while keeping everything editable.
+here is how it looks:
+
+see also akk’s original post on gimp-developer.
+
+
+posted in english, gimp | 2 comments »
+
+
+logo
+august 27th, 2005 
+
+gimpfoo.de hat jetzt auch ein eigenes logo. dank an antenne!
+
+
+
+posted in german, site | 1 comment »
+
+
+« previous entries
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+archives
+
+april 2012
+october 2010
+september 2009
+august 2009
+august 2007
+november 2006
+october 2006
+may 2006
+february 2006
+january 2006
+november 2005
+october 2005
+september 2005
+august 2005
+
+
+categories
+
+english (12)
+
+german (12)
+
+gimp (9)
+
+places (5)
+
+site (4)
+
+
+
+links
+
+antenna-flog
+buchhandlung natterer
+gimp
+
+
+meta
+
+log in
+valid xhtml
+xfn
+wordpress
+
+
+
+
+
+
+
+		gimpfoo.de is proudly powered by 
+		wordpress
+entries (rss)
+		and comments (rss).
+		
+
+
+
+
+
+

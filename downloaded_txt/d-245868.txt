@@ -1,0 +1,610 @@
+
+
+
+
+
+
+
+
+
+hanssummers.com
+
+
+
+
+
+
+
+
+
+home | contact2 | links
+
+
+
+
+
+
+
+
+kits
+
+qrp labs
+ 
+
+
+
+
+
+
+
+qrss
+
+ultimate 3s qrss/wspr kit
+30m qrss beacon
+30m qrss junkbox tx
+30m qrss si570 beacon
+30m qrss receiver
+40m low power qrss tx
+tropical qrss
+mediterranean qrss
+keyer chip
+xyl qrss
+ 
+
+
+
+
+
+
+
+clocks
+
+panel-mounting clock
+sidereal clock
+led matrix clock
+giant nixie clock
+radio controlled clock
+binary clock
+binary clock kit
+msf nixie 'scope clock
+ 
+
+
+
+
+
+
+
+g0upl
+
+radio g0upl
+g0upl talks
+g0upl workbench
+ 
+
+
+
+
+
+
+
+receivers & transmitters
+
+cw transmitter
+unichip 80m transceiver
+40/80m cw/ssb receiver
+30m receiver
+radio ozon
+fredbox: 2m am tcvr
+crystal radio
+simple radio receiver
+transistor sw radio
+valve sw radio
+hellraiser transmitter
+weaver method ssb
+ 
+
+
+
+
+
+
+
+other radio topics
+
+radio hobbyist's design book
+crystal sets to sideband
+huff-puff stabilised vfo's
+gps frequency reference
+simple gps freq. ref.
+experimental dds
+dds vs si570
+radio-friendly psu
+poundshop fm radio
+superdrg radio
+crystal penning
+crystal parameters
+antenna tuning unit
+simple qrp power meter
+qro dummy load
+qro atu
+dad's radio circuits
+valve collection
+phasing cw filter
+varicap diodes
+homemade components
+if transformers
+all-valve vfo
+antique bliley crystal oven
+ocxo and synthesiser design
+uhf filters
+useful simple test mixer
+multiple crystal oscillator
+model 404-ul antenna
+ 
+
+
+
+
+
+
+
+frequency counters
+simple frequency counterlcd frequency counterrf frequency counterfrequency counterbcd frequency counterbc221 model thp522 
+
+
+
+
+
+
+
+electronics
+
+spectrum analyser mk1
+spectrum analyser mk2
+usb charger
+feedback circuit
+dad's voltmeter
+heathkit signal gen
+power supply
+simple intercom
+riskometer
+dekatron spinner
+tinyscope
+miniscope
+remote lighting controller
+discrete component logic
+wind speed logger
+wind speed logger mk2
+nbtv
+diode iv curves
+valve psu
+gsm/gprs data logger
+voyager
+ 
+
+
+
+
+
+
+
+computers
+
+viscometer
+the great z80 project
+z80 computer
+the mandelbrot set
+asynchronous ttl cpu
+cpcng notes
+f-cpu scheduler
+ 
+
+
+
+
+
+
+
+guest project gallery
+led clock80m cw transceiverpolyphase networkpolyphase receiver80m cw transceiver1-valve qrp cw txnixie clockvfd graphic equaliserpaulo py2pbb transceivers4-valve 40m cw tcvr by py2pbb 
+
+
+
+
+
+
+
+miscellaneous
+
+datasheets
+101 things
+monitor recycling
+plasma display terminal
+memories of stan unwin
+historic summers cartoons
+qrp labs gps receiver 1
+vs10g trochotron
+high altitude balloons
+lf crystal oscillator
+phantastron divider
+ 
+
+
+
+
+
+
+
+most recently updated
+
+
+
+			model 404-ul antenna
+
+
+
+			phantastron divider
+
+
+
+			low frequency crystal oscillator
+
+
+
+			multiple crystal oscillator
+
+
+
+			multi-crystal oscillator
+
+
+
+			uhf filters
+
+
+
+			weaver article library
+
+
+
+			simple gps freq. ref.
+
+
+
+			ultimate3s kit
+
+
+
+			vs10g trochotron
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+radio, electronics and computing projectsby hans summers
+i make no claims for technical accuracy, good design, or necessarily even originality for the contents of these pages. rather, i am a simple enthusiast attempting to convey my love and enjoyment of radio, electronics, and computing and perhaps to inspire you to build something too. the following pages document projects that i have built over a period of 30 years. wherever applicable i have named sources and references. in each project i have attempted to provide as much information as time and resources allow, but no responsibility can be accepted for inaccuracies or omissions. likewise, where some of the projects use mains or high voltages, no responsibility can be accepted for death or injury sustained if you attempt to replicate these projects. be careful! if you have any comments or suggestions, please email me.
+recent projects:
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+					ocxo and synthesiser design			
+
+ 
+
+ 
+
+ 
+
+
+
+
+
+
+			written by hans summers		
+		  
+	
+
+
+
+		monday, 01 september 2014 10:30	
+
+
+
+
+
+
+
+this page documents the design and development of an ocxo and synthesiser module. there were several motivations for developing this module, partly as a replacement for the popular ad9850 dds module, available inexpensively on ebay and elsewhere.
+
+
+
+
+
+
+
+		last updated on wednesday, 20 may 2015 09:09	
+
+
+
+
+			read more...
+
+
+
+ 
+
+
+
+					qrp power meter			
+
+ 
+
+ 
+
+ 
+
+
+
+
+
+
+			written by hans summers		
+		  
+	
+
+
+
+		wednesday, 21 january 2015 05:09	
+
+
+
+
+
+
+
+it's really simple to make a qrp power meter measuring rf output powers from a few mw up to half a watt. this simple project described here is half an hour's work and all components are from the junk box. i used an old "vu" meter from an old piece of consumer equipment, probably a 70's hi fi or something similar, long-since forgotten.
+
+
+
+
+
+
+
+		last updated on wednesday, 20 may 2015 09:04	
+
+
+
+
+			read more...
+
+
+
+ 
+
+
+
+					weaver method ssb			
+
+ 
+
+ 
+
+ 
+
+
+
+
+
+
+			written by hans summers		
+		  
+	
+
+
+
+		wednesday, 10 september 2014 03:26	
+
+
+
+
+
+
+
+the weaver method (also called 3rd method) of single sideband reception is a little-used technique in hf receivers (except perhaps in software defined radios architectures). this article is an introduction, some practical experiments with a 10m weaver method receiver, and a collection of information on the subject.
+
+
+
+
+
+
+
+		last updated on wednesday, 18 november 2015 05:12	
+
+
+
+
+			read more...
+
+
+
+ 
+
+
+
+
+
+					simple gps freq. ref.			
+
+ 
+
+ 
+
+ 
+
+
+
+
+
+
+			written by hans summers		
+		  
+	
+
+
+
+		thursday, 04 june 2015 03:03	
+
+
+
+
+
+
+
+here's a simple and easy single-chip 10.000000000mhz gps-disciplined frequency reference, based on a small 14-pin avr microcontroller attiny24. this implements a kind of software "huff puff" method stabilisation. it uses an old junkbox 10mhz ocxo. the final accuracy is about 0.5 parts per billion (ppb).
+
+
+
+
+
+
+
+		last updated on monday, 10 october 2016 09:48	
+
+
+
+
+			read more...
+
+
+
+ 
+
+
+
+					stable valve vfo			
+
+ 
+
+ 
+
+ 
+
+
+
+
+
+
+			written by hans summers		
+		  
+	
+
+
+
+		saturday, 03 december 2011 13:35	
+
+
+
+
+
+
+
+this is the story of my quest to build an all-tube vfo for 26.0 to 26.5mhz, for use in a 21mhz ssb/cw superhet transceiver with 5.0688mhz intermediate frequency (if). construction efforts below were assisted by advice and commentary by g4oep, k3imw, k7hkl and vk6jy.
+
+
+
+
+
+
+
+		last updated on wednesday, 20 may 2015 09:13	
+
+
+
+
+			read more...
+
+
+
+ 
+
+
+
+					ultimate3s kit			
+
+ 
+
+ 
+
+ 
+
+
+
+
+
+
+			written by hans summers		
+		  
+	
+
+
+
+		monday, 01 june 2015 03:49	
+
+
+
+
+
+
+
+this is my implementation of the qrp labs ultimate3s qrss/wspr kit. my u3s is installed in the official qrp labs case. i am using the relay-switched lpf kit for 6-band operation, and qrp labs qlg1 gps receiver module.
+
+
+
+
+
+
+
+		last updated on sunday, 26 june 2016 09:47	
+
+
+
+
+			read more...
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+© 2009-2025 hans summersweb services by datastate solutions
+
+

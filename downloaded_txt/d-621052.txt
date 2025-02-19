@@ -1,0 +1,196 @@
+
+
+
+
+
+sda: survey documentation and analysis
+
+
+
+
+
+
+
+
+
+
+
+    sda: survey documentation and analysis
+
+home
+archive
+community
+documentation
+projects
+news
+
+
+
+
+
+
+sda is a set of programs for the documentation and
+web-based analysis of survey data. 
+
+
+sda was developed, distributed and supported by the
+computer-assisted survey methods program (csm) at the 
+university of california, berkeley
+until the end of 2014.  beginning in 2015, csm is managed 
+and supported by the 
+institute for scientific analysis,
+a private, non-profit organization, under an exclusive continuing 
+license agreement with the university of california.
+csm also develops the cases 
+software package.
+
+ 
+
+to see how it all works, test-drive sda at our demonstration 
+sda archive. 
+browse the documentation for a survey and get fast
+data analysis results. the sda archive includes several datasets, 
+including the general social survey (gss), the 
+american national election study (anes), and the
+survey of consumer finances (scf).
+you can also look at some other archives 
+that use sda software.
+
+
+
+for information on obtaining sda software and services, see the
+sda software and services page.
+
+
+
+for video tutorials on using the sda 4 user interface see the 
+sda youtube channel.
+ 
+sda features
+documentation:
+
+codebooks: sda can produce both html and print-format codebooks. 
+  the documentation for each study contains a full description of each variable, 
+  indexes to the variables, and links to study-level information.
+
+ddi (data documentation initiative) compatibility: sda programs 
+  can produce ddi-format metadata from sda datasets and from other metadata formats.
+  sda also provides an online utility that converts ddi metadata to sda's own metadata
+  format (ddl).
+
+analysis:
+
+various analysis types are available: frequencies and crosstabulation, 
+    comparison of means, correlation matrix, comparison of correlations, 
+    multiple regression, logit/probit regression.
+
+fast results: sda was designed to produce
+    analysis results very quickly -- within seconds -- even for large 
+    datasets with millions of cases and thousands of variables.  although many 
+    of our users assume we are using some sort of super computer to achieve 
+    these speeds, the secret lies solely in the method of storing the data and 
+    the design of the programs.
+    the sda archive on our site runs on a low-cost (intel) linux server -- although 
+    sda can also be run on windows.
+
+creation of new variables with recode and compute procedures:
+   sda includes procedures to create new variables based on the content of 
+   existing variables through recode or compute specifications.
+
+complex standard errors:
+    data collected from stratified and/or cluster samples require special
+    procedures to calculate standard errors and confidence intervals. sda uses
+    those special procedures for percentages, means, differences between means,
+    and regression coefficients.
+
+charts: sda produces various chart types: bar charts, stacked bar charts,
+line charts and pie charts.
+
+disclosure specifications for confidentiality:
+the analysis programs can be configured to suppress output that may compromise the 
+confidentiality of survey respondents. the analysis programs will all read a 
+disclosure configuration file (if one has been created for a study), and 
+will enforce the specifications in that file. 
+
+
+other capabilities:
+
+subsetting:
+  users can generate and download a customized subset of an sda dataset. in
+  addition to generating a data file, the subset procedure produces a codebook for the
+  subset and data definitions for sas, spss, stata and ddi.  the subset can include
+  both the original dataset variables and new variables created with recode or compute.
+
+searching: sda provides searching both within a single study (at the
+variable level) and across studies (at both the variable and study level).
+
+
+
+sda manager:
+
+for managers of an sda archive, the sda software package includes 
+an sda manager webapp.
+the sda manager consolidates all of the management functions for an 
+sda archive into one web interface. using this web app the manager of an 
+sda archive can:
+
+
+
+import spss .sav files, stata .dta files, csv files and tsv files 
+and automatically convert them into sda datasets.
+
+
+create and configure personal user workspaces. 
+these user workspaces enable analysts to create and 
+store recoded and computed variables in their own private storage areas. 
+for groups -- such as college classes -- the leader or instructor can
+make their created variables accessible to the group to use in their 
+own analysis projects.
+
+
+configure dataset-level access control -- specifying which users can 
+access which datasets. 
+
+
+generate reports on usage of the datasets in the archive.
+
+
+troubleshoot problems.
+
+
+
+awards
+
+ 
+american association for public opinion research
+(aapor): warren j. mitofsky innovators award
+
+ 
+american political science association (apsa): best instructional software award
+
+
+
+
+
+for information on how to set up your own sda data archive see the relevant 
+documentation.
+for information on current sda development efforts, see the projects
+page. also, for recent events check the news.
+
+ 
+
+ 
+if you've experienced any problems with our site or would just like to
+make suggestions or comments, send e-mail to: sda@berkeley.edu
+
+
+
+
+
+last modified: march 9, 2020
+    (charlie thomas, sda@berkeley.edu)
+
+
+
+
+

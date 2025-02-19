@@ -1,0 +1,896 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	home
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ item(s): {{minicart.countcart().number | number : 0}}
+
+
+
+                total price: {{minicart.countcart().total | currency : '$' : 2}}
+            
+
+
+
+
+
+
+
+
+item
+
+qty
+total
+
+
+
+
+
+
+
+                                {{cartitem.productname}}
+sku: {{cartitem.productsku}}
+
+
+
+                            {{cartitem.quantity | number : 2}} x {{cartitem.unitcost | currency : '$' : 2}}
+                            
+
+
+
+
+                            {{cartitem.unitcost * cartitem.quantity | currency : '$' : 2}}
+                        
+
+
+
+
+
+                                    {{itemvariant.varianthastext ? (itemvariant.variantname + ': ' + itemvariant.varianttext) : (itemvariant.variantgroup + ': ' + itemvariant.variantname)}}
+                                
+
+
+
+
+
+
+you have no items in your shopping cart.
+
+
+
+
+subtotal
+{{minicart.carttotals.subtotal | currency : '$' : 2}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cart ({{minicart.countcart().number}})
+
+
+wish list ({{minicart.countwishlist().number}})
+
+
+order history ({{minicart.orders.length}})
+
+
+
+
+
+
+
+
+image
+item
+qty
+total
+
+
+
+
+
+
+
+                                        {{cartitem.productname}}
+sku: {{cartitem.productsku}}
+
+
+
+                                    {{cartitem.quantity | number : 2}} x {{cartitem.unitcost | currency : '$' : 2}}
+                                    
+
+
+
+
+                                    {{cartitem.unitcost * cartitem.quantity | currency : '$' : 2}}
+
+
+
+
+
+
+
+                                            {{itemvariant.varianthastext ? (itemvariant.variantname + ': ' + itemvariant.varianttext) : (itemvariant.variantgroup + ': ' + itemvariant.variantname)}}
+                                        
+
+
+
+
+
+
+you have no items in your shopping cart.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+description
+created
+
+
+
+
+
+{{savedcart.description}}
+{{savedcart.createdate | date : 'm/d/yyyy h:mm a'}}
+
+
+
+
+
+
+
+
+sku
+product name
+unit cost
+qty
+line total
+
+
+
+
+{{cartitem.productsku}}
+{{cartitem.productname}}
+{{cartitem.unitcost | currency : '$' : 2}}
+{{cartitem.quantity | number : 2}}
+{{cartitem.unitcost * cartitem.quantity | currency : '$' : 2}}
+
+
+
+
+
+                                                                    {{itemvariant.varianthastext ? (itemvariant.variantname + ': ' + itemvariant.varianttext) : (itemvariant.variantgroup + ': ' + itemvariant.variantname)}}
+                                                                
+
+
+
+
+
+
+you have no items in your saved shopping cart.
+
+
+
+
+
+
+
+
+
+you have no items in your wishlist.
+
+
+
+
+
+
+
+
+
+
+
+
+status
+order no.
+order date
+ship to
+order total
+pay total
+balance
+
+
+
+
+{{order.status}}
+{{order.orderid}}
+{{order.orderdate | date : 'm/d/yyyy'}}
+{{order.shipfirstname}} {{order.shiplastname}}, {{order.shipaddress1}} {{order.shipaddress2}}, {{order.shipcity}}, {{order.shipstate}} {{order.shipzipcode}}
+{{order.grandtotal | currency : '$' : 2}}
+{{order.paytotal | currency : '$' : 2}}
+{{order.grandtotal - order.paytotal | currency : '$' : 2}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+toggle navigation
+
+
+
+
+
+
+
+
+
+
+
+
+search
+
+
+
+
+
+
+
+
+
+instruments 
+
+
+violins 
+
+
+violas 
+
+
+cellos 
+
+
+basses 
+
+
+baroque instruments 
+
+
+bows 
+
+
+
+
+resources 
+
+
+services 
+
+
+rentals 
+
+
+repairs 
+
+
+appraisals 
+
+
+
+
+about us 
+
+
+our story 
+
+
+jay haide instruments 
+
+
+faqs 
+
+
+job openings 
+
+
+gallery 
+
+
+
+
+news & events 
+
+
+store 
+
+
+strings 
+
+
+accessories 
+
+
+sheet music & books 
+
+
+posters 
+
+
+stands & stand accessories 
+
+
+
+
+
+
+
+
+
+
+
+search
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+regular store hours
+tuesday - friday: 10:30am - 5:00pm
+saturday: 10:30am - 4:00pm (no repairs)
+ 
+want to trial instruments or bows? 
+we strongly recommend making an appointment with sales by calling us at 510-843-5466 ext. 2.
+please note our phone does not accept voice messages.
+ 
+have questions about instrument rentals?
+we strongly recommend making an appointment by calling 510-843-5466 ext. 4, or emailing rentals@ifshinviolins.com
+ 
+for general inquiries email info@ifshinviolins.com
+ 
+___________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+jay haide instruments
+ifshin violins is proud to offer our jay haide line of violins, violas, cellos and string basses. all jay haide instruments are hand-made of quality seasoned maple and spruce with tone quality and workmanship normally found in those costing much more. when you try jay haide instruments, you will see, hear, and feel the quality of craftsmanship offered at an exceptional value. they are perfect for students and professionals alike.
+learn about more about our line of jay haide instruments and find a dealer near you!
+
+
+
+
+
+
+
+
+
+
+___________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fine
+ instruments
+online
+ store
+rental
+ department
+job
+ openings
+choosing
+ strings
+teacher
+ guide
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+follow us!
+    
+ 
+
+
+
+
+
+
+
+
+
+6420 fairmount ave.
+el cerrito, ca 94530
+510-843-5466
+tue. to fri. 10:30 am to 5:00 pm
+sat. 10:30 am to 4:00 pm (no repairs)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+login
+
+
+
+
+
+©  by ifshin violins, email us (include phone number) | about us 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+online store
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ item(s): {{minicart.countcart().number | number : 0}}
+
+
+
+                total price: {{minicart.countcart().total | currency : '$' : 2}}
+            
+
+
+
+
+
+
+
+
+item
+
+qty
+total
+
+
+
+
+
+
+
+                                {{cartitem.productname}}
+sku: {{cartitem.productsku}}
+
+
+
+                            {{cartitem.quantity | number : 2}} x {{cartitem.unitcost | currency : '$' : 2}}
+                            
+
+
+
+
+                            {{cartitem.unitcost * cartitem.quantity | currency : '$' : 2}}
+                        
+
+
+
+
+
+                                    {{itemvariant.varianthastext ? (itemvariant.variantname + ': ' + itemvariant.varianttext) : (itemvariant.variantgroup + ': ' + itemvariant.variantname)}}
+                                
+
+
+
+
+
+
+you have no items in your shopping cart.
+
+
+
+
+subtotal
+{{minicart.carttotals.subtotal | currency : '$' : 2}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cart ({{minicart.countcart().number}})
+
+
+wish list ({{minicart.countwishlist().number}})
+
+
+order history ({{minicart.orders.length}})
+
+
+
+
+
+
+
+
+image
+item
+qty
+total
+
+
+
+
+
+
+
+                                        {{cartitem.productname}}
+sku: {{cartitem.productsku}}
+
+
+
+                                    {{cartitem.quantity | number : 2}} x {{cartitem.unitcost | currency : '$' : 2}}
+                                    
+
+
+
+
+                                    {{cartitem.unitcost * cartitem.quantity | currency : '$' : 2}}
+
+
+
+
+
+
+
+                                            {{itemvariant.varianthastext ? (itemvariant.variantname + ': ' + itemvariant.varianttext) : (itemvariant.variantgroup + ': ' + itemvariant.variantname)}}
+                                        
+
+
+
+
+
+
+you have no items in your shopping cart.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+description
+created
+
+
+
+
+
+{{savedcart.description}}
+{{savedcart.createdate | date : 'm/d/yyyy h:mm a'}}
+
+
+
+
+
+
+
+
+sku
+product name
+unit cost
+qty
+line total
+
+
+
+
+{{cartitem.productsku}}
+{{cartitem.productname}}
+{{cartitem.unitcost | currency : '$' : 2}}
+{{cartitem.quantity | number : 2}}
+{{cartitem.unitcost * cartitem.quantity | currency : '$' : 2}}
+
+
+
+
+
+                                                                    {{itemvariant.varianthastext ? (itemvariant.variantname + ': ' + itemvariant.varianttext) : (itemvariant.variantgroup + ': ' + itemvariant.variantname)}}
+                                                                
+
+
+
+
+
+
+you have no items in your saved shopping cart.
+
+
+
+
+
+
+
+
+
+you have no items in your wishlist.
+
+
+
+
+
+
+
+
+
+
+
+
+status
+order no.
+order date
+ship to
+order total
+pay total
+balance
+
+
+
+
+{{order.status}}
+{{order.orderid}}
+{{order.orderdate | date : 'm/d/yyyy'}}
+{{order.shipfirstname}} {{order.shiplastname}}, {{order.shipaddress1}} {{order.shipaddress2}}, {{order.shipcity}}, {{order.shipstate}} {{order.shipzipcode}}
+{{order.grandtotal | currency : '$' : 2}}
+{{order.paytotal | currency : '$' : 2}}
+{{order.grandtotal - order.paytotal | currency : '$' : 2}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

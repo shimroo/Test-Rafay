@@ -1,0 +1,610 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+robelle solutions technology
+a software company
+
+
+
+
+    robelle
+  
+
+home
+contact us
+products
+about us
+fine print
+staff
+partners
+
+
+
+
+    what's new
+  
+
+suprtool
+qedit
+qedit for windows
+robelle
+
+
+
+
+    support
+  
+
+daily support issues
+disaster
+top ten
+software version information
+change notices/installation information
+submit problem report
+change notices/installation information
+how do i?
+business hours
+suprtool code generation
+
+e-mail: support@robelle.com
+tel: 289.480.1060
+
+
+
+
+
+    just ask us
+  
+
+change contact at your site
+other updates to your account
+dealing with cpu upgrades
+new customer information
+sign up for direct support
+licensing policies
+request suprtool demo/info
+request qedit demo/info
+request qedit for windows demo/info
+
+business hours
+
+
+
+
+
+    var apps
+  
+
+fiserv/spectrum
+new for fiserv/spectrum users
+amisys
+new for amisys users
+ecometry
+new for ecometry users
+education applications
+
+
+
+
+    resources
+  
+
+historical newsletter
+hp3000 evolution book
+homesteading on the hp3000
+links and info about mpe/ix
+hp 3000 migration links/info
+links and info about hp-ux
+product manuals
+suprtool training
+technical papers
+tutorials
+technical articles
+hp encyclopedia
+consultants corner
+
+
+
+
+
+
+
+
+
+
+
+
+contact information
+
+					tel: 604-501-2001
+					support: 289-480-1060
+
+
+sales@robelle.com
+support@robelle.com
+
+						hours: 7am-3pm pst 
+
+
+
+holiday schedule 2025 
+
+2025
+
+january 1, new years day
+february 17, presidents day
+april 18, good friday
+may 28, memorial day
+july 4, independence day
+
+
+
+search / downloads
+
+
+
+
+request a production download.
+request a pre-release download.
+
+
+
+
+
+
+
+
+suprtool and qedit:
+still enhancing, always backwards compatible
+					
+
+suprtool/open: our latest product offering, can go wherever you want to go:
+						with other products, migration may involve recoding and retesting with only a subset of functionality. but our new suprtool/open is a complete migration of suprtool. 
+						see the latest information at: suprtool/open.
+
+
+news
+
+alternative payment options due to canada post strike
+
+due to the ongoing canada post strike that began on november 15, 2024. at this time, we are unsure when the strike will end. we are offering the following alternative payment options for our customers:
+
+visa, mastercard, and amex payments in usd & cad funds
+wire transfers â we can provide our banking information upon request
+couriered check
+
+we apologize for any inconvenience this situation may have caused and appreciate your understanding and cooperation. we remain hopeful that the canada post strike will be resolved soon, but it looks like it could go into 2025.
+if you have any questions or need additional information, please do not hesitate to contact us admin@robelle.com
+
+
+
+october 2024 newsletter.
+
+the latest newsletter has been distributed and is available
+
+here.
+2024/11/01
+june newsletter.
+
+the latest newsletter has been distributed and is available
+
+here.
+2023/06/27
+october newsletter.
+
+the latest newsletter has been distributed and is 
+
+available in the newsletter section.
+2022/10/28
+
+our fax number is no more.
+
+much like the parrot in the infamous monty python dead parrot sketch, our fax machine will soon be no more.
+in all seriousness, though we will be getting rid of the separate fax number, you may still be able to send a fax, 
+however, you would need to call in to the office beforehand. 
+
+
+2022/09/28
+
+qedit/ open now supports visual mode
+
+qedit/open now supports visual mode on hp terminals. we are looking for beta testers to play with
+qedit on linux and give us some feedback.
+
+
+
+
+request a pre-release download.
+qedit for linux change notice
+
+2022/08/25
+
+qedit and suprtool 6.4 released.
+
+suprtool and qedit 6.4 have been released, the big news on qedit is that the majority of the code and
+features have been ported to linux, just like suprtool has. rport, the report writer has had some spacing
+improvements. suprtool/open has had some bug fixes to the big endian to little endian transformation.
+
+qedit 6.4
+
+work has been completed for qedit to work properly beyond 2027 date limitation on the hp 3000. (mpe)
+add with move syntax would abort, this is now fixed. a typical syntax is add last < 1/3. (linux only)
+adding a block of text would incorrectly print out line numbers at the end of the block of text. for the time being add will revert to addq while we investigate this issue. (linux only)
+the modify command will default to modifyq for the time being as to when we resolve some terminal issues. (linux only)
+qedit has been ported to linux, specifically small endian linux machines. (linux only)
+request a download.
+qedit for mpe change notice
+qedit for hp-ux change notice
+qedit for linux change notice
+
+suprtool 6.4
+
+
+rport spacing and alignment has been improved for subtotal and total lines. (all platforms)
+rport spacing of detail lines has been improved to allow for a space after each byte field. (all platforms)
+suprtool has a new command called set sdinbypass on, allows the reclen, lf syntax on an input file if it is self-describing. this was done to allow some customers to not have to change scripts. (linux only)
+input files with bigendian data are converted to little endian about three times faster in all cases. (linux only)
+suprtool when running with set ffisbe on and set endianint be on a sort operation with extract commands would see suprtool incorrectly convert the data from le to be twice. (linux only fixed in 6.3.50 build 6)
+suprtool when there was an input source of an sql table and sorting a field with an extract of fields, and set ffisbe on and set endianint, log and ieee to be would incorrectly convert the data to big endian on the input side. (linux only. fixed in 6.3.50 build 6)
+an input of a non-sd file with defines and extracts would assume for bigendian to little endian as a self-describing file. (linux only. 6.3.50 build 2)
+a subsequent suprtool task with large key sorts would fail when the previous step was a step that accessed an oracle database and the oracle database was still open. (linux only. suprtool 6.3.01 build 2)
+suprtool no longer requires that you need to extract a field from a flat file (ffisbe on) or self-describing file in order for comands like if, sort, dup none keys total field, and total, to correctly convert the data from big endian to little endian. (linux only. 6.3.01 build 14)
+suprtool / open didnât handle double logical numbers over 2 billion when converting to ascii in the list command. (linux only. fixed in 6.3 build 2)
+sorting with certain files would not allocate enough memory space to complete the sort. (linux only. fixed in 6.3 build 5)
+an if $lookup would not work all times with certain data fields if the data field was big endian. (linux only. fixed in 6.3 build 5)
+a chain with multiple values specified with in line with byte or logical field types would fail. (linux only)
+output,ascii and stexport, conversion of double integers with decimal places would incorrectly convert, numbers where the value was less than the number of decimal places. (linux only.)
+output, ascii and stexport would incorrectly handle single logical conversions for some values. (linux only)
+output,ascii would incorrectly pad uneven byte output files with a null on the first record. (build 14)
+output,ascii of a packed field would default to outputting a sign on all fields, when the mpe and hp-ux versions would default to no sign unless negative. (fixed in 6.3.50 build 4)
+request a download.
+suprtool for mpe change notice
+suprtool for hp-ux change notice
+suprtool for amxw change notice
+suprtool/open change notice
+
+
+
+this is the biggest request we have had to add to qedit in quite some time, mainly to 
+port their applications from hp-ux to linux. while, qedit / open doesn't currently have 
+visual/screen mode or server mode, the line editor functions are all working as you would expect. so text/keep, change, delete, add, append, etc all work as expected.
+
+
+if you're interested in trying out qedit on linux or need additional information? 
+contact neil armstrong.
+
+10/05/2021
+newsletter october 2020
+
+the 
+october 2020 newsletter 
+has been delivered to all customers, hope everyone enjoyed this one as much 
+as we enjoyed putting it together.
+
+
+10/29/2020
+newsletter march 2020
+
+the 
+march 2020 newsletter 
+has been delivered to all customers, hope everyone enjoyed this one as much 
+as we enjoyed putting it together.
+
+
+03/29/2020
+suprtool 6.1.11
+
+
+rport has a new command called hide which is intended to not report
+on a field in an sd file.
+
+rport has a new command called comma, which will place appropriate
+commas in an ascii field that was converted from a numeric field.
+
+there is a new setting in rport that is called set maxlen on, which
+calculates the maximum size that a field can be, including commas and
+dollar signs.
+
+suprtool/open now defaults to /bin/bash when a users shell is not
+found in the user information.
+
+the $eom/$bom function wouldnt work properly when $stddate was nested
+in a $month function and the to month had 31 days.
+
+request a download.
+suprtool/mpe change notice
+suprtool/open change notice
+suprtool for hp-ux change notice
+request a download.
+
+03/21/2020
+suprtool 6.1.10
+
+the latest pre-release version of suprtool has been installed. the main new feature is that there is a new product called rport which is a simple report writer that is now available.
+
+
+
+
+sdlinux version is available for linux to convert the .sd file for use on linux is now available on linux. you can now directly copy a data file and sdfile from hp-ux and convert it for use on linux.
+
+two new sub-functions of $bom and $	eom are now available in the $stddate and $month functions. the $bom function returns the starting day of the month and the $eom returns the last date of the month for a given month.
+
+string functions in suprtool now have better length and bounds checking of the 4095-byte string limit.
+
+rport a new simple report writer has been added to the suprtool suite of products.
+
+request a download.
+suprtool/mpe change notice
+suprtool/open change notice
+suprtool for hp-ux change notice
+
+03/01/2020
+calculating age fun
+
+i was asked for a method/trick for roughly calculating age. the customer
+was finding sometimes they were off by one. i realized that this may be due
+to rounding and came up with the following calculation.
+
+
+>in dates
+>list
+>xeq
+>in dates.neil.green (0) >out $null (0)
+curr-date       = 20200121       birth-date      = 19480526
+
+
+>in dates
+>item curr-date,date,ccyymmdd
+>item birth-date,date,ccyymmdd
+>def age,1,4,double
+>ext age=$truncate($abs($days(birth-date) - $days(curr-date)) / 365)
+>list
+>xeq
+>in dates.neil.green (0) >out $null (0)
+age             = 71
+				
+
+in retrospect it might be worthwhile using 365.25 as the dividing factor, but
+it likely won't make much of a difference.
+02/21/2020
+replacing nulls
+
+hello, i have a question for youis there a way to replace all nulls with spaces in qedit?  
+
+
+	
+tq filename
+set decimal on
+cq '0 " "  all
+kq,yes
+exit
+
+
+so the set decimal on is the key which tells qedit that the single quote followed by a number will be treated as the decimal equivalent, which for null is a single quote, so the two key things here are:
+
+ 
+set decimal on
+cq '0 " "   all
+
+01/21/2020
+set date cutoff 20
+
+it is advisable to check your suprmgr files for the set date cutoff command value and increase it to be greater than 20. if not
+it is likely that you will have issues with dates in 2020, will end up with a century value of 19, instead of 20.
+
+for details on set date cutoff please see: set date cutoff.
+
+01/01/2020
+latest robelle newsletter
+
+the latest robelle newsletter has been sent out and is available online.
+
+
+11/20/2019
+sad news in 3000 community
+
+we received some sad news in the 3000 community, alan yeo, founder of screenjet has passed away, details in a letter from michael marxmeier of marxmeier software:
+
+
+it is with great sadness that we write to inform you that alan yeo, founder of screenjet ltd. has passed away. he will be greatly missed as a friend and colleague, having worked with many of us for decades.
+
+screenjet and marxmeier software have had close ties for a long time. alan yeo was a valued board member for marxmeier software and michael marxmeier is a director at screenjet.
+
+marxmeier software has assumed additional responsibilities to ensure the continuation
+of screenjet products and services. as of june 2019 all support, license renewals and upgrades are being administered by marxmeier software. this will not affect any screenjet customer product licenses or agreements which will remain with screenjet ltd. the teams at screenjet and marxmeier will combine there long time experience and resources to guarantee efficient and reliable ongoing support and services. we look forward to continue working with you in the future.
+
+if you have any questions or concerns please feel free to contact us at anytime. you can reach us at mike@marxmeier.com or by phone at +49 202 243140.
+
+sincerely,
+
+
+michael marxmeier
+for the marxmeier and screenjet team
+
+
+10/17/2019
+report writer alpha testers
+
+the first week of june is my work anniversary at robelle, so to celebrate
+i am putting out a call for alpha testers of a new report writer.
+
+if interested, please e-mail me at neil@robelle.com.
+
+primarily to start we can send mpe and hp-ux versions out, the open version
+will be made available soon.
+
+06/03/2019
+april newsletter
+
+the 
+april 2019 newsletter is out and has 
+been distributed, with lots of good feedback.
+
+04/18/2019
+qedit 6.3 released
+
+more work has been done to extend qedit to work properly beyond 2027 date limitation on hp 3000.
+qedit for hp-ux now writes out the size of a fixed length file when making a file fixed length, with set keep var off.  it will also write out a file as to whether or not line feeds are on or off.  the files are local to your working directory under the names .qxrecsize and .qxlf.
+the qedit for windows server login now supports pam, which in turn supports ldap login. 
+request a download.
+qedit for mpe change notice
+qedit for hp-ux change notice
+
+03/21/2019
+suprtool 6.1 released
+
+
+suprtool has a new function called $length that will return a double integer value of the length of a byte and/or numeric field.
+the $robelle variable has been expanded to 58 characters.
+suprtool has a new option called set editsignneutral which tells the $edit function to treat neutral zoned and packed fields to be positive and treated as such by the $edit function.
+suprlink now supports 8192 bytes on both the input file and the link file.
+suprlink now supports 16384 bytes on the output file in suprlink
+stexport now supports 8192 bytes on both the input file and output files.
+suprtool now supports eloquence b.08.30, and the following options for
+byteorder are also supported, native,cobol,be,be2,bedata,
+bedata2.
+request a download.
+suprtool/open change notice
+suprtool for mpe change notice
+suprtool for hp-ux change notice
+suprtool for amxw change notice
+
+03/21/2019
+early hp3000 anecdotes
+
+i got a chuckle when i read your chronology of the hp3000, and in particular this message on the webpage brought a smile.
+
+
+early in my career with hp (i started in 1975), i was attending training in cupertino, and toured the area where the hp3000 units were in final test.  these were the original hp3000 units, before the hp3000 cx.  they had wire-wrapped boards, and all of the sudden, none of the machines would run for more than a short time.
+
+when a wire wrap board is manufactured, the operator of the wire-wrap machine will insert a wire into the unit, then place the units small cylinder over a pin on the back of the board (the boards looked like a bed of nails onto back, with a pin for every connection that was possible). the operator would then pull a trigger to cause the wire to be wrapped around the pin, stripping the insulation from the wire as it was wrapped.  the operator would then route the wire to the pin it was to be connected with, and repeated the process.  you could wrap several wires on the same pin, so that the signal could be sent to other pins.
+
+my memory was that there was one operator who did the wire wrapping for every hp3000 made.  hp manufacturing engineering folks were in a panic, because none of the newly made hp3000 units would work, and no one knew why.
+
+i remember the revelation when it was found that only the neat looking boards failed, the messy ones seemed to work ok.  the wire-wrap operator had decided to improve the aesthetics of her work, and began to route the wires vertically and horizontally to make the resulting boards look neat and tidy.  she did not realize that when two wires are routed side by side, interference will be transmitted from one wire to a neighboring wire.  when the wires are routed point to point, and not vertically and horizontally, the wires typically cross one another, and no cross talk.
+
+when we had new boards made, and requested that the wires be routed "point to point, everything started to work again.  it was not very long until the wire wrap boards were replaced with printed circuit boards.
+
+ted workman
+taunton, mass
+05/18/2018
+more reader feedback
+
+i read with interest your article about the history of the 3000. of particular interest was the part that said "the alpha was announced as the hp 3000 with a fancy cabinet of pizza-oven doors, available in four colors.".
+
+i once saw a hp 3000 which was multiple cabinets, each of which had many wood-grain doors which were the 19" width of the rack by perhaps 10" high, each of which had an ace lock (round key, like on vending machines). i be- lieve that at least some of the compartments behind these doors held wire- wrap boards, not etched pcbs. the "console" was a table with a pair of crts in the middle, and to the left and right of these crts were large panels full of leds, with stenciled-and-varnished designations for each led. i was told that one crt was reserved for maintenance functions, while the other was the os operator's console.
+
+does this ring any bells? was this a prototype? it doesn't sound anything like any other description of a 3000 that i've read.
+
+this would have been in 1974 or 1975..."
+
+thanks, terry kennedy (www.tmk.com)
+
+05/09/2018
+sigbar meeting!!
+dave wiseman has announced a meeting of sigbar in june in silicon valley, funnily enough
+	i  had just signed up for the silicon valley gran fondo which will be on the same weekend.
+
+
+we had such good times together for 25 years - i bought an hp3000 series ii for commercial union assurance in the 1970s and stayed within the community until the early 2000s with proactive and millware - and it would be great to meet all our old friends again.
+
+we are planning a social meeting in june 22-23 in the santa clara/cupertino area, exact venue to be decided when we know numbers. there may be a small charge for the venue hire and we have two optional excursions we can organise for a small charge. please use the link below to express your interest and book your flights now.
+
+
+   1. the computer history museum is in the vicinity and is on our list of potential venues. there will be an entrance fee and we can organise a group visit, even if it is not our meeting venue,
+
+   2. remember the company at 19220 pruneridge in cupertino? well, we have organised a tour of the address, which is now the apple hq visitor centre and will even hire a bus to and from the venue if enough people are interested. the charge will be around $10-$15 for the transportation.
+
+   wherever the event is held, we will organise food and drinks to be available for purchase. lastly, if a few vendors who made there money from the community could help sponsor the event we may be able to pay for all of this.
+
+   please share this email with anyone you know from the hp3000 community 
+
+   any questions? please feel free to contact me directly - my email/skype are below
+
+https://form.jotformeu.com/80934801853359
+
+
+
+dave wiseman
+
+davebwiseman@googlemail.com
+
++44 777 555 7017
+
+skype:  davebwiseman
+
+04/09/2018
+latest newsletter
+
+	the latest newsletter has been posted to the newsletter page, but you can read directly from this
+link.
+07/11/2018
+january 2018 newsletter
+the january 2018 newsletter has been send out to all our customers. it has some excellent articles, of note is an
+						article on ai from gavin scott.
+						
+january 2018 newsletter.
+02/02/2018
+suprtool 6.0 released
+suprtool 6.0 has been released as the production release. this version contains many new features and bug fixes:
+						
+
+stexport  has  a new set command called set excel leadzero on which tells the excel command to add leading zeroes to the fields  specified  in  the excel preserve command. 
+suprtool  has  a new function available to the if/extract commands called $inrecnum, which expects a double integer result. 
+suprtool has a new function called $leadzeroz,  which  will  add  leading zeroes to a display field and will optionally justify the field.
+suprtool   has  a  four  new  string  handling  functions,  specifically, $justifyl, $justifyr, $leadzerob and $respace.
+set backwardchain on tells suprtools  chain  command  to  do  a  backward chained read.
+the  list  command  now  has  a  nosameto  option  to turn off the sameto feature. 
+the add command to add data to an oracle table would fail on some  tables with an abort if there were a large number of tables in the database.
+set  amxw  perfwrite  would cause suprtool for amxw to fail with fserr 40 incorrectly when using output file,append.
+set sdextname on now prints a warning in suprtool for amxw, since  it  is not supported in that version.
+suprtool for amxw will test for both long fieldnames and short fieldnames when parsing the $lookup function.
+
+suprtool/open now has the ability to read self-describing files from hp-ux natively on linux. suprtool / open can also create self-describing files for use on hp-ux with set sdoutisbe on.
+suprtool/open now has the ability to read flat files from hp-ux and natively handle big endian integer and logical fields with set ffisbe on.
+suprtool/open can handle and create bigendian logical fields with set endianlog on.
+a new utility to convert the version number and field information for hp-ux self-describing files to be used on linux natively called sdlinux.
+the output,num option in suprtool / open, would not work if the input source was a self-describing or a flat file.
+on suprtool/open an output file would have a null written in the last byte incorrectly if the output file was an uneven byte length asuprtool / open now has the ability to read self-describing files from hp-ux natively on linux. suprtool / open can also create self-describing files for use on hp-ux with set sdoutisbe on.
+
+request a download.
+suprtool/open change notice
+suprtool for mpe change notice
+suprtool for hp-ux change notice
+suprtool for amxw change notice
+
+
+01/29/2018
+
+
+
+
+
+contact us | site map | fine print | copyright robelle
+
+
+
+
+
+
+
+
+

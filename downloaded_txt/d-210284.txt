@@ -1,0 +1,181 @@
+
+
+
+
+
+
+
+mkemp.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mkemp.com
+
+
+webgame
+
+
+
+
+
+
+
+webgame
+
+
+
+
+
+
+
+
+
+
+
+dutch card game- shuffle two decks
+- four cards face down in front of each player, rest in draw pile in the middle
+- dealer looks at one or two of her cards, all players can do the same but must have cards back down before dealer has her cards back down
+- anyone looking at their cards before or after this will receive one penalty face down card for each one they looked at
+- players are not allowed to rearrange cards in front of them
+- aces are worth one point, all other cards are face value (jacks=11, queens=12, black kings=13) except red kings which are 0, and 2 of diamonds which is -1
+- first player takes top card from draw pile and may either swap it with one of their face down cards or discard it.
+- next player has option to take card from top of discard pile, or draw a fresh one, and can then either swap it for one of their face down cards or discard it
+- if at any point a player believes they have a face down card that matches the one on the top of the discard pile, they can discard it. if they are wrong they get a penalty face down card. can be done multiple times, at *any* time the card is showing on the discard pile.
+- aces, when discarded allows discarder to choose a player to give a penalty card to.
+- queens, discarder may look at any face down card in front of any player
+- jacks, discarder may swap any two cards on the table (without looking, normally between players)
+- a player can call “dutch” on their turn which means all players have one more turn (caller has the last turn) and the round ends. the caller cannot be targeted with the effects of aces, queens or jacks.
+- if the player who called “dutch” does not have the lowest score at the end of the round, they are given a penalty card which is added to their tally
+- tally all scores, game ends when someone hits 100 or more#game cards   posted on wednesday, january 4 2017share this0 notes
+
+
+
+
+
+
+farklewhat you needsix dice, and paper and pencil to score.startroll all six dice, look for scoring dice (see below for what dice are worth), you must set aside a score each turn - if you can’t, you have farkled and the dice pass on to the next player and you get no score for the round. 
+if you can set aside all dice as scores (either all at once o r after several rolls) you can pick up all six dice, roll again and continue to build on your score.bankingafter setting aside a scoring dice you can either roll again or choose to bank your points - they are added to your running total and are safe. when you bank, the next player can either roll all six dice, or they can choose to build on your score. if they build, they only get to roll the dice that would have been available to you if you’d continued to roll.example: karen rolls four 6’s, a 2 and a 3. she sets aside the 6’s for 1000 points and calls “bank”. the next player is jo and she decides to build on the 1000, so can only roll the two dice (the 2 and 3), she gets a 5 and a 3. the 5 is 50 points and is added to give her 1050 which she banks. the next player is andrew, who chooses to build and rolls the one remaining dice. he gets a 6 which is no score, so he gets nothing and all six dice are passed to the next player to start again.you cannot bank your first points until you have at least 750. after that you can bank any amount.scoring5’s = 50 point1’s = 100 points1,1,1 = 300 points2,2,2 = 200 points3,3,3 = 300 points4,4,4 = 400 points5,5,5 = 500 points6,6,6 = 600 pointsfour of a kind = 1,000 pointsfive of a kind = 2,000 pointssix of a kind = 3,000 pointsa straight of 1-6 = 1,500 pointsthree pairs = 1,500 pointsfour of a kind + a pair = 1,500two sets of three of a kind = 2,500winning the gamebe the first player to meet or exceed 10,000 points to finish the game. each other player has one turn to try to beat your score. after all remaining players have had their turn, the player with the highest score wins.  #game   #dice   posted on monday, january 2 2017share this0 notes
+
+
+
+
+
+
+check what process is using your port!i got this today in iis after adding a binding for ssl (standard port 443)internet information services (iis) managerthe process cannot access the file because it is being used by another process. (exception from hresult: 0x80070020)run this to check what is using what port:netstat -anothen check the process manager to see what pid matches up. for me it was skype - not sure why skype needs 443, but shut it down, start the website in iis (which takes 443) then start skype again and it will get some other port.#web   posted on wednesday, april 6 2016share this0 notes
+
+
+
+
+
+
+markdown code on tumblryou have to use backtickshttp://jeromyanglim.tumblr.com/post/33554494605/how-to-include-code-blocks-in-the-tumblr-markdown#markdown   #tumblr   #code   #web   posted on thursday, january 14 2016share this1 notes
+
+
+
+
+
+
+something weird happened with java on dec 11/12 2015, and it stopped trusting “comodo certification authority” which was the root auth on a certificate one of my clients was using.the fix is either to update the java certificate trust store or to get a new certificate (which is what i did because it was time to get a sha2 one anyway). the new cert’s root is “comodo rsa domain validation secure server ca” and that’s working now, so must be in java’s trusted list.here’s a few things i had to do to make a sha256 csr on windows and get a file i could install:using openssl:
+http://www.trycatchfinally.net/2011/05/generate-an-x509-certificate-with-an-sha256-signature-hash/install openssl then run this or it won’t work
+set openssl_conf=c:\openssl-win64\bin\openssl.cfg
+use c:\temp to make everything easier to readopenssl req -nodes -sha256 -newkey rsa:2048 -keyout c:\temp\privatekey.key -out c:\temp\certificaterequest.csri got a wildcard cert via positivessl on www.ssls.comconvert the p7b they sent back into a pem file (the cer file in the guide above wouldn’t work for me)
+openssl pkcs7 -in c:\temp\star_domain_com.p7b -out c:\temp\result.pem -print_certscombine with privatekey
+openssl pkcs12 -export -in c:\temp\result.pem -inkey c:\temp\privatekey.key -name stardomaincom -out c:\temp\signedkeypair.p12go into iis and server certificates on the server and import the p12 file (iis asks for a .pfx but just change the option to . and select the p12, it will work fine).also very handy was nartac’s iiscrypto tool https://www.nartac.com/products/iiscrypto/ which helped me set up the server to use tls 1.2.i didn’t realise this but there are three things when it comes to ssl:
+- the protocol (tls 1.2)
+- the cipher (aes_256_cbc with hmac-sha1)
+- the key exchange (ecdhe_rsa)chrome was complaining about the cipher suite, and in fact even after upgrading it, it still says it’s obsolete, but it’s the best we can do on windows for now, so it gives a green lock anyway =)https://www.nartac.com/support/iiscrypto/faq
+says the following:
+chrome version 41 added a warning stating that your website is using obsolete cryptography if the cipher suite does not support forward secrecy and authenticated encryption (aead). the only two cipher suites that support this on windows using rsa certificates are tls_dhe_rsa_with_aes_256_gcm_sha384 and tls_dhe_rsa_with_aes_128_gcm_sha256. unfortunately those cipher suites use 1024 bits for their diffie-hellman parameters which has long been considered weak. the only way to get rid of this warning is to use dsa certificates or wait until windows 10 server is released. the issue with dsa certificates is that many older clients do not support them. windows 10 server is not going to be released until 2016. at the moment there is nothing we can do about it.#ssl   #openssl   #iis   #web   posted on thursday, january 14 2016share this0 notes
+
+
+
+
+
+
+function to convert text to url slug posted on wednesday, february 13 2013share this0 notes
+
+
+
+
+
+
+bootcamp startuphold the option/alt key when starting up to choose os#mac   posted on monday, february 11 2013share this0 notes
+
+
+
+
+
+
+font mime typesotf: font/opentype
+ttf: font/truetype
+woff: application/font-woff#web   posted on monday, february 4 2013share this0 notes
+
+
+
+
+
+
+distressed text using illustrator posted on friday, january 25 2013share this0 notes
+
+
+
+
+
+
+stencil style logo is now doneposted on monday, january 14 2013share this0 notes
+
+
+
+
+
+
+
+
+
+
+
+webgame
+
+
+
+
+
+powered by tumblr | designed by pixldesign
+
+
+
+
+
+

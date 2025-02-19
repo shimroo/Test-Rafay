@@ -1,0 +1,424 @@
+
+
+
+
+
+
+kodiak's korner - my little corner of the net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+homeall about kodiakkodiak’s links
+
+
+kodiak's korner
+
+
+
+
+
+
+my little corner of the net
+
+
+simple image galleries with eleventy
+
+
+written by kodiak
+on 11/01/2023
+—
+leave a comment
+
+
+
+
+as i continue converting my largest non-work site from jekyll to eleventy, i keep coming across things that i did in jekyll that no longer work in eleventy.  one of these is image galleries.
+jekyll and eleventy have a fundamentally different approach to how they handle files.  jekyll splits all of the files in the project folder into two types, based on whether or not they contain front matter.  files with front matter are transformed and the result is saved to the site folder.  files without front matter (which includes all images, pdfs, javascript, css, etc.) are simply copied to the site.  the latter, which jekyll refers to as “static files” are placed into a static_files collection which can be accessed in templates.  i was able to use this collection to make simple photo galleries.
+first, i created a gallery.html layout that looked something like this:
+{{ content }}
+
+<div class="gallery">
+  {% for image in site.static_files %}
+    {% if image.path contains page.gallerydir %}
+      <div class="gallery-image"><a href="{{ image.path }}" class="gallery-link"><img src="{{ image.path }}"></a></div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+then, for each gallery page, i’d add a markdown file with a gallerydir variable in my front matter set to the path of the directory containing my gallery images:
+---
+title: big event photos
+layout: gallery
+gallerypath: events/images/big-event
+---
+
+check out some photos from our big event!
+
+when the page is processed, the template code loops through the entire static_files collection, checks whether the path of each file falls within the gallerydir, and if so, links to it in the output.  i use a lightbox script (glightbox, in this specific case) to allow the user to browse the images in a pleasing way.
+eleventy doesn’t have this concept of static files.  eleventy only processes the types of files you tell it to look at and ignores everything else.  if you want eleventy to copy static files, you have to tell it to do so by using eleventyconfig.passthroughfilecopy() or something similar.  while this will get the files into your site, they won’t be automatically added to any collections.
+to build the list of gallery images, and keep them separate from the rest of the site’s images, i moved all of the gallery images into a “galleries” directory.  within that i created subdirectories of images for each gallery.  then i used the nodejs package fast-glob to find those files.
+first, fast-glob has to be installed:
+npm install --save-dev fast-glob
+then, it needs to be imported within .eleventy.js:
+const fastglob = require("fast-glob")
+and then we call it from inside the module.exports routine within .eleventy.js to build a list of our gallery images:
+const galleries = fastglob.sync(["**/galleries/*/*.*", "!_site"])
+this sucks the paths of any file that has the parent directory structure of galleries/{some gallery name} into an array. (the second parameter, !_site, tells fast-glob to ignore any file paths that are already copied to the _site directory; flast-glob doesn’t understand the eleventy file structure, so it doesn’t know to ignore _site.)  to actually use it, we need to create a new eleventy collection. to do that, we also add this to module.exports:
+eleventyconfig.addcollection("galleries", function (collection) {
+    let items = galleries.map((x) => {
+        let paths = x.split("/")
+        return {
+            gallery: parts[parts.length - 2],
+            path: x,
+            name: [parts.length -1]
+        }
+    })
+    return items
+})
+this takes the list of image paths and turns it into a set of objects with three properties: gallery (the name of the gallery the image is within, pulled from the last directory name in the path), path (the original path of the image), and name (the filename of the image, which i’m not actually using right now, but i figured my be useful to know in the future).  this list of objects is used to populate a new “galleries” collection in eleventy.
+with this new collection, i can update my gallery layout to look more like this:
+{{ content }}
+
+<div class="gallery">
+    {% assign images = collections.galleries | where: "gallery", gallery %}
+    {% for images in images %}
+        <div class="gallery-image"><a href="{{ image.path }}" class="gallery-link"><img src="{{ image.path }}"></a></div>
+    {% endfor %}
+</div>
+and in my page’s front matter, i replace gallerypath with gallery, and assign it the name of the gallery (i.e. the directory name within one of my site’s “galleries” directories) i want to show:
+---
+title: big event photos
+layout: gallery
+gallery: big-event
+---
+
+check out some photos from our big event.
+it’s important to note that fast-glob only returns a list of files that match the pattern, it does not copy them to the site automatically.  in my case, an existing passthroughfilecopy() for all jpeg images does the trick,  but we could also update the map function inside the addcollection() to handle this if we wanted.  as a future extension to this concept, i may look at using eleventy’s image plugin to automatically resize my images to ideal dimensions, but in my current use case, all of my images have already been manually resized.
+so that’s how it did it.  this method gets me to feature parity on the eleventy site, it still needs some work.  as it stands now, neither the jekyll or the eleventy solution is accessible.  i need a way to add additional information, like alt text for the images, to the galleries.  the obvious solution is probably to add a csv file to the site’s _data directory to store this information, but then i could just loop through that instead of using the file glob, so maybe this whole approach isn’t really needed at all.  we shall see.
+
+
+
+
+posted in general, technology, web design & programming, websites
+|
+tagged 11ty, eleventy, gallery, javascript, jekyll, markdown, photo gallery, static site generator
+
+
+
+
+
+
+recreating jekyll’s _drafts directory in eleventy
+
+
+written by kodiak
+on 09/13/2023
+—
+leave a comment
+
+
+
+
+i’m in the process of converting a couple of sites that i built a few years ago using jekyll to use eleventy instead. both tools are static site generators that work very similarly, but eleventy gives me more flexibility and, given that it’s based in javascript—a language i use daily—rather than ruby—a language i know almost nothing about—eleventy is much easier for me to extend and customize to my needs.
+jekyll has a unique feature that eleventy does not: the drafts folder. in jekyll, you can add content that isn’t ready for public consumption to a directory named _drafts , and when you build the site, this content will be ignored. to include the content, you add a --drafts argument to the jekyll build or jekyll serve command.
+while i never really made much use of this feature, the site i’m converting now does have a drafts directory with a couple of in-progress pages. eleventy doesn’t have the concept of draft content, so i wanted to find a workaround, at least for the time being.
+eleventy has a few ways to ignore files from being processed. first, anything inside node_modules is automatically ignored. then, anything in .gitignore (at least by default) or .eleventyignore files gets excluded, but adding the _drafts directory to one of these would mean it would never be processed. i need a way to selectively tell eleventy to build the draft content when i want it and ignore it when i don’t.
+fortunately, there is a simple solution: eleventy’s ignores collection, which is automatically populated from the files above. eleventy conveniently provides an api for adding or removing paths from the collection on a programatic basis. to make the drafts folder work, i added the following inside the module.exports in my site’s .eleventy.js file:
+if(process.env.eleventy_env === "production") {
+    eleventyconfig.ignores.add("_drafts")
+}
+this looks for an environment variable named eleventy_env with the value production and, if found, adds the file glob “_drafts” to the list of ignored content. this has the effect of ignoring anything located in any directory named _drafts located anywhere within the site when that environment value is present. if the eleventy_env variable is not set, or it contains a different value, the draft content will be processed.
+i’m already using eleventy_env to manage minification and map file creation for css and client-side javascript assets, so this works well for me. in fact, i don’t really have to think much about it because i’ve incorporated it into the npm run scripts in my `package.json`:
+"scripts": {    "build": "npm run clean; eleventy_env=production npx @11ty/eleventy",    "build-test": "npx @11ty/eleventy",    "watch": "npx @11ty/eleventy --watch",    "serve": "npx @11ty/eleventy --serve",    "clean": "rm -rf _site/*"}
+this means that drafts will be excluded if i nmp run build the site, but not during development when i’m most likely using npm run serve. if i want to exclude that content during development for some reason, it’s just a matter of running eleventy_env=production npm run serve.
+
+
+
+
+posted in general, web design & programming, websites
+|
+tagged cms, content management, eleventy, javascript, jekyll, nodejs, static site generator, website
+
+
+
+
+
+
+dynamic autocomplete with alpinejs and (almost) no code
+
+
+written by kodiak
+on 08/24/2022
+—
+2 comments
+
+
+
+
+i’m in the process of adding some new features to a web application i created several years ago.  it’s an app that makes it easy for a handful of non-technical users to manage users and groups in a third-party system.  it’s a multipage app that doesn’t use a lot of javascript, but where it does it uses jquery (don’t judge, we were all using jquery when this thing was written).
+i don’t have time to completely refactor the entire app, but i’d like to start the process of moving away from jquery, so i figured i’d avoid using it for the new functionality.  alpinejs is one of my favorite javascript libraries right now, and i figured it would be the perfect tool to use for this project, since it would give me modern, reactive-style support while still working within the confines of the existing multipage framework.  alpine can do most of what i need pretty easily–things like modals and input checking.  one of the things that i didn’t have a good answer for, however, was the autocomplete.
+in the current version of the application, adding users is done by selecting a group and entering a username into a form field.  of course we don’t expect that the application’s users will necessarily know the usernames of the people they’re adding, so i added a jqueryui autocomplete which is tied to a script that does an ldap search and returns a list of names.  as the user types in the field, a list of possible people pops up and, when one is selected, the proper username is entered into the field and the form can be submitted.
+the new functionality that i am adding also needs a user lookup.  of course, there are lots of “vanilla” autocompletes out there that i could use, but ideally i’d like to limit the number of extra libraries i need to include.  i’ve also been working on another project lately that involves form processing with javascript and, at some point when i was looking at the mdn site for something, i was reminded of the html 5 <datalist> element.
+if you aren’t aware, <datalist> lets you create a static list of options, similar to a <select> element, that can be attached to an <input>.  unlike a <select>, however, the <datalist> list is only a list of suggestions; values that are not in the list can still be entered.
+a <datalist> looks a lot like a <select>:
+<datalist id="animals">
+  <option>dog</option>
+  <option>cat</option>
+  <option>mouse</option>
+</datalist>
+it can also accept a key-value list, just like a <select>.  the only difference is that when an item is selected, the value shown in the field will be that of the value attribute rather than the label text.
+<datalist id="animals">
+  <option value="dog">dog</option>
+  <option value="cat">cat</option>
+  <option value="mouse">mouse</option>
+</datalist>
+a <datalist> is tied to an <input> element by adding a list attribute to the <input> element.  the list attribute should be set to the id of the <datalist> that’s to be used:
+<input type="text" name="animal" list="animals" />
+normally the <datalist> would contain static values that are included in the page when it is rendered on the server, but this wouldn’t work for my use case…it would be impractical to include all 20,000 or so user accounts that we have on every page load.  instead i need to build the list dynamically.  this is where alpinejs comes in.
+first, i need a datasource.  as i mentioned above, the app already has an endpoint, “/lookup” that is used by jqueryui.  this takes a query string parameter “term” and returns a json array that looks similar to this:
+[
+  {
+    "value": "jsmith",
+    "label": "john smith (jsmith, student)",
+  },
+  {
+    "value": "sjones",
+    "label": "susan jones (sjones, faculty)",
+  },
+]
+next, i need alpinejs.  in this case i’m using both the alpinejs base library as well as alpine fetch, a third-party plugin that helps with fetching remote data into alpine.  as with all alpine plugins, alpine fetch needs to be included before the base library.
+<script defer src="https://gitcdn.link/cdn/hankhank10/alpine-fetch/main/alpine-fetch.js"></script>
+<script src="//unpkg.com/alpinejs" defer></script>
+now i can create the alpinejs component.  that looks like this:
+<div x-data="{
+    results: null,
+    term: null
+}">
+  <label for="username">username:</label>
+  <input type="text" id="username" name="username" list="userlist" 
+    x-model="term"
+    @keypress.throttle="results = await $fetch('/lookup?term=' + term)"
+  />
+  <datalist id="userlist"> 
+    <template x-for="item in json.parse(results)">
+      <option :value="item.value" x-text="item.label"></option>
+    </template>
+  </datalist>
+</div>
+that’s it!  we now have a fully working autocomplete.
+let me break down what’s going on here:
+in the first line, the x-data attribute on the <div> signals to alpine that we are creating a new component.  the value of that attribute contains the default values for variables that we’ll be using within the component.results contains the results that were received the last time the /lookup endpoint was queried.  it will contain a json string.  we don’t have any initial data, so it is initialized to null.term will contain the term that is being searched.  it will be linked to the value of the input element, but since we aren’t starting with an initial value, it is also set to null.the <input> element on line 6 is where most of the interaction occurs:we link the field to the <datalist> using the list="userlist" attribute.the x-model="term” attribute establishes a two-way linkage between the field’s value and the term variable we initialized in x-data.  this means that any time the field value is changed, the variable will be updated to reflect it.  likewise, if the variable is ever changed directly (which never happens in this context), the field value will also change to reflect it.finally, the @keypress attribute sets an event handler that calls /lookup with the current value of the field each time a key is pressed.  the .throttle modifier is used to limit these calls to no more than once every 250 ms to prevent flooding the server.  $fetch() is a magic method provided by alpine fetch that makes a web request and returns the result body as a string, which we store in the results variable we created in x-data.alpine watches for changes to variables and reacts to them, so once we get new results, the x-for loop in the <template> on line 11 gets triggered.  this creates new <option> tags within the <datalist> for each result in the returned json data, replacing any that were there previously.  since results contains the raw string that was returned from the web request, we call json.parse() on it to parse it into a javascript array.on each <option> tag that’s created, the :value="item.value" attribute tells alpine to set a value attribute with the value from the result item and the x-text="item.label" tells it to set the element’s innertext to the value of the result item’s label.
+so far this approach seems to work great.  the only downside is that each browser has its own way to format the <datalist> display, and there’s no way to customize it with css.  that’s not a big deal to me in an app that only has a handful of users, but it might be if it’s used on a large, public-facing, well-branded site.  if that’s the case, it probably wouldn’t be too difficult to modify this approach to use, say, an absolute-positioned <ul> list, the way more traditional autocomplete utilities do things, though that would require a couple of additional event handlers, some aria tags to ensure accessibility, and a bunch of css.
+
+
+
+
+posted in cool, technology, web design & programming, websites
+|
+tagged accessibility, alpinejs, fetch api, javascript, web design, web development
+
+
+
+
+
+
+i’m an engineer
+
+
+written by kodiak
+on 12/13/2021
+—
+leave a comment
+
+
+
+
+from time to time when i was a kid, my grandparents would take me to santa’s land, a christmas themed theme park in southern vermont.
+on one of those trips, i remember buying a mechanical christmas tree toy in the gift shop.  the tree was made of three aluminum triangle-ish segments that were mounted to a disk.  when you pushed in on the lever on the handle, the disk would spin and the centrifugal force would cause the tree segments to pull apart, revealing a santa inside.  i remember looking at the all the gears that made the toy work and thinking, “i could take this apart and put it back together” (because that’s how my brain works sometimes), and i proceeded to disassemble the thing one afternoon at the table on my grandparents’ back porch.
+of course, getting it back together wasn’t as easy as i thought it would be, and when my grandmother came out to see the toy she had bought me turned into a pile of components, she just shook her head and said “you’re going to be an engineer someday.”
+my grandmother said i’d become an engineer many times.  i have no idea if this particular incident was the first time; it probably wasn’t and it definitely wasn’t the last, but it’s the memory that sticks with me.  i, of course, didn’t go into engineering, i went into software, ultimately getting a degree in information technology.  software engineering was still a pretty new discipline when i was in college, and by the time i graduated most companies were still using variations of “programmer/analyst” for their software job titles.
+“software engineer” has, of course, become a much more common job title now, and i’ve been calling myself a software engineer for several years, but i’ve never had anything official to back it up.  that changed recently as a result of a project to reevaluate and standardize job titles and descriptions across my organization at work.  we’ve had systems engineers and network engineers for years, but on the software side we’ve had programmer/analysts (or in my case, “technical team lead,” though what that meant was never well defined and tended to vary based on who i was reporting to at any given time).  the applications development managers successfully argued that, since the other teams had engineers, their teams should have software engineers, and it worked.  our job titles got updated last week.
+so grandma, you were right…i did become an engineer.  and now it’s official.  i’m sure you’re proud of me.
+
+
+
+
+posted in general, rit, technology
+|
+tagged engineer, engineering, job description, job title, software, software engineering, toys
+
+
+
+
+
+
+my decision to move to us mobile: nine months in
+
+
+written by kodiak
+on 05/13/2021
+—
+leave a comment
+
+
+
+
+about nine months ago it was time for new phones, and i decided that it was also a good time to leave verizon after being a verizon post-paid customer for probably 15 years.  the verizon network is the best bet in this area, especially in the more rural areas i often visit (or at least used to visit, pre-pandemic), such as at my mom’s house and the adirondacks, but verizon is expensive.  we were on a legacy plan, with two lines, 6gb of shared data, and a decent discount that i got through work which, with our phones paid off, was running us about $95 a month.
+with both of us having access to wi-fi at work (and me now working from home and almost never using data), we were pretty much never using anywhere close to all of the data we had available, but whenever i looked at verizon’s updated plans, it would have actually cost me more to drop to a smaller plan.  that’s when i decided to start looking at verizon-based mobile virtual network operators (mvnos).
+after looking around a bit, i stumbled on us mobile.  i hadn’t heard of them before, but i liked that they had a build-your-own-plan approach, similar to what ting used to offer, letting you pick exactly how many minutes and text messages, and how much data you think you’ll need at the start of the month.
+us mobile operates on two mobile networks.  nowhere on their site do they actually say what networks they are, but it’s not hard to figure out that their “superlte” network is verizon and their “gsm lte” network is t-mobile.  5g is supported on all plans, if it’s available and your phone supports it.  when you order their starter kit, they send a sim card for each network so you can test them both out and choose the one that works the best.
+based on our average usage with verizon, i built a plan that included unlimited talk and text and 1.5 and 2.5 gb of data per respective phone (at the time, us mobile didn’t offer shared data, so you needed to pick a specific allotment for each phone).  that first month cost us about $56 total, so we saved just under half of what we were paying verizon.  after a couple of months with them, however, us mobile began offering a set of new “unlimited” plans including one that offered unlimited talk and text and 2.5gb of data for $15.  this turned out to be even more economical for us, bringing our bill to a few cents under $40 once you add in the $2/month line access fee and 15% regulatory cost recovery fee.  even better, us mobile has increased the amount of data in this $15 plan every few months, from 2.5gb to 3.5gb and now 5gb, so now we’re getting more data than we did with verizon for half the price.
+just this month, us mobile added shared data options.  with these, you pay $9 per line for unlimited talk and text and then add data for $2/gb that’s shared across all lines.  i haven’t thought about switching yet, but i could probably shave off a few more dollars if i did.  using our old verizon plan as a model, two lines with 6gb of data would cost $30.96—a third of the cost of the old verizon plan—but i’d need to look at the numbers to ensure our data usage hasn’t changed and…well…i’m just not sure it’s really worth it at this point.
+us mobile also offers “unlimited everything” plans for as little as $25, if you have at least three of these lines on your account.  if you only need one line, though, they’re a bit more expensive than other carriers, at $45.  unlimited everything plans are full-speed, but don’t include hot spot access (though you can add it for $10 more).  you can also get a “perk” with three unlimited everything lines (like free netflix or hulu/disney+/espn+), and two perks with four lines.
+us mobile is primarily a byod, or bring-your-own-device, provider.  they do sell phones, but most of the phones they offer are older or less powerful models.  the two android devices they had when we switched were both about two years old, for example.  that’s ok, though, because you can buy almost any unlocked phone on the market and bring it to at least one of us mobile’s networks.  since our galaxy s7 were quite long in the tooth when we switched, we bought new, unlocked s20s at best buy and they work great on us mobile’s superlte network.
+us mobile has no contracts and plans are good for 30 days, after which you are free to choose an entirely different plan if you so desire.  if you underestimate your needs, you can add “top ups” to get more text messages, phone minutes, or data and these top ups rollover to the next month automatically, so long as you keep the line active.  unlike the big phone companies who generally charge a premium for extra data, top ups cost the same as when buying them initially.
+i was a bit gun-shy about switching providers, so i decided to order a small plan on a new number to give us mobile a try for one month.  after us mobile’s support team assured me that they’d be able to reset the sim when i was ready to port my number, i signed up for a handful of minutes and texts and 1.5gb of data and started playing.  all of my speed tests were comparable with my verizon plan and reliability seemed just as good, so we decided to make the switch.
+porting our numbers did have a couple of hiccups.  to port out, verizon requires that you go to a page in their customer portal and create a pin.  you then provide this pin to us mobile.  the same pin is good for all lines on the account.  when i created my pin, i didn’t bother two write it down, as i thought i’d be making two quick copy-pastes and be done, but the verizon site logged me out before i got to the second phone, causing me to lose the pin.  that left me on the phone with verizon for a good 45 minutes while they tried to figure out what to do, though they were able to finally figure out what the pin was and provide it to me over the phone.
+on the us mobile side, our phones didn’t activate automatically, as they should have.  this was easily corrected through a quick support chat, and within a few minutes we were in business.  they say that a port can take up to 48 hours to complete, but ours both happened within minutes, although the fact that we weren’t actually leaving the verizon network probably helped.
+there are a few benefits to verizon’s service that we’ve lost with us mobile, but they’re minor.  first, there’s no wi-fi calling, at least not on superlte.  this isn’t a huge deal, but it does mean that you end up using your cell data if you’re browsing the web while talking on the phone.  i’ve also discovered that i can’t use wegmans’ scan app to scan my groceries from my phone while i’m talking on it, since the app requires that you be on the store’s wi-fi.
+international roaming is a bit different, too.  when we were on price edward island for my sister’s vet school graduation, verizon’s travelpass was great—for $5/day we had access to our regular phone number for calls and texts, which made it easy to coordinate meetups with other family members who were staying in different hotels.  while us mobile supports international roaming, it’s for data only and requires a phone with an esim (which ours supposedly have, though the feature seems to be disabled).  if we were going to, say, take a trip to the falls or to toronto for a weekend, i’d have to buy an international data plan (for canada it’s $10 for 1gb or $30 for 5gb) and then i’d have to forward my calls to my google voice number or my home voip number if i wanted to be able to receive them (and since you can’t automatically forward text messages, i wouldn’t be able to get those until i got back over the border).  but i don’t see myself venturing to canada any time soon—not until they start allowing non-essential border crossings at least, and when we do go, it’s usually just for the day, so not having our phones isn’t a big deal.
+i have to say that i’ve been nothing but happy with my choice to switch to us mobile.  the service has been just as reliable as it was with verizon and, while i haven’t travelled to any super remote places like the adirondacks lately, i’ve had great service everywhere around here that i’ve been, including in some of the rural hill towns.  while there are a few gotchas that we had to deal with, they were all minor, and us mobile’s support has been phenomenal, at all hours of the day.
+interested in trying us mobile?  i have a limited number of promo codes available that will give you 50% off your first plan, up to $10 and will give me a similar discount on a future bill of mine.  hit me up in the comments if you’d like me to share and i’ll reach out to you on the email address you provide.
+
+
+
+
+posted in general
+
+
+
+
+
+
+« older entries
+
+
+
+
+
+
+
+
+recent posts
+
+
+simple image galleries with eleventy
+
+
+recreating jekyll’s _drafts directory in eleventy
+
+
+dynamic autocomplete with alpinejs and (almost) no code
+
+
+i’m an engineer
+
+
+my decision to move to us mobile: nine months in
+
+
+follow me 
+facebook
+linkedin
+twitter
+flickr
+
+tagsandroid
+app
+boston
+boy scouts
+brother
+browser
+ca
+cms
+computer
+daily show
+droid
+eleventy
+firefox
+free
+hosting
+ice
+iceweasel
+javascript
+jekyll
+laptop
+mac
+macbook
+nodejs
+os x
+phone
+php
+printer
+raspberry pi
+raspbian
+raspi
+remote desktop
+rit
+scouts
+secure
+server
+static site generator
+sys admin
+tay house
+vesta
+vestacp
+web design
+web development
+web site
+website
+work
+ 
+ 
+
+
+<
+
+
+
+
+© 2021 kodiak's korner. built on wp framework — powered by wordpress
+
+
+
+
+
+
+
+
+

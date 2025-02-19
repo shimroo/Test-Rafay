@@ -1,0 +1,498 @@
+
+
+
+good math/bad math
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+    
+	good math/bad math
+	
+  
+
+ 
+
+
+thursday, june 15, 2006
+
+
+
+	 
+	 reminder: gm/dm doesn't live here anymore
+	 
+    
+
+just a reminder for folks who haven't updated their links yet:good math, bad math no longer lives here at blogger. it's now part of the scienceblogs coterie, and can be found here.there've been a lot of new posts over at sb since the move:- category theory.- more bad gematria gibberish.- more debunking of creationists- more programming language discussions
+
+posted by markcc at 
+      2:26 pm 
+       |
+         1 comments
+
+
+
+
+
+wednesday, june 07, 2006
+
+
+
+	 
+	 category theory at gm/bm's new home
+	 
+    
+
+the first post in my new series on category theory is up at the new home of gm/bm.
+
+posted by markcc at 
+      10:06 am 
+       |
+         1 comments
+
+
+
+
+
+tuesday, june 06, 2006
+
+
+
+	 
+	 new  goodmath post at scienceblogs: election fraud?
+	 
+    
+
+i've gotten an absolutely unprecedented number of requests to write about rfk jr's rolling stone article about the 2004 election.  i've written about it over at gm/bm/s new home at scienceblogs.
+
+posted by markcc at 
+      1:27 pm 
+       |
+         0 comments
+
+
+
+
+
+monday, june 05, 2006
+
+
+
+	 
+	 more aig lying with statistics: john woodmorappe and noah's ark
+	 
+    
+
+today's sample of bad math is something i talked about way back in my talk.origin days in usenet; and which has also been discussed  by lots of other people. i thought it was too old, too well covered to be worth taking time and space here, but i keep having people forward it to me, suggesting i post something on it here. so who am i to stand in the way of the desires of the readers of this blog?back in 1996, a guy publishing under the pseudonym of "john woodmorappe" wrote a book called "noah's ark: a feasibility study." aig has an article discussing the basic ideas of the book here, and it is this article that i'll be using as the focus of my post.woodmorappe's text purports to be a details study of whether or not it was technically feasible for the biblical story of the ark to be true. he tries to demonstrate the possibility of truth by purportedly showing how all of the animals could fit on the ark, and proposing mechanisms by which they could be fed, wastes could be disposed of, etc.the aig article focuses on that first issue: is it possible that the ark, as described in the bible, have enough room to fit all of the animals? they admit that the answer to this comes down to two questions: how many animals needed to be on the ark? how much space was needed for each animal?they play a few games to try to reduce the number of animals that they need to make space for, ending up with 16000 individual animals. the reasoning to get that number of pretty questionable, but it's not worth quibbling over, because of what comes next.woodmorappe wants to figure out how much space is needed by 16000 animals. how does he do that? easy. he figures out an average amount of space needed by each animal, and multiplies it by the number of animals. doesn't sound bad as a way of making an estimate, right?except... how does he figure out how much space is needed by each animal?he figures out the median size of the animals in the ark; and determines that the median-sized animal would need a space of .5 by .5 by .3 meters - that is less than 1/10th of a cubic meter per animal. multiply that by the number of animals, and you come up with 1200 cubic meters. not terribly much space at all - which would mean that there would be plenty of room for food for the animals.so what's wrong?there are two different figures in statistics that can be used as an 'average' value, the mean, and the median. the mean is what we normally mean by average: take all of the values, add them up, and divide by the number of values. the median is a way of selecting a "typical" individual to represent the average: take all of the values, lay them out in order, and pick the value in the middle.woodmorappe uses the median. the median represents a "typical" individual; it's the value in the center. the nice thing about the median is that it gives you an idea of what a typical individual is like, without having it shifted by outliers in your data.  but it's useless for trying to extrapolate to things about the population - because the outliers are part of the population; you can't eliminate them from your calculations about the population.for example, i've had 7 pets in my lifetime. their weights were 18lbs (a big fat cat), 15 lbs (a tiny poodle), 20 lbs (a smallish mutt), 20 lbs (another mutt), 10 lbs (a normal sized cat), 18 lbs (another poodle), and 78lbs (a golden retriever).the median size of my pets? well, in order they were (10, 15, 18, 18, 20, 20, 78); so the median was 18 lbs.the mean size of my pets? (10+15+18+18+20+20+78)/7 = 25.5lbs.if i use the median to reason about the group of pets, i'd conclude that all of my pets together would weight 126 lbs. but that's not true: they would weigh 179lbs! i'd be off by 54 lbs! because by using the median instead of the mean, i've ignored the outlier.that's exactly what woodmorappe does. he concludes that the median animal is the size of a rat, and a rat, 1/10th of a cubic meter is more than enough space. but he's very deliberately eliminated the effects of elephants, dinosaurs (which woodmorappe claims were on the ark!), horses, cows, antelope. they're all outliers in his data. by using the median, he's been able to reduce the space requirement by a huge factor - by at least something between one and two orders of magnitude!this isn't sloppiness. no one would reasonably even compute a median size for something like this. this is a deliberate attempt to lie with numbers: by taking advantage of the fact that most of his readers aren't going to notice that he uses the median rather than the mean for an average (or in fact by relying on the fact that most don't even know the difference), he's lying to them to help them reach the conclusion that they really want.quite simply, woodmorappe deliberately makes a mathematical error, and then uses that error to lie.
+
+posted by markcc at 
+      10:19 am 
+       |
+         18 comments
+
+
+
+
+
+saturday, june 03, 2006
+
+
+
+	 
+	 site changes complete
+	 
+    
+
+sorry for the burst of index posts for those of you reading via  rss aggregators. the site changes are done now; there's a menu in the sidebar linking to the topic indices, and i've added a couple of links to the  (still too small) blogroll.  i might still make a polish change or two to the site, but nothing that should trigger any new rss updates. please let me know if you happen to notice any problems with the indices or sidebar.
+
+posted by markcc at 
+      4:00 pm 
+       |
+         1 comments
+
+
+
+
+
+
+
+
+	 
+	 information theory (index)
+	 
+    
+
+  some good math: an introduction to information theory, part 1an introduction to information theory, part 2: entropyreally bad math: evolution and informationthe problem with irreducible complexityanother take on information theory 
+
+posted by markcc at 
+      3:33 pm 
+       |
+         0 comments
+
+
+
+
+
+
+
+
+	 
+	 group theory (index)
+	 
+    
+
+  fun stuff: group theorysome applications of group theory, promoted from commentsgroup theory: what is symmetry? why do i care?group theory 3: expanding on symmetrygroup isomorphism: defining symmetry transformationspermutations and symmetry groupsgroups, subgroups, and group actions, oh my!cyclic groups 
+
+posted by markcc at 
+      3:32 pm 
+       |
+         0 comments
+
+
+
+
+
+
+
+
+	 
+	 automata theory (index)
+	 
+    
+
+   the halting problem    playing with mathematical machines    turing machine tricks    computer science, math, and languages    regular languages    nondeterminism in finite state machines    context free languages    context sensitive languages    level 0, recursive and recursively enumerable languages    busy beavers    the minsky machine    a minsky machine to play with 
+
+posted by markcc at 
+      3:31 pm 
+       |
+         0 comments
+
+
+
+
+
+
+
+
+	 
+	 rebutting creationism (index)
+	 
+    
+
+   really bad math: evolution and information    studying bad probability: the creation science research center    the king of bad math: dembski's bad probability    the problem with irreducible complexity    the conflict between ic and it arguments    more bad probability: cheating with chance from aig    berlinski's bad math    '   one last stab at dembski: the vacuousness of specified complexity    berlinski responds    q&a roundup: no free lunch    dembski and displacement    relativity and young earth bogosity    creationists and extra-solar planets    probability and fine tuning 
+
+posted by markcc at 
+      3:31 pm 
+       |
+         0 comments
+
+
+
+
+
+
+
+
+	 
+	 logic (index)
+	 
+    
+
+   a bit of logic    calculus - no, not that calculus!    quick logic: reasoning and semantics    more logic: models and why they matter    correcting my models post; or, why markcc is a dummy   logic fun: intuitionistic logic   moving towards models: kripke semantics   finally: the kripke model for intuitionistic logic 
+
+posted by markcc at 
+      3:30 pm 
+       |
+         0 comments
+
+
+
+
+
+
+
+
+	 
+	 rebutting pear (index)
+	 
+    
+
+   the bad math of paranormal research: pear    a sunday snack: finishing up the pear    repearing bad math    pear yet again: the theory behind paranormal gibberish  
+
+posted by markcc at 
+      3:29 pm 
+       |
+         5 comments
+
+
+
+
+
+
+
+
+	 
+	 lamda calculus (index)
+	 
+    
+
+ my favorite calculus: lambda (part 1)the genius of alonzo church: numbers in lambda calculusbooleans and choice in lambda calculuswhy oh why y?from lambda calculus to combinator calculus types in lambda calculusfinally, modeling lambda calculus: programs are proofs!
+
+posted by markcc at 
+      3:23 pm 
+       |
+         0 comments
+
+
+
+
+
+
+
+
+	 
+	 reader poll about topics; and some site maintenance stuff
+	 
+    
+
+i'm going to be doing a bit of work on the site this weekend to try to create a couple of indices for some of the series of posts that i've written. (after three months, i'm starting to realize that the site could use a bit or organization :-) ) so there's going to be a flurry of activity around here that's not terribly interesting, but it will make things easier to find as a result.i'm also trying to decide what subjects i should write about next. i've got a few possibilities in mind, and i thought i'd ask you folks what you're interested in. let me know which of the following interest you most; or feel free to "write in" your own suggestions.topology. i'm far from an expert on the subject, but it's an interesting one, and i'm willing to study up and write about it, so long as people are patient with me when i inevitably make mistakes.more group theory. i've got enough time to be able to continue the series of posts on group theory.modal logics. in the whole lambda calculus thing, i mentioned the idea of modal logics. there are some really fascinating modal logics (i particularly like temporal and linear logics) that allow you to reason in different ways.graph theory. graph theory is a fascinating area of discrete math that think is a lot of fun.category theory. category theory is similar to group theory; it's one of those fields based on abstracting something down to its bare essentials. in cat theory, it's the concept of a function as a mapping from one thing to another.
+
+posted by markcc at 
+      12:31 pm 
+       |
+         19 comments
+
+
+
+
+
+friday, june 02, 2006
+
+
+
+	 
+	 astoundingly stupid math: the bullshit of homeland security funds allocation
+	 
+    
+
+hat tip to making light for the following.as you must have heard, this week, the us department of homeland security released information about the allocation of anti-terrorism funds to us cities. new york city, which is about 15 miles south of where i'm sitting right now, had its funding cut by 40%. the mayor of nyc pointed out the stupidity of this, saying "whenever we catch someone involved in a terrorist plot, they've got a map of nyc in their pocket".more information about the allocation has gradually been getting out. it turns out that the allocation method was remarkably simple. in their applications for funding, cities listed assets that they needed to protect. what dhs did was take the number of listed assets from all of the cities that were going to be recipients of funds, and give each city an amount of funding proportional to the number of assets they listed.so, the empire state building is equal to the neighborhood bank in omaha. the stock exchange on wall street is equal to the memorial park in anchorage, alaska. mount sinai hospital is equal to the county hospital in the suburbs of toledo, ohio.  the new york subway system (18.5 billion passenger-miles per year) is equal to the minneapolis transit system (283 million passenger-miles per year). the brooklyn bridge is equal the george street bridge in new brunswick, nj.we know, perfectly well, how to estimate relative values and risks - the insurance company does it every day. did our government do that? no. they ignored the established math of how to do it right, in favor of a stupid, a mind-bogglingly stupid, a deliberately stupid formula that would screw over every single actual high-risk location in the country, so that they could shove the money at people who don't need it.
+
+posted by markcc at 
+      1:33 pm 
+       |
+         7 comments
+
+
+
+
+
+
+
+
+	 
+	 finally, modeling lambda calculus: programs are proofs!
+	 
+    
+
+now that we've worked through intuitionistic logic and it's model; and we've worked from the untyped lambda calculus to the simply typed lambda calculus; we're finally ready for the model of lambda calculus. and this is where it gets really fun.think about the types in the simple typed language calculus. anything which can be formed from the following grammar is a lambda calculus type:type ::= primitive | function | ( type )primitive ::= a | b | c | d | ...function ::= type -> typethe catch with that grammar is that you can create type expressions which, while they are valid type definitions, you can't write a single, complete, closed expression which will actually have that type. (a closed expression is one with no free variables.) when there is an expression that has a type, we say that the expression inhabits the type; and that the type is an inhabited type. if there is no expression that can inhabit a type, we say it's uninhabitable.so what's the difference between inhabitable type, and an uninhabitable type?the answer comes from something called the curry-howard isomorphism. for a typed lambda calculus, there is a corresponding intuitionistic logic; a type expression is inhabitable if and only if the type is a theorem in the corresponding logic.look at the type "a -> a".  now, instead of seeing "->" as the function type constructor, try looking at it as logical implication. "a implies a" is clearly a theorem of intuitionistic logic. so the type "a -> a" is inhabitable.now, look at "a -> b". that's not a theorem, unless there's some other context that proves it. as a function type, that's the type of a function which, without including any context of any kind, can take a parameter of type a, and return a value of a different type b. you can't do that - there's got to be some context which provides a value of type b - and to access the context, there's got to be something to allow the function to access its context: a free variable. same thing in the logic and the lambda calculus: you need some kind of context to establish "a->b" as a theorem (in the logic) or as an inhabitable type (in the lambda calculus).it gets better. if there is a closed lc expression whose type is a theorem in the corresponding intuitionistic logic, then the expression that has that type is a proof of the theorem. each beta reduction is equivalent to an inference step in the logic.  the logic corresponding to the lambda calculus is it's model. in some sense, the lambda calculus and intuitionistic logic are just different reflections of the same thing.there are two ways of demonstrating the isomorphism: there's the original way that curry did it, using the combinator calculus; and there's something called the sequent calculus.  i learned it using the combinator version, so i'll run through that quickly. another day, probably early next week, i'll do the sequent version.let's recall what a model is. a model is a way of showing that every statement in the calculus is valid in some concrete universe of values - that there is a correspondence between some set of real entities and the entities in the calculus, where statements in the calculus correspond to valid statements about the real entities. so we don't actually need to do the full isomorphism; we just need to show a homomorphism from calculus to logic. (an isomorphism means you can go both ways: from calculus to logic and from logic to calculus. homomorphism is only from calculus to logic.)so what we need to do is explain exactly how to take any complete lambda calculus expression, and translate it into a series of valid intuitionistic logic statements. since the intuitionistic logic itself has been proven valid, if we can translate lambda calculus to il, then we'll have proven the validity of lambda calculus - meaning that we'll have shown that computations in the lambda calculus are valid computations, and the lambda calculus is, indeed, a fully valid, effective computing system.how do we get from combinators (which are just a shorthand for lambda calculus without variables) to intuitionistic logic? it's actually amazingly easy.all proofs in an intuitionistic logic come down to a series of steps, each of which is an inference using one of two fundamental axioms: a implies b implies a (a implies b implies c) implies ((a implies b) implies (a implies c))let's rewrite those using arrows, like a type:  a -> b -> a; and (a -> b -> c) -> (a -> b) -> a -> c.do those types look familiar to you? take a look back at the post on simple typed lambda calculus if they don't. those are the types of the s and k combinators.the steps to the model should be pretty obvious now. types in a lambda calculus correspond to types of atoms in an intuitionistic logic. functions are inference rules. each function can be reduced to a combinator expression; and each combinator expression is an instantiation of one of the fundamental inference rules of the intuitionistic logic. the function is a constructive proof of the theorem in the corresponding logic.now, is that cool, or what?(to which any normal person would respond "what". but then, i'm obviously not a normal person, i'm a math geek.)
+
+posted by markcc at 
+      11:31 am 
+       |
+         6 comments
+
+
+
+
+
+
+
+
+	 
+	 friday random ten, 6/2
+	 
+    
+
+yes indeed. it's friday again. where did my week go? phish, "my friend, my friend". i actually really like certain jam bands. phish is often quite good. this is one of my favorites of their studio tracks.  (and, if you look at the cover of the album, and you draw a line through the arm of the guy on the bed, you can make a 23.5 degree angle! phish is in on the secret!)deanta, "the rocky reels". deanta is a wonderful traditional irish band, which prominently features one of my favorite irish flutists, deirdre havlin. beautiful music, arranged in a wonderfully sparse way. bouzouki, flute, fiddle, piano, and harp. just stunning.porcupine tree, "prodigal". pretty much what you expect from pt: somewhat odd dark chords, an unexpectedly smooth voice, kinda catchy melody. cool stuff. not their best, but still awfully good.sonic youth, "disappearer". sonic youth often do things with interesting tonalities, microtones, and strange extended jams involving playing distorted guitars with all sorts of peculiar implements.  this is a perfect example of that.king crimson, "the power to believe 1: a capella". i love the stuff that fripp and company have been up to in the last couple of years. they've been getting even stranger with time. after the projekcts work, they did this album, and it really shows the way that all that free-improv work affected them.miles davis, "deception". it's miles, what more do you need to say?nightingale, "the discharged drummer". nightingale is a wonderful french-canadian acoustic folk trio, and one of the best contradance bands in the world. beautiful little track, this one.pain of salvation, "rope ends". neo-progressive spin-off of the flower kings. very cool band.broadside electric, "with her head tucked underneath her arm". broadside is a philadelphia based electric folk band which plays a lot of stuff based on ballads from childe's compilation. they also mix in traditional irish, klezmer, and progressive rock influences. the usual lineup is lead singer/guitarist/dulcimer, electric violin, chapman stick, tinwhistle/oboe, and drum. this is one of their humorous songs, about the ghost of ann boleyn haunting  the tower of london. (who doesn't love lyrics like  "  along the draughty corridors for miles and miles she goes/she often catches cold, poor thing, it's cold there when it blows/and it's awfully awkward for the queen to have to blow her nose/with her head tucked underneath her arm!") it's not one of their originals, but who else has recorded it with a klezmer violin solo?pat donohue, "the other end of the mississippi river blues".  pat is the guitarist from the guys all-star shoe band on prairie home companion. he's the best finger-style guitarist that i've ever seen in person. he's also quite a goof: pat's own description of what he does is "go out and find perfectly good songs, and then ruin them". this one is one of his originals. silly, but fun. ("they've got magnolia trees, sweet southern breeze; i've got ice and snow, 26 degrees below".)
+
+posted by markcc at 
+      9:39 am 
+       |
+         2 comments
+
+
+
+
+
+wednesday, may 31, 2006
+
+
+
+	 
+	 improbable is not impossible, redux
+	 
+    
+
+i actually decided to say a bit more about the concept of improbable vs. impossible after my last post.as i've said before, the fundamental idea behind these arguments is what i call the "big numbers" principle: we (meaning human beings) are very bad at really grasping the meaning of very large numbers. it's hard to really grasp what a million is: if you counted one number a second, with no breaks of any kind, it would take you more than 11 days to count to one million. when we start getting to numbers that dwarf a million, our ability to really understand what they mean - to really grasp on a deep, intuitive level what they mean - just completely goes out the window.what does 10^20 mean? if it takes 11 days to count to one million, then it would take roughly 11 times 10^14 days - or 3 times 10^12 (aka 3 trillion) years to count to 10^20. that just doesn't mean anything on an intuitive level. so what does 10^100 mean?what happens when we start to look at probability? well, it's really easy to get huge numbers in probability calculations - the kinds of numbers that we can't really grasp. and because those numbers are so meaningless to us, so utterly beyond the reach of what we really comprehend, the probabilities of astonishingly common events can seem like they're entirely beyond the realm of possibility: they must be impossible, because how could anything so easily comprehensible create numbers so incomprehensible?who hasn't shuffled cards? who hasn't played a game of klondike solitaire? and yet, every time we do that, we're witnessing an event with a probability of roughly 1 in 8 times 10^67!if something as common as shuffling a deck of cards can produce a result with odds of 1 in 10^67, then think of the probability of something uncommon: what's the probability of the particular arrangement of molecules in a particle of dust? or the shape of a comets tail? those are all natural, possible events - and the probability of them happening the way that they do is pretty much beyond our capacity to imagine.when you grasp that, then you start to realize just how meaningless the big numbers argument is. no matter how improbable something is, that does not mean that it is impossible. impossible is a probability of 0. and any probability, no matter how small, is almost certainly the probability of something that's occurring in the universe, somewhere, right now.
+
+posted by markcc at 
+      8:39 pm 
+       |
+         20 comments
+
+
+
+
+
+
+
+
+	 
+	 repeat after me: improbable is not impossible
+	 
+    
+
+i got a request to respond to look at this. it's yet another one of those innumerate jackasses arguing that god must exist, because life is too unlikely otherwise.it's the same old crap, but with one interesting twist - this guy tries to provide an argument for why anything less probable than a specific level of improbability is absolutely physically impossible. in his own words:in a previous post, i presented a logical, factual argument for the existence of god. but one of my readers, seanny mcshawn, took issue with my syllogisms, saying that i was simply making an argument “from incredulity”.when someone tries to win an argument based on simple probabilities, this is called an “argument from incredulity.” this is a logical fallacy. in other words, the sheer unlikeliness of a scenario does not preclude its possibility and cannot be proof against it.but was i arguing from “incredulity”?the answer is, pretty much, "yes".physicists estimate that in our universe there are 10^80 particles. mathematicians say that the mathematical level of absolute impossibility is 1 chance in 10^50.not any competent mathematician. however, the physical level of absolute impossibility is 1 chance in 10^80, and here’s why:on the basic level, probability is defined by the ‘particle’ example: finding a specially marked particle among 500,000 particles is beating odds of 1 in 500,000. in a universe that has 10^80 individual particles, the most improbable scenario is finding a specially marked particle in the entire universe. due to the size of our universe, it is impossible to have a more improbable set of odds than 1 chance in 10^80. anything that is more improbable than the most improbable is by all standards absolutely impossible.i have never seen this particle example nonsense. but nonsense is what it is. it is, in fact, astoundingly easy to demonstrate.ready? are you sure? ok. here goes:adfjiopwqeruoipboisdupoqwerbjksggfiuqwerup9ujdkncblkjdbfqlijwecna34kjvldjfghqiopewufnadsmvbviuhwrowprotiudvncmbcxbnajkhgpqrjwopeporewgjvdlkfmfkpoweri3nwe9mfwkdgnguipewiofkxnvcvpuiweklhhjnjwrn9fpuoisdhpvjpndjkgnewqhtrepiuwifjoxcjvkneqotiurhwepafkmakdlgnqwejrhpqfioudshnfeiqjhweiufhthat's 286 random characters, produced by pounding my hands on my keyboard, and then deleting any punctuation characters (because i'm too lazy to figure out how many unshifted characters there are on my keyboard, so i stuck to numbers and letters.) the odds of generating that particular string are 36^286. that's quote a bit less likely than 10^80. but guess what? it's possible!or, just to annoy the fundies, go get yourself a deck of tarot cards. (hey, they're good to have. there are some damned neat poker variants that you play with a tarot deck, not to mention some funky solitaires.) a tarot deck has 78 cards. shuffle the deck. lay the cards out in order. the odds of that ordering? less than 1 in 10^115. but entirely possible.what is the probability of a solar flare taking a specific shape? think of the trillions of trillions of particles in a flare, and the unique shape of each one. the probability of those shapes? quite a bit worse than 1 in 10^80.this one in 10^80 stuff is pure nonsense. it's just another attempt to create an arbitrary threshold beyond which we can say something is impossible.he then goes on to repeat yet another variant of the "odds of life based on the probability of a particular protein" gibberish. i've covered that plenty of times on this blog; for example, my analysis of berlinski's version of this argument here.so this guy concludes with:this is not an argument from incredulity. this is an argument from facts: cold, hard facts. since any set of odds above 1 in 10^80 is absolutely impossible, random chance could not and did not produce life.except that it is an argument from incredulity, utterly lacking in cold, hard facts. in fact, it's trivially refuted by cold hard facts; and it's based on one of the most pathetic attempts i've seen so far to define "impossible" in terms of probability.
+
+posted by markcc at 
+      7:53 pm 
+       |
+         14 comments
+
+
+
+
+
+
+
+
+	 
+	 magic 23.5 update: osborne runs away.
+	 
+    
+
+just thought i'd put up a quick little note here. i found that the author of the "23.5" stuff, after giving up on responding here, has set up a nice little website - sans comments - in which he defends himself from the criticisms here.since i went to the trouble of publically presenting his defense on the front page of this blog, and engaging in a civil discussion with him in the comments, i'm more than a little bit ticked at this. he's obviously welcome to handle things as he wants, but i find it rather cowardly of gary to silently drop out of a public, open discussion here, and then continue it on a private site, where no one who disagrees with him is permitted to respond.i'm not going to link to it, since he's got rather a lot of advertisements set up (you actually have to sit through an ad on the main link to the site before you're allowed to read any content), and i'd rather not send cash in his direction as a reward for this. if you really care, you can find it either through google, or through the sitemeter referrals link on the bottom of the front page of this blog.
+
+posted by markcc at 
+      2:29 pm 
+       |
+         10 comments
+
+
+
+
+
+
+
+
+	 
+	 practical applications of good math: type checking in programming languages
+	 
+    
+
+(since i see that there are still links pointing at this post, i'll point out here that this blog has moved to scienceblogs. this discussion was continued in a post there.)i thought today i'd go a bit off topic, and rant a little bit about stuff that's been bugging me lately in my real work. it does, in its bizzare way, relate to the lambda calculus series i've been writing lately.what i do professionally is research in a field called collaborative software development:  how to build tools that help groups of people work together to build large systems. it's an interesting thing to do, with a huge range of things that can be done, ranging from better programming languages to better configuration management systems to better programming environments to entirely new kinds of collaborative tools. it involves practical programming, math, psychology and human factors, and a few other interesting things.my approach to this kind of work is to view the key problem as being one of communication. most problems in large systems are ultimately not algorithmic errors - they're errors where some key piece of information was not correctly communicated between developers. for example, one of the most common bugs in large systems occurs when the implementor of a piece of code makes assumptions about how their code is going to be called; and the developer who uses that code makes different assumptions. to be concrete; i experienced this recently on my project at work. i'm working on a bit of code, and one function i call takes a lot of parameters, each of which is an array of objects. most of the time, you only supply a real value for one or two out of a list of 8 parameters. i assumed that for unused parameters, it made sense to pass null - that's how i would have written that method. the person who wrote it expected callers to never pass null, but to use empty arrays for unused parameters. program compiles, deploys, and boom: exceptions out the wazoo. (there was a dynamic check for null, but because of some proxy stuff we do, it was very hard to track it down.)this isn't a result of incompetence on anyone's part. this project has some of the finest developers that i've ever met working on it. the person who wrote that method with the awful parameter list is actually a pretty great programmer - one of the top people from one of the top groups of developers that i know of. i don't think i'm incompetent either :-). so why did the error happen?because a key piece of information didn't get passed between us. between the size of our system, the number of people involved, the way the code is partitioned into components, and where the documentation lives, the information about what to do about empty parameters got lost.what does any of this have to do with lambda calculus? types.that problem wouldn't have happened if we were programming in my favorite programming language, ocaml. in ocaml, to be able to pass a "null" value, i actually need to specify that in the parameter declaration (as an option type). there's no way i can pass a null to a function that wasn't expecting one.it's a common assertion among a lot of the elite hackers out there that "real programmers don't use strongly typed languages", or the paul graham line about strongly typed languages. for example, here's paul on java:it's designed for large organizations. large organizations have different aims from hackers. they want languages that are (believed to be) suitable for use by large teams of mediocre programmers-- languages with features that, like the speed limiters in u-haul trucks, prevent fools from doing too much damage. this attitude really bugs me. the thing is, types are meta-information about a program - and useful meta-information. and the more people you have involved in a system, the more important it becomes to have strong, formal information about parts of the system that allow automatic checks. the elitism issue. "yeah, i'm a super-duper programmer who doesn't make mistakes; people who don't work the way i do are just inferior." yeah, tell that to the guys who wrote ocaml. the cluelessness issue: "i write programs in perl/python/commonlisp/... with three other guys who are all lisp wizards, and if we don't have a problem, then no one should, so that typing stuff is just nonsense to cover up for incompetence." there are problems that emerge as the size of a system and the number of people working on it increase. three people hacking on something is very different from 30 people hacking on it, which is very different from 300 people. as the number of people involved increases, you need to do more to ensure that information gets to where it's needed. the information loss issue. this is the one that actually bugs me the most. programmers know what types they're using. they know what types they're passing. they know information about the parameters they're taking, and the parameters that they're passing. good type system give them a way to write that down - and not just write it, but make it a part of the code, so that it can be tested. writing it down as a part of the code means that the information is recorded; that it's maintained; and that it's checked. not declaring types saves you a bit of keyboard time - but it means that there's important information in your head which you're not writing down. (i have exactly the same rant about parallelizing compilers, which is that you have to structure your code very carefully and precisely to allow the compiler to figure out the information that you knew before you wrote the code; but instead of letting you write it down, you have to trick the compiler into figuring it out on its own.)the most common response from people like paul to rants like mine is "strong testing, not strong typing." the idea being, type checking is really something like a very simple kind of compile time testing, which is inferior to a real, complete test suite.sure, strong typing in a language is no replacement for testing. but why on earth should i write tests to verify correct typing, when i can just put the type information in line in the code and have it tested automatically? typing and type checking is one part of the process; having a typed language doesn't mean you shouldn't write tests; writing tests doesn't mean that compile-time type checking is useless.  pulling the typing information out of line into a test is, frankly, just dumb: the more you spread the information around between multiple places, the less likely it is to be maintained, or even found.i'm a huge unit testing fan; but one of the major limitations of testing is information scattering. you're putting information about the invariants and requirements of your code in the logic of the tests - and because of the multidimensional nature of software systems, that inevitably means that some of the information is here, some there. trying to assemble the information you need from a list of test failures can be incredibly frustrating; and those tests often don't get maintained, so things change, but the tests aren't changed to thoroughly respect the new semantics. compile time checking can't get out of synch with the current state of the code.
+
+posted by markcc at 
+      1:46 pm 
+       |
+         27 comments
+
+
+
+
+
+
+
+
+
+
+about
+finding the fun in good math; shredding bad math and squashing the crackpots who espouse it.
+
+about me
+
+name:  markcc 
+
+view my complete profile
+
+topic indices
+good
+
+information theory
+group theory
+automata theory
+logic
+lamda calculus
+
+bad
+
+rebutting creationism
+rebutting pear
+
+links
+
+orac
+aetiology
+pharyngula
+bad science
+making light
+big dumb chimp
+rockstars' ramblings
+skeptico
+
+previous
+
+reminder: gm/dm doesn't live here anymore
+category theory at gm/bm's new home
+new  goodmath post at scienceblogs: election fraud?
+more aig lying with statistics: john woodmorappe a...
+site changes complete
+information theory (index)
+group theory (index)
+automata theory (index)
+rebutting creationism (index)
+logic (index)
+
+archives
+
+march 2006
+april 2006
+may 2006
+june 2006
+
+
+
+ rss
+
+
+ 
+
+ 
+
+ 
+
+
+
+
+
+
+
+

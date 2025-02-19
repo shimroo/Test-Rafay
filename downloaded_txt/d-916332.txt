@@ -1,0 +1,387 @@
+
+
+
+c64music!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+	c64music!
+	
+  
+commodore 64 music in the real world & other related sid stories
+
+
+
+
+
+
+
+sunday, november 01, 2009
+
+
+
+	 
+	 bleepstreet records is back!
+	 
+    
+
+
+after a few years pause, bleepstreet is back with a new relocated team and new releases. the label was originally founded in 1998 by johan kotlinski, most known for making the lsdj software for gameboy.apparently, a new batch of bleepstreet releases are imminent, so if you are into "nu-chip" related music this is definitely the label to watch out for the next decade.bleepstreet released among other gems a true c64 classic, the first 7" vinyl by goto80 called "papaya ep". for the relaunch of the label, bleepstreet released 2 digital maxi-singles by goto80 and dr. von pnok, available to buy in most digital music stores.listen to this bonus track by dr. von pnok, a real funky acid techno tune made entirely of c64 samples.     dr. von pnok - atomicity & consistency  by  bleepstreet records//
+
+
+
+  
+    	
+         295 comments
+
+
+
+
+
+
+
+
+
+	 
+	 c64 sid phase accumulator and fpga tuning
+	 
+    
+
+
+in this video, jeri ellsworth explains the phase accumulators in the c64 sid sound chip. this technique was used in many early synthesizers and sound chips. jeri ellsworth is most known for creating the c64 dtv, the all in one joystick emulator in 2004. she is also responsible for designing the fpga chip of the c-one, so i guess no more introduction is needed, enjoy this master lesson.use an fpga to tune a secondary sid chip to give the c64 a pseudo stereo effect. this demo shows how you can play ordinary chip tunes as if they had stereo channel differences.// more videosfatmanandcircuitgirl.comjeri ellsworth youtube channel
+
+
+
+  
+    	
+         175 comments
+
+
+
+
+
+
+
+
+
+	 
+	 commodore 64 sid 8580 basic sample pack
+	 
+    
+
+
+via littlescale comes a basic but handy c64 sample pack. the pack contains samples of every c and g note from c-2 to g 6 for the main basic waveforms of a commodore 64 (8580 sid chip). the waveforms are triangle, sawtooth, pulse and noise. the duty cycle for the pulse wave was set to approximately 50%. the samples were recorded from c64 hardware directly using a custom designed interface.//download wav or mp3 sample pack here.
+
+
+
+  
+    	
+         135 comments
+
+
+
+
+
+
+
+
+
+
+	 more soundchip hacking: realtime sid delay
+	 
+
+
+
+the norwegian composer geir tjelta has introduced a new trick for the sid-chip: realtime delay. the output of the third channel of the sid can be recorded, and by delaying the playback of the sample on the “virtual” fourth channel, you get a subtle echo. this routine doesn’t use much cpu-time either. a nice and elegant trick. get the exe and mp3 here. it needs to run on the old 6581 chip, since this technique for playing samples relies on a bug that was almost fixed with the new 8580 chip.... read morevia chipflip//
+
+
+
+  
+    	
+         165 comments
+
+
+
+
+
+
+tuesday, november 04, 2008
+
+
+
+
+	 new revolutionary c64 music routine unveiled
+	 
+
+
+
+a team of supertalented coders have managed to break the limits of c64 sound once again.the human coding machine from germany and soundemon from finland, have managed to create a music routine that allows you to have:- 4 channels of 8-bit samplerate, digi playback- 2 channels of sid synth sound- you can filter both sid channels and samples!- and you have enough rastertime to not being forced to turn off the screen, and can actually do something with it ;)this technique has been presented in the x'2008 demoparty, the bi-annual classic of the c64 scene where usually all barriers are broken and this one has been, fortunately, no exception!the routine in question was demo'ed in the production vicious sid (picture), which also included other crazy audio routines you can check out by following the attached link.beta testing of this software will start soon, a few artists have started to experiment with pre-beta versions of the tools, like fanta, who made an amazing x'2008 sid music entry with his tune fanta in space, which you can check out by clicking here.(this is the output straight from a commodore 64, nothing added!)
+
+
+
+  
+    	
+         103 comments
+
+
+
+
+
+
+saturday, july 05, 2008
+
+
+
+	 
+	 how to code your own music player in assembler!
+	 
+    
+
+
+from the uk comes a nice 30min video tutorial for beginners on how to write a simple raster irq setup and run routine in assembly language for the commodore 64, using action replay for a monitor/assembler.this example is on how to write a simple music player with an irq. (part 1/4)//
+
+
+
+  
+    	
+         89 comments
+
+
+
+
+
+
+thursday, march 27, 2008
+
+
+
+	 
+	 goto80 unveils his secret tool!
+	 
+    
+
+
+yeah.. goto80 has been telling us since a few months about a secret tool called defmon, made by one of his pals, so in theory no mortal will ever play with it..only goto80, so, now we get to see the first video of the tool in action and my first impression is that defmon makes the sid synth spit out some data-fire !!! yeshhhh !enjoy the fresh breeze.//
+
+
+
+  
+    	
+         115 comments
+
+
+
+
+
+
+thursday, february 21, 2008
+
+
+
+	 
+	 musicvideo_il creatore "dei pupazzi"
+	 
+    
+
+
+following the paths of florian schneider, telex and hubbard comes il creatore, this musician based in rome published three albums full of vocoder, sidstation and c64 vibes. here goes the video  "dei pupazzi" from  "animali da riproduzione".//published by iperuranoaddizioni
+
+
+
+  
+    	
+         87 comments
+
+
+
+
+
+
+
+
+
+	 
+	 hypersid synthesizer
+	 
+    
+
+
+i'm not really sure now, but i think among all the sid based synths i've checked out i've never seen this one so here it goes.the hypersid, a subtractive hardware synthesizer based on the c64 sid chip, you control it via midi and also with a custom built vsti that controls all the parameters in the synth. you will find documentation and downloads in the official website.features:- 3 osc per key (monophonic)- 1 osc per key (3 voice polyphonic)- 4 waveforms per osc tri , saw ,noise, pulse (combinatorial)- osc transpose range +36 to -36 semitone- osc cent range -50 to +50 cent- osc ring modulation- 3 amp envelope adsr- multimode analog filter 12db/octave hp , lp , bp and (combinatorial)- 1 lfo part with sync , retrig and invert capability- 1 step lfo part with sync , retrig and invert capability- 2 general purpose envelope generator with invert capability- individual routing for each modulation source- 88 parameter for controlling overall synthesizer (automation recordable)- flexible preset manager with save and load function- built in 64 categorized factory preset .- clean sound without any self oscillating in most of the presets- automatic real time synchronization between software and hardware- independent midi out path from host- very low cpu usage//http://www.hypersynth.com/hypersid.html
+
+
+
+  
+    	
+         154 comments
+
+
+
+
+
+
+
+
+
+	 
+	 release_josstintimberlake "qetasid"
+	 
+    
+
+
+a complete datamongo on the sid is josstintimberlake on his latest release through kittenrock. if you need a way to confuse a computer just play this release.aoooooouuiiiiiiii!//http://www.kittenrock.co.uk/
+
+
+
+  
+    	
+         199 comments
+
+
+
+
+
+
+
+
+
+the c64 banner exchange
+
+
+the c64 banner exchange
+
+
+the c64 banner exchange
+
+
+
+
+
+c64music! is a publication by 1xn.org
+
+© 2007 some rights reserved
+
+enjoy life.
+
+
+
+
+
+
+
+
+
+
+
+c64music! is a journal about commodore64 related geek music projects, featuring diy, schematics, releases, 8bit music bands, retro software reviews, sid based synths...  you could call it a multiple sidosis... send us your c64music tips/stories...
+c64music! index
+
+bleepstreet records is back!
+c64 sid phase accumulator and fpga tuning
+commodore 64 sid 8580 basic sample pack
+more soundchip hacking: realtime sid delay
+new revolutionary c64 music routine unveiled
+how to code your own music player in assembler!
+goto80 unveils his secret tool!
+musicvideo_il creatore "dei pupazzi"
+hypersid synthesizer
+release_josstintimberlake "qetasid"
+
+c64music! previous issues
+
+august 2005
+september 2005
+october 2005
+november 2005
+december 2005
+january 2006
+february 2006
+march 2006
+april 2006
+may 2006
+june 2006
+july 2006
+august 2006
+september 2006
+december 2006
+january 2007
+february 2007
+march 2007
+april 2007
+may 2007
+august 2007
+september 2007
+october 2007
+november 2007
+december 2007
+january 2008
+february 2008
+march 2008
+july 2008
+november 2008
+november 2009
+
+c64music! recommended
+
+
+tctd
+chipflip
+micromusic.net
+del.icio.us/64
+c64.sk
+
+blog info
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

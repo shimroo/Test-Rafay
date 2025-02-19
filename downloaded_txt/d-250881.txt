@@ -1,0 +1,437 @@
+
+
+
+
+
+
+
+the courier mail server
+
+
+courier mail serverdownload | docs | links | imap | authlib | maildrop | sqwebmail
+features
+install
+the courier mail transfer agent (mta) is an
+  integrated mail/groupware server based on open commodity
+  protocols, such as esmtp, imap, pop3, ldap, ssl, and http.
+  courier provides esmtp, imap, pop3, webmail, and mailing
+  list services within a single, consistent, framework. individual
+  components can be enabled or disabled at will. the
+  courier mail server now implements basic web-based
+  calendaring and scheduling services integrated in the webmail
+  module. advanced groupware calendaring services will follow
+  soon.
+the courier mail server's source code should compile
+  on most posix-based operating systems based on linux, and
+  bsd-derived kernels. the courier mail server should also
+  compile on solaris and aix, with some help from sun's or ibm's
+  freeware add-on tools for their respective operating systems.
+the courier mail server evolved out of several
+  related projects, that merged together (more on that later). the
+  courier mail server implements smtp extensions for
+  mailing list management and spam filtering. the courier
+  mail server can function as an intermediate mail relay, relaying
+  mail between an internal lan and the internet, or perform final
+  delivery to mailboxes. the courier mail server uses
+  maildirs as its native mail storage format, but it can
+  also deliver mail to legacy mailbox files as well. the
+  courier mail server's configuration is set by plain text
+  files and perl scripts. most of the courier mail
+  server's configuration can now be adjusted from a web browser,
+  using the courier mail server's web-based administration
+  module.
+the courier mail server can provide mail services for
+  regular operating system accounts. the courier mail
+  server can also provide mail services for virtual mail accounts,
+  managed by an ldap, mysql, or postgresql-based authentication
+  database.
+certain portions of the courier mail server -
+  the mail filtering engine, the webmail server and the imap server -
+  are also available as separate, smaller, packages that can be
+  used with other mail servers.
+features
+
+can be configured to function as an intermediate mail
+    relay, or as a mail server that receives mail for multiple
+    domains and makes it accessible to mail clients, or anything in
+    between.
+on servers with multiple ip addresses, optionally assign a
+    vanity configuration to
+    courier for each ip address, making each ip
+    address look like a separate, dedicated, mail server instance,
+    for both incoming and outgoing mail. an alternative limited
+    vanity configuration for outgoing mail only, based on the
+    sending mail client's authenticated login, is possible when
+    multiple ip addresses are not available.
+web-based administration and configuration tool.
+local mailboxes can be accessed via pop3. the
+    courier mail server includes an integrated pop3
+    server.
+local mailboxes can be accessed via imap. the
+    courier mail server includes an integrated imap
+    server.
+a built-in imap/pop3 aggregator proxy. it is possible to
+    distribute all mailboxes between multiple servers. a separate
+    server (or a pool of servers) accepts connections from imap or
+    pop3 clients, then connects to the right server based on the
+    mailbox the connecting client is logging into.
+local mailboxes can be accessed via http. the
+    courier mail server includes an integrated webmail
+    server.
+the webmail server includes a personal event
+    calendar.
+uses an efficient maildir
+    format as its native mail storage format. some support is
+    provided for legacy mbox mailboxes.
+flexible "sender policy framework" support; the esmtp
+    helo, mail from, and the
+    from: header can be validated using spf.
+dsn, pipelining, and 8bitmime esmtp extensions. the
+    courier mail server automatically converts 8-bit
+    messages to 7-bit encoding, for relaying mail to external mail
+    gateways.
+starttls esmtp extension (as well as
+    imap/pop3/esmtp/webmail over ssl) in both the client and the
+    server (requires openssl). the esmtp client can optionally
+    require that the remote server's x.509 certificate is signed by
+    a trusted root ca (a default set of root cas is provided).
+experimental tls/ssl enhancements which are designed to
+    implement a secure mail delivery channel between trusted
+    domains, over an untrusted network. this is implemented by
+    requiring mail to select domains use tls/ssl connections which
+    require the remote server to present an x.509 certificate
+    signed by a private (not a public) certificate authority. this
+    is pretty much the highest level of security that can be
+    achieved with today's technologies. this doesn't even require
+    dnssec. even if the dns cache is poisoned with mx records that
+    divert mail to a rogue relay, the attacker will not have an
+    x.509 certificate signed by a private ca (this assumes, of
+    course, that the security of the private ca hasn't been
+    breached). this work is mostly complete, but still needs a
+    little testing.
+message submission protocol (rfc 2476).
+ipv6 support (experimental).
+note: the integrated servers work with maildir-based
+    mailboxes only. there are many existing pop3, imap, and webmail
+    servers that provide excellent support for mbox-based
+    mailboxes, so there's no reason to reinvent the wheel. some
+    popular mbox servers are: qpopper, uw-imap,
+    and neomail.
+a faxmail gateway (experimental) that forwards e-mail
+    messages via fax (requires a compatible class 2 faxmodem). the
+    courier mail server doesn't implement the actual
+    faxing all by itself, actually. the courier mail
+    server uses additional software (which must be separately
+    installed), to take care of the low-level details. the popular
+    mgetty+sendfax package
+    talks to the faxmodem and handles the actual faxing. conversion
+    of e-mail messages to fax pages is done by ghostscript, troff or
+    groff, and
+    the netpbm library. the
+    courier mail server glues all of these pieces together
+    in a seamless manner any time an e-mail message addressed to
+    <phonenumber@fax> is received. the main
+    textual body of the e-mail message is placed on a cover page,
+    and any attachments are converted to fax image format and
+    transmitted after the cover page. at this time, the
+    courier mail server knows how to send plain text, pdf,
+    and postscript attachments. gif, jpeg, and png images can be
+    sent to (one image per page). the additional software packages
+    that were mentioned previously are usually already included in
+    most linux and bsd installations. in most cases no additional
+    software really needs to be installed in order to get
+    faxmailing up and running.
+the courier mail server includes a mailing list
+    manager, with fully automatic bounce processing.
+you don't need a full-blown mail server? courier
+    mail server's imap server, webmail
+    server, and mail filter are
+    available as independent packages that can be used with other
+    mail servers (as long as the other mail servers store mail in
+    maildirs).
+    these sub-packages are assembled from the same source code
+    tree. the only difference is the top level makefile. note: the
+    independent builds are not always in sync with the main the
+    courier mail server build at any given time. they
+    follow their own schedule, and may include a slightly older, or
+    even more recent, code base! over time, however, everything
+    always syncs together since all builds are assembled from the
+    same source code repository.
+socksv5 support. the courier mail server can punch
+    through a socks firewall to send outgoing mail. receiving mail
+    through a socks firewall is not yet supported. to use socks you
+    need to install the courier mail server's socks 5
+    proxy client library.
+pam, ldap, postgresql (beta), or mysql authentication. ldap
+    authentication requires openldap to be installed.
+    ldap-based mail routing is also supported.
+gateway mail to/from uucp (if compatible uucp software is
+    separately installed).
+authenticated smtp.
+xverp and xexdata esmtp
+    extensions.
+dns-based blacklists. ability to exempt whitelisted ip
+    addresses from the blacklists.
+integrated mail filtering. an api is provided for
+    installing arbitrary external mail filters, and the system
+    administrator can selectively enable for any mail source
+    (esmtp, uucp, locally submitted mail) for filtering. two
+    example mail filters are included - one written in c that uses
+    threads, and a perl-based filter. the system administrator can
+    also enable the ability for individual mail recipients to
+    specify their own mail filtering rules, using a scripting
+    language (implemented by maildrop, see below).
+    mail filtering is implemented as an integral part of the mail
+    server. unwanted mail is rejected, and is not accepted by the
+    courier mail server for delivery (the external mail
+    relay receives the error, and it becomes the external relay's
+    problem as to what to do with unwanted junk mail).
+partial ability to import sendmail's aliases
+    file, but not all aspects of sendmail's aliasing
+    is supported - like delivering to programs, for example. still,
+    most simple aliases files should be usable.
+optional ability to import most of qmail's
+    .qmail files (courier mail server uses an
+    almost 100% compatible local mail delivery instruction
+    format).
+most major components of the courier mail server
+    can be installed in non-default directories, allowing extreme
+    customization for your particular environment.
+you can set a maximum number of messages to deliver
+    simultaneously to the same host. this, in fact, is strongly
+    encouraged so that a single nonfunctioning domain does not take
+    up all available delivery slots. rate limiting is implemented
+    in the main scheduler, and applies to any transport mechanism,
+    not just esmtp.
+mailing list administrators can specify a backup relay and
+    have mail that's not immediately deliverable offloaded to a
+    backup server (this feature needs testing/feedback).
+
+however, it is also important to note what the
+  courier mail server does not have or will not
+  support:
+
+.forward files are partially supported. the
+    courier mail server can import most basic
+    /etc/aliases files from sendmail, but sendmail's
+    .forward and /etc/aliases files are
+    simply not 100% compatible with the courier mail
+    server's security model. most .forward and
+    /etc/aliases files should be acceptable, but some
+    may not.
+etrn is not, and will never be implemented.
+    it's a hack, and is functionally incompatible with the
+    courier mail server's internal message dispatcher. if
+    a mail node does not have constant network connectivity, there
+    are better ways of arranging for mail transport than etrn. the
+    transient mail node should download mail via imap, or maybe
+    even uucp.
+workarounds for known defects in other mail software. the
+    courier mail server will not accept mail with raw
+    8-bit characters in the headers, because they are illegal.
+    there are well-defined protocols that must be used to encode
+    8-bit text in mail headers. non-compliant messages may result
+    in the courier mail server itself issuing corrupted
+    delivery status notifications, or mishandling the message in
+    several other ways. because of that corrupted mail will simply
+    not be accepted. neither will the courier mail server
+    deliver mail to domains with improperly-defined mx records,
+    even though other mail servers ignore the bad data.
+    additionally, certain popular imap mail clients are known to
+    not work with the courier mail server's imap server,
+    due to an improper imap implementation by the mail client.
+scripting language for rewriting mail headers. mail
+    rewriting rules are hardcoded, and are expected to be
+    sufficient in most cases. if you have an unusual situation that
+    requires some oddball header rewriting, you'll have to
+    implement it yourself.
+support for mbox mailboxes in the pop3, imap, and webmail
+    components. they support maildirs only. there are plenty of
+    existing servers out there that read mbox mailboxes.
+
+requirements
+
+a c++ compiler, egcs is recommended. most of
+    the courier mail server are written in c, but several
+    major sections are written in c++.
+gnu make. other makes may work, but that's not
+    guaranteed.
+either the gdbm or berkeley db library must be available.
+    only certain versions of berkeley db api are supported, because
+    the berkeley db api often changes (tested with 2.4.14 and
+    1.8.5). gdbm is the recommended library.
+perl 5.
+the file system must support fifos. at least the file
+    system that stores the mail queue must be able to support
+    fifos. the courier mail server will not work with
+    afs.
+filesystem domain sockets must be available.
+some optional components have additional dependencies -
+    notably the additional software required for faxmail support
+    (see above).
+
+additional informationhere is a somewhat more detailed
+  overview of the courier mail server's less prominent
+  features:
+
+  upgrade paththe courier mail server can be
+  installed on systems that were previously running sendmail or
+  qmail. please note that the courier mail server will be
+  able to support most major features of both servers, however the
+  courier mail server is not, and will never be a
+  100%-compatible replacement for either sendmail or qmail. the
+  courier mail server does not implement several legacy
+  features of either mta, and there are no plans to implement them
+  in the future. the key differences are:
+
+  
+sendmail
+
+a local mail delivery agent, such as procmail,
+  should be used for maximum compatibility with sendmail.
+the courier mail server expects system mailboxes to
+  be in the users' home directories. if your system mailboxes are
+  all stored separately, in /var/spool/mail or
+  somewhere else, you'll need to use a local delivery agent such as
+  procmail.
+the courier mail server uses a filesystem lock on
+  mailbox files, the courier mail server does not support
+  old-fashioned dot-locking. if you need dot-locking, use
+  procmail or maildrop (included).
+
+qmail
+
+a configuration switch allows the courier mail server
+  to read $home/.qmail files, however the
+  courier mail server's implementation is not 100%
+  identical to qmail's. the courier mail server's
+  aliases file is also used to implement qmail-style
+  virtual domains. a simple perl script can be used to convert
+  qmail's control/virtualdomains into
+  aliases entries.
+the courier mail server supports maildirs
+  natively.
+the courier mail server can use the
+  maildrop mail filter as a local mail delivery agent.
+  maildrop is optional, but, if used, the
+  courier mail server will take advantage of certain
+  maildrop-specific features which optimize local mail
+  delivery.
+mail filtersthe courier mail server has hooks
+  for optional, site-defined, mail filters. you'll have to write
+  them yourself, though. the administrator-defined mail filters can
+  block the message from being accepted by the courier
+  mail server (if messages comes in via smtp, the smtp server will
+  reject it). the courier mail server can also be
+  configured to pause for a short period of time before attempting
+  to deliver a message. if the mail filter detects a slew of
+  duplicate messages coming in, the mail filter can block all
+  future copies, and manually bounce the handful of copies from the
+  queue. the system administrator can selectively enable filtering
+  for any individual mail source (esmtp, locally submitted mail,
+  uucp). the system administrator can also optionally enable
+  recipient-specified mail filters. with recipient-specified mail
+  filtering enabled, any local mail recipient can install an
+  arbitrary mail filter to selectively accept or reject mail based
+  on any criteria.
+
+  currently the mail filtering api is not very well documented,
+  but it's there.
+esmtp extensionsthe courier mail server
+  implements auth, pipelining,
+  dsn,
+  size, and 8bitmime extensions to smtp.
+  the courier mail server also includes a reference
+  implementation of the experimental xverp and
+  xexdata extensions.
+
+  the courier mail server is a closed mail relay by
+  default. the courier mail server cannot be accidentally
+  configured as a completely open relay. a deliberate feat of
+  stupidity is required for that to happen.
+esmtp bofhthe courier mail server does not
+  deliver mail to domains with broken mx records. the
+  courier mail server also refuses to accept any mail with
+  a return address in a domain with broken mx records.
+
+  the courier mail server can automatically blacklist
+  domains whose mail servers reject delivery status
+  notifications.
+header rewritingthe courier mail server will
+  rewrite headers and mime-ify messages whenever appropriate.
+  header rewriting logic is hardcoded in c, there is no header
+  rewriting language as in sendmail. an interpreted language
+  imposes a drastic speed penalty. the rewriting library is fairly
+  simple, and the the standard rewriting rules will do for most
+  situations.
+
+  the courier mail server rejects messages with
+  badly-formed or missing mime headers. the courier mail
+  server rejects messages containing 8-bit characters in the
+  headers, or messages that contain 8-bit content, but do not have
+  the required mime headers. accepting malformed messages of that
+  kind can result in the courier mail server itself
+  sending mail that violates the relevant rfcs, therefore
+  courier mail server will simply reject
+  improperly-formatted messages. there are well-defined rfc
+  standards that explicitly spell out how mail containing 8-bit
+  content or 8-bit headers should be encoded, and those standards
+  will have to be properly implemented by anyone that wishes their
+  mail to be accepted.
+modularitymessage scheduling, dispatching, and the
+  actual transport mechanism are completely modularized. different
+  message transport mechanisms such as uucp can be implemented in a
+  simple plug-in fashion, however some c coding will be required.
+
+  message schedulingthe courier mail server
+  supports verps, multiple recipients per message, and
+  rfc1894-compliant delivery status notifications.
+
+  load limitingyou can set a maximum number of messages to
+  deliver simultaneously to the same host. this, in fact, is
+  strongly encouraged so that a single nonfunctioning domain does
+  not take up all available delivery slots. rate limiting is
+  implemented in the main scheduler, and applies to any transport
+  mechanism, not just esmtp.
+
+  automatic restarts and garbage cleanupthe
+  courier mail server's scheduling engine restarts itself
+  automatically, on a regular basis. this helps with memory
+  fragmentation. the courier mail server tries to restart
+  itself during periods of system inactivity.
+
+  smart organization of the message queue and temporary
+  directoriesthe courier mail server automatically
+  creates subdirectories when necessary, and deletes them when
+  they're empty. when there's a sudden peak in the number of
+  messages added to the queue, directories used to store the
+  messages grow in size to accomodate the additional entries. on
+  many file systems, once those messages are deleted, the empty
+  slack space in the directory is not reclaimed, and actually slows
+  down subsequent directory operations. the courier mail
+  server automatically removes empty directories, reclaiming the
+  slack space.
+
+  smart installation layout
+the courier mail server's configuration script will
+  install the courier mail server into
+  /usr/lib/courier by default. everything will go into
+  several subdirectories there: the actual binaries, configuration
+  files, the mail queue, manual pages, and auxiliary support files.
+  optional configuration switches allow pretty much every major
+  subdirectory to be relocated anywhere else. for example, the red
+  hat rpm package for the courier mail server relocates
+  the configuration files to /etc/courier, the manual
+  pages to /usr/man, and the mail queue to
+  /var/spool/courier.
+mailing lists
+the courier mail server can implement both sendmail
+  and qmail-style address aliases. de-duping of sendmail-style
+  aliases is automatic. the courier mail server source
+  distribution also includes a complete mailing list manager.
+
+copyright 1998-2020 double precision, inc.
+  this software is distributed under the terms of the gnu general
+  public license. see copying for additional information.
+
+

@@ -1,0 +1,237 @@
+
+
+
+
+
+
+karl e. peterson's classic vb code
+
+
+
+
+
+
+
+
+
+
+
+
+   	classicvb.net - karl e. peterson
+
+
+donations|
+links|
+feedback|
+tips|
+articles|
+tools|
+code samples|
+news|
+home
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+welcome!
+
+wow, time flies! our "new server" was put into service in 2004, and has 
+  since been torn down as we abandoned it for a group of new virtual servers. 
+  lots of fun! but this site hasn't been updated in quite awhile, i'm afraid.  
+  hopefully, i'll find the motivation to get more done soon, other than this 
+  transition to the new 2008r2 iis7.5 platform, sans fpse.
+i'm afraid the proverbial "dust" still hasn't fully 
+	settled on the "new design" either. wish i had more time to put into this. 
+	hard to get as enthusiastic as once was possible, i'm afraid, given the 
+	horrible destruction done. 
+	seems that the general consensus is starting to swing, though, back towards 
+	"maybe classic vb wasn't so bad after all."
+	vsm has decided 
+	there was enough latent interest still that, for awhile at any rate, they revived my old column! there are links to all of them over on the
+	articles page, but here's the jumping off point to 
+	them on the vsm site:
+
+
+		classic vb corner  <<== new classic vb column!
+
+i hate to report that i lost enthusiasm for continuing that effort, though. 
+  i would be interested in doing more, if it didn't seem that most of what was 
+  interesting hadn't already been reported. classic vb is a very mature 
+  language. i think the most interesting avenues to pursue, would be tighter 
+  integration into the windows 7 user interface. if anyone's been doing some 
+  exciting work in that area, i'd love to hear about it!
+the  code sample offerings have gone under the most redesign
+  of all. whereas they used to be listed on a single page for all, you will
+  now find a descriptive page for each! unfortunately, it's going to take a bit
+  more time to get the descriptions updated for all those projects, so i've
+  copied the old page over for your
+  reference.
+this site is totally devoted to classic visual basic, as millions once knew
+  and loved it. this is a certifiably .net-free zone.
+
+
+what's new
+
+
+july 29, 2010
+
+added the keystuff 
+		code sample. shows how to stuff the keyboard buffer from a console 
+		application. includes the full source code for a command line utility (cdw) 
+		that you can use in place of cd to change directories using a browse for 
+		folder dialog.
+
+
+june 28, 2010
+
+updated the uptime 
+		code sample. added the capability to call openprocess against system 
+		processes in vista and windows 7, by elevating to debug privileges in 
+		the current process. also renames the cprocessinfo class to 
+		cprocesstimes, as that seemed more accurate..
+
+
+april 26, 2010
+
+added the startupinfo 
+		code sample. provides a drop-in ready class module of various startup 
+		parameters requested by either the user or the calling process.
+updated the stopwatch 
+		code sample. added an actual test app that shows how to time a 
+		hypothetical comparison between exponentiation and multiplication. plus, 
+		another little demonstration of the (what i consider) the unreliabilty 
+		of queryperformancecounter as an alternative to timegettime for 
+		benchmarks.
+
+
+april 2, 2010
+
+updated the sendinput 
+		code sample (again). found the need to add support for the altgr key, 
+		which is supported natively by the operating system when it's using 
+		certain (non-us) keyboard layouts.
+
+
+march 10, 2010
+
+added the memstatus 
+		code sample. shows how to determine the total and available amounts of 
+		installed physical memory, application virtual address space, and page 
+		file swap space. also demonstrates how to go beyond the standard 2gb 
+		win32 virtual address space limit in properly configured systems.
+
+
+february 17, 2010
+
+updated the console 
+		code sample. the method used to determine launchmode, by looking for 
+		known or suspected parent processes, was failing on x64 systems. fixed 
+		that.
+
+
+
+comprehensive updates list
+
+odds and ends
+
+here are a few offerings you won't find linked to in the main menus on this
+	site, but that i'd like to make sure you were aware of regardless.
+
+hardcore visual basic, by bruce mckinney
+when microsoft decided to drop bruce's classic tome from msdn, i quickly offered to host it here at
+		mvps.org and, against what i considered all odds, they agreed. i'm glad we
+		could save this one, and make it available to everyone from here onward.
+		more recently, this site assumed the honor of hosting the
+		end of hardcore visual basic, a fond farewell to
+		what was.
+		
+ 
+visual basic 4 how-to
+several of us put  together this little tome in 1994-95, during the
+		world's longest beta. i don't believe there ever was a fully electronic
+		copy suitable for online publishing, at least i never encountered one.
+		while much of the text is now somewhat obsolete, the code may still
+		contain a few tricks. 
+		
+ 
+site statistics
+call it vain, or whatever. in case you care, here are a few stats taken
+		over the years. i hope to provide a more up-to-date selection of frequent
+		downloads once this new site stabilizes. 
+		
+ 
+those awful midis
+okay, it took three (or more?) years, but i finally rolled out a
+		new site that isn't a throwback to the 90s. if you actually miss those old
+		pink floyd midi tunes, don't fret! they're still here. 
+		
+ 
+
+
+donations
+
+after great agonizing, i have decided to plop a paypal
+  donations button down on the bottom of every page here. the simple truth
+  is, visual
+  basic programmer's journal used to (unwittingly?) finance this site by
+  commissioning  my articles on classic vb. sadly, that publication is no longer
+  with us, and the one that's taken its place isn't much interested in the
+  programming language you and i still use. so, long story-short, if i've saved
+  you (or your boss!) a bundle of money with the code you've downloaded from
+  here, and you're feeling generous (or you have access to the company credit
+  card!), well, i'm not too proud to let you help me defray the time i spend
+  building the samples offered here. thanks!
+
+
+
+
+
+
+
+make a donation 
+today, to support maintaining this libraryof classic vb code code and articles.
+
+
+
+
+
+
+
+
+copyright ©1995-2025, 
+karl e. peterson, all rights reserved worldwide.
+nothing on this web site may be reproduced, in any form,
+without express written permission.
+complete licensing and redistribution information
+
+
+
+

@@ -1,0 +1,8609 @@
+
+
+
+
+
+
+
+
+
+roger's blog
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            roger's blog
+
+
+
+
+
+
+installing linux on the chuwi minibook x
+
+19 jan 2025 12:09
+
+
+
+
+inspired by this mastodon
+post by charlie stross, i
+recently bought a chuwi minibook x n100. i do love me a tiny laptop, and i miss
+my samsung nc10 netbook. i decided to install linux on it. here’s how that went.
+
+» read more
+
+
+how does logging into aws ecr with podman work?
+
+27 nov 2024 09:44
+
+aws
+ecr
+podman
+
+
+
+if you want to use amazon elastic container registry (ecr) with podman, you’ll do something like this: aws ecr
+get-login-password ... | podman login .... how does that work?
+
+» read more
+
+
+recognising base64-encoded json
+
+27 nov 2024 09:12
+
+
+
+
+if you see a chunk of text beginning with eyj, it’s probably base64-encoded json. here’s a demonstration.
+
+» read more
+
+
+removing comments from json
+
+12 sep 2024 08:36
+
+json
+
+
+
+yes, i know that json files don’t have comments. i’ve got some json files with comments in them. here’s a quick way to strip the comments.
+
+» read more
+
+
+moving a pr to a different branch
+
+17 jun 2024 08:00
+
+git
+github
+
+
+
+because i mess it up every time, here’s how to move a github pull request from one branch to another.
+
+» read more
+
+
+gen_server/gen_statem: redirecting tracing to logger
+
+20 may 2024 11:05
+
+erlang
+
+
+
+in an earlier post, i talked about how you can turn on gen_server and gen_statem debug tracing by adding (e.g.) [{debug, trace}] to the start options. i recently discovered a way to integrate this with erlang’s default logger.
+
+» read more
+
+
+triggering github actions from a different repository
+
+14 feb 2024 15:26
+
+github-actions
+
+
+
+at work right now, i’m working on something that spans multiple github repositories, and i need to trigger a job in one
+repository from a different repository.
+
+» read more
+
+
+helpers for fold accumulators, part 2
+
+13 feb 2024 15:08
+
+erlang
+
+
+
+a follow up to on whether “fold accumulator helpers” are a good idea.
+
+» read more
+
+
+helpers for fold accumulators
+
+9 feb 2024 10:41
+
+erlang
+
+
+
+on whether “fold accumulator helpers” are a good idea.
+
+» read more
+
+
+using the correct identity when ssh forwarding in docker
+
+16 jan 2024 14:16
+
+docker
+git
+ssh
+
+
+
+back in october, i wrote a post explaining how to do ssh forwarding with
+docker build. in november, i wrote about how to use multiple ssh identities with git. unfortunately, these don’t always mix: using ssh in the docker build uses
+the first ssh identity held by ssh-agent, which might not be the one you wanted. here’s how i got around this
+problem.
+
+» read more
+
+
+using erlang's logger from escript
+
+5 jan 2024 16:05
+
+erlang
+
+
+
+if you’re writing an erlang escript, you might want to configure logging. here’s how.
+
+» read more
+
+
+gen_statem: asynchronous initialization
+
+3 jan 2024 14:11
+
+erlang
+
+
+
+when you use gen_statem:start/3,4 or gen_statem:start_link/3,4, the call blocks until the server process has finished running module:init/1.
+
+» read more
+
+
+using elliptic curve keys for signing in erlang
+
+8 dec 2023 14:10
+
+erlang
+cryptography
+
+
+
+how do i sign (and verify) things in erlang, using an ecdsa key?
+
+» read more
+
+
+using git with multiple identities
+
+17 nov 2023 10:23
+
+git
+
+
+
+i want to keep my work and personal github accounts separate. here’s how i set that up:
+
+» read more
+
+
+partial network outage: incident review
+
+10 nov 2023 10:42
+
+incident-review
+
+
+
+at approximately 08:45 on november 10th, 2023, there were network connectivity issues on my home network. this is the
+incident review.
+
+» read more
+
+
+upgrading longhorn: incident review
+
+5 nov 2023 21:04
+
+kubernetes
+longhorn
+incident-review
+
+
+
+a new release of longhorn came out a few days ago. i tried upgrading. it did not go well. this is the incident review.
+
+» read more
+
+
+restricting longhorn to specific nodes
+
+4 nov 2023 13:03
+
+kubernetes
+longhorn
+
+
+
+i’ve added a raspberry pi node to my k3s cluster, and i don’t want it to take part in longhorn replication.
+
+» read more
+
+
+daemonset not running on new node
+
+4 nov 2023 12:47
+
+kubernetes
+
+
+
+as part of my over-engineered doorbell project, i’ve added a new raspberry pi node to my k3s cluster, but none of the
+daemonsets are being scheduled onto it.
+
+» read more
+
+
+exporting snmp metrics to prometheus
+
+29 oct 2023 14:31
+
+
+
+
+my ds416play keeps falling off the network, requiring a hard reset. i wondered whether it was possible to monitor it
+somehow. it turns out that it responds to snmp queries, so here’s my attempt to export all of that into grafana.
+
+» read more
+
+
+k3s: you must be logged in to the server (unauthorized)
+
+29 oct 2023 13:53
+
+k3s
+kubernetes
+yq
+
+
+
+this afternoon, i couldn’t run kubectl get namespaces against my k3s cluster. instead, i got an unauthorized error.
+
+» read more
+
+
+improving your quality of life as a developer
+
+27 oct 2023 12:53
+
+
+
+
+i’ve just come off a call with a colleague and while he was sharing his screen and we were walking through some things,
+i noticed that his setup is missing all of the little “quality of life” tweaks that i’ve made over the years.
+
+» read more
+
+
+httpc:request hangs with an https url
+
+16 oct 2023 13:53
+
+erlang
+
+
+
+if you use erlang/otp’s provided http client as follows, it hangs:
+
+» read more
+
+
+ssh forwarding in docker
+
+2 oct 2023 09:38
+
+docker
+
+
+
+if you’re building your application inside a docker container, and you need to pull dependencies from a git server (e.g.
+github or gitlab) using ssh, you need to forward your ssh session to the container.
+
+» read more
+
+
+how i make presentations
+
+14 sep 2023 13:22
+
+
+
+
+i dislike powerpoint and i can’t get on with visio. here’s how i make my presentations.
+
+» read more
+
+
+using the gitlab api with 'glab'
+
+25 aug 2023 13:19
+
+gitlab
+
+
+
+i wanted to get a list of all of the gitlab projects of which i’m a member. here’s how i used glab – gitlab’s cli
+tool – to do that.
+
+» read more
+
+
+remotely loading erlang modules by copy-pasting
+
+13 jul 2023 13:59
+
+erlang
+
+
+
+if you want to replace an erlang module on a remote node, but you’re unable to copy files to it, and you’re unable to
+make rpc calls to it, but you can get a remote console, here’s what you do:
+
+» read more
+
+
+gen_server debug options
+
+10 may 2023 10:22
+
+erlang
+
+
+
+erlang’s gen_server (and gen_statem, etc.) allow for you to pass {debug, debugoptions} in
+gen_server:start_link/4 (et al.). the documentation for it is spread over several pages, making it hard to understand
+at first. how should we use it?
+
+» read more
+
+
+erlang on kubernetes: using kustomize to manage a configmap for sys.config
+
+1 may 2023 13:35
+
+erlang
+kubernetes
+kustomize
+
+
+
+in a previous post, i showed how to store sys.config and
+vm.args in a configmap. there are some problems with that approach, so i’m going to use kustomize to fix that.
+
+» read more
+
+
+installing tempo
+
+28 apr 2023 13:54
+
+
+
+
+i want to play with opentelemetry, so i figured i’d install grafana’s tempo in my cluster. i’m going to use argocd to
+install the helm chart.
+
+» read more
+
+
+erlang: via
+
+20 apr 2023 13:02
+
+erlang
+
+
+
+here’s how you can use via in a name specification when starting a gen_server (or gen_statem, etc.) to register
+your process with a process registry.
+
+» read more
+
+
+erlang: ways to specify the server in gen_server:call
+
+19 apr 2023 15:40
+
+erlang
+
+
+
+you can gen_server:call in a bunch of different ways.
+
+» read more
+
+
+kubernetes networking
+
+18 apr 2023 13:10
+
+kubernetes
+
+
+
+my k3s cluster uses metallb as a bare-metal “load-balancer”, and i wondered how it worked. here’s what i found.
+
+» read more
+
+
+upgrading metallb
+
+16 apr 2023 16:26
+
+kubernetes
+metallb
+
+
+
+i installed metallb using helm. upgrading is a one-liner.
+
+» read more
+
+
+erlang on kubernetes: using a configmap for sys.config
+
+13 apr 2023 16:27
+
+erlang
+kubernetes
+
+
+
+erlang configuration is typically stored in the sys.config file. what options do we have if we want to have different
+settings in this file when deploying using kubernetes?
+
+» read more
+
+
+erlang cluster on kubernetes: rotating ca certificates
+
+7 apr 2023 10:31
+
+erlang
+kubernetes
+certificates
+
+
+
+about 3 months ago, the erlang nodes in my cluster stopped
+talking to each other. this was caused by the ca certificate expiring. in that post, i asked “how do we roll the ca certificate
+without downtime?”. this post explores some options.
+
+» read more
+
+
+eunit examples: cleaning up server processes
+
+3 apr 2023 16:33
+
+erlang
+eunit
+
+
+erlang-eunit-examples
+
+
+
+in several of the previous posts, for example using ‘setup’, i’ve
+started a server in suite_setup/0 and needed to kill it in suite_cleanup/1. i showed a simple way to do that, but
+it’s not the best. here’s a better way to do it.
+
+» read more
+
+
+upgrading gitea
+
+3 apr 2023 15:53
+
+kubernetes
+gitea
+
+
+
+i’m running gitea and argocd on my k3s cluster, for some gitops goodness. i noticed that gitea 1.19.0 recently came out,
+with some features i want to try, such as gitea actions. since i’m running 1.17.4, it’s time to upgrade.
+
+» read more
+
+
+using metallb crds
+
+3 apr 2023 15:33
+
+kubernetes
+metallb
+
+
+
+when i originally installed metallb, it used a configmap for
+setting up address ranges. since 0.13.2, it supports configuration using custom resource definitions (crds). i forgot to
+write a blog post about that when i upgraded.
+
+» read more
+
+
+eunit examples: passing the result from 'foreach'
+
+2 apr 2023 11:23
+
+erlang
+eunit
+
+
+erlang-eunit-examples
+
+
+
+similar to passing the result from {setup, setup, ... to each test, you can also pass the result from {foreach,
+setup, ... to each test, but there are some differences.
+
+» read more
+
+
+eunit examples: passing the result from 'setup'
+
+2 apr 2023 08:20
+
+erlang
+eunit
+
+
+erlang-eunit-examples
+
+
+
+the result from setup is passed to cleanup already. what if we want to pass it to each of our tests? it’s a bit
+awkward, but it looks like the following:
+
+» read more
+
+
+eunit examples: nested 'setup' and 'foreach'
+
+2 apr 2023 08:14
+
+erlang
+eunit
+
+
+erlang-eunit-examples
+
+
+
+if you want to run some setup before (and cleanup after) a list of tests, and also some setup and cleanup for each
+test, you can nest setup and foreach:
+
+» read more
+
+
+restricting erlang distribution to localhost
+
+1 apr 2023 15:04
+
+erlang
+
+
+
+by default, erlang distribution listens on all available network interfaces. sometimes you don’t want this. how can we
+fix it?
+
+» read more
+
+
+eunit examples: using 'foreach'
+
+31 mar 2023 08:30
+
+erlang
+eunit
+
+
+erlang-eunit-examples
+
+
+
+we saw that setup runs setup/cleanup before all tests in a list. if you want to run some setup/cleanup before each
+test in a list, you can use foreach:
+
+» read more
+
+
+eunit examples: using 'setup'
+
+31 mar 2023 08:20
+
+erlang
+eunit
+
+
+erlang-eunit-examples
+
+
+
+what if we want to run some setup before a set of tests (and cleanup afterwards)?
+
+» read more
+
+
+eunit examples: a test list
+
+31 mar 2023 08:15
+
+erlang
+eunit
+
+
+erlang-eunit-examples
+
+
+
+while you could specify each test with a single function, you can also use a test “instantiator” (or generator) and have
+it return a list.
+
+» read more
+
+
+eunit examples: a simple test
+
+31 mar 2023 08:10
+
+erlang
+eunit
+
+
+erlang-eunit-examples
+
+
+
+a simple eunit test might look like this:
+
+» read more
+
+
+eunit examples: introduction
+
+31 mar 2023 08:00
+
+erlang
+eunit
+
+
+erlang-eunit-examples
+
+
+
+some examples of how to use erlang’s unit-testing framework, eunit. starting with simple examples and getting more
+advanced.
+
+» read more
+
+
+remotely loading erlang modules
+
+21 mar 2023 18:44
+
+erlang
+
+
+
+sometimes, you’re connected to another node in an erlang cluster, and you need to inject a new or replacement module.
+here’s how.
+
+» read more
+
+
+cert-manager audit
+
+20 mar 2023 13:15
+
+kubernetes
+cert-manager
+elixir
+livebook
+
+
+
+in expired certificates: incident review, i
+listed a future action: “audit the cluster to see if there are any other tls secrets that aren’t using cert-manager.”
+here’s how i did it using elixir livebook.
+
+» read more
+
+
+expired certificates: incident review
+
+19 mar 2023 20:07
+
+kubernetes
+incident-review
+
+
+
+during the morning of march 18th, 2023, while investigating this incident, firefox reported a “your connection is not secure” error when connecting to
+my gitea server. this is the incident review.
+
+» read more
+
+
+metallb arp failure: incident review
+
+18 mar 2023 11:54
+
+kubernetes
+incident-review
+metallb
+
+
+
+on the morning of march 18th, 2023, accessing any sites hosted by my kubernetes cluster would fail with a “connection
+timed out” error. this is the incident review.
+
+» read more
+
+
+exporting variables from scripts
+
+17 mar 2023 10:08
+
+
+
+
+often, when you’re doing something in an interactive shell, you’d like to set an environment variable from a script. but
+you can’t, because scripts run as their own process, which means that they can’t set environment variables in their
+parent (the shell). how do we get around that?
+
+» read more
+
+
+using socat to strip https
+
+11 mar 2023 11:54
+
+
+
+
+i’m trying to figure out how kubectl does its thing. because it uses https to talk to the api server, i can’t use
+wireshark to look at the traffic. here’s how i used socat to snoop on the traffic.
+
+» read more
+
+
+resetting the terminal after running rebar3
+
+8 mar 2023 10:12
+
+erlang
+rebar3
+zsh
+
+
+
+sometimes, when you run rebar3 shell and you press ctrl+c twice to quit, your terminal is messed up. this is how i
+fixed it in zsh.
+
+» read more
+
+
+loading .erlang from the working directory
+
+7 mar 2023 16:04
+
+erlang
+
+
+
+in the previous post, i wrote about customizing the erlang shell
+prompt by using the .erlang file. erlang looks for this file in $home (i’m simplifying here); it doesn’t look in the
+current working directory. how can we fix that?
+
+» read more
+
+
+changing the erlang shell prompt
+
+4 mar 2023 16:38
+
+erlang
+
+
+
+did you know that you can change the erlang shell prompt?
+
+» read more
+
+
+writing a kubectl ssh plugin
+
+28 feb 2023 12:54
+
+kubernetes
+
+
+
+in this post, i showed how to access the erlang console via ssh
+using kubectl port-forward.
+
+» read more
+
+
+setting the window title from erlang
+
+22 feb 2023 17:21
+
+erlang
+
+
+
+how do i change the title of my terminal window from erlang?
+
+» read more
+
+
+using rsa keys for encryption and decryption in erlang
+
+14 feb 2023 09:39
+
+erlang
+cryptography
+
+
+
+how do i encrypt (and decrypt) things in erlang, using an rsa key?
+
+» read more
+
+
+encrypting a json web token in erlang, using jose
+
+13 feb 2023 17:46
+
+erlang
+cryptography
+jwt
+jose
+
+
+
+in an earlier post, i showed how to encrypt a json web token in erlang. i used plain-ol’ erlang. here’s how to use the
+jose package to do the same thing.
+
+» read more
+
+
+encrypting a json web token in erlang
+
+13 feb 2023 15:37
+
+erlang
+cryptography
+jwt
+
+
+
+following on from signing a web token in erlang, here’s how to
+encrypt one.
+
+» read more
+
+
+signing a json web token in erlang, using jose
+
+11 feb 2023 14:45
+
+erlang
+cryptography
+jwt
+jose
+
+
+
+in an earlier post, i showed how to sign a json web token in erlang. i used plain-ol’ erlang. here’s how to use the jose package to do the same thing.
+
+» read more
+
+
+signing a json web token in erlang
+
+9 feb 2023 16:52
+
+erlang
+cryptography
+jwt
+
+
+
+about 8 years ago, i wrote a post about verifying json web tokens (jwt) in erlang.
+3 years later, i wrote another post about signing a jwt in bash.
+this is a post combining the two: here’s how you sign a jwt using erlang.
+
+» read more
+
+
+using rsa keys for signing in erlang
+
+8 feb 2023 14:06
+
+erlang
+cryptography
+
+
+
+how do i sign (and verify) things in erlang, using an rsa key?
+
+» read more
+
+
+wrapping an rsa private key with erlang
+
+8 feb 2023 11:13
+
+erlang
+cryptography
+
+
+
+the previous post finished up by writing an rsa public key in “wrapped” (pkcs#8) pem-format. it occurred to me that i should probably show how to do the same with the private key as well.
+
+» read more
+
+
+generating an rsa key with erlang
+
+7 feb 2023 18:39
+
+erlang
+cryptography
+
+
+
+i’m currently doing something that needs rsa keys, so here are some erlang snippets showing how to create one.
+
+» read more
+
+
+unit testing in elixir livebook
+
+25 jan 2023 11:19
+
+elixir
+livebook
+testing
+
+
+
+i’ve written some code in elixir livebook, and i’d like to write some unit tests for it. here’s how i did it.
+
+» read more
+
+
+using node-exporter with victoriametrics
+
+24 jan 2023 18:37
+
+victoria-metrics
+
+
+
+i’d like to get some cpu temperature metrics from the nodes in my k3s cluster. that’s the job of prometheus’
+node-exporter. i’m not using prometheus; i’m using victoriametrics. here’s how to get it working.
+
+» read more
+
+
+erlang clustering: a survey
+
+22 jan 2023 12:10
+
+erlang
+
+
+
+a question on mastodon asks “what are people using [for cluster
+management] in 2023?”. i thought i’d address a couple of hidden assumptions in the question and do a quick survey of
+what’s available.
+
+» read more
+
+
+simple log colouring in erlang
+
+21 jan 2023 20:40
+
+erlang
+
+
+
+by default, the improved logger originally introduced in erlang/otp-21 doesn’t support per-level colours. this is
+something that i miss from lager and from elixir’s logger. here’s a simple
+way to implement something like lager.
+
+» read more
+
+
+beam telemetry: prometheus
+
+19 jan 2023 17:58
+
+erlang
+
+
+beam-telemetry
+
+
+
+in the previous posts, we gathered metrics from cowboy
+and hackney. i’d like to publish the metrics to prometheus.
+
+» read more
+
+
+beam telemetry: hackney metrics
+
+18 jan 2023 20:10
+
+erlang
+
+
+beam-telemetry
+
+
+
+in the previous post of the series, i added basic
+metrics reporting to cowboy, and simply wrote them to the logger. in this post, i’m going to do the same for the http client, hackney,.
+
+» read more
+
+
+router upgrade outage: incident review
+
+16 jan 2023 17:38
+
+incident-review
+
+
+
+on january 16th, 2023 between approximately 03:15 and 08:00, the router on my home network froze. this is the incident review.
+
+» read more
+
+
+beam telemetry: cowboy metrics
+
+15 jan 2023 12:55
+
+erlang
+erlang-cowboy
+
+
+beam-telemetry
+
+
+
+cowboy is probably the most popular http server for the erlang and elixir ecosystem. here’s how to get metrics from it.
+
+» read more
+
+
+building erlang from source and using it with direnv
+
+10 jan 2023 11:25
+
+erlang
+kerl
+
+
+
+building and installing erlang is almost compatible with my use erlang rule for direnv. here’s how to bodge it.
+
+» read more
+
+
+building erlang/otp
+
+9 jan 2023 18:06
+
+erlang
+
+
+
+there’s more comprehensive information in various files in the howto directory, but ain’t nobody got time for that. this works for me.
+
+» read more
+
+
+forking erlang/otp
+
+9 jan 2023 17:49
+
+erlang
+
+
+
+some notes about hacking on and contributing to erlang, because i don’t do it frequently enough to have all of this in muscle memory.
+
+» read more
+
+
+erlang ssh - no host key available
+
+8 jan 2023 16:31
+
+erlang
+ssh
+
+
+
+you’re experimenting with erlang’s built-in ssh daemon, and it fails with “no
+host key available”. what’s up with that?
+
+» read more
+
+
+erlang cluster on kubernetes: fatal - certificate expired
+
+7 jan 2023 17:11
+
+erlang
+kubernetes
+certificates
+
+
+
+the nodes in the cluster stopped talking to each other at
+some point. i only noticed this afternoon after investigating some other problem.
+
+» read more
+
+
+network connectivity: incident review
+
+7 jan 2023 16:08
+
+incident-review
+
+
+
+on january 7th, 2023 between approximately 10:50 and 13:50, there were network connectivity issues on my home network.
+this is the incident review.
+
+» read more
+
+
+synology vpn compatibility
+
+7 jan 2023 14:52
+
+synology-srm
+
+
+
+i recently experimented with using tailscale subnet router as
+a vpn, to allow me to connect to my home network from the pub. it sorta works, but it’s been unreliable recently. i’m
+going to look at the vpn options that my synology router gives me.
+
+» read more
+
+
+apt upgrade on k3s node
+
+7 jan 2023 09:19
+
+k3s
+ubuntu
+runbook
+
+
+
+given the problems i had when i last upgraded everything
+on my k3s cluster, i’m going to put a runbook together for doing it “properly”.
+
+» read more
+
+
+compiling ruby 2.7.7 on ubuntu 22.04
+
+6 jan 2023 20:24
+
+direnv
+ruby
+
+
+direnv-tool-versions
+
+
+
+compiling ruby 2.7.7 fails with the following error about openssl:
+
+» read more
+
+
+traefik dashboard on k3s
+
+6 jan 2023 17:24
+
+traefik
+k3s
+
+
+
+it turns out that traefik has a dashboard. here’s how to access it via kubectl port-forward.
+
+» read more
+
+
+redirecting http to https with traefik on k3s
+
+6 jan 2023 16:57
+
+traefik
+kubernetes
+k3s
+
+
+
+i want visitors to http://home.k3s.differentpla.net to be redirected to https://home.k3s.differentpla.net. here’s
+how to set that up on k3s, using traefik middlewares.
+
+» read more
+
+
+using setup and foreach in eunit tests
+
+3 jan 2023 13:18
+
+erlang
+eunit
+
+
+
+for when you want to run both per-suite and per-test setup and cleanup in eunit tests.
+
+» read more
+
+
+erlang cluster on kubernetes: conclusion
+
+23 dec 2022 18:09
+
+erlang
+kubernetes
+
+
+erlang-cluster-k8s
+
+
+
+this started as a quick experiment to spin up an erlang cluster on kubernetes, using tls distribution, and to validate
+using cert-manager to issue the pod certificates.
+
+» read more
+
+
+erlang cluster on kubernetes: certificaterequest cleanup
+
+23 dec 2022 17:36
+
+kubernetes
+cert-manager
+
+
+erlang-cluster-k8s
+
+
+
+in this post, i showed how to use
+an init container to create certificaterequest objects, which cert-manager signs, returning the certificates. a new
+request is created every time a pod starts. this eventually leaves a lot of stale certificaterequest objects. we
+should clean those up.
+
+» read more
+
+
+erlang cluster on kubernetes: polling the certificaterequest
+
+23 dec 2022 17:19
+
+kubernetes
+cert-manager
+
+
+erlang-cluster-k8s
+
+
+
+in a previous post, i used sleep
+5s to wait for cert-manager to complete the certificaterequest. instead, we should poll the status field.
+
+» read more
+
+
+erlang cluster on kubernetes: using a namespace-scoped issuer
+
+23 dec 2022 17:06
+
+kubernetes
+cert-manager
+
+
+erlang-cluster-k8s
+
+
+
+in an earlier post, i used a
+clusterissuer that i originally created when first setting up cert-manager. that needs fixing.
+
+» read more
+
+
+erlang cluster on kubernetes: pid zero
+
+22 dec 2022 18:13
+
+
+
+erlang-cluster-k8s
+
+
+
+erlang doesn’t like running as pid 0 (usually the init process). i used tini to fix it.
+
+» read more
+
+
+erlang cluster on kubernetes: non-root user
+
+22 dec 2022 18:08
+
+
+
+erlang-cluster-k8s
+
+
+
+the erlang daemon that i’ve been using to demonstrate erlang distribution on k8s is running as the root user. i’m going
+to fix that.
+
+» read more
+
+
+erlang cluster on kubernetes: readiness probe
+
+22 dec 2022 17:50
+
+erlang
+kubernetes
+
+
+erlang-cluster-k8s
+
+
+
+while scaling up/down the deployment for my erlang cluster, i regularly refresh the web page that displays cluster
+members. occasionally, i get a “502 bad gateway” error from traefik. what’s with that?
+
+» read more
+
+
+erlang cluster on kubernetes: is it mutual?
+
+22 dec 2022 16:45
+
+erlang
+
+
+erlang-cluster-k8s
+
+
+
+in theory, we’ve got tls working for our erlang
+cluster, with mutual authentication. how do we prove
+that?
+
+» read more
+
+
+erlang cluster on kubernetes: ssh public key authentication
+
+22 dec 2022 15:25
+
+erlang
+kubernetes
+ssh
+
+
+erlang-cluster-k8s
+
+
+
+in the previous post, i showed how to enable ssh access to the
+erlang remote console on a pod. when we left it, it had no authentication. let’s fix that.
+
+» read more
+
+
+erlang cluster on kubernetes: ssh daemon
+
+22 dec 2022 14:35
+
+erlang
+kubernetes
+ssh
+
+
+erlang-cluster-k8s
+
+
+
+as mentioned earlier, using tls for erlang
+distribution breaks erlclu remote_console (because it breaks erl_call). at the time, i worked around the problem by
+using nodetool. this post shows how to use erlang’s ssh daemon instead.
+
+» read more
+
+
+erlang application versioning
+
+22 dec 2022 13:53
+
+erlang
+rebar3
+
+
+
+when you’re investigating a problem with a deployed application, it’s useful to know precisely which version you’re
+looking at. here’s how to automatically set the version number in an erlang project.
+
+» read more
+
+
+erlang cluster on kubernetes: using the generated certificates
+
+22 dec 2022 10:04
+
+erlang
+kubernetes
+
+
+erlang-cluster-k8s
+
+
+
+in the previous two posts, we generated signing requests with openssl and submitted them to cert-manager. in this post, we’ll actually use the
+generated certificates for mutual tls.
+
+» read more
+
+
+erlang cluster on kubernetes: submitting certificate requests to cert-manager
+
+22 dec 2022 10:01
+
+kubernetes
+cert-manager
+
+
+erlang-cluster-k8s
+
+
+
+in the previous post we used openssl
+to create a certificate signing request. in this post, we’ll submit it to cert-manager and get the certificate back.
+
+» read more
+
+
+erlang cluster on kubernetes: creating certificate signing requests with openssl
+
+22 dec 2022 09:58
+
+openssl
+
+
+erlang-cluster-k8s
+
+
+
+erlang tls distribution is picky about how its certificates are created. openssl is a pain to use. here’s how to
+awkwardly wedge the two together. this took me several hours and a lot of my sanity. you’re welcome.
+
+» read more
+
+
+erlang cluster on kubernetes: basic init container
+
+22 dec 2022 09:56
+
+erlang
+kubernetes
+
+
+erlang-cluster-k8s
+
+
+
+as explained here, i’m going to use an init
+container to issue the pod certificates.
+
+» read more
+
+
+erlang cluster on kubernetes: tls distribution
+
+22 dec 2022 09:52
+
+erlang
+kubernetes
+
+
+erlang-cluster-k8s
+
+
+
+in the previous post, we got clustering working
+without tls. lifting from the investigation that i wrote up here,
+i’ll add tls distribution to my erlang cluster, but only with server certificates and with no verification (for now).
+
+» read more
+
+
+erlang cluster on kubernetes: erlang clustering
+
+21 dec 2022 19:52
+
+erlang
+kubernetes
+
+
+erlang-cluster-k8s
+
+
+
+based on my investigation with libcluster in elixir, i’ve
+decided to use dns-based discovery for finding the other erlang nodes in the cluster. to do this, we’ll need a headless
+service.
+
+» read more
+
+
+erlang cluster on kubernetes: erlang cookie
+
+21 dec 2022 19:51
+
+erlang
+kubernetes
+
+
+erlang-cluster-k8s
+
+
+
+i’ve covered this previously; see “erlang/elixir cookies and kubernetes”. here’s the quick version.
+
+» read more
+
+
+erlang cluster on kubernetes: speeding up the container build
+
+21 dec 2022 19:49
+
+erlang
+kubernetes
+docker
+rebar3
+
+
+erlang-cluster-k8s
+
+
+
+i noticed that whenever i made any change to the application, it caused the dockerpodman build to re-fetch and
+recompile all of the dependencies. on the tiny laptop i was using at the time, this was taking several extra minutes for
+every build.
+
+» read more
+
+
+erlang cluster on kubernetes: http service
+
+21 dec 2022 19:47
+
+erlang
+kubernetes
+
+
+erlang-cluster-k8s
+
+
+
+because this is going to be a cluster of erlang nodes, there’s (obviously) going to be more than one instance. it makes
+sense to add some kind of way to have some kind of “whoami” page, so that we can clearly see which node we’re talking
+to.
+
+» read more
+
+
+erlang cluster on kubernetes: initial deployment
+
+21 dec 2022 19:45
+
+erlang
+kubernetes
+
+
+erlang-cluster-k8s
+
+
+
+for simplicity’s sake, i created a new application with rebar3 new app name=erlclu. i very soon regretted this
+decision, because i actually needed a release, so i ran rebar3 new release name=whoops and manually merged the relevant
+pieces together.
+
+» read more
+
+
+erlang cluster on kubernetes: introduction
+
+21 dec 2022 19:40
+
+erlang
+kubernetes
+
+
+erlang-cluster-k8s
+
+
+
+a few weeks ago, i decided to write a blog post about using mutual tls to secure erlang distribution (clustering), with
+auto-provisioning of certificates when running in kubernetes. it took a little longer to write up than i expected, and
+turned into a series of blog posts.
+
+» read more
+
+
+rebar3 umbrella projects
+
+21 dec 2022 14:29
+
+erlang
+rebar3
+
+
+
+some notes about using rebar3 with an umbrella project.
+
+» read more
+
+
+k3s pv loss: incident review
+
+15 dec 2022 10:37
+
+k3s
+incident-review
+
+
+
+on december 14th, 2022 at approximately 10:15, kubernetes wiped the persistent volumes of a number of applications in
+the k3s cluster in my homelab. this is the incident review.
+
+» read more
+
+
+failed to allocate directory watch
+
+14 dec 2022 10:00
+
+ubuntu
+ubuntu-install
+
+
+
+while running apt-get upgrade, i was getting a failed to allocate directory watch: too many open files error.
+
+» read more
+
+
+what is kubectl doing?
+
+5 dec 2022 10:49
+
+kubernetes
+
+
+
+you’re using kubectl to do something; you want to do the same using the kubernetes api (e.g. with curl). how do you
+figure out what kubectl is doing?
+
+» read more
+
+
+tailscale subnet router
+
+25 nov 2022 19:27
+
+tailscale
+
+
+
+i’ve been looking for a vpn solution for my home network for a while now, and i recently started using tailscale.
+
+» read more
+
+
+replacing rabbitmq with nginx for inbound request routing
+
+22 nov 2022 18:45
+
+electric-imp
+rabbitmq
+nginx
+
+
+
+in a conversation on twitter about most satisfying code cleanup, i mentioned the time that i completely replaced the
+agent-inbound http routing at electric imp.
+
+» read more
+
+
+options for automatically creating certificates for mutual pod authentication
+
+13 nov 2022 15:04
+
+kubernetes
+certificates
+cert-manager
+
+
+
+i want to set up an erlang cluster in kubernetes, using tls with mutual authentication. this post discusses some of the
+potential options for doing that. it’s also applicable to general mutual tls between pods.
+
+» read more
+
+
+erlang tls distribution
+
+12 nov 2022 14:29
+
+erlang
+
+
+
+in the previous post, i recapped erlang distribution (clustering).
+in this post, we’ll secure it by using tls.
+
+» read more
+
+
+erlang clustering recap
+
+11 nov 2022 19:24
+
+erlang
+
+
+
+i want to write a post about using mutual tls to secure erlang distribution (clustering), with auto-provisioning of
+certificates when running in kubernetes. this is not that post. this is a recap of basic erlang clustering, to refresh
+my memory and lay some groundwork.
+
+» read more
+
+
+generating a version number from your git repo -- follow up
+
+9 nov 2022 18:46
+
+git
+
+
+
+i wrote about generating a version number from your git repo at the weekend. this post contains some follow-up notes and thoughts.
+
+» read more
+
+
+homebrew: permission denied @ rb_sysopen
+
+8 nov 2022 10:15
+
+homebrew
+macos
+
+
+
+i’m getting a permission denied error when running brew search:
+
+» read more
+
+
+zsh: can't create temp file for here document: permission denied
+
+7 nov 2022 19:58
+
+zsh
+macos
+
+
+
+problems with zsh on macos.
+
+» read more
+
+
+generating a version number from your git repo
+
+5 nov 2022 10:08
+
+git
+
+
+
+i’d like my application to display some kind of version number, ideally derived from the git tag.
+
+» read more
+
+
+erlang ssh
+
+1 nov 2022 10:25
+
+erlang
+ssh
+
+
+
+erlang/otp provides a built-in ssh client and daemon. you can use this to expose the console directly over ssh.
+
+» read more
+
+
+using eunit to test private functions
+
+25 oct 2022 17:33
+
+erlang
+eunit
+
+
+
+you’ve got an erlang module with a private (not-exported) function, and you want to add some unit tests for that
+function? how should you do that?
+
+» read more
+
+
+using alternate loopback addresses
+
+19 oct 2022 10:33
+
+
+
+
+usually, when you use localhost, it’ll use the 127.0.0.1 loopback address. did you know that the entire
+127.x.y.z range is reserved for loopback? see rfc 990 and rfc 3330. this can be useful sometimes.
+
+» read more
+
+
+victoriametrics static scraper
+
+16 oct 2022 15:07
+
+k3s
+kubernetes
+victoria-metrics
+electric-imp
+
+
+k3s
+
+
+
+i’ve got an electric imp environment tail in my office. it monitors the temperature, humidity and pressure. currently,
+to display a graph, it’s using flot.js and some shonky javascript that i wrote. it remembers samples from the last 48
+hours.
+
+» read more
+
+
+victoriametrics
+
+16 oct 2022 12:07
+
+k3s
+kubernetes
+victoria-metrics
+
+
+k3s
+
+
+
+the documentation for victoriametrics is a bit of a mess, so here’s what worked for me.
+
+» read more
+
+
+installing grafana
+
+16 oct 2022 10:37
+
+k3s
+kubernetes
+grafana
+
+
+k3s
+
+
+
+using argocd cli:
+
+» read more
+
+
+installing argocd command line interface
+
+16 oct 2022 09:37
+
+k3s
+kubernetes
+argo-cd
+
+
+k3s
+
+
+
+argocd provides a web interface and a command line interface. let’s install the cli.
+
+» read more
+
+
+using kustomize to configure nginx to serve static html
+
+15 oct 2022 14:37
+
+k3s
+kubernetes
+kustomize
+
+
+k3s
+
+
+
+as i add more things to my k3s cluster, i find myself wishing that i had a handy index of their home pages. for example,
+i’ve got argocd and gitea installed. i probably want to expose the longhorn console, and the kubernetes console. i think
+traefik has a console, too. i’ll also be adding grafana at some point soon.
+
+» read more
+
+
+multiple laptops, multiple monitors, redux
+
+11 oct 2022 13:03
+
+
+
+
+this is a follow-up to multiple laptops, multiple monitors; i’ve
+changed jobs (meaning a new work laptop) and i bought a surface dock 2 to go with my surface book 3.
+
+» read more
+
+
+formatting erlang code in visual studio code
+
+5 oct 2022 10:23
+
+vscode
+erlang
+rebar3
+
+
+
+the erlangls extension for vs code includes formatting, using rebar3_format. i’d prefer to use erlfmt, so here’s how i set it up.
+
+» read more
+
+
+upgrading to ubuntu 22.04 on my k3s cluster
+
+24 sep 2022 13:58
+
+k3s
+raspberry-pi
+
+
+k3s
+
+
+
+this afternoon, i fired up my k3s cluster for the first time in a while. when i ran apt update, i got an error message
+about a missing release file.
+
+» read more
+
+
+monitoring temperatures with telegraf
+
+29 aug 2022 15:04
+
+telegraf
+
+
+
+one of my nucs keeps hanging, and i suspect temperature. i wanted to use collectd to gather the temperature sensor
+values, but it was removed from ubuntu 22.04. instead, i’m going to see if i can get telegraf to do it instead.
+
+» read more
+
+
+aws glacier with powershell
+
+22 aug 2022 08:10
+
+aws
+aws-glacier
+powershell
+
+
+
+i needed to delete a glacier vault, which (because it’s not empty) needs the use of an sdk or the cli. since i’m using
+windows, i figured that i might as well take the opportunity to play with the aws tools for powershell.
+
+» read more
+
+
+installing debian packages on the empeg
+
+17 jun 2022 06:53
+
+empeg
+
+
+
+sometimes you need to install a binary on your empeg. in my case, i wanted strace.
+
+» read more
+
+
+using minicom with an empeg
+
+13 jun 2022 13:38
+
+empeg
+minicom
+
+
+
+it’s been many years since i last connected my empeg player to a linux pc, and the muscle memory’s gone. here’s how to
+make it work with ubuntu 20.04.
+
+» read more
+
+
+flutter listview selection on nvidia shield
+
+10 may 2022 09:55
+
+flutter
+
+
+
+i’m messing around with flutter on my nvidia shield, and i needed to make “tapping” on listview items work.
+
+» read more
+
+
+enable network debugging on nvidia shield
+
+10 may 2022 09:43
+
+android
+
+
+
+here’s how to debug your apps over the network on an nvidia shield device.
+
+» read more
+
+
+musicbrainz tags: musicbrainz_albumid or musicbrainz album id
+
+25 apr 2022 14:13
+
+musicbrainz
+
+
+
+i noticed that some of my music collection doesn’t have the correct album art. while investigating, i discovered an
+unrelated problem with the musicbrainz tags.
+
+» read more
+
+
+kotlin unresolved references in vs code
+
+5 apr 2022 11:15
+
+kotlin
+flutter
+vscode
+
+
+
+i’m attempting to write a flutter plugin (written in kotlin). if i open it in vs code, i get a bunch of “unresolved reference” errors.
+
+» read more
+
+
+flutter/kotlin/gradle unsupported class file in vs code
+
+5 apr 2022 09:17
+
+kotlin
+flutter
+gradle
+vscode
+
+
+
+opening a flutter/dart/kotlin project in vs code on windows, and a bunch of stuff is broken.
+
+» read more
+
+
+programming languages i have known
+
+25 mar 2022 16:13
+
+
+
+
+i’m learning dart and it got me wondering: “just how many programming languages have you used, roger?”.
+
+» read more
+
+
+livebook as k8s cluster admin
+
+9 mar 2022 12:29
+
+kubernetes
+livebook
+
+
+k3s
+
+
+
+because i like experimenting with kubernetes from elixir livebook, i made the service account into a cluster admin.
+
+» read more
+
+
+coredns customization
+
+25 feb 2022 08:47
+
+k3s
+core-dns
+dns
+
+
+k3s
+
+
+
+while debugging pod dns problems, i discovered that coredns allows
+customization by importing extra zone files from a config map. i’m going to use that to forward queries for k3s.differentpla.net to my custom coredns instance.
+
+» read more
+
+
+pod dns problems
+
+25 feb 2022 08:42
+
+k3s
+core-dns
+dns
+
+
+k3s
+
+
+
+i’ve got an extra instance of coredns running in my cluster, serving
+*.k3s.differentpla.net, with loadbalancer and ingress names registered in it, and it’s working fine for queries to
+the cluster. it’s not working fine for queries inside the cluster. what’s up with that?
+
+» read more
+
+
+elixir livebook on k3s
+
+23 feb 2022 20:42
+
+k3s
+elixir
+livebook
+
+
+k3s
+
+
+
+i’d like to run livebook on my cluster. here’s how i went about doing that.
+
+» read more
+
+
+installing cert-manager
+
+6 feb 2022 15:18
+
+kubernetes
+cert-manager
+
+
+k3s
+
+
+
+up to this point, i’ve been creating and installing certificates manually. let’s see if
+cert-manager will make that easier.
+
+» read more
+
+
+(not) upgrading argocd
+
+5 feb 2022 11:47
+
+argo-cd
+kubernetes
+
+
+k3s
+
+
+
+there’s a security fix that needs to be applied;
+there’s an arm64 release candidate. time to upgrade
+argocd.
+
+» read more
+
+
+securing gitea with https
+
+4 feb 2022 17:46
+
+gitea
+kubernetes
+
+
+k3s
+
+
+
+i’ve got gitea installed on my cluster, but it’s currently accessed via http (i.e. no tls; it’s not secure).
+
+» read more
+
+
+arm64 support
+
+3 feb 2022 08:46
+
+k3s
+raspberry-pi
+
+
+k3s
+
+
+
+because i’m running my k3s cluster on raspberry pi 4 nodes, and they’re
+arm-64 (aarch64), i keep running into problems where applications
+are compiled for x86_64 (amd64) and don’t run.
+
+» read more
+
+
+installing argocd on k3s
+
+2 feb 2022 17:57
+
+argo-cd
+kubernetes
+
+
+k3s
+
+
+
+we’re using argocd at work; time to play with it.
+
+» read more
+
+
+securing an ingress with tls
+
+31 jan 2022 18:35
+
+ingress
+kubernetes
+
+
+k3s
+
+
+
+my gitea instance isn’t using tls, so i’m going to replace the loadbalancer with an ingress, which will allow tls termination.
+
+» read more
+
+
+traefik ingress
+
+31 jan 2022 08:46
+
+ingress
+k3s
+traefik
+
+
+k3s
+
+
+
+i’m in the middle of installing argocd (blog post will appear later). rather than use up another loadbalancer ip address
+for it (and mess around with tls), let’s talk about using an ingress. it’s entirely possible that i can convert the
+previously-installed docker registry and gitea to use one as well.
+
+» read more
+
+
+jekyll callouts
+
+30 jan 2022 18:04
+
+jekyll
+liquid
+
+
+
+sometimes alerts are a bit, well, alert-y. here are some callouts instead.
+
+» read more
+
+
+installing gitea on k3s
+
+30 jan 2022 14:46
+
+gitea
+kubernetes
+
+
+k3s
+
+
+
+i want to play with gitops on my k3s cluster (specifically argocd). to do that, i’m going to
+need a local git server. i decided to use gitea.
+
+» read more
+
+
+accessing the kubernetes api from an elixir container
+
+16 jan 2022 13:04
+
+elixir
+kubernetes
+
+
+
+if you want to access the kubernetes api from elixir, you should probably just use the
+k8s package, but here’s how to do it without taking that dependency.
+
+» read more
+
+
+custom coredns runbook
+
+16 jan 2022 10:08
+
+runbook
+core-dns
+post-mortem
+incident-review
+
+
+k3s
+
+
+
+i recently left my k3s cluster turned off for a week or so. when i turned it back on, the k3s.differentpla.net dns wasn’t working. let’s figure it out and maybe write a runbook for the next time.
+
+» read more
+
+
+colouring the 'iex' prompt
+
+9 jan 2022 12:17
+
+elixir
+
+
+
+if you’ve got separate dev, test and prod environments, it can help to use colour to tell you which one you’re logged
+into. here’s how to colour the iex prompt appropriately.
+
+» read more
+
+
+erlang/elixir cookies and kubernetes
+
+9 jan 2022 10:27
+
+erlang
+elixir
+kubernetes
+
+
+
+distributed erlang and elixir applications use a shared secret called a “cookie”.  it’s just a string of alphanumeric
+characters. all nodes in the cluster must use the same cookie. let’s take a look at what that means in a kubernetes
+context.
+
+» read more
+
+
+coredns: endpoint_pod_names
+
+8 jan 2022 19:34
+
+elixir
+kubernetes
+libcluster
+core-dns
+
+
+
+i’m still on the hunt for a way to connect erlang nodes in a kubernetes cluster by using pod names.
+
+» read more
+
+
+libcluster and kubernetes
+
+8 jan 2022 14:07
+
+elixir
+kubernetes
+libcluster
+
+
+
+i’m looking at setting up an erlang/elixir cluster in my kubernetes cluster, using
+libcluster, and i’m trying to get my head around some of the implied
+constraints.
+
+» read more
+
+
+kubernetes api from inside a container
+
+7 jan 2022 18:15
+
+kubernetes
+
+
+
+messing around with the kubernetes api from inside a container.
+
+» read more
+
+
+kubectl proxy and curl
+
+7 jan 2022 10:23
+
+kubernetes
+
+
+
+$ kubectl proxy
+starting to serve on 127.0.0.1:8001
+
+
+» read more
+
+
+upgrading k3s
+
+3 jan 2022 14:38
+
+k3s
+
+
+k3s
+
+
+
+
+the rancher docs say that you should update the server first, then the workers.
+
+
+» read more
+
+
+ip-based pod a records
+
+3 jan 2022 11:11
+
+kubernetes
+
+
+
+a while ago, i asked why pod names don’t resolve in
+dns, and never really
+got a satisfactory answer. one way you can connect to a pod (rather than with a service), is to use the dashed-ip form
+of the pod address, e.g. 10-42-2-46.default.pod.cluster.local. here’s how it works.
+
+» read more
+
+
+k3s on raspberry pi: nodeport with multiple replicas
+
+30 dec 2021 12:10
+
+k3s
+raspberry-pi
+
+
+k3s
+
+
+
+if you’re using a nodeport service, and it has multiple replicas, how does it know which replica to use?
+
+» read more
+
+
+using coredns for loadbalancer addresses
+
+29 dec 2021 20:15
+
+core-dns
+
+
+k3s
+
+
+
+i’d like to be able to access my load-balanced services by name
+(docker.k3s.differentpla.net, for example) from outside my k3s cluster. i’m
+using --addn-hosts on dnsmasq on my router.
+this is fragile. every time i want to add a load-balanced service, i need to edit
+the additional hosts file on my router, and i need to restart dnsmasq.
+
+» read more
+
+
+docker registry redux
+
+21 dec 2021 11:57
+
+raspberry-pi
+docker
+k3s
+
+
+k3s
+
+
+
+wherein i finally bring together all we’ve learned so far and stand this thing up properly.
+
+» read more
+
+
+elixir-certs
+
+21 dec 2021 11:50
+
+elixir
+
+
+
+i need to secure my docker registry. because openssl sucks, i’m using
+an elixir script that uses the ‘x509’ library.
+
+» read more
+
+
+installing longhorn
+
+21 dec 2021 11:28
+
+raspberry-pi
+longhorn
+k3s
+
+
+k3s
+
+
+
+installation with helm, per https://longhorn.io/docs/1.2.3/deploy/install/install-with-helm/.
+
+» read more
+
+
+disabling klipper
+
+20 dec 2021 20:55
+
+raspberry-pi
+
+
+k3s
+
+
+
+i forgot to disable klipper, the k3s-provided load balancer.
+
+» read more
+
+
+installing metallb
+
+20 dec 2021 20:55
+
+kubernetes
+raspberry-pi
+metallb
+
+
+k3s
+
+
+
+installation with helm, per https://metallb.universe.tf/installation/#installation-with-helm.
+
+» read more
+
+
+installing helm
+
+20 dec 2021 20:45
+
+raspberry-pi
+
+
+k3s
+
+
+
+to install other things, we’re going to want to use helm. so let’s install that first.
+
+» read more
+
+
+installing k3s on ubuntu on raspberry pi
+
+20 dec 2021 19:16
+
+raspberry-pi
+k3s
+ubuntu
+
+
+k3s
+
+
+
+having reinstalled all of my nodes with ubuntu, i need to go back and install k3s. joy.
+
+» read more
+
+
+installing ubuntu on raspberry pi
+
+20 dec 2021 12:17
+
+raspberry-pi
+ubuntu
+
+
+k3s
+
+
+
+my raspberry pi 4 cluster is currently 32-bit. it’s got a 32-bit
+kernel with a 32-bit userland. but i need to run 64-bit software on it. i looked into upgrading it in place, but that’s infeasible. so i need to reinstall it.
+
+» read more
+
+
+upgrading raspios to arm64
+
+20 dec 2021 10:26
+
+raspberry-pi
+
+
+k3s
+
+
+
+can i upgrade my raspberry pi 4-powered k3s cluster to arm64? without rebuilding everything? tl;dr: no.
+
+» read more
+
+
+synology srm dns server problems
+
+19 dec 2021 12:11
+
+dns
+synology-srm
+
+
+
+while messing around with my k3s cluster, i decided that i needed a dns server. i tried the synology dns server.
+
+» read more
+
+
+k3s on raspberry pi: persistent volume namespaces
+
+18 dec 2021 20:11
+
+k3s
+raspberry-pi
+
+
+k3s
+
+
+
+persistent volume claims are namespace-scoped. persistent volumes are not:
+
+» read more
+
+
+k3s on raspberry pi: docker push fails
+
+18 dec 2021 16:08
+
+k3s
+raspberry-pi
+iscsi
+synology-nas
+
+
+k3s
+
+
+
+pushing a simple node.js-based image to my private docker registry failed.
+
+» read more
+
+
+do docker registry names matter?
+
+17 dec 2021 21:29
+
+docker
+
+
+
+when you want to push an image to a docker registry, you need to tag it with the registry name. does the name matter?
+
+» read more
+
+
+k3s on raspberry pi: nodeport services
+
+17 dec 2021 20:58
+
+k3s
+raspberry-pi
+
+
+k3s
+
+
+
+until just now, i didn’t get nodeport services.
+
+» read more
+
+
+k3s on raspberry pi: static persistent volumes
+
+17 dec 2021 15:09
+
+k3s
+raspberry-pi
+
+
+k3s
+
+
+
+in the previous post, we succeeded in giving our docker registry some
+persistent storage. however, it used (the default) dynamic provisioning, which means we don’t have as much control over
+where the storage is provisioned.
+
+» read more
+
+
+jekyll alerts
+
+17 dec 2021 09:25
+
+jekyll
+liquid
+
+
+
+i wanted to display an alert on one of my pages, like this:
+
+» read more
+
+
+k3s on raspberry pi: dynamic persistent volumes
+
+17 dec 2021 09:06
+
+k3s
+raspberry-pi
+
+
+k3s
+
+
+
+we need to give our docker registry some persistent storage. currently,
+if we restart it, it loses its stored data.
+
+» read more
+
+
+k3s on raspberry pi: persistent storage using hostpath
+
+16 dec 2021 18:20
+
+k3s
+raspberry-pi
+
+
+k3s
+
+
+
+we need to give our docker registry some persistent storage. currently,
+if we restart it, it loses its stored data.
+
+» read more
+
+
+k3s on raspberry pi: using an insecure docker registry
+
+16 dec 2021 16:16
+
+k3s
+raspberry-pi
+docker
+
+
+k3s
+
+
+
+let’s see if we can push an image to our new docker registry.
+
+» read more
+
+
+new theme
+
+16 dec 2021 09:32
+
+blogging
+
+
+
+yes, it’s a barely-modified bootstrap 5. i like it, ok?
+
+» read more
+
+
+git start
+
+10 dec 2021 11:16
+
+git
+
+
+
+when i create a new git repository, i prefer for there to be an empty commit at the beginning of history.
+
+» read more
+
+
+k3s on raspberry pi: private docker registry
+
+10 dec 2021 09:49
+
+k3s
+raspberry-pi
+docker
+
+
+k3s
+
+
+
+
+
+
+updated: see docker registry redux.
+    
+
+
+» read more
+
+
+k3s on raspberry pi: iscsi
+
+9 dec 2021 19:42
+
+k3s
+raspberry-pi
+iscsi
+synology-nas
+
+
+k3s
+
+
+
+the default option for persistent volumes on k3s is local-path,
+which provisions (on-demand) the storage on the node’s local disk. this
+has the unfortunate side-effect that the container is now tied to that
+particular node.
+
+» read more
+
+
+k3s on raspberry pi: schedulingdisabled
+
+8 dec 2021 09:42
+
+k3s
+raspberry-pi
+
+
+k3s
+
+
+
+this morning, i grabbed my raspberry pi cluster out of the box and fired it up again.
+
+» read more
+
+
+which erlang compiler was used?
+
+2 nov 2021 09:04
+
+erlang
+
+
+
+to get the version of the compiler used to compile a particular .beam file:
+
+» read more
+
+
+multiple laptops, multiple monitors
+
+11 sep 2021 19:04
+
+
+
+
+at home, i’ve got a rather nice setup with two dell u2520d monitors on my desk, which i’m currently using from my (work)
+linux desktop. however, more recently, i’m trying to strike a better work/life balance, so i’ve decided to start making
+more use of my (personal) microsoft surface book 3 laptop, but i’d like to continue using the two monitors (which are
+also mine; i never bothered filing the expense claim).
+
+» read more
+
+
+k3s on raspberry pi: rebuilding with pi 4
+
+4 jul 2021 15:39
+
+k3s
+raspberry-pi
+
+
+k3s
+
+
+
+about 2 years ago, i spent some time messing around with k3s on a cluster made
+from 5x raspberry pi 2 model b nodes.
+
+» read more
+
+
+erlang and ed25519
+
+10 jun 2021 13:18
+
+erlang
+cryptography
+
+
+
+erlang/otp 24.0 added support for ed25519 curves. here’s some example snippets:
+
+» read more
+
+
+failed to start child: :ranch_server_proxy
+
+8 jun 2021 14:02
+
+elixir
+ranch
+
+
+
+** (mix) could not start application example_server: exampleserver.application.start(:normal, []) returned an error: shutdown: failed to start child: {:ranch_embedded_sup, :example_server}
+    ** (exit) shutdown: failed to start child: :ranch_server_proxy
+        ** (exit) no process: the process is not alive or there's no process currently associated with the given name, possibly because its application isn't started
+
+
+» read more
+
+
+erlangls version?
+
+2 jun 2021 09:16
+
+erlang
+vscode
+
+
+
+i recently had to report a bug against erlangls (the erlang language server). here’s how i discovered the version number:
+
+» read more
+
+
+alpn in erlang
+
+1 mar 2021 11:16
+
+erlang
+
+
+
+per wikipedia:
+
+» read more
+
+
+using 'cert' and 'key' with erlang/otp 'ssl'
+
+26 feb 2021 16:16
+
+erlang
+
+
+
+ordinarily when writing an ssl/tls server or client using erlang/otp, you’ll use the certfile and keyfile options, as follows:
+
+» read more
+
+
+{error, closed}; nothing logged
+
+25 feb 2021 16:04
+
+erlang
+ranch
+
+
+
+i’ve just spent about a day poking around in the guts of erlang/otp and ranch, and i thought i’d write some of it down.
+
+» read more
+
+
+how many bits for timestamps?
+
+11 dec 2020 13:43
+
+
+
+
+signed 32-bit time_t, which counts seconds since 1970 runs out after 2^31 seconds; i.e. in 2038.
+
+» read more
+
+
+package python was not found in the pkg-config search path when using scons
+
+28 sep 2020 17:49
+
+python
+scons
+
+
+
+after upgrading to ubuntu 20.04 at the weekend (this is not strictly relevant),
+one of my builds started failing with the following error:
+
+» read more
+
+
+using erlang's common test for system testing
+
+14 sep 2020 18:21
+
+erlang
+testing
+electric-imp
+
+
+
+at electric imp (now part of twilio), my team uses erlang’s common test for driving our system tests. these are (almost-)end-to-end tests that exercise (almost) the whole platform.
+
+» read more
+
+
+connecting chromeos to a printer via cups
+
+29 jun 2020 08:28
+
+
+
+
+i’ve got my printer connected to a raspberry pi print server, and printer discovery only occasionally works from chromeos. here’s an aide-memoire for configuring it.
+
+» read more
+
+
+connecting to an erlang node in a docker container
+
+19 jun 2020 15:41
+
+erlang
+docker
+
+
+
+i’ve got a bunch of erlang nodes running in docker containers, and i’d
+like to connect a remote shell, running on the host, to one of them.
+
+» read more
+
+
+integrating direnv with python 3
+
+12 jun 2020 18:15
+
+direnv
+python
+python-3
+
+
+direnv-tool-versions
+
+
+
+by now you should be using python 3.x. you can integrate it with direnv (2.21 or newer)
+by putting the following in your .envrc
+
+» read more
+
+
+k3s on raspberry pi: phoenix server
+
+7 feb 2020 11:17
+
+k3s
+raspberry-pi
+docker
+elixir
+phoenix
+
+
+k3s
+
+
+
+note: this is basically the same as the node.js server.
+
+» read more
+
+
+installing erlang and elixir on raspberry pi
+
+7 feb 2020 10:49
+
+erlang
+elixir
+raspberry-pi
+
+
+
+quick reference for installing erlang and elixir on a raspberry pi, using the erlang solutions packages.
+
+» read more
+
+
+k3s on raspberry pi: node.js server
+
+6 feb 2020 19:03
+
+k3s
+raspberry-pi
+docker
+nodejs
+
+
+k3s
+
+
+
+now that i’ve successfully run nginx on my cluster, i’m going to do the same with a simple node.js server.
+
+» read more
+
+
+k3s on raspberry pi: private docker
+
+6 feb 2020 17:52
+
+k3s
+raspberry-pi
+docker
+
+
+k3s
+
+
+
+
+
+
+updated: see docker registry redux.
+    
+
+
+» read more
+
+
+k3s on raspberry pi: installing nginx
+
+6 feb 2020 17:44
+
+k3s
+raspberry-pi
+
+
+k3s
+
+
+
+start nginx, with 3 replicas:
+
+» read more
+
+
+k3s on raspberry pi: installing k3s
+
+6 feb 2020 17:04
+
+k3s
+raspberry-pi
+
+
+k3s
+
+
+
+it’s at this point that i diverge from scott’s blog post; he installs full-fat kubernetes. i’m going to use k3s.
+
+» read more
+
+
+k3s on raspberry pi: installing raspbian
+
+6 feb 2020 16:54
+
+k3s
+raspberry-pi
+
+
+k3s
+
+
+
+i downloaded raspbian buster lite from the official site and wrote it to the sd cards (using dd).
+
+» read more
+
+
+k3s on raspberry pi: hardware
+
+6 feb 2020 16:44
+
+k3s
+raspberry-pi
+
+
+k3s
+
+
+
+i had a bunch of hardware lying around from an earlier abandoned side project:
+
+» read more
+
+
+k3s on raspberry pi: introduction
+
+6 feb 2020 16:34
+
+k3s
+raspberry-pi
+
+
+k3s
+
+
+
+background
+
+» read more
+
+
+integrating direnv with ghc
+
+2 feb 2020 15:32
+
+direnv
+haskell
+ghc
+
+
+direnv-tool-versions
+
+
+
+i’m reading “practical haskell”, which requires a different version of haskell than
+ubuntu installs so i figured i’d add another entry to my direnv series.
+
+» read more
+
+
+using git with multiple emails
+
+24 jan 2020 10:13
+
+git
+
+
+
+recently i noticed that i’d made some commits to the git repository at work with my personal email address.
+
+» read more
+
+
+max_user_watches
+
+10 jan 2020 20:07
+
+ubuntu
+ubuntu-install
+vscode
+
+
+
+
+visual studio code is unable to watch for file changes in this large workspace
+
+
+» read more
+
+
+gnome extensions
+
+10 jan 2020 20:07
+
+ubuntu
+ubuntu-install
+
+
+
+i installed the following extensions:
+
+» read more
+
+
+firefox containers
+
+7 jan 2020 21:01
+
+firefox
+
+
+
+i have more than one google account, and this confuses google apps.
+
+» read more
+
+
+elixir's use functionality
+
+2 jan 2020 15:54
+
+elixir
+
+
+
+use is a way that you can inject code into your module. elixir uses this for boilerplate in genserver, and phoenix uses it for metaprogramming.
+
+» read more
+
+
+debugging gen_server timeouts
+
+21 sep 2019 15:01
+
+erlang
+
+
+
+when an error occurs in the electric imp backend, it’s logged and collated, and we regularly
+review error reports to see if there’s anything that needs looking at.
+
+» read more
+
+
+installing an msata disk in an empeg
+
+29 mar 2019 15:25
+
+empeg
+
+
+
+background
+
+» read more
+
+
+a ups post-mortem
+
+21 feb 2019 10:48
+
+post-mortem
+incident-review
+
+
+
+this morning, something electrical went wrong in my “network cabinet” (hall
+cupboard), which knocked me offline for about an hour. here’s the post-mortem.
+
+» read more
+
+
+integrating direnv with ruby-install
+
+30 jan 2019 17:45
+
+direnv
+ruby
+
+
+direnv-tool-versions
+
+
+
+to integrate direnv with ruby-install – installation instructions here – add the following to ~/.direnvrc:
+
+» read more
+
+
+installing ruby with ruby-install
+
+30 jan 2019 17:40
+
+direnv
+ruby
+
+
+direnv-tool-versions
+
+
+
+
+on recent versions of ubuntu, with older versions of ruby, you’ll get an error about missing openssl. see this post for a solution.
+
+
+» read more
+
+
+integrating direnv with python-build
+
+30 jan 2019 17:25
+
+direnv
+python
+
+
+direnv-tool-versions
+
+
+
+to integrate direnv with python-build – installation instructions here – add the following to ~/.direnvrc:
+
+» read more
+
+
+installing python with python-build
+
+30 jan 2019 17:20
+
+direnv
+python
+
+
+direnv-tool-versions
+
+
+
+install pyenv. we’re not going to use it as-is, but it includes the python-build script that we will use:
+
+» read more
+
+
+integrating direnv with nvm
+
+30 jan 2019 17:12
+
+direnv
+nodejs
+
+
+direnv-tool-versions
+
+
+
+to integrate direnv with nvm, add the following to ~/.direnvrc:
+
+» read more
+
+
+installing elixir with kiex
+
+30 jan 2019 17:12
+
+direnv
+elixir
+
+
+direnv-tool-versions
+
+
+
+at electric imp, we manage our elixir versions with kiex.
+
+» read more
+
+
+installing kiex
+
+30 jan 2019 17:10
+
+elixir
+kiex
+
+
+direnv-tool-versions
+
+
+
+\curl -ssl https://raw.githubusercontent.com/taylor/kiex/master/install | bash -s
+
+
+» read more
+
+
+integrating direnv with kiex
+
+30 jan 2019 17:07
+
+direnv
+elixir
+kiex
+
+
+direnv-tool-versions
+
+
+
+to integrate direnv with kiex, add the following to ~/.direnvrc:
+
+» read more
+
+
+getting erlang version
+
+30 jan 2019 17:05
+
+erlang
+
+
+direnv-tool-versions
+
+
+
+use this helper function:
+
+» read more
+
+
+installing erlang with kerl
+
+30 jan 2019 17:04
+
+direnv
+erlang
+
+
+direnv-tool-versions
+
+
+
+at electric imp, on developer pcs, we manage our erlang versions with kerl.
+
+» read more
+
+
+integrating direnv with kerl
+
+30 jan 2019 17:03
+
+direnv
+kerl
+erlang
+
+
+direnv-tool-versions
+
+
+
+to integrate direnv with kerl, add the following to ~/.direnvrc:
+
+» read more
+
+
+installing kerl
+
+30 jan 2019 17:03
+
+kerl
+erlang
+
+
+direnv-tool-versions
+
+
+
+ubuntu
+
+» read more
+
+
+building erlang: prerequisites (ubuntu)
+
+30 jan 2019 17:02
+
+direnv
+erlang
+
+
+direnv-tool-versions
+
+
+
+if you want to use kerl to build your erlang installation, you’re going to
+need some packages installed first.
+
+» read more
+
+
+installing direnv
+
+30 jan 2019 17:01
+
+direnv
+
+
+direnv-tool-versions
+
+
+
+from direnv.net:
+
+» read more
+
+
+using direnv to manage tool versions
+
+30 jan 2019 17:00
+
+direnv
+
+
+direnv-tool-versions
+
+
+
+at electric imp, we use a variety of different languages, and each project might be using a different mix of versions.
+
+» read more
+
+
+rebuilding kerl installations
+
+30 jan 2019 16:50
+
+kerl
+erlang
+
+
+
+if kerl list installations is displaying erlang installations that you
+deleted ages ago, and you’ve got all of your installations in
+~/.kerl/erlangs/, you can rebuild the list by running the following command:
+
+» read more
+
+
+which programming languages do we use at electric imp?
+
+30 jan 2019 14:53
+
+electric-imp
+
+
+
+i last posted on this topic about 4 years ago. it’s time for an update.
+
+» read more
+
+
+jq reduce
+
+11 jan 2019 19:38
+
+jq
+
+
+
+i found myself having to process a large json file using jq --slurp, and it was using up a lot of memory, so i thought it was time to learn about jq’s reduce function.
+
+» read more
+
+
+gen_server:enter_loop
+
+12 jun 2018 14:52
+
+erlang
+
+
+
+when you use gen_server:start/3,4 or gen_server:start_link/3,4, the call
+blocks until the other process has finished running init/1.
+
+» read more
+
+
+installing 'robot-detect'
+
+13 dec 2017 11:44
+
+
+
+
+installing the script to check for the robot attack. on linux mint 18.3. yak shaving.
+
+» read more
+
+
+git rebase tips
+
+27 oct 2017 13:10
+
+git
+
+
+
+this is an internal email i wrote almost exactly 2 years ago. i had to refer
+to it today, and i figured that it bears sharing publicly.
+
+» read more
+
+
+updating libgnutls28 on ubuntu trusty
+
+27 oct 2017 09:10
+
+
+
+libgnutls-bug
+
+
+
+previously, i posted about a bug we’d fallen foul of in libgnutls28 on ubuntu 14.04. there’s a patch.
+
+» read more
+
+
+a bug in libgnutls
+
+27 oct 2017 09:06
+
+
+
+libgnutls-bug
+
+
+
+background
+
+» read more
+
+
+using google pub/sub from bash
+
+5 oct 2017 14:35
+
+jwt
+
+
+
+background
+
+» read more
+
+
+simple job control in bash
+
+23 aug 2017 09:03
+
+bash
+
+
+
+what?
+
+» read more
+
+
+how does rebar escriptize work?
+
+21 oct 2015 08:29
+
+erlang
+
+
+
+hello world
+
+» read more
+
+
+running rsync over an ssh port forward
+
+21 oct 2015 08:26
+
+
+
+
+why?
+
+» read more
+
+
+compiling erlang for synology ds211, dsm 5.1
+
+5 jul 2015 19:16
+
+erlang
+synology-nas
+
+
+
+i wanted to get erlang running on my synology nas, for various reasons, and was
+struggling with the cross compiler.
+
+» read more
+
+
+enabling remote ssh access on openwrt 12.09
+
+27 may 2015 19:15
+
+openwrt
+
+
+
+i don’t recommend enabling remote ssh access to your router, but if you need
+to, here’s how to do it via the web interface (luci):
+
+» read more
+
+
+validating rs256-signed json web tokens in erlang
+
+19 apr 2015 14:29
+
+jwt
+erlang
+
+
+
+i’m currently playing with openid connect (oauth 2.0 for login), to allow people to log into a web site using their
+google account. the web site is built using erlang.
+
+» read more
+
+
+configuring mailgun dns entries on enom
+
+22 feb 2015 09:14
+
+
+
+
+when setting up a mailgun domain, you need to configure some dns entries, shown
+as follows in the mailgun console:
+
+» read more
+
+
+running chromium as a dashboard
+
+28 jan 2015 08:26
+
+
+
+
+on my desk i have a dashboard (an “information radiator”) that displays various
+useful things, such as the build status of various jenkins jobs, clocks showing
+important timezones (electric imp is a distributed company), and so on.
+
+» read more
+
+
+sudo: unable to resolve host
+
+30 nov 2014 11:58
+
+
+
+
+attempting to sudo bash, i was confronted with:
+
+» read more
+
+
+getting lager handler info
+
+28 nov 2014 11:08
+
+erlang
+lager
+
+
+
+we use lager for our logging at electric imp.
+this morning i had cause to tweak the
+configuration
+at runtime on one of our staging boxes, but first i needed to figure out which
+handlers were already installed.
+
+» read more
+
+
+when does terminate get called?
+
+13 nov 2014 13:22
+
+erlang
+
+
+
+in erlang, in a gen_server, when does terminate get called? also, some
+messing around with dbg for tracing.
+
+» read more
+
+
+supervised event handlers in erlang
+
+7 nov 2014 10:11
+
+erlang
+erlang-cowboy
+
+
+
+i find erlang’s gen_event behaviour to be fairly tricky to understand,
+despite the copious documentation on the subject:
+
+» read more
+
+
+which programming languages do we use at electric imp?
+
+21 oct 2014 10:57
+
+electric-imp
+
+
+
+this question just came up on twitter:
+
+» read more
+
+
+library module name 'foo_nif' does not match calling module 'erl_eval'
+
+9 oct 2014 13:43
+
+erlang
+nif
+
+
+
+it turns out that you can’t load erlang nif libraries from the shell.
+
+» read more
+
+
+reverting erlang 17
+
+9 oct 2014 12:22
+
+
+
+
+we’ve found a couple of problems with erlang r16 that mean that one of our
+projects requires erlang 17. conversely, we’ve found a couple of problems with
+erlang 17 that mean that one of our other projects should stick with erlang
+r16.
+
+» read more
+
+
+using kerl with direnv
+
+30 sep 2014 00:00
+
+kerl
+direnv
+erlang
+
+
+
+kerl allows you to easily build and install multiple erlang/otp releases.
+it’s kinda like nvm or rvm, but for erlang. it doesn’t do everything, and
+that’s what direnv is for. direnv allows you to run commands upon entering
+or leaving a particular directory.
+
+» read more
+
+
+dependency my_app is specified as a dependency but is not reachable by the system
+
+7 jul 2014 13:26
+
+erlang
+
+
+
+while using erlang.mk and relx to build a newly-created erlang application, i got the following error:
+
+» read more
+
+
+electric imp moves to erlang programming language
+
+16 may 2014 00:00
+
+erlang
+electric-imp
+
+
+
+originally posted, 16 june 2014, to the electric imp blog. preserved here.
+
+» read more
+
+
+lager formatters
+
+13 may 2014 12:49
+
+erlang
+lager
+
+
+
+overview
+
+» read more
+
+
+adding lager handlers at runtime
+
+10 may 2014 08:49
+
+erlang
+lager
+
+
+
+you’re using lager for logging in your erlang program, and you discover that
+your configuration isn’t logging anything more verbose than info-level
+messages. how do you bump that up to debug?
+
+» read more
+
+
+debugging erlang with a remote shell
+
+8 may 2014 15:54
+
+erlang
+
+
+
+if you’re connected to an erlang node via a remote shell, and you don’t have
+access to stdout on the original node, you’ll need to redirect the trace output
+to your current shell.
+
+» read more
+
+
+creating zip files in erlang
+
+5 mar 2014 16:30
+
+erlang
+
+
+
+it’s pretty simple to create a zip file on disk.
+
+» read more
+
+
+epgsql: invalid_password
+
+31 dec 2013 14:55
+
+
+
+
+i’m writing a simple web application in erlang that uses
+epgsql to talk to a postgresql database. i keep
+getting invalid_password, despite the fact that the user doesn’t have a
+password (and i’m passing “”). i can also log in by using psql -u foo.
+
+» read more
+
+
+on caching
+
+29 dec 2013 09:12
+
+
+
+
+background
+
+» read more
+
+
+vim, syntastic, .jshintrc
+
+10 dec 2013 14:21
+
+vim
+
+
+
+i’ve been using syntastic for a while now.
+it’s awesome.
+
+» read more
+
+
+vim plugins
+
+22 nov 2013 12:22
+
+vim
+
+
+
+this, for no particular reason, is the list of vim plugins that i’m currently using:
+
+» read more
+
+
+labels for aprils
+
+22 nov 2013 08:57
+
+electric-imp
+
+
+
+if you don’t know what electric imp is, what an
+april development
+board
+is, and you don’t have a dymo letratag
+lt-100h label
+printer, then this isn’t going to be of much use to you.
+
+» read more
+
+
+openwrt: cannot find termcap entry for 'xterm-256color'
+
+16 nov 2013 10:50
+
+openwrt
+
+
+
+i’ve got my term environment variable set to xterm-256color
+(even though i’m using gnome-terminal, but that’s a different story).
+when i ssh into my openwrt router, i get presented with the error message:
+
+» read more
+
+
+capturing network traces with openwrt
+
+13 nov 2013 09:42
+
+openwrt
+
+
+
+this is mostly a reminder to myself.
+
+» read more
+
+
+gen_fsm learnings, part 3
+
+12 nov 2013 13:51
+
+erlang
+
+
+gen_fsm
+
+
+
+some odds and ends.
+
+» read more
+
+
+gen_fsm learnings, part 2
+
+11 nov 2013 16:12
+
+erlang
+
+
+gen_fsm
+
+
+
+handle_event and handle_sync_event
+
+» read more
+
+
+gen_fsm learnings, part 1
+
+11 nov 2013 15:31
+
+erlang
+
+
+gen_fsm
+
+
+
+background
+
+» read more
+
+
+failed to enumerate ssl bindings
+
+11 nov 2013 14:53
+
+
+
+
+in powershell, when i attempted to enumerate ssl bindings, i was getting the
+error message:
+
+» read more
+
+
+msbuild - where is everything?
+
+11 nov 2013 14:47
+
+msbuild
+
+
+
+msbuild (and visual studio) scatter .targets and .tasks files all over the shop. try looking in:
+
+» read more
+
+
+net_kernel:connect_node/1 returns ignored
+
+7 nov 2013 16:31
+
+erlang
+
+
+
+just some random thing i learnt today while playing with erlang:
+
+» read more
+
+
+lego storage
+
+3 nov 2013 19:59
+
+lego
+
+
+
+my son has quite a lot of lego, but he stopped playing with it. it turns out
+that he gets frustrated when he can’t find a particular piece. so we started
+exploring storage options.
+
+» read more
+
+
+cowboy - request timeouts
+
+3 nov 2013 19:56
+
+erlang-cowboy
+
+
+
+cowboy protects itself against slow requests by doing the following:
+
+» read more
+
+
+channel_setup_fwd_listener: cannot listen to port
+
+1 nov 2013 12:24
+
+ssh
+
+
+
+i was attempting to use ssh to set up a tunnel (to our build server) this morning,
+so i typed the following:
+
+» read more
+
+
+on getting out of my technical comfort zone
+
+31 oct 2013 09:56
+
+electric-imp
+
+
+
+i’ve been working for electric imp for about three
+months now, and i’ve been planning to articulate why i made the change, or more
+specifically, how it meant getting way out of my technical and working comfort
+zone.
+
+» read more
+
+
+replacing dnsmasq on openwrt
+
+30 oct 2013 11:34
+
+openwrt
+dns
+
+
+
+overview
+
+» read more
+
+
+dependency injection in node.js
+
+5 oct 2013 19:26
+
+nodejs
+
+
+
+node.js modules are singletons. if you require('foo') from one module, and
+then require('foo') from a different module, you’ll get the same instance.
+
+» read more
+
+
+creating a certificate request in powershell
+
+25 jun 2013 18:56
+
+powershell
+bouncy-castle
+
+
+
+the documentation is for java, and mentions the pkcs10certificationrequest class.
+
+» read more
+
+
+using reflection to get constructor details in powershell
+
+25 jun 2013 18:54
+
+powershell
+
+
+
+i was attempting to convert some java code that uses bouncy castle into the
+equivalent powershell. the java code was using the pkcs10certificationrequest class,
+and i needed to see if there was an equivalent in the .net libraries:
+
+» read more
+
+
+phones i have owned
+
+18 jun 2013 10:37
+
+
+
+
+apropos of a discussion on facebook earlier today:
+
+motorola mr20
+motorola startac
+motorola (blue thing)
+nokia 8310
+nokia 6230
+htc desire
+samsung galaxy s3
+
+
+» read more
+
+
+failed to load data access dll
+
+3 jun 2013 10:55
+
+
+
+
+while attempting to debug a crash dump from a .net 4.0 rtm process on my (.net 4.5), i got the dreaded
+failed to load data access dll, 0x80004005 error message.
+
+» read more
+
+
+using iis express in vs-welcome-page
+
+29 may 2013 17:35
+
+
+
+visual-studio-extension-in-a-weekend
+
+
+
+so, why did i use iis express to implement my vs-welcome-page extension? i’m using nancy, so why didn’t i just use
+the self-hosting support and host it inside visual studio instead?
+
+» read more
+
+
+packaging vs-welcome-page
+
+29 may 2013 17:25
+
+
+
+visual-studio-extension-in-a-weekend
+
+
+
+next problem: packaging the vs-welcome-page extension.
+
+» read more
+
+
+killing iis express
+
+29 may 2013 17:23
+
+
+
+visual-studio-extension-in-a-weekend
+
+
+
+a brief aside: i’ve got to the point where i’m about to fire up iis express from visual studio. in order to be a good
+citizen, our extension should probably shut it down again later.
+
+» read more
+
+
+creating a visual studio extension
+
+29 may 2013 17:21
+
+
+
+visual-studio-extension-in-a-weekend
+
+
+
+the next major piece is the visual studio extension, so let’s get on with that. assuming that you’ve installed the
+visual studio 2012 sdk, it’s as simple as creating a new “visual studio package” (it’s under “visual c#” /
+“extensibility”):
+
+» read more
+
+
+rendering markdown in .net
+
+29 may 2013 17:19
+
+
+
+visual-studio-extension-in-a-weekend
+
+
+
+there are several options for rendering markdown to html in .net. if you bring
+up the nuget package manager dialog and search for “markdown”, you get three
+pages of results, including markdownsharp, which is the renderer used by
+stack overflow, so it must be good.
+
+» read more
+
+
+displaying a web page in visual studio
+
+29 may 2013 15:35
+
+
+
+visual-studio-extension-in-a-weekend
+
+
+
+using the web browser that’s built into visual studio is dead simple:
+
+» read more
+
+
+spike: providing parameters to iis express-hosted applications
+
+29 may 2013 15:32
+
+
+
+visual-studio-extension-in-a-weekend
+
+
+
+an aside: we need to be able to support multiple instances of our small web application (because you might have more
+than one instance of visual studio open). if we host our application in iis express (and remember that we’re doing this
+to avoid messing around with url acls), we either need to duplicate the whole thing for each site, or figure out a way
+to provide it with parameters.
+
+» read more
+
+
+running iis express
+
+29 may 2013 15:07
+
+
+
+visual-studio-extension-in-a-weekend
+
+
+
+when you create a web application in visual studio, you can configure it (on the properties page) to run in iis
+express.
+
+» read more
+
+
+a visual studio extension in a weekend
+
+29 may 2013 15:05
+
+
+
+visual-studio-extension-in-a-weekend
+
+
+
+i wanted to write a visual studio extension (for vs2012) that, when you open a solution, renders and displays markdown
+documentation in visual studio.
+
+» read more
+
+
+iis application pools and auto-started web applications
+
+13 may 2013 13:38
+
+powershell
+iis
+
+
+
+we had an issue at work last week where a web application was taking a little bit too long to start up, which was causing intermittent failures. we’d like the application to be always-running, so that this doesn’t happen.
+
+» read more
+
+
+finding iis worker processes
+
+13 may 2013 13:37
+
+powershell
+iis
+
+
+
+how do we find out if there’s a worker process for an application pool? note that there can be more than one worker process for each application pool. note also that a worker process can host multiple web applications.
+
+» read more
+
+
+the case of the missing print jobs
+
+27 apr 2013 08:02
+
+
+
+
+having recently moved my home server (windows 2012) from the hall cupboard to the corner of my study, i decided to connect it to my printer. this means that i can print from my laptop over wireless without needing to turn on the desktop pc that the printer was originally connected to.
+
+» read more
+
+
+messagesecurityexception
+
+18 apr 2013 14:59
+
+wcf
+
+
+
+as i run across them, i’m going to update this page with various causes of the wcf messagesecurityexception.
+
+» read more
+
+
+powershell, bouncy castle and subject alternative names
+
+17 apr 2013 15:21
+
+bouncy-castle
+powershell
+
+
+
+again, this is more-or-less a direct port from the c# post.
+
+» read more
+
+
+powershell, bouncy castle and extended key usage
+
+17 apr 2013 12:46
+
+bouncy-castle
+powershell
+
+
+
+note: this is a bit long, because i want to take a moment to show some of the problems you might have using powershell to call .net code that’s written in a certain style.
+
+» read more
+
+
+powershell and enums
+
+17 apr 2013 11:29
+
+powershell
+
+
+
+powershell has a really cool feature where it’ll coerce a string into an enum value. i’ll demonstrate by exporting a certificate from the windows certificate store:
+
+» read more
+
+
+how to do .net reflection in powershell
+
+17 apr 2013 11:29
+
+powershell
+
+
+
+this is all just .net reflection code, converted from c# to powershell, but it can be useful…
+
+» read more
+
+
+how do i use bouncy castle from powershell?
+
+17 apr 2013 09:54
+
+bouncy-castle
+powershell
+
+
+
+i recently wrote a series of blog posts
+on how to use the cryptography libraries from the legion of the bouncycastle in c#.
+
+» read more
+
+
+acer aspire s7 and secure boot
+
+29 mar 2013 13:59
+
+
+
+
+i just bought myself a shiny new acer aspire s7-391, with a view towards nuking windows 8 and to install linux mint on it. stupidly, i didn’t consider that windows 8 logo certification now requires a uefi bios and secure boot.
+
+» read more
+
+
+installing windows 8 pro on acer aspire s7
+
+27 mar 2013 16:47
+
+
+
+
+
+make sure that the iso file you’ve downloaded is not corrupt – this caused me a bunch of grief.
+format a bootable usb stick as fat32.
+mount the iso.
+copy the files from the iso to the usb stick.
+in the acer’s bios, select uefi; enable f12 boot menu.
+restart the acer.
+press fn-= (f12).
+select the usb stick.
+add the intel drivers.
+continue with the installation.
+
+
+» read more
+
+
+bouncy castle - being a certificate authority
+
+24 mar 2013 16:14
+
+bouncy-castle
+
+
+bouncy-castle
+
+
+
+over the last few posts, we’ve seen how to create a self-signed server certificate in c#, by using the bouncy castle library. how do we create a ca certificate, and how do we issue certificates from that authority?
+
+» read more
+
+
+bouncy castle - subject alternative names
+
+24 mar 2013 14:20
+
+bouncy-castle
+
+
+bouncy-castle
+
+
+
+when you connect to a server using https, the server provides a certificate that identifies it. your browser will then typically check that the name in the server certificate matches the address that you’ve gone to. in this way, you can be sure that you’re connecting to the correct server.
+
+» read more
+
+
+bouncy castle - extended key usage
+
+23 mar 2013 13:13
+
+bouncy-castle
+
+
+bouncy-castle
+
+
+
+if you look at a certificate, you will see something like one of the following:
+
+» read more
+
+
+bouncy castle - missing certificate attributes
+
+20 mar 2013 14:52
+
+bouncy-castle
+
+
+bouncy-castle
+
+
+
+over the last couple of days, we’ve seen how to use bouncy castle to generate certificates from c#. however, if you compare the certificates we’ve been generating with those generated by (e.g.) makecert, you’ll see that we’re missing a few things.
+
+» read more
+
+
+how do i convert a bouncy castle certificate to a .net certificate?
+
+18 mar 2013 19:57
+
+bouncy-castle
+
+
+bouncy-castle
+
+
+
+in the last installment, we created a bouncy castle certificate. how do we now create a .net x509certificate2 object?
+
+» read more
+
+
+how do i create a self-signed certificate using bouncy castle?
+
+18 mar 2013 18:57
+
+bouncy-castle
+
+
+bouncy-castle
+
+
+
+occasionally, you might find that you need to create a self-signed server certificate. if you’re on windows, your options are basically:
+
+» read more
+
+
+using bouncy castle from .net
+
+18 mar 2013 18:50
+
+bouncy-castle
+
+
+bouncy-castle
+
+
+
+                        none
+                    
+» read more
+
+
+logging learnings
+
+16 mar 2013 11:16
+
+
+
+
+i’ve just spent the bulk of the morning attempting to understand a bug by
+reading through some fairly large log files. because of that, i’ve come to
+some realisations about log files and logging.
+
+» read more
+
+
+reliable sessions and https don't mix
+
+15 mar 2013 12:33
+
+
+
+
+
+system.invalidoperationexception: binding validation failed because the wshttpbinding does not support reliable sessions over transport security (https). the channel factory or service host could not be opened. use message security for secure reliable messaging over http.
+
+…reliable sessions and https don’t mix.
+
+» read more
+
+
+processor_architew6432
+
+10 mar 2013 17:45
+
+
+
+
+what’s the processor_architew6432 environment variable for?
+
+» read more
+
+
+migrating www.differentpla.net to a virtual machine, part 3
+
+26 feb 2013 06:20
+
+
+
+
+last night, i kicked off an upgrade from ubuntu 10.10 (lucid lynx) to 12.04
+(precise pangolin). i am distinctly unimpressed by the upgrade process.
+
+» read more
+
+
+migrating www.differentpla.net to a virtual machine, part 2
+
+26 feb 2013 06:12
+
+
+
+
+yesterday, i said that i’d be migrating my website to a virtual machine;
+originally, i’d planned to mess around with linux live cds.
+
+» read more
+
+
+migrating www.differentpla.net to a virtual machine
+
+24 feb 2013 16:56
+
+
+
+
+as part of implementing my new blog engine, i want to decommission the box that’s hosting my existing blog. it’s taking up space in the cupboard, and i’ve got a better use in mind for the hardware.
+
+» read more
+
+
+hyper-v remote management
+
+20 feb 2013 18:59
+
+
+
+
+it turns out that you cannot manage a windows 2008 r2 hyper-v installation from
+a windows 8 desktop (even with the remote server administration tools for
+windows 8 installed) or from windows 2012 server.
+
+» read more
+
+
+msbuild tasks, input parameters and itemgroups
+
+1 feb 2013 16:20
+
+msbuild
+
+
+
+while looking through some msbuild scripts recently at work, i came across some stuff to do with task output parameters
+that i thought might be worth blogging about. first, however, i need to talk about task input parameters.
+
+» read more
+
+
+tips for making it easier to consume .net apis from powershell
+
+2 oct 2012 12:45
+
+powershell
+
+
+
+prefer enum types over constants or properties
+
+» read more
+
+
+running powershell on .net 4.0
+
+2 oct 2012 12:39
+
+powershell
+
+
+
+attempting to use add-type to load a .net assembly in powershell this afternoon, i got the following error:
+
+» read more
+
+
+running powershell 2.0 on .net 4.0
+
+2 oct 2012 12:39
+
+powershell
+
+
+
+attempting to use add-type to load a .net assembly in powershell this afternoon, i got the following error:
+
+» read more
+
+
+powershell tip: deleting certificates
+
+31 jul 2012 10:20
+
+powershell
+
+
+
+$certs = get-childitem cert:\localmachine\my | where { $_.subject –like 'cn=victim*' }
+foreach ($cert in $certs) {
+    $store = get-item $cert.psparentpath
+    $store.open('readwrite')
+    $store.remove($cert)
+    $store.close()
+}
+
+
+» read more
+
+
+streaming http responses in .net
+
+14 jul 2012 19:11
+
+
+
+
+sometimes you have a web service or web application, and, for one request, you need to transfer an unknown (and
+potentially unbounded) amount of data in the response.
+
+» read more
+
+
+powershell closures
+
+25 may 2012 12:07
+
+powershell
+
+
+
+```powershell
+create a script block. it doesn’t capture $x.
+$x = ‘a’
+$sb = { write-host $x }
+
+» read more
+
+
+sql server management studio: unable to read the list of previously registered servers on this system
+
+3 apr 2012 13:28
+
+sql-server
+
+
+
+i recently started having odd problems with sql server management studio on my work pc.
+
+» read more
+
+
+resetting powershell console colour after running badly-behaved programs
+
+20 jan 2012 09:30
+
+powershell
+
+
+
+some programs write their output in different colours. if they’re badly-behaved and don’t reset the colours when they’ve finished, your powershell console might be left with the wrong background or foreground colours.
+
+» read more
+
+
+installing node.js, iisnode and npm on windows
+
+19 jan 2012 14:21
+
+nodejs
+
+
+
+i thought i might have a quick play with node.js on windows. there’s a bunch of conflicting information out there about how to install it. here’s what works for me.
+
+» read more
+
+
+new theme
+
+5 jan 2012 16:55
+
+
+
+
+new theme: acquia slate. it’s maybe a little dark for my taste, but i’m going to leave it for a couple of weeks and see if it grows on me.
+
+» read more
+
+
+powershell: importsystemmodules
+
+5 jan 2012 13:58
+
+powershell
+
+
+
+i’ve been using powershell as a better command prompt for a while now. increasingly, however, it’s one of the first
+tools i reach for when i come across a problem, rather than being an afterthought.
+
+» read more
+
+
+fttc ftw
+
+21 dec 2011 11:10
+
+
+
+
+i’ve not posted this until today, because my blog’s been poorly, but the bt engineer came round last week and upgraded me to fttc.
+
+» read more
+
+
+did you know that .net already had an ioc container?
+
+20 dec 2011 16:30
+
+
+
+
+talking to @ptrelford at the tdd & refactoring workshop run by jason gorman, phil mentioned that he’d implemented a really simple ioc container in f#. “but there’s a really simple one already built into .net” says i…
+
+» read more
+
+
+repairing image links in drupal
+
+20 dec 2011 15:52
+
+
+
+
+somehow – i’m not sure how, and i’m not exactly sure when – my website (powered by drupal) lost all of its images. they were still there in the filesystem, and the rows were still in the node table, but they’d vanished from the actual pages.
+
+» read more
+
+
+converting ienumerable<t> to idatareader
+
+30 jan 2011 15:09
+
+
+
+
+if you’ve got an enumerable, and you want to pass it to sqlbulkcopy, you can turn it into an idatareader. something like the following might be useful:
+
+» read more
+
+
+reactive extensions: elapsed time
+
+30 jan 2011 15:05
+
+
+
+
+i’m using sqlbulkcopy to insert a large number of rows into a database table. i used observable.fromevent to hook the sqlrowscopied event. rx provides the .timestamp() method, but i wanted to know the elapsed time, so i did the following:
+
+» read more
+
+
+sqlexception: login failed for user 'iis apppool\asp.net v4.0'
+
+30 jan 2011 13:55
+
+wcf
+
+
+
+i’m spiking a wcf service hosted in iis this weekend. it uses sql server, and i was getting the following error in wcf tracing:
+
+» read more
+
+
+f# coding kata: fizz buzz
+
+26 oct 2010 10:53
+
+
+
+
+described here.
+
+» read more
+
+
+f# coding kata: hello world
+
+26 oct 2010 10:34
+
+
+
+
+so, i thought i might learn f# by doing some code kata. i’ll start by doing the exercises from codekata.org. unfortunately, they don’t have any f# templates, which means i’ll have to improvise at points.
+
+» read more
+
+
+msbuild target batching (for each) simplified
+
+19 aug 2010 09:44
+
+msbuild
+
+
+
+it’s actually quite simple:
+
+» read more
+
+
+release process: new developer
+
+14 jul 2010 13:52
+
+
+
+
+this is related to “can you make a build in one step?” on the joel test. but it’s not the same.
+
+» read more
+
+
+release process: software publisher certificates
+
+14 jul 2010 13:35
+
+
+
+
+since your code signing certificate probably lasts for two years, you’ll have forgotten what to do with it when you receive your new one.
+
+» read more
+
+
+release process: using source server
+
+14 jul 2010 13:33
+
+
+
+
+one of the cool things you can do with the microsoft debugging tools is set up a source server. this works by embedding source control details in your pdb files. once you’ve published these to a symbol server, and set that up properly, you should be able to load a minidump file in visual studio (or windbg) and be taken to the correct line of the correct revision of the source file where the crash happened.
+
+» read more
+
+
+release process: goals
+
+14 jul 2010 13:33
+
+
+
+
+one of the many things that my former company, 1e, does well is its build and release process. that got me thinking:
+what makes a good build process?
+
+» read more
+
+
+returning html from a wcf service
+
+20 jun 2010 13:05
+
+wcf
+
+
+
+i’m messing around with writing yet another a blog engine, as a way to learn asp.net mvc. one of the things that i’d like to do is have it support uploading from windows live writer. this means that it needs to support xml-rpc and really simple discovery (rsd). more on the xml-rpc stuff later.
+
+» read more
+
+
+release process: source indexing using p4index reports "zero source files found"
+
+28 may 2010 09:03
+
+
+
+
+when you use p4index (or ssindex -system=p4), you might see “zero source files found”. check that your workspace doesn’t have forward slashes in the name (e.g. d:/source/depot/).
+
+» read more
+
+
+release process: code signing - key security
+
+26 may 2010 10:10
+
+
+
+
+the key used for signing your releases should be kept secure. it should be impossible for a rogue developer or 3rd party to use this key unofficially.
+
+» read more
+
+
+coding standards: non-const reference parameters in c++ are evil
+
+25 may 2010 14:08
+
+
+
+
+this is just a minor rant:
+
+» read more
+
+
+essential google chrome extensions
+
+21 may 2010 09:56
+
+
+
+
+these are the extensions that i have to install whenever i set up a new copy of google chrome.
+
+» read more
+
+
+getting nbehave to work with nunit 2.5.5
+
+20 may 2010 14:37
+
+
+
+
+nbehave depends on nunit 2.5.2. to get it to work with nunit 2.5.5, you can create an nbehave-console.exe.config file containing the following:
+
+» read more
+
+
+gallio and resharper 5.0
+
+20 may 2010 12:53
+
+
+
+
+in attempting to see if i could get my nbehave tests working inside visual studio 2010, i stumbled across gallio, which, as far as i can tell, claims support for resharper and nbehave.
+
+» read more
+
+
+htc desire and exchange calendar
+
+20 may 2010 10:22
+
+
+
+
+at the weekend, i picked up a shiny new htc desire, which has first-class support for gmail, including google apps. it also has support for exchange activesync.
+
+» read more
+
+
+nbehave notes
+
+20 may 2010 08:55
+
+
+
+
+we’ve just started using nbehave, so this is a random selection of notes:
+
+» read more
+
+
+visual studio 2010 splash screen
+
+15 apr 2010 09:57
+
+
+
+
+the visual studio 2010 splash screen is stored in c:\programdata\microsoft\visualstudio\10.0\vs000223.dat. it’s a hidden file. it’s a png file.
+
+» read more
+
+
+visual studio splash screen
+
+15 apr 2010 09:57
+
+
+
+
+the visual studio 2010 splash screen
+is stored in c:\programdata\microsoft\visualstudio\10.0\vs000223.dat. it’s a hidden file in png format.
+
+» read more
+
+
+sql server: insert where not exists
+
+3 feb 2010 16:32
+
+sql-server
+
+
+
+because whenever i’ve been away from sql server for more than a couple of weeks, i forget.
+
+» read more
+
+
+tip: use the linq methods that take a predicate
+
+3 feb 2010 09:33
+
+
+
+
+instead of this:
+
+» read more
+
+
+publish to photo frame - my first codeplex project
+
+29 nov 2009 13:15
+
+
+
+
+publish to digital photo frame is a plug-in for windows live photo gallery that makes it easy to upload your photos to a digital photo frame.
+
+» read more
+
+
+hyper-v: creating a new virtual hard disk fails with "cannot create a file when that file already exists"
+
+21 oct 2009 08:12
+
+
+
+
+my desktop pc is windows 2008, with hyper-v disabled. i’ve got a windows 2008 r2 box to act as a hyper-v server. i created an administrator user account with my name on the r2 box, and used hvremote to allow remote access.
+
+» read more
+
+
+setting internet explorer and windows update to use squid
+
+16 sep 2009 08:48
+
+
+
+
+if you’ve installed squid on a box, you’ll probably want to use it.
+
+» read more
+
+
+setting up squid on windows
+
+16 sep 2009 08:38
+
+squid
+
+
+
+at work, we do a lot of our testing and debugging with virtual machines (using microsoft virtual server or hyper-v,
+mostly). the virtual guests are generally not allowed any access to our live network, which makes accessing the internet
+difficult. to get around this, i usually set up squid on the host machine. this allows the guests to access (e.g.)
+windows update and microsoft symbol server, which makes things a bit easier.
+
+» read more
+
+
+using expression<t> as a compiler, to avoid writing conversion code
+
+3 sep 2009 15:22
+
+
+
+
+marc gravell wrote about using expression<t> as a compiler. it was a bit of an eye-opener.
+
+» read more
+
+
+using partcover with nunit on 64-bit windows
+
+16 jul 2009 13:04
+
+
+
+
+some random notes:
+
+» read more
+
+
+more unplanned downtime
+
+4 jul 2009 14:54
+
+
+
+
+the hosting outfit that i’ve been using for differentpla.net is cheap for a reason: they’re not very good.
+
+» read more
+
+
+symbol store: how are exe files stored?
+
+23 apr 2009 15:12
+
+
+
+
+if you’re using the microsoft symbol server to pull down symbols for windows, or if you’re using symstore.exe for your own stuff, you’ll see that exe (and other binary files) are stored in a path similar to c:\websymbols\user32.dll\4226015990000\user32.dll.
+
+» read more
+
+
+source server indexing fails with "svn: can't get details for <sourcefile>"
+
+23 apr 2009 09:34
+
+
+
+
+i’m making some improvements to our build scripts at work, and i ran into a problem where source server indexing wasn’t working.
+
+» read more
+
+
+using castle windsor for asp.net mvc controller classes
+
+29 mar 2009 09:41
+
+
+
+
+if you want to use castle windsor’s microkernel (or another ioc container) for asp.net mvc controllers, it’s fairly easy. the asp.net mvc team allowed you to replace the factory used to create controller objects.
+
+» read more
+
+
+linq's foreach doesn't work on ienumerable<t>
+
+29 mar 2009 09:39
+
+
+
+
+for some reason, linq’s foreach extension method doesn’t work on ienumerable<t>; it only works on ilist<t>. easy fix:
+
+» read more
+
+
+"internet explorer cannot display the webpage" when using cassini on windows vista
+
+29 mar 2009 09:08
+
+
+
+
+i was doing some asp.net mvc this weekend, and i couldn’t get the project to start: all i got was “internet explorer cannot display the webpage”, when using visual studio’s built-in development web server (cassini).
+
+» read more
+
+
+note to self: don't call a .net console project something.console
+
+29 mar 2009 09:06
+
+
+
+
+…because then you can’t (easily) use console.write, because “console” clashes.
+
+» read more
+
+
+getting intellisense to work for nhibernate mapping files (.hbm.xml)
+
+29 mar 2009 09:05
+
+
+
+
+getting intellisense to work for nhibernate mapping files (.hbm.xml)
+
+» read more
+
+
+using sql server compact edition for unit testing
+
+29 mar 2009 09:02
+
+sql-server-ce
+
+
+
+ayende shows how to use sqlite with an in-memory database for unit testing your nhibernate code (here). this is a great idea: your unit tests will run more quickly, and you don’t have to worry about tearing the database down when you’ve finished. on the other hand, it’s not an exact match for microsoft sql server (which is probably what your production website will run against).
+
+» read more
+
+
+unplanned downtime
+
+4 mar 2009 07:14
+
+
+
+
+at the end of february, differentpla.net suffered filesystem corruption. i had to revert pretty much everything to a previous backup, which meant losing about a week’s worth of stuff.
+
+» read more
+
+
+numbering on shop fronts
+
+29 jan 2009 16:50
+
+supreme-ruler
+
+
+
+when i’m supreme ruler of the universe: shops will be required to place the “house” number somewhere on the front of the shop. it should be easily visible.
+
+» read more
+
+
+windows 7 beta on samsung nc-10 netbook
+
+29 jan 2009 16:38
+
+
+
+
+nothing to report. it all works fine. installation took an hour. the only hiccup was that i had to download the marvell yukon drivers (i used the vista x86 ones) from marvell’s website, but the wifi works, so that was easy. i also slapped an sdhc card in there for some readyboost goodness.
+
+» read more
+
+
+adding an extra (optional) page to the c# wizard
+
+29 oct 2008 16:53
+
+csharp
+wizard
+windows-forms
+
+
+winformswizard
+
+
+
+this seems to be causing a few problems, so i’ll quickly walk through it. i’ll try to throw some screenshots in later.
+
+» read more
+
+
+things i learnt this week: regsvr32.exe on windows x64
+
+25 oct 2008 16:17
+
+
+
+
+on windows, 64-bit processes cannot load 32-bit dlls, and 32-bit processes cannot load 64-bit dlls. how does
+regsvr32.exe manage to successfully register both 32-bit and 64-bit com dlls?
+
+» read more
+
+
+things i learnt this week: setwaitabletimer
+
+25 oct 2008 12:23
+
+
+
+
+setwaitabletimer doesn’t accept null for the pduetime parameter.
+
+» read more
+
+
+things i learnt this week: svchost
+
+25 oct 2008 12:23
+
+
+
+
+svchost services are configured by having imagepath set to "%windir%\system32\svchost.exe -k _name-of-service_",
+and a parameters key containing servicedll (reg_expand_sz), which names a dll with a servicemain entry point.
+servicemain has argc and argv.
+
+» read more
+
+
+things i learnt this week: regqueryvalueex
+
+25 oct 2008 12:21
+
+
+
+
+regqueryvalueex, when passed lpdata = null, will set *lpcbdata to the length required in bytes, even if it’s
+already set to something. if lpdata != null, and *lpcbdata is too short, regqueryvalueex will return
+error_more_data.
+
+» read more
+
+
+things i learnt this week: regsetvalueex
+
+25 oct 2008 12:17
+
+
+
+
+regsetvalueex, when passed reg_sz, needs the length to be in bytes, so don’t just use _tcslen like this:
+
+» read more
+
+
+why is nunit not in the gac? (or why does [assembly x] not appear in visual studio's add reference dialog?)
+
+25 oct 2008 10:58
+
+visual-studio
+
+
+
+because visual studio doesn’t look for references in the gac:
+
+» read more
+
+
+generating ssl certificates for differentpla.net
+
+17 may 2008 06:29
+
+openssl
+
+
+
+because i keep forgetting how to.
+
+» read more
+
+
+empeg tools
+
+14 may 2008 06:28
+
+empeg
+
+
+
+in response to this thread on the empeg bbs, i hacked together a couple of small tools for the empeg car player.
+
+» read more
+
+
+odd behaviour with wcf base addresses and http.sys wildcards
+
+13 mar 2008 21:30
+
+wcf
+
+
+
+i’m at devweek this week, and i went (among other things) to a couple of wcf presentations by aaron skonnard.
+
+» read more
+
+
+&lt;define&gt; task for nant
+
+24 jan 2008 15:42
+
+nant
+
+
+
+essentially, you write a new task like this:
+
+» read more
+
+
+tweaking teamcity
+
+12 jan 2008 14:11
+
+teamcity
+
+
+
+i just started using teamcity professional edition for some personal projects (and we’re evaluating the enterprise edition for use at work).
+
+» read more
+
+
+when i'm supreme ruler: vacations
+
+2 jan 2008 09:12
+
+supreme-ruler
+
+
+
+when i’m supreme ruler of the universe: if you’ve taken more than 5 days vacation, employers will be required to let you work only a half-day on your first day back. it could be the morning, or the afternoon, but you’ll be required to work only 4 hours.
+
+» read more
+
+
+12 drinks of christmas
+
+18 dec 2007 16:29
+
+
+
+
+to the tune of the twelve days of christmas…
+
+» read more
+
+
+getting the player type of an empeg
+
+16 dec 2007 19:37
+
+empeg
+
+
+
+the last couple of entries have shown the hex dumps of the individual packets. we’ll step back to a slightly higher-level view now.
+
+» read more
+
+
+an empeg reports results of op_statfid
+
+16 dec 2007 18:59
+
+empeg
+
+
+
+the next packet that the empeg sends is the actual response to the op_statfid request. it looks like this:
+
+» read more
+
+
+an empeg reports progress of op_statfid
+
+16 dec 2007 18:53
+
+empeg
+
+
+
+we’ve seen the format of the packet that emplode sends to find out the length of a file on the empeg (op_statfid). the empeg seems to always send a progress packet in response. the packet looks like this:
+
+» read more
+
+
+packet format
+
+16 dec 2007 18:18
+
+empeg
+
+
+
+the format of the packets in the empeg’s tcp/ip protocol owe a lot to the fact that the empeg mk1 communicated over a serial link. this means that there’s a certain amount of cruft still in the protocol.
+
+» read more
+
+
+shell_notifyicon: displaying a balloon from a hidden notification icon
+
+1 oct 2007 08:05
+
+
+
+
+you should hide your notification icon unless you’ve got something important to tell the user. more and more
+applications insist on putting mysterious icons in the notification area, and most users have no idea what they’re for.
+
+» read more
+
+
+shell_notifyicon: nim_setversion should be sent after nim_add
+
+30 sep 2007 22:33
+
+
+
+
+like it says: nim_setversion always returns false unless you’ve used nim_add. so send nim_add first.
+
+» read more
+
+
+debugging system processes without administrative privileges: it can be done
+
+29 sep 2007 14:14
+
+
+
+
+a short while ago, i asked whether it was possible to debug system processes without administrative privileges. i ran into a brick wall and couldn’t figure it out.
+
+» read more
+
+
+which of my mp3 directories don't have a folder.jpg file?
+
+8 sep 2007 16:39
+
+powershell
+
+
+
+there’s probably a better way to do this, but here’s what i came up with in a couple of minutes…
+
+» read more
+
+
+installing ubuntu 7.04 server on microsoft virtual server 2005
+
+17 aug 2007 12:04
+
+
+
+
+installation
+
+» read more
+
+
+debugging system processes without administrative privileges: can it be done?
+
+13 aug 2007 10:17
+
+
+
+
+i’ve been running with a normal, non-administrator (lua) account for the past 2 years or so, without any real problems. most of the time, the problem is simply that you can’t install something, or register something, or you need to install a service.
+
+» read more
+
+
+source code license
+
+6 aug 2007 11:41
+
+
+
+
+unless specified otherwise, all source code published on the differentpla.net website is available under the following license terms: do what you want with it, but don’t claim you wrote it, and it’s not my fault if it doesn’t work.
+
+» read more
+
+
+gnu tls reports "base64 decoding error"
+
+17 jul 2007 18:54
+
+
+
+
+i recently had a problem getting starttls working on exim4 on debian 4.0 (etch). it kept reporting:
+
+» read more
+
+
+generating the fibonacci sequence by using the yield keyword, non-recursively
+
+3 jun 2007 15:21
+
+
+
+
+```
+class fibonaccisequence : ienumerable
+{
+    public ienumerator getenumerator()
+    {
+        yield return (long)0;
+        yield return (long)1;
+
+» read more
+
+
+findfirstfile and se_backup_name
+
+25 may 2007 17:04
+
+
+
+
+if you want to read a file and bypass security (e.g., if you’re writing a backup program), it’s not enough to simply enable the se_backup_name privilege, you have to also pass file_flag_backup_semantics to createfile.
+
+» read more
+
+
+removing duplicates from a table
+
+8 may 2007 12:21
+
+sql
+sql-server
+
+
+
+let’s assume that you’ve got a table:
+
+» read more
+
+
+subtracting dates in javascript
+
+30 apr 2007 17:04
+
+
+
+
+here’s how to find the time 30 minutes ago:
+
+» read more
+
+
+debugging sidebar gadgets
+
+30 apr 2007 16:01
+
+sidebar-gadgets
+
+
+
+apparently, you can debug jscript in visual studio.
+
+» read more
+
+
+calling c# from jscript
+
+27 apr 2007 09:03
+
+
+
+
+it’s possible, through the magic of com interop, to call c# code from jscript or vbscript. here’s an example of how to do it from jscript.
+
+» read more
+
+
+implementing for each in jscript
+
+24 apr 2007 11:01
+
+
+
+
+function foreach(enumerable, delegate)
+{
+    for (var enumerator = new enumerator(enumerable); !enumerator.atend(); enumerator.movenext())
+    {
+        delegate(enumerator.item());
+    }
+}
+
+
+» read more
+
+
+how do i debug my gadget?
+
+24 apr 2007 10:34
+
+sidebar-gadgets
+
+
+
+as far as i can tell, you’ll have to go “old school”, and do the equivalent of adding lots of printf statements to
+your code. this should help:
+
+» read more
+
+
+how do i add a settings page to my gadget?
+
+23 apr 2007 09:47
+
+sidebar-gadgets
+
+
+
+some gadgets allow the user to configure extra settings.
+
+» read more
+
+
+what font should i use in my sidebar gadget?
+
+23 apr 2007 09:16
+
+sidebar-gadgets
+
+
+
+the sidebar gadgets sdk documentation recommends 12 pixel segoe ui
+
+» read more
+
+
+how do i change the details displayed for my sidebar gadget?
+
+23 apr 2007 09:08
+
+sidebar-gadgets
+
+
+
+when you click on the “show details” expander in the windows vista gadget gallery, windows displays various information
+about the selected gadget (“calendar 1.0.0.0” etc., in this example).
+
+» read more
+
+
+how do i display a background image in my sidebar gadget?
+
+23 apr 2007 08:57
+
+sidebar-gadgets
+
+
+
+when your gadget is docked, it displays a background image, which is allowed to be alpha-transparent.
+
+» read more
+
+
+how do i change the icon used by my gadget?
+
+23 apr 2007 08:50
+
+sidebar-gadgets
+
+
+
+when you add a new gadget to the sidebar (by right-clicking and selecting “add gadgets…”), windows vista displays an icon for it.
+
+» read more
+
+
+enabling concurrent remote desktop sessions in vista
+
+22 apr 2007 20:26
+
+
+
+
+at work, i do all of my development on a windows 2003 box. i generally log in as a normal user, and then use remote desktop to concurrently log in as administrator. this means that i’m relatively safe from malware when doing day-to-day stuff, but that i can still get hold of administrator privileges when i need them.
+
+» read more
+
+
+error: windows cannot access the specified device, path or file.
+
+20 apr 2007 10:38
+
+
+
+
+i started getting this error on one of my windows 2003 boxes yesterday:
+
+» read more
+
+
+drawedge() samples
+
+1 apr 2007 10:49
+
+
+
+
+shame that the drawedge() documentation doesn’t include examples. fixed.
+
+» read more
+
+
+shellexecute doesn't work for urls when called from a multithreaded apartment
+
+27 feb 2007 12:14
+
+
+
+
+i’ve got a dialog box with a syslink (wc_syslink) control on it. when the user clicks on the link, it should open our website in the user’s default browser. in my test app, it works. in the production app, it doesn’t.
+
+» read more
+
+
+a list of hresult codes
+
+16 feb 2007 10:50
+
+
+
+
+…because every time i search for a given hresult, all i get is yet another frigging vb website regurgitating the
+contents of winerror.h
+
+» read more
+
+
+turning off registry virtualization
+
+15 feb 2007 10:51
+
+
+
+
+on windows vista, applications running without admin privileges can write to hkey_local_machine, and they’ll be transparently redirected to hkey_current_user\software\classes\virtualstore. similar redirection applies to c:\program files.
+
+» read more
+
+
+roman numeral letter h
+
+7 feb 2007 17:26
+
+roman-numerals
+
+
+
+someone appears to have spent some time searching my site for the term “roman numeral letter h”. this is pointless, for two reasons:
+
+» read more
+
+
+things i found out today while looking at side-by-side dlls
+
+7 feb 2007 16:37
+
+
+
+
+
+you can add dll dependencies to your exe file’s manifest by using the /manifestdependency linker switch. as with several other linker switches, this can be done using #pragma comment(linker, ...).
+the visual c++ 2005 compiler automatically inserts a /manifestdependency switch into .obj files that it creates. it marks them as dependent on the microsoft.vc80.crt dll, version 8.0.50727.762. it does this in the vc\include\crtdefs.h file.
+
+
+» read more
+
+
+regsvr32.exe reports error 0x80040200 on windows vista
+
+17 jan 2007 14:52
+
+
+
+
+0x80040200 is selfreg_e_typelib. this result is returned from mfc activex (.ocx) controls when afxoleregistertypelib fails.
+
+» read more
+
+
+qmail starttls is slow
+
+22 dec 2006 11:01
+
+
+
+
+i’ve recently been struggling to reliably send email via my qmail server. i’ve got starttls and smtp auth enabled, in order to allow relaying for authenticated users. however, it’s been really slow, and thunderbird quite often times out and gives up on the connection.
+
+» read more
+
+
+splash screens should not be topmost windows
+
+16 nov 2006 16:33
+
+
+
+
+because i might want to get on with something else while your program loads, and if your splash screen is in the way, that’s going to make it difficult.
+
+» read more
+
+
+unable to open web project
+
+16 nov 2006 12:43
+
+
+
+
+unable to open web project 'foo'.
+the file path 'c:\wherever\foo' does not correspond to the url 'http://localhost/foo'.
+the two need to map to the same server location.
+
+» read more
+
+
+using mod_rewrite, rewritemap to re-arrange website content
+
+27 oct 2006 12:39
+
+
+
+
+when moving differentpla.net from one server to another, i decided to move the content (currently served using drupal)
+from the root to /content. i also decided to use more descriptive urls.
+
+» read more
+
+
+bad ui: why sql query analyzer sucks
+
+19 oct 2006 10:40
+
+sql-server
+bad-ui
+
+
+
+i’m doing a bunch of sql hacking at the moment, and i’ve decided to use sql query analyzer as a good template for how not to write a text editor.
+
+» read more
+
+
+changing the output directories when converting a visual c++ 6 project to visual c++ 7.1
+
+12 oct 2006 11:16
+
+visual-studio
+
+
+
+when you import a project from visual c++ 6 into visual studio 2003 (i.e. visual c++ 7.1), it doesn’t fix up the output directories to use the correct definitions.
+
+» read more
+
+
+unresolved external symbol "public: void __thiscall std::_string_base::_xran(void)const
+
+13 sep 2006 14:20
+
+
+
+
+when compiling a c++ program with visual c++ 2003, you might get the error:
+
+» read more
+
+
+access denied to temporary asp.net files
+
+8 may 2006 16:17
+
+
+
+
+sometimes, when attempting to debug an asp.net web service, you’ll get the following error:
+
+» read more
+
+
+debugging asp.net applications without administrator privileges
+
+20 feb 2006 11:32
+
+
+
+
+i recently had my machine at work rebuilt with windows 2003, and had a spot of difficulty getting visual studio to debug my asp.net applications. here are the various error messages i encountered, and their fixes.
+
+» read more
+
+
+error: failed to generate a user instance of sql server...
+
+18 jan 2006 21:55
+
+
+
+
+i was just hacking something together in visual web developer express, and was attempting to add a database to my app_data directory when i ran into problems.
+
+» read more
+
+
+using propertygrid with a dictionary object
+
+26 feb 2005 16:04
+
+
+
+
+if you try using idictionary with the propertygrid control, the results aren’t spectacular:
+
+» read more
+
+
+implementing a wizard in c#, part 2
+
+26 feb 2005 12:50
+
+csharp
+wizard
+windows-forms
+
+
+winformswizard
+
+
+
+in this installment (see here for the previous installment), we’ll be fixing a few things and making the whole thing prettier.
+
+» read more
+
+
+implementing a wizard in c#
+
+26 feb 2005 12:44
+
+csharp
+wizard
+windows-forms
+
+
+winformswizard
+
+
+
+oddly, the windows forms libraries don’t provide any support for writing wizards. here’s one way to do it.
+
+» read more
+
+
+empeg file structures
+
+13 feb 2005 10:17
+
+empeg
+
+
+
+if you’ve ever gone looking for the music and playlists on your empeg, you’ll find them in the /empeg/fids0 and /empeg/fids1 directories.
+
+» read more
+
+
+implementing a paged options dialog
+
+24 oct 2004 12:42
+
+csharp
+windows-forms
+
+
+
+several popular applications implement their options dialog as a collection of pages. here’s one way to do this in your application.
+
+» read more
+
+
+indexing service causes strange access denied errors in asp.net
+
+27 jul 2004 18:14
+
+
+
+
+a couple of weeks ago, i installed a trial copy of the dundas .net charting controls to play with in asp.net. it’s actually pretty cool, but i was attempting to show it to someone on my laptop when it stopped working.
+
+» read more
+
+
+creating a custom reader class for ogg vorbis/flac comments
+
+27 jul 2004 15:49
+
+
+
+
+in dino esposito’s “cutting edge” column in msdn magazine, he talks about the various readers (binaryreader, xmlreader, etc.) available in .net.
+
+» read more
+
+
+fileinfo doesn't cache its contents
+
+23 jul 2004 08:21
+
+
+
+
+imagine this code:
+
+» read more
+
+
+object must implement iconvertible
+
+13 jul 2004 15:29
+
+
+
+
+while writing some asp.net, i got this error. i’ve just spent ten minutes figuring it out, so i thought i’d share.
+
+» read more
+
+
+stupidly crippled visual studio.net
+
+7 jul 2004 11:47
+
+visual-studio
+
+
+
+it turns out that visual studio.net professional can’t be used to design databases with sql server. it can be used with msde.
+
+» read more
+
+
+jam: linking with system libraries
+
+4 jul 2004 07:00
+
+jam
+
+
+
+obviously, your code doesn’t just link with your libraries. it also has to link with some of the system libraries. jam manages this by using the linklibs variable. the simplest way to make this work is something like the following:
+
+» read more
+
+
+using the observer, proxy and command patterns to marshal progress reporting from a background thread
+
+28 jun 2004 12:30
+
+
+
+
+in an earlier article, running long-lived tasks in a background thread, i talked about some of the problems associated with reporting progress from a background thread in a win32 application.
+
+» read more
+
+
+self-drawing clistbox, lbs_ownerdrawfixed and subclassing
+
+28 may 2004 14:31
+
+
+
+
+if you’ve got a listbox (as opposed to a listview) control in a dialog, and you’re using lbs_ownerdrawfixed, you might be surprised to find that your measureitem function is never called.
+
+» read more
+
+
+getting hold of the current directory in a batch file.
+
+19 may 2004 16:33
+
+
+
+
+a common unix shell idiom is to write things like cwd=$(pwd) to save
+the current directory so that in case be used later when other things might
+have changed it. for a long time i didn’t think this was possible in windows
+batch files. it turns out that it is, but it isn’t pretty and it does
+generalise to getting the output of any command.
+
+» read more
+
+
+using clistctrl::sortitems
+
+19 may 2004 14:38
+
+mfc
+
+
+
+in my previous article, i explained how to use lpstr_textcallback and lvn_getdispinfo.
+
+» read more
+
+
+handling lvn_getdispinfo
+
+19 may 2004 14:24
+
+mfc
+
+
+
+if you specify lpstr_textcallback when inserting an item into a listview control, it no longer supports sorting; you can’t click on the column heading to sort the list control.
+
+» read more
+
+
+showscreen: display the empeg's screen in a window
+
+18 may 2004 13:15
+
+empeg
+
+
+
+over on the empeg bbs, tfabris said:
+
+» read more
+
+
+drawing a drop shadow: using a mono bitmap
+
+11 may 2004 09:24
+
+mfc
+
+
+
+in an earlier article, i showed how to draw a drop shadow with the help of the imagelist control.
+
+» read more
+
+
+drawing an item from an image list with a drop shadow
+
+11 may 2004 09:24
+
+mfc
+
+
+
+the documentation for imagelist_drawindirect seems to imply that it can draw an item from an imagelist control with a drop shadow.  unfortunately, it doesn’t seem to be supported.
+
+» read more
+
+
+adding custom logon pictures to windows xp
+
+2 apr 2004 12:25
+
+
+
+
+inspired by this post on raymond chen’s blog, i thought i might explain how to change the logon pictures.
+
+» read more
+
+
+direct access to a bitmap using getdibits and setdibits
+
+2 apr 2004 11:28
+
+mfc
+
+
+
+in the grabbing a snapshot of the screen article, i said: “i’m planning on altering the snapshot before displaying it.”. this article shows how to alter a bitmap by directly accessing the raw bits.
+
+» read more
+
+
+grabbing a snapshot of the screen
+
+2 apr 2004 10:51
+
+mfc
+
+
+
+some (simple) code that shows how to grab a snapshot of the screen and display it in a window.
+
+» read more
+
+
+unresolved external symbol _winmain@16
+
+2 apr 2004 08:55
+
+visual-studio
+
+
+
+i got this error message today:
+
+» read more
+
+
+ctreectrl, trackpopupmenu and ccmdtarget
+
+31 mar 2004 17:17
+
+mfc
+
+
+
+some twisted code showing how to combine mfc’s ctreectrl, ccmdtarget and trackpopupmenu.
+
+» read more
+
+
+using drawdragrect to rubber-band a selection
+
+31 mar 2004 13:54
+
+mfc
+
+
+
+if you’re allowing the user to “rubber-band” a selection in your application, you might choose to use the drawdragrect function. here’s how.
+
+» read more
+
+
+formatting an empeg's hard disk manually
+
+25 mar 2004 09:37
+
+empeg
+
+
+
+the sequel to partitioning an empeg’s hard disk manually.
+
+» read more
+
+
+partitioning an empeg's hard disk manually
+
+25 mar 2004 09:20
+
+empeg
+
+
+
+if you’re attempting to upgrade the hard disk in your empeg, and the disk builder is not working for you (this is often the case with disks larger than 60gb), then you might want to build your new disk manually.
+
+» read more
+
+
+installing qmailadmin
+
+24 mar 2004 18:41
+
+qmail
+
+
+qmail
+
+
+
+to make it easier to manage the virtual domains on my email box, i’ve decided to install qmailadmin.
+
+» read more
+
+
+outlook xp: storing sent items on the imap server
+
+24 mar 2004 14:33
+
+
+
+
+by default, outlook stores a copy of your outgoing email in the “sent items” folder in your local “personal folders” .pst file.
+
+» read more
+
+
+using smtp-tls with qmail
+
+24 mar 2004 14:12
+
+qmail
+
+
+qmail
+
+
+
+if you install this patch (mentioned here), then you’ll get smtp-over-tls in qmail.
+
+» read more
+
+
+making clamd run automatically
+
+23 mar 2004 13:25
+
+qmail
+
+
+
+whoops. back when i was installing clamav, i
+started clamd running so that i could test the virus checker. yesterday, i rebooted the pc.
+
+» read more
+
+
+sent items: thunderbird and outlook express on the same account
+
+23 mar 2004 11:46
+
+
+
+
+outlook express likes to store a copy of your outgoing email in a folder called “sent items”. thunderbird likes to store
+a copy of your outgoing email in a folder called “sent”. if you use both to access the same email account using imap,
+you’ll end up with both folders being created, and your outgoing email will end up in either, depending on which client
+you used at the time.
+
+» read more
+
+
+securing imap
+
+23 mar 2004 11:39
+
+qmail
+
+
+qmail
+
+
+
+bincimap supports imaps for communication. it can either do this if you compile in ssl support, or if you use an ssl tunnel, such as stunnel or ucspi-ssl.
+
+» read more
+
+
+recursively finding files
+
+21 mar 2004 09:45
+
+
+
+
+on my list of “things to do in my copious free time” is: “write a replacement rio receiver server in
+c#”. so i’ve started putting together snippets of code that might turn out to be useful as i start learning c#. this one
+is a recursive file finder. it uses delegates.
+
+» read more
+
+
+discovering empegs on the network using c#
+
+19 mar 2004 10:00
+
+empeg
+
+
+
+i’ve been playing around with learning c#. today, i thought i’d write a c# program to find empegs on the local network.
+
+» read more
+
+
+securing squirrelmail using https
+
+18 mar 2004 15:19
+
+qmail
+
+
+qmail
+
+
+
+at the end of installing squirrelmail, i’d finished installing
+webmail on my test box. currently, this uses http. this is not really secure enough for webmail, so this article is
+going to look at adding https access to webmail.
+
+» read more
+
+
+installing clamav and qmail-scanner
+
+12 mar 2004 16:30
+
+qmail
+
+
+qmail
+
+
+
+virus scanner
+
+» read more
+
+
+installing squirrelmail
+
+11 mar 2004 14:22
+
+qmail
+
+
+qmail
+
+
+
+squirrelmail
+
+» read more
+
+
+installing ezmlm with vpopmail
+
+11 mar 2004 12:17
+
+qmail
+
+
+qmail
+
+
+
+installing ezmlm
+
+» read more
+
+
+forwarding addresses to another account using vpopmail
+
+11 mar 2004 11:03
+
+qmail
+
+
+qmail
+
+
+
+forwarding
+
+» read more
+
+
+using qmail extension addresses with vpopmail
+
+11 mar 2004 10:53
+
+qmail
+
+
+qmail
+
+
+
+extension addresses
+
+» read more
+
+
+installing bincimap
+
+11 mar 2004 09:35
+
+qmail
+
+
+qmail
+
+
+
+configuring bincimap
+
+» read more
+
+
+installing vpopmail
+
+11 mar 2004 09:33
+
+qmail
+
+
+qmail
+
+
+
+installing vpopmail
+
+» read more
+
+
+installing smtp auth with qmail
+
+11 mar 2004 09:28
+
+qmail
+
+
+qmail
+
+
+
+installing smtp auth
+
+» read more
+
+
+removing exim and installing qmail
+
+11 mar 2004 09:26
+
+qmail
+
+
+qmail
+
+
+
+removing exim
+
+» read more
+
+
+installing qmail and vpopmail
+
+11 mar 2004 09:24
+
+qmail
+
+
+qmail
+
+
+
+my mail server runs qmail. this is the first of a multipart series showing how i went about installing vpopmail for virtual domain support.
+
+» read more
+
+
+running long-lived tasks in a background thread
+
+27 feb 2004 13:00
+
+mfc
+
+
+
+in earlier articles, displaying progress in a wizard and cancelling long-lived tasks from a wizard, i discussed how to run a long-lived task from a wizard and how to display progress in the wizard.
+
+» read more
+
+
+cancelling long-lived tasks from a wizard
+
+27 feb 2004 10:23
+
+mfc
+
+
+
+this article, a follow-up to this one, shows how to modify our project to allow the user to cancel the long-lived operation.
+
+» read more
+
+
+downloading from an http server using wininet
+
+26 feb 2004 11:45
+
+wininet
+
+
+
+the wininet functions allow an application to interact with gopher, ftp and http servers. this article shows how to use
+the wininet api to download from an http server.
+
+» read more
+
+
+escaping html so you can quote it in html
+
+26 feb 2004 10:13
+
+
+
+
+quick tip: how to escape html text so that it can be quoted in another piece of html, e.g. in a <pre> tag.
+
+» read more
+
+
+accepting html <form> data sent with post
+
+26 feb 2004 10:06
+
+cgi-bin
+ruby
+
+
+
+how to write a cgi script (in ruby) to accept files uploaded with post.
+
+» read more
+
+
+misleading error: "parent class code is read only" (visual studio.net)
+
+29 jan 2004 21:09
+
+mfc
+visual-studio
+
+
+
+i just had a strange error message from visual studio.net when attempting to add a handler for wm_destroy to a c++
+dialog class. it said:
+
+» read more
+
+
+using a modal or modeless dialog as a main window
+
+29 jan 2004 20:37
+
+mfc
+
+
+
+using a modal dialog as a main window
+
+» read more
+
+
+linux on sony vaio - network install
+
+29 jan 2004 10:01
+
+linux
+sony-vaio
+
+
+
+configure the vaio for network booting
+
+» read more
+
+
+generating a proxy/stub dll for an interface, the sane way
+
+29 jan 2004 10:01
+
+com
+idl
+
+
+
+note: this article applies to visual c++ 6. there might be an easier way to do this in visual studio .net
+
+» read more
+
+
+displaying a tooltip when the user drags the scroll thumb
+
+12 jan 2004 12:24
+
+mfc
+
+
+
+you wanna do this?
+
+» read more
+
+
+colouring alternate rows in a clistctrl
+
+12 jan 2004 12:23
+
+mfc
+
+
+
+nothing particularly strenuous: just handle nm_customdraw and play with clrtextbk. the only real surprise is that you have to return cdrf_newfont from your handler to get the new colour used.
+
+» read more
+
+
+windows listview control returns -1 from lvm_insertitem
+
+12 jan 2004 12:21
+
+mfc
+
+
+
+i just spent the best part of a morning chasing this one down, so i thought i’d share it with you:
+
+» read more
+
+
+test first: roman numeral conversion
+
+12 jan 2004 12:07
+
+tdd
+roman-numerals
+
+
+
+question: everyone “knows” that you should write a decimal to roman number
+converter using a table. what happens if you try it test-first?
+
+» read more
+
+
+deleting the internet explorer cache programmatically
+
+12 jan 2004 12:05
+
+
+
+
+here’s some c source code that does it.
+
+» read more
+
+
+shell fish : for fishing in your windows shell
+
+12 jan 2004 11:55
+
+
+
+
+provides a quick way to find out where windows is putting your “favorites”, “application data” etc. folders.
+
+» read more
+
+
+resource file dependencies
+
+10 jan 2004 21:49
+
+jam
+
+
+
+our mfc application has a resource script. this resource script suffers from a minor problem: it’s not dependency-scanned. if we edit any file included by it – for example the .rc2 file, it’s not rebuilt properly.
+
+» read more
+
+
+disabling the cancel button in a wizard
+
+9 jan 2004 13:03
+
+mfc
+
+
+
+cpropertysheet provides the setwizardbuttons function, allowing you to enable or disable the “back” or “next” buttons. it doesn’t, however, allow you to disable the “cancel” button.
+
+» read more
+
+
+conflicting 'lib' target
+
+9 jan 2004 10:39
+
+jam
+
+
+
+empeg’s source tree has a directory called lib, in which the core libraries used by all of our products live.
+unfortunately, this conflicts with one of the included pseudo-targets that jam uses.
+
+» read more
+
+
+linker command line length
+
+9 jan 2004 10:37
+
+jam
+
+
+
+jam imposes a hard limit of 996 characters on command lines when built on nt. this limit is higher for other operating
+systems, and can actually be raised to around 10kb on windows 2000. however, it’s still not high enough for some link
+actions.
+
+» read more
+
+
+building jam on windows nt
+
+9 jan 2004 10:28
+
+jam
+
+
+
+first, you’ll need to download jam version 2.3.2 from ftp.perforce.com in zip format or as a tar.gz
+
+» read more
+
+
+constructing a medium-sized project with jam
+
+9 jan 2004 10:27
+
+jam
+
+
+
+introduction
+
+» read more
+
+
+displaying progress in a wizard
+
+8 jan 2004 18:24
+
+mfc
+
+
+
+i’m adding a wizard to the program that i’m currently working on. the wizard walks the user through importing some information from a file. i’d like to be able to display the import progress as a seamless part of the wizard.
+
+» read more
+
+
+wizard97: watermark and header graphics are repeated
+
+8 jan 2004 17:14
+
+mfc
+
+
+
+i was adding a new wizard to the program that i’m currently working on, so i copied some code from a wizard97 demo program that i wrote some time ago.
+
+» read more
+
+
+cpropertysheet vs cpropertysheetex in visual studio .net 2003
+
+8 jan 2004 17:05
+
+mfc
+visual-studio
+
+
+
+the program that i’m working on at the moment needs a wizard to walk the user through something. i copied over some
+files from a wizard97 demo project that i wrote a while ago. it all seemed to be going well.
+
+» read more
+
+
+welcome
+
+7 jan 2004 19:16
+
+
+
+
+welcome to differentpla.net, where roger occasionally posts snippets of code and other stuff that he feels like sharing with the world.
+
+» read more
+
+
+installing windows xp pro on a sony vaio srx87
+
+2 jan 2004 16:52
+
+sony-vaio
+windows-xp
+
+
+
+introduction
+
+» read more
+
+
+writing a replacement receiver server
+
+30 sep 2003 23:01
+
+empeg
+rio-receiver
+
+
+
+introduction
+
+» read more
+
+
+using a linux box to serve rio receiver firmware
+
+30 sep 2003 23:00
+
+rio-receiver
+
+
+
+first, you’ll need to install a stock nfs server. on debian, that’s as simple as apt-get install nfs-user-server.
+
+» read more
+
+
+using findwindow in an mfc application
+
+5 aug 2003 12:46
+
+mfc
+
+
+
+there are at least two reasons for using findwindow.
+
+» read more
+
+
+using on_command_range and on_update_command_ui_range
+
+7 jul 2003 17:13
+
+mfc
+
+
+
+the on_command_range and on_update_command_ui_range macros are useful when you want to treat a group of commands
+similarly. in this case, it’s the commands for changing list view style. the command ids must be contiguous, and you
+must specify the lower one first.
+
+» read more
+
+
+rj45/utp crimps
+
+23 jun 2003 15:16
+
+
+
+
+(seen from the bottom of the connector, so that the tab is facing away from you, and the gold pins are facing towards you) pin 1 is on the left. pin 8 is on the right.
+
+» read more
+
+
+many to one dependencies
+
+17 apr 2003 09:30
+
+mfc
+
+
+
+using a modal dialog as a main window
+
+» read more
+
+
+putting control bars in a dialog
+
+17 apr 2003 08:30
+
+mfc
+
+
+
+there’s some discussion of this in microsoft knowledge base article
+q141751.
+
+» read more
+
+
+using background threads for long processes in mfc: background thread 4
+
+15 apr 2003 11:54
+
+mfc
+
+
+mfc-background-threads
+
+
+
+the reason that our previous example consumes 100% cpu is that it busy-waits while pumping messages. the correct answer
+is to run the dialog box modally. however, we can’t (easily) use domodal, because this causes ordering problems. do we
+create the thread or the dialog first?
+
+» read more
+
+
+using background threads for long processes in mfc: background thread 3
+
+15 apr 2003 11:53
+
+mfc
+
+
+mfc-background-threads
+
+
+
+one simple way to run the task in the background, while reporting progress, which still allows the dialog to be
+repainted/moved correctly is to busy-wait for the background thread to finish, while pumping messages:
+
+» read more
+
+
+using background threads for long processes in mfc: background thread 2
+
+15 apr 2003 11:52
+
+mfc
+
+
+mfc-background-threads
+
+
+
+we can solve the problem of the memory leak, and of the premature destructor call, by simply blocking until the thread
+is finished:
+
+» read more
+
+
+using background threads for long processes in mfc: background thread 1
+
+15 apr 2003 11:51
+
+mfc
+
+
+mfc-background-threads
+
+
+
+we add another button to the dialog:
+
+» read more
+
+
+using background threads for long processes in mfc: foreground thread 3
+
+15 apr 2003 11:43
+
+mfc
+
+
+mfc-background-threads
+
+
+
+because we have progress reporting, we can make use of a progress dialog to partially solve all of these problems. in
+visual c++, select “project|add to project|components and controls”.
+
+» read more
+
+
+using background threads for long processes in mfc: foreground thread 2
+
+15 apr 2003 11:42
+
+mfc
+
+
+mfc-background-threads
+
+
+
+we can deal with the first one (no feedback), by using an hourglass:
+
+» read more
+
+
+using background threads for long processes in mfc: foreground thread 1
+
+15 apr 2003 11:41
+
+mfc
+
+
+mfc-background-threads
+
+
+
+initially, we’ll run this as a foreground task. this will ensure that the code compiles and works before we get too
+complicated. also, it’ll show why we want this task to run as a background thread.
+
+» read more
+
+
+using background threads for long processes in mfc: sidebar: the task
+
+15 apr 2003 11:30
+
+mfc
+
+
+mfc-background-threads
+
+
+
+```c++
+// task.h
+class taskobserver;
+
+» read more
+
+
+switching toolbars
+
+15 apr 2003 11:20
+
+
+
+
+mfc provides support for automatically switching menus when the active mdi child changes. why doesn’t it automatically
+switch toolbars?
+
+» read more
+
+
+using background threads for long processes in mfc
+
+15 apr 2003 11:20
+
+mfc
+
+
+mfc-background-threads
+
+
+
+it’s not easy to write a windows program that takes a long time to do something and yet still seems responsive to the
+user. consider that you’ve got a single task that needs to be finished:
+
+» read more
+
+
+win32 threads in c++
+
+15 apr 2003 10:20
+
+
+
+
+some code.
+
+» read more
+
+
+empeg: serial port commands
+
+2 apr 2003 10:29
+
+empeg
+
+
+
+you can send the empeg player commands using the serial port. this is a list.
+
+» read more
+
+
+other_mem_fun and std::for_each
+
+27 feb 2003 14:53
+
+c++
+
+
+
+how many times have you found yourself writing something like the following?
+
+» read more
+
+
+using make-kpkg to build a custom linux kernel for your vaio
+
+4 feb 2003 15:10
+
+linux
+sony-vaio
+
+
+linux-on-vaio
+
+
+
+debian provides a powerful utility called make-kpkg for compiling your own custom kernels. it integrates tightly with
+dpkg by making .deb files and you can even use this to prepare your kernel image on a faster system. later on it will
+make complex operations, such as compiling in patches and modules, a snap.
+
+» read more
+
+
+linux on sony vaio - connecting an ipod
+
+4 feb 2003 15:10
+
+linux
+sony-vaio
+ipod
+
+
+linux-on-vaio
+
+
+
+note: this is a preliminary version of this document. i’ve not fully verified that the stuff in here works.
+
+» read more
+
+
+installing debian gnu/linux on sony vaio srx87
+
+4 feb 2003 15:10
+
+linux
+sony-vaio
+
+
+linux-on-vaio
+
+
+
+because the dvd-rom drive supplied with the srx87 is firewire, and is not supported by the standard debian boot images, you’ll need to use network booting (using pxe) to get it going. this page has some instructions for installing debian in this manner.
+
+» read more
+
+
+linux on sony vaio - firewire dvd-rom drive
+
+4 feb 2003 14:47
+
+linux
+sony-vaio
+
+
+linux-on-vaio
+
+
+
+to get the dvd-rom drive working, you’ll need to compile your kernel with the following options:
+
+» read more
+
+
+linux on sony vaio - intel i820 onboard soundcard
+
+17 jan 2003 14:39
+
+linux
+sony-vaio
+
+
+linux-on-vaio
+
+
+
+note: caoilte wrote this. i’ve not had a chance to check it yet.
+
+» read more
+
+
+linux on sony vaio - built-in wireless
+
+14 jan 2003 15:50
+
+linux
+sony-vaio
+
+
+linux-on-vaio
+
+
+
+first, you’ll need to recompile your kernel, with the following options:
+
+» read more
+
+
+vaio: acpi patches
+
+13 jan 2003 16:03
+
+linux
+sony-vaio
+
+
+linux-on-vaio
+
+
+
+you’ll need to install the acpi patches, and the acpi daemon. grab the patches from here, and apply them to the kernel:
+
+» read more
+
+
+linux on sony vaio - miscellaneous
+
+13 jan 2003 16:03
+
+linux
+sony-vaio
+
+
+linux-on-vaio
+
+
+
+a page that i found recommends installing the spicctrl and sjog packages to get control over the lcd brightness and jogdial.
+
+» read more
+
+
+linux on sony vaio - upgrading to a 2.4 kernel and ext3
+
+13 jan 2003 15:44
+
+linux
+sony-vaio
+
+
+linux-on-vaio
+
+
+
+upgrading to a 2.4 kernel
+
+» read more
+
+
+linux on sony vaio - installing xfree86
+
+13 jan 2003 15:44
+
+linux
+sony-vaio
+
+
+linux-on-vaio
+
+
+
+xfree86
+
+» read more
+
+
+including resources in static library projects
+
+31 jul 2002 17:11
+
+mfc
+
+
+
+introduction
+
+» read more
+
+
+finding duplicate files
+
+1 apr 2002 23:00
+
+
+
+
+$ find . -type f -print0 |
+    xargs -0 md5sum > md5sums
+$ sort < md5sums | uniq -d -w 32 > duplicates
+
+
+» read more
+
+
+lazy bastard's guide to cloning your empeg
+
+18 mar 2002 07:59
+
+empeg
+
+
+
+problem/context
+
+» read more
+
+
+using rsync to synchronise empegs
+
+7 mar 2002 12:21
+
+empeg
+
+
+
+introduction
+
+» read more
+
+
+installing rsh on the empeg
+
+7 mar 2002 12:21
+
+empeg
+
+
+
+grab a copy of rsh-client from the debian archive.
+
+» read more
+
+
+empeg files
+
+7 mar 2002 12:21
+
+empeg
+
+
+
+some stripped down utilities for the empeg:
+
+» read more
+
+
+jam - separate release/debug target directories
+
+1 feb 2002 12:05
+
+jam
+
+
+
+by default, appwizard-generated applications use separate directories for the output of the different debug and release builds. we’d like to replicate that functionality.
+
+» read more
+
+
+rio receiver: layout definitions
+
+22 jan 2002 18:06
+
+rio-receiver
+
+
+
+introduction
+
+» read more
+
+
+streaming to winamp
+
+18 dec 2001 22:44
+
+rio-receiver
+
+
+
+since the audio receiver manager (the server) uses http to stream the mp3 data to the rio receiver, it’s possible (with some work) to stream directly to winamp. here’s how.
+
+» read more
+
+
+diagnosing synchronisation errors
+
+25 oct 2001 19:29
+
+empeg
+
+
+
+note that this only applies to v1.x car player software. v2.x uses a different error numbering scheme.
+
+» read more
+
+
+advanced searches in emplode v2.0
+
+25 oct 2001 19:29
+
+empeg
+
+
+
+emplode v2.0 adds the ability to search your music database. it provides two methods of doing this: simple searches (which are hopefully so simple that i won’t explain them here), and advanced searches.
+
+» read more
+
+
+enumerating interfaces supported by a com object
+
+3 oct 2001 15:58
+
+com
+
+
+
+something like this:
+
+» read more
+
+
+scanner trials and tribulations
+
+25 sep 2001 15:50
+
+
+
+
+this morning, i decided to buy myself a scanner. i’m planning on using it for document filing – keeping my credit card statements on cdrom, etc.
+
+» read more
+
+
+remote debugging with visual c++
+
+16 jul 2001 10:29
+
+visual-studio
+
+
+
+overview
+
+» read more
+
+
+building a dll with jam
+
+16 jul 2001 10:29
+
+jam
+
+
+
+introduction
+
+» read more
+
+
+building an mfc application with jam
+
+14 jul 2001 00:25
+
+jam
+
+
+
+introduction
+
+» read more
+
+
+jam subdir rule
+
+13 jul 2001 18:25
+
+jam
+
+
+
+introduction
+
+» read more
+
+
+building an mfc application with jam: building within developer studio
+
+13 jul 2001 11:42
+
+jam
+
+
+
+while getting our mfc application to build with jam, we got to a point where it would compile and link, but wouldn’t
+run.  this calls for a trip into the debugger.  the simplest thing might be to just run the executable within developer
+studio.
+
+» read more
+
+
+rpc_x_null_ref_pointer - what?
+
+10 jul 2001 09:44
+
+com
+
+
+
+i just came across a problem where ienumfoo::next was returningrpc_x_null_ref_pointer. of course, the first thing that i did wasundertake a search in msdn, and with google to see if i could find anyexplanation of what the problem is.
+
+» read more
+
+
+many to one dependencies
+
+10 jul 2001 09:44
+
+visual-studio
+
+
+
+there are times when you want to have multiple input files in a visual c++ project configured to generate the same
+output file. for example, you want to catenate a bunch of files to generate a file to be #included.
+
+» read more
+
+
+using [iid_is] gives me stack overflows. what's with that?
+
+10 jul 2001 09:44
+
+com
+
+
+
+the problem here is that you have a piece of idl like this:
+
+» read more
+
+
+building a static library with jam
+
+4 jul 2001 21:49
+
+jam
+
+
+
+introduction
+
+» read more
+
+
+linking with a shared library
+
+4 jul 2001 21:49
+
+jam
+
+
+
+introduction
+
+» read more
+
+
+building shared libraries (dlls)
+
+4 jul 2001 07:00
+
+jam
+
+
+
+the default jambase file doesn’t come with a rule to make dlls (or shared libraries in the unix parlance).
+
+» read more
+
+
+tmc pci48af front panel connectors
+
+1 jun 2001 11:47
+
+pci48af
+
+
+pci48af
+
+
+
+this information comes (indirectly) from tmc uk.
+
+
+» read more
+
+
+tmc pci48af pci slots
+
+1 jun 2001 11:46
+
+pci48af
+
+
+pci48af
+
+
+
+
+» read more
+
+
+tmc pci48af miscellaneous jumpers
+
+1 jun 2001 11:45
+
+pci48af
+
+
+pci48af
+
+
+
+
+» read more
+
+
+tmc pci48af main memory installation
+
+1 jun 2001 11:44
+
+pci48af
+
+
+pci48af
+
+
+
+
+» read more
+
+
+tmc pci48af cpu jumpers
+
+1 jun 2001 11:43
+
+pci48af
+
+
+pci48af
+
+
+
+
+» read more
+
+
+tmc pci48af specifications
+
+1 jun 2001 11:42
+
+pci48af
+
+
+pci48af
+
+
+
+
+» read more
+
+
+tmc pci48af motherboard
+
+1 jun 2001 11:41
+
+pci48af
+
+
+pci48af
+
+
+
+a while back, i was trying to get a computer built out of some spare parts to run linux in the corner of the office.
+however, i had some trouble with random lockups. i think it had something to do with the memory configuration of the
+motherboard.
+
+» read more
+
+
+moving message sign
+
+1 jun 2001 10:41
+
+
+
+
+a couple of weeks ago, we got an led message board at work. they had them on offer at maplin (if i recall correctly). anyway, the manual with the board is singularly useless. it’s labelled “moving message sign”, and has a picture of the display with “taiwan kingpul” on it.
+
+» read more
+
+
+internet explorer 5 displays the wrong language
+
+13 may 2001 23:00
+
+internet-explorer
+
+
+
+recently, while wandering along to my local debian mirror, i was surprised by the fact that it decided to come up in an asian script.
+
+» read more
+
+
+displaying a transparent canimatectrl in a dialog
+
+29 mar 2001 23:00
+
+mfc
+
+
+
+microsoft’s knowledge base article, q179907 explains how to use a transparent canimatectrl in a cview or a cdialog.
+
+» read more
+
+
+asus a7v linux box
+
+8 dec 2000 00:02
+
+hardware
+pc-builds
+
+
+
+having been so impressed with the speed of linux on the a7v (see here), i accidentally slipped while in cambridge computers and bought another one.
+
+» read more
+
+
+asus a7v windows box
+
+8 dec 2000 00:01
+
+hardware
+pc-builds
+
+
+
+as mentioned here, my pentium ii-400 got fried by an ocuk power supply. as they say, however: every cloud has a silver lining. with a dead computer, i could finally persuade my girlfriend that some long-overdue upgrades were necessary.
+
+» read more
+
+
+overclockers.co.uk power supplies
+
+8 dec 2000 00:00
+
+hardware
+pc-builds
+
+
+
+i don’t know if there’s something in particular about overclockers.co.uk, but we’ve not had any good experiences with their power supplies. we’ve had two power supplies from ocuk, and they’ve both gone horribly wrong, and fried a whole shedload of hardware.
+
+» read more
+
+
+windows 2000 explorer web view and media files
+
+26 oct 2000 16:29
+
+windows-2000
+
+
+
+warning: i’ve recently received a couple of emails stating that this
+technique totally breaks web view in windows explorer. use it at your
+own risk. back up any files you change.
+
+» read more
+
+
+internet explorer displays mp3 files, rather than downloading them
+
+25 oct 2000 23:00
+
+internet-explorer
+
+
+
+this one’s very rare. i don’t anticipate it ever happening to anyone
+else. it did, however, happen to me, so i thought i’d share it.
+
+» read more
+
+
+
+
+my name is roger lipscombe.
+                
+senior software engineer at happening, the tech powering
+                    superbet.
+                
+i blog about programming and other technology and gadget stuff.
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

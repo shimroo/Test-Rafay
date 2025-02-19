@@ -1,0 +1,426 @@
+
+
+
+
+seth woolley's website
+
+
+
+
+
+
+
+
+
+seth woolley's website
+
+seth woolley: software engineer, green election activist
+
+
+
+
+
+
+
+
+
+seth(8)
+name
+seth alan woolley
+
+synopsis
+
+  seth is a software engineer and consultant in security and spatial databases working out of portland, oregon with three decades of experience.
+          
+description
+
+  seth is working as a senior software developer for stormquant, inc., which is a doppler radar services provider.
+  stormquant is building a proprietary x-band dual-polarimetric doppler radar mesh network.  the technology is ultralight, efficient, high power, solid-state, field-swappable, remotely monitored/managed/upgraded, globally-synchronized-and-oscillated, and software-defined and -analyzed using a combination of an fpga, gpus, and cpus.  output is compatible with standardized radar formats and accessible via scalable internet apis.
+          
+
+  seth worked as a senior software engineer ii for uber, which acquired his previous employer, decarta, inc., a vendor of platform solutions for mapping technology and location-based services.  
+  seth's software speciality was natural turn-by-turn navigation systems for humans.  typically such projects are written in java and c/c++, though he is not shy with other languages.
+  seth was a full-stack engineer working on spatial etl processes; data analysis, compilation, indexing, and querying; server and client 
+    apis; and mobile interfaces (especially android).
+          
+
+  in his spare time, seth is a green party activist focused on progressive election reform. his focus areas are 
+    campaign finance reform, democratic election systems, ethics reform, transportation policy, and environmental pollution.
+  his organizational specialty is the coordination of direct outreach campaigns and public education efforts through the collation and analysis of public records and public databases, specifically 
+    environmental quality or permit data and campaign finance data.
+          
+
+  seth has testified in court as an expert witness on and served on a legislative task force analyzing campaign finance issues.
+  seth publishes public record data on polluters for portland clean air and hosts the site and publication archive for redwood nation earth first!.
+  he currently serves on the board of the portland green party and is state secretary of the pacific green party of oregon, a position he has volunteered for, on and off, for many years.
+  in 2008 and 2012, he served as the pacific green nominee for oregon secretary of state
+   supporting universal voter registration (successfully), 
+   opposing linear rights for lng export terminals on the state land board, 
+   supporting turning the state forests into protected forests with a carbon tax, 
+   supporting pro-initiative direct democracy, 
+   supporting holistic performance auditing, and 
+   supporting better public records access and public auditability.
+  in 2012, seth spearheaded a successful ballot access law suit and a successful ballot access registration drive for the pacific green party to keep the party qualified for the oregon ballot.
+  in 2008 and 2014, seth helped lead two campaigns against top two ballot measures (65 and 90) in oregon, leading to 2 to 1 landslides against them.
+  in 2013, 2014, and 2016, seth did campaign finance opposition research and/or internet ads for the successful landslide victories for a 
+    gmo cultivation ban     in jackson county, oregon, 
+    a referendum overturning portland's council vote to fluoridate the purest water supply in the country, and 
+    an anti-nestle ballot measure in hood river county, oregon.
+          
+
+  seth is a strong supporter of universal health care, vaccination programs, the efficient, democratic allocation of the electromagnetic spectrum, and scientific research in general, especially evidence-based, precautionary approaches to health and environmental protection.  seth opposes nuclear power commercialization, though he supports continued nuclear research programs, including fusion and fundamental research in physics, chemistry, and biology.  seth opposes water fluoridation and prefers fluoride toothpaste programs (topical, not systemic fluoridation).  seth supports government regulation, generally, as control on negative externalities in a mixed economic system with a strong social safety net.  seth supports decentralization and decriminalization with safety regulation and taxation in public health policy efforts.  seth supports democratic controls on harmful cultivation practices, such as terminator genes and roundup-ready herbicidal programs and favors organic agricultural practices.  seth supports sustainable harvesting practices, the management of wildlife and protection for endangered species, and restrictions and controls against invasive species.
+          
+
+  seth also volunteers time for source mage gnu/linux, 
+    where he's contributed thousands of patches over many years and is an elected elder.  he held elected positions such as security team leader 
+    and qa team leader in his years volunteering for source mage.
+          
+contact information
+
+seth's address for emailing
++1 (503) 953-3943 for telephone/sms
+45.5438, -122.6295 for mailing/delivery
+kf7ior amateur license (plus gmrs licensed)
+                (on aprs 144.39mhz and 146.52mhz, 5w)
+iridium network using delorme 
+                inreach explorer
+libera nick swoolley for internet relay chat
+by internet names and addresses: 
+[2602:cf:e01f:7e00:2bc1:7eb6:2355:a5072]/64 via ipv6
+207.224.31.113/28 via ipv4
+swoolley.org for dns
+s6y.us for short dns
+
+
+references
+
+
+seth's resume
+
+see also
+free software(8), security consulting(8), website consulting(8), occupation(8), house(8), 
+             indoors(8), outdoors(8), colophon(8), 
+             seth(8)
+ seth woolley's website    seth    about seth woolley
+
+
+
+free software(8)
+source mage gnu/linux
+source mage gnu/linux is a source-based gnu/linux distribution intended to maintain flexibility by offering users choice.
+i've held various positions in source mage at one point or another from quality assurance and security teams leader to video and graphics guru.  currently, i am a general lead with the title of "wizard" in the source mage council of elders.
+notable contributions:
+
+i ran and maintained the quality assurance and release engineering processes, utilizing automated testing and advanced features of bugzilla and source code managers.  you can see a history of bug reports from my prometheus runs.
+i did some 64-bit porting, for example, i ported gnu bc for 64-bit support and certainkey hashsum for 64-bit support (both written in c).
+i was the lead designer and did the initial implementation of the cryptography code in source mage sorcery's new source validation system with hashsum hash support, openssl hash support, and gpg hash support plus signature support for vendor-based as well as maintainer-based signatures.
+i contributed heavily to the implementation of the current init system (in particular its parallel init support) based off of simpleinit.
+i managed hundreds of security updates to the grimoire (package build scripts).
+i host a source mage source mirror and was the dns master for source mage, until we grew to afford our own servers (thanks to jeremy blosser).
+i have been with source mage since the very early days as it matured from an experiment to a robust platform suitable for every day use.
+linux weekly news published an article i wrote about source mage.
+
+this server runs source mage and thttpd.
+my most recent past work went into source mage gnu/linux, however, i do have some additional projects, below.
+fsweblog
+see my web log.  i wrote the web logging software called fsweblog. i originally wrote it in 2003 as a proof of concept for how greymatter could be written securely.  now that sql-based blogging tools have become the norm despite exploit after exploit, i'm maintaining it as a proof of concept for how a blog should be designed.  bloxsom is pretty close to what i want, but since i had already started writing mine, i think i'll stick to it.
+a primitive referrer validator
+my referrer validator outputs validated (non search engine) referrers in html and an index form.  the script constantly changes so i can update search engines and tweak its validation routines.  i run it every now and then and spot spam referrals that may have made it through.  by checking the source website for an actual link-back (which is also proxyable if need-be, to hide the source of my request), it works quite well.
+my entire site has integrated referral support, instead of the dreaded trackback and pingback schemes -- including my blog and manual page viewer.  this also allows you to see relevent sites that discuss the manuals or my blog entries in more detail instead of my having to store information for them (the link aggregation power of referrals, if only done correctly, without doing pingbacks).
+man.cgi
+see my man page viewer.  dynamic man-page generation.  i wrote the perl to index and display man pages and their aliases.  my manual page viewer has a few unique features:
+
+it dynamically generates the content directly from the console-based man command, securely, while supporting on-disk caching.
+an alias-aware index is automatically generated, suitable for automatic cross-linking of all the manuals.
+cross links pop over (in css-compliant browsers) when more than one manual or alias is available.  url linking is automatic, as well, even wrapped.
+title attributes are supported.
+keyword/apropos and section searches are supported.
+generates pure xhtml 1.1 from ansi terminal escape codes preserving the exact appearance of a standard console.
+
+see some example manuals:
+
+intro
+              1
+2
+3
+4
+5
+6
+7
+8,
+              of course, the introductions to each section of the traditional unix manual.
+            
+sorcery source mage gnu/linux commands, the easiest package manager in the world.
+select_tut(2) select() tutorial, a good example of aliases and many-to-one relationships and a complete tutorial.
+perl perldoc man pages, an example of how thorough man pages can be.
+ all manual pages in html and all manual pages in text (be kind and patient as there are more than ten thousand pages).
+
+sel.pl perl server
+this is a perl, state-based, multi-protocol, multi-threaded, network-socket server.
+it was a simple project to learn how to do sockets in perl.  you can plug in special-purpose servers into it, it runs in a single process, and it's been useful for small projects i do now and then.  i've been considering adding cgi to it to self-host this page, but i'd need to refactor it some amount.
+d-link dcs-900 ip camera linux driver
+i made a perl script to drive these cameras much better than the windows software.  this can be used for a very cheap security camera solution, and the driver supports an arbitrary number of cameras. it also rotates space and adds time snapshot subtitles for more precision than a static framerate.
+simple sudoku solver
+this sudoku solver doesn't do anything "fancy", but it does follow a few simple rules to do the brunt work on a sudoku puzzle.  i haven't added trial-and-error solving to it, just basic first-level deductions, however, for all but the hardest puzzles this is sufficient.
+method of equal proportions perl script
+this is an implementation of the method of equal proportions i did as elections administrator of the pacific green party of oregon to apportion delegates to the national convention.
+miniature bitmap font for x windows (and microsoft windows)
+i got tired of not having a font that was the perfect size for me to eyeball grep large log files and emails, so i made my own.  i recently added a microsoft windows version to add to the existing x windows version.
+dynamic symbol checker for linux/elf files for source mage
+this bash script uses source mage libraries to speed up library checking, not with plain ldd checks, but by actually attempting to resolve missing symbols (of course there are exceptions for callbacks, like kscreensaver, but if those are noted, a check like this can help spot ugly inconsistencies that only get found out, normally, by running every application.
+source mage prelinking utility
+this utility is now built into source mage's sorcery utility.  it works with the package manager to handle elf prelinking and stripping to optimize binary link loading with in-situ, context-relevent link address mapping.  source-based distros tend to have a more difficult time with optimizations such as these, but my script is an attempt to work with the package manager instead of making it "outside" of package management.
+jigl xhtml hack
+i hacked jigl to be xhtml 1.1 compliant.  i'm hoping upstream will take it in since i love the program but desire xhtml compliance
+
+example free software security bugs
+
+2003-02-13sixapart's movable type xss (search for "seth woolley")
+2003-04-09pks mit's public key server off-by-one error (changelog, commit)
+2003-10-03cafelog's b2/wordpress sql injection (credit)
+2003-11-21mozilla parses half-tags gullibly leading to xss
+2005-07-04kaf osea quick and dirty php source code printer directory traversal
+2005-08-07wordpress hashcash logic problems and scriptability
+2006-06-05man-cgi directory traversal
+2006-06-16yolinux-hacked man2html directory traversal
+2006-09-03h2desk pmos xss in the login form demo
+
+ seth woolley's website    free software    about seth woolley
+
+
+security consulting(8)
+oregon certified locksmith
+i'm a certified locksmith in the state of oregon, but i don't have a contractor license and bond, so i cannot offer paid hardware lock services at this time.  my focus is software and network security, which i can be paid for.
+(non-nda) example proprietary security bugs
+in some cases, i haven't signed an nda for security bugs found.  in that case, i list some on my website here.
+
+2003reported an sql injection vulnerability to the salem-kaiser school district regarding their online staff directory.
+2004-05-22allegro rompager/2.10 dos exploit
+2004-08-10found a major vulnerability leading to a root password to johnkerry.com's email server.  the vendor was notified and the problem was fixed.
+2005-02-15kayako esupport xss vuln
+2006-05-30i spent an hour going over sitespaces.net and reported some vulns to the author.  the link is one of them.  (see also bug 89).
+2006-07scanalert tried to recruit me and i responded by pointing out the obvious with two xss vulns on scanalert.com
+
+disclosure policy
+my disclosure policy is simple: notify the userbase as soon as possible.  if i'm under an nda, i will request the vendor sign a corresponding public disclosure agreement that any issues will be required to be made public on their own.  this should not be an issue for any ethical vendor that hires any security auditing firm.  vendors who have no history of public disclosure, such as kayako above, i am forced to release issues to the community so they can be educated.  if i'm paid i don't mind not receiving public credit.  if i'm not paid, i typically give myself credit during the public disclosure process.
+rates
+security research and/or penetration testing
+$400/hr or $1500 for disclosure of vulnerability info found.
+ seth woolley's website    security consulting    about seth woolley
+
+
+consulting(8)
+services
+i'm a gnu/linux, hpc/clustering, gis/geospatial data expert.  follow the link to seth woolley's resume to see if i'd fit what you need.  at the moment, i'm 
+            mostly busy, so i only have time to do consulting on the side.  please understand that my current employer, stormquant, inc. gets almost all of my time.
+rates
+initial consultation and estimates are not billed.  rates are the same for on-site, remote, e-mail, and phone service and are billed in ten minute intervals.  rates are subject to change without notice before work is begun.  net is due after 30 days of invoice.  materials will be charged at-cost.  please keep good backups.  no warranty for services is granted unless i determine something i did was a direct cause of the problem, and repair extends to no-charge for time fixing (better than most in the industry).  no additional warranty on parts is granted because they are charged at-cost.
+consultation rate/
+            $400.00/hr
+ seth woolley's website    website consulting    about seth woolley
+
+
+
+occupation(8)
+resume
+see seth woolley's resume for details.
+stormquant
+i am part of the software team at doppler radar company stormquant.
+uber
+uber acquired decarta, and i do basically the same stuff there, mostly focused on turn-by-turn navigation.
+decarta
+i was a senior software engineer at decarta (formerly telcontar), on the core team's portland development center with a primary emphasis on decarta's rich map format (topology and spatial database), rich map engine (geometric and spatial algorithms), uniform data model (spatial topology attribution modeling), and rmf for embedded and server systems.  at decarta, i work, eat, and sleep cartography.  three-time medalist (twice gold) in washington state's science olympiad for cartography when i was in middle school, i've always been into mapping.  at decarta i can merge my two loves: maps and software.  it really is the perfect job for me.
+panasas
+i was a software engineer at panasas.  i helped write the test harness, tools infrastructure, and libraries for automated testing their parallel filesystem product "panfs".
+
+ seth woolley's website    occupation    about seth woolley
+
+
+house(8)
+3403 ne stanton st
+my house is located at 45° 32' 37.5" n, 122° 37' 46" w.
+i'm a bit of a public records nut, so if you really want to see the details, try 3403 ne stanton st at portlandmaps.com.
+for current valuation, see 3403 ne stanton st at zillow.
+improvements
+
+added a natural rock retaining wall (thanks wes sixeas!)
+trimmed and removed some overgrown bushes
+added a garbage disposal (did that myself)
+replaced the gutters
+resealed the firebox
+(almost) fixed an annoying water leak in the siding
+repaired damage from above water leak in master bedroom
+recrowned the furnace chimney
+rebuilt the deck roofing
+installed ground drainage
+removed wallpaper and skim coated the master bedroom
+replanted grass on all ground surfaces
+replaced and re-sealed the garage roofing
+installed a gas insert fireplace
+replaced the foundation
+added two bathrooms, in the attic room and in the basement
+insulated the entire house with spray-foam insulation
+finished the basement and laundry room
+upgraded the furnace to a split-zone air-soruce heat pump
+upgraded the water heater to a tankless condensing gas water heater
+upgraded all electrical to code and grounded, 20-amp circuits
+installed a 19 inch rack in the basement with battery backups
+ran 600 feet of 3/4 inch conduit for cat-6a ethernet pulls
+installed gigabit fiber
+insulated and rewired garage for electronics shop
+hardened all locks
+
+ seth woolley's website    house    about seth woolley
+
+
+
+indoors(8)
+science
+computer science, cartography, biology, artificial intelligence, sociobiology, ethology, political science, cognitive science, physics, acoustics
+i've filed patent claims regarding turn-by-turn navigation.
+epistemology
+i'm a logical empiricist that places empiricism as the only dogma, a slight improvement upon logical positivism that avoids the two dogmas criticism.
+             logic is founded in empiricism and can only be supported by direct empirical observations supporting the correctness of each meta-assertion about logic.
+religion
+nonreligious agnostic atheist with a secular humanist arc
+jesus is a myth.  if you have a problem with that, take it up with zeus, who's a myth, too.
+            the academic work of richard carrier is so far quite clear on this historical fact. ( for a good summary: https://www.youtube.com/watch?v=wuyroyl7i6u )
+linguistics
+
+            i created the word "vexel" on fri jun 27 07:50:26 2003 us/central, post #532851 on nova-boards.com (then avon-boards.com, since defunct).
+            vexels.net has given me the honor of the credit for it, which started with a couple posts i made which have been saved for posterity.
+            wikipedia has even picked up on vexels.
+            deviantart even has a vexel category for it to separate it from vector art (it's under digital art).
+            as of june 2007, there were 6200 deviantart vexel entries and vexels.net has 18200 entries (where likely most overlap).
+            langmaker has a vexel entry.
+            there have been many attempts to further define or clarify "vexel":
+          
+
+fdlinda
+what is a vexel? from vexels.net (most often reposted)
+swoolley
+vectorstory.txt (first ever use of the term)
+vexel vs vector (etymological clarification)
+vexels - style or technique? (gradient clarification)
+
+ seth woolley's website    mental gymnastics    about seth woolley
+
+
+outdoors(8)
+metrics
+
+age38 earth-years
+height187 cm
+mass80.0 kg
+threshold power264 watts
+watts/kg ftp3.3
+heart rates
+resting: 47 bpm
+aerobic threshold: 169 bpm
+maximum: 191 bpm
+vo2max42 ml/kg/min
+base metabolism2259 calories/day
+
+bicycling
+in 2015, i had custom-built a seven touring bicycle through river city bicycles.
+            it's titanium with couplers and custom racks.  it has electronic xtr shifters with holes for internal routing, plus bosses for both rohloff internal hub shifters and mechanical shifters.  
+            it has rocker dropouts, a belt drive stay break, and custom, asymmetric handlebars to match a childhood injury that altered the growth of my right arm (1cm difference).
+            it uses disc brakes and a steel fork.  i internally wire antenna and usb power cabling to the rear of the bike for rear lights and a titanium 2 meter antenna (144.39mhz for aprs)
+            on this bike i've ridden 400 miles of the montana great divide mountain bike trail, from eureka to butte.  
+            i currently use 50mm schwalbe marathon supremes inflated to about 2 bar.  i also have their 50mm studded marathon winter tires and 42mm marathon plus tours.
+            it has a schmidt dynamo and centerlock discs, 160mm in diameter, on front and rear, with ice technology heat dissipation fins for long mountain descents.
+            i recently added 57mm marathon plus mtb tires and an extrawheel trailer with the same tire, for very heavy loads, about 100lbs extra on each tire, since 132kg are able to be loaded on each tire now.
+          
+in 2010 i picked up a kona honky inc and upgraded it to a triple-crank for weekend touring trips around portland metro.
+            in 2011 i managed to do tours from astoria and to government camp via us 26 and back (via oregon skyline road (nf-42) and the clackamas river highway).  
+            by 2012 i had done a 1500 mile tour of oregon in one month.  i continued to do long tours, including in 2014 a 700 mile tour from portland to san francisco in two weeks.
+i had a 2006 dahon vitesse folding bicycle from bay area bikes that i used for commuting to san jose from oakland, 
+            via amtrak's capitol corridor.  i put about two hundred miles a month on it.  for some time after that 
+            i also lived next door to work, and used the bike for recreation.  then i moved back to portland.
+i left my dahon in san jose for when i visited decarta hq.  then one day in california i crashed it and bent the frame, which being aluminum, is unrecoverable, so i recycled it.
+
+scooter
+i have a 2008 kymco people 150 for cases where premium gasoline can get me there faster.  i have a lot more miles on my bicycles though.
+
+ seth woolley's website    physical gymnastics    about seth woolley
+
+
+colophon(8)
+inspiration
+the website style is inspired by and based upon the unix manual page style as output by the 'man' command and 'troff'-like interpreters on unix-like operating systems.  see the manual for man 
+for an example.  the use of the third person mirrors the descriptive style of each utility.  in the unix philosophy it's better to make small utilities be specialized and interoperate together through pipes and inter-process 
+communication rather than to make single, large, monolithic, complex programs.  in that spirit, seth specializes and works well in teams and with other services.
+self-hosted netblock
+cidr 207.224.31.112/28
+swoolley.org hostname allocation is as follows
+
+207.224.31.112
+nw
+207.224.31.113
+mail
+207.224.31.114
+ns0
+207.224.31.115
+ns1
+207.224.31.116
+ns2
+207.224.31.117
+dh0
+207.224.31.118
+dh1
+207.224.31.119
+dh2
+207.224.31.120
+dh3
+207.224.31.121
+dh4
+207.224.31.122
+dh5
+207.224.31.123
+dh6
+207.224.31.124
+dh7
+207.224.31.125
+dh8
+207.224.31.126
+gw
+207.224.31.127
+bc
+
+brilliant buttons
+why 80x15 web badges?  because 2006 was a fun year in web design.
+ runs or was created on the following platform:
+
+ distribution
+ userland
+ kernel
+ graphical web brower
+ text-based web brower
+ http server
+ dns server
+ ssh server
+ finger server
+ ntp server
+ smtp server
+ mail user agent
+ mail delivery agent
+ scripting language
+ text editor
+ ad-free blog
+
+internet world wide web consortium standards
+this website also validates to the following standards:
+
+ w3c xhtml 1.1
+ w3c css level 3
+ rss 1.0 as w3c rdf 1.0
+
+crypto signatures
+connect via ssh using ecdsa key fingerprint:sha256:fxgmsf4ekc1sqtwaqwxddp/kjct4b2s3j45vcpkdkiu
+gnupg keyfingerprint is:4018e932 = 4de5 08a0 1ade 1936 62ac  dd04 ebce 582b 4018 e932
+
+ seth woolley's website        colophon         about seth woolley
+
+
+
+

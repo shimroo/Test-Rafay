@@ -1,0 +1,446 @@
+
+
+the error correcting codes (ecc) page
+
+
+ 
+the error correcting codes (ecc) page
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+welcome! 
+this page contains
+
+several computer
+
+programs, written in c/c++ language (and some matlab scripts), that
+
+implement
+
+encoding and decoding routines of popular error correcting codes (ecc),
+
+such
+
+as reed-solomon codes, bch codes, the binary golay code, a binary goppa
+
+code,
+
+a viterbi decoder and more. note that no effort
+
+has been made to `optimize' most of the algorithms used in the programs
+
+below. the algorithms work well, but by no means should be used
+
+as a basis for an implementation. all these programs are free to use
+
+for academic and personal purposes only. use them at your own
+
+discretion. enjoy!
+ 
+
+if you have an interest
+
+in digital
+
+communication or storage system design and implementation that involves
+
+(and
+
+believe me, it will!) error control coding, drop me a line, i will be happy to
+
+learn more about novel applications of ecc and also to offer my
+
+advice.  
+
+
+i still recommend the following best
+
+textbooks to learn more about the fascinating topic of error correcting
+
+codes: 
+
+ 
+ 
+
+
+ s. lin and d. j.
+
+costello, jr., error control coding: fundamentals and applications,
+
+second edition, prentice hall: englewood cliffs, nj, 2004.
+
+
+w.w. peterson and
+
+e.j. weldon, jr., error-correcting codes, 2nd edition, mit
+
+press: cambridge, mass., 1972.
+
+
+f.j. macwilliams and
+
+n.j.a. sloane, the theory of error-correcting codes,
+
+north-holland: new york, ny, 1977.
+
+
+ 
+ my
+textbook, now in its second edition, offers a gentle and hands-on (with
+a companion website containing more c and matlab programs) introduction
+to
+the basic principles and applications of error correcting codes:
+
+
+
+ 
+ 
+ 
+ 
+
+
+copyright (c) 1996-2023. robert morelos-zaragoza. all
+
+rights reserved.
+
+
+ 
+
+
+ the ubiquitous
+
+reed-solomon codes
+by barry a.
+
+cipra, reprinted from siam news, volume 26-1, january 1993
+ reed-solomon (rs) codes
+decoding the
+
+berlekamp-masssey (bm) algorithm, with error evaluation as explained in
+
+lin and costello's book. 
+
+(simon rockliff, 1989)
+ reed-solomon
+
+errors-and-erasures decoder
+based on the
+
+above program to handle errors and erasures, plus other features. note:
+
+the program does not work with shortened codes and codes over gf(2^m),
+
+m<8 ... it gives good ideas though. 
+
+(thirumoorthy, 1995)
+ another
+
+reed-solomon errors-and-erasures decoder 
+nicely
+
+written, greatly
+
+improved version of the program above. it now lets the user create
+
+multiple
+
+encoders at run time with specified parameters you can get the latest
+
+package here.
+
+check
+
+also phil's home page. 
+
+(phil karn, 2006).
+ bch codes
+enter only the
+
+length and error correcting capability. the program computes the
+
+generator polynomial of any binary bch code, plus encoding and decoding
+
+using the bm algorithm. 
+
+(morelos-zaragoza, 1994).
+ binary (48,36,5) bch code.
+this bch code
+
+is used in control channels for cellular tdma in the u.s. since this
+
+code has only two-error correcting capability, fast decoding is done by
+
+pre-solving a system of two equations (the syndromes) in two unknowns
+
+(the error positions), see macwilliams and slone's book, chapter
+
+3. note: there was a "bug" in this program, fixed on 8/27/97. 
+
+(morelos-zaragoza, 1994).
+ binary (31,21,5) bch code.
+this bch code
+
+is used in the pocsag protocol specification for pagers. the program is
+
+identical to the one above, except for the parameters. note: there was
+
+a "bug" in this program. it was fixed 8/27/97. 
+
+(morelos-zaragoza, 1997).
+ golay (23,12,7) code
+fast encoding
+
+and decoding by software with look-up tables. the program uses a
+
+16k-by-16 bit encoding table and an 8k-by-32 bit decoding table. 
+
+(morelos-zaragoza, 1994).
+ a goppa code
+encoding/decoding
+
+of a (1024,654,75) goppa code (originally written with a public key
+
+cryptographic scheme in mind). this program is a compact implementation
+
+of goppa codes with parameters m=10, t=37 for 32-bit machines. decoding
+
+method due to n. patterson, ``algebraic decoding of goppa codes,'' ieee
+
+trans. info.theory, 21 (1975), 203-207. 
+
+(anonymous, as far as i know)
+ crc-32
+computes the
+
+crc value of a file, as used in zmodem or pkzip. 
+
+(craig bruce, 1994)
+ ecc-1.2.1.tar
+
+(106496 bytes)
+routines to
+
+encode and decode a file using a (255,249,7) rs code. 
+
+(paul flaherty, 1993)
+ turbo-codes
+
+home page at jpl
+ 
+ turbo decoder
+
+archive: bcjr_turbo.tar
+an
+
+implementation of the bcjr algorithm, based on the pseudocode in
+
+w.e.ryan's tutorial paper (ps
+
+file). 
+
+(mathys walma, 1998)
+ viterbi decoding 
+package viterbi-3.0.1.tar
+
+contains programs to implement viterbi decoding of (de-facto standard)
+
+rate-1/2 and rate-1/3 m=7 convolutional codes. package simd-viterbi-2.0.1.tar
+
+contains programs to implement viterbi decoders for r=1/2 k=7
+
+and k=9 codes that use the intel/amd simd instruction sets
+
+(mmx/sse/sse2). check also phil's
+
+home page. 
+
+(phil karn, 2006)
+ galois.tar
+encoding/decoding
+
+for bch/rs codes. 
+
+(bart de canne, 1994)
+ a block coded qpsk modulation
+
+for unequal error protection (uep)
+this program
+
+was used to simulate the performance of a coding scheme proposed in my
+
+ph.d. thesis for uep over an awgn channel. for more details, see r.h.
+
+morelos-zaragoza and s. lin, ``qpsk block modulation codes for unequal
+
+error protection,'' ieee transactions on information theory,
+
+vol. 41, no. 2, pp. 576-581, march 1995. 
+
+(morelos-zaragoza, 1993)
+ linear code bound
+how good is a
+
+code? what are the lower and upper bounds on the minimum distance of a
+
+linear block code given its length and dimension? the answer to this
+
+question may be found on-line! (remkor@win.tue.nl, 1995). also try: http://www.codetables.de/
+
+maintained by markus grassl (thanks to axel kohnert for the pointer).
+
+ erasure-correcting
+
+codes
+an
+
+implementation of a block code for erasure correction in network
+
+communication protocols. the encoder/decoder runs quite fast (up to
+
+several mb/s on a pentium). 
+
+(luigi rizzo, 1996)
+ finite
+
+field calculator and reed-solomon simulator
+java applet of
+
+gf calculator and an rs encoder/decoder 
+
+(emina soljanin, 1997)
+ a windows 95/nt
+
+program to do galois field math
+(andrew lin,
+
+1997)
+ properties of binary linear codes
+this is a c++
+
+program (compiled for sparcs) that computes properties of binary codes,
+
+from more basic items such as minimum distance and dimension to more
+
+complicated properties such as trellis decoding complexity and whether
+
+the tanner graph of the code is cycle-free. 
+
+(ari trachtenberg, 1998)
+ maximal lfsr program
+a program to
+
+find primitive polynomials of maximum cycle length 
+
+(steve ungstad, 1999)
+ a tutorial on
+
+convolutional coding with viterbi decoding
+the purpose of
+
+this tutorial is to introduce the reader to a forward error correction
+
+technique known as convolutional coding with viterbi decoding. more
+
+particularly, this tutorial will focus primarily on the viterbi
+
+decoding algorithm itself. the intended audience is anyone interested
+
+in designing or understanding wireless digital communications systems. 
+
+(chip fleming, 1999)
+ david
+
+mackay's gallager low density parity-check (ldpc) code resources.
+an excellent
+
+reference for iterative decoding. papers on gallager codes. matrices
+
+for codes. source code for decoding. 
+
+(david mackay, 1997)
+ matlab routines for ldpc codes over
+
+gf(q), q=2^m.
+a few matlab
+
+routines for encoding/decoding low density parity check codes. 
+
+(igor kozintsev, 1999)
+ perl script for a type-c2
+
+algebraic interleaver.
+generates a
+
+sequence of distinct numbers such that the length of the sequence can
+
+be any power of 2. a particular characteristic of the generated
+
+sequence is that it is symmetric in the sense that an entry j in row i
+
+implies that the entry in row j is i. (interleaver and deinterleaver
+
+are identical!) 
+
+(oscar takeshita, 1997)
+ forward error
+
+correction (fec) page 
+this site
+
+contains some examples of forward error correction (fec) software and
+
+hardware. you will find software and hardware examples for free
+
+download, which are available as 'c' source code, vhdl source code or
+
+as 'vhdl' code generators for sun/solaris. 
+
+(christian schuler, 1998. updated 2001)
+ a fast and accurate
+
+degree distribution optimizer for ldpc code ensembles 
+the tool
+
+ldpcopt was developed in switzerland, to search for optimized ldpc
+
+degree distributions for various channels. 
+
+(abdelaziz amraoui, 2001.)
+ tc_ds_analysis.exe 
+
+    
+ windows
+
+program to compute the distance spectrum of a turbo code and the union
+
+bound on the ber. see the read_me file 
+
+(seokhyun yoon, 2002.)
+ bch_tamu.tar 
+
+    
+ generalized bch code performance evaluator 
+
+(kuntal sampat)
+
+
+
+ 
+
+
+
+this page was last updated on february 21, 2023. robert morelos-zaragoza
+
+

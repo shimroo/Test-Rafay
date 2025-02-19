@@ -1,0 +1,387 @@
+
+
+
+
+
+jak psã¡t web, nã¡vod na html strã¡nky
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+jak psã¡t web
+o tvorbä internetovã½ch strã¡nek
+
+
+
+v sekci nã¡vody: 
+zã¡kladnã­ kurz
+
+
+prvky strã¡nek
+
+tvorba webu
+
+
+
+
+dalå¡ã­ sekce: 
+html 
+css 
+javascript 
+älã¡nky
+
+ostatnã­ 
+				nã¡vody
+
+
+då¯leå¾itã© strã¡nky: staå¾enã­ celã©ho webu -
+		diskuse
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+zã¡kladnã­ kurz
+jak si udälat strã¡nky, co je a co nenã­ 
+	potåeba, prvnã­ påã­klad.
+zã¡klady html popisujã­ na påã­kladech 
+	tvorbu nejjednoduå¡å¡ã­ch strã¡nek u sebe na disku.
+jak strã¡nky poslat na server, aby byly 
+	vidät na webu.
+sprã¡va souborå¯. pojmenovã¡vã¡nã­, påejmenovã¡nã­, 
+		startovacã­ soubor.
+zã¡sady psanã­ textå¯ vhodnã½ch pro internet, 
+		hlavnä zmiåuji nadpisy, äeå¡tinu a aktuã¡lnost.
+editory jsou programy, kterã© je moå¾nã© na psanã­ 
+		strã¡nek pouå¾ã­t.
+rå¯znã© prohlã­å¾eäe (explorer, firefox, chrome) mohou stejnã© strã¡nky zobrazovat rå¯znä.
+zpå¯soby, jak provozovat strã¡nky. sami, 
+	redakäã¡kem, naklikat on-line, nebo to näkomu zadat? 
+prvky strã¡nek
+obrã¡zky a pozadã­
+påã­prava obrã¡zku popisuje zã¡kladnã­ 
+		grafickã© formã¡ty, prå¯hlednã© a animovanã© gify.
+obrã¡zky v html, atribut alt, rozmäry obrã¡zku, 
+		obtã©kã¡nã­. 
+vå¡e o pozadã­, rå¯znã½ zpå¯sob zã¡pisu a pouå¾itã­ 
+	obrã¡zkovã©ho pozadã­.
+odkazy
+odkazy v html, zã¡kladnã­ syntaxe, url, 
+		protokoly. påã­klad odkazu:
+<a href="http://www.jakpsatweb.cz">jak psã¡t web</a>
+zdokonalenã­ 
+		odkazå¯, novã© okno,
+	kotvy, mailovã© adresy
+tabulky
+tabulky -- ãºvod, zã¡kladnã­ syntaxe, popis tagå¯ 
+		<table>, <tr> a <td>.
+formã¡tovã¡nã­ tabulek ,
+	sloå¾itäjå¡ã­ vlastnosti tabulek,
+	design pomocã­ tabulek
+rã¡my
+iframe je zpå¯sob, jak do jednã© 
+	strã¡nky nechat naäã­tat strã¡nku jinou. ostatnã­ technologie kolem rã¡må¯ jsem 
+	archivoval, protoå¾e uå¾ jsou fakt hodnä out.
+formulã¡åe
+ãvod do formulã¡åå¯, jednoduchã© påã­klady, 
+		påedã¡vã¡nã­ dat.
+formulã¡åe v html,
+	zdokonalenã­ formulã¡åå¯,
+	parazitnã­ formulã¡åe,
+	formulã¡å odesã­lanã½ na e-mail,
+	autocomplete, automatickã© vyplåovã¡nã­
+dalå¡ã­ tagy a jejich pouå¾itã­
+meta tagy, automatickã© påesmärovã¡nã­, klã­äovã¡ 
+		slova, äeå¡tina atd. napå. popisek strã¡nky pro vyhledã¡vaäe:
+<meta name="description" content="struänã© shrnutã­ strã¡nky">
+nebo napå. informace o tom, å¾e strã¡nka je påipravenã¡ pro mobily:
+<meta name="viewport" content="width=device-width, initial-scale=1, 
+	shrink-to-fit=no">
+jak vycentrovat celou 
+	strã¡nku
+levã© menu,
+	div a span, titulek strã¡nky
+barvy
+zã¡pis barev v html a css pomocã­ rgb, 
+		desã­tkovä a å¡estnã¡ctkovä. teorie a påã­klady zã¡pisu.
+zã¡kladnã­ barvy,
+	bezpeänã© barvy,
+	pojmenovanã© barvy
+
+tvorba webu
+sklã¡dã¡nã­ strã¡nek z kouskå¯ - vå¡echny zpå¯soby, 
+	jak automaticky aktualizovat menu.
+påechod na https - jak svå¯j web 
+	påevã©st na protokol https.
+referer - informace o tom, 
+	odkud uå¾ivatel påiå¡el. kdy se påedã¡vã¡ a kdy ne.
+zaheslovã¡nã­ strã¡nek,
+	påesmärovã¡nã­, poäitadla a statistickã© servery,
+	hledã¡nã­ na vlastnã­m serveru,
+	ikona strã¡nky, 
+	pouå¾itelnost, rychlost strã¡nek,
+	podrobnosti prohlã­å¾eäå¯,
+	sluå¾by vzdã¡lenã½ch serverå¯
+äeå¡tina
+äeå¡tina uå¾ dnes nedälã¡ takovã© problã©my jako 
+		påed lety. ãvod do problematiky kã³dovã¡nã­ diakritiky. påã­klad meta tagu 
+		pro nastavenã­ kã³dovã¡nã­:
+<meta http-equiv="content-type" content="text/html; 
+		charset=iso-8859-2">
+problã©my äeå¡tiny,
+	interpunkce
+optimalizace pro vyhledã¡vaäe
+fulltextovã© vyhledã¡vaäe, jak pracujã­, jak s nimi 
+		spolupracovat.
+robots.txt,
+	o google, katalogy,
+	pagerank
+server
+zã¡klady nastavenã­ serveru teoreticky naznaäujã­, 
+		co by pro vã¡s sprã¡vce serveru mohl udälat.
+hosting,
+	domã©ny na webu, programovã¡nã­ strã¡nek 
+toto byl prå¯åez zã¡kladnã­ sekcã­. nã¡sleduje popis dalå¡ã­ch sekcã­ webu.
+påehled html
+
+		html 
+		påã­ruäka je vlastnä moje reference o html, takovã½ manuã¡l.
+påehled tagå¯
+struktura dokumentu,
+		ãprava textu, bloky,
+		seznamy, odkazy,
+		obrã¡zky, 
+		tabulky, rã¡my,
+		objekty, 
+		formulã¡åe, hlaviäka,
+		rozå¡ã­åenã­ html.
+
+html tahã¡k je velmi oblã­benã¡ pomå¯cka.
+
+css styly
+hlavnã­ strã¡nka kaskã¡dovã½ch stylå¯ obsahuje 
+		odkazy na strã¡nky o jednotlivã½ch css vlastnostech.
+css styly -- ãºvod, 
+		struktura textu, css prakticky
+
+påehled 
+		vlastnostã­ css, jejich hodnot a vã½znamå¯ s påã­klady zobrazenã­.
+
+z älã¡nkå¯ o css vybã­rã¡m: 
+tåã­dy a 
+	identifikã¡tory, 
+		dã©lkovã© jednotky v css, promännã© a 
+	vã½poäty v css, @media pravidla v css,
+	css pozicovã¡nã­,
+		tisk, zã¡klady dynamickã©ho html,
+		kurzory,
+	mã³dy prohlã­å¾eäå¯
+javascript
+vã½uka javascriptu. na zã¡kladä mnoha 
+		dotazå¯ dã¡vã¡m k dispozici zatã­m nedokonäenã© strã¡nky o javascriptu s 
+		påã­klady.
+älã¡nky
+älã¡nky på¯vodnä vätå¡inou z weblogu 2003 
+	- 2004, ale i novã© texty.
+odkazy na zdroje o tvorbä strã¡nek, 
+	takovã½ malã½ katalog, abych nezapomnäl hezkã© adresy. napiå¡te mi dalå¡ã­, 
+	prosã­m.
+z älã¡nkå¯ bych vypã­chnul keå¡ovacã­ nã¡vod 
+	pro autory webu a webmastery, 
+	na co strã¡nka påi vykreslovã¡nã­ äekã¡, 
+	lomã­tka a teäky v adresã¡ch souborå¯,
+	ãvod do google adsense
+
+kdysi jsem pravidelnä psã¡val weblog, 
+		ze kterã©ho mnohã© älã¡nky på¯vodnä pochã¡zejã­.
+
+seo
+dost se profesnä vänuju vyhledã¡vaäå¯m a äasem k tomu vznikly näjakã© texty, 
+	abych nemusel odpovã­dat stã¡le na to samã©. mã¡m je v 
+	sekci seo.
+o tagu title, kterã½ je pro 
+	vyhledã¡vaäe nejdå¯leå¾itäjå¡ã­.
+nejtäå¾å¡ã­ väci v seo se tã½kajã­ url: jakã© tvoåit url,
+	påesmärovã¡nã­ v seo, jak
+	zmänit domã©nu,
+	duplicity a podobnosti,
+	kanonizace url,
+	jak proväåit zaindexovã¡nã­,
+	sitemap, domã©na pro seo. 
+jak zjistit, kdo odkazuje? 
+trocha filosofie: v seo jde o kvalitnã­ 
+	nã¡vå¡tävnost, podvodnã© techniky
+pouå¾itelnã© emoji v serpu je takovã½ må¯j 
+	vã½zkum, co google dovolã­.
+ostatnã­
+dalå¡ã­ boänã­ vätve projektu jsem shrnul do samostatnã©ho
+	rozcestnã­ku ostatnã­: 
+frontpage 2000 - neoficiã¡lnã­ nã¡poväda 
+	velmi podrobnã½ nã¡vod na ovlã¡dã¡nã­ programu frontpage s påekladem anglickã½ch 
+	vã½razå¯.
+o reklamä je sã©rie älã¡nkå¯ na tã©ma 
+	grafickã© reklamy ve webovã½ch strã¡nkã¡ch.
+encyklopedie html a tvorby webu zatã­m 
+	pouze v nã¡vrhu.
+faq - äasto kladenã© dotazy, velmi chaotickã¡ ãºprava.
+php
+jak zaäã­t s php, zejmã©na probã­rã¡m 
+		instalaci testovacã­ho serveru pomocã­ phptriad.
+moå¾nosti php - nã¡stin pro zaäã¡teänã­ky.
+hosting s php + ceny - påehled 
+	spã­å¡ lacinäjå¡ã­ch hostingå¯ poskytujã­cã­ch php. jedna z mã¡la strã¡nek, kterou se 
+	snaå¾ã­m pravidelnä aktualizovat.
+nic jinã©ho tu o php nemã¡m, protoå¾e se jazykem php bäå¾nä nezabã½vã¡m.
+diskuse
+
+diskusnã­ fã³rum na jak psã¡t web 
+		je uå¾ docela legendã¡rnã­ fã³rum. jeho primã¡rnã­m cã­lem je pomã¡hat 
+		zaäã¡teänã­kå¯m, a tã­m poskytovat psanou pomoc i täm, kdo ji mohou 
+		potåebovat pozdäji. 
+
+o tächto strã¡nkã¡ch
+tyto strã¡nky jsou soukromã© a nezã¡vislã©. jejich cã­lem je pomã¡hat 
+			lidem udrå¾et si svobodu slova. neopisuji. vå¡e se snaå¾ã­m oväåit a 
+			uvã¡dã­m pochybnosti, pokud näco nevã­m jistä. nikdo nesmã­ bã½t nucen äã­st tyto strã¡nky påi vyuäovã¡nã­ ve å¡kole. 
+prosã­m o odkaz
+påidejte, prosã­m, na svã© strã¡nky odkaz:
+<a href="https://www.jakpsatweb.cz/">jak psã¡t web</a>
+nebo si må¯å¾ete vybrat ikonku. 
+			däkuju vå¡em, kdo uå¾ odkazujã­ :-)
+o autorovi
+jsem autorem vå¡ech zdejå¡ã­ch textå¯ (pokud nenã­ uvedeno jinak) a vyhrazuji si na nä vå¡echna 
+				prã¡va. kontakt na mä. 
+			jak psã¡t web mã¡ issn 1801-0458.
+yuhå¯, duå¡an janovskã½
+
+ 
+
+reklama
+
+
+
+
+
+ 
+zdejå¡ã­ nejoblã­benäjå¡ã­:
+
+diskuze 
+html tahã¡k
+css påehled
+tabulky v html
+html formulã¡åe
+zã¡klady html
+barvy se jmã©ny
+jak zaäã­t s php
+
+novã© strã¡nky:
+
+sitemap, obsah webu pro roboty
+autocomplete, doplåovã¡nã­ formulã¡åå¯
+zmäna domã©ny v seo
+outline
+lazy loading - odloå¾enã© naäã­tã¡nã­
+pseudotåã­dy v css
+hostingy s php - aktualizace 
+		cen
+pouå¾itelnã© emoji v serpu
+vå¡echny zmäny
+
+orientujte se:
+	toto je hlavnã­ strã¡nka a zã¡roveå rozcestnã­k zelenã© sekce nã¡vody. dã¡ se sem vå¾dy dostat kliknutã­m na logo vlevo 
+	nahoåe. 
+	hlavnã­ sekce webu jsou ty zã¡loå¾ky vedle loga.
+pravã© menu, kterã© prã¡vä ätete, je na kaå¾dã© strã¡nce jinã©. obsahuje pouze 
+	informace a odkazy 
+	souvisejã­cã­ s obsahem aktuã¡lnã­ strã¡nky.vyhledã¡vã¡nã­ je vå¾dy vpravo ãºplnä 
+	nahoåe.
+podrobnã© hledã¡nã­
+mapa webu (dost blbã¡)
+kontakt
+
+odkazy jinam:
+
+modernã­ html a css na jecas.cz
+validã¡tor kã³du 
+vzhå¯ru dolå¯ - täå¾å¡ã­ väci, 
+		ale hezky popsanã©
+nã¡vody na instalace 
+co må¯å¾u pouå¾ã­t? - caniuse.com 
+		(anglicky)
+dalå¡ã­ odkazy (vätå¡inou starã©)
+
+dã¡le na tã©to domã©nä:
+polopate.jakpsatweb.cz 
+		je strã¡nka pro zaäã¡teänã­ky. pã­å¡e -dis- 
+
+download
+stã¡hnout celã½ web v zipu
+
+ 
+
+
+
+
+
+
+	o tvorbä, ãºdrå¾bä a zlepå¡ovã¡nã­ internetovã½ch strã¡nek
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nã¡vody
+html
+css
+javascript
+älã¡nky
+ostatnã­
+
+
+zã¡klady
+prvky strã¡nek
+tvorba webu
+
+
+
+
+jak psã¡t web pã­å¡e yuhå¯, 
+duå¡an janovskã½. kontakt.
+
+
+

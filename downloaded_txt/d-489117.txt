@@ -1,0 +1,402 @@
+
+
+
+
+
+just what the doctor ordered … | random thoughts about christianity, technology, and family life	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+just what the doctor ordered …
+
+
+random thoughts about christianity, technology, and family life
+ 
+
+skip to content
+
+home#219 (no title)
+sample page
+
+
+
+
+
+
+
+
+← older posts
+
+
+
+the downside of authority
+
+posted on may 7, 2020 by dredwilliams 
+
+from seth godin:a friend writes, “it is so frustrating not being able to control people.”of course, there’s a flipside.if you could control people, just imagine how heavy that responsibility would weigh on you.freedom of choice brings with it the realization that our choices belong to us. one is the choice to lead. the other is the choice to follow.if we make the choice to lead, we need to be prepared to own the consequences of our leadership, even (or especially) if we can’t actually control what others do.reposted from the downside of authority
+
+
+
+posted in citizenship, leadership 
+|
+leave a comment
+
+
+
+using iscsi volumes as mountable filesystems under centos 7
+
+posted on january 29, 2019 by dredwilliams 
+
+this was supposed to be something simple, but it ended up taking more time and energy than it had any right to.  these are the basic steps to get the storage volume created and connected:
+create the volume on your favorite (or available) san device and export it as an iscsi targetconfigure the iscsi initiator (client) using any number of instructions out there:iscsiadm -m discovery -t st -p <san ip address>iscsiadm -m node -t <target iqn> -p <san ip address> -luse /dev/disk/by-path to find the device for the volumecreate the filesystem on the devicemkfs.xfs <device from last step>create the mount point
+in an ideal world, at this point we would just create a line in /etc/fstab that looks like this:
+/dev/<device>    /mountpoint    xfs    defaults    0 0
+there are four fundamental problems with this … 
+if another iscsi volume were to be mounted on this system, the drive letters could changesince the filesystem type is ‘xfs’, systemd has no clue that it is not a local disk, so it tries to mount it at the very beginning of the boot process — even before the network starts up … in fact, systemd won’t even try to start the network until the local filesystems are up.  this race condition will render your system unbootableduring shutdown, systemd will take down the network before it tries to unmount all local filesystems … again, this will cause a problem since the storage will disappear before the filesystem can be closed properly, leading to a high likelihood of data corruption/lossiscsi volume mounts don’t happen immediately, and an overzealous application could start trying to use a directory on the mounted filesystem before it is ready, resulting in unpredictable errors
+problem #1 is easily solved using a uuid-based mount:  get the uuid of the volume using /dev/disk/by-uuid, match the current drive letter with the uuid, and replace that in the /etc/fstab entry:
+uuid=<volume uuid>    /mountpoint    xfs    defaults    0 0
+problem #2 (and part of #3) is easily handled by specifically telling systemd that it is a network filesystem using a parameter in /etc/fstab:
+uuid= <volume uuid>     /mountpoint    xfs    _netdev    0 0
+from a systemd perspective, this creates a dependency for this mount action to the ‘network-online.target’ and ‘remote-fs-pre.target’, and makes the ‘remote-fs.target’ dependent on this mount (this will be significant later).
+the rest of problem #3 is a bit trickier; the ‘_netdev’ tells systemd that the drive is a remote filesystem, but it still doesn’t know that it is iscsi, so during shutdown it will (in parallel with all the other activities) shut down the iscsi subsystem … before the filesystems have been unmounted.  this will result in an indefinite hang when trying to shut down, as well as corrupted filesystems.  telling systemd that the filesystem is on an iscsi volume requires another parameter in the /etc/fstab entry:
+uuid= <volume uuid>  /mountpoint xfs _netdev,x-systemd.requires=iscsi.service    0 0
+this now will guarantee that things will happen in the right order during startup (network -> iscsi -> mount) and shutdown (unmount -> iscsi down -> network down).
+problem #4 is a bit more delicate, and i’ll illustrate it with an example (the one that had me pulling out what is left of my hair):  i wanted to use an iscsi volume as the docker workspace mounted under /var/lib/docker.  i set up the iscsi volume as described above and put the following into /etc/fstab:
+uuid= <volume uuid>  /var/lib/docker xfs _netdev,x-systemd.requires=iscsi.service    0 0
+the basic problem is that docker is starting up before the iscsi mount is complete.  normal systemd dependencies for docker only require that the local filesystems be mounted and the network active before it will start docker.  given that it can take a non-trivial amount of time to get iscsi volumes mounted, it is very likely that docker will start accessing its work directory (/var/lib/docker) before the iscsi volume is mounted.  docker is very friendly in that if it finds its work directory empty, it will happily initialize it and start using it — normally something that is very useful; but in this case, it simply initializes its workspace in the base filesystem just in time for the mount to succeed and overlay what docker just did with the iscsi volume.  the result is that docker has no clue what happened and cannot function — even if the mounted volume contains a valid work directory structure that it created earlier.  this is bad news, and docker just sits there babbling about missing layers or some other odd error.
+my first solution was to modify the unit file for docker in the systemd repository (/usr/lib/systemd/system/docker.service).  in the top of the file is the ‘[unit]’ section; by default in the centos 7 distribution there are several lines there, including ‘after=’ and ‘requires=’.  add to each of these lines ‘remote-fs.target’, separating it from any existing entries by a space.  what this does is make the startup of docker occur after any/all remote filesystems are active (including our iscsi volume because of the ‘_netdev’ option).  this will force docker to wait for the workspace to be mounted, solving our problem.  this works, but isn’t the best solution because the ‘docker.service’ file could be (and likely will be) replaced during the next upgrade of the docker package.
+the final solution came to me when i was re-reading the ‘systemd.mount’ manpage again to try to figure out how to get the order right for both boot and shutdown.  the manpage referred to mounting filesystems using /etc/fstab or unit files — that was the key.  when systemd parses /etc/fstab, it creates a unit file for every mount point in /run/systemd/generator.  the one i was looking for was called var-lib-docker.mount; i added ‘docker.service’ to the ‘before’ line and saved it to /etc/systemd/system.  the resulting file looks like this:
+[unit] before=remote-fs.target docker.service after=iscsi.service requires=iscsi.service[mount]what=/dev/disk/by-uuid/6d74ff9c-49bc-4f5a-b31c-a780cf24df00where=/var/lib/dockertype=xfsoptions=_netdev[install]wantedby=remote-fs.target  
+the other change i made to the file is to add the ‘[install]’ section at the end … this tells systemd where to link this item into the dependency chain.
+at this point, you need to do two things to enable this change:
+remove the line that we’ve been building from the /etc/fstab file — it is no longer needed, and will cause problems if it remainsinstall the unit file:  systemctl enable var-lib-docker.mount
+epilogue
+until i discovered the ability to mount filesystems from unit files (where the range of parameters is much wider), the solution was not optimal — because you had to modify a distribution file that would be overwritten when that package was updated.  by combining all the dependency and ordering information into one file that will survive updates provides a robust solution. 
+
+
+
+posted in technology 
+|
+
+tagged computers, linux, storage 
+|
+leave a comment
+
+
+
+everyone loves dessert, right?
+
+posted on november 5, 2014 by dredwilliams 
+
+you’re hosting a big crowd, and it comes to that nice scrumptious dessert that you spent a lot of time on … and one of your guests won’t eat it.  how rude!  you put all that time and effort into making that masterpiece … and they won’t even taste it.  so you go over, and try to talk them into a piece … just a small piece.  “it won’t hurt your diet”, you say — because they must be on a diet if they aren’t eating your dessert.  they still decline … politely … but you can’t help feeling insulted …
+there may be a good reason why they aren’t eating it — and it’s not because they don’t like it, or don’t want it … it may be because eating it could kill them.
+diabetes is a condition that makes it difficult (or impossible) for your body to process carbohydrates — which includes all forms of sugar.  you may be thinking, “great — that is what’s making me fat … all those carbs that i eat just seem to turn straight into fat in all the wrong places.”  unfortunately, that’s only partly correct.  in a properly functioning body, excess carbohydrates do end up getting converted into fat, but they make another conversion first:  into glucose.  yes — that’s sugar.  all forms of carbohydrates, whether they start out as breads, pasta, fruit, candy, or that heaping spoonful of sugar you put in your coffee, end up as glucose in your blood stream.  normally, the pancreas produces a substance called insulin that helps your body use the glucose to feed your muscles, your brain, and other parts of your body that need glucose to function.  yes, it also helps convert extra glucose into fat … but that’s what is supposed to happen so that your body has extra energy when it’s needed.
+it’s this insulin that diabetics have a problem with … there just isn’t enough of it to take care of all the glucose that is in the blood stream.  so what’s the problem with having extra glucose in the blood?  the biggest problem is that elevated glucose levels have a toxic effect on most of the other systems in the body.  the kidneys work overtime to try to get that extra glucose out (which is why diabetics have to go to the bathroom a lot).  excess glucose negatively impacts critical organs such as the heart and lungs.  diabetes frequently compromises the immune system, increasing susceptibility to other diseases.  the most widespread impact of diabetes in the body is that it eats away at the nervous system.
+when blood glucose levels are high, the sheath around the nerves starts to break down.  when this happens in your extremities (fingers, toes, etc.), numbness occurs, increasing the chance of undetected injuries.  if not treated soon enough, these injuries can lead to serious infection and (in extreme cases) amputation.  when it happens in the eyes, the vision starts to deteriorate — leading to eventual blindness.  before research identified successful treatments for diabetes, it was a major cause of premature death — primarily due to the complications it causes.
+diabetes is called a disease, but it’s not usually something that you can catch … it’s part of everyone’s genetic makeup.  most of the time it stays inactive, until something stresses the body and causes it to surface.  currently, the most common stressor that causes diabetes to surface is obesity:  having too much body fat places an enormous stress on all the systems of the body.  emotional stress can also trigger diabetes:  death of a loved one, financial stress, and overwork are the primary culprits here.  the bottom line is that it isn’t someone’s fault that they have diabetes … but that doesn’t make it any easier to deal with.
+november is national diabetes awareness month, so stop for a minute to think about what you can do to reduce the chances of triggering diabetes in your body.  fortunately, these actions are very much in line with the traditional concept of a healthy lifestyle:  eat right, lose excess weight, increase your daily exercise, etc.  if you’re not sure, ask your doctor to order an a1c blood test or take advantage of the diabetes screening events that are popping up all over lately. the sooner you identify diabetes and get it under control, the more likely you will lead a (mostly) normal life.
+so the next time you see someone steering away from that extra slice of bread or passing on dessert, it may be for a really good reason.  diabetics are usually really good at hiding their diabetes … they try to be as ‘normal’ as they can.  sometimes you won’t know unless they tell you … or if you know the signs to look for — because you’re a diabetic too, like i am.
+related articles
+
+diabetes month healthy6 ideas for kids
+3 resources for diabetes awareness month in november
+genetics and diabetes
+
+
+
+
+posted in diabetes 
+|
+
+tagged diabetes 
+|
+leave a comment
+
+
+
+why people don’t vote
+
+posted on november 3, 2014 by dredwilliams 
+
+there are many reasons people will give you when asked why they don’t vote …
+“it is too inconvenient”
+“i don’t have time”
+“i don’t know the people that are running”
+“i don’t know all the issues”
+“it’s only a mid-term election — nothing really important is at stake”
+“they guy i would be voting for is going to lose … so why should i bother”
+the fun part is, when the elected officials start doing things they don’t agree with, these same people that didn’t vote are blaming everyone else for voting them into office.  what they don’t realize (or more likely, don’t want to admit) is that by skipping the voting booth, they are letting “everyone else” make the decisions for them.  if they would take the few extra minutes to go to their local polling station and cast their own ballots, they would at least have the excuse that “they voted for the other guy”.
+in the united states of america, voting is a right:  everyone over the age of 18 has the ability to register to vote and cast their ballots.  too bad only 35-40% of those people actually claim that right … and that’s in a good year.  it’s not uncommon for only 15-20% of the eligible voters to show up at the polls during an off-year election.  what most people don’t wrap their minds around is that voting is also a responsibility … we have the responsibility to understand the issues, know who’s running for the different offices, and make an intelligent selection as to who gets our vote.
+given the typically low turnout, how many additional votes would it really take to change the course of an election — to take the guy who “is obviously going to lose” and make them the winner?  not as many as you might think.  in a city of 100,000 people, a 40% voter turnout will result in 20,000 – 30,000 votes (depending on exactly how many are eligible to vote).  many elections are decided by less than 5% of the total vote, which would mean that 1000 votes could change the outcome of the election — and sometimes it’s less than 100.
+so — whether you’re a republican or democrat, conservative or liberal, moderate or extreme, go out and cast your vote tomorrow … and may the best man win!
+
+
+
+posted in citizenship, politics 
+|
+leave a comment
+
+
+
+why are we here?
+
+posted on november 2, 2014 by dredwilliams 
+
+one of the fundamental questions that define who we are and how we interact with the world (otherwise known as our worldview) is this simple question:  “why are we here?”
+most people could quickly answer this question with something like, “to make money” or “to be a great father” or even “to have fun”.  when pushed, many of them would dig a bit deeper and respond with “to be a good person” or “to help other people” … or respond according to their religious beliefs.  some people will even say “i don’t know”.  even wikipedia has a page to help answer this question! it is essential to spread the word to the world, and with socialboosting is possible to increase the views of our content.
+being a christian, my answer is “to be god’s servant”.  while this is definitely appropriate, it’s sometimes hard to bring this abstract concept down to real life.  in the book of ecclesiastes, king solomon (referred to as “the preacher” throughout the book) takes a look at the question from a different perspective:  he takes a look at real life and tries to determine the purpose for our lives based on what he sees.  at first glance, it does not look good:
+vanity of vanities, says the preacher, 
+ vanity of vanities! all is vanity. 
+what does man gain by all the toil 
+ at which he toils under the sun? 
+a generation goes, and a generation comes, 
+ but the earth remains forever.
+(ecclesiastes 1:2-4 esv)
+solomon spends quite a bit of the 12 chapters in this book describing most of the things that mankind does as being “vanity” — sometimes translated as “breath” or “vapor”.  is solomon trying to tell us that our lives are totally without merit?  that nothing we do is worth anything?  fortunately, this is not the case, or this post would be seriously depressing!  interspersed within this book are more positive statements:
+for to the one who pleases him god has given wisdom and knowledge and joy  – ecclesiastes 2:26 (esv)
+i perceived that there is nothing better for them than to be joyful and to do good as long as they live; also that everyone should eat and drink and take pleasure in all his toil—this is god’s gift to man.  – ecclesiastes 3:12-13 (esv)
+enjoy life with the wife whom you love  – ecclesiastes 9:9 (esv)
+wrapping up his analysis of the value of everyday life, solomon puts in the very end:
+the end of the matter; all has been heard. fear god and keep his commandments, for this is the whole duty of man. – ecclesiastes 12:13 (esv)
+it isn’t what we do that makes a difference.  anything (and everything) we do is fleeting unless it is what god wants us to do.  solomon’s conclusion is the same as mine, (although it’s actually the other way around):  the reason we are here is to be god’s servant, to do his work — and enjoy the results of that work.
+
+
+
+posted in bible 
+|
+
+tagged ecclesiastes 
+|
+leave a comment
+
+
+
+what path are you on?
+
+posted on november 29, 2013 by dredwilliams 
+
+having seen the movie ender’s game for a second time now, i have to stop and think about what role we play in our own world:  colonel graff or ender wiggin?
+
+“we won … that’s all that matters.” – col graff
+“it’s not about winning, it’s about how you win.” – ender wiggin
+this isn’t the kind of movie where there is a clear-cut hero or villain, oppressor or victim. it’s all about perspective and shades of gray.  col graff’s worldview is centered on “it’s us or them — if we don’t take out the enemy first, they’ll come back and destroy us.”  as someone who survived the failed attack on earth 50 years before, it would be a reasonable fear motivation … or would that be revenge?  he, and the leadership of the international fleet, are doing whatever they think is necessary to achieve this objective — the end justifies the means.
+when pressed with the question “do the ends justify the means?”, most of us would quickly say “no!” … but in reality are we pursuing our own personal objectives with such tunnel vision that we cannot (or choose to not) see the results other than as progress to our goal? for example, how many people do we talk with just to further our own agenda?  in the business world, it’s called “networking” … everyone knows it’s artificial, yet it’s the way business works.
+ender wiggin, on the other hand, is a product of his society … or is he?  his birth as the third child in his family took a lot of special effort (we won’t talk about the validity of a 2-child only rule in society).  his parents wanted their children to be successful in “the program”, and his older siblings had washed out.  after demonstrating significant talent in his studies, he was pushed in calculated ways to develop skills that would serve him as a commander.
+there are those that would say that we are all “products of our environment” … conditioned to respond in certain ways, whether positive or negative.  our families train us to respond; our jobs, too.  even the church trains us to respond.  what is the result of all this conditioning?  are we truly locked into whatever it is we are programmed for?  ender wiggin woke up to his conditioning (too late, some would say) and started forging his own way.
+so — are you col graff or ender wiggin?  both are driven: one internally and the other externally.  jesus calls us to follow a different path:
+“so that we may no longer be children, tossed to and fro by the waves and carried about by every wind of doctrine, by human cunning, by craftiness in deceitful schemes. ” ephesians 4:14
+we need to follow the path he blazed for us — breaking the traditions of the pharisees, who had a very narrow view of reality … and waking people up from their dogmatic following of the society they were in.  we need to be like ender at the end of the story:  following our conscience and doing what is right … wherever that takes us.
+
+
+
+posted in worldview 
+|
+
+tagged bible, enders game, worldview 
+|
+leave a comment
+
+
+
+there is always a reason
+
+posted on november 23, 2013 by dredwilliams 
+
+i always wondered why god left jacob’s family in egypt when he knew that they would get dumped on, abused, and turned into slaves, necessitating the miraculous rescue through the red sea. they could have left before it turned bad: once the famine that put them there in the first place was done … when the pharaoh that joseph served had died … or when they started to see the signs that they were no longer welcome.  for quite a while, they could have just decided it was time, thanked the egyptians, and relocated back where they came from.
+what would have happened if they had left? they would have gone back up into caanan (or beyond, where abraham’s family came from), intermarrying with the local people and ending up dispersed into the land.  over several generations, they would lose whatever identity they might have had as a culture.  while this did eventually happen, it happened on god’s schedule.
+instead, god gave them every reason to stay. joseph told them to tell pharaoh that they were shepherds, knowing that the egyptians loathed shepherds, so they would be set apart and left alone:  they were given the land of goshen, a fertile area ideally suited to their lifestyle. they had ample resources, so there was no real reason to leave. these things allowed the israelites to grow from a large family group (but still probably less than 100 people) into a nation of over a million people in 430 years while still retaining a unique cultural identity.  combined with the additional solitude of a generation wandering in the wilderness, this created a culture that was more solid than any before or since.
+when they emerged from egypt, they were ready to be used by god to reclaim caanan as the jewish homeland, driving out all the other peoples to create the theocratic nation god wanted.  we know from the stories related in judges, kings, and chronicles that it didn’t happen quite the way that god had intended … but that’s another lesson.
+so — while god can protect us and keep us from harm, sometimes he also uses adverse circumstances to shape us into the tools he wants us to be.
+related articles
+
+saving egypt: the story of the ten plagues (924jeremiah.wordpress.com)
+
+
+
+
+posted in bible 
+|
+
+tagged exodus 
+|
+leave a comment
+
+
+
+like father, like son?
+
+posted on november 12, 2013 by dredwilliams 
+
+in genesis 12, god called abram and his wife sarai (later renamed as abraham and sarah) out of haran (probably somewhere in the area we now call northern syria) and sent them westward and then south through the land of cannan.  this was not a trivial journey — and meant leaving a comfortable life for what could be a journey that never ended.  it took a lot of faith in god to take that first step out of haran … trusting that god had a great plan for them and that he would take care of them along the way.
+by the time they got down to egypt, that trust had apparently worn a bit thin.  when they met pharaoh, abram introduced sarai as his sister because he didn’t trust the egyptians … and didn’t trust god to protect them.  as it turns out, god was watching and protecting the egyptians from abram’s schemes — and abram came out of the encounter a very rich man.  abram was trying to rely on his own smarts instead of trusting god — not very smart.
+many years later, abraham’s son isaac found himself in a similar situation in genesis 26.  god sent him and his family to live in another place (the land of the philistines) with a promise to protect him and (carrying forward the promise to abraham) to make his offspring numerous.  one would assume that the story of abram and sarai’s escapades in egypt would have been told to isaac; but despite that and god’s promise, he pulls the same stunt — introducing his wife as his sister to keep the philistine king from killing him!  once again, god protects the philistines from isaac’s foolishness and isaac comes out of the situation not only alive, but richer (much richer).
+what lessons are we supposed to take from these two situations?
+an obvious one would be that we are supposed to trust god instead of trying to “do it ourselves”.  while it is a good thing for us to do … both abram and isaac gained significantly from their encounters — that somewhat weakens that lesson, because there is no negative for those two men for having tried to rely on their own wits.
+another lesson that could come out of this is that god protects the innocent.  neither the egyptians nor the philistines had done anything (that we know of) to provoke this action on the part of abram and isaac — so god kept them from sinning in spite of their ignorance of the true situation.
+while both of these are valid lessons, i think the real lesson from this situation is that god can take a situation that we’ve messed up trying to do it our own way and still make it work out for good:
+and we know that for those who love god all things work together for good, for those who are called according to his purpose. (romans 8:28, esv)
+god can take something that we’ve made into a total disaster and turn it into a positive result … just because he loves us.
+
+
+
+posted in bible 
+|
+
+tagged bible, genesis, romans 
+|
+3 comments
+
+
+
+i am a veteran
+
+posted on november 11, 2013 by dredwilliams 
+
+
+i am battle weary.
+ i cry for my comrades lost in battle.
+ i hold my family close.
+ i have memories that haunt me day and night.
+ i fought to keep my country free.
+i am proud of my country’s might.
+i love those i had to leave behind.
+ i will carry the scars of battle all the days of my life.
+ i hope that one day there will be no more need to fight.
+ i wish that no one needed to suffer.
+i am a remnant of the man who left for war.
+ i missed the birth of my firstborn.
+ i was unable to tell my father that i love and forgive him before he died.
+ i lost my dog, whom i had had since childhood.
+ i gave my all for my country.
+i am –
+ a veteran.
+my daughter wrote this a couple years ago … and it is just as moving now as it was when i first read it.  we talk about those that gave their lives to protect our freedom, but we also need to remember those that come home — but can’t leave it all on the battlefield.
+thanks, alyssa.
+related articles
+
+reflections on veteran’s day (straitthegate.wordpress.com)
+✿lest we forget✿ (warriorgirl3.wordpress.com)
+
+
+
+
+posted in family, military 
+|
+
+tagged veterans day 
+|
+2 comments
+
+
+
+make a joyful noise!
+
+posted on november 10, 2013 by dredwilliams 
+
+many times in the bible, god tells us to celebrate and to sing and be happy.  even in the stodgy books like deuteronomy, it commands us to celebrate:
+you shall rejoice in your feast, you and your son and your daughter, your male servant and your female servant, the levite, the sojourner, the fatherless, and the widow who are within your towns. for seven days you shall keep the feast to the lord your god at the place that the lord will choose, because the lord your god will bless you in all your produce and in all the work of your hands, so that you will be altogether joyful. (deuteronomy 16:14-15, esv)
+then there’s the two places in psalms (98:4 and 100:1) that gave title to this post:
+
+make a joyful noise to the lord, all the earth!
+serve the lord with gladness!
+come into his presence with singing! (psalms 100:1, esv)
+
+even the angels have a party when the time is right:
+just so, i tell you, there is joy before the angels of god over one sinner who repents.” (luke 15:10, esv)
+three of my six children are now out of the house – and it gets quiet at times … really quiet.  when they come home and their friends come over, it gets very “joyful” (noisy) at times — but it is great to hear them enjoying themselves.  we host the weekly bible study for the awana journey group (high school age) — and we usually have several graduates of the program (college age) come as well … and it gets quite “joyful” for a while then, too.
+while sometimes i like to enjoy some peace and quiet, there is nothing so pleasing to my heart than to hear people enjoying themselves in my house.
+ 
+related articles
+
+“a joyful noise” (ajoyfulnoise984.wordpress.com)
+
+
+
+
+posted in family 
+|
+
+tagged bible 
+|
+leave a comment
+
+
+
+← older posts
+
+
+
+
+
+
+
+
+
+search for:
+
+
+
+ 
+
+archives
+
+may 2020
+january 2019
+november 2014
+november 2013
+october 2013
+
+
+
+meta
+
+log in
+
+
+
+
+
+
+
+
+
+					just what the doctor ordered …				
+
+
+
+					proudly powered by wordpress.				
+
+
+
+
+
+
+
+

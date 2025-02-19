@@ -1,0 +1,115 @@
+
+
+
+netsukuku - p2p mesh routing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+source code
+documentation
+communities
+
+
+
+
+ 
+
+
+
+close the world
+êxçu çé¥ê uçdo
+
+ 
+ 
+the netsukuku wired
+netsukuku aims to be a mesh network or a peer to peer protocol that generates and sustains itself autonomously. it is designed to handle an unlimited number of nodes with minimal cpu and memory resources. thanks to this feature it can be easily used to build a worldwide distributed, anonymous and uncontrolled network, separated from the internet, without the support of any servers, isps or authority controls.
+such a net is composed by computers linked physically each other, therefore it isn't build upon any existing network. netsukuku builds only the routes which connects all the computers of the net. in other words, netsukuku replaces the level 3 of the iso/osi model with another routing protocol.
+being netsukuku a distributed and decentralised net, it is possible to implement real distributed systems on it, e.g. the abnormal netsukuku domain name anarchy (andna) which replaces the actual hierarchic and centralized system of dns.
+the old wired
+the internet is a hierarchic network managed by multinational companies and organizations supported by governments. each bit of internet traffic passes through proprietary backbones and routers. the internet service providers give the connectivity to all the users, who are in the lowest rank of this hierarchic pyramid. there is no way to share the ownership of internet and people can join the net only in accordance with conditions and terms imposed by the majors. the internet represents, today, the means to access information, knowledge and communication. about 1 billion of people can connect to this great proprietary network, but the remaining 5 billion of people, which don't have enough economic resource, are still waiting the multinationals to supply a service with in their reach.
+the internet was born with the intent of warranting a secure and unattackable communication between the various nodes of the network, but now, paradoxally, when an isp decide to stop to provide its service, entire nations are immediately cut out of the internet.
+beside that, internet is not anonymous: the isp and the multinationals can trace back and analyse the traffic of data going through their servers, without any limits.
+the centralised and hierarchical structure of internet creates, as a consequence, other identical systems, based on it, i.e. the dns. the servers of the domain name system are managed by different isps, as well and the domains are literally sold through a similar centralised system. this kind of structures allows, in a very simple and efficient way, to physically localise any computers, which are connected to the internet, in a very short time and without any particular efforts.
+as long as all the efforts to bring more freedom, privacy and accessibility in the internet face aversions, fears, contrary interests of governments and private companies, the very alternative solution to this problem is to let the users migrate toward a distributed, decentralised and fully efficient net, in which all the users interact at the same level, with no privilege and no conditioning means, as authentic citizens of a free world wide community.
+features in netsukuku
+gandhi
+netsukuku is self-managed. it generates itself and can stand alone. as a node hooks to netsukuku, the net automatically rewrites itself and all the other nodes known which are the fastest and more efficient routes to communicate with the new arrived. the nodes don't have privileges or limitations, when compared with other nodes, they are part of the net and give their contribution to its expansion and efficiency. the more they increase in number the more the net grows and becomes efficient. in netsukuku there isn't any differences among private and public nets and talking about "local networks" becomes meaningless.
+it can be neither controlled nor destroyed because it is totally decentralised and distributed. the only way to control or demolish netsukuku is knocking physically down each single node which is part of it.
+no name, no identity
+inside netsukuku everyone, in any place, at any moment, can hook immediately to the net without coming trough any bureaucratic or legal compliance. moreover, every elements of the net is extremely dynamic and it's never the same. the ip address which identify a computer is chosen randomly, therefore it's impossible to associate it to a particular physical place, and the routes themselves, been composed by a huge number of node, show the tendence to have such a high complexity and density to make the trace of a node a titanic task.
+since there isn't any contract with any organisations, the speed of the data transfer is uniquely limited by the actual tecnology of the network cards.
+so, wtf is it?
+netsukuku is an open mathematical problem whose solution consists in finding a scheme of dynamic compact routing.
+currently there is wide number of protocols and algorithms for dynamic routing, but they differ from netsukuku because they are solely utilized to create small and medium nets. the routers of internet are also managed by different protocols as the ospf, the rip, or the bgp, based on different classical algorithms, able to find out the best path to reach a node in the net.
+these protocols require a very high waste of cpu and memory, this is the reason why the internet routers are computers specifically dedicated to this purpose. it would be impossible to implement one these protocols in order to create and maintain such a net as netsukuku is, where every each node is a router by itself, because the map of all the routes would require a space, on each pc connected to the net, of about 10gb.
+netsukuku structures the entire net as a fractal and, in order to calculate all the needed routes which are necessary to connect a node to all the other nodes, it makes use of a particular algorithm called quantum shortest path netsukuku (qspn).
+a fractal is a mathematical structure which can be compressed up to the infinite, because inside it, every part itself is composed by the same fractal. thus there is a high compression of a structure which can be infinitely expanded. this means that we need just a few kb to keep the whole netsukuku map.
+the map structure of netsukuku can be also defined more precisely by calling it a highly clusterised graph of nodes for which is not always true that a determinated pkt will be sent before another one.
+the history of netsukuku
+netsukuku was born at the beginning of the millennium and its history is rather complex.
+in one of the possible worlds and dimensions, the digital, a tribe of south italian hackers met.
+year 2000, during an on-air session of radio cybernet at the hackmeeting in rome: the idea of ipv7 nocoder nocrypt came to life. it was a transmission full of absurd geek jokes about ip protocols, intelligent compilers and cryptographic algorithms.
+later in 2003 a crew of young mad scientists in the freaknet medialab inspired by the visions of crash continued to expand the concepts of ipv7, remembering the fun they had. this time the imaginific jokes followed describing a network in which all the packets are sent to broadcast and compressed with "zlib7": an algorithm which could compress all the existent internet into just 32 byte. today, some people still call him crash.
+in ipv7 the nodes were devoid of an ip address, it was an extremely decentralised and totally free net. those people were really happy after the first draft of such a crazy rfc.
+after this episode the project has been resting in the infinite folds of time and possible codes to be written. yet some years later someone punched a lot of code and documentation on his keyboard. alpt, who had participated to these visionary sessions, developed and researched algorithms, wrote the rfcs and the first netsukuku implementation in c.
+alpt called it the implementation of a pure network. month by month this idea of a network became refined, and the project became something concrete.
+<>
+<>
+<>
+three febrile months passed by and after many mystical meditations, the theoretical kernel was ready. the algorithms were defined and the programmers started to write code, tormented by delirant visions inducted by the act of creation of a protocol for pure networks. purity is a fool's mirage! in spite of all, exactly after one year and after fourteen thousand lines of code, the first c implementation of netsukuku was ready and immediately presented at the hackmeeting 2005 in naples.
+on the wave of enthusiasm the code grew to more than forty thousand lines of code as more people have joined to develop netsukuku and much has been going on. eriol, jnz, lukisi (who is now writing the vala implementation), efphe, entropika and others contributed.
+the c code got to a good shape. but the sad thing about programmers is: they want to rewrite everything in another language. its really their perversion :^) the netsukuku rewrite in python was never really finished.
+however in may 2006 the andna protocol was implemented in c and documented in a rfc.
+in october that year the first public version of netsukuku was released and was included ready to use inside the dyne:bolic gnu/linux distribution, a livecd that was distributed on computer and game magazines around the world.
+after many years, in 2010, lukisi started reimplementing netsukuku, while alpt decided to continue into the direction of a deeper mathematical research on the principles behind the realization of a truly decentralized dynamic compact routing algorithm.
+((( .... to be continued ... )))
+list of contributors to netsukuku
+
+ 
+ 
+
+
+
+
+
+
+	  netsukuku is copyleft (c) 2001-2014 by the freaknet medialab.
+	  here is a list of contributors to netsukuku development.
+
+
+
+
+
+	  for an introduction to free software see dyne.org.
+	  this website was made using webnomad.
+	
+
+
+
+
+
+
+
+

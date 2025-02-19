@@ -1,0 +1,2076 @@
+
+
+
+nvd - data feeds
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+you are viewing this page in an unauthorized frame window.
+
+		this is a potential security issue, you are being redirected to 
+		https://nvd.nist.gov
+
+
+
+
+
+
+
+you have javascript disabled. this site requires javascript to be enabled for complete site functionality.
+
+
+		             
+		            an official website of the united states government
+
+here's how you know
+
+
+
+
+
+
+
+
+
+
+
+official websites use .gov
+
+		                                a .gov website belongs to an official government organization in the united states.
+		                            
+
+
+
+
+
+
+
+
+
+
+secure .gov websites use https
+
+		                            a lock () or https:// means you've safely connected to the .gov website. share sensitive information only on official, secure websites.
+		                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ nvd menu
+
+
+
+
+
+
+
+
+
+ general  expand or collapse
+
+
+
+
+
+
+nvd dashboard
+
+
+news and status updates
+
+
+
+
+faq
+
+
+
+
+visualizations
+
+
+legal disclaimer
+
+
+
+
+ vulnerabilities 
+expand or collapse
+
+
+
+
+
+
+search & statistics
+
+
+weakness types
+
+
+
+
+legacy data feeds
+
+
+vendor comments
+
+
+
+
+cvmap
+
+
+
+
+ vulnerability metrics  expand or collapse
+
+
+
+
+
+
+cvss v4.0
+											calculators
+
+
+
+
+cvss v3.x
+											calculators
+
+
+
+
+cvss v2.0
+											calculator
+
+
+
+
+ products  expand or collapse
+
+
+
+
+
+
+cpe dictionary
+
+
+cpe search
+
+
+
+
+cpe statistics
+
+
+swid
+
+
+
+
+
+
+developers expand or collapse
+
+
+
+
+
+
+start here
+
+
+request an api key
+
+
+
+
+vulnerabilities
+
+
+products
+
+
+
+
+data sources
+
+
+terms of use
+
+
+
+
+
+ contact nvd 
+ other sites  expand or collapse
+
+
+
+
+
+
+checklist (ncp) repository
+
+
+configurations (cce)
+
+
+800-53 controls
+
+
+
+
+scap
+											validated tools
+
+
+scap
+
+
+
+
+usgcb
+
+
+
+
+ search  expand or collapse
+
+
+
+
+
+
+vulnerability search
+
+
+
+
+cpe search
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+information technology laboratory
+
+
+national vulnerability database
+
+national vulnerability database
+nvd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+vulnerabilities
+
+
+
+
+nvd data feeds
+
+
+apis and data feed types
+		
+				the following table contains links and short descriptions for each api or data feed the nvd offers.
+				please read how to keep up-to-date with nvd data when using the traditional data feeds.
+			
+
+				users of the data feeds provided on this page must have an understanding of the xml 
+				and/or json standards and xml or json related technologies as defined by 
+				www.w3.org.
+			
+
+
+type
+description
+
+
+
+cve and cpe apis
+an alternative to the traditional vulnerability data feed files. the apis are far more flexible and offer a richer dataset in a single interface compared to the json vulnerability feeds and cpe match feed.
+
+
+json vulnerability feeds
+each vulnerability in the file includes a description and associated reference links from the cve® dictionary feed, as well as cvss base metrics, vulnerable product configuration, and weakness categorization.
+
+
+cpe match feed
+a feed that provides the product/platform applicability statement to cpe uri matching based on the cpes in the official cpe dictionary.
+
+
+vulnerability translation feeds
+translations of vulnerability feeds.
+
+
+vulnerability vendor comments
+comments provided by vendors regarding a particular flaw affecting within a product.
+
+
+cpe dictionary
+dictionary containing a list of products.
+
+
+common configuration enumeration (cce) reference data
+reference data for common configuration items.
+
+
+
+
+
+cve and cpe apis
+
+the 2.0 apis are the preferred method for staying up to date with the nvd.
+				users interested in learning where to begin with the api should visit 
+				the nvd developers pages.
+			
+
+				benefits of the apis over the traditional data feeds include:
+			
+
+the apis are updated as frequently as our website (unlike the traditional feeds which have explicit update intervals)
+the apis provide search capabilities based on the advanced search feature of the website
+the apis provide cve and cpe based searching capabilities, including the ability to search for single cve and cpe entries
+the ability to view only the information that has changed since a given date or time
+simplified methods of identifying cpe matches to applicability statements
+
+
+
+cve api documentation
+cpe api documentation
+
+
+
+
+
+								automation support for cve retrieval 
+							
+
+
+
+								automation support for cpe retrieval
+							
+
+
+
+
+
+
+how to keep up-to-date with the nvd data using the traditional feeds
+
+				the vulnerability feeds provide cve® data organized by the first four digits of a cve® identifier 
+				(except for the 2002 feeds which include vulnerabilities prior to and including "cve-2002-").  
+				if you are locally mirroring nvd data, either the apis or the data feeds may be used to stay synchronized. after performing 
+				a one-time import of the complete data set using the compressed json vulnerability feeds, the "modified" 
+				feeds should be used to keep up-to-date.
+			
+
+each feed is updated nightly, but only if the content of that feed has changed. for example, the 2004 feeds 
+				will be updated only if there is an addition or modification to any vulnerability with a starting cve® identifier 
+				of "cve-2004-". the "recent" feeds are a list of recently published vulnerabilities and 
+				the "modified" feeds are a list of recently published and modified vulnerabilities. the "recent" 
+				and "modified" feeds only contain vulnerabilities changed within the previous eight days. these feeds are
+				updated approximately every two hours.
+			
+
+
+meta files
+
+				users should always consult the meta file to determine if a given feed has been updated since the last import. 
+				if no changes have been made there is no benefit to downloading either the .zip or .gz files.  this approach should 
+				result in a reasonable use of less than 200 requests per day.
+			
+
+				each of the data feeds is described by an associated plain text file with the same name as the .xml/.json file 
+				with a .meta extension. these files are updated approximately every two hours to reflect changes within their 
+				respective feed file. for example, if the name of the file is nvdcve-1.1-modified.json then the .meta file 
+				name will be nvdcve-1.1-modified.meta. the .meta file contains information about the specific feed file including 
+				the last modified date and time, the size of the file uncompressed, and a sha256 value of the uncompressed file:
+			
+
+
+				lastmodifieddate:2015-09-10t08:40:09-04:00
+				size:1273382
+				zipsize:91619
+				gzsize:91477
+				sha256:ac782e2db403e2b09ad5dd676501e8755fda3f2bef347b7503491700c6c5eaff
+				
+
+
+
+json feeds
+
+				these data feeds includes both previously offered and new nvd data points in an updated json format. 
+				the "year" feeds are updated once per day, while the "recent" and "modified" 
+				feeds are updated every two hours.
+			
+
+
+the nvd plans to retire all legacy data feeds while guiding any 
+						remaining data feed users to updated application-programming interfaces (apis). apis have 
+						many benefits over data feeds and have been the proven and preferred approach to web-based
+						automation for over a decade. for additional information on the nvd api, please visit the 
+						developers pages.
+						click here               
+						for more information on the retirement timeline.
+
+
+
+
+
+
+
+
+schema 
+version 1.1
+: 
+nvd json 1.1 schema
+
+
+
+feed
+updated
+download
+size (mb)
+
+
+
+
+cve-modified
+02/18/2025; 4:00:01 pm -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.98 mb
+
+
+
+
+		                       zip
+		                    
+
+0.98 mb
+
+
+cve-recent
+02/18/2025; 4:00:00 pm -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.19 mb
+
+
+
+
+		                       zip
+		                    
+
+0.19 mb
+
+
+cve-2025
+02/18/2025; 3:00:01 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.45 mb
+
+
+
+
+		                       zip
+		                    
+
+0.45 mb
+
+
+cve-2024
+02/18/2025; 3:00:24 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+8.69 mb
+
+
+
+
+		                       zip
+		                    
+
+8.70 mb
+
+
+cve-2023
+02/17/2025; 3:00:51 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+7.45 mb
+
+
+
+
+		                       zip
+		                    
+
+7.45 mb
+
+
+cve-2022
+02/15/2025; 3:01:18 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+6.64 mb
+
+
+
+
+		                       zip
+		                    
+
+6.64 mb
+
+
+cve-2021
+02/18/2025; 3:00:51 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+6.78 mb
+
+
+
+
+		                       zip
+		                    
+
+6.78 mb
+
+
+cve-2020
+02/15/2025; 3:02:08 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+5.76 mb
+
+
+
+
+		                       zip
+		                    
+
+5.76 mb
+
+
+cve-2019
+02/15/2025; 3:02:28 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+4.71 mb
+
+
+
+
+		                       zip
+		                    
+
+4.71 mb
+
+
+cve-2018
+02/14/2025; 3:03:06 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+4.15 mb
+
+
+
+
+		                       zip
+		                    
+
+4.15 mb
+
+
+cve-2017
+02/15/2025; 3:02:44 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+3.79 mb
+
+
+
+
+		                       zip
+		                    
+
+3.79 mb
+
+
+cve-2016
+02/15/2025; 3:02:56 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+2.74 mb
+
+
+
+
+		                       zip
+		                    
+
+2.74 mb
+
+
+cve-2015
+02/15/2025; 3:03:06 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+2.29 mb
+
+
+
+
+		                       zip
+		                    
+
+2.29 mb
+
+
+cve-2014
+02/15/2025; 3:03:15 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+2.39 mb
+
+
+
+
+		                       zip
+		                    
+
+2.39 mb
+
+
+cve-2013
+02/15/2025; 3:03:24 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+2.37 mb
+
+
+
+
+		                       zip
+		                    
+
+2.37 mb
+
+
+cve-2012
+02/15/2025; 3:03:32 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+2.03 mb
+
+
+
+
+		                       zip
+		                    
+
+2.03 mb
+
+
+cve-2011
+02/14/2025; 3:04:08 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+1.81 mb
+
+
+
+
+		                       zip
+		                    
+
+1.81 mb
+
+
+cve-2010
+02/14/2025; 3:04:15 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+1.95 mb
+
+
+
+
+		                       zip
+		                    
+
+1.95 mb
+
+
+cve-2009
+02/14/2025; 3:04:22 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+1.97 mb
+
+
+
+
+		                       zip
+		                    
+
+1.97 mb
+
+
+cve-2008
+02/11/2025; 3:04:17 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+2.23 mb
+
+
+
+
+		                       zip
+		                    
+
+2.23 mb
+
+
+cve-2007
+02/08/2025; 3:04:17 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+2.19 mb
+
+
+
+
+		                       zip
+		                    
+
+2.19 mb
+
+
+cve-2006
+02/14/2025; 3:04:29 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+2.22 mb
+
+
+
+
+		                       zip
+		                    
+
+2.22 mb
+
+
+cve-2005
+02/08/2025; 3:04:30 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+1.37 mb
+
+
+
+
+		                       zip
+		                    
+
+1.37 mb
+
+
+cve-2004
+02/08/2025; 3:04:33 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.87 mb
+
+
+
+
+		                       zip
+		                    
+
+0.87 mb
+
+
+cve-2003
+11/22/2024; 3:04:00 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.42 mb
+
+
+
+
+		                       zip
+		                    
+
+0.42 mb
+
+
+cve-2002
+02/08/2025; 3:04:38 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+1.49 mb
+
+
+
+
+		                       zip
+		                    
+
+1.49 mb
+
+
+
+
+
+
+
+cpe match feed
+
+				this data feed provides a list of all cve applicability statement match criteria (cpe match strings and 
+				cpe match ranges) and the cpe uris from the official cpe dictionary that match. data consumers can use this 
+				feed to enhance the cpe information provided in the json vulnerability feeds. if a cpe uri expected to 
+				match a given criteria is missing, please contact 
+				
+					cpe_dictionary@nist.gov
+				 as those cpes may need approved to the official cpe dictionary. this feed is updated once per day.
+			
+
+
+
+
+
+
+schema 
+version 1.0
+: 
+nvd cpe match feed 1.0 schema
+
+
+
+feed
+updated
+download
+size (mb)
+
+
+
+
+cpe-match
+02/15/2025; 12:33:55 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+50.22 mb
+
+
+
+
+		                       zip
+		                    
+
+50.22 mb
+
+
+
+
+
+
+
+rss vulnerability feeds
+
+
+the rss data feeds have been retired.
+
+
+
+
+vulnerability vendor comments
+nvd provides a service whereby software development organizations can submit 
+				"official vendor comments" on the set of cve vulnerabilities that apply to their products. 
+				organizations can submit comments by contacting nvd staff at 
+				
+					nvd@nist.gov
+				. more information is provided on the 
+				
+					vendor comment
+				 page.
+			
+all of the vendors comments can be downloaded from the following xml feed which is updated 
+				every 2 hours:
+			
+
+
+
+
+
+feed
+updated
+download
+size (mb)
+
+
+
+
+vendor comments
+02/18/2025; 12:45:03 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.07 mb
+
+
+
+
+		                       zip
+		                    
+
+0.07 mb
+
+
+
+
+
+
+
+nvd/cve translated xml feed (version 1.0)
+
+				nvd provides an xml feed for translations of cve vulnerabilities into other languages.
+			
+currently, 
+				
+					incibe
+				 (spanish national cybersecurity institute) is translating vulnerabilities into spanish. 
+				incibe is solely responsible for the spanish translation content.
+				
+
+
+
+
+
+
+
+
+
+schema 
+version 1
+: 
+nvd/cve translation xml schema
+
+
+
+feed
+updated
+download
+size (mb)
+
+
+
+
+cve-modified
+02/18/2025; 12:40:03 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.12 mb
+
+
+
+
+		                       zip
+		                    
+
+0.12 mb
+
+
+cve-2025
+02/18/2025; 12:35:09 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.26 mb
+
+
+
+
+		                       zip
+		                    
+
+0.26 mb
+
+
+cve-2024
+02/18/2025; 12:36:45 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+4.34 mb
+
+
+
+
+		                       zip
+		                    
+
+4.34 mb
+
+
+cve-2023
+02/18/2025; 12:37:29 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+1.70 mb
+
+
+
+
+		                       zip
+		                    
+
+1.70 mb
+
+
+cve-2022
+02/18/2025; 12:38:26 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+2.21 mb
+
+
+
+
+		                       zip
+		                    
+
+2.21 mb
+
+
+cve-2021
+02/18/2025; 12:39:22 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+2.31 mb
+
+
+
+
+		                       zip
+		                    
+
+2.31 mb
+
+
+cve-2020
+02/18/2025; 12:40:09 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+1.78 mb
+
+
+
+
+		                       zip
+		                    
+
+1.78 mb
+
+
+cve-2019
+02/18/2025; 12:40:48 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+1.45 mb
+
+
+
+
+		                       zip
+		                    
+
+1.45 mb
+
+
+cve-2018
+02/18/2025; 12:41:27 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+1.33 mb
+
+
+
+
+		                       zip
+		                    
+
+1.33 mb
+
+
+cve-2017
+02/18/2025; 12:42:03 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+1.25 mb
+
+
+
+
+		                       zip
+		                    
+
+1.25 mb
+
+
+cve-2016
+02/18/2025; 12:42:27 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.72 mb
+
+
+
+
+		                       zip
+		                    
+
+0.72 mb
+
+
+cve-2015
+02/18/2025; 12:42:46 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.64 mb
+
+
+
+
+		                       zip
+		                    
+
+0.64 mb
+
+
+cve-2014
+02/18/2025; 12:43:07 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.65 mb
+
+
+
+
+		                       zip
+		                    
+
+0.65 mb
+
+
+cve-2013
+02/18/2025; 12:43:23 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.54 mb
+
+
+
+
+		                       zip
+		                    
+
+0.54 mb
+
+
+cve-2012
+02/18/2025; 12:43:37 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.46 mb
+
+
+
+
+		                       zip
+		                    
+
+0.46 mb
+
+
+cve-2011
+02/18/2025; 12:43:49 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.41 mb
+
+
+
+
+		                       zip
+		                    
+
+0.41 mb
+
+
+cve-2010
+02/18/2025; 12:44:02 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.45 mb
+
+
+
+
+		                       zip
+		                    
+
+0.45 mb
+
+
+cve-2009
+02/18/2025; 12:44:14 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.47 mb
+
+
+
+
+		                       zip
+		                    
+
+0.47 mb
+
+
+cve-2008
+02/18/2025; 12:44:32 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.63 mb
+
+
+
+
+		                       zip
+		                    
+
+0.63 mb
+
+
+cve-2007
+02/18/2025; 12:44:48 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.62 mb
+
+
+
+
+		                       zip
+		                    
+
+0.62 mb
+
+
+cve-2006
+02/18/2025; 12:44:59 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.39 mb
+
+
+
+
+		                       zip
+		                    
+
+0.39 mb
+
+
+cve-2005
+02/18/2025; 12:45:01 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.04 mb
+
+
+
+
+		                       zip
+		                    
+
+0.04 mb
+
+
+cve-2004
+02/18/2025; 12:45:04 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.06 mb
+
+
+
+
+		                       zip
+		                    
+
+0.06 mb
+
+
+cve-2003
+02/18/2025; 12:45:07 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.07 mb
+
+
+
+
+		                       zip
+		                    
+
+0.07 mb
+
+
+cve-2002
+02/18/2025; 12:45:10 am -0500
+
+
+		                       meta
+		                    
+
+
+
+
+
+		                       gz
+		                    
+
+0.07 mb
+
+
+
+
+		                       zip
+		                    
+
+0.07 mb
+
+
+
+
+
+
+
+
+				created 
+				
+september 20, 2022
+, 
+			
+			updated 
+			
+august 27, 2024
+
+
+
+
+
+
+
+
+
+
+
+ twitter (link
+										is external)
+
+ facebook (link
+										is external)
+ linkedin (link
+										is external)
+ youtube (link
+										is external)
+
+rss
+
+
+govdelivery (link is external)
+
+
+  
+
+
+
+
+
+
+ 
+
+
+
+
+
+headquarters
+
+					100 bureau drive
+					
+					gaithersburg, md 20899
+					
+(301) 975-2000
+
+
+webmaster | contact us
+					| our other offices
+
+
+
+incident response assistance and non-nvd relatedtechnical cyber security questions:
+
+						us-cert security operations center
+						 email: soc@us-cert.gov
+ phone:	1-888-282-0870
+					
+
+
+
+
+
+
+site privacy
+			        |
+			          accessibility
+			        |
+			          privacy program
+			        |
+			          copyrights
+			        |
+			          vulnerability disclosure
+			        |
+			          no fear act policy
+			        |
+			          foia
+			        |
+			          environmental policy
+					|
+			          scientific integrity
+			        |
+			          information quality standards
+			        |
+			          commerce.gov
+			        |
+			          science.gov
+			        |
+			          usa.gov
+
+
+
+
+
+

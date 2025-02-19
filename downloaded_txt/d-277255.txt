@@ -1,0 +1,318 @@
+
+
+
+
+
+nslog();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+home
+wishlist
+photo gear
+plugins
+comment policy
+
+
+
+
+
+
+
+
+
+
+
+nslog();
+the weblog of erik j. barzeski
+
+
+
+subscribe to
+posts
+comments
+
+
+
+
+
+
+
+
+the beauty of finished software [link]
+posted october 31st, 2023 @ 03:35pm by erik j. barzeski
+
+
+the beauty of finished software:
+when we buy a physical product, we accept that it won’t change in its lifetime. we’ll use it until it wears off, and we replace it. we can rely on that product not evolving; the gas pedal in my car will always be in the same place.
+however, when it comes to software, we usually have the ingrained expectations of perpetual updates. we believe that if software doesn’t evolve it’ll be boring, old and unusable. if we see an app with no updates in the last year, we think the creator might be dead.
+
+posted in software development |  no comments »
+
+
+
+icloud private relay
+posted june 25th, 2023 @ 12:02pm by erik j. barzeski
+
+
+i am liking icloud private relay. one feature, though, that i wish it had… let me specify an ip address or a website domain name for which i don't want it to be active. a "whitelist" of sorts.
+i administrate a few sites, and it's a hassle to turn the feature off and turn it on. i appreciate the "reload and show ip address" option, but that doesn't work for new tabs from the same session and it's something you have to do every time.
+
+posted in apple |  no comments »
+
+
+
+zoommagnificationdelta
+posted november 8th, 2022 @ 06:02pm by erik j. barzeski
+
+
+defaults write com.analyzrgolf.analyzr zoommagnificationdelta -float 0.01
+
+posted in software development |  no comments »
+
+
+
+twitter user id and join date
+posted november 4th, 2022 @ 08:10am by erik j. barzeski
+
+
+account creation
+mar 19, 2007, 10:47:40 am
+#1512551
+@iacas
+
+posted in blogging |  no comments »
+
+
+
+speed up time machine
+posted april 5th, 2022 @ 09:47am by erik j. barzeski
+
+
+disable throttling of low-priority background i/o, then re-enable it.
+
+sudo sysctl debug.lowpri_throttle_enabled=0
+sudo sysctl debug.lowpri_throttle_enabled=1
+
+posted in apple, computing |  no comments »
+
+
+
+touchid sudo
+posted february 1st, 2022 @ 09:34pm by erik j. barzeski
+
+
+
+pro macbook pro tip: have a touch bar with touch id? if you edit /etc/pam.d/sudo and add the following line to the top…
+auth sufficient pam_tid.so
+…you can now use your fingerprint to sudo!
+— cabel (@cabel) november 16, 2017
+
+
+posted in computing |  no comments »
+
+
+
+fixing safari on monterey?
+posted july 2nd, 2021 @ 04:18pm by erik j. barzeski
+
+
+code on github
+
+to get the old tab bar on safari for macos 12, create/library/preferences/featureflags/domain/safari.plisthttps://t.co/1fbpy5uxnmand reboot. pic.twitter.com/7giz6y8xpd
+— zhuowei zhang (@zhuowei) june 15, 2021
+
+
+posted in apple |  2 comments »
+
+
+
+applescripting do not disturb mode in big sur (macos 11.0)
+posted june 19th, 2021 @ 10:20am by erik j. barzeski
+
+
+is it possible to applescript or use a shell script or programmatically turn on (and off) do not disturb mode in big sur (macos 11.x)?
+this github project worked in 10.14 and 10.15 but requires more than we're willing to do to work around it in big sur.
+any ideas?
+p.s. will look at this but i don't think it's any better. just no time to look at the code right now.
+
+posted in software development |  1 comment »
+
+
+
+i love me some bad game videos
+posted december 10th, 2019 @ 08:21am by erik j. barzeski
+
+
+
+natalie and i laughed like nutjobs one christmas at the bad surgery video game videos.
+
+posted in silly |  no comments »
+
+
+
+the grouch
+posted december 9th, 2019 @ 10:31pm by erik j. barzeski
+
+
+kinda wish we had something like this for catalina…
+
+my blog is 17 years old tomorrow.
+
+posted in apple |  no comments »
+
+
+
+two steve jobs videos
+posted november 23rd, 2019 @ 11:56pm by erik j. barzeski
+
+
+
+
+
+posted in apple |  no comments »
+
+
+
+2019 glasses/contacts eye prescription
+posted march 13th, 2019 @ 12:52pm by erik j. barzeski
+
+
+so… it's been awhile. i don't think i wrote my 2015 prescription down, nor my switch to the oakley barrelhouse 0.5 frames. i'm sticking with the same frames (in a "matte midnight" color, which has a strong blue tint to it).
+my prescription and eyesight actually improved quite a bit. i was -1.25 in both eyes, and am now -1.00 in the right and -0.50 in the left. i hadn't noticed before how bad my eyesight had gotten (with my glasses) out of my left eye, but now i can see it… anyway:
+left:sph -0.50, cyl -2.50, ax 143
+right: sph -1.00, cyl -2.50, ax 50
+in contacts that's a softlens 66 toric at -100/-050, -225 x 50/150.
+
+posted in miscellaneous |  2 comments »
+
+
+
+mojave boots right through single user mode
+posted october 5th, 2018 @ 07:12pm by erik j. barzeski
+
+
+in trying to troubleshoot my two-month-old macbook pro with touchbar (2018) ((the front-right usb-c port has never worked - no power, no data, nothing.)), i tried booting into single user mode. this had previously worked, but for some reason, it now boots right through it. the text appears on the screen, small like always, and then i get the progress bar and the computer prompts me to log in with the normal login screen.
+the macbook pro has a t2 chip and thus has the boot security, but those are set to full security.
+filevault is not enabled. i've checked that a few times.
+i'm not sure what's going on here, but the inability to boot into single user mode (cmd-s during startup) is troubling.
+
+posted in apple |  1 comment »
+
+
+
+spamsieve stats march, 2017
+posted march 2nd, 2017 @ 05:44pm by erik j. barzeski
+
+
+i have to reset spamsieve - my corpus is so old and so weighted toward what spam used to be that it's not as effective as it can/should be now, so i thought i'd do this one last time.
+filtered mail
+500,274 good messages
+707,627 spam messages (59%)
+154 spam messages per day
+spamsieve accuracy
+2,233 false positives
+6,542 false negatives (75%)
+99.3% correct
+corpus
+23,729 good messages
+29,724 spam messages (56%)
+2,895,339 total words
+rules
+34 blocklist rules
+24,821 whitelist rules
+showing statistics since
+8/24/04, 8:00 pm
+i'm a little sad. 2004 was a long time ago.
+
+posted in apple |  no comments »
+
+
+
+fixing the t.co and safari problem
+posted february 16th, 2016 @ 01:06pm by erik j. barzeski
+
+
+dscacheutil -flushcache
+that's apparently all it takes. a more permanent (actual) fix in safari is on its way.
+i hope this also fixes the delay in loading actual twitter pages, too, like lowest score wins (@lowscorewins) | twitter.
+source: how to fix the t.co twitter problem
+
+posted in computing |  no comments »
+
+
+page 1 of 47212345…102030…»last »
+
+
+
+
+
+
+about this blog
+this blog contains  posts, all written by me, and  comments, only some of which were written by me.
+about me
+about me
+disclaimer
+the sand trap
+contact me…
+… via email
+	firstname@lastname.com
+(think about that one a little.)
+… via im
+	aim: iacas
+	mobileme: iacas
+	flickr: iacas
+	yahoo: iacas
+	twitter: iacas
+	msn: iacas@hotmail.com
+	xbox live: erikjb
+	google talk: erikjb@gmail.com
+	icq: 8186546
+don't email me at any of the above im addresses or i may never see the email. i use these accounts primarily for chat (im) only.
+… on facebook
+http://facebook.com/iacas
+
+
+current poll
+
+
+press my buttons
+
+
+
+
+
+
+donate life: because if you're not using your body parts, someone else can.
+
+
+
+
+
+
+
+nslog(); © 2002-2025 erik j. barzeski. all rights reserved.
+log in
+
+
+
+

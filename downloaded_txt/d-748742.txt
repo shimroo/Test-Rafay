@@ -1,0 +1,445 @@
+
+
+
+
+
+
+
+argon: documentation
+
+
+
+
+
+
+
+
+argondocumentation
+login
+
+
+
+kitten technologies |home
+download
+timeline
+branches
+tags
+tickets
+wiki
+
+
+
+in general, the quality of software is critically dependent on the
+skill with which the problem has been abstracted. a poor abstraction
+will leave many exceptions and a lot of extra error prone
+code. conversely, a good expression of the problem will handle most
+cases as normal and will be relatively easy to modify in the light of
+new requirements. the design of a programmable solution to a real life
+problem is the key skill for it and it depends far more on clear
+thinking than anything else.
+         martin brampton
+
+argon is an attempt to design a next generation computing platform. by
+computing platform, i mean both an operating system, or a platform
+like java that sits atop an existing operating system, but appearing
+the same to the software running on top.
+
+the design process has been simple: i have studied every applicable
+field of computing as best i can, learning the pros and cons of
+existing systems, studying even the most exotic theoretical solutions
+to a problem. then i have tried my best to find the best combination
+of technologies to solve the problem at hand: to build a platform upon
+which the highest possible quality of software can be constructed with
+the least effort.
+
+philosophy
+i'm reinventing the wheel.
+
+as a software engineer, in my day to day work, i of course don't do
+this; the easiest solution to a problem is always to reuse as much
+existing technology as possible. however, the long-term result of this
+is that modern software is bloated, buggy, inflexible, and hard to
+use; and too much of the cost of developing new software is dealing
+with the failings of the platform it is built on top of.
+
+that gets frustrating after a while.
+
+so argon is my attempt to let off the steam built up from fighting
+posix apis all day. i'm designing everything from scratch, learning
+from our past mistakes to come up with a software platform that's not
+a compromise built upon compromises.
+
+i've been tinkering with the overall design since the mid 1990s,
+seeing how different problems i encounter could be handled in the
+argon world, and more and more of the design is "solidifying". by
+that, i mean that new challenges can be met elegantly by the current
+design without needing any further changes. this progression suggests
+that i'm slowly approaching a fundamental truth of computation, rather
+than the design being a short-term reaction to current fashions.
+
+current status
+argon is designed as a series of components, with trendy names taken
+from the periodic table. each has a conceptual design page, and then a
+specification grows in docbook as the conceptual design settles down;
+i'm migrating the conceptual design pages from the old site, so many
+of the components listed here lack their design link until the new
+page is ready. specifications will be linked as they appear.
+
+the big picture
+
+entities
+argon is all about entities. they are the "objects" that users
+use, administrators organise, and developers
+develop.
+
+user experience
+for pragmatic reasons, i'm focussing on argon as a platform for
+servers and embedded systems for now, rather than general desktop
+environments. so in that respect, the argon user experience will be
+pretty much invisible - but i do have a conceptual design for what a
+direct user interface to the world of argon would be like.
+
+developer experience
+software in the world of argon always runs within the context of
+an entity (although libraries might be written to run in the context
+of any entity rather than a particular one). here's what
+software development with argon will feel like.
+
+administrator experience
+ease of administration is a major priority in my design work,
+mainly because it's so unnecessarily difficult to administer current
+systems.
+
+security
+most low-level components of a system are involved in security in
+one way or another, so security appears throughout this site. however,
+it's important to explain the underlying security model, and how it
+all fits together.
+
+
+the kernel
+
+hydrogen this is the underlying
+hardware abstraction layer, covering code generation, basic device
+access, cpu control, booting, and so on. the concepts are solid; a
+draft specification is being produced. a
+hydrogen nucleus being a single proton led me to choose this name for
+the fundamental kernel of the system.
+
+helium this is the resource
+manager, which functions like a "microkernel" for hydrogen; it looks
+after scheduling threads onto the available cpus, and managing
+memory. the concepts are quite firm, but the details need working out
+and prototypes tinkered with before a specification can be
+started. the name is a play on it being a development of hydrogen.
+
+iron this is the high-level runtime
+data representation; the data model upon which all else builds. it
+needs to be implemented in terms of hydrogen and helium. the concepts
+are solid, and a draft specification
+exists. the name is chosen to refer to the use of iron as a structural
+material in the form of steel, as iron is used to build data structures.
+
+chrome this is the high-level
+programming language. it's to be implemented as a compiler using
+hydrogen code-generation primitives as the back end; the compiler
+converts source code (represented in iron) into iron values such as
+literal data and executable closures. the concepts are generally
+there, but need to be made more concrete. details matter with a
+programming language.
+
+iridium this is a transport-layer
+network protocol, implemented on top of udp, providing a high-level
+network abstraction to the rest of the argon stack. the concepts are
+solid and nearly ready to start writing up as a draft speciciation, as
+soon as i've thought about how to handle multicast properly. the name
+is chosen as the element iridium sits between mercury and wolfram on
+the periodic table.
+
+tungsten this is the persistent
+storage system. it's a transactional tuple store, used to organise the
+persistent state of entities. however, it is not used directly by
+applications at this level - application access to it is performed
+through wolfram, which handles replication of updates across the
+cluster. the concepts are solidifying fast, but i need to make a
+prototype to really test them. the name is chosen as tungsten is a
+particularly durable element, used as an alloying agent in steel to
+increase its hardness, in its carbide form as a hard material in its
+own right, and for its high melting point. the name seemed good for a
+persistent data store.
+
+argon argon refers to the system
+described here as a whole, but in terms of actual source code, it's
+the glue that combines all of the software components listed here into
+a running kernel on every node; the boot sequence and shared library
+code that doesn't fit into any particular module, or deserve a module
+in its own right. variations on the structure of the kernel cater for
+specialised cluster nodes that handle different combinations of the
+storage and computational tasks within the cluster, or for standalone
+nodes that do not join a cluster at all, such as minimal embedded
+systems or user-interface-oriented devices such as thin clients or
+table computers.
+
+
+the cluster
+
+wolfram this uses iridium (for
+communication) and tungsten (for local storage) to maintain a
+distributed, replicated, fault-tolerant transactional tuple store, and
+some other cluster-monitoring services. it brings a group of
+centrally-managed argon nodes together into a cohesive whole. the
+concepts are still a bit fluid, but are coming together; it unifies a
+lot of other components, so it's very sensitive to changes in their
+requirements. wolfram is another name for the element tungsten, and
+there's a close relationship between the two, but i chose the name
+wolfram for the
+traditional
+association of wolves with computer clusters.
+
+lithium now we have distributed
+storage from tungsten and wolfram, a high level language
+implementation from chrome, and process scheduling from helium, it's
+largely a matter of plumbing to assemble an infrastructure for
+invoking entity entry points; read the code from carbon, compile it
+with chrome (skipping the past two steps if we have a cached copy of
+the code), and run it in a helium thread. as lithium is the component that
+makes an argon system react to events, the name is a play on the
+reactivity of the element lithium.
+
+nitrogen argon attempts to push
+as much administration as possible into the cluster as a whole, but
+individual nodes still need some configuration and managment. they
+need to be assigned clearances, their disks need partitioning, they
+need network configuration, and they need device driver
+configuration. this is done by interacting with a special "node
+entity" that automatically exists for each node; its state is stored
+in tungsten and replicated via wolfram like any other, but its
+interfaces are provided directly by the argon kernel on each node, and
+this is the component that implements them. the concepts are largely
+stable. the name was chosen purely due to the common initial n between
+the element name nitrogen, and the object that nitrogen manages, a
+node.
+
+mercury
+entities need to be able to invoke each others' services; mercury
+builds on top of iridium to provide a communication protocol that can
+run within or between clusters to invoke public entry points on
+entities with lithium. the name is chosen not for chemical reasons,
+but because mercury was the name of the roman messenger god.
+
+caesium
+entities might also need to do things without being asked
+externally - so caesium provides a distributed scheduler, invoking
+entity entry points using lithium according to a schedule. the name is
+a nod to the use of the element caesium inside atomic
+clocks. old site page
+carbon
+tungsten stores entity state as sets of tuples; carbon adds an
+inference engine on top of that (like a prolog implementation) to
+allow high-level querying. carbon can obtain data from in-memory
+temporary tuple sets, tungsten data (via wolfram), or from tuple
+stores published by entities (accessed via mercury). the publishing of tuple stores is such
+a performance-critical operation that special support for it is
+included in the implementation of mercury and tungsten to provide
+low-latency high-throughput access in common cases; this is argon's
+equivalent of the "sendfile" system
+call... the name is a play on the way that carbon is used by organic
+systems to form complex structures, by analogy with the naming of
+iron, but emphasising the complexity and versatility of the structures
+rather than brute strength. conceptual
+design
+
+userland
+
+aurum
+helium meters out memory and cpu time at run-time, within the
+context of a single thread; and tungsten meters out persistent storage
+space within the context of a single entity. however, a higher-level
+infrastructure is needed to allow management of those resources, and
+to manage other finite resources. aurum is a set of software libraries
+for managing them, including distributed operation by communicating
+with "bank entities" via mercury. the name is, of course, a play on
+the use of gold as a medium of exchange. old
+site page,
+
+
+fluorine
+all of these lovely entities communicating via mercury are lovely,
+but what about the rest of the world? fluorine is a toolkit for
+communicating with standard internet protocols and data formats. the
+name is a play on the element fluorine's extreme electronegativity,
+which allows it to bind aggressively to other
+molecules.
+
+iodine
+this is a library of standard mercury/carbon interfaces for
+entities to provide user-level actions, such as sending things to
+places. the name is a weak reference to the fact that many of the
+interfaces relate to user agents that represent human beings, and the
+letter "i" meaning personal
+identity.
+
+neon
+part of iodine is the concept of a "user entity" that represents a
+human being in the world of argon, but how does a human user actually
+get the user entity to act on their behalf? neon provides an interface
+whereby a human interface device such as a laptop computer, tablet, or
+mobile phone can let a user authenticate to a user agent, then allow
+the user agent to control the human interface hardware in order to
+present an interface to the user. this interface can be delegated in a
+controlled manner, thereby allowing other entities to present an
+interface (mediated by the user entity) to the
+user. the name is a reference to the use of neon in brightly coloured
+electrical signs, as graphical interfacing is part of its
+responsibilities. old site page,
+some blog thoughts,
+some
+blog thoughts about events.
+
+
+development roadmap
+argon has been designed with sufficient modularity to allow it to be
+constructed incrementally - in stages. here's an approximate road map
+to implementing a full argon system.
+
+
+hydrogen an interpreted implementation in highly portable
+c, based on vmgen, to ensure that it can run on any posix system. it
+should run on a unix system and provide all the basic threading,
+networking, and disk i/o interfaces. the boot storage is just a series
+of standard posix files. native-code compilers of increasing levels of
+optimisational sophistication and more optional features can be added
+in parallel.
+
+iron the entire iron spec needs to be implemented
+up-front.
+
+chrome a simple interpreter for the core language can be
+written directly in hydrogen to begin with, and the standard libraries
+built on top of that as features are required by higher
+levels. development of an optimising compiler, type inferencing, and
+so on can then continue in parallel.
+
+tungsten to start with, we can do without support for
+multiple mass storage devices and encryption, which can continue in
+parallel.
+
+carbon the core of carbon and its implementation in terms
+of tungsten persistent storage sections is now necessary.
+
+iridium the basic protocol layer is required for both
+wolfram and mercury. it needs to be implemented in terms of udp (v4)
+first; other protocols can come later.
+
+lithium now the requirements are in place, this should be
+fairly simple glue logic.
+
+mercury the clustering support needs to be in the
+protocol, even though we're not running as a cluster yet, but
+cryptography and mandatory access control can be left for later.
+
+carbon carbon's implementation over remote knowledge
+bases via mercury, and its lithium shortcut to publish data directly
+from tungsten sections are now required.
+
+wolfram we now have a simple single-node argon system, so
+userland developments can commence. however, we can now implement
+wolfram and start patching it into all the unused hooks left for it in
+the rest of the system, in order to enable full clustered
+operation.
+
+
+xenon
+however, implementing a full argon system is quite a lot of work. a
+full hydrogen implementation (even with poor performance) is probably
+a man-year or more, and everything else builds upon that.
+
+as a testbed for the concepts behind argon, and as a way to make use
+of them in the non-argon world of existing software development, and
+(in the long run) as a way for non-argon software to interact with
+argon (sort of the inverse of fluorine), i propose xenon:
+implementations of parts of argon in traditional programming
+languages.
+
+as my main programming language of choice is
+chicken scheme, i will probably do most of
+the development in that; but network and data interoperability
+components such as iron and mercury should probably also be
+implemented in other languages.
+
+todos and ideas
+this site
+write a bnf for the iron syntax, to make sure there aren't any ambiguities (i'm nervous about the overloading of colons as namespace prefix separators, map entry separators, as field name terminators in records, and as a record suffix to represent a wrapping record). see if i can simplify things a bit to reduce the set of characters that must be quoted in symbols.
+intro pages to do: aurum, fluorine, neon
+fully document carbon/mercury interfaces to cluster and node
+     entities. think about the services they should offer to
+     administrators as well as to users.
+put disqus or something on this site so people can comment and
+     ask questions.
+create docbook specifications
+create an index of symbols defined in the specs under
+     /argon/, referring to their source spec, and what
+     information needs to be published in carbon about them.
+read old omnioutliner notes in old-site/notes.oo3 - run run.sh in that directory to generate contents.org to read it in org-mode format - and incorporate any good stuff into the rest of the site
+further research required
+address "open question"s.
+design a logging framework (platinum). i want all logs integrated
+     at one point, then distributed as needed, rather than ending up
+     correlating disparate logs. i want logs structured with enough
+     metadata to allow finding relationships between events so log
+     entries can be "folded up" to hide fine detail (eg, a mercury
+     incoming request will start off being logged by iridium then lead
+     to a lithium invocation which will lead to chrome activity and
+     then user code calling into wolfram, tungsten and mercury to do
+     stuff, then back to mercury to iridium to return a result, then
+     wolfram to commit the tungsten state transaction, etc - but it
+     should be foldable up into a single "mercury invocation" summary
+     event. we don't need cep systems for this, just threading of
+     event ids down through the system as part of the dynamic
+     execution context and appropriate importance levels. log events
+     should be represented in carbon, so using these links shouldn't
+     be hard. also, node-specific events need to be fed into the
+     hydrogen console system for diagnosis, and a storage system of
+     some kind chosen for log events that need recording (with
+     per-handler, per-entity, per-volume, per-node and cluster-wide
+     log level settings to control storage utilisation, and the
+     ability to remove levels of detail in older logs as they are
+     expired). where are logs stored?  within entities, or as a
+     special case with direct tungsten storage? what gets replicated
+     when? do we log events up to level n to the node only, and events
+     up to some (lower) level m get replicated in real time because
+     they're important and we need them to not be tamperable if a node
+     is compromised, and the level n logs on the node get summarised
+     to level x and then replicated every day for archival purposes?
+     and who can see the logs? a way is needed for logs about a given
+     entity to be made available to the administrators of that entity
+     (see also the debug mode tracing mechanism in lithium/argon,
+     which need to boil down to this). this is important and major
+     enough to need an element name, i feel!
+should we allow for n-dimensional arrays as well as just vectors
+     in iron? they would allow for better predictive coding for sensor
+     data such as images, as we'd be able to take into account pixels
+     above as well as to the left of the next one (and the
+     generalisation into higher dimensions thereof). if so, update the
+     carbon page's image storage example.
+build a prototype implementation of iron in scheme, and tinker
+     with the binary encodings to find the best symbol mappings for
+     packed binary encoding and so on. try representing chrome source
+     code and carbon knowledge in textual iron to see how the syntax feels.
+write a chrome interpreter in scheme. play with the language.
+grab vmgen and build a hydrogen kernel. play with the
+     language. build some standard libraries.
+
+
+
+
+
+please support my open source work with a bitcoin donation: 1kittenrqnfd78fnm5k3r5qxdeqv4iq8g7. thanks!
+this page was generated in about
+0.125s by
+fossil 2.17 [cea66528e2] 2021-09-21 13:34:47
+
+
+
+
+

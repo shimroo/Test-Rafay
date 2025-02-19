@@ -1,0 +1,201 @@
+
+
+
+real world style
+
+
+
+
+
+real world style
+css layouts, tips, tricks, and techniques
+
+
+layouts
+
+3 columns, header and footer, nn4
+2 columns, header and footer, nn4
+floating thumbnails
+forms
+7–10 split
+
+
+
+tips
+
+fonts for unix
+3 legged stool
+
+
+
+tricks
+
+taming lists
+abbr, acronym, & .help
+
+
+
+techniques
+
+environmental style
+hanging punctuation
+
+
+
+rws blog stuff
+
+may 2005
+september 2004
+august 2004
+june 2004
+february 2004
+january 2004
+december 2003
+november 2003
+august 2002-august
+				2003
+about rws
+syndicate this site
+				 (xml)
+powered by movable type 
+				2.64
+
+
+
+
+
+
+
+
+
+
+
+	may 05, 2005
+	
+
+css 102: borders and backgrounds
+in case you haven’t seen it yet, another introductory css tutorial has been posted at digital web magazine. good night-time reading for you insomniacs…
+posted by mark at 10:45 am
+
+
+
+
+
+
+
+	september 02, 2004
+	
+
+i’d give it a d-
+i remember being in grade school and having to do a report on a country. it was beat into us that we should not copy the books that we used word for word. that would be cheating. later we’d learn that it is called plagiarism and is akin to stealing and lying. so the common technique as we learned how to write, was to change a few words here and there, and call it our own.
+that worked for the first few reports, but we had to mature our writing to go beyond simply changing a few words, to summarizing what was written in our own words. by the time we reached high school, we were expected to be able to distill several sources of information into a unique paper that represented our own conclusions.
+if you look at my article practical css at a list apart, you will see that i have done precisely that, citing a number of sources of both inspiration, if not actual css and markup. the descriptions, explanations, and fully fleshed out examples were in my own words. given the popularity of this piece, which is now 3 years old, and that ala chose to run it in the first place, i’d feel pretty confident in giving it an a.
+when i republished the piece as a series of several articles here, i explicitly put the css and associated markup into the public domain. and i just as explicitly made sure that the content of the articles, as well as the images remained under my own copyright.
+so it was with great interest that i clicked on a link in an email from peter ong, tipping me to this “article”. it starts out well enough, but soon devolves into the grade school technique of “change a few words here and there and call it my own!”
+consider, from the ala article:
+
+“splitting the difference
+“a similar layout that is typically solved with tables is essentially the
+	opposite of the above. instead of meeting in the middle, you might want to
+	place two elements at opposite sides of the browser window. this might be a
+	case where you have a small logo that you want at the top right corner of your
+	page, and some navigational elements at the top left:
+[example]
+“here we will use the same div.row, but different spans than we did for
+	aligning the form elements with their labels. the span on the left
+	will float left, and contain left-aligned text. the span on the right
+	will float right and contain right-aligned text.”
+
+from the article in question:
+
+“inline positioning
+“a layout that is typically solved with tables is essentially the opposite of
+	the above. instead of meeting in the middle, you might want to place two
+	elements at opposite sides of the browser window. this might be a case where
+	you have a small logo that you want at the top right corner of your page, and
+	some navigational elements at the top left:
+[example]
+“here we will use the same div.row, but different spans than we did for
+	aligning the form elements with their labels. the span on the left
+	will float left, and contain left-aligned text. the span on the right
+	will float right and contain right-aligned text.”
+
+if this were handed in as a college paper, it would fail and put the author in jeopardy of being expelled for plagiarism. it wasn’t written as a college paper, though, so i’d give it a d-.
+at least he did cite his primary source at the end of the article.
+and something about this page looks familiar, too…
+posted by mark at 09:46 am
+
+
+
+	september 01, 2004
+	
+
+css around the web
+
+absolutely relative
+joe gillespie, web page design for designers
+good explanation, with examples, of how to take advantage of positioning in your css designs.
+ten css tricks you may not know
+trenton moss, evolt
+good roudup of tips that should help those with an intermediate understanding of css.
+pocket-sized design: taking your website to the small screen
+elika etemad & jorunn d. newth, a list apart
+documenting the state of the art of designing for alternative browsing devices
+
+posted by mark at 10:46 am
+
+
+
+	august 11, 2004
+	
+
+new article at digital web magazine
+in digital web magazine’s annual survey, css was the number one topic readers wanted to learn more about. i was asked to write a “super entry level beginner article.” if it proves to be popular enough, i will probably write a couple more. the first one covers controlling typography and white space with css and uses a resume as an example.
+css 101—typography and white space
+posted by mark at 11:09 pm
+
+
+
+	august 04, 2004
+	
+
+centered links
+i recently received an email asking if i knew how to center a box of links on a page like what is seen on this example page: http://www.thomasjanotta.de/blulink1.php
+while the question was really about centering the box, i thought i’d also take a stab at getting rid of the table that was being used to create and house the links.
+centering the box
+the centering part is rather simple. since the box has a width, you just need to give the left and right margins a value of auto. the css for the dl looks like this:
+dl#links {
+    font: 12px/16px verdana, arial, helvetica,
+          sans-serif;
+    width: 230px;
+    margin: 2em auto; /* this is what centers the
+                         box the first value is for
+                         the top and bottom margin
+                         the second value (auto)
+                         splits the difference between
+                         the right and left margins */
+}
+
+this works in the latest versions of the most popular browsers. some older browsers will not center the box. there are some workarounds, but i’ll leave it as an exercise for the reader who wants to support those browsers
+recreating the links
+it is probably no surprise that i chose to use a list to mark up the links. in fact i decided to use a definition list since each link has two parts, the link and the number of hits the link has. so the link became the dt and the number of hits the dd.
+having decided that, it was a just matter of replacing the table markup with a dl. due to the way the original was marked up it was a relatively simple search and replace process to accomplish this, even allowing for the extra class on every other link to get the gray background.
+the css is pretty straightforward, too. i adapted the technique in my 7-10 split article, applying the rules to the dt and dd rather than extra spans and divs. and once css 3 is supported by enough browsers, we’ll be able to do away with the extra class on every other line, too.
+here is the finished centered box o’ links via css (view source to see the css).
+posted by mark at 10:09 am
+
+
+
+
+
+
+content © 2002-06, mark newhouse
+
+xhtml and css  • mark@gnuhaus.com
+
+
+ 
+
+
+
+

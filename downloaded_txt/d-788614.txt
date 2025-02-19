@@ -1,0 +1,399 @@
+
+
+
+
+
+
+
+apache ant - welcome
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      the apache ant site
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+home
+
+
+
+
+
+
+projects
+
+
+
+
+
+
+
+
+
+
+apache ant
+          
+
+welcome
+
+
+license
+
+
+news
+
+
+security reports
+
+
+
+documentation
+          
+
+manual
+
+
+related projects
+
+
+external tools and tasks
+
+
+resources
+
+
+frequently asked questions
+
+
+wiki
+
+
+having problems?
+
+
+
+download
+          
+
+binary distributions
+
+
+source distributions
+
+
+ant manual
+
+
+
+contributing
+          
+
+mailing lists
+
+
+git repositories
+
+
+subversion repositories
+
+
+nightly+continuous builds
+
+
+bug database
+
+
+security
+
+
+
+sponsorship
+          
+
+thanks
+
+
+sponsorship
+
+
+
+project management
+          
+
+contributors
+
+
+apache ant mission
+
+
+project bylaws
+
+
+legal
+
+
+privacy policy
+
+
+processes
+
+
+archive
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+welcome
+
+
+      apache ant™
+    
+apache ant is a java library and command-line tool whose
+		mission is to drive processes described in build files as targets
+		and extension points dependent upon each other.
+		the main known usage of ant is the build of java applications.
+		ant supplies a number of built-in tasks allowing to compile, assemble,
+		test and run java applications.
+		ant can also be used effectively to build non java applications, for
+		instance c or c++ applications. more generally, ant can be used to
+		pilot any type of process which can be described in terms of targets
+		and tasks.
+    
+
+		ant is written in java. users of ant can develop their own
+		"antlibs" containing ant tasks and types, and are offered 
+		a large number of ready-made commercial or open-source "antlibs".
+    
+
+		ant is extremely flexible and does not impose coding conventions or
+		directory layouts to the java projects which adopt it as a build tool.
+	
+
+		software development projects looking for a solution combining build tool and
+		dependency management can use ant in combination with apache ivy.
+
+the apache ant project is part of
+          the apache software
+          foundation.
+
+
+      apache ivy 2.5.3
+    
+december 23, 2024 - apache ivy 2.5.3 released
+apache ivy 2.5.3 is now available for download as source or
+      binary from
+      https://ant.apache.org/ivy/download.cgi.
+ivy 2.5.3 is a bug fix release, no new features have been added.
+
+
+      apache ant 1.10.15
+    
+august 29, 2024 - apache ant 1.10.15 released
+apache ant 1.10.15 is now available for download from
+      https://ant.apache.org/bindownload.cgi.
+ant 1.10.15 is a regular bug fix release and can be used with java runtime version 8 and
+     higher, including the current latest version java 22.
+
+
+      apache ant 1.9.x eol
+    
+june 19, 2024 - apache ant 1.9.x release series eol
+the ant pmc voted 
+       to eol the 1.9.x release series. we urge ant users to use ant 1.10.x releases, which sees
+       regular bug fixes, enhancements and releases.
+    
+
+
+      apache ivyde retired
+    
+nov 26, 2023 - ivyde retired
+the ant pmc voted 
+       to archive the ivyde subproject. this means that all 
+       its resources are removed or made read only and no further development will 
+       be done. 
+       it also means that, if a community grows, the subproject could be
+       reactivated.
+    
+
+
+      apache ant 1.10.14
+    
+august 20, 2023 - apache ant 1.10.14 released
+apache ant 1.10.14 is now available for download from
+      https://ant.apache.org/bindownload.cgi.
+the apache ant team currently maintains two lines of
+      development. the 1.9.x releases require java5 at runtime and 1.10.x
+      requires java8 at runtime. both lines are based off of ant 1.9.7 and
+      the 1.9.x releases are mostly bug fix releases while additional new
+      features are developed for 1.10.x. we recommend using 1.10.x unless
+      you are required to use versions of java prior to java8 during the
+      build process.
+ant 1.10.14 contains an important change wherein it no longer uses or sets 
+      java securitymanager when running on java versions 18 and higher. this should
+      allow projects to build on java 18 and higher versions.
+
+
+      apache ivy 2.5.2
+    
+august 20, 2023 - apache ivy 2.5.2 released
+apache ivy 2.5.2 is now available for download as source or
+      binary from
+      https://ant.apache.org/ivy/download.cgi.
+ivy 2.5.2 is mainly a bug fix release that also fixes a
+    security vulnerability, see security
+    reports for details.
+
+
+      apache antunit 1.4.1
+    
+jul 7, 2021 - apache antunit 1.4.1 released
+apache antunit 1.4.1 is now available for download as binary
+    or source
+    release.
+this release fixes the antlib.xml descriptor so that antunit
+    can now be used with a user-defined uri rather than having
+    antunit's preferred uri hardcoded..
+
+
+      easyant retired
+    
+dec 13, 2016 - easyant retired
+the ant pmc voted 
+       to archive the easyant subproject and all its modules. this means that all 
+       its resources are removed or made read only and no further development will 
+       be done. 
+       it also means that, if a community grows, the subproject could 
+       reactivated.
+    
+
+
+      apache ivyde 2.2.0
+    
+november 22, 2013 - apache ivyde 2.2.0 released
+the apache ivyde project is pleased to announce its 2.2.0 release.
+the apache ivyde eclipse plugin integrates apache ivy's dependency management 
+      into eclipse. it lets you manage your dependencies declared in an ivy.xml in 
+      your java eclipse projects, or any other kind of project which needs dependency 
+      management. apache ivyde will contribute to the classpath of your java project 
+      or you can make it retrieve your dependencies directly into your project. last 
+      but not least apache ivyde offer editors of ivy.xml and ivysettings.xml files 
+      with completion. get some preview here: 
+      https://ant.apache.org/ivy/ivyde/screenshots.html
+
+major changes in this release
+
+the api of ivyde has been stabilized so that third party plugins can rely on it,
+while still not complete, and still not advertised as stable in ivy, support of osgi has been added,
+javadoc and source attachement can be edited now one by one,
+improved stability of the resolve process,
+improved logging for easier debugging.
+
+
+compatibility
+
+this release is expected to work with every version of ivy 2.1 or superior. 
+          the osgi features require ivy 2.3.0 or superior though.
+
+
+this release is considered as stable. the beta of 2.2.0 has been out for a (too) long time.
+a more detailed release notes can be read there:
+      https://ant.apache.org/ivy/ivyde/history/latest-milestone/release-notes.html 
+      download the 2.2.0 release at:
+      https://ant.apache.org/ivy/ivyde/download.cgi 
+
+      or use directly the apache ivyde's updatesite:
+      https://downloads.apache.org/ant/ivyde/updatesite 
+      
+      issues should be reported to:
+      https://issues.apache.org/jira/browse/ivyde 
+      
+      more information can be found on the apache ivyde website:
+      https://ant.apache.org/ivy/ivyde/
+
+
+
+      documentation
+    
+
+you can view the documentation for the current release 
+online
+
+
+comprehensive documentation is included in the source and binary distributions.
+
+
+
+      get involved
+    
+
+get involved
+join mailing lists
+search the dev mailing list
+
+search the user mailing list
+
+
+
+
+
+        copyright © 1999-2024 the apache software foundation, licensed under the apache license, version 2.0.
+      
+
+      apache ant, apache ivy, apache easyant, ant, ivy, easyant, apache, the apache feather logo, and the apache ant project logos are trademarks of the apache software foundation.
+        
+
+
+

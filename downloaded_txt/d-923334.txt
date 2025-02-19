@@ -1,0 +1,411 @@
+
+
+
+ | 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+codedread
+
+
+
+tomorrow is already here
+
+
+i think we're at peak llm usefulness here. a succinct answer i'm willing to trust, no ads, nothing seeking my further engagement. basically i can't see a way for gemini to get any better for this type of dead-end query than where it's at right now. prepare thyself for the crapwave.
+this is a great video of lex fridman interviewing max tegmark about ai and moloch and consciousness. it's a really long one. maybe watch it in 15-minute increments. i had it open as a browser tab forever, half-way watched, but finished it a few nights ago. i may revisit it, as it's pretty dense and there are a shit-tonne of ideas in there.
+"i kind of love programming. it's an act of creation. you have an idea, you design it, and you bring it to life, and it does something." - lex fridman - at about 1:35:00. he mourns the loss of some form of "innocence". he struggles a bit with how to articulate the feeling of loss in the face of llms that can now code. lex, i feel you, but...
+in and of themselves, advanced llms do not rob creators of a pride in their art. if you're feeling a loss of "specialness", then it most likely because you mixed some ego into it. ego is everywhere. this blog post and the way i'm posturing the language in it is mostly about ego, to make it seem like i'm "in the know" when in reality i'm just as clueless as the next person.
+and while it is definitely surprising that things are moving so fast, it's not incredibly surprising to me that a model trained on the entire sum of human output up to this point can do a lot of "our special human things" so well.
+on the other hand, llms may indeed rob creators of the ability to make a living at their art because of greed.
+greed is what bothers me the most about this whole ai hype cycle. speaking of posturing, we keep hearing about how ai will benefit humanity, and i believe that it can and will. curing disease, eliminating the slave labor class, and becoming a multi-planetary civilization seem like really important goals. but no one can possibly believe that is what is driving the research. the prime motivator is making money. expand the profit margins of the big corporations by enabling them to do more while paying fewer humans to do it. or grow startups so they can become big corporations or get acquired by big corporations.
+the fact that we can all see this and yet do nothing different is the term "moloch" that max speaks about, that apparently was an ancient carthaginian demon, but is a nice label to identify why things get shitty [1] [2] mixed with the prisoner's dilemma and the race to the bottom. i still have to read the full extent of this scott alexander piece, but you can get the gist from the video.
+the insane push to always show growth and be more profitable than the last time. where does it come from?
+courtesy of some mega-corp ai - i honestly forget which, probably meta.ai
+humans are an intelligence that is constantly trying to optimize for happiness (at some biological level, literally the neurochemicals floating around in our brains giving us sensations). long ago we equated happiness with money because it gives us the ability to pursue whatever we want. seems logical, if sad.
+corporations as a form of intelligence is another weird thing briefly talked about in the video (1:17:00) and mentioned in their first discussion, which i found very interesting. by that argument, governments fit into the same bucket.
+a corporation is an outcome of humans trying to acquire more money with less risk, it does this by being a construct that can live and operate larger than any single human can and operates with a huge amount of resources. the example max gives is of a tobacco company ceo deciding one day that the company should stop making cigarettes - an act which would only result in that human being replaced as ceo.
+a corporation, as an entity, is constantly trying to optimize for profit. originally set up to serve society, the roles have been reversed and society is largely serving the institutions (the video also touches on how the really big corporations have captured the regulators).
+today's ai require huge amounts of compute power and data to be trained and operate - basically meaning corporations are the ones that can run the powerful ones. i wonder how long it will take for the roles to reverse such that the corporations are serving the ai.
+one thought experiment: if today's ai can be turned off by killing power to a data center or deleting a model, how would an advanced ai make it impossible for this to happen? would it be to couple the ai services to mega corporation profits such that turning off the ai means the death of the corporation? i'm not saying that huge llms are consciously scheming in this direction, but it certainly seems like we are pointing in a direction where giant companies naturally are serving this.
+humans gave birth to corporations and corporations are giving birth to the next wave of intelligence.
+§1407 · april 30, 2024 · software, technology · 1 comment · 
+
+
+
+
+
+
+filed under pragmatica
+
+
+once upon a time, i ported a turn-based strategy / tactical combat game to the web. the average play time for the game is quite long (many hours), so saving games is an important feature.
+pc/console games have two ways to do "game saves":
+
+save on the machine, keyed to the user thanks to the operating system's file system and
+save on the cloud, keyed to the user by some identity provider.
+
+1) is easy to implement (writing and reading a file to disk). 2) is much harder to implement, costs money to run, and requires the gaming machine to have network connectivity.
+web games can do 2) just as easily as pc games. since this is a hobby project with near-zero players, i don't plan to build my own cloud service, and i don't trust any cloud-hosted "gaming" api to be stable enough or not get killed in the future. so that leaves me with saving and loading games locally.
+unfortunately, browsers have a major road block: they do not allow native file system access. back a decade ago when i started to write the game, it looked to me like browsers would eventually implement this: progress on browser compatibility and "native app" capabilities were pretty breathtaking at that time.
+so i put up with some jankiness: to load a savegame, pick a file from your computer. to save a game, the web app downloads the savegame file to your computer. that kind of sucks and doesn't allow a save-as-you-play experience, but good enough for now. i threw in more jank with the option to use google drive api as well for a cheap-o version of a cloud service. (why not play games api? because they eventually killed their web api. see "stable forever" above.)
+all this jank was an acceptable workaround until browsers caught up, or so i thought.
+
+here we are a decade later. though chrome desktop has proposed and implemented the file system access api for native file access, it's not quite enough when compared to what native apps can do - and other browser vendors have adamantly refused to implement true native file access, making this capability a sad bloated corpse floating in a lake. i'm saying native file access is dead in the water.
+why didn't i just use localstorage or indexeddb for this? well, for one, it was stubbornness and naïvety. for two, i worried about how much data i could store reliably. for three, i thought that users would expect their saved games in chrome to be playable in firefox or safari on the same machine or want ways of passing their saved games around.
+the fact my savegames are something like 35k means that storage was never really a concern.
+the fact that most users only ever use a single browser, means i don't need to really worry that much about portability.
+it's actually pretty straightforward to implement a virtual file system in indexeddb that works good enough. heck, apple did it as some weird peace offering to people who wanted file system access. [as an aside: as far as i can tell, an origin-private file system offers zero user-facing benefits over indexeddb, you're just trading one api for another... so it's a devex offering. true native file access offers user benefits, such as backing up your save games, hacking, modding, sharing outside of the browser]
+so in the end, i just wrote my own storage service that loads/saves games to an indexeddb store in the browser. these days, superior user experience trumps web specification idealism for me every time.
+
+p.s. i'm no security expert. i'm sure mozilla and apple have good reasons for rejecting the file system access api. i'm just sitting here loving the technology of the web (zero install, the apis, javascript/typescript) and the developer experience but wishing i had all the perks that native apps do.
+p.p.s. i was surprised to learn that an indexeddb instance for a page at foo.net is different than the indexeddb instance of an iframe of foo.net hosted at bar.net. that's a subtlety i hadn't thought through.
+§1394 · april 19, 2024 · apple, entertainment, firefox, games, google, software, technology, web · (no comments) · 
+
+
+
+
+
+
+the bethesda slide
+
+
+i am a big big fan of bethesda's elder scrolls and i consider morrowind one of the best games ever made (my top 2 are morrowind and doom in no particular order). i have put in only a few hours into starfield (so far), and i have to say i like it less and less. primarily my complaints lie with all the loading scenes that break the illusion of an immersive, seamless galaxy to explore. it feels like skyrim with even more disconnected regions.in morrowind you could walk from the wilderness into a city with no observable loading, the only loading screens were upon fast-travel (which was not necessary) or going indoors. as you leveled up, you could learn levitate spells that let you fly over seemingly insurmountable mountain ranges or water breathing spells that let you explore underwater. you could learn water walking and even walk across the ocean from the mainland to the new island included in the bloodmoon expansion, if you were patient enough and didn't want to fast-travel via ship.oblivion did away with some of the crazier things (like levitation and water walking), and added loading screens as you move into cities and this trend sadly continued into skyrim. and yet, i still loved those games and devoured them, spending hours. something about the ability to look at the horizon and say "i'm going to walk to there" was very captivating.in starfield, you get loading screen after loading screen, moving from location to location, outdoor to indoor, in and out of spaceships, launching from the surface, grav-jumping, etc. i know this criticism is not incredibly insightful or novel; many folks have already complained loudly about this online and contrasted it against the illusion of seamlessness in no man's sky. i know i'm just adding to the din, but i can't help myself, my disappointment is as vast as the regions in starfield are not.
+there are no enormous planets floating in endless space. you're just an ant hopping from leaf to pretty leaf trying to cross a river. i expected so much more.
+i will give it a few more hours, but sadly it's been a dud for me so far. anybody have a recommendation for a modern open world game that knows how to maintain the illusion?
+§1376 · january 18, 2024 · entertainment, games, microsoft · 1 comment · 
+
+
+
+
+
+
+turn of the century musical asplosion
+
+
+apropos of nothing, to the person who once said to me that the 1990s had no good music, i offer a list of 40 albums worth owning. this list has a good drubbing of obvious alternative rock and brit pop picks, but banks and dips into shoe gaze, noise pop, trip hop, and electronica, which are more recent musical interests of mine. i own other albums from the nineties that are canadian rock-weighted (tragically hip, tea party, odds):
+
+heaven or las vegas by the cocteau twins, 1990
+gala by lush, 1990
+achtung baby! by u2, 1991
+ten by pearl jam, 1991
+nevermind by nirvana, 1991
+loveless by my bloody valentine, 1991
+blood sugar sex magik by red hot chili peppers, 1991
+screamadelica by primal scream, 1991
+peng! by stereolab, 1992
+lazer-guided melodies by spiritualized, 1992
+so tonight that i might see by mazzy star, 1993
+siamese dream by the smashing pumpkins, 1993
+debut by björk, 1993
+g-stoned by kruder & dorfmeister, 1993
+zooropa by u2, 1993
+dummy by portishead, 1994
+superunknown by soundgarden, 1994
+weezer by weezer, 1994
+post by björk, 1995
+(what's the story) morning glory? by oasis, 1995
+mellon collie and the infinite sadness by the smashing pumpkins, 1995
+the bends by radiohead, 1995
+exit planet dust by the chemical brothers, 1995
+electr-o-pura by yo la tengo, 1995
+odelay by beck, 1996
+emperor tomato ketchup by stereolab, 1996
+among my swan by mazzy star, 1996
+ok, computer by radiohead, 1997
+urban hymns by the verve, 1997
+ladies and gentlemen we are floating in space by spiritualized, 1997
+homogenic by björk, 1997
+opera by tosca, 1997
+i can hear the heart beating as one by yo la tengo, 1997
+northern star by groove armada, 1998
+mezzanine by massive attack, 1998
+moon safari by air, 1998
+music has the right to children by boards of canada, 1998
+glee by bran van 3000, 1998
+vertigo by groove armada, 1999
+surrender by the chemical brothers, 1999
+
+that 1997 tho.
+and since i want to keep the party going, here's an extension of this list into the first half of the 2000's, 20 more albums too good to leave off:
+
+since i left you by the avalanches, 2000
+felt mountain by goldfrapp, 2000
+kid a by radiohead, 2000
+and then nothing turned itself inside-out by yo la tengo, 2000
+simple things by zero 7, 2001
+amnesiac by radiohead, 2001
+comfort eagle by cake, 2001
+goodbye country (hello nightclub) by groove armada, 2001
+charango by morcheeba, 2002
+machine says yes by fc kahuna, 2002
+lost horizons by lemon jelly, 2002
+details by frou frou, 2002
+elephant by the white stripes, 2003
+black cherry by goldfrapp, 2003
+talkie walkie by air, 2004
+when it falls by zero 7, 2004
+lemon jelly.ky by lemon jelly, 2004
+the campfire headphase by boards of canada, 2005
+haughty melodic by mike doughty, 2005
+the cosmic game by thievery corporation, 2005
+
+i guess it's kind of easy to look back twenty years into the past and peer at "the best of" with the rosy hue of critical acclaim and record sales, but man, do i enjoy the music. please drop me notes on what i've missed or what i should pick up from the next twenty years!
+§1286 · january 3, 2024 · entertainment, music · (no comments) · 
+
+
+
+
+
+
+channeling a communication breakdown
+
+
+back when i first wrote my unzip implementation in pure js using web workers (code here), javascript runtimes were a very new thing (nodejs had been released less than a year before). ok, i had played with c++ bindings to the v8 js engine for a hobby video game engine i had been writing, but that was it for me when it came to "javascript outside of the browser".
+well over a decade later and javascript/typescript runtimes are all the rage in this continuously fractious software world. even so, it hadn't really ever occurred to me that the unzip/unrar/untar implementations in bitjs might be useful in nodejs or other runtimes (deno, bun) until someone opened a bug.
+anyway, the way unzip/unrar worked was pretty straightforward: the host code passes bytes into the unzip/unrar implementation via a postmessage() call, the implementation does some bits and bobs as a webworker (aka not on the ui thread), crawling through bytes of the archive and emitting interesting events that the host code listens for (like "here's a file i extracted").
+
+
+sequencediagram
+    participant host
+    participant worker
+    box worker javascript context
+    participant workerglobalscope
+    participant unrar.js
+    end
+    host->>worker: postmessage<br/>(rar bytes)
+    worker-->>workerglobalscope: 
+    workerglobalscope->>unrar.js: onmessage<br/>(rar bytes)
+    note right of unrar.js: unrar<br/>the thing
+
+    unrar.js->>workerglobalscope: postmessage<br/>(an extracted file)
+    workerglobalscope-->>worker: 
+    worker->>host: onmessage<br/>(an extracted file)
+
+    unrar.js->>workerglobalscope: postmessage<br/>(2nd extracted file)
+    workerglobalscope-->>worker: 
+    worker->>host: onmessage<br/>(2nd extracted file)
+
+
+
+unfortunately, node still has not adopted web workers (though eventually they may); they even have their own different thing called worker threads - confusing. anyway, it left me wondering how i should approach supporting node... until i learned about messagechannel / messageport, which are now supported nearly universally (as of node 15).
+so in the end, it continues to be pretty simple. the messagechannel becomes the abstraction through which messages are passed, the host code owns one messageport, the unzip implementation owns the other, and the implementation no longer assumes it lives in a webworker (oh and thanks dynamic imports!).
+
+
+sequencediagram
+    participant host code
+    participant port1
+    box any javascript context (could be a web worker)
+    participant port2
+    participant unrar.js
+    end
+    host code->>port1: postmessage(rar bytes)
+    port1-->>port2: (messagechannel)
+    port2->>unrar.js: onmessage(rar bytes)
+    note right of unrar.js: unrar<br/>the thing
+
+    unrar.js->>port2: postmessage(an extracted file)
+    port2-->>port1: (messagechannel)
+    port1->>host code: onmessage(an extracted file)
+
+    unrar.js->>port2: postmessage(2nd extracted file)
+    port2-->>port1: (messagechannel)
+    port1->>host code: onmessage(2nd extracted file)
+
+
+
+this allows environments that support web workers to keep their web worker implementation and the nodejs version to have the implementation in its main thread. if someone wants to make it more performant using node's worker threads send pull requests!
+it seems like all js libraries that do intensive computations (like training ml models or mining teh bitcoinz) and then emit a series of events, should probably think of messagechannel as the means of communication with the host software going forward so that the implementation can be ported to more environments. what? webassembly? ... oh shhhh!
+this little weekend hack also let me write some decent automated unit tests for bitjs decompression, so hurrah for that too!
+§1357 · december 27, 2023 · uncategorized · (no comments) · 
+
+
+
+
+
+
+← older entries
+
+
+
+
+
+
+
+
+
+subscribe
+
+
+
+
+follow
+
+
+
+
+
+blogroll
+development blog
+documentation
+plugins
+suggest ideas
+support forum
+themes
+wordpress planet
+
+
+
+
+
+
+
+
+
+
+
+pages
+archives
+blog chrome
+clipart
+links
+xhtml piñata
+
+
+
+archives
+
+select month
+ april 2024  (2)
+ january 2024  (2)
+ december 2023  (1)
+ may 2023  (2)
+ april 2023  (1)
+ october 2022  (1)
+ march 2022  (1)
+ january 2022  (1)
+ january 2021  (1)
+ december 2020  (1)
+ july 2020  (1)
+ january 2020  (1)
+ january 2019  (1)
+ october 2018  (1)
+ february 2018  (1)
+ january 2018  (1)
+ november 2017  (1)
+ october 2017  (2)
+ august 2014  (1)
+ december 2013  (1)
+ january 2012  (1)
+ september 2011  (3)
+ february 2011  (2)
+ january 2011  (1)
+ december 2010  (3)
+ november 2010  (1)
+ october 2010  (1)
+ september 2010  (4)
+ august 2010  (1)
+ july 2010  (1)
+ june 2010  (4)
+ may 2010  (2)
+ april 2010  (6)
+ march 2010  (5)
+ february 2010  (5)
+ january 2010  (9)
+ december 2009  (1)
+ november 2009  (1)
+ october 2009  (3)
+ september 2009  (1)
+ july 2009  (2)
+ june 2009  (3)
+ may 2009  (2)
+ april 2009  (4)
+ march 2009  (3)
+ february 2009  (3)
+ january 2009  (4)
+ december 2008  (5)
+ november 2008  (3)
+ october 2008  (2)
+ september 2008  (7)
+ august 2008  (6)
+ july 2008  (14)
+ june 2008  (5)
+ may 2008  (4)
+ april 2008  (10)
+ march 2008  (9)
+ february 2008  (8)
+ january 2008  (8)
+ december 2007  (5)
+ november 2007  (9)
+ october 2007  (7)
+ september 2007  (4)
+ august 2007  (1)
+ july 2007  (5)
+ june 2007  (6)
+ may 2007  (11)
+ april 2007  (12)
+ march 2007  (14)
+ february 2007  (3)
+ january 2007  (10)
+ december 2006  (14)
+ november 2006  (12)
+ october 2006  (2)
+ september 2006  (3)
+ august 2006  (1)
+ july 2006  (5)
+ june 2006  (10)
+ may 2006  (9)
+ april 2006  (8)
+ march 2006  (11)
+ february 2006  (13)
+ january 2006  (26)
+ december 2005  (9)
+ november 2005  (10)
+ october 2005  (15)
+ september 2005  (11)
+ august 2005  (20)
+ july 2005  (15)
+ june 2005  (13)
+ may 2005  (13)
+ april 2005  (13)
+ march 2005  (21)
+ february 2005  (23)
+ january 2005  (27)
+
+
+
+
+
+
+
+
+
+
+
+ codedread is prowdly powered by wordpress. · © 2008 · all rights reserved.
+  this theme evolved from the doc theme by theme museum.
+  
+
+
+
+
+
+

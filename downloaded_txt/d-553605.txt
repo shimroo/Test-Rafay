@@ -1,0 +1,2270 @@
+
+
+
+yubnub blog
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+news about yubnub.org
+
+
+
+
+
+wednesday, may 29, 2013
+
+
+
+	 
+	 yubnub blog moved
+	 
+    
+
+
+the yubnub blog has moved to blog.yubnub.org.
+
+
+
+posted by jonathan at 5/29/2013 03:03:00 p.m.
+0 comments
+
+
+
+
+
+
+monday, august 13, 2012
+
+
+
+	 
+	 yubnub down
+	 
+    
+
+
+sorry about yubnub being down, folks. the pendrell server at joyent is having issues. https://help.joyent.com/
+
+
+
+posted by jonathan at 8/13/2012 02:42:00 p.m.
+95 comments
+
+
+
+
+
+
+monday, june 06, 2011
+
+
+
+	 
+	 happy 6th birthday, yubnub!
+	 
+    
+
+
+yubnub was born on june 6, 2005. happy birthday, ol' pal!
+
+
+
+posted by jonathan at 6/06/2011 08:54:00 p.m.
+4 comments
+
+
+
+
+
+
+friday, january 07, 2011
+
+
+
+	 
+	 yubnub iphone app
+	 
+    
+
+
+david jorge has created an iphone app for yubnub. nice going, david!
+
+
+
+
+
+posted by jonathan at 1/07/2011 07:19:00 p.m.
+4 comments
+
+
+
+
+
+
+friday, december 31, 2010
+
+
+
+	 
+	 yubnub logo in png and svg formats
+	 
+    
+
+
+andrew pennebaker has created vector versions of the yubnub logo (png, svg). thanks andrew!
+
+
+
+
+
+posted by jonathan at 12/31/2010 01:12:00 p.m.
+0 comments
+
+
+
+
+
+
+friday, july 03, 2009
+
+
+
+	 
+	 yubnub down
+	 
+    
+
+
+starting july 2, yubnub has been going down intermittently. i’m seeing the following errors in the lighttpd.error.log:2009-07-03 04:57:02: (server.c.1242) [note] sockets disabled, out-of-fds2009-07-03 04:57:04: (server.c.1207) [note] sockets enabled again2009-07-03 04:57:04: (mod_fastcgi.c.2748) wait for fd at connection: 2392009-07-03 04:57:04: (connections.c.1270) accept failed: too many open files 242009-07-03 04:57:04: (server.c.1242) [note] sockets disabled, out-of-fdsi’m in touch with joyent support and we’re trying to figure it out.
+
+
+
+posted by jonathan at 7/03/2009 10:34:00 a.m.
+9 comments
+
+
+
+
+
+
+thursday, may 28, 2009
+
+
+
+	 
+	 iphone/ipod touch support
+	 
+    
+
+
+andreas moor and ell dove have contributed a page for using yubnub on the iphone and ipod touch.
+
+
+
+posted by jonathan at 5/28/2009 01:09:00 a.m.
+2 comments
+
+
+
+
+
+
+saturday, may 23, 2009
+
+
+
+	 
+	 using split to prevent the browser from resizing an image
+	 
+    
+
+
+someone asked me if yubnub can be used to prevent the browser from resizing a large image to fit the window, such as http://img.photobucket.com/albums/v126/katmo/graphcopy.jpg?t=1243143459.it turns out that the split command can do this: split http://img.photobucket.com/albums/v126/katmo/graphcopy.jpg?t=1243143459 will display the image at its original size. this works in ie7 and chrome, but not firefox 3.
+
+
+
+posted by jonathan at 5/23/2009 10:40:00 p.m.
+3 comments
+
+
+
+
+
+
+monday, october 08, 2007
+
+
+
+	 
+	 tip for dealing with session ids in urls
+	 
+    
+
+
+brian armknecht gives this tip for dealing with session ids in urls:the nucat command wasn't working because the url required a session id that changes periodically.  the new version of the command visits the page, scrapes the new session id, then includes it in the search url.  i think it's sort of a cool trick.http://nucat.library.northwestern.edu/cgi-bin/pwebrecon.cgi?search_arg=%s&sl=none&search_code=gkey&pid={scrape -tokens pid%3d %22 -dirs 0 0 -url http://nucat.library.northwestern.edu/}&cnt=25&hist=1
+
+
+
+posted by jonathan at 10/08/2007 09:35:00 p.m.
+5 comments
+
+
+
+
+
+
+sunday, september 30, 2007
+
+
+
+	 
+	 yubnub + autocomplete
+	 
+    
+
+
+graham edgecombe has created a yubnub + autocomplete site, akin to google suggest. it's pretty slick. it's a kind of "social autocomplete" because the suggestions are based on commands that everyone has entered in the past.
+
+
+
+posted by jonathan at 9/30/2007 10:08:00 a.m.
+1 comments
+
+
+
+
+
+
+saturday, september 22, 2007
+
+
+
+	 
+	 server down
+	 
+    
+
+
+yubnub is currently down. status: http://help.textdrive.com/index.php?pg=forums.posts&id=632&pc=1
+
+
+
+posted by jonathan at 9/22/2007 10:45:00 a.m.
+0 comments
+
+
+
+
+
+
+thursday, september 13, 2007
+
+
+
+	 
+	 yubnub is back online
+	 
+    
+
+
+the server is back up.
+
+
+
+posted by jonathan at 9/13/2007 11:29:00 a.m.
+0 comments
+
+
+
+
+
+
+
+
+
+	 
+	 yubnub is down
+	 
+    
+
+
+the server is down. more info: http://help.textdrive.com/index.php?pg=forums.posts&id=625&pc=1
+
+
+
+posted by jonathan at 9/13/2007 09:26:00 a.m.
+0 comments
+
+
+
+
+
+
+thursday, august 23, 2007
+
+
+
+	 
+	 back online
+	 
+    
+
+
+yubnub is back online.
+
+
+
+posted by jonathan at 8/23/2007 01:36:00 p.m.
+0 comments
+
+
+
+
+
+
+
+
+
+	 
+	 yubnub currently down
+	 
+    
+
+
+yubnub is currently down. for updates, see http://help.textdrive.com/index.php?pg=forums.posts&id=603&pc=1
+
+
+
+posted by jonathan at 8/23/2007 12:21:00 p.m.
+0 comments
+
+
+
+
+
+
+friday, july 20, 2007
+
+
+
+	 
+	 yubnub "default" parameter for overriding default command (google)
+	 
+    
+
+
+if you don't want google as the default yubnub command, here's how you can override it:http://yubnub.org/parser/parse?default=y&command=abcdein this example, we set the default to the "y" command (yahoo).
+
+
+
+posted by jonathan at 7/20/2007 08:38:00 p.m.
+0 comments
+
+
+
+
+
+
+saturday, june 30, 2007
+
+
+
+	 
+	 embedding yubnub in webpages using rub://
+	 
+    
+
+
+intriguing news from gabriel kent, creator of the rubnub firefox extension:so i released a new version of rubnub with a brand spankin' new site -- most notable is the ability to embed yubnub links into a web page -- which you can see in action (after you install the latest) here: http://rubnub.org/examples/i am not sure how useful it will be but multi-destination links like(rub://mash+utah+gmap+g) have potential as do a few of the other command types. i have not seen embedded yubnub links (other than a uri with args), so this may be a first eh?i also got around to making a little demo video for it -- which actually turns out to be a pretty good yubnub video as well, so check that out in the video section..
+
+
+
+posted by jonathan at 6/30/2007 01:09:00 p.m.
+4 comments
+
+
+
+
+
+
+thursday, june 28, 2007
+
+
+
+	 
+	 yubnub back online
+	 
+    
+
+
+yubnub is back. the lighttpd startup script got deleted for some reason. textdrive restored it from backup.
+
+
+
+posted by jonathan at 6/28/2007 11:53:00 a.m.
+0 comments
+
+
+
+
+
+
+
+
+
+	 
+	 yubnub service is down
+	 
+    
+
+
+yubnub is down because of an issue with our web host. for some reason i cannot start the lighttpd script (i get "command not found"). i have put in a support ticket with textdrive.
+
+
+
+posted by jonathan at 6/28/2007 09:22:00 a.m.
+0 comments
+
+
+
+
+
+
+saturday, june 16, 2007
+
+
+
+	 
+	 server up
+	 
+    
+
+
+the server is back online.
+
+
+
+posted by jonathan at 6/16/2007 02:20:00 p.m.
+0 comments
+
+
+
+
+
+
+
+
+
+	 
+	 server down
+	 
+    
+
+
+the server is down. status at http://help.textdrive.com/index.php?pg=forums.posts&id=558&pc=1
+
+
+
+posted by jonathan at 6/16/2007 01:57:00 p.m.
+0 comments
+
+
+
+
+
+
+thursday, june 14, 2007
+
+
+
+	 
+	 server up
+	 
+    
+
+
+pendrell is back online.
+
+
+
+posted by jonathan at 6/14/2007 12:32:00 p.m.
+0 comments
+
+
+
+
+
+
+
+
+
+	 
+	 server down
+	 
+    
+
+
+the server ("pendrell") is currently down. status updates at http://status.textdrive.com/
+
+
+
+posted by jonathan at 6/14/2007 11:35:00 a.m.
+0 comments
+
+
+
+
+
+
+friday, june 08, 2007
+
+
+
+	 
+	 server up
+	 
+    
+
+
+the server is back up. http://help.textdrive.com/index.php?pg=forums.posts&id=547&pc=1
+
+
+
+posted by jonathan at 6/08/2007 10:53:00 a.m.
+0 comments
+
+
+
+
+
+
+
+
+
+	 
+	 server down
+	 
+    
+
+
+the server is currently down. updates at http://status.textdrive.com/
+
+
+
+posted by jonathan at 6/08/2007 09:52:00 a.m.
+0 comments
+
+
+
+
+
+
+thursday, may 24, 2007
+
+
+
+	 
+	 yubnub is back online
+	 
+    
+
+
+the yubnub server is back online.
+
+
+
+posted by jonathan at 5/24/2007 07:35:00 p.m.
+5 comments
+
+
+
+
+
+
+
+
+
+	 
+	 yubnub server is down
+	 
+    
+
+
+the yubnub server is down - see http://help.textdrive.com/index.php?pg=forums.posts&id=529&pc=1
+
+
+
+posted by jonathan at 5/24/2007 06:38:00 p.m.
+0 comments
+
+
+
+
+
+
+wednesday, may 09, 2007
+
+
+
+	 
+	 server back up
+	 
+    
+
+
+we're back online.
+
+
+
+posted by jonathan at 5/09/2007 10:06:00 a.m.
+0 comments
+
+
+
+
+
+
+
+
+
+	 
+	 server down
+	 
+    
+
+
+the server is currently down: http://help.textdrive.com/index.php?pg=forums.posts&id=519&pc=1
+
+
+
+posted by jonathan at 5/09/2007 09:53:00 a.m.
+0 comments
+
+
+
+
+
+
+saturday, april 21, 2007
+
+
+
+	 
+	 server back up
+	 
+    
+
+
+the server is back up.
+
+
+
+posted by jonathan at 4/21/2007 12:02:00 a.m.
+0 comments
+
+
+
+
+
+
+friday, april 20, 2007
+
+
+
+	 
+	 server down
+	 
+    
+
+
+the server is currently down: http://help.textdrive.com/index.php?pg=forums.posts&id=500&pc=1
+
+
+
+posted by jonathan at 4/20/2007 11:26:00 p.m.
+0 comments
+
+
+
+
+
+
+friday, march 09, 2007
+
+
+
+	 
+	 back online
+	 
+    
+
+
+yubnub is back online: http://help.textdrive.com/index.php?pg=forums.posts&id=461&pc=3 
+
+
+
+posted by jonathan at 3/09/2007 08:49:00 p.m.
+0 comments
+
+
+
+
+
+
+
+
+
+	 
+	 pendrell being rebooted
+	 
+    
+
+
+the server is down again. see http://help.textdrive.com/index.php?pg=forums.posts&id=461&pc=3
+
+
+
+posted by jonathan at 3/09/2007 07:23:00 p.m.
+0 comments
+
+
+
+
+
+
+
+
+
+	 
+	 reboot complete
+	 
+    
+
+
+the server is back up -  http://help.textdrive.com/index.php?pg=forums.posts&id=461&pc=2
+
+
+
+posted by jonathan at 3/09/2007 05:30:00 p.m.
+0 comments
+
+
+
+
+
+
+
+
+
+	 
+	 pendrell is being rebooted
+	 
+    
+
+
+note from my web host:"pendrell is down and is being rebooted"more info: http://help.textdrive.com/index.php?pg=forums.posts&id=461&pc=1
+
+
+
+posted by jonathan at 3/09/2007 03:36:00 p.m.
+0 comments
+
+
+
+
+
+
+thursday, march 08, 2007
+
+
+
+	 
+	 maintenance complete
+	 
+    
+
+
+yubnub is back online.
+
+
+
+posted by jonathan at 3/08/2007 10:07:00 p.m.
+1 comments
+
+
+
+
+
+
+
+
+
+	 
+	 down for maintenance
+	 
+    
+
+
+the server at yubnub's web host lost a drive; the raid is rebuilding. we'll be up again soon.more info: http://help.textdrive.com/index.php?pg=forums.posts&id=459&pc=2
+
+
+
+posted by jonathan at 3/08/2007 07:19:00 p.m.
+0 comments
+
+
+
+
+
+
+thursday, april 13, 2006
+
+
+
+	 
+	 pageflakes integration
+	 
+    
+
+
+pageflakes is one of those up and coming "ajax start pages" that are starting to become popular. anyway, christoph janz informed me that they've created a yubnub component. love the command history!
+
+
+
+posted by jonathan at 4/13/2006 03:48:00 p.m.
+9 comments
+
+
+
+
+
+
+sunday, april 09, 2006
+
+
+
+	 
+	 param rocks
+	 
+    
+
+
+just wanted to mention that allen ormond's "param" command is great. it lets you take an existing multiple parameter command like strreplace:strreplace -find a -replace o -string bananaand create an easier version of it (strrep in this case):strrep a; o; bananabasically it lets you separate parameters with semicolons instead of keywords.
+
+
+
+posted by jonathan at 4/09/2006 03:56:00 p.m.
+0 comments
+
+
+
+
+
+
+sunday, april 02, 2006
+
+
+
+	 
+	 allen ormond's eop command
+	 
+    
+
+
+allen just created a fantastic command called eop that makes it easy to create those commands that go to different urls depending on whether or not a parameter is given (example). the beauty part is that he fashioned it entirely out of existing yubnub commands. it is truly a work of art (and as with many commands, i haven't yet fully grokked how it works). check it out:ifthen -value1 {strfind -find ${token=@}${token=@} -string %s} -value2 0 -test equal -then {strreplace -find ${token=@} -replace -string %s} -else ${else}it's as elegant (and impenetrable :-) as a terse regular expression.
+
+
+
+posted by jonathan at 4/02/2006 10:23:00 a.m.
+3 comments
+
+
+
+
+
+
+tuesday, march 28, 2006
+
+
+
+	 
+	 yubnub down
+	 
+    
+
+
+not sure what's up - i've submitted a ticket to my web host (textdrive) to investigate.
+
+
+
+posted by jonathan at 3/28/2006 04:04:00 p.m.
+8 comments
+
+
+
+
+
+
+saturday, march 18, 2006
+
+
+
+	 
+	 yubnub scripting continues to evolve
+	 
+    
+
+
+people continue to push the boundaries of what can be done with scripting. on friday, stian haklev asked if there was a way to make a command that opens several browser tabs containing several command results. one day later, fuska announced the multitab command to do just that. multitab is a really beautiful command (and i do not fully grok the beauty quite yet) -open {strreplace -find ; -replace %7d;%7burl+${cmd}+ -string %7burl+${cmd}+%s%7d}
+
+
+
+posted by jonathan at 3/18/2006 12:16:00 p.m.
+0 comments
+
+
+
+
+
+
+tuesday, march 14, 2006
+
+
+
+	 
+	 free place to host php scripts: ning
+	 
+    
+
+
+if you need a place to host your php scripts, or if you just need somewhere to experiment with php, the company i work for (ning) offers free php hosting. actually the purpose of ning is to be a platform for social apps, but you can just as easily use it for yubnub scripts :-)
+
+
+
+posted by jonathan at 3/14/2006 10:28:00 p.m.
+0 comments
+
+
+
+
+
+
+
+
+
+	 
+	 updated: jeremy's picks of best yubnub commands
+	 
+    
+
+
+jeremy hussell has updated his list of the best yubnub commands, 7 months after his original list.
+
+
+
+posted by jonathan at 3/14/2006 10:25:00 p.m.
+2 comments
+
+
+
+
+
+
+saturday, march 11, 2006
+
+
+
+	 
+	 yubnub is rewiring my thought paths
+	 
+    
+
+
+from the yubnub google group:-----original message-----from: yubnub@googlegroups.com [mailto:yubnub@googlegroups.com] on behalf of elzrsent: saturday, march 11, 2006 6:23 pmto: yubnubsubject: yubnub is rewiring my thought paths.today, as i read through the morning sitting in a cafe, sipping a cold americano, and with no laptop handy, i found myself writing all sorts of notes and little reminders to myself in every scrap of paper i could get my hands on. what i found remarkable was not the actual content of the notes but the form they naturally took. i wrote "rae edomita" where i would have previously written "que significa edomita?" (spanish for "what does 'edomita' mean?"); "iy kingfisher bird" instead of "what does a kingfisher bird look like?"; "a markov process" instead of "find out what's a markov process."; "am gravity and grace" instead of "find out about this 'gravity and grace' book."; "wp edward fredkins" instead of "who is this edward fredkins?"; and so on, and so on...yubnub is rewiring my thought paths, i'm thinking in commands now! as i sat there pondering this epiphany, i thought i'd post to the yubnub group about it. i wrote something like "yubgrub -new yubnub is rewiring my thought paths." and the first thing i did as soon as i got near a computer was implement that little command (the rewiring goes both ways!).cheers to yubnub!
+
+
+
+posted by jonathan at 3/11/2006 10:53:00 p.m.
+0 comments
+
+
+
+
+
+
+monday, february 06, 2006
+
+
+
+	 
+	 (joke) yubnub o'reilly book cover
+	 
+    
+
+
+this (fake) yubnub o'reilly book cover was made by kai turner in response to the feverish activity on the yubnub google group that jacob ensor is stirring up with his yubnub aliases web app.
+
+
+
+posted by jonathan at 2/06/2006 10:16:00 p.m.
+3 comments
+
+
+
+
+
+
+monday, january 30, 2006
+
+
+
+	 
+	 the \\ command for auto-fixing typos in yubnub commands
+	 
+    
+
+
+i like the \\ command because it has a bit of a story to it. but first, what it does: it automatically corrects typos in your yubnub commands. for example, if you type \\ g paecekeepers, it will automatically convert this to "g peacekeepers" and do a google search for peacekeepers.the challenge was laid down by kore7 yesterday:wondering whether we couldn't use google to create a universal spell check  command as well. when an unrecognized word is submitted to google, it usually  returns with "did you mean: x?", where x is almost always what you meant to  type. i'm envisioning a yubnub prefix command called "?"...this seemed pretty hard to me, so i just gave some encouragement but didn't think it would be done, at least not anytime soon:heh - that's an interesting idea. perhaps the first step is to create a command called respell that returns the google-fixed spelling of a given word. once that's in place, it would be trivial to create the ? command.the indefatigable eliazar rose to the challenge and actually made an attempt:i managed to scrape google's spelling suggestion consistently with a command i created, sp1. now i want to work with this result but i'm not able to pipe this command...an hour and a half later, brian armknecht was inspired by eliazar's code and took it a step further:eliazar -- check out the ?> command.  i just built it based on your sp0 command. http://yubnub.org/kernel/man?args=?> i added an ifthen to return the original input if the spelling was correct. this seems to work with piping. e.g.: g {?> cmbodia}so, much of the hard work was done; what remained was to create a single command to tie everything together and answer kore7's original challenge. and that's what jacob ensor did, with assistance from anastas and myself:took me all day, but i've done it. i've implemented your spellcheck in this new command, check it out: \\descriptionchecks the spelling of your input of any yubnub command.example\\ gim cmbodia (performs a google image search for "cambodia")go ahead try it! awesome! lol.and it's funny how these wonderful advancements and incremental improvements build on the work of early yubnub pioneers and experimenters: fuska's % command for positional parameters, jeremy hussell's suggestion of a url command, sean o'hagan's ambitious scrape command, allen ormond's handy ifthen command.actually i feel moved as i consider all these people striving together to advance this idea of the url as command line.
+
+
+
+posted by jonathan at 1/30/2006 10:32:00 p.m.
+4 comments
+
+
+
+
+
+
+friday, january 27, 2006
+
+
+
+	 
+	 instant mashups: the "mash" command
+	 
+    
+
+
+the mash command is the inverse of the multi command mentioned earlier. instead of applying several words to a single command, it applies several commands to a single word. in other words, you can create instant mashups.so for example, you can mash up google images, yahoo images, and flickr: mash porsche gim yim flkor see how various dictionaries compare: mash antidisestablishmentarianism dic thes a encartahere's a combination of google maps and amazon: mash honolulu gmaps am
+
+
+
+posted by jonathan at 1/27/2006 11:12:00 p.m.
+7 comments
+
+
+
+
+
+
+
+
+
+	 
+	 the "multi" command: run several searches simultaneously
+	 
+    
+
+
+multi is an interesting yubnub command. you can use it to run several google searches simultaneously -- for example, multi gim porsche ferrari lamborghini bmw.or the same thing in yahoo: multi yim porsche ferrari lamborghini bmw.you can look up 5 dictionary definitions at the same time: multi a blog incumbent electoral insurgent hurricaneor have lottery numbers automatically chosen for you: multi random 49 49 49 49 49 49multi is composed of a few other commands. the ifthen and strlength commands were written by allen ormond. the % command (for positional parameters) was done by fuska. and the split command was done by yours truly!
+
+
+
+posted by jonathan at 1/27/2006 10:02:00 p.m.
+4 comments
+
+
+
+
+
+
+thursday, january 26, 2006
+
+
+
+	 
+	 yubnub 200-character url limit (bug) fixed by sean o'hagan
+	 
+    
+
+
+sean o'hagan has snatched the pebble from the master's hand.by examining the yubnub source code, sean found the cause of the bug preventing urls from exceeding 200 characters. this was proving quite problematic for the split command, which allows you to display several commands in split-screen mode (for example, gimyim porsche).as i have said many times, it takes a village to build a command line.
+
+
+
+posted by jonathan at 1/26/2006 10:50:00 p.m.
+0 comments
+
+
+
+
+
+
+saturday, january 21, 2006
+
+
+
+	 
+	 ">" - the universal i'm feeling lucky command
+	 
+    
+
+
+this evening, i found the following note in my inbox from fuska:cool!!! elzr, i love this commandit's like a universal "i'm feeling lucky" button.i think it deserves a golden egg right nowdid i say that i love it?fuska was raving about a new command called ">" -- not by fuska himself but by eliazar. i  dug through my mailbox and found eliazar's note announcing  the ">" command. it's a super-cool command:i read in a recent post about "amr" (amazon through google's feeling lucky) and thought it was a great idea. exploring yubnub i found a couple of other similar examples --"gww" (wikipedia through gfl), "lfl", and "amluck" (interestingly, it does basically the same as"amr")-- and thought that this could be an interesting pattern to exploit: using google's feeling lucky as a fast, efficient and direct gateway.being in love with yubnub, i thought about this in command terms and after some thinking came up with ">". i chose a symbol because i think it could become a fairly common command and because the syntax it allows is quite nice -- it makes me think of directness (->) and compression (><), which i think is appropriate. here's how it works: (from it's man page)--------------url: gfl site:{ extractdomainname { url {% 1 %s} } } {% 2- %s} [no url encoding]synopsis       > [yubnub command] [query]examples       > wp figures of speech       results: the article in the english wikipedia about figures of speech       > wpde jonathan ive       results: the article in the german (de!) wikipedia about jonathan ive       > am the future and its enemies       results: the page in amazon for viginia postrel's book the future and its enemies       > imdb amelie       results: the page in the imdb for le fabuleux destin d'amélie poulain       > cia india       results: the cia factbook entry for india. (and this is is a much convenient than just using "cia", since then you have to know the country two letter code.)       > cnn nyc transit workers       results: the cnn article "new yorkers walk as transit strike ruled illegal." this brings up a subtle point: this is not be the most recent article in the topic, but rather the most important article on cnn about nyc transit workers according to google. so ">" can be interpreted to mean: quick! take me to the most important page in this site related to this query.       > lj annzah       results: the livejournal user page of the user annzah.       > kottke just enough       results: kottke's post "just enough is more"       > / shockwave rider       results: an article in slashdot about schockwave riderdescription       in practice, what ">" does is search a "content" website through google for your query and send you straight to the first result. it is convenient because it builds on your knowledge of yubnub commands and because it is often more direct.       here's a more precise description:  yubnub generates a url by interpreting the 1st param as a yubnub command, it then extracts a domain name from that url and uses it to configure a google feeling lucky search for the 2nd param.--------------the command is far from perfect but i hope it's useful. the one think that's killing me is that it's slow! the domain extraction mini-script (man extractdomainname) is hosted on my server and that brings the total speed down. a command is as fast as it's slowest sub-command. this is a pity, google is pretty much as fast as you can be in the web. but more importantly, being fast is the raison d'etre of this command. suggestions please!oh, and this is the first yubnub command after "man" that eats (has as a parameter) other yubnub commands, right?cheers to yubnub!-eliazarelzr.com
+
+
+
+posted by jonathan at 1/21/2006 09:21:00 p.m.
+0 comments
+
+
+
+
+
+
+friday, january 06, 2006
+
+
+
+	 
+	 "if" command, by samuel hoffstaetter
+	 
+    
+
+
+samuel hoffstaetter obviously did a lot of work to create the new "if" command. one cool thing about it is that it builds on the landmark ifthen command created by allen ormond.anyway, here's if in all its glory:ifthen -value1 ${lt}${gt}${le}${ge}${eq}${ne} -value2 -test equal -then {ifthen -value1 %s -value2 false -test equal -then ${else} -else {ifthen -value1 %s -value2 no -test equal -then ${else} -else {ifthen -value1 %s -value2 0 -test equal -then ${else} -else {ifthen -value1 %s -value2 -test equal -then ${else} -else ${then} -redirect ${follow}} -redirect ${follow}} -redirect ${follow}} -redirect ${follow}} -else {ifthen -value1 %s -value2 ${lt}${gt}${le}${ge}${eq}${ne} -test {ifthen -value1 -value2 ${eq} -test equal -then {ifthen -value1 -value2 ${gt} -test equal -then {ifthen -value1 -value2 ${lt} -test equal -then {ifthen -value1 -value2 ${ge} -test equal -then {ifthen -value1 -value2 ${le} -test equal -then notequal -else lessequal} -else greaterequal} -else less} -else greater} -else equal} -then ${then} -else ${else} -redirect ${follow}}name    if - compare two values and return a value based on the result.synopsis    if  [-lt|gt|le|ge|eq|ne ] [-then ] [-else ] [-follow true|false]examples    if 1 -lt 2 -then yes -else no        (returns "yes" since "1" is less than "2")    if -eq ${var} -then yes -else no        (returns "yes" if var is empty, "no" otherwise)    if true -then yes -else no        (returns "yes")    if false -then yes -else no        (returns "no")    if abc -eq bcd -then http://google.com -else http://yahoo.com -follow true        (returns the yahoo! webpage)description    either compares two values, or checks for the truth of a value.    all values other than "false", "no", "0" and "" are interpreted    as true.    permitted comparisons are:        -lt       (less than)        -gt       (greater than)        -le       (less than or equal)        -ge       (greater than or equal)        -eq       (equal)        -ne       (not equal)    when checking if a variable is empty, the variable has to    be specified behind the comparison switch:        if -eq ${var} -then yes -else no    the following will not work:        if ${var} -eq -then yes -else no    if the -follow switch is set to "true", if tries to follow links    that begin with "http://". the default setting for -follow is "false".author    samuel hoffstaetter "http://shoffsta.linuxside.org/"    based on "ifthen" by allen ormond 
+
+
+
+posted by jonathan at 1/06/2006 09:16:00 p.m.
+0 comments
+
+
+
+
+
+
+wednesday, january 04, 2006
+
+
+
+	 
+	 firefox plugin for yubbing the highlighted text
+	 
+    
+
+
+michele has written a firefox plugin that takes the text you've highlighted in your browser and prompts you for a yubnub command to apply to it. all with a hotkey: ctrl+shift+k.a bit of a bear to install (gotta hunt for the download link then, once it's downloaded, drag the xpi file into firefox). interesting nonetheless!
+
+
+
+posted by jonathan at 1/04/2006 08:27:00 p.m.
+4 comments
+
+
+
+
+
+
+tuesday, january 03, 2006
+
+
+
+	 
+	 new rss feed for all commands
+	 
+    
+
+
+there are now two yubnub rss feeds: golden-egg commands, and all commands (the latter requested by shantanu oak).
+
+
+
+posted by jonathan at 1/03/2006 11:55:00 p.m.
+0 comments
+
+
+
+
+
+
+wednesday, december 28, 2005
+
+
+
+	 
+	 yubnub konfabulator widget by danny smith
+	 
+    
+
+
+danny smith has whipped up a snazzy yubnub konfabulator widget. works on windows and mac.
+
+
+
+posted by jonathan at 12/28/2005 07:23:00 p.m.
+5 comments
+
+
+
+
+
+
+friday, december 23, 2005
+
+
+
+	 
+	 copying a yubnub command to yahoo open shortcuts
+	 
+    
+
+
+the amazing fuska has come up with another amazing command. it's called copy and it copies any yubnub command to yahoo open shortcuts.the string of yubnub commands that fuska used to implement it is a thing of beauty:y !${action=set} ${name=%s} {url %s }{echops}
+
+
+
+posted by jonathan at 12/23/2005 11:38:00 a.m.
+0 comments
+
+
+
+
+
+
+
+
+
+	 
+	 integration with yahoo open shortcuts
+	 
+    
+
+
+shantanu oak has made an easy way to add yubnub to yahoo open shortcuts. just go here and press ok.then you can access all the yubnub commands! for example, !yb weather 90210
+
+
+
+posted by jonathan at 12/23/2005 10:50:00 a.m.
+0 comments
+
+
+
+
+
+
+friday, december 16, 2005
+
+
+
+	 
+	 positional parameters problem solved by fuska
+	 
+    
+
+
+fuska is very clever.he implemented  positional parameters by creating a command called %. yes it is called %. so essentially you can do % 1, % 2, % 3, etc.for example, the googlocal command:gloc -what {% 1 %s} -where {% 2 %s}[no url encoding]i was quite stunned when i saw this example, and it took me a couple of minutes to understand how % works its magic. i am so impressed.
+
+
+
+posted by jonathan at 12/16/2005 11:35:00 p.m.
+6 comments
+
+
+
+
+
+
+thursday, december 15, 2005
+
+
+
+	 
+	 yubnub module for the google personalized homepage
+	 
+    
+
+
+amazingly, chicagosage has created a yubnub module for the google personalized homepage.
+
+
+
+posted by jonathan at 12/15/2005 12:13:00 a.m.
+1 comments
+
+
+
+
+
+
+monday, december 12, 2005
+
+
+
+	 
+	 feature request: positional parameters
+	 
+    
+
+
+vincent borghi had an interesting feature request: positional parameters. so instead of typing    gloc -what pizza -where seattleyou could just go    gloc pizza seattlethe command itself would be written with $1, $2, ... to indicate the first word, second word, etc.would someone be willing to write (and host) a command (call it, say, positional) that other commands could in turn call?
+
+
+
+posted by jonathan at 12/12/2005 10:54:00 p.m.
+3 comments
+
+
+
+
+
+
+sunday, november 27, 2005
+
+
+
+	 
+	 ken allen's parameter trick
+	 
+    
+
+
+ken allen wrote me about a neat trick he used for the marchives command (for searching heavy-metal archives). first trick is that ${-} allows you to use "--" to separate two parameters (which looks kinda neat), as follows:marchives -t band -- funeral urnsecond trick is to use %s in case the user forgets or does not wish to use the -t or --, like so:marchives funeral urnhere's how he did it. note the ${-} and the %s:http://www.metal-archives.com/search.php?type=${t=band}&string=${-}%sthanks ken!
+
+
+
+posted by jonathan at 11/27/2005 12:47:00 a.m.
+0 comments
+
+
+
+
+
+
+monday, november 21, 2005
+
+
+
+	 
+	 screencast by don mcallister: yubnub + launchbar (os x) integration
+	 
+    
+
+
+don mcallister told me he's created a screencast on how you can integrate yubnub commands with launchbar (os x).
+
+
+
+posted by jonathan at 11/21/2005 10:48:00 p.m.
+2 comments
+
+
+
+
+
+
+
+
+
+	 
+	 yubnub bookmarklet by brian armknecht
+	 
+    
+
+
+brian armknecht has written a bookmarklet for yubnub (works on firefox; doesn't seem to work on ie). brian writes: "there are occasions where i'd like to perform a yubnub command on some text on a webpage (e.g. a word i'd like to define, or an address i'd like to map). i created a new yubnub bookmarklet for this. first highlight the text, then click the bookmarklet. a dialogue box pops up to ask the yubnub command to be used. it then performs that command on the highlighted text.". thanks brian!
+
+
+
+posted by jonathan at 11/21/2005 10:36:00 p.m.
+3 comments
+
+
+
+
+
+
+
+
+
+	 
+	 yubnub firefox toolbar by gabriel kent
+	 
+    
+
+
+gabriel kent has begun work on a firefox toolbar for yubnub. (pretty website too, btw). it's currently quite simple, and gabriel is inviting people to help out.
+
+
+
+posted by jonathan at 11/21/2005 10:09:00 p.m.
+2 comments
+
+
+
+
+
+
+monday, november 07, 2005
+
+
+
+	 
+	 generating dynamic web pages with yubnub
+	 
+    
+
+
+shantanu oak (who has been doing some neat yubnub experiments that i want to blog about sometime) makes this interesting observation on the mailing list:yubnub can be used to create web pages on the fly.for e.g.echo hello {echoshortcut staff}, <br> {echoshortcut confirm}<p> regards,<br> {echoshortcut shantanu}typing this command will generate a web page with the contents stored in the alias confirm. as you can see, you can store anything in the alias, an email, a message, a url or even a picture! (coming soon)you can print, bookmark or include (using php) the auto-generated page.ysps, anyone?
+
+
+
+posted by jonathan at 11/07/2005 11:31:00 p.m.
+0 comments
+
+
+
+
+
+
+sunday, october 30, 2005
+
+
+
+	 
+	 yubnub mobile + skweezer
+	 
+    
+
+
+phil bogle has created a yubnub mobile page with a twist: it uses skweezer to strip pages down to a mobile-friendly format: if you want to use phil's service directly, use this url: http://thebogles.com/tools/yubnub.py?q= (if you've got a pocket pc or smartphone, this works great with multiie, which lets you enter yubnub commands in the browser address bar).
+
+
+
+posted by jonathan at 10/30/2005 08:20:00 a.m.
+1 comments
+
+
+
+
+
+
+
+
+
+	 
+	 easier yubnub installation in safari
+	 
+    
+
+
+noah mittman has come up with an easier way to add yubnub to the safari search bar: "just wanted to let you know there is a freeware safari add-on called acidsearch that works very well with the site. it allows users to configure their own searches into the field normally locked to google. a nice touch is that there is a panel built-in that lets users select and contribute search strings, so i've added yubnub to the list. so if you wanted, you could tell people to install acidsearch and choose yubnub from the "more channels..." list as way to install yubnub into safari."thanks noah!
+
+
+
+posted by jonathan at 10/30/2005 08:02:00 a.m.
+0 comments
+
+
+
+
+
+
+
+
+
+	 
+	 installing yubnub in firefox - detailed instructions
+	 
+    
+
+
+someone wanted instructions for installing yubnub in the firefox search bar. here's how:1. to install yubnub, first go to: http://mycroft.mozdev.org/search-engines.html?name=yubnub&opensearch=yes2. click "yubnub". you will be prompted to add yubnub to your search bar.3. click ok.4. click on your search bar to change the search engine from google to yubnub (the blue "y")5. and you're done! now you can type the various yubnub commands into the search bar: g turtles, gim turtles, tec turtles, yim turtles, etc.
+
+
+
+posted by jonathan at 10/30/2005 07:44:00 a.m.
+10 comments
+
+
+
+
+
+
+wednesday, september 21, 2005
+
+
+
+	 
+	 using yubnub to recall short snippets of text
+	 
+    
+
+
+sometimes i'm not in the mood for instant messaging. i'd like to have at hand a standard reply that i can paste into my chat client whenever i don't feel like engaging in an im conversation. so i decided to create a yubnub command called jon-auto that displays a short snippet of text that i can paste into the im window. the code for jon-auto is very simple:echo auto-response: jon may not be in the mood for chatting right now. please leave a message.it just uses the echo command to display a snippet of text.is yubnub the (social) clipboard of the web?
+
+
+
+posted by jonathan at 9/21/2005 10:35:00 p.m.
+0 comments
+
+
+
+
+
+
+monday, september 12, 2005
+
+
+
+	 
+	 yubnub slow
+	 
+    
+
+
+i'm finding that yubnub is very slow today. i traced the problem down to the redirects -- evidently there is a bug in lighttpd 1.4 where redirects take around 30 seconds. since yubnub's sole purpose is to do redirects, this is not good.i have submitted a trouble ticket to my web host to try the workaround mentioned in the above article. so hopefully yubnub will be fast again soon.
+
+
+
+posted by jonathan at 9/12/2005 08:36:00 p.m.
+0 comments
+
+
+
+
+
+
+sunday, september 11, 2005
+
+
+
+	 
+	 yubnub tip: if it's slow, give it another kick
+	 
+    
+
+
+sometimes i find yubnub stalls for some reason, and if i run the command a second time it's quick. so if you find yubnub is taking a while, just try entering your command again. in other words, give it a swift second kick!
+
+
+
+posted by jonathan at 9/11/2005 08:42:00 p.m.
+0 comments
+
+
+
+
+
+
+
+
+
+	 
+	 yubnub article in maisonneuve magazine by mathieu balez
+	 
+    
+
+
+mathieu balez (who pops into the yubnub forums now and then) writes for a magazine called maisonneuve: eclectic curiosity. he's written an inspiring 2-page article on yubnub entitled yubnub is your new internet dashboard:but unlike google, yubnub can leverage (i.e., get inside and pull information from) almost any other search utility on the web today, and not just find pages strictly under the purview of the googleplex.mathieu writes clearly -- it's a great article for explaining to people what yubnub is. go mathieu!
+
+
+
+posted by jonathan at 9/11/2005 08:15:00 p.m.
+0 comments
+
+
+
+
+
+
+
+
+
+	 
+	 yubnub gnome/linux integration
+	 
+    
+
+
+nigel tao has made a video showcasing his gnome/linux deskbar, which features integration with yubnub -- just start by typing a backtick (`). nigel's deskbar does lots of other nifty things, like searching your mail and integration with beagle desktop search. neat!
+
+
+
+posted by jonathan at 9/11/2005 08:01:00 p.m.
+0 comments
+
+
+
+
+
+
+sunday, august 28, 2005
+
+
+
+	 
+	 yubnub down for server move
+	 
+    
+
+
+alright everyone, yubnub's down for a bit as our web host (textdrive) upgrades the server on which yubnub resides ("pendrell"). apparently the new dell machines are going to be a lot more reliable, so we'll see a lot less downtime once it's up and running. textdrive is posting status updates on its weblog -- look for the server named "pendrell".this is evidently a major upgrade, so hang on tight!
+
+
+
+posted by jonathan at 8/28/2005 08:56:00 p.m.
+0 comments
+
+
+
+
+
+
+friday, august 26, 2005
+
+
+
+	 
+	 first command to use ifthen command
+	 
+    
+
+
+wow! fuska sent me an email about a command he created called microsiervos. the cool thing about this command is that it is the first command to use allen ormond's ifthen command. and it does what some of you have requested: go to one url if an argument is given; another url if no argument is given. i was not aware that the problem could be solved in this way. fuska writes:i created a new command to search in microsiervos.com a spanish blog that i recommend you (it isn`t mine). the interesting thing about this command is that this is the first command which uses the ifthen command. at least i didn't find any other command. the ifthen command changes the url pointing to the main page(if there isn't search query) or to the search page the code of the command is this:  http://www.microsiervos.com{ifthen -value1 %s -value2 -test notequal -then /msmt/mt-search.cgi%3fincludeblogs=1%26search=%s}and this is the man page:http://yubnub.org/kernel/man?args=microsiervosi'm really impressed! it takes a village to build a command line!!
+
+
+
+posted by jonathan at 8/26/2005 08:16:00 p.m.
+3 comments
+
+
+
+
+
+
+tuesday, august 16, 2005
+
+
+
+	 
+	 jon away aug 18-22
+	 
+    
+
+
+i'll be away august 18-22 at the foo camp tech conference in sebastopol, california. if you send me an email i might not have a chance to get back to you until i'm back home in victoria.
+
+
+
+posted by jonathan at 8/16/2005 09:15:00 p.m.
+2 comments
+
+
+
+
+
+
+saturday, august 13, 2005
+
+
+
+	 
+	 playstation portable integration
+	 
+    
+
+
+brenden mecleary has created a  yubnub page optimized for playstation portables. brenden writes: "yubnub seemed a  good choice because (a) i think it's a really killer idea and  (b) text entry on the psp is a nightmare, so anything to save a  few keystrokes is welcome, and yn seems well-suited to that.".
+
+
+
+posted by jonathan at 8/13/2005 12:14:00 p.m.
+0 comments
+
+
+
+
+
+
+
+
+
+	 
+	 allen ormond's programmatic commands
+	 
+    
+
+
+allen ormond has written some new commands that are programming-language-like. is yubnub turning into a scripting language? ifthen - if statement  strleft - returns the left portion of the string  strright - returns the right portion of the string  strlength - returns the length of the string  
+
+
+
+posted by jonathan at 8/13/2005 08:32:00 a.m.
+0 comments
+
+
+
+
+
+
+friday, august 12, 2005
+
+
+
+	 
+	 yubnub server status
+	 
+    
+
+
+the web server on which yubnub sits is having some problems. the name of the server is pendrell -- status updates here: http://status.textdrive.com/
+
+
+
+posted by jonathan at 8/12/2005 01:45:00 p.m.
+1 comments
+
+
+
+
+
+
+saturday, august 06, 2005
+
+
+
+	 
+	 yubnub search bar - works in any browser
+	 
+    
+
+
+inspired by felipe gomes' google command line, sean o'hagan has written a neat yubnub search-bar that lives at the bottom of your browser. the neat thing about it is that it works in almost any browser, because it uses a simple html frame. to start it up, simply type cmdline into yubnub. then try typing "gim porsche" into the command-line at the bottom of the screen (or a url like google.com).
+
+
+
+posted by jonathan at 8/06/2005 12:54:00 p.m.
+10 comments
+
+
+
+
+
+
+tuesday, august 02, 2005
+
+
+
+	 
+	 update to jeremy's picks of the best yubnub commands
+	 
+    
+
+
+jeremy hussell has updated his list of the best yubnub commands.
+
+
+
+posted by jonathan at 8/02/2005 11:20:00 p.m.
+4 comments
+
+
+
+
+
+
+friday, july 29, 2005
+
+
+
+	 
+	 yubnub konfabulator widget (windows)
+	 
+    
+
+
+zheng has created a  konfabulator widget for yubnub. more details on his blog post  (english,  chinese).   
+
+
+
+posted by jonathan at 7/29/2005 11:20:00 p.m.
+3 comments
+
+
+
+
+
+
+
+
+
+	 
+	 blackberry yubnub integration with berry411
+	 
+    
+
+
+blackberry integration. wired dude dave gives instructions on how to add yubnub to your blackberry mobile device: i did something similar with  berry411 (an awesome search client  for the blackberry). i just edited a new "plugin" feature to have a search string look like  http://yubnub.org/parser/parse?command=%s update: berry411 creator phillip bogle has added yubnub to berry411, so you can now type "yn: gim porsche" into your blackberry. for more information, see phillip's post. here's a nice pic of yubnub on the blackberry, from wired dude dave:   
+
+
+
+posted by jonathan at 7/29/2005 10:54:00 p.m.
+0 comments
+
+
+
+
+
+
+saturday, july 23, 2005
+
+
+
+	 
+	 jeremy's picks
+	 
+    
+
+
+jeremy hussell has created an insightful page describing his picks for the best yubnub commands.
+
+
+
+posted by jonathan at 7/23/2005 01:11:00 p.m.
+4 comments
+
+
+
+
+
+
+
+
+
+	 
+	 call for awk, sed, grep, sort, tr commands
+	 
+    
+
+
+sean o'hagan (who has been working on html- and xml-parsing commands for yubnub) asks: "thinking more about pipes and such, i thought that it'd be great if someone could (create and) host web versions of common pipe and filter commands like: awk, sed, grep, sort, tr, etc. (and commands from other operating systems too of course)"would someone be willing to create yubnub commands for awk, sed, grep, sort, tr, etc.? i suppose all you'd need to do would be to create php scripts (or whatever) that delegated to the real unix commands to do the heavy lifting. if the user passed you a url, i guess you could pipe in the text using lynx.warning: this is a cpu/bandwidth intensive job! you might want to check the specs on your web server before contributing these commands!
+
+
+
+posted by jonathan at 7/23/2005 12:22:00 a.m.
+0 comments
+
+
+
+
+
+
+friday, july 22, 2005
+
+
+
+	 
+	 yubnub down because of maintenance at textdrive
+	 
+    
+
+
+my super web host textdrive is doing maintenance on yubnub's server ("pendrell") so it will be down for a little bit. you can check on the status of pendrell here: http://status.textdrive.com/
+
+
+
+posted by jonathan at 7/22/2005 10:28:00 p.m.
+0 comments
+
+
+
+
+
+
+wednesday, july 20, 2005
+
+
+
+	 
+	 yubnub + google earth mashup
+	 
+    
+
+
+i. am. astonished. stefan geens has made a command called gearth that launches google earth with the address you give it. he made a php script that generates kml ... i'll let him do the explaining.
+
+
+
+posted by jonathan at 7/20/2005 11:55:00 p.m.
+0 comments
+
+
+
+
+
+
+
+
+
+	 
+	 windows/linux/macosx/python integration
+	 
+    
+
+
+steve milner  has created a set of programs that allow access directly to yubnub directly from your computer (os x, linux or windows). he calls it yubutils, and it has three parts: a gui for yubnub, a  command-line interface, and a python library:    
+
+
+
+posted by jonathan at 7/20/2005 07:43:00 p.m.
+0 comments
+
+
+
+
+
+
+tuesday, july 19, 2005
+
+
+
+	 
+	 improved random command, by richard frankel
+	 
+    
+
+
+richard has made an improvement to the random command, allowing you to specify the min, the max, and how many numbers to generate.examples: random 100 random -min 1998 -max 2005  richard's command is especially cool because you can combine it with other commands. for example, we can type fspell {random 10000} to generate a series of flickr images, one for each digit of a random number from 1 to 10000, using eric kastner's fspell command.and continuing our penny arcade example, you can get a random penny arcade comic from the last 365 days by typing in: paview {date -format y-m-d -offset -{random 365}}  neat!
+
+
+
+posted by jonathan at 7/19/2005 12:37:00 p.m.
+2 comments
+
+
+
+
+
+
+saturday, july 16, 2005
+
+
+
+	 
+	 ok we've got pipes! how to combine yubnub commands together.
+	 
+    
+
+
+alright, we now have a way to chain commands together (but our work is not yet done, as i will explain in a moment).for example, to see the penny arcade comic from a week ago, we can combine the paview and date commands as follows:paview {date -format y-m-d -offset -7}type that into yubnub and you will be taken to last week's penny arcade comic:so to use the output of one command as the parameter for another, simply enclose the command in {curly brackets}.and that's not all. if you find yourself often typing paview {date -format y-m-d -offset -${age=7}}, you can make a new command for it. just make a new command called paview2 with the following url:paview {date -format y-m-d -offset -7}no that is not a typo -- you type the same thing into the create new command box as you do into the yubnub command line. in other words, you can create new commands by combining existing ones together. so now you can type paview2 and it will take you to last week's penny arcade comic.we can even make a paview3 command that is a bit more flexible. this third version will let you optionally specify the age of the penny arcade comic that you want, in days (see advanced syntax for more information on parameters and default values). give paview3 the following url:paview {date -format y-m-d -offset -${age=7}}now you can type paview3 to get last week's comic, or paview3 -age 20 to get the comic from 20 days ago, etc.note that this technique cannot be used to pass huge chunks of text between commands. this technique is used to pass small snippets of text, which is perfect for specifying parameters as in the examples above.i said at the start of this post that our work is not yet done. we need more little commands (like echo, date, and url) that generate useful snippets of text that can be inserted into other commands. we also need a screen-scraper command to make it easier for people to make these little commands. sean o'hagan is working on a screen-scraper -- alternative implementations are also welcome.i would like to acknowledge two people who have been doing r&d on combining commands together: erik kastner and richard frankel. i would also like to acknowledge the ideas of several individuals regarding syntax and implementation -- these include bill katz, nick fortune, michael pacchioli, ciro mondueri, alex ksikes (alex has a ton of ideas) and more recently: jeremy hussell, mathieu balez, and sean o'hagan.
+
+
+
+posted by jonathan at 7/16/2005 04:10:00 p.m.
+6 comments
+
+
+
+
+
+
+thursday, july 14, 2005
+
+
+
+	 
+	 "url" command, suggested by jeremy hussell
+	 
+    
+
+
+introducing a new yubnub core command, url, which will help people who are experimenting with chaining yubnub commands together (like sean o'hagan and erik kastner).url simply converts a yubnub command into a url. for example,  url gim porsche 911displays the following text:http://images.google.com/images?q=porsche+911for the syntax for combining commands, i will probably go with jeremy hussell's suggestion of { curly brackets }. i envision it working both at "compile time" and at "runtime"; that is, both in the add command screen and at the yubnub command line. tony pitale has suggested a "today" command, and this would be a perfect application, both at compile time and runtime: {today -format yyyymmdd -offset 15}
+
+
+
+posted by jonathan at 7/14/2005 09:39:00 p.m.
+1 comments
+
+
+
+
+
+
+sunday, july 10, 2005
+
+
+
+	 
+	 an idea for combining commands: ${...} rather than pipes
+	 
+    
+
+
+today i was talking with michael pacchioli about the syntax for combining commands. i'm leaning toward using ${...} (i can't remember who suggested it to me a few weeks back).something like:gim ${parse ${gnews royal wedding}}well, it will unfortunately be uglier than that (especially the parse command), but that's the idea. basically using a command called "parse" to extract a short snippet of text to pass to the outer command as a parameter.sean o'hagan is doing some great work on a parser.php script that i would like to use for the parse command.
+
+
+
+posted by jonathan at 7/10/2005 06:38:00 p.m.
+16 comments
+
+
+
+
+
+
+
+
+
+	 
+	 tip: bookmarklet for creating those post urls
+	 
+    
+
+
+as you probably know, you can tell yubnub to do a post instead of a get by putting [post] somewhere in the url when you create the command (thank sean o'hagan for adding that capability).but it can be a headache to try to construct the url by looking at the html source. so go to  stephen ostermiller's bookmarklets and drag his "forms to get" bookmarklet to your toolbar. then press it to convert that post form to a get form so you can see the parameters in your address bar when you submit it.
+
+
+
+posted by jonathan at 7/10/2005 06:31:00 p.m.
+0 comments
+
+
+
+
+
+
+saturday, july 09, 2005
+
+
+
+	 
+	 yubnub mobile page, by sean bonner
+	 
+    
+
+
+sean bonner has made a little yubnub mobile page that is optimized for mobile devices (like his treo). 
+
+
+
+posted by jonathan at 7/09/2005 09:47:00 a.m.
+1 comments
+
+
+
+
+
+
+tuesday, july 05, 2005
+
+
+
+	 
+	 default values for multiple parameters
+	 
+    
+
+
+ok you can now specify default values for your parameters (syntax suggested by christopher church). continuing our pizza example, here we specify the default "what" to be "tennis shoes", and the default "where" to be "washington, dc":http://www.google.com/local?sc=1&hl=en&q=${what=tennis shoes}&near=${where=washington, dc}&btng=google+search&rl=1now if the user does not specify a "what"...  gloc -where poughkeepsie, ny  ...it will default to "tennis shoes" and they will be taken to...  http://www.google.com/local?sc=1&hl=en&q=tennis+shoes&near=poughkeepsie%2c+ny&btng=google+search&rl=1 similarly, if they do not specify a "where", it will default to "washington, dc".
+
+
+
+posted by jonathan at 7/05/2005 10:22:00 p.m.
+2 comments
+
+
+
+
+
+
+saturday, july 02, 2005
+
+
+
+	 
+	 experimentation with pipes (sorta)
+	 
+    
+
+
+well, there is research being done on making pipes for yubnub commands, and it isn't being done by me! erik kastner (creator of the spell with flickr website that's been making the rounds) is experimenting with combining yubnub commands. from erik's email:i made a new yubnub command"chain" -- a way to chain commands together. it's very beta right now and only supports: ftot (my new command for making an atom feed into text- which is broken b/c of an apache thingie) fspell random  example: chain random 42 fspellerik is taking us the first few steps into the dream: combining yubnub commands together. this is the inflection point, the singularity. on the day that yubnub commands can truly, freely interact with each other, great things will happen.update: eric sends me this in an email: chain ftot -url http://aom.metaatem.info/person/kastner/feed -titles 1 -bodies 1 -limit 1 fspell  looks like it's beginning to really take shape!
+
+
+
+posted by jonathan at 7/02/2005 10:13:00 a.m.
+0 comments
+
+
+
+
+
+
+friday, july 01, 2005
+
+
+
+	 
+	 auto-translating the current page
+	 
+    
+
+
+yubnub can be useful in so many ways. for example, let's say you go to a page in another language. here's one written in ... spanish, i guess? anyway, i don't need to know because the autotr command will figure out what language it is in and convert it to english for me. and if you've installed yubnub as a keyword in your browser, all you need to do is stick a "y autotr" before the url in your address bar, and presto, it's automatically translated into english for you!this technique also works great for the "tiny" command (which turns very long urls into very short ones). just stick a "y tiny" before the url in your address bar, and tiny will convert it to a tiny url.
+
+
+
+posted by jonathan at 7/01/2005 08:54:00 p.m.
+0 comments
+
+
+
+
+
+
+
+
+
+	 
+	 now there's a way to test your commands
+	 
+    
+
+
+i just finished implementing a  good suggestion from jürgen antes and jeremy hussell: give yubnub a way to let you test your command before you submit it.
+
+
+
+posted by jonathan at 7/01/2005 08:39:00 p.m.
+4 comments
+
+
+
+
+
+
+
+
+
+	 
+	 yubnub smartphone/pocketpc installation
+	 
+    
+
+
+if you have a smartphone or pocketpc and surf the web with  multiie, you can turn your address bar into a yubnub command line: just go to multiie options > misc > address bar macros > open button custom 1, then type in the following: http://yubnub.org/parser/parse?command=#^;-yubnub (as shown below). you will then be able to enter a yubnub command (like "gim porsche 911") then click yubnub (as shown above).
+
+
+
+posted by jonathan at 7/01/2005 04:58:00 p.m.
+4 comments
+
+
+
+
+
+
+
+
+
+	 
+	 turning off url encoding
+	 
+    
+
+
+normally yubnub will apply "url encoding" to parameters. for example, "gim mork & mindy" gets turned into http://images.google.com/images?q=mork+%26+mindy (note that the & became +%26+). this is what works for most websites. however, w. van hooste pointed out that this does not work for the internet archive wayback machine. to tell yubnub to turn off url encoding, include the following text somewhere in your url: [no url encoding]for example, if you make a command called arch with the following url... http://web.archive.org/web/*/%s[no url encoding]...when the user types... arch http://www.ing.be/...they will be taken to... http://web.archive.org/web/*/http://www.ing.be/if you hadn't specified [no url encoding], the user would have been taken to http://web.archive.org/web/*/http%3a%2f%2fwww.ing.be%2f
+
+
+
+posted by jonathan at 7/01/2005 11:23:00 a.m.
+2 comments
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+yubnub
+server status ("pendrell")
+jon's blog
+
+
+archives
+
+june 2005
+july 2005
+august 2005
+september 2005
+october 2005
+november 2005
+december 2005
+january 2006
+february 2006
+march 2006
+april 2006
+march 2007
+april 2007
+may 2007
+june 2007
+july 2007
+august 2007
+september 2007
+october 2007
+may 2009
+july 2009
+december 2010
+january 2011
+june 2011
+august 2012
+may 2013
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+

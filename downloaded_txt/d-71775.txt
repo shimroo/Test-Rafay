@@ -1,0 +1,142 @@
+
+
+
+in memory of chicagocrime.org | holovaty.com
+
+
+
+
+
+
+
+
+adrian holovaty > writing
+
+in memory of chicagocrime.org
+written by adrian holovaty on january 31, 2008
+
+it's with mixed feelings that i announce the end of one of my projects, chicagocrime.org. this site has been serving chicago residents since may 2005. i hope you'll indulge me in a brief retrospective.
+
+chicagocrime.org was one of the original map mashups, combining crime data from the chicago police department with google maps. it offered a page and rss feed for every city block in chicago and a multitude of ways to browse crime data — by type, by location type (e.g., sidewalk or apartment), by zip code, by street/address, by date, and even by an arbitrary route. the new york times magazine featured it in its 2005 "year in ideas" issue, and it won the 2005 batten award for innovations in journalism.
+it's been a fun ride. when i launched the site, google maps hadn't yet released the mapping api that's so common — even passé? — today. i can't help but feel like an old-timer: "back in my day, we had to reverse-engineer google's obfuscated javascript just to get maps embedded on our own sites!" now it seems like every other web site finds an excuse to use those familiar, bubbly, yellow-white-blue-pastel map tiles.
+chicagocrime.org wasn't the first google maps mashup. that honor belongs to paul rademacher's housingmaps, which, at that time, was modestly titled "craigslist + google maps." the straightforwardness of that original title illustrates the excitement of it all: just the mere fact that somebody had mixed craigslist data with google's maps was new and remarkable. kudos to paul for keeping the site up and running for all these years. not only was it a groundbreaking technical achievement; it remains genuinely useful.
+a lot of good has come out of chicagocrime.org. at the local level, countless chicago residents have contacted me to express their thanks for the public service. community groups have brought print-outs of the site to their police-beat meetings, and passionate citizens have taken the site's reports to their aldermen to point out troublesome intersections where the city might consider installing brighter street lights.
+it's done some good on a larger scale, too. the site helped influence google to open up its mapping api for all to use. it inspired at least a dozen "spin-off" sites in other cities, from berkeley to new haven to houston — most of whose designs were very similar to wilson's beautiful chicagocrime.org design. and the site's slashdotting forced me to write parts of django's cache system. (django itself was released open-source two months later; chicagocrime.org was the first public django-powered site not run by the lawrence journal-world.)
+a few weeks ago, i received an e-mail from the folks at amazon ec2, where the crime site is hosted, saying the server instance that houses the site will be terminated on february 15 — and that it will no longer be accessible after january 31. this is happening because i was an early user of ec2 and their network has gone through some changes that require all customers of a certain tenure to rebuild their servers. instead of going through the hassle of upgrading my server instance, i'll let the amazon staff shut it down on thursday. all pages will redirect to the appropriate pages on my newest project, everyblock.
+in many ways, everyblock is the next generation of chicagocrime.org. i've often described it to people as "chicagocrime.org on steroids — more than just crime, and more than just chicago." it's brought to you by the same people (wilson and me from chicagocrime.org, plus paul and dan, who've worked on similar projects), and it has the same philosophies. as we developed everyblock, we kept chicagocrime.org firmly in our minds — this new thing we were making had to be a superset, an expansion, a significant step forward. so there's almost nothing you could do on the old chicagocrime.org that you can't do on everyblock. and, unlike chicagocrime.org, which was always a side project, everyblock has a team of four people improving it full-time, meaning we have the resources to add features, such as e-mail alerts (just added yesterday), that chicagocrime.org never had. we hope everyblock is a worthy successor.
+this story has a fitting epilogue. in just a few weeks after chicagocrime.org goes offline, the site will be featured in an exhibition at new york's museum of modern art, called design and the elastic mind. chicagocrime.org will have ended its life and become a museum piece.
+
+comments
+
+posted by oscar on january 31, 2008, at 7:58 a.m.:
+wow. mixed feelings indeed, as a huge fan of you and django chicagocrime.org has somewhat always meant something. may it rest in peace...
+
+
+posted by guillaume on january 31, 2008, at 9:57 a.m.:
+bravo for this this site, that's was a very good service. you should write an advertisement about that on chicagocrime.org homepage so people will not be surprised tomorrow.
+
+
+posted by tim lucas on january 31, 2008, at 10:38 a.m.:
+though everyblock is a worthy successor to chicago crime it's a shame the chicago crime site won't exist for posterity's sake. all those inbound links citing it as a change-maker and example will now redirect to everyblock. i'm sure you don't mind getting all the inbound links for free but it might come as a surprise and disappointment to some. an alternative solution would be to simply keep the site live, w/o maintainance, but indicating the site's been superceded by everyblock and providing a link to the newer, superior site. i appreciate it's your prerogative, but i know i and a few others i've spoken too would have definitely preferred chicagocrime to hang around. congrats on the launch of everyblock! very excited team you must have at the mo.
+
+
+posted by martin on january 31, 2008, at 11:23 a.m.:
+adrian - just out of curiosity...will you be using ec2 for everyblock.com as well?
+
+
+posted by olly jackson on january 31, 2008, at 11:38 a.m.:
+wow, a sad day indeed adrian, but then everyblock is a worthy successor. i still remember the good old days when i was emailing you for advice on setting up the mapping at http://googlesightseeing.com. ahh, good times.
+
+
+posted by patrick beeson on january 31, 2008, at 12:58 p.m.:
+while i'm sad to read chicagocrime will be gone, everyblock is indeed a worthy successor.would it be possible to open-source the code in some manner to contribute to the django community? of course, since it's running on a very early codebase this might not be reasonable.
+
+
+posted by emad on january 31, 2008, at 3:29 p.m.:
+sorry to see it go, adrian...but i like everyblock and look forward to seeing more from it. :-)
+
+
+posted by adam on january 31, 2008, at 4:10 p.m.:
+agreed w/ tim about passing  on all the well-deserved linking power to a site that may/may-not deserve it.
+
+
+posted by john m on january 31, 2008, at 4:35 p.m.:
+i can appreciate the feelings of shutting down a project you have pride in.  congrats, and the future holds great promise.john
+
+
+posted by adrian on january 31, 2008, at 5:23 p.m.:
+martin: no, we're not using ec2 for everyblock. we're using media temple, which we've been extremely happy with.
+
+
+posted by hylton jolliffe on january 31, 2008, at 5:39 p.m.:
+adrian - congrats on a great run. i remember well its debut (as well as other past projects of yours) and appreciating where you and the web in general were headed with all these tools - sent it on to lots of people at the time. good luck with everyblock
+
+
+posted by microsoft on january 31, 2008, at 5:57 p.m.:
+this reads like a microsoft blog post. "we're killing this thing, which works perfectly well, but it's because our other thing is more better for you the customer, and our decisions are always all about you the customer...."but of course, it's about marketing. you've got a new for-profit venture and so you want to take some of the chicagocrime juice and feed that in to your every whatever.
+
+
+posted by adrian on january 31, 2008, at 6:07 p.m.:
+microsoft -- i'm sorry you think that. :-(
+
+
+posted by jeff barr on january 31, 2008, at 6:46 p.m.:
+hi adrian, it wouldn't be that hard to create an ami with this code and to get it running on a new-style ec2 instance. if you want me to get you some help with this, drop me a line asap (jbarr at amazon dot com).
+
+
+posted by andrew on january 31, 2008, at 6:53 p.m.:
+just a quick note - thank you so much for chicago crime, even for those of us nowhere near chicago. i used it as an example in a seminar i gave explaining the new web to physicists; it helped really open their eyes to what we could now do with the data we've got access to.
+
+
+posted by brian drum on january 31, 2008, at 7:16 p.m.:
+congratulations on the moma exhibit—i've always considered chicagocrime.org to be a landmark web site.
+
+
+posted by paul rademacher on january 31, 2008, at 8:33 p.m.:
+the end of an era for sure, adrian.  i was proud to be listed beside your site the last couple of years.  in a time like this, my emotions are best expressed by the classic words of captain kirk:   http://www.youtube.com/watch?v=2x6i6id6rr0good luck with everyblock, adrian!!  it looks great, and it makes perfect sense to roll chicagocrime's functionality into it.
+
+
+posted by yarko on january 31, 2008, at 8:49 p.m.:
+any thoughts on expanding "city" to "metro area"?   there must be challenges with this.  i would be interested if there are any requirements  for communities that might want to be included - i can imagine businesses (restaurants, music venues, etc) and neighboring communities.   would be nice to have some common model.
+
+
+posted by kyle fox on january 31, 2008, at 9:22 p.m.:
+congrats, good luck with everyblock.  it blows my mind, and the mind of anyone to whom i show it.as patrick suggested, it would be awesome if you could release the code for chicagocrime.org :)  i'd love to see a large, real-world django project built by the most knowledgeable django developer out there.
+
+
+posted by justin bronn on february 1, 2008, at 6:49 a.m.:
+.sorry to see it go, but everyblock is a worthy heir.  thanks for the inspiration -- it has taken me way beyond placing points on a map.
+
+
+posted by andre natta on february 1, 2008, at 9:01 p.m.:
+it's definitely bittersweet, though the fact that everyblock is launched means that it will in fact still live on. i'm looking forward to the day when we can have this down here in birmingham.
+
+
+posted by david on february 3, 2008, at 1:32 a.m.:
+i was in awe at what you did from seeing chicago crime.org for the first time at the batten awards and stil am, taking every opportunity to give web novices i come by a piece of contemporary net history in chicago crime. if you'd like to reminisce some more you can see the video report from the batten awards 2005 and the wee interview you give.  http://www.viewmagazine.tv/battenawards2005.html. ( i should out in on youtube)good luck with whatever other projects you're pursuing. i imagine you gave chicago police force reasons to make your site their home page. given the situation in the uk, a londoncrime wouldn't go amiss. david1st place batten awards
+
+
+posted by ryan on february 4, 2008, at 4:21 a.m.:
+chicagocrime.org had a great interface.compared to it, everyblock seems like a toy version.first, everyblock won't let me focus on a specific block. cc gave you data for the block you were interested in, with the option to zoom out to a 2 - 4 block radius. everyblock only gives you a zoomed out view, so there's lots of data i don't really care about.on cc, when zoomed all the way in, i saw all the crimes from all dates. (actually, the last 25 or something, but often that covered over a year's worth of data).  with everyblock, the map only shows very recent crimes. i see no way of showing crimes on the map from say, last month.in other words, let's say i'm looking for a new apartment, and i want to focus on a specific address, and visually see all the crimes in a 1 or 2 block radius, from the last year, on a map - i can't do that anymore!wasn't that one of the best uses for chicagocrime?also, everyblock puts the map and the listing of crimes on two separate pages, instead of on the same page as cc did.why? it's just frustrating. if this was done to allow for a larger map, why not just stick the crime list under the map?everyblock looks interesting, and i will definitely play around with it.  but it can't do what i used chicagocrime for - so that's one huge strike against it.i'm actually really depressed about this.i wish you could address these issues in everyblock, and leave chicagocrime up in the meantime.[ there are people out there (like me!!) who would give you tons of feedback (for free!!), and having both sites up at the same time to compare would really be great. ]
+
+
+posted by adrian on february 4, 2008, at 6:23 a.m.:
+ryan: stay tuned. :-)
+
+
+posted by follower on february 4, 2008, at 2:33 p.m.:
+ah, how could i not post something when everyone else is reminiscing like the old coots we are... :-dlet's party like it's early 2005!heh, i'd totally forgotten about my own 'deobf' routine...--phil.p.s. i look forward to the 10th gmaps hacking anniversary reunion party you throw when you're a multi-millionaire from everyblock. :-)
+
+
+posted by horticulture on february 7, 2008, at 11:21 p.m.:
+i second nearly everything ryan said. the map interface is clunky, far less detailed and hard to navigate, plus you need to click through several screens to even see the tiny map. i find myself unable to use the site the way i used to be able to use it.
+
+
+posted by adrian on february 8, 2008, at 7:15 a.m.:
+horticulture: thanks for the comment. you didn't leave an e-mail address (or a real name, for that matter), so i can't e-mail you personally, but in case you come back to this page, please take a second to e-mail us at feedback at everyblock.com to tell us how you used to be able to use it. we'd love to fix stuff for you.
+
+
+
+
+
+

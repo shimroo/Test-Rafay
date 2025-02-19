@@ -1,0 +1,484 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sysinternals - sysinternals | microsoft learn
+
+
+
+
+skip to main content
+
+
+this browser is no longer supported.
+upgrade to microsoft edge to take advantage of the latest features, security updates, and technical support.
+
+download microsoft edge
+more info about internet explorer and microsoft edge
+
+
+
+
+
+
+
+
+
+
+
+
+
+table of contents
+
+
+
+exit focus mode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+read in english
+
+
+
+
+save
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+table of contents
+
+
+
+read in english
+
+
+
+
+save
+
+
+
+
+
+add to plan
+
+
+
+
+edit
+
+
+share via
+
+
+
+
+facebook
+
+
+
+
+
+x.com
+
+
+
+
+
+linkedin
+
+
+
+
+
+email
+
+
+
+
+
+print
+
+
+
+
+
+
+
+
+
+table of contents
+
+sysinternals
+
+article02/13/2025
+
+11 contributors
+
+
+
+
+
+
+
+feedback
+
+
+in this article
+the sysinternals web site was created in 1996 by mark russinovich to host his advanced system utilities and technical information. whether youâre an it pro or a developer, youâll find sysinternals utilities to help you manage, troubleshoot and diagnose your windows and linux systems and applications.
+
+read the official guide to the sysinternals tools, troubleshooting with the windows sysinternals tools
+read the sysinternals blog for a detailed change feed of tool updates
+watch mark's sysinternals update videos on youtube
+watch markâs top-rated case-of-the-unexplained troubleshooting presentations and other webcasts
+read markâs blog which highlight use of the tools to solve real problems
+check out the sysinternals learning resources page
+post your questions in the sysinternals forum
+
+
+sysinternals live
+sysinternals live is a service that enables you to run sysinternals tools directly from the web without manually downloading them.
+enter a tool's sysinternals live path in windows explorer as live.sysinternals.com/<toolname> or \\live.sysinternals.com\tools\<toolname>.
+in a command prompt use \\live.sysinternals.com\tools\<toolname>.
+you can view the entire sysinternals live tools directory in a browser or windows explorer at https://live.sysinternals.com/.
+what's new 
+what's new (february 13, 2025)
+
+ctrl2cap v3.0
+ctrl2cap, a tool to help remap the caps lock key to ctrl, has been updated to run on windows 10 and 11, and not require a driver.
+
+what's new (january 29, 2025)
+
+zoomit in powertoys v0.88
+zoomit is now part of microsoft powertoys and open source. zoomit will continue being available from sysinternals, as a stand-alone tool.
+
+procdump 3.4 for linux
+procdump for linux, a convenient way for developers to generate core dumps, now includes arm64 support.
+
+
+what's new (december 16, 2024)
+
+zoomit v9.0
+this update to zoomit, a screen magnification and annotation tool, adds livedraw to livezoom, enables zoomit drawing and annotation on top of live windows and the desktop.
+
+what's new (november 13, 2024)
+
+procdump 1.0 for mac
+weâre excited to announce the release of procdump 1.0 for mac, a tool that generates process crash dumps with support for triggers like cpu and memory usage. procdump functionality is now available on windows, linux, and macos so that users on all platforms can leverage the same powerful procdump capabilities.
+
+what's new (july 23, 2024)
+
+process monitor 2.0 for linux
+process monitor for linux, a convenient and efficient way for developers to trace the syscall activity on the system, is now updated to support a broader range of linux distributions.
+
+what's new (june 17, 2024)
+
+process monitor v4.0
+this update to process monitor, a utility for observing real-time file system, registry, and process or thread activity, adds user interface improvements, enhances search, filtering and event counting performance, and introduces a new event column for the process start timestamp.
+
+
+
+
+
+
+
+
+additional resources
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+your privacy choices
+
+
+
+
+
+
+
+
+theme
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+light
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dark
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+high contrast
+
+
+
+
+
+
+
+
+previous versions
+blog
+contributeprivacyterms of usetrademarks© microsoft 2025
+
+
+
+additional resources
+
+
+
+
+in this article
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+your privacy choices
+
+
+
+
+
+
+
+
+theme
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+light
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dark
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+high contrast
+
+
+
+
+
+
+
+
+previous versions
+blog
+contributeprivacyterms of usetrademarks© microsoft 2025
+
+
+
+
+

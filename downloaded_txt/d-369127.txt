@@ -1,0 +1,635 @@
+
+
+
+
+kofi's hat
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+-----------------------------------------------------
+blogger template style sheet
+name:     scribe
+designer: todd dominey
+url:      domineydesign.com / whatdoiknow.org
+date:     27 feb 2004
+------------------------------------------------------ */
+
+
+/* defaults
+----------------------------------------------- */
+body {
+	margin:0;
+	padding:0;
+	font-family: georgia, times, times new roman, sans-serif;
+	font-size: small;
+	text-align:center;
+	color:#29303b;
+	line-height:1.3;
+	background:#483521 url("http://www.blogblog.com/scribe/bg.gif") repeat;
+}
+
+blockquote {
+	font-style:italic;
+	padding:0 32px;
+	line-height:1.6;
+	margin:0 0 .6em 0;
+}
+
+p {margin:0;padding:0};
+
+abbr, acronym {
+	cursor:help;
+	font-style:normal;
+}
+	
+code {font:12px monospace;white-space:normal;color:#666;}
+
+hr {display:none;}
+
+img {border:0;}
+
+/* link styles */
+a:link {color:#473624;text-decoration:underline;}
+a:visited {color:#716e6c;text-decoration:underline;}
+a:hover {color:#956839;text-decoration:underline;}
+a:active {color:#956839;}
+
+
+/* layout
+----------------------------------------------- */
+#wrap {
+	background-color:#473624;
+	border-left:1px solid #332a24;
+	border-right:1px solid #332a24;
+	width:700px;
+	margin:0 auto;
+	padding:8px;
+	text-align:center;
+}
+#main-top {
+	width:700px;
+	height:49px;
+	background:#fff3db url("http://www.blogblog.com/scribe/bg_paper_top.jpg") no-repeat top left;
+	margin:0;padding:0;
+	display:block;
+}
+#main-bot {
+	width:700px;
+	height:81px;
+	background:#fff3db url("http://www.blogblog.com/scribe/bg_paper_bot.jpg") no-repeat top left;
+	margin:0;padding:0;
+	display:block;
+}
+#main-content {
+	width:700px;
+	background:#fff3db url("http://www.blogblog.com/scribe/bg_paper_mid.jpg") repeat-y;
+	margin:0;
+	text-align:left;
+	display:block;
+}
+#inner-wrap {
+	padding:0 50px;
+}
+#blog-header {
+	margin-bottom:12px;
+}
+#blog-header h1 {
+	margin:0;
+	padding:0 0 6px 0;
+	font-size:275%;
+	font-weight:bold;
+	color:#612e00;
+}
+#blog-header h1 a:link {
+	text-decoration:none;
+}
+#blog-header h1 a:visited {
+	text-decoration:none;
+	}
+#blog-header h1 a:hover {
+	border:0;
+	text-decoration:none;
+}
+#blog-header p {
+	margin:0;
+	padding:0;
+	font-size:100%;
+	line-height:1.5em;
+}
+div.clearer {
+	clear:left;
+	line-height:0;
+	height:10px;
+	margin-bottom:12px;
+	_margin-top:-4px; /* ie windows target */
+	background:url("http://www.blogblog.com/scribe/divider.gif") no-repeat bottom left;
+}
+#main {	
+	width:430px;
+	float:right;
+	padding:8px 0;
+	margin:0;
+}
+#sidebar {
+	width:150px;
+	float:left;
+	padding:8px 0;
+	margin:0;
+}	
+#footer {
+	clear:both;
+	background:url("http://www.blogblog.com/scribe/divider.gif") no-repeat top left;
+	padding-top:10px;
+	_padding-top:6px; /* ie windows target */
+}
+#footer p {
+	line-height:1.5em;
+	font-family:verdana, sans-serif;
+	font-size:75%;
+}
+
+
+/* typography :: main entry
+----------------------------------------------- */
+h2.date-header {
+	font-weight:normal;
+	text-transform:uppercase;
+	letter-spacing:.1em;
+	font-size:90%;
+	margin:0;
+	padding:0;
+}
+.post {
+	margin:8px 0 24px 0;
+	line-height:1.5em;
+}
+h3.post-title {
+	font-weight:normal;
+	font-size:140%;
+	color:#1b0431;
+	margin:0;
+	padding:0;
+}
+.post-body p {
+	margin:0 0 .6em 0;
+	}
+.post-footer {
+	font-family:verdana, sans-serif;
+	color:#211104;
+	font-size:74%;
+	border-top:1px solid #bfb186;
+	padding-top:6px;
+}
+.post ul {
+	margin:0;
+	padding:0;
+}
+.post li {
+	line-height:1.5em;
+	list-style:none;
+	background:url("http://www.blogblog.com/scribe/list_icon.gif") no-repeat 0px .3em;
+	vertical-align:top;
+	padding: 0 0 .6em 17px;
+	margin:0;
+}
+
+
+/* typography :: sidebar
+----------------------------------------------- */
+h2.sidebar-title {
+	font-weight:normal;
+	font-size:120%;
+	margin:0;
+	padding:0;
+	color:#211104;
+}
+h2.sidebar-title img {
+	margin-bottom:-4px;
+	}
+#sidebar ul {
+	font-family:verdana, sans-serif;
+	font-size:86%;
+	margin:6px 0 12px 0;
+	padding:0;
+}
+#sidebar ul li {
+	list-style: none;
+	padding-bottom:6px;
+	margin:0;
+}
+#sidebar p {
+	font-family:verdana,sans-serif;
+	font-size:86%;
+	margin:0 0 .6em 0;
+}
+
+
+/* comments
+----------------------------------------------- */
+#comments {}
+#comments h4 {
+  font-weight:normal;
+	font-size:120%;
+	color:#29303b;
+	margin:0;
+	padding:0;
+	}
+#comments-block {
+  line-height:1.5em;
+  }
+.comment-poster {
+	background:url("http://www.blogblog.com/scribe/list_icon.gif") no-repeat 2px .35em;
+	margin:.5em 0 0;
+	padding:0 0 0 20px;
+	font-weight:bold;
+}
+.comment-body {
+	margin:0;
+	padding:0 0 0 20px;
+}
+.comment-body p {
+	font-size:100%;
+	margin:0 0 .2em 0;
+}
+.comment-timestamp {
+	font-family:verdana, sans-serif;
+	color:#29303b;
+	font-size:74%;
+	margin:0 0 10px;
+	padding:0 0 .75em 20px;
+}
+.comment-timestamp a:link {
+	color:#473624;
+	text-decoration:underline;
+}
+.comment-timestamp a:visited {
+	color:#716e6c;
+	text-decoration:underline;
+}
+.comment-timestamp a:hover {
+	color:#956839;
+	text-decoration:underline;
+}
+.comment-timestamp a:active {
+	color:#956839;
+	text-decoration:none;
+}
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+	
+/* profile
+----------------------------------------------- */
+#profile-container {
+	margin-top:12px;
+	padding-top:12px;
+	height:auto;
+	background:url("http://www.blogblog.com/scribe/divider.gif") no-repeat top left;
+
+}
+.profile-datablock {
+	margin:0 0 4px 0;
+}
+.profile-data {
+	display:inline;
+	margin:0;
+	padding:0 8px 0 0;
+	text-transform:uppercase;
+	letter-spacing:.1em;
+	font-size:90%;
+	color:#211104;
+}
+.profile-img {display:inline;}
+.profile-img img {
+	float:left;
+	margin:0 8px 0 0;
+	border:1px solid #a2907d;
+	padding:2px;
+  }
+.profile-textblock {
+	font-family:verdana, sans-serif;font-size:86%;margin:0;padding:0;
+}
+.profile-link {
+	margin-top:5px;
+	font-family:verdana,sans-serif;
+	font-size:86%;
+}
+
+/* post photos
+----------------------------------------------- */
+img.post-photo {
+	border:1px solid #a2907d;
+	padding:4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	               kofi's hat
+	               
+mp3s, music news and reviews, and a sprinkling of pop culture. named by aqualung's matt hales, after his son.
+
+
+
+about me
+
+name:  trill42 
+location:  los angeles, california, united states 
+ink in my blood, a song in my heart. metaphor is my middle name.
+view my complete profile
+
+
+
+
+
+
+
+
+
+team conan
+35 favorite albums of 2009
+75 favorite songs of 2009
+"i'll tell him where to put his toys"
+franz ferdinand makes terrible decision
+on heavy rotation
+placebo announces battle for the sun, golden ticke...
+maxïmo park releases free song from may album
+sweet & sappy overload: a valentine's day playlist
+the best hearts and chocolates are dark. and cold....
+
+
+
+
+
+
+
+
+
+
+
+
+
+3hive
+amoeblog
+aurgasm
+black cab sessions
+bows + arrows
+coolfer
+crying all the way...
+daytrotter
+drowned in sound
+each note secure
+fluxblog
+for the 'records'
+from blown speakers
+hypebot
+indie mp3
+john sakamoto
+kcrw: music
+kroq
+lacunae
+largehearted boy
+little hits
+measure for measure
+motel de moka
+mp3 hugger
+muruch
+one louder
+pat's district
+record envelope
+rock insider
+said the gramophone
+shake your fist
+songs:illinois
+swedesplease
+the swedish model
+torr
+womenfolk
+xo's middle eight
+you ain't no picasso
+
+
+
+
+
+aqualung
+art-o-mat
+beauty that counts
+boing boing
+cmcc
+comics i don't...
+craft: blog
+dinosaur comics
+feat.artists coalition
+freakonomics
+green la girl
+homestar runner
+hostile fork
+mcsweeney's
+make: blog
+the ministry of type
+neural
+the onion
+the post punk kitchen
+riaa radar
+science daily
+slashdot
+sunlight found.
+sweat free shopping
+swissmiss
+tedblog
+things magazine
+ticketdisaster.org
+urban prankster
+wikipedia
+xkcd
+
+kofi's hat @ youtube
+
+
+ subscribe in a reader
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+mp3s are shared to try to convince people they should like the same music i do (as in... "then she told a friend, and she told a friend...) of course if you love music, you should (responsibly) spend lots of your disposable income on music, concerts, and merch. if you are an artist or from a label, and would like a song removed, please e-mail me at kofis.hat [at] gmail [dot] com and i'll promptly do so.
+
+
+
+
+
+tuesday, january 12, 2010
+
+
+
+                      	 
+                      	 team conan
+	                       
+                          
+
+
+
+
+posted by trill42 | 3:31 pm
+       |
+         0 comments
+ 
+
+
+
+
+wednesday, december 30, 2009
+
+
+
+                      	 
+                      	 35 favorite albums of 2009
+	                       
+                          
+
+1. metric - fantasiesare we really meant to feel sorry for metric's plight, as they ponder whether writing hooks and gaining popularity and wealth will eat away at their soul and indie cred? of course they will! but to be an artist is (usually) to be emotional, so even superstar artists should remain able to write songs everyone can relate to (e.g., "party in the u.s.a." and "paparazzi".) hmm... or maybe mega-stars put flash and riffs first? whatever the case, i found fantasies the most consistent, engaging, and enjoyable album of the year.check out: pony up your email address and get an acoustic mp3 of "gold guns girls" at metric's website. this version is on the acoustic plug in, plug out ep. the streaming player on metric's site includes the plugged-in version found on fantasies (as well as the other tunes found on both fantasies and plugged in, plugged out.)2. bishop allen - grrr...some of 2009's most fun tunes appear on grrr..., a danceable, sing-along collection of hopefully devoted songs.check out: here's an mp3 from the album: bishop allen - dimmeranother mp3 from grrr..., "the ancient commonsense of things", is available at bishop allen's website.3. yeah yeah yeahs - it's blitza dang great rock album.check out: these kids have one of those trendy streaming players on their website too.4. eels - hombre lobo: 12 songs of desiresweet, lovely, heartbreaking. eels, basically, and as such, there are references to birds and dreams.check out: the band's website has five videos and one live clip of songs from hombre lobo. humorously, someone banned embedding on two of the clips ("prizefighter" and "that look you gave that guy"), preventing the band themselves from embedding them on their website. wacky! they tried embedding them anyway. so y'all can click through to youtube on links through their attempted postings.5. neko case - middle cycloneimagery of animals and weather fill a well-written, somewhat melancholic album. check out: here's an mp3 from the album: neko case - people got a lotta nerve."someday we'll find a heavenfull of the good and freedomof somewhere younger than americaborn in what we can hope" - younger than america6. idlewild - post electric bluesidlewild-esque bands (skinny british men who croon about love and america as though they're the first who thought of either) might simply be your cuppa or not. i dig them, and cynicism set to the side, "younger than america" is a great song (my 37th favorite of the year, according to my favorite songs post.)check out: here's a radio scotland version of that very song, as youtube'd: 7. the brunettes - paper dollsbouncy as a pogo stick, sweet as cotton candy, and as adorable as a bunny. speaking of which, how many couples must have already made "magic (no bunny)" their song? aww...8. noisettes - wild young heartspart groovy ode to freedom and independence, part poignant wish to recapture a lost love. both are stellar.9. christophe willem - caféinemost of these synth-happy pop songs are sung in french, but they're perfectly enjoyable even if you have, let's say, a very shoddy understanding of a small amount of the language. the album includes a cover of kylie minogue's "heartbox", as well as duets with minogue and skye edwards. (the deluxe edition adds 5 extra songs; one is another duet with edwards.)check out: plenty of willem's songs have been uploaded to youtube, including album tracks and live performances.10. the juan maclean - the future will comenifty, fizzy new wave/electronic sound with great drums and lyrics about robots and love. "one day" struck me as reminiscent of the b-52s with a more insistent beat... and strings.check out: the album is streaming at the band's website.11. frànçois & the atlas mountains - plaine inondableyes, more french music even though je ne parle pas français.12. julie doiron - i can wonder what you did with your daycheck out: three tracks from the album are streaming at doiron's website, and you can download "consolation prize" at jagjaguwar.13. maxïmo park - quicken the heartcheck out: one track from quicken the heart is available at rcrd lbl: "let's get clinical".14. memory tapes - seek magiccheck out: here's a shorter version of a track from the album: memory tapes - graphics (edit)other songs from seek magic are available at rcrd lbl. 15. muse - the resistance16. sea wolf - white water, white bloomcheck out: one song from the album is streaming at the band's website.17. jason lytle - yours truly, the commutercheck out: the title track's at rcrd lbl.18. the clientele - bonfires of the heathcheck out: a couple bonfire tracks are available at rcrd lbl.19. wave machines - wave if you're really therecheck out: download an mp3 of "keep the lights on" at the band's website (without having to sign up for a mailing list; they merely require a click.)20. stephen steinbrink - ugly unknowns21. owl city - ocean eyes22. built to spill - there is no enemy23. slow club - yeah socheck out: you can listen to the first minute of each song on yeah so at the moshi moshi store.24. a-ha - foot of the mountaincheck out: here's the video for the title track:25. grizzly bear - veckatimestcheck out: grizzly bear's "cheerleader", on veckatimest, is at rcrd lbl. 26. depeche mode - sounds of the universemartin gore is the stain in your bed... or maybe dave gahan is... depending on whether you go by the chap who wrote the line in question or the one who sings it. hmm...it's only right and fair to judge the basic, standard edition of albums when ranking them. but for the record, "ghost", available on the super-special deluxe box set edition of sounds of the universe, is a pretty cool song. awesome job on writing (and singing) the creepy lyrics, boys: "i'm the ghost in your housecalling your namemy memory lingersyou'll never be the samei'm the hole in your hearti'm the stain in your bedthe phantom in your fingersthe voices in your head."i wish "ghost" made it onto the regular edition, but a) i trust that it will make its way onto a bonus tracks collection sooner or later, and b) the album is still keen and tortured without it. 27. eulogies - here anonymouscheck out:  you can download an mp3 of here anonymous track"two can play" as well as a non-album version of "bad connection" upon providing eulogiesmusic.com with a name and email address (presumably your own).28. the antlers - hospicecheck out: rcrd lbl has hospice singles "bear" and "two" for the taking.29. lusine - a certain distancecheck out: a certain distance tracks "two dots" and "cirrus" are available at rcrd lbl.the "two dots" video:30. the decemberists - the hazards of love31. the orange peels - 2020check out: in 4 sunny minutes, this audio-only video for "we're going to make it" can give you a great idea of the glimmering power-pop on 2020. (okay, so they veer into 60s psychedelic-pop on one track, "emily has told me why"... a song i don't love. otherwise, they pretty much stick to the power-pop, and i think the album is stronger for it.)32. the crêpes - what else?check out: here's a slide show set to the title track:33. the most serene republic - ...and the ever expanding universecheck out: the album is streaming at the band's website. in particular, check out the surging "patternicity", which has a most pleasing theatrical quality.34. nosaj thing - driftcheck out: "coat of arms" is available at rcrd lbl. 35. sweet trip - you will never know whyfavorite live album of 2009: r.e.m. - live at the olympia j'aime cet album!check out: you can listen to snippets from the album at the microsite or watch clips at the official youtube channel.
+
+
+posted by trill42 | 9:35 pm
+       |
+         0 comments
+ 
+
+
+
+
+thursday, december 24, 2009
+
+
+
+                      	 
+                      	 75 favorite songs of 2009
+	                       
+                          
+
+1.  two door cinema club - "standing on ghosts" (on the four words to stand on ep.) also in contention: "new houses" (also on the four words to stand on ep.)2. yeah yeah yeahs - "hysteric" (on it's blitz.) also in contention: "zero" (on it's blitz, a single.) 3. bishop allen - "oklahoma" (on grrr....) fun. catchy. sweet. also in contention: "dimmer" (on grrr....) 4. the american analog set - "anything could happen" (the clean cover, on not given lightly - a tribute to the giant golden book of new zealand's alternative music scene.) so beautiful.5. phoenix - "1901" (on wolfgang amadeus phoenix, a single.) omnipresent, used in ads, but stellar.6. metric - "help i'm alive" (on fantasies.) always liked the catchy drum riff in the chemical brothers' "let forever be", so it's good to hear it again... and metric builds upon it nicely, leading to one of my most-played songs of the year. also in contention: "gimme sympathy (acoustic)" (on plug in, plug out.) 7.  dominique leone - "cover yourself" (on abstract expression.)8. pet shop boys - "pandemonium" (on yes.) also in contention: "vulnerable" (on yes.)9. neko case - "people got a lotta nerve" (on middle cyclone.) also in contention: "i'm an animal" (on middle cyclone.) 10. the radio dept. - "david" (on the forthcoming clinging to a scheme, a 2009 single.) 11. owl city - "fireflies" (on ocean eyes.) also in contention: "dental care" (on ocean eyes.)  12. eulogies - "day to day" (on here anonymous.)13. one eskimo - "kandi" (on one eskimo, the one eskimo ep, and a single.)14. eels - "beginner's luck" (on hombre lobo: 12 songs of desire.)15. snow in mexico - "velvet" (on the snow in mexico ep.) you can download the entire ep  on the official website. it's free, but paypal donations are accepted.16. thom yorke - "hearing damage" (on the new moon: original motion picture soundtrack.) edward cullen looks like he's trying to convince people he's not a vampire, he's merely the president of the local robert smith appreciation society. it's curious that the twilight soundtracks don't reflect his grooming choices, but why look good music in the ear, so to hear?17. the pains of being pure at heart - "young adult friction" (on the pains of being pure at heart, a single.)18. depeche mode - "fragile tension" (on sounds of the universe.)19. the bravery - "slow poison" (on stir the blood, a single.) also in contention: "slow poison (drop the lime remix)", which can be downloaded at rcrd lbl.)20. casiokids - "fot i hose" (a single.)21. a-ha - "riding the crest" (on foot of the mountain.) also in contention: "foot of the mountain".22. the decemberists - "sleepless" (on dark was the night.) also in contention: "the hazards of love 2 (wager all)" (on the hazards of love.)23. stephen steinbrink - "when it's easier" (on ugly unknowns.)24. miike snow - "black & blue (savage skulls remix)" (mp3 available at rcrd lbl.)25. the brunettes - "bedroom disco" (on paper dolls.)26. grizzly bear - "while you wait for the others" (on veckatimest, a single.)27. slow club - "giving up on love" (on yeah so.)28. mewithoutyou - "every thought a thought of you" (on it's all crazy! it's all false! it's all a dream! it's alright.) also in contention: "goodbye, i!"29. god help the girl - "i'm in love with the city" (on the stills ep.)30. annie - "i don't like your band" (on don't stop.)31. joel plaskett - "through and through and through" (on three.) although three is my favorite number, i found three uneven and at times frustrating. but "through and through and through" is irresistible.32. the clientele - "never anyone but you" (on bonfires on the heath.)33. maxïmo park - "calm" (on quicken the heart.)34. the raveonettes - "suicide" (on in and out of control.)35. dan black - "symphonies" (on un.) 36. julian casablancas - "30 minute boyfriend" (bonus track on phrazes for the young.) not so into the album, but i dig this piece of synth-fueled brooding.37. idlewild - "younger than america" (on post electric blues.)38. julie doiron - "spill yer lungs" (on i can wonder what you did with your day.) qtv live version:39. do make say think - "do" (on other truths.)40. fanfarlo - "the walls are coming down" (on fanfarlo, a single.)41. we were promised jetpacks - "conductor" (on these four walls.)42. jesca hoop - "tulip" (on hunting my dress.)43. athlete - "don't hold your breath" (on black swan.) also in contention: "the getaway" (on black swan.).44. carrie underwood - "quitter" (on play on.)45. delphic - "counterpoint" (on the forthcoming alcolyte, a 2009 single.)46. klaus says buy the record - "new dawn" (on lights out.)47. peter bjorn and john - "nothing to worry about" (on living thing.)48. juan maclean - "the future will come" (on the future will come.)49. the crayon fields - "all the pleasures in the world" (on all the pleasures in the world.)50. sweet trip - "air supply" (on you will never know why.) 51. telekinesis - "tokyo" (on telekinesis!)52. the mighty mighty bosstones - "wasted summers" (on pin points and gin joints.)53. andrew bird - "oh no" (on noble beast.)54. built to spill - "hindsight" (on there is no enemy.)55. the kickdrums - "tell me stories" (on just a game.)56. rooney - "i don't understand" (on the wild one ep.)57. the wombats - "my circuitboard city" (on the my circuitboard city ep, a single.)58. fol chen - "cable tv" (on part i: john shade, your fortune's made.)59. gary go - "life gets in the way" (on gary go.)60. noisettes - "every now and then" (on wild young hearts.) also in contention: "don't upset the rhythm".61. mads langer - "the beauty of the dark" (on mads langer.)62. placebo - "wouldn't it be good" (nik kershaw cover, b-side on for what it's worth single.) 63. snow patrol - "just say yes" (on up to now.)64. moby - "mistake" (on wait for me.)65. muse - "uprising" (on the resistance.)66. sea wolf - "wicked blood" (on white water, white bloom.)67. the swell season - "the rain" (on strict joy.) also in contention: "in these arms". 68. mew - "hawaii" (on no more stories.)69. charlotte gainsbourg & beck - "in the end" (on irm.)70. the autumn defense - "paradise" (on ciao my shining star.)71. a camp - "stronger than jesus" (on colonia.) 72. the church - "hounds of love" (kate bush cover, on the coffee hounds ep.)73. mute math - "spotlight" (on armistice.)74. pants yell - "someone loves you" (on received pronounciation.)75. the thermals - "now we can see" (on now we can see.)12/30 update: jinkies, i completely forgot a song i mustn't leave off the list. how did it happen? i don't know, but let's not worry about whether it's my fault or yours. let's move on to the loveliness of the song itself, which for the sake of convenience we might as well consider #76:76. los campesinos! - "the sea is a good place to think of the future". it's lovely, and it's available as a free download. hooray for band largess!
+
+
+posted by trill42 | 6:37 pm
+       |
+         0 comments
+ 
+
+
+
+
+wednesday, december 23, 2009
+
+
+
+                      	 
+                      	 "i'll tell him where to put his toys"
+	                       
+                          
+
+while this song doesn't mirror my rather less grinchesque opinion of christmas, i respect the artist's views and enjoy the unflinching way he expresses them. even at the holidays, he keeps it real, and won't kowtow just for presents. "i hate christmas" video:happy holidays.life's been keeping me from the hat for far too long, but i do hope to post some traditional end-of-year lists... before the year actually ends!
+
+
+posted by trill42 | 12:39 pm
+       |
+         0 comments
+ 
+
+
+
+
+wednesday, march 25, 2009
+
+
+
+                      	 
+                      	 franz ferdinand makes terrible decision
+	                       
+                          
+
+how disappointing that franz ferdinand has chosen a designer who "wants the progressive man to wear fur" to design the costumes for their tonight tour.just a month ago, the band's nick mccarthy went to a "fur is a drag" party - peta europe's version of a fashion week. why did he change his mind about fur? does he or does he not consider fur a drag?kopenhagen fur, one of the world's largest fur companies, nominated the designer in question, christian westphal, for a 2007 golden fur pin. he later "teamed up with" the company. in a promotional interview dated last month, westphal says, "my partnership with kopenhagen fur has been fabulous." the company also quotes westphal as saying, "i will definitely use fur in my future designs, in both my summer and winter lines."last week, the times (in london) reported that large fur companies, including kopenhagen fur, have been giving designers free fur clothing, accessories, and sponsorships. they're said to invite designers to their headquarters where they tell them that "fur farming" at their company is "humane" (possibly while keeping their fingers crossed behind their back or while winking and gesturing for a minion to pour more champagne.) according to the the times, the sponsorships offered to designers can be "lucrative" and offer a tempting amount of exposure. one designer accepted the opportunity to open copenhagen fashion week. it's not as serious a concern as his ethical issues, but at least some of westphal's fur-free clothing designs are iffy in lesser ways. the clothes look a bit boring, and not particularly flattering. however, franz ferdinand might find their tightness appealing, and not want to spend time "comparison-shopping", as the kids say.it remains to be seen whether any fur will be incorporated into the stage costumes. the band shouldn't be willing to work with westphal, whether or not he thinks fur should be used in this project.
+
+
+posted by trill42 | 12:42 pm
+       |
+         0 comments
+ 
+
+
+
+
+
+
+
+	
+copyright 2005-09 trill42
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

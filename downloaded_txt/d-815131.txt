@@ -1,0 +1,885 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+flash racer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+flash racer
+
+
+
+a project to produce a racing game in flash including advanced physics, handling, 3d graphics and real life tracks.
+
+
+
+
+
+
+
+
+
+
+
+friday, june 02, 2006
+
+
+
+
+
+
+
+
+hyperplanes, normals & vectors
+
+
+
+
+
+lot's of work over this week including a major overhaul of the waypoints system which was far from ideal. previously the vehicles aimed for specific points on the track, a distance check was then used to decide whether the car had reached the waypoint - this resulted in a circular detection area.the major drawbacks of this approach are that if you drive off the track you can completly miss a waypoint without realising and the lap wont be counted, ai cars all aim for the same point which results in them driving in a line on the same route and the start finish line is actually a circle! the solution has been to replace points with lines, the ai can then pick different points on the line to aim for resulting in a more unpredictable race. it is also possible to find if a waypoint has been passed by calculating the normal of the line and projecting the distance from the car to the line onto that - if the number is below zero then the line has been passed. for this metanet has been a great help as always! the other great thing about this method is that the line never has to be phyisically touched as it is calculated as if the line continutes into infinity in both directions...i have also integrated waypoint editing / saving / loading into the track editor. the ends of lines can be dragged to move the waypoint and the red arrow signifies direction. (the track is displayed half size in the editor)i think once the ai cars are more aware of the other vehicles around them this will provide a really good level of challange, at the moment they like to cross each others paths too often, which results in cars scraping along next to each other...
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+3:07 pm
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+friday, april 28, 2006
+
+
+
+
+
+
+
+status
+
+
+
+
+
+hey all,after two months with no update from me and jon i thought it worth  posting what has been going on. i would love to say that we've both been working on the game so hard there has simply been no time.. however, this is not the case!we have both been busy with other commitments, at my end this has been coursework and exams which will be ongoing for a few more weeks yet. after that i start a new job, which for the project is actually a good thing as i will have time in the evenings to work on the game instead of coursework and revision.hopefully, the next post will be sooner rather than later!tom.
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+11:36 am
+
+
+
+2 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wednesday, february 22, 2006
+
+
+
+
+
+
+
+
+through the keyhole
+
+
+
+
+
+what kind of person would code in a place like this? a little insight into our work holes, where we spend hours perfecting blog posts like this for you guys and then a couple of minutes on the game ;-)jontom
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+3:26 pm
+
+
+
+2 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+monday, february 06, 2006
+
+
+
+
+
+
+
+
+solid geometry
+
+
+
+
+
+well,since the demo i have been working hard on ironing out the little issues we had left and adding some new 3d features into the engine.i thought i would write my first indepth post on the technology behind the game, and explain how we are achieving 3d objects while maintaining (hopefully!) high frame rates. i am using a technique that was explained to me by kirill mourzenko several years ago, and i used a less advanced version in my earlier (unfinished) game felony (on which jon helped with the physics, and is actually how we hooked up for this game!)faking itthe 3d objects in flash racer are faked through a combination of clever scaling, animation and paralax scrolling. firstly, for each object the distance is found between it and the center of the screen. for buildings, this distance is then used to offset the roof by an amount depending on the buildings height. so, as the building moves further from the center of the screen the roof becomes more offset, this creates the impression of perspective.see how the building to the left appears to be leaning more? of course for taller buildings this effect is even more dramatically increased. the roof of the building is also scaled up according to its height as objects closer to the camera should appear bigger!the walls are wedge shaped images that are simply scaled to fit between the base of the building and the side of the roof, at the moment this calculation is performed every frame in the camera class, however this could be reduced for lower spec machines and i am looking into making this one of the many graphics options we are likly to include!the final piece of the puzzle is to skew the wall image so that it fits when the roof is no longer above the building base. this is predone animation, with one keyframe for every single pixel of movement (81 keyframes in total), this is a very efficient way of achieveing the right look.    on a side note, i have noticed that you can now dynamically skew images in flash 8, this would have been ideal for this, however we are currently coding for flash player 6 in as1 so it would be unreasonable to code only one feature in the brand new flash player! maybe in a future version?pseudo speedthese tall objects are great, because they add that extra level of depth to the game and just as importantly - because they are closer to the camera, they move faster and dramatically increase the feel of speed when racing! all we need now is a little blurring...any questions? just leave a comment! extra points if you can work out the cryptic title ;-)
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+1:20 pm
+
+
+
+5 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+monday, january 23, 2006
+
+
+
+
+
+
+
+
+tech demo release! (finally..)
+
+
+
+
+
+at last, the first major milestone in this mammoth project has been reached, we've kept you hanging since well before christmas for a working demo, but now is the time! me and jon have been laboring all weekend over the last of our goals for this tech demo in order to get it into the wild today...current features- different surfaces affect handling- all game data loaded from external xml files- accurate collision detection- ai with up to 6 cars on track- hud including lap times / lap counter and race positions- dynamic camera, that can swap between racersfuture features- more tracks- larger tracks- accurate collision response- solid & tire walls- 3d structures- more advanced ai with more varied racing lines- career mode, saving of all race data / lap times etc- graphics options for slower computers- cheats- soundknown issues- you can drive off the map- collision response not finishedwe need youwhat we would love it some feedback on the engine so far, your opinions on every aspect of the game and how it can be improved in future revisions. some information that would be nice when you comment:cpu speedflash player versionframes per second ( top-right corner ) - min/max/average would be great!enough babble, i want to play!you can play the flashracer tech demo using the following controls...keys:up arrow - acceleratedown arrow - brakeleft and right arrows - steeringspace bar - handbrake1 - 4 numbers - change camera view to other carsthe sexy temporary graphics(jon getting beats by the computer)finally...enjoy the demo, let us know what you think in the comments for this post or on the flashkit thread which can be found here. don't forget, this is just a tech demo, showing the engine we have achieved so far - there is much more to add and many more updates left to come so stay tuned!
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+6:32 pm
+
+
+
+4 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+monday, november 28, 2005
+
+
+
+
+
+
+
+xml fun!
+
+
+
+
+
+so,its been a while! what have i been upto you may ask, well apart from shifting my life around the country i have been wrapping up our lovely engine into a more presentable game.as with most of the information in the game we have decided to keep all the menu info in an external xml file, this allows for ease of editing, flexibility and hopefully reusability in any future projects we undertake. an example of the menu xml for the tech demo:<menus><menu><title>main</title><orientation>horizontal</orientation><x>225</x><y>200</y><spacing>10</spacing><option><text>start beta</text><func>startbeta</func><param></param></option><option><text>credits</text><func>gotomenu</func><param>credits</param></option></menu></menus>this is parsed and converted to an object structure as the game is displaying the loading screen. the menus are then created on the fly in the right positions and orientations, displaying the right text! when a button is pressed it then calls the appropriate function within the menumanager class and passes the appropriate parameters. i have also been working on a new class called hudmanager, this retrieves all the current information about the race (for example, lap times, positions etc) and displays it on the screen... at the moment this is all done in text format but that will be replaced with some flashy graphics in a later release..in other news we have been largly bug fixing since the last post, jon is still working on the broken collision response while i have been tidying up code all over the game in order to get it ready to show you all! thanks for the support - keep checking back (or subscribe to our atom feed!) - were getting closer!
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+9:11 pm
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tuesday, august 30, 2005
+
+
+
+
+
+
+
+all that jazz
+
+
+
+
+
+the project has been moving forward quickly since we started working using the svn system, having a central store of the games code that both of us can work from has been invaluable.since the last update i have been working on the file manager almost exclusively. early on we decided that most of the games resources should be kept in external files for easy editing and loaded into the game engine on runtime. this includes things like; race, track and car data aswell as all the in game graphics (which are stored in external swfs)... all of these files need to be loaded and parsed correctly so that the data is accessible within the game. this is now almost entirely finished.i have also done a large clear up aswell as adding some small features like 'pause' and a countdown on the grid at the beginning of a race.we are hoping to post a 'tech demo' of the game on here fairly soon, which is guaranteed to impress, so keep checking back!
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+10:23 pm
+
+
+
+2 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+friday, august 12, 2005
+
+
+
+
+
+
+
+back of the class
+
+
+
+
+
+it seems like a long time since i last updated here... i have spent a lot of time on the engine today, mainly organising code and class structure after a lengthy discussion with jon last night. we have decided on a system of 'manager' classes to keep the code in order, the main one's being:playermanagerkeeps track of players career status and track recordsracemanagerholds information only for the current race and functions for starting / stopping / pausingsoundmanagerloading, starting, stopping and deletion of all the sounds within the gamefilemanagerloading and saving of track, player and tileset dataim hoping to post more technical details here over the coming weeks, aswell as hopefully some interesting code and in depth theory!
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+11:50 pm
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wednesday, july 27, 2005
+
+
+
+
+
+
+
+artificial intelligence update
+
+
+
+
+
+i've been hard at work on this the past few days. as my part of the engine now stands the ai car races around the track with ease, braking at the appropriate places - it also has the ability to recover after an accident.elsewhere, i have corrected a few bugs that were causing problems on certain shapes of corner and in the process simplified some of the calculations. i have also added a handbrake to the physics model, allowing you to perform handbrake turns!i will try and post a demo (recorded or realtime) here in the next week.
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+11:27 pm
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+saturday, july 23, 2005
+
+
+
+
+
+
+
+
+artificial intelligence
+
+
+
+
+
+over the past couple of nights i have been working on a basic ai, the aim for this is simply to get the car to drive around the track, when this is complete it will be advanced with braking etc. i also hope to add the ability to avoid other vehicles and recover from any accidents...this screen shows the current engine with debugging lines displayed, the car works out the trajectory to the next 'waypoint' (which are poistioned at critical points around the track) and adjusts its steering accordingly.
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+12:40 pm
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+older posts
+
+home
+
+
+
+
+subscribe to:
+posts (atom)
+
+
+
+
+
+
+
+about me
+
+
+
+
+tom
+
+
+
+view my complete profile
+
+
+
+
+
+
+blog archive
+
+
+
+
+
+
+
+
+        ▼ 
+      
+
+
+
+2006
+
+(5)
+
+
+
+
+
+        ▼ 
+      
+
+
+
+june
+
+(1)
+
+hyperplanes, normals & vectors
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2005
+
+(7)
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(4)
+
+
+
+
+
+
+
+
+
+useful links
+
+
+flashkit games forum
+monstrous car physics
+myphysicslab rigid bodies
+
+
+
+
+flash game development blogs
+
+
+tales from the code front
+flash dreamer
+starsky & hutch
+apocalypse online
+
+
+
+
+indie game development
+
+
+qatfish
+gibbage
+
+
+
+
+
+
+
+
+
+
+
+
+

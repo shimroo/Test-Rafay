@@ -1,0 +1,527 @@
+
+
+
+
+
+
+
+
+miskatonic university press | william denton
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+miskatonic university press
+
+
+
+
+
+
+
+
+
+
+
+
+ubuntu 24.04 upgrade broke gnome and now i run kde and love it
+
+
+	13 february 2025
+      
+
+kde
+unix
+
+
+last week i finally got around to upgrading my personal laptop from ubuntu 22.04 to version 24.04.  iâd run the upgrade on two other machines without problems.  this time, though, when i rebooted it decrypted the disk (good!) but then only came up in console mode. instead of a nice gnome login screen, i saw this:
+ubuntu 24.04.1 lts jenkins tty3
+jenkins login:
+
+i logged in and it worked.  phew!  my files were all there, the internet connection worked, the machine was okay.  there was no graphical interface, but that was fixable.
+recovering
+something must have gone wrong with gnome or x or wayland or whatever, but i was pretty sure reinstalling would fix it, and it did.  i ran these two commands.  the first brought back the gui, and the second did a full reinstall of the gnome environment and everything it needed.
+sudo apt install gdm3
+sudo apt install --reinstall ubuntu-gnome-desktop
+
+that took a while to download and install, but when it was all done i had the default ubuntu gnome working. iâd lost all my customizations and configurations, but it was working.  good!  a few programs were missing so i installed them:
+sudo apt install mpv vlc gimp plocate
+
+i also had to rebuild emacs and r, but make maintainer-clean and conforguration made that easy.
+i thought, do i want to reconfigure gnome to be like it had been?  i could.  but for a while iâd been thinking about moving to kde.  nowâs the time, i thought.  iâm going to be configuring a desktop environment, so why not try a new one iâve been hearing great things about?  if i donât like it, iâll just go back to gnome.
+sudo apt install kde-full
+
+this downloaded over 1,000 packages that used over three gigs of disk, which also took a while.  as part of the install it asked me about switching the display manager from gdm3 (which gnome use) to sddm (for kde), which i agreed to.  again i rebooted, the new display manager came up, i chose âkde plasma (x11)â â¦ and it worked!
+configuring kde plasma
+right away i liked plasma, kdeâs desktop environment.  (iâm running kde plasma 5, which goes with ubuntu 24.04, but version 6 is out.)  it looks good.  and itâs very easy to configure.  you donât need to, but if you want to, you can.  all sorts of options are easily available that arenât possible in gnome.
+here are some of the things i did.
+
+appearance:
+    
+fonts: changed all to deja vu (sans and sans mono)
+colours: installed solarized dark and used it.
+splash screen: none
+
+
+workspace
+    
+general behaviour: animation speed: instant; clicking files or folders: selects them (double-click to open)
+workspace behaviour: virtual desktops:  two rows, three columns; show on-screen display when switching: set to 300 ms
+
+
+window management:
+    
+window behavior: advanced: enable âallow apps to remember the positions of their own windows, if they allow itâ;
+window rules: add a new rule: set âwindow class (application)â to regular expression, with the regex =.*= , use âadd propertyâ to go under âappearances and fixesâ and find âno titlebar and frame,â apply initially, and enable yes.
+
+
+shortcuts
+    
+kwin: add shortcuts to switch one desktop down, switch one desktop to the left, switch one desktop to the right, and switch one desktop up, so that ctrl-alt-down, ctrl-alt-left, etc., all work.  to enter them i needed to use the real ctrl key, not caps lock, but caps lock works in the key combination when i want to move on the virtual desktop.
+
+
+accessibility: disable audible bell
+audio: mute notification sounds
+input devices
+    
+keyboard: advanced: cap lock behaviour: makes caps lock an additional ctrl; position of compose key: right alt
+touchpad: invert scroll direction
+
+
+removable storage
+    
+removable devices: set âall known devicesâ to automount on attach
+
+
+
+konsole (the terminal program):
+
+made a âmeâ profile and set it as the default profile:
+appearance:
+    
+used solarized theme
+changed font to deja vu sans mono
+open new shells in the same working directory as current
+terminal bell mode: ignore bell events
+set as default profile
+
+
+disabled the toolbars at the top, which i donât care about (in the window configuration, not my profile)
+
+for the task bar, the default panel at bottom (with the kickoff application launcher and system tray):
+
+moved it to the top of the screen
+unpinned default applications
+remove settings, pager widget (i donât need to see virtual desktop layout), discover, peek at desktop
+generally fiddled around with it
+system tray
+    
+configure (right-click on the âshow hidden iconsâ arrow, choose configure system tray): entries: set audio volume, battery, and bluetooth to always shown
+
+
+clock: configure digital clock: set time to 24-hour clock; configure date format to custom (dddd dd mmmm yyyy); move all the way to the left of the panel
+
+in the end the desktop looks like this.  i embedded a widget on it that shows network activity.  usually this is covered by emacs or firefox or whatever, but i see it on empty desktops when i pass by.
+
+
+my new desktop
+
+widgets!  they can go on the desktop or in a panel.
+the background colour there is #002b36, from the solarized dark palette.  emacs and konsole and firefox use the same theme, and other programs pick it up from the system, so everything looks the same.
+nice!
+a few things about plasma were delightful surprises.
+krunner is a quick application launcher.  gnomeâs launcher comes up with super (the windows key, which plasma confusingly calls meta, but as an emacs user for me meta is alt), but in plasma that brings up the full application launcher, so i use the default alt-space keystroke.  krunner has all kinds of nice features built into it, such as a basic calculator and a spellcheck.
+
+
+krunner correcting my misspelling of minuscule
+
+but i donât even need to run krunner in an empty desktopâi can just start typing!  that triggers krunner.  so if i want to run tor in the virtual desktop window where i keep it, i can just move there and type âtor.â  krunner pops up, grabs the letters, prompts me with tor in a drop-down list, and i can just hit enter to run it.
+screenshots with spectacle are fantastic.  the gnome tool doesnât have annotation abilities, but this does, and itâs very easy to grab a screenshot and put in circles and arrows and a paragraph on the back of each one.
+widgets!
+there is clipboard management with super-v.    this pops up a window with a searchable clipboard history, and you can scroll to what you want and hit return to insert.  iâm used to good clipboard management with emacs, and this is great to have elsewhere.
+iâm not yet sure about activities, which allow you to have multiple virtual desktops, each configured differently.  how to be more productive in linux with kde activities has some examples.  i havenât tried this yet, but i may have a couple of uses.
+kde comes with all sorts of tools, games, utilities, and other applications, such as kgeography, a quiz to help you learn maps, flags and geography.  itâs fun.
+notifications went strange on me a while back in gnome.  in plasma theyâre small and crisp on the right-hand side of the screen and work perfectly.
+libreoffice writer looks nice.  all the applications look nice.
+
+
+screenshot of libreoffice writer, with elementary icon theme
+
+there are a couple of things about keystrokes that iâm getting used to, or may change.  thatâs easily configurable, though.  iâm fiddling around with small things like what information is showed in konsole tab labels, and whether some applications should have toolbars and frames, but itâs easy to fiddle, change, and reset.
+the passwords for my vpns were lost in the network settingsâi think that kind of stored password problem is to be expected; i saw warnings of other problems having both gnome and kde installed, but so far everything has been fine.  maybe the problems come from switching.
+i wonât be switching back.  i wish iâd moved to plasma years ago.
+
+
+
+zotero's library lookup list
+
+
+	12 february 2025
+      
+
+code4lib
+zotero
+
+
+i was very happy to be notified today that a bug i reported to zotero was fixed.  its list of openurl resolvers had a north america section, within which were all the united states libraries, plus some canadian, and then more canadian libraries were filed under canada.   this was not right.  now itâs fixed, and within north america there are two lists, for canada and the united states.
+i hope mexico appears there soonâmaybe a librarian there, or some spanish-speaking librarian elsewhere, will send in a url.  and then maybe south america will follow.
+this is what it looks like now (shown in operation on my demonstration zotero account, coloured with a solarized light theme):
+
+
+screenshot of zotero, with some collections along the left, showing the settings > general > library lookup configuration being acted on. resolver is broken down by continent, and north america is canada and united states.  under canada is a long list of canadian universities.
+
+many thanks, as always, to all the zotero people for their work on this excellent program.
+
+
+
+how to install zotero 7 on windows
+
+
+	14 january 2025
+      
+
+zotero
+
+
+i didnât see any short videos showing how to install zotero 7 on windows, so i made one: how to install zotero 7 on windows.  there are a lot of great videos out there showing how to install and use zotero (mostly done by librarians) but theyâre longer and cover much more than just the installation.  i was after something quick i can send out before a zotero workshop.
+here it is at the internet archive. it is licensed with a cc by 4.0 license, so you can use, share and adapt it, but must give credit.
+
+it shows just the basics in 05:40 and i hope itâs useful to others. it could be better, and if i redo it iâll record the audio using a proper microphone, but itâs good enough for next week, which is when i need it.
+i wish there was one like this for macs â¦
+technical details
+for my future reference, hereâs how i did it.
+i run ubuntu, so i needed a windows machine. library it loaned me a clean windows laptop with some basic applications installed but that wasnât locked down. i installed obs and used that to record the video. it took a few takes, of course, but i ended up with a recording that was good except for some stuff at the beginning and a short chunk in the middle.
+i avoid handling video and i have almost no experience with any editor, so i fell back on the magnificently powerful and arcane command line program ffmpeg. you can do pretty much anything with audio or video with ffmpeg, but by jove, its incantations can be complex.
+from obs i had saved a video named zotero-on-windows-raw.mkv (the suffix means it uses the mastroska format, but donât ask me about video containers).  to pull out the two sections i wanted, i ran this to extract them into two new files. -ss means âstart at this timestampâ and -to means âgo up to this timestamp.â
+ffmpeg -i zotero-on-windows-raw.mkv -ss 00:48 -to 05:39 zotero-1.mkv
+ffmpeg -i zotero-on-windows-raw.mkv -ss 06:12 -to 07:01 zotero-2.mkv
+
+to combine them, first i made demux-list.txt:
+file './zotero-1.mkv'
+file './zotero-2.mkv'
+
+then i combined the two videos into one with:
+ffmpeg -f concat -safe 0 -i demux-list.txt -c copy zotero-combined.mkv
+
+thereâs probably some way to tell ffmpeg to do all this with one command but this worked.
+with the video ready, i made a .srt subrip subtitles file, and refined it until i was happy.  i ran this to watch the video with the captions:
+vlc zotero-combined.mkv --sub-file zotero.srt
+
+the subtitles file looks like this:
+1
+00:00:01 --> 00:00:05
+this short video will show how to install zotero on a windows computer,
+
+2
+00:00:05 --> 00:00:08
+and how to connect it with three web browsers:
+
+3
+00:00:08 --> 00:00:12
+chrome, firefox, and edge.
+
+i looked at sacha chuaâs subed emacs mode, but it seemed like too much to be getting into for this simple demonstration.  maybe next time.
+the audio track needed work but in the end i decided to leave it as is.
+finally, i wanted to âburnâ the subtitles into the video so they would always show.  this is supposed to work but didnât:
+ffmpeg -i zotero-combined.mkv -vf subtitles=zotero.srt zotero-with-subtitles.mkv
+
+no matter what i tried it would give errors like this:
+parsed_subtitles_0 @ 0x6174c4ac0e80] unable to open zotero.srt
+[avfiltergraph @ 0x6174c4abf840] error initializing filters
+[vost#0:0/libx264 @ 0x6174c4acd080] error initializing a simple filtergraph
+error opening output file zotero-with-subtitles.mkv
+error opening output files: invalid data found when processing input
+
+i tried all sorts of things, including converting the video to other formats and turning the subtitles into the .ass format, which is a real thing.  (whether ffmpeg had been compiled --with-libass needed to be checked.) nothing worked.  i thought perhaps it was a character encoding problem, so i added a smiley emoji so the file would be seen as utf-8, but that didnât help.  i even installed kdenlive, a video editor, but it couldnât handle the srt file. itâs a mystery.
+happily, i found this answer on stack overflow about mkvmerge and it worked perfectly:
+sudo apt install mkvtoolnix
+mkvmerge -o zotero-combined-subtitled.mkv zotero-combined.mkv zotero.srt
+
+lastly, i tweaked the metadata a bit:
+ffmpeg -i zotero-combined-subtitled.mkv -metadata title="how to install zotero 7 on windows" -metadata language="en" -c copy zotero-7-how-to-install-on-windows.mkv
+
+and with that it was ready.  next time iâll try a graphical video editor.  many thanks to everyone who understands video and makes these tools to handle it!
+
+
+
+in c on bandcamp
+
+
+	07 january 2025
+      
+
+terry.riley
+
+
+i made a list of recordings of terry rileyâs in c on bandcamp.
+
+
+
+the great eastern
+
+
+	04 january 2025
+      
+
+great.eastern
+radio
+
+
+iâm listening to the great eastern again.  itâs not well known now, but itâs a masterpiece.    it ran on cbc radio in the late 1990s and every episode, plus background material and some scripts, is available on the great eastern web site.  the shows are also available from the internet archive, but i  realized it should be easier for everyone to get the show, so i made this:
+ rss feed for the great eastern.
+put that into your podcast program and it will get every episode of the show for you (from the internet archive, so as not to put a strain on the site made by gerry porter; i was sorry to learn he died in 2016).
+iâve written about the show before, and refer you to this post from 2014 for more background.
+the great eastern, ânewfoundlandâs cultural magazine,â was a show on the bcn (broadcasting corporation of newfoundland), which cbc radio picked up sometimes to carry across canada.  the show was hosted by paul moth and featured book reviews with kathleen hanrahan, a political panel, documentaries (thereâs a great one on economology), music, interviews and features on artists such as ned brocklehurst and hugh kuva, promos for other shows (such as âlook itâsâ and childrenâs program âuncle jackâs shackâ), and more.  the bcn (âcoal-fired radioâ built with krupps-funkenscheit technology) broadcast in newfoundland at 520 on the long wave and had a rich history; every episode had a âfrom the vaultâ feature where director of radio ish lundrigan would play some tape from the station archives, sometimes from old episodes of the great eastern when it was hosted by ron gellately.   the show was firmly grounded in newfoundland culture and history, often featuring people from the university of newfoundland at st. johnâs (the unsj) and in later seasons having a special on oougoubomba, newfoundlandâs failed african colonial experiment.  the listener gets a good picture of life in st. johnâs, with its popular local candy furlong knobs, restaurants such as chez ed, and the fancy hotel palmer hotel.  canadians could participate in the âwhatâs that noise from newfoundland?â contest.
+
+
+my wrinkly great eastern t-shirt
+
+but none of this is real.   well, almost none.  st. johnâs and newfoundland are real.  there was a broadcasting corporation of newfoundland. the musicians and bands played were real.  pretty much everything else was made up.  the great eastern writers and performers built a complete alternate newfoundland universe (one where canada is treated as a separate nation) and played it absolutely straight.  to fully appreciate the great eastern you need to be ready to play the game.  accept it as true.
+it is incredibly funny, going from very smart and biting satire to rude schoolboy jokes.
+if you listen to podcasts and like long-form narrative shows, and are willing to enter an unfamiliar but fascinating worldânewfoundlandâyou should try this show.  it was nineties radio and sounds like it (itâs mono, not stereo) but that shouldnât put you off, and the sound design within that constraint is outstanding.   (always listen right to the end of a show, for community announcements from rita molloy or an update from weather watchdog erling biggs.)
+
+
+cover of strangers & others: the great eastern
+
+it will take a while to go through all the episodes.  enjoy.  while iâm at it, iâm enjoying reading strangers and others: the great eastern by stan dragland.  i was at the toronto book launch in 2016 and my copy is signed by dragland and paul moth (âyours in coal-fired radioâ).
+(paul moth was played by mack furlong, one of the writers along with edward riche and steven palmer, both of whom also performed.  steven palmer is now a history professor at the university of windsor.)
+cbc disliked the show because it was âtoo dense.â  it wanted something that didnât require so much attention, that was a little âless foreground.â  the great eastern addresses this.  and it does require attention, but it deserves it, and rewards it.   attend to the shows as you would an audiobook or straight radio drama and you will get all the more from it. draglandâs book brings a lot of this out. you donât need to catch all the details, but if you do, your appreciation will grow to match the levels of old admirers like me.
+for example, the regular political panel is there right in the first episode, with j. richard candow, ariel flint and carl johnson.  johnson is always on the phone from some other location and hardly ever gets a word in.  the way heâs a second behind the others, and usually ignored, is hilarious.  but thereâs an obscure gag: he is âvaldmanis chair in political economy at unsj.â    this would be an endowed chair at a non-existent university, named after alfred valdmanis, the nazi-collaborating latvian who was made director general of economic development in 1950 and put in charge of industrializing newfoundland.  by 1954 he was in jail for corruption.  (for more, see
+alfred valdmanis and the politics of survival by gerhard p. bassler.)  valdmanis is real but seems fictional.  ari uldmanis, bcnâs director of engineering, is fictional but seems real, though whether youâre suspicious of his german accent and how he emigrated to newfoundland after world war two is up to you.
+librarian and archivist readers will appreciate this, from season four episode two, in a promotion for bcnâs âuniversity of the air.â
+
+shhh!  this monday at ten, pay a visit to the information desk when university of the air presents dr. dana burtonâs âintroduction to library science:â âthe joy of reference,â âput a hold on this,â and âmummy, whatâs a card catalogue?â  dr. burton also looks at library administration in the current fiscal climate: outstanding fines and the use of goon squads, turning user data into direct marketing millions, and profitable things to do with those old books that nobody reads any more.  lost in the stacks?  donât get all dewey-eyed and decimal about it.  youâre overdue for university of the airâs âintroduction to library science,â this monday at ten oâclock, only on bcn 520.
+
+turning user data into direct marketing millions.  that is one damned fine throwaway gag from 1997.
+if iâm ever in st. johnâs iâll go to memorial university (which is real) and look at the fonds for the show in the university archives.  notes from the description of the collection say:
+
+the great eastern aired until 1999, when, during the corporationâs cost-cutting process, cbcâs variety department offered to move the show to the afternoon as part of definitely not the opera, considered by the creators to be âa soulless program that none of us had any respect for.â the writers decided to move on âafter the most rewarding creative experience of our lives.â
+
+itâs all there for you to enjoy.
+for background, check the great eastern on wikipedia, and itâs worth looking into the history of newfoundland and labrador. the province only joined canada in 1949; before that it had been a british colony then a dominion of the empire.  in the great depression the unelected commission of government was set upâi think this is referred to as âthe dictatorshipâ in the showâand stayed in power until a slim majority of people voted in a 1948 referendum to join canada.  the great eastern has several references to joey smallwood âsurrendering to the canadians.â  all this, and the way the show was done with a completely straight face, led to confusion among canadian listeners about how much of it was real. whoâs to say?
+
+
+
+robert hughes and marcel duchamp
+
+
+	04 december 2024
+      
+
+marcel.duchamp
+quotes
+
+
+a quote from robert hughes from things i didnât know: a memoir (new york: alfred a knopf, 2006), p. 326.
+
+i did a program with marcel duchamp, to go with his retrospective at the tate.  in the course of this i asked duchamp if he would mind signing my catalog. obligingly, the old gentleman did so.  âso is this a readymade now?â i asked.  (a âreadymadeâ was a class of object, more or less invented by duchamp, which is chosen by an artist for its esthetic or other interest and designated, by that artist, to be a work of art.  examples: the famous porcelain urinal exhibited by duchamp in new york as fountain, or the spiky bottle-drying rack.)  âoh no, monsieur hughes,â he retorted gently.  âyou chose it.â
+
+
+
+
+framework 912: framework:afield
+
+
+	02 december 2024
+      
+
+art
+framework
+listening.to.art
+field.recordings
+
+
+iâm delighted that episode 912 of the wonderful radio show framework is a contribution by me: itâs an instalment of the framework:afield series that runs on alternate weeks. the episode is made of selections of some of my favourite recordings from listening to art, with a few voiceovers with quotes.  (see also the notes and bibliography.)  itâs best heard on headphones or full range speakers.
+
+
+waveforms of field recordings used
+
+many, many thanks to patrick mcginley for running it. itâs an honour to be part of the series. if you donât already listen to the show, do try it. youâll hear great things.  see this 2021 piece in the wire for more about it.
+iâve done a few introductions to regular episodes, and in 2019 france audio montage was part of framework:afield as episods #691 and #693.
+(disclosure: i am also a regular donor to the show. that gets me the voiceover-free edition of the regular show, which comes out a couple of days early. i listen to it, then get the broadcast edition when itâs out and listen to it as well.)
+
+
+
+stickers from annearchy
+
+
+	21 november 2024
+      
+
+vagaries
+
+
+i got some great stuff from annearchy, a radical solo operation out of michigan selling small hand-made stickers, buttons and bookmarks, including these:
+
+
+various stickers (with a canadian quarter for scale)
+
+my order was lost by canada post, but anne was quick to help me get it sorted outâshe was able to claim for the loss, then sent me a replacement with another shipper, and even included a free bookmark (âban bigotry, not booksâ).  the packaging and ephemera are lovely and done with great care.
+everything is designed, printed, cut and assembled by anne, all with home equipment. the cutting is done with a silhouette machine.  these things were new to me, and i spent a while looking at videos of them and cricuts, and what they can do is amazing. (mind you, itâs a world of proprietary software and hardware, so iâm not going to buy one.)  they get used a lot by stationery and planner people who want to make their own inserts for filofaxes and the like.  the toronto public library has a high-quality cutter at its fabrication studio and i am going to try it.
+i got multiples of several and will be giving them away to friends and colleagues.  have a look at whatâs available.  if you like books and libraries (or cats and hot water bottles), and donât like bigots and authoritarians interfering in your life, youâll find something you want.
+
+
+
+edward ardizzone, on the illustrating of books
+
+
+	14 november 2024
+      
+
+art
+edward.ardizzone
+
+
+i saw a mention of âon the illustrating of booksâ (pla quarterly, 1957, vol. 1 no 3.) by edward ardizzone and was delighted to find it, and the rest of volume one, openly available from the private libraries association (âan international society of book collectors â collectors of rare books, fine books, single authors, special subjects, and, above all collectors of books for the simple pleasures of reading and ownershipâ).
+this wonderful short article has much wisdom.
+
+the training of the born illustrator, if any, is academic in the true sense, which is the learning of the right way to draw things rather than the particular way to draw a particular thing.
+
+
+the born illustratorâs method of drawing is usually what i call the empirical one, a matter of trial and error. for example, should he want to draw something and is not entirely certain how to do so, instead of finding the object and drawing directly from life, he is more likely to practice drawing it, doing it over and over again, until it looks right on paper. this gives his drawing that personal quality which is usually his.
+
+
+just as the authorâs world, if he is a novelist, is not reality but a semblance of it, so must the illustratorâs world not be reality but a semblance of it created specially to fit the authorâs.
+
+
+the truth is that it is not the illustratorâs job to supplant the readerâs imagination but rather to help it, and to give it ground to work on. it follows, i think, that dramatic scenes are best avoided. it is the view from the window, the picnic in the fields, the mystery of the empty room, rather than sudden death or violent action that should be the illustratorâs subjects. in any case violence is usually better described in words, and it is not the illustratorâs business to dot the iâs and cross the tâs of the author
+
+
+
+
+mark fisher marginalia
+
+
+	31 october 2024
+      
+
+quotes
+
+
+i read a york university libraries copy of mark fisherâs capitalist realism: is there no alternative? (zero books, 2009).  right near the end he says (pp. 79â80):
+
+new forms of industrial action need to be instituted against managerialism.  for instance, in the case of teachers and lecturers, the tactic of strikes (or even of marking bans) should be abandoned, because they only hurt students and members (at the college where i used to work, one-day strikes were pretty much welcomed by management because they saved on the wage bill whilst causing negligible disruption to the college).  what is needed is the strategic withdrawal of forms of labour which will only be noticed by management: all of the machineries of self-surveillance that have no effect whatsoever on the delivery of education, but which managerialism could not exist without.
+
+two different earlier readers had been writing penciled notes in the margins through the book.  to the âpretty much welcomedâ line, one added:
+
+then maybe you need bigger strikes! & the ability to negotiate back-to-work protocol that gets you those lost wages! âcourse youâll still have to cover all the material!
+
+see also the labour disruptions section in wikipediaâs entry on york university.
+
+
+
+
+
+list of all blog posts
+
+
+
+
+william denton
+<william@williamdenton.org>
+
+
+toronto,
+	    ontario
+
+
+
+
+	  librarian, artist and licensed private investigator.
+	
+
+
+
+
+
+
+
+
+"legendo autem et scribendo vitam procudito."
+	  â marcus terentius varro (116â27 bce)
+	
+search
+
+
+
+
+
+indexes
+
+posts chronologically
+posts by tags
+
+selected contents
+
+fictional dentons
+fictional footnotes
+hardboiled and noir 
+interviewing at york university libraries
+library science
+publications and talks
+rara-avis
+sir richard francis burton and general charles gordon
+technical aide-mã©moire
+old stuff
+
+projects
+
+ conforguration: configure servers and dotfiles in org.
+ framework radio shows: france audio montage on  shows #691 and #693; listening to art on #912.
+	   ghg.earth: climate change sonification.
+ listening to art: field recordings of visual art (on hiatus until 2029).
+ staplr: sounds in time actively performing library reference.
+ theatre science.
+
+see also
+
+kady macdonald denton, children's book author and illustrator
+the arts and letters club of toronto
+
+
+atmospheric coâ
+
+
+      march 1958: 315.71 ppm
+      
+      january 2025: 426.65 ppm
+    
+
+      increase: 110.94 ppm
+
+      change: 35.1 %
+
+
+  at mauna loa:
+  data,
+  code.
+  
+
+
+privacy
+
+	  zero logging, no tracking.
+	
+
+ 
+ 
+
+
+
+	â© william denton 1993â2024. cc by: content on this site is licensed under a creative commons attribution 4.0 international license.
+      
+
+
+
+

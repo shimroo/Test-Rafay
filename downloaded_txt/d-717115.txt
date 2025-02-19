@@ -1,0 +1,208 @@
+
+
+
+welcome to silvertree
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+traffic utilization for the last 24 hours
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7 days uptime
+
+device
+uptime
+device
+uptime
+device
+uptime
+
+
+cable modem
+
+smtp
+
+ssh
+
+
+
+https
+
+dns
+
+imaps
+
+
+
+external status monitor
+
+
+
+
+
+ welcome to silvertree communications! we believe that people have the right to
+quality, free hosting (mud/web) and services.  silvertree is ran completely out of pocket by scott schappell.  i do not charge for people to have a shell account here, though donations are always welcome through paypal to archon@silvertree.org.
+
+
+services i provide
+
+perl cgi support
+php support
+mysql database support
+pop3/pop3-ssl access to your e-mail account
+	imap4/imap-ssl access to your e-mail account
+	access to your e-mail from anywhere using a browser
+	if required, virtual hosting of your domain.
+	
+secondary dns for your domain
+	primary dns for your domain
+	
+
+tiers of service
+
+please view our privacy and terms of use  policy.
+
+mail only
+	
+1024 mb of disk space
+access to mail via pop3/imap (ssl only)
+web mail access
+no shell access
+
+wordpress
+	
+includes services in "mail only"
+personal webspace (www.silvertree.org/~user)
+4 gib of disk space
+
+hosting account
+	
+includes services in wordpress
+additional quota if requested (no charge, subject to change)
+virtual domain hosting (www.yourdomain.com, user@yourdomain.com)
+
+mu* account
+        
+includes services in hosting
+20gib of disk quota
+no restrictions on cpu/memory usages (but if your game seems to be using a lot of resource i will work with you to fix)
+custom silvertree.org or silvertree.io subdomain (yourgame.silvertree.org and yourgame.silvertree.io)
+                  shell account with pennmush (latest) compiled and ready to use.
+		when requesting a mu* account please provide 3 ports you'd like to use. see http://games.silvertree.io/ for what ports are currently in use. mu* accounts are restricted to ports 1024-5000.
+	
+name services
+		
+secondary ns (5 domains free)
+provide ip address of primary nameserver
+provide name of domain(s)
+
+primary dns
+
+provide information needed for the zone file
+one time set up fee of 50 usd per domain (no monthly)
+configure domain with registrar to use ns1.silvertree.org as primary nameserver.
+			
+
+
+
+data backups
+data is backed up twice daily via rsync to a local backup volume and daily to a raid 5 nas device.  home directories are backed up every 60 minutes via rsync to a local backup volume.
+
+terms
+under no circumstances will any user at any level service host or make available copyrighted material or use silvertree's services to transmit copyrighted material unless said account holder holds the copyright or has legal permission to make the material available to the public. if copyrighted materials are found in a user's publically accessible areas (i.e. public_html), the account will be deleted. individuals who host copyright materials and can provide documentation and confirmation of their permission will not have their accounts deleted.silvertree will comply fully with any request from any copyright holder or their duly appointed representatives. 
+
+see the complete policy
+accessing services
+
+smtp - you can access smtp using your username and password via smtp auth.
+webmail - https://www.silvertree.org/squirrelmail/
+shell - telnet access is not allowed. you must use ssh.  silvertree is an official putty mirror so you can download a great free ssh client from our mirror site
+http - frontpage extensions are not currently supported on our apache server, thus all publishing must be done via ftp, sftp or scp.
+mush server - administration and configuration is done via the shell.
+
+requesting an account
+new accounts may be issued on a case by case basis.  please e-mail the administrator with a detailed explanation of what you require.
+likelihood of approval:
+shell only account: zero
+
+mu* hosting account: high
+
+wordpress hosting account: medium
+
+e-mail only account: high
+
+sysadmins love desserts, and if you're a current user of silvertree services and would like to provide cookies or pie to your local sysadmin please use the following*:
+
+
+
+
+
+archon's favorite desserts
+peanut butter cookie $5.00 usd
+oatmeal raisin cookie $10.00 usd
+chocolate chip cookie $15.00 usd
+pumpkin pie $20.00 usd
+apple pie $25.00 usd
+pecan pie $30.00 usd
+ 
+
+
+
+
+
+
+*note you are not actually buying cookies or pies, you are providing the funds for the sysadmin to buy cookies and pies, or, more accurately, help pay to keep this site running. 
+
+
+we hate spam!
+
+if you have received something you suspect is spam from a silvertree user, please forward it to abuse@silvertree.org including full smtp headers.
+
+
+
+
+
+silvertree communications uses the following services and software:
+
+
+
+
+ssl certifcates from let's encrypt™.
+
+
+
+
+
+    
+   
+    
+   
+
+
+
+gmt
+
+

@@ -1,0 +1,580 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+you’ve been haacked | you’ve been haacked is a blog about technology, software, management, and open source. it’s full of good stuff.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+you've been haacked
+…and you like it
+
+
+about
+archives
+contributors
+contact
+
+
+
+
+ haacked
+ haacked
+ @haacked@hachyderm.io
+ rss
+
+
+
+
+
+
+
+
+
+
+new year, new job
+
+
+    
+    jan 7, 2025
+  
+
+career
+work
+
+
+suggest edit
+
+
+
+
+
+
+last year i wrote a post, career chutes and ladders, where i proposed that a linear climb to the c-suite is not the only approach to a satisfying career. at the end of the post, i mentioned i was stepping off the ladder to take on an ic role.
+read more
+
+
+
+deserializing json to a string or a value
+
+
+    
+    dec 17, 2024
+  
+
+csharp json
+
+
+suggest edit
+
+
+
+
+
+
+i love using refit to call web apis in a nice type-safe manner. sometimes though, apis don’t want to cooperate with your strongly-typed hopes. for example, you might run into an api written by a hipster in a beanie, aka a dynamic-type enthusiast. i don’t say that pejoratively. some of my closest friends write python and ruby.
+read more
+
+
+
+career chutes and ladder
+
+
+    
+    dec 10, 2024
+  
+
+career
+
+
+suggest edit
+
+
+
+
+
+
+the career ladder is a comforting fiction we’re sold as we embark on our careers: start as junior, climb to senior, then principal, director, and vp. one day, you defeat the final boss and receive a key to the executive bathroom and and join the c-suite. you’ve made it!
+read more
+
+
+
+supercharge your debugging with git bisect
+
+
+    
+    nov 11, 2024
+  
+
+git
+
+
+suggest edit
+
+
+
+
+
+
+ever look for a recipe online only to scroll through a self-important rambling 10-page essay about a trip to tuscany that inspired the author to create the recipe? finally, after wearing out your mouse, trackpad, or page down key to scroll to the end, you get to the actual recipe. i hate those.
+read more
+
+
+
+custom config sections using static virtual members in interfaces
+
+
+    
+    jul 18, 2024
+  
+
+csharp
+dotnet
+aspnetcore
+
+
+suggest edit
+
+
+
+
+
+c# 11 introduced a new feature - static virtual members in interfaces. the primary motivation for this feature is to support generic math algorithms. the mention of math might make some ignore this feature, but it turns out it can be useful in other scenarios.
+read more
+
+
+
+.net aspire vs docker.
+
+
+    
+    jul 1, 2024
+  
+
+aspire
+dotnet
+nuget
+service-dependencies
+
+
+suggest edit
+
+
+
+
+
+
+this is a follow-up to my previous post where i compared .net aspire to nuget. in that post, i promised i would follow up with a comparison of using .net aspire to add a service dependency to a project versus using docker. and looky here, i’m following through for once!
+read more
+
+
+
+is .net aspire nuget for cloud service dependencies?
+
+
+    
+    jun 27, 2024
+  
+
+aspire
+dotnet
+nuget
+service-dependencies
+cloud
+docker
+
+
+suggest edit
+
+
+
+
+
+
+recently i tweeted,
+read more
+
+
+
+failure suuuuucks
+
+
+    
+    nov 13, 2023
+  
+
+work
+
+
+suggest edit
+
+
+
+
+
+
+when you fail, many people will tell you how failure is a great teacher. and they’re not wrong. but you know what else is a great teacher? success! and success is a lot less expensive than failure.
+read more
+
+
+
+calling internal ctors in your unit tests
+
+
+    
+    may 1, 2023
+  
+
+csharp
+tdd
+
+
+suggest edit
+
+
+
+
+
+
+one of my pet peeves is when i’m using a .net client library that uses internal constructors for its return type. for example, let’s take a look at the azure.ai.openai nuget package. now, i don’t mean to single out this package, as this is a common practice. it just happens to be the one i’m using at the moment. it’s an otherwise lovely package. i’m sure the authors are lovely people.
+read more
+
+
+
+when your dbcontext has the wrong scope
+
+
+    
+    jan 9, 2023
+  
+
+aspnetcore
+efcore
+
+
+suggest edit
+
+
+
+
+
+
+this is the final installment of the adventures of bill maack the hapless developer (any similarity to me is purely coincidental and a result of pure random chance in an infinite universe). follow along as bill continues to improve the reliability of his asp.net core and entity framework core code. if you haven’t read the previous installments, you can find them here:
+read more
+
+
+
+why did that database throw that exception?
+
+
+    
+    dec 12, 2022
+  
+
+aspnetcore
+efcore
+
+
+suggest edit
+
+
+
+
+
+
+in the previous installment of the adventures of the hapless developer, bill maack, bill faced some code that tries to recover from a race condition when creating a user if the user entity doesn’t already exist.
+read more
+
+
+
+how to recover from a dbupdateexception with ef core
+
+
+    
+    dec 5, 2022
+  
+
+aspnetcore
+efcore
+
+
+suggest edit
+
+
+
+
+
+
+there are cases where recovery from an entity framework core (ef core) dbupdateexception is possible if you play your cards right. play them wrong and the result is heartbreak and tears as every call to savechangesasync rethrows the same exception.
+read more
+
+
+
+c# list pattern examples
+
+
+    
+    nov 22, 2022
+  
+
+csharp
+patterns
+
+
+suggest edit
+
+
+
+
+
+
+we recently upgraded abbot to .net 7 and c# 11 and i’m just loving the new language features in c#. in this post, i’ll give a couple examples of list patterns.
+read more
+
+
+
+so you want to speak at conferences
+
+
+    
+    nov 7, 2022
+  
+
+speaking
+conferences
+
+
+suggest edit
+
+
+
+
+
+
+i just finished speaking at my favorite conference, the caribbean developer’s conference. held in a wonderful resort in punta cana, dominican republic, it brings together a local and international crowd of speakers and attendees. i’ve gushed about it before.
+read more
+
+
+
+calculating mrr with stripe and c#
+
+
+    
+    oct 12, 2022
+  
+
+stripe
+abbot
+
+
+suggest edit
+
+
+
+
+
+
+over here at a serious business, inc. we’re very serious about security. one principle that’s important to us is what we call the principle of least exposure (not to be confused with the similar principle of least privilege).
+read more
+
+
+
+pitfalls with eager loading of collections in ef core
+
+
+    
+    sep 30, 2022
+  
+
+aspnetcore
+efcore
+
+
+suggest edit
+
+
+
+
+
+
+when using an orm with a web app, lazy loading will almost certainly result in hidden n+1 queries. eager loading is a great way to avoid this, but has its own pitfalls. in particular, for each query, you need to be careful about what you include in the query. if you include too much, you can end up with a lot of data that you don’t need. if you include too little, you can end up with confusing logic. for example, deep in your application code, it may not be clear if a navigation collection has been loaded yet or not. this can lead to unexpected behavior.
+read more
+
+
+
+lessons from a startup pivot
+
+
+    
+    jul 25, 2022
+  
+
+aspnetcore
+azure
+cloud
+
+
+suggest edit
+
+
+
+
+
+
+building a startup is easy. you file some paperwork and bam! you’re a startup!
+read more
+
+
+
+tag helper for display templates
+
+
+    
+    jul 8, 2022
+  
+
+aspnetcore
+aspnetmvc
+csharp
+
+
+suggest edit
+
+
+
+
+
+
+i was minding my own business when @dahlbyk (you may know him from such hits as poshgit) dropped this comment on an already merged pull request.
+read more
+
+
+
+async disposables the easy way
+
+
+    
+    dec 10, 2021
+  
+
+abbot
+csharp
+
+
+suggest edit
+
+
+
+
+
+in the system.reactive.disposables namespace (part of reactive extensions), there’s a small and useful disposable class. it has a create method that takes in an action and returns an idisposable instance. when that instance is disposed, the action is called. it’s a nice way of creating an ad-hoc idisposable. i use them often for creating a scope in code where something should happen at the end of the scope. here’s an exceedingly trivial example:
+read more
+
+
+
+intellisense for hosted c# script
+
+
+    
+    sep 1, 2021
+  
+
+abbot
+csharp
+
+
+suggest edit
+
+
+
+
+
+
+this recent abbot blog post covers abbot-cli a new open source command-line tool. abbot-cli makes it possible to work on abbot skills in your local editor. in that post, i mentioned that when you retrieve a c# skill to edit locally, the tool writes a few aditional files on your machine.
+read more
+
+
+
+
+
+
+« prev
+1
+2
+3
+4
+5
+...
+103
+next »
+
+
+
+
+
+
+
+
+
+            
+              phil haack
+            
+            
+
+
+
+
+ haacked
+ haacked
+ @haacked@hachyderm.io
+ rss
+
+
+
+
+you've been haacked is a blog about technology, software, management, and open source. it's full of good stuff.
+
+
+
+
+
+
+
+

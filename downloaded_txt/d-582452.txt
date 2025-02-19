@@ -1,0 +1,581 @@
+
+
+
+
+
+paul m. jones
+
+
+
+
+
+
+
+
+
+
+
+
+
+paul m. jones
+don't listen to the crowd, they say "jump."
+
+
+
+
+
+
+
+
+
+
+
+
+                            monday
+03
+                            feb 2025
+
+pmjones
+ programming
+php
+interop
+
+
+
+
+stream-interop now open for public review
+
+
+
+many thanks to the private reviewers and collaborators on this project thus far. special thanks to nathan bishop for starting this project, and for his generous donation of the github organization and the packagist vendor space. special thanks also to akihito koriyama for his encouragement and advice on this and related *-interop projects.
+
+after a period of private review, the stream-interop/interface package is now open for public review.
+stream-interop publishes interoperable interfaces providing a more object-oriented approach to encapsulating and interacting with stream resources in php 8.4+. it reflects, refines, and reconciles the common practices identified within several pre-existing projects.
+the package defines separate interfaces for various affordances around stream resources so that (1) implementations can advertise well-tailored affordances, and (2) consumers can typehint to the specific affordances they require for specific situations:
+
+
+stream is a common baseline for streams.
+
+resourcestream affords direct access to the encapsulated resource.
+
+closablestream affords closing the stream.
+
+sizablestream affords getting the full length of the stream in bytes.
+
+readablestream affords reading from the stream.
+
+seekablestream affords moving the stream pointer.
+
+stringablestream affords casting the stream to a string.
+
+writablestream affords writing to the stream.
+
+the reference implementations demonstrate how the interfaces can be combined in various ways to implement everything from a simple consumablefilestream to a lazy ghost readwritefile.
+if you use streams and are interested an interoperable set of interfaces, please offer your comments and criticism as issues or prs out at github.
+
+
+
+
+
+
+
+                            monday
+15
+                            jan 2024
+
+pmjones
+ programming
+php
+interop
+
+
+
+
+front-interop: interoperable front controller interfaces
+
+
+the front-interop project defines a set of interoperable interfaces for the frontcontroller pattern in php to encapsulate the request-receiving and response-sending behaviors at the outermost boundary of your http presentation layer:
+
+
+requesthandler::handlerequest() : responsehandler encapsulates the logic to transform an incoming http request to an outgoing http response.
+
+
+responsehandler::handleresponse() : void encapsulates the logic to send or emit an outgoing response.
+
+
+these interfaces are completely independent of any particular request/response library. that is, they will work with psr-7, symfony httpfoundation, sapien, or any other request/response library.
+read more about the project here.
+
+
+
+
+
+
+
+                            tuesday
+10
+                            oct 2023
+
+pmjones
+ programming
+php
+styler
+
+
+
+
+php-styler 0.13.0 released
+
+
+php-styler is a companion to php-parser for reconstructing php code after it has been deconstructed into an abstract syntax tree.
+i've done quite a bit with php-styler since the last-announced 0.5.0 release a few weeks ago; the most important things are:
+
+comment handling has been greatly improved, including greater fidelity regarding inline comments.
+there are now instructions on how to customize the styler presentation.
+the demo site looks a lot nicer, and has a pretty good logo now.
+
+even though php-styler is still in its 0.x release series, and is good enough for me to use on my own projects, it would benefit from wider usage to find edge cases. if you try out the styler and find problems with it, please enter an issue!
+further, if you build a customized style, please let me know, and i can advertise it on the site.
+
+
+
+
+
+
+
+                            tuesday
+19
+                            sep 2023
+
+pmjones
+ programming
+php
+styler
+
+
+
+
+php-styler 0.5.0 released
+
+
+php-styler is a companion to php-parser for reconstructing php code after it has been deconstructed into an abstract syntax tree. as a pretty-printer for ast nodes, php-styler will completely reformat your php code, discarding any previous formatting entirely. it will also split lines at idiomatically appropriate points for the given maximum line length, a feature i'm especially happy with.
+improvements and additions
+this release sees dramatic speed improvements (about 600% !) from the last-publicized 0.1.0 release, mostly from removing the php -l linting step in favor of using the error-checking from php-parser. in addition, the code reassembly logic has been completely rewritten to use a line object that splits into sub-line objects, and applies splits to each line independently. this results in a much more robust line-splitting process.
+i have also added a bare-bones document on how to customize styler output -- including notes on how to customize spacing around operators, and on opening-brace placement. if you have a coding style guide that you like, i invite you to try writing a customized styler for  it; i can advertise it on the php-styler site.
+and although you can use the preview command after installing php-styler to safely preview any reformatting, i have put up a temporary online demonstration site -- type or paste in any php code to watch it get reformatted live. (as a side note, this gave me an excuse to try htmx which really is quite easy to use.)
+line-splitting example
+in testing the line-splitting logic, i applied php-styler to several public codebases, including the httpfoundation package from symfony. here is some original symfony code before php-styler gets hold of it:
+class expressionrequestmatcher extends requestmatcher
+{
+    // ...
+
+    public function matches(): bool
+    {
+        // ...
+
+        return $this->language->evaluate($this->expression, [
+            'request' => $request,
+            'method' => $request->getmethod(),
+            'path' => rawurldecode($request->getpathinfo()),
+            'host' => $request->gethost(),
+            'ip' => $request->getclientip(),
+            'attributes' => $request->attributes->all(),
+        ]) && parent::matches($request);
+    }
+}
+
+now to apply php-styler. (the following is a simplified explanation of the line-splitting logic, looking just at the matches() return expression.)
+in the first evolution of line-splitting, php-styler begins by placing the entire statement on a single line with no splits at all.
+        return $this->language->evaluate($this->expression, ['request' => $request, 'method' => $request->getmethod(), 'path' => rawurldecode($request->getpathinfo()), 'host' => $request->gethost(), 'ip' => $request->getclientip(), 'attributes' => $request->attributes->all()]) && parent::matches($request);
+
+clearly this line is too long. php-styler recognizes this and applies a second evolution to split lines at booleans:
+        return $this->language->evaluate($this->expression, ['request' => $request, 'method' => $request->getmethod(), 'path' => rawurldecode($request->getpathinfo()), 'host' => $request->gethost(), 'ip' => $request->getclientip(), 'attributes' => $request->attributes->all()])
+            && parent::matches($request);
+
+the boolean line is now within the limit, but the fluent method call above it is not. the third evolution applies an idiomatic member-operator split:
+        return $this->language
+            ->evaluate($this->expression, ['request' => $request, 'method' => $request->getmethod(), 'path' => rawurldecode($request->getpathinfo()), 'host' => $request->gethost(), 'ip' => $request->getclientip(), 'attributes' => $request->attributes->all()])
+            && parent::matches($request);
+
+the $language property stays with $this, but the evaluate() method call gets split -- even then, the line remains too long. the fourth evolution applies an argument split on that line:
+        return $this->language
+            ->evaluate(
+                $this->expression,
+                ['request' => $request, 'method' => $request->getmethod(), 'path' => rawurldecode($request->getpathinfo()), 'host' => $request->gethost(), 'ip' => $request->getclientip(), 'attributes' => $request->attributes->all()]
+            )
+            && parent::matches($request);
+
+now the arguments are split out to their own lines and indented; the only remaining over-long line is the second argument. the fifth evolution applies an array split:
+        return $this->language
+            ->evaluate(
+                $this->expression,
+                [
+                    'request' => $request,
+                    'method' => $request->getmethod(),
+                    'path' => rawurldecode($request->getpathinfo()),
+                    'host' => $request->gethost(),
+                    'ip' => $request->getclientip(),
+                    'attributes' => $request->attributes->all()
+                ],
+            )
+            && parent::matches($request);
+
+now that the array argument has been split and indented, all of the lines are within the limit, and php-styler moves on to the next chunk of code.
+as we can see, the end result is similar but not identical to the original symfony code. still, the php-styler presentation is arguably a reasonable alternative to the original.
+what's important here is that no matter the style of the original code, the restyled code will always end up the same way. the original code could be an absolute mess, but php-styler will present it coherently regardless. all style decisions will look like they have been made by a single mind, granting at least one aspect of consistency and coherence to any codebase.
+iii.
+there's still more to be done with php-styler, such as adding annotations to ignore a file for styling, or to force array expansion across lines. inline comments present some problems, as does variable interpolation into double-quoted strings with newlines. unfortunately, those are because of how the upstream php-parser works, so i'll have to report those and hope for a solution there.
+even so, php-styler is good enough for my own projects now, and i'm happy to have spent the time working it up.
+
+
+
+
+
+
+
+                            wednesday
+16
+                            aug 2023
+
+pmjones
+ programming
+php
+teller
+
+
+
+
+teller: money for legacy applications in php
+
+
+i am happy to say that moneyphp 4.2.0 incorporates my teller contribution for handling monetary math in legacy codebases.
+legacy codebases often use float math for monetary calculations, which leads to problems with fractions-of-pennies in monetary amounts. the proper solution is to introduce a money object, and use money objects in place of float math. however, doing so can be quite a hardship, especially when the float values need to be moved to and from database storage. intercepting and converting the float values (often represented by strings) into money objects on their way out of the database, then reconverting them to their original format on their way back to the database, can be very difficult and time-consuming.
+to help ease the transition from float math to money objects, use a teller instance to replace float math for monetary calculations in place. without teller, your math might look like this ...
+$price = 234.56;
+$discount = 0.05;
+$discountamount = $price * $discount;
+// => 11.728
+
+... and you end up with an extraneous $0.008. whereas with teller, you can replace the money math in place, without needing to create money objects:
+// create a teller, perhaps in a di container ...
+$teller = \money\teller::usd();
+
+// ... then use it for monetary math:
+$price = 234.56;
+$discount = 0.05;
+$discountamount = $teller->multiply($price, $discount);
+// => '11.73'
+
+the main drawback is that you cannot use two different currencies with the teller; you can use only one.
+teller supports the full range of money operations. you can read the documentation for it here.
+
+
+
+
+
+
+
+                            tuesday
+15
+                            aug 2023
+
+pmjones
+ science
+
+
+
+
+there is only one science
+
+
+
+"all science is either physics or stamp-collecting."
+-- ernest rutherford
+
+i recall hearing it first another way, i think via heinlein: "there is only one science. it is called 'physics.' everything else is stamp-collecting." i like that phrasing better, because it highlights the disparity more plainly.
+anything that calls itself "science" must be based on observation, but only physics provides a predictive capacity from those observations. the other "sciences" consist only of collections of observations; those observations can be categorized, organized, and reorganized as new observations are collected, but they do not provide a predictive capacity. they do not tell you what your next observation will be with much certainty. if you find a strongly predictive capacity, chances are that there is a physics component underlying the observations.
+thus, the further you get from "physics", the further you get from "science."
+
+
+
+
+
+
+
+                            monday
+14
+                            aug 2023
+
+pmjones
+ programming
+php
+styler
+
+
+
+
+introducing php-styler
+
+
+php-styler is a companion to php-parser for reconstructing php code after it has been deconstructed into an abstract syntax tree. as an alternative to the pretty-printer bundled with php-parser, it supports:
+
+configurable line-length, line-ending, and indent-string
+automatic indenting and line breaks
+automatic splitting of "too-long" lines
+programmable/customizable styling
+
+php-styler is not a coding style "fixer" per se. instead, it will completely rebuild php code from the ast, applying its style rules along the way. the result is a consistent formatting style, regardless of the original formatting.
+whereas something like php-cs-fixer has scores of configuration parameters, php-styler gives you imperative control over its output. extend the default styler implementation with your own overrides to change where braces go, to place or remove the space after ! conditions, whether or not if/elseif/else should be on separate lines, and so on.
+i'm especially happy with the line-splitting logic. php-styler begins by building one statement per line, but if the line is too long, it follows an incremental set of rules to split that line into shorter readable parts.
+there are still some outstanding formatting issues around closures and comments, but i have smoke-tested php-styler against several codebases besides my own, and i found the results surprisingly acceptable (not perfect, but unexpectedly good). it's certainly good enough for my own projects, though it did reveal some of my own preferences that i was not aware of, as well as some inconsistencies in my own style choices.
+if you are using php-parser and want a better pretty-printer, or if you have been looking for an alternative to php-cs-fixer, give php-styler a try!
+
+
+
+
+
+
+
+                            monday
+03
+                            jul 2023
+
+pmjones
+ programming
+php
+qiq
+
+
+
+
+qiq tags and php tokens
+
+
+i released qiq 2.1.0 last week, with a new feature made possible only by using php tokens during the qiq compiling process.
+i.
+qiq is a template system for php. it uses native <?php ... ?> for the template syntax, but it allows for using a qiq {{ ... }} syntax as well. qiq syntax is the same as php, with a light dusting of syntax sugar added to make it more concise. that means a helper call in qiq syntax ...
+{{= anchor('http://example.com') }}
+
+... gets $this-> added to it when qiq compiles it to php ...
+<?= $this->anchor('http://example.com') ?>
+
+... making helper usage more concise in qiq. it also means you can mix php in with qiq as much or as little as you like, because qiq code is pretty much just php code.
+ii.
+one thing which always irked me a bit was that if you use a helper under qiq syntax, but not as the opening keyword, you would still need to use $this-> inside the qiq tags. for example, the following variable assignment would generate an error ...
+{{ $a = anchor('http://example.net') }}
+
+... because the compiler looked only at the opening keyword, and did not know to add $this-> to the anchor() call. instead, if you were past the first keyword, you would have to add $this-> yourself:
+{{ $a = $this->anchor('http://example.net') }}
+
+that adds a bit of cognitive friction, but it didn't bother me too much, until someone else brought it up.
+iii.
+having a real bug report/feature request motivated me to address the issue. the problem was, how could the qiq compiler examine the remaining code inside the qiq tags, look for words that qualify as function calls, and add $this-> to them?
+my first thought was to bring in nikic/php-parser and use it as part of a secondary compiling process. the idea was to convert the qiq {{ ... }} syntax to php first, then run that php code through php-parser, find all plain function calls, and add $this-> to them.
+that turned out to be more difficult than i thought it would be; walking the ast properly involved more effort than i would have liked for this endeavor. in addition, the php-parser pretty-printer for generating the converted output did not look suited to this particular task. i want very much for the qiq code and the resulting php code to match up very closely, and the pretty-printer cannot guarantee that at this point.
+iv.
+as a result, i decided to fall back to the plain old phptoken functionality (it's an improved version of token_get_all()). this turned out to be much more applicable to the problem at hand. the qiq compiler process doesn't need a full ast as provided by php-parser, it just needs identify function calls.
+using an extended php token class, the qiq compiler can tokenize the qiq-enclosed php code, then examine each token to see if it looks like a function call. it does this by ...
+
+checking that the current token is a non-keyword non-encapsed string;
+looking ahead to see if the next significant token is an opening parenthesis;
+and looking back to make sure the previous significant token is not ->, ?->, ::, or the function keyword.
+
+under those conditions, the current token is presumed to be a function call, and the compiler adds $this-> to it.  (it's possible that these conditions might need some improvement, but testing on existing templates did not reveal any trouble.)
+this approach took some trial-and-error, but the resulting solution is only 70 lines of code, and well-targeted to the problem at hand.
+v.
+as a result, you can now use a helper anywhere inside qiq {{ ... }} tags, without having to add $this-> yourself. that means the qiq code from the opening example now assigns the variable without error ...
+{{ $a = anchor('http://example.net') }}
+
+... which eliminates the last little bit of cognitive friction i have felt with qiq.
+many thanks to apple-x-co for submitting the report that motivated this improvement!
+postscript
+try qiq for your template system, because you like php syntax, but you also want:
+
+concise, explicit, context-specific escaping
+views, layouts, and partials
+blocks and inheritance
+rich and extensible html helpers
+easy-to-implement static analysis
+full documentation and unit-testing
+
+
+
+
+
+
+
+
+                            thursday
+25
+                            may 2023
+
+pmjones
+ programming
+php
+autoshell
+
+
+
+
+autoshell 1.0 released
+
+
+i am proud to announce the first release of autoshell, a library for building cli commands in php 8.1 and up.
+just as with autoroute for web routing, autoshell automatically maps cli command names to php command classes in a specified namespace. for example, given a namespace of project\cli\command, the cli command name create-article automatically maps to the project\cli\command\createarticle command class.
+autoshell is low-maintenance. merely adding a class to your source code, in the recognized namespace and with the recognized main method name, automatically makes it available as a command.
+autoshell will automatically map command-line arguments to the command class main method parameters. for example, given this command class ...
+<?php
+namespace project\cli\command;
+
+use autoshell\help;
+
+#[help("says hello to a _name_ of your choice.")]
+class hello
+{
+    public function __invoke(
+
+        #[help("the _name_ to say hello to.")]
+        string $name
+
+    ) : int
+    {
+        echo "hello {$name}" . php_eol;
+        return 0;
+    }
+}
+
+... autoshell will recognize php bin/console.php hello world  and output hello world.
+and as you can see, help is defined via attributes. options are easy to define, too -- as is combining common option sets with command-specific ones.
+there's a lot more to autoshell; take a look at the documentation to get started!
+
+you can read the reddit discussion about this post here.
+
+
+
+
+
+
+
+                            monday
+10
+                            apr 2023
+
+pmjones
+ programming
+php
+qiq
+
+
+
+
+qiq templates 2.0 released
+
+
+i am happy to annouce the 2.0 release of qiq templates for php 8.
+qiq is for developers who prefer native php templates, but with less verbosity. it offers:
+
+native <?php ?> and {{ qiq }} syntax
+
+concise, explicit, context-specific escaping
+views, layouts, and partials
+
+
+blocks and inheritance
+
+rich and extensible html helpers
+
+easy-to-implement static analysis
+
+full documentation and unit-testing
+
+this release incorporates several substantial changes; you can see the upgrade notes here.
+the most important of these changes is that qiq templates are now easily subject to static analysis. add a docblock typehint for $this in your template files, recompile any templates using qiq syntax, and run your static analyzer against your templates. yes, it's that easy.
+the way helpers are implemented has also changed. previously, you would have to register your helper class with a helper locator, but that made static analysis more difficult. as of this release, helpers are now just methods on a helpers class, which makes static analysis simple and straightforward. to add a helper, extend the helpers class and write any method you like. in addition, all helper objects are retained in a psr-11 container object; use the lightweight container provided by qiq, or bring your own (maybe capsule).
+finally, a twig-like implementation of "blocks" and "inheritance" has been added to this release, and backported to the latest 1.x release.
+if you're a twig user looking to branch out, or if you like native php templates but want something a little more concise, try qiq!
+
+
+
+
+
+
+
+
+
+ older posts »
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+books
+
+
+
+
+
+
+
+
+
+
+blogroll
+
+
+
+
+
+
+
+
+
+
+
+months
+
+
+
+
+
+
+
+
+
+
+
+tags
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+built with argo.
+
+
+
+
+
+
+

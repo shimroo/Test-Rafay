@@ -1,0 +1,1106 @@
+
+
+
+
+
+howardism
+
+
+
+
+
+
+
+howardism
+
+
+
+
+guess who is trying to get their rss feed working again?
+
+
+demos in emacs, part deux
+
+18 october 2024
+
+revisiting my decade-old demonstration code, i created a new approach.
+i also realized i had something more general that may have wider application.
+oh, and i get to show you how i go about writing lisp macros.
+
+
+and now to you use it in recording my talk for emacsconf 2024.
+
+
+read the essayâ¦
+
+
+
+
+playing with emacs
+
+3 december 2023
+
+this yearâs emacsconf was really good with some interesting talks and ideas. i really appreciate all the lovely comments and compliments about my talk. thank you.
+
+
+
+"""
+  
+
+
+      your browser does not support the video tag. please download
+      the video instead.
+    
+
+
+
+(i also copied the video to youtube)
+
+
+linkage:
+
+
+ironsworn emacs project code: emacs-ironsworn
+note that this code depends on my earlier project: emacs-rpgdm
+the alpha version of a rpg toolkit code: emacs-rpgtk
+
+
+
+
+query json documents in emacs
+
+26 april 2023
+
+while working on a web interface spitting out json, i wish i had a jq-like interface in emacs. easy enough to write.
+
+
+read the essay.
+
+
+
+
+better find-file for org files
+
+16 jan 2023
+
+what if find-file in emacs, along with the fileâs name, could display more information, like the title or tags of an org-formatted file? i made this using ripgrep (so fast, we donât need an index), and with extensions to completing-read (like ivy, vertico, or selectrum), i can filter and narrow the list of all org-files, until i find what i want.
+
+
+read moreâ¦
+
+
+
+
+mastodon
+
+
+yes, mastodon is the talk of the tubes, and iâm glad this new federated service has its day in the sun.
+
+
+before twitter went mainstream, only technical people used it, and it felt like a nerdy community. those days are long gone.
+when i first grabbed my mastodon handle over at mastodon.xyz, i could see the potential for community, but without people i wanted to talk to â¦
+
+
+this changed when louis brauer created emacs.ch; i found a nice, nerdy community, and now that everyone else has joined the federation (thank you head twit), we get to take advantage of all the nicer features that mastodon offers.
+
+follow me on mastodon!
+
+
+
+a second chance for eshell
+
+3 dec 2022
+
+during emacsconf 2022, i gave a lightning talk with 10 minutes (actually 14) to present the top 10 reasons why you retry eshell. but the talk ballooned, and i felt the content was too condensed to be useful. i wrote an essay to fill in a lot of the details (as well as links to the extension code).
+
+
+read moreâ¦
+
+
+
+
+beep for emacs
+
+25 dec 2020
+
+when starting a long process, i prefix a shell command with beep, a shell script i wrote to alert when the process had completed. i’ve been wanting to have a version for emacs, and thought that i would also demonstrate how easy it is to add a feature to emacs.
+
+
+read moreâ¦
+
+
+updated: enhanced the function to only “beep” when a command when too long, which means i can attach the beep to just about any function without getting annoyed if the function immediately returned.
+
+
+
+
+focused work
+
+30 may 2021
+
+while i’m intrigued with the pomodoro techniqueâ¦ you know, where you work in discrete time segments, with equally discrete break intervals.  perhaps making the work/relax cycle more specific and focused may convert these cycles into practice, and condition our brains.
+
+
+however, while i would like to focus my thoughts in discrete bursts, i don’t want to interrupt the flow. you know, that mental groove where one is really productive. i certainly don’t want a jarring ding to shatter that flow.
+
+
+i’ve decided to try an experiment to see if i can make the cycle changes noticeable, but not disturbing. the code is particular to my workflow, but perhaps you can convert it.
+
+
+read moreâ¦
+
+
+
+
+extending emacs completing read
+
+23 dec 2020
+
+other than editing buffer, the most common user interface in emacs is completing-read, which allows you to select an item from a list of choices. i thought i would expand on it with a bit of lisp code to explain how to give your interactive functions a bit more interaction.
+
+
+read moreâ¦
+
+
+
+
+web browsing and emacs
+
+17 jul 2020
+
+i use three different browsers, but i really want all of them to be as mouse-less as possible.  here is a discussion of my emacs and browser configuration.  do you have similar tips you’d like to share?
+
+
+read moreâ¦
+
+
+
+
+project piper
+
+3 nov 2019
+
+while awfully early for folks like me in the pacific timezone, i really enjoyed emacsconf 2019 (iâve never attended a conference in my pajamas before). my talk was plagued with technical issues, and iâm sure it came across pretty disjointed. i am planning on re-recording this talk and putting it up on youtube.
+
+
+i have written a transcript of the slides for my presentation, as well as a lengthy essay on the project. the project is only for interested tinkerers as it is really just a proof-of-concept, but if youâd like to play, pop over to emacs-piper project on gitlab.
+
+
+
+
+getting boxes done
+
+27 jan 2019
+
+benjamin franklin once wrote,
+
+
+
+âfor every minute spent in organizing, an hour is earned.â
+
+
+
+due to emacs, i may have accrued nearly a lifetime by now.
+
+
+i’ve been tweaking and refining my take on the getting things done process,
+and thought i’d share my process.  as a recurring theme on my website, the
+original essay bloomed into three separate chapters:
+
+
+chapter 1 illustrates my workflow with a flowchart
+chapter 2 describes my emacs configuration and helper functions
+chapter 3 contains code for turning an org subtree into its own file
+
+
+would like to hear your opinions for how you keep your tasks and goals organized.
+
+
+
+
+capturing content for emacs
+
+20 jun 2018
+
+continuing my multi-year quest to craft a pensieve made of code and text
+files, i’ve been lately focusing on ways to quickly copy content from various
+sources into this text mind.
+
+
+if you are not familiar with this emacs’ org-capture feature, check out my gentle introduction.
+
+
+if you use org-capture and want to level up, check out my advanced org-capture ideas.
+
+
+
+
+advice for code reviewers
+
+ 8 apr 2018
+
+while the primary goal of code reviews is better software quality, we can’t
+loose sight of two other critical goals:
+
+
+creating better programmers
+creating cohesive teams that collaborate well
+
+
+these two bullets have got me thinking, and thought i would share some
+techniques i have learned over the years in regards to effect code reviews.
+
+
+read moreâ¦
+
+
+
+
+review of keyboard.io
+
+ 22 mar 2018
+
+while all projects take longer than expected, good ones where the craftsman
+cares about the quality, require even more time, but now i am can type a
+review on my new keyboard.io, i love the results.
+
+
+read the reviewâ¦
+
+
+
+
+presenting eshell
+
+22 oct 2017
+
+gave a demonstration of eshell to both the pdx and london emacs
+user groups.  while the recording may be fun to watch, feedback
+told me that the white rabbit holes i dived into were interesting,
+a transcript of the slides and demonstration may be easier to
+copy/paste.
+
+
+
+
+breadcrumbs from a hack night
+
+21 apr 2017
+
+last night, interested emacsians from around the pdx area gathered
+together for a hack night, with a goal to implement a rudimentary,
+breadcrumb project.  the basics of how to make a breadcrumb project
+should be easy to grasp for a group of hackersâ¦ and also fun to
+extend after everyone leaves to home.
+
+
+i polished my notes from the evening and cleaned up some of the
+function and variable names (no, they weren’t offensiveâ¦ just silly).
+
+
+read moreâ¦
+
+
+the end result turned out to be a great start to a personalized
+approach to remembering and jumping to file positions.
+
+
+
+
+new file templates
+
+25 sep 2016
+
+just because we need a lot of organizational support characters in
+your text files doesn’t mean you have to physically type them all.
+
+
+after a fun discussion with mr. jj asghar, i wrote up a
+mini-tutorial on getting emacs to do some of the heavy typing for
+you when you create a /new file/â¦ you know, boilerplate needed when
+creating a new file of a particular type.
+
+
+my tutorial covers and integrates the auto-insert feature and the
+yasnippet template system.
+
+
+read moreâ¦
+
+
+
+
+demystifying regular expressions
+
+
+next month, i will be hosting a workshop on regular expressions at
+open source bridge.  should be lots of fun, and to prepare, i’ve
+been updating my regular expression scratchpad with a tutorial.
+
+
+
+
+reviewed the kinesis foot pedal
+
+ 1 may 2016
+
+i was asked to review the new kinesis foot pedal, and while i have a
+wee bit to tell you, i was really intrigued with how i could use it
+towards our ever increasing goal of getting more power with fewer
+finger movements.
+
+
+spoiler alert: i talk about the avy package.
+
+
+read moreâ¦
+
+
+
+
+emacs: the pair of old jeans
+
+1 apr 2016
+
+in this old essay by steve yegge, he has a nice synthesis of static
+vs dynamic types, but also includes lots of interesting observations
+on emacs (one would have to, since static vs. dynamic is almost as
+old a debate as emacs vs. vi). i liked this quote:
+
+
+
+people have observed that emacs has qwan1: a nice, organic,
+comfortable rightness that fits like a pair of old jeans, or a snug
+warm chair in a library by a fire. it’s very right-brain stuff we’re
+talking about here, all touchy and feely and sensitive: exactly the
+kind of thing that programmers are often so lousy at, so it’s no
+wonder we don’t know the recipe for building it into our
+software. but unlike with ui design, software qwan can only come
+from the programmer, who is playing the roles of interior decorator,
+head chef, and ergonomic consultant for all the programmer-users of
+said software.
+
+
+
+
+
+skinning org mode
+
+30 mar 2016
+
+while i never intended to make org mode look or behave like a word
+processor, but with slight tweaks every now and then, that is my end
+result. although all my code is in my dot-files repository, i figured
+i better highlight just the applicable code.
+
+
+read moreâ¦
+
+
+
+
+tutorial for orglitprog
+
+17 mar 2016
+
+yesterday, i hosted a workshop on literate programming with org-mode
+for the pdx emacs hackers group. for everyone who couldn’t attend, i
+decided to expand it into a tutorial.
+
+
+warning: the examples are pretty lame.
+
+
+read moreâ¦
+
+
+ps: i think that i have finally figured out my rss woes, so you
+shouldn’t have issues if you follow along.
+
+
+
+
+emacs and imenu
+
+ 6 jan 2016
+
+if you haven’t used imenu in emacs, you should try it. it gives you
+a way to select all top-level items of a fileâ¦ functions and
+constants in source code or headers in an org-mode file.
+
+
+i have a couple of suggestions to make the interface a bit nicer:
+
+
+read moreâ¦
+
+
+
+
+code density?
+
+16 nov 2015
+
+sure we should program as if we are writing for our team mates, but
+writing code for people is far less precise, for what might be
+readable to one, may be perl code to another. this essay is simply
+the start conversationsâ¦
+
+
+read moreâ¦
+
+
+
+
+online turing machine
+
+8 nov 2015
+
+my daughter read a book about ada lovelace, which generated
+discussion about alan turing, which generated discussions about
+computers, which showed me how much kids not only donât know about
+computers, but how unlikely they are to understand the guts
+underneath the icons.
+
+
+over the weekend, i completed my personal hack-a-thon on a project
+to demonstrate the depths of a computer, but in a simpler way.
+i may give it to my after school computer club that i run at a local
+middle school.
+
+
+pretty simple as my entire assembly language parser was written as a
+single reduce function.
+
+
+
+
+git rebasing and magit demo
+
+29 oct 2015
+
+had a good time at the first portland emacs hackers meetup.
+i couldnât record my presentation on magit that night,
+so i recorded my demonstration of magit and its ease of rebasing.
+
+
+also, some teammates accidentally pushed a merge into one of our
+repositories at work, so i wrote shortcut instructions on keeping a
+clean, sequential git history.
+
+
+read moreâ¦
+
+
+
+
+deploying!
+
+1 oct 2015
+
+
+
+
+my current dayjobgig is building private clouds, and
+i’m surprised at how much context switching i need to do due to
+waiting for the bloody things to deploy.
+
+
+perhaps i need to invest in sword play.
+
+
+
+
+i was schooled
+
+30 sep 2015
+
+each week, i teach an after school class at my local middle school.
+today, while getting ready to present, i switched over to the
+browser tab containing my presentation and waited for the kids to
+take their seats.
+
+
+one girl raised her hand and asked about a browser tab that showed
+emacs meetup. clearly she wouldnât care about some old programming
+editor, but i quickly summarized so i could get to the lesson. she
+said she uses it to play snakes. i told her that she probably uses
+something else, as emacs is just some old editor. she insisted.
+
+
+she quickly fired up terminal on the mac, typed emacs, and
+promptly entered =m-x snake=â¦ howâ¦howâ¦did you doâ¦know that?
+while i wrote a version of the snake game on my apple ][ computer
+when i was a kid, i didnât know that any one had written one for
+emacs. huh. schooled in my editor by a kid.
+
+
+she also typed in telnet towel.blinkenlights.nl.
+
+
+sheâs now my favorite.
+
+
+
+
+the power of emacsconf
+
+1 sep 2015
+
+i was asked to speak about literate devops at emacsconf 2015. due to work and family complications, i knew that i couldnât physically attend. wait, what year is this!? we should open a can of virtualization on this meatspace! the week before, we tested out the technology, and the furies looked favorable upon me to remotely attend a live conference.
+
+
+on saturday, september 29th at 9:00am, i sat at my large monitor, carefully arranged into windows of note taking emacs, conference twitter feeds, the #emacsconf irc channel â¦ and of course, the live video feed. âthis is good,â i thought. no struggling in uncomfortable seats to power small-screened laptops. i had all the coffee i wanted, and just the way i wanted it too.
+
+
+the first talk, by nicolas petton (who was also presenting remotely from france), illustrated immutable data structures and lazy sequencing from clojure to emacs lisp. i thought, âthis is going to be a great day!â
+
+
+and then it happened. the power went out halfway through the second talk. using the battery and data service on my cell phone, i went to the power utilityâs web site. their power outage map was covered in red. estimated time began at 12:50â¦ then 1:30â¦ then 3:00â¦
+
+
+i panicked and put out a plea for help. i quickly cross town to the first friend who responded, to give my talk perched in his living room.
+
+
+my demonstration went well enough (i start at 1:27:00), but i was frazzled and the environment on my laptop was less than ideal. i received some very thoughtful compliments, however:
+
+
+
+your talk on literate devops with org-mode was fantastic, and everyone was blown away by it. you had a really stressful day, but you gave the talk anyway for your fellow emacers, and everyone really enjoyed it. i really appreciate the effort it took to go through with the talk after your power cut out. an excerpt from irc at the end of your talk:
+
+
+
+the virtual clapping on irc was pretty humorous:
+
+
+| 5:41 pm |  <tered> <clap clap>
+| 5:41 pm |  â cestdiego *claps*
+| 5:41 pm |  <python476> <fingerclap>
+| 5:41 pm |  <caine> great talk
+| 5:41 pm |  <momerath> thanks howard!!
+| 5:41 pm |  <cestdiego> m-x clap
+| 5:41 pm |  â offby1 stomps feet
+| 5:42 pm |  â python476 flips ikea desks
+
+
+while the entire experience was interesting and enjoyable, i just wasnât pleased, and felt my fellow cultists in the church of emacs deserved better, so last night, i re-recorded myself. the audio is better, but it doesnât have the questions and answers afterward.
+
+
+see you all next year at emacsconf 2016!
+
+
+
+
+more literate devop examples
+
+12 aug 2015
+
+iâve collected some table formatting code for openstackâs nova
+command, and placed them in an tower of babel file that make
+:post commands in org-mode files able to use them.
+
+
+the os-table function, in that file, converts the ascii tables
+from openstackâs cli into org-mode tables that i can export,
+render, and feed into other code blocks as values. this feature
+came in handy todayâ¦
+
+
+read all about itâ¦
+
+
+
+
+how often do you commit?
+
+10 aug 2015
+
+for your own projects, you can commit to git anytime, but one of
+the advantages of committing frequently is sharing codeâ¦either to
+your team mates or even to yourself. best approach, however, is to
+commit a single bug or feature at a time, but use gerrit to make
+sure that single commit is perfect.
+
+
+read moreâ¦
+
+
+
+
+whence forth?
+
+10 feb 2013
+
+a friend of mine once asked me, “why was forth so much fun?” to
+which i responded, “i may have to write a blog entry to explain and
+reminisceâ¦”
+
+
+read my responseâ¦
+
+
+
+
+updated my literate devops
+
+
+today i got around to playing around with the wrap and the post
+options to org-mode source blocks, and updated my literate devops
+essay, to help explain how i email my formatted notes directly to my
+team mates.
+
+
+
+
+meeting etiquette
+
+17 may 2015
+
+i have been in many meetings over the years where the presenter’s
+screen is more of a distraction. if you find yourself sharing your
+macintosh desktop, may i suggest a couple of tips?
+
+
+read moreâ¦
+
+
+
+
+tmux: my starting guide
+
+10 apr 2015
+
+while i seldom leave emacs, i do dabble on the shell from time to
+time, and many colleagues ask about my terminal usage with tmux,
+so i present my very-opinionated getting started guide to tmux.
+
+
+
+
+literate devops: with databases!
+
+ 9 apr 2015
+
+i swore i wouldnât put any more examples of my literate devops
+idea, but when i habitually used org-mode during a recent
+exploration of mysql database instance, followed by emailing the
+results to my teammates, i thought i would share.  read moreâ¦
+
+
+update: a section of the exported document on accessing a database
+can be viewed here, but a few of you have requested the
+original org-mode file
+enjoy!
+
+
+
+
+folder actions for emacs
+
+21 mar 2015
+
+on the macintosh, the finder can trigger a script due to any change
+of a file in a directory (apple calls these folder actions). i was
+tempted to try and learn enough of this so i could rsync all local
+file changes to a system in the labâ¦.
+
+
+seemed easier for me to just modify emacs.
+
+
+read moreâ¦
+
+
+
+
+little emacs spreadsheets
+
+10 mar 2015
+
+
+iâve discovered the ultimate in yak shaving: gnu shaving!
+
+
+since i keep everything as org-mode formatted text files, i tried
+an experiment to directly convert the spreadsheet-like tables in my
+âtax notesâ into a pdf mail for my accountant.
+
+
+here are my tipsâ¦
+
+
+
+
+yours in emacs
+
+22 feb 2015
+
+after reading the wired article, why we should design some things to be difficult to use, i finally realize that emacs should be hard to use, and we really should just give up changing it to be easier for new-comers.
+
+
+this quote sums up my 20 year experience with emacs:
+
+
+
+[fujifilm took] the controls out of deep menu functions and putting them back on chrome knobs that just beg to be twiddled.
+
+
+i bought a fujifilm x100 two years ago. it was the first piece of technology iâd bought in 15 years where i had to read the manual. actually, iâve read the manual at least four times. now iâm taking the best pictures of my life, and i love it. by being hard to use, my x100 made me a better photographer.
+
+
+
+seems like emacs users are now in some elite club where the hazing ritual amounts to learning lisp. consequently, iâve decided to start signing all my emacs-related correspondence with:
+
+
+
+yours in emacs,
+
+
+howard
+
+
+
+
+
+literate devops
+
+26 nov 2014
+
+maintaining servers falls into two phases: first, bang head until
+server works; second, capture effort into some automation tool like
+puppet or chef. recently, iâve been playing around with making the
+first phase closer to the second.
+for lack of a better word, iâm calling it literate devops.
+
+
+read moreâ¦
+
+
+update 1: i finally got around to troubleshooting using tramp
+references to execute code blocks on remote servers (even those
+behind firewards).
+
+
+update 2: need another complete example? check out my notes
+onsetting up ip tables (and this org-mode file), where part of the
+file can be executed in the editor in order to see how my machines
+are configured, and the other part is a script that can be tangled
+to a machine and executed to reset to the firewall rules.
+
+
+
+
+key sequences in emacs
+
+20 feb 2015
+
+in emacs, a key sequence is special key binding that uses multiple
+keys in a series. since they require more effort to type, a sequence
+is chosen for functions that interrupt the normal editing flow.
+
+
+letâs explore some code associated with key sequences as well as
+write a macro to help make these more palatable.
+
+
+read moreâ¦
+
+
+
+
+the tao of emacs
+
+16 feb 2015
+
+iâm not saying the emacs way is objectively better, but you may
+find your work-style improved if you incorporate this way in your
+workflow. let me demonstrate the way with a few examples.
+
+
+read moreâ¦
+
+
+
+
+emacs is my window manager
+
+17 jan 2015
+
+i have played with a lot of window managers, and while many claim to
+be unobtrusive and minimal, i really just want emacs in full-screen
+mode. so,  i create an .xinitrc file that contains only:
+
+
+exec emacs
+
+
+that’s right, folks, emacs is my window manager.
+
+
+read moreâ¦ or simply check out the results.
+
+
+
+
+squashing commits with magit
+
+23 dec 2014
+
+manipulating the commit history in emacs isnât as straight-forward as
+other magit processes, so i thought i would share my notes.
+
+
+read moreâ¦
+
+
+
+
+artistically perfect
+
+6 dec 2014
+
+saw this video with woz, where he describes how he wanted every
+trace on the original apple board to be placed where the chips
+would be in the best position. he then said:
+
+
+
+it had to be that artistically perfect to me, because it represents
+yourself when you do a great design.
+
+
+
+yeah, we can relate.
+
+
+
+
+computer languages suck
+
+25 nov 2014
+
+i like to publish only positive essays on my blog, and iâve been conflicted about publishing my perspective on perching on paul grahamâs shoulders to extend his essay on the hundred-year language. so keep in mind that any snarkiness is my inept attempt at humor.
+
+
+read moreâ¦
+
+
+
+
+teaching programmingâ¦again
+
+30 oct 2014
+
+
+after many years of teaching scratch at my local elementary school, i decided to start teaching an after-school session at my local middle school. with diverse interests and abilities (not to mention, i’m considerably more busy during my day job), i thought i would try a new approach: nothing.
+
+
+read moreâ¦
+
+
+
+
+journaling with org-mode
+
+26 oct 2014
+
+regardless of whether you are into capturing personal data as part of the quantified self movement, or simply like to reflect on your day, i thought emacs and org-mode would be a good approach to journaling.
+
+
+read moreâ¦
+
+
+
+
+online presentations
+
+26 aug 2014
+
+after all the fun i had this summer at the open source bridge giving
+my talks on both lisp/clojure and emacs, i figured that i would
+upload them to youtube:
+
+
+learn you some lisp
+introduction to emacs
+emacs transpose-words and defadvice
+
+
+just noticed that the audio to my talk, literate programming now has
+the audio online, however, without the emacs demonstration of
+org-mode, i wonder how helpful it would be.
+
+
+
+
+eschewing zshell for emacs
+
+6 sep 2014
+
+the emacs shell, or eshell, is a unique and quite powerful shell
+that allows you to write your supporting functions in lisp. this
+article beyond my original introduction to explore it deeper.
+
+
+read moreâ¦
+
+
+
+
+scratch tutorial
+
+14 aug 2014
+
+
+gave a tutorial on scratch to 50 children at the oscon kids day. lot of fun, so i made a special online scratch tutorial, where a kid could run my video in one browser window, and follow along in a second window running scratch.
+
+
+
+
+squashing git commits for gerrit
+
+20 july 2014
+
+now that my company is starting to use gerrit, i decided to resurrect some old essays on git usage.
+
+
+good git practice encourages developers to create a history of useful commits. this essay is a ârecipeâ for squashing multipleâ¦ uhâ¦ less than helpful commits into a single commit using the git’s interactive rebase command.
+
+
+this is a good technique if you start to use the gerrit review system.
+
+
+read moreâ¦
+
+
+
+
+why emacs?
+
+17 mar 2014
+
+as a professional software engineer, iâm stunned that put up with an
+editor that insists that you bind your fingers to someone elseâs
+accepted practice.
+
+
+read moreâ¦
+
+
+
+
+clustered random numbers for art
+
+9 feb 2014
+
+using functional programming techniques and the standard functions
+from underscore to generate random numbers that favor particular
+numbers. useful for picking colors.
+
+
+read moreâ¦
+
+
+
+
+getting started with emacs
+
+19 jan 2014
+
+just learning? well, this ancient editor can be modernized for
+someone without much memory already embedded in their fingertips.
+
+
+read moreâ¦
+
+
+
+
+a/b testing at jquery summit
+
+6 sep 2013
+
+
+
+
+the jquery 2013 summit published my a/b testing tutorial with jquery presentation. why yes, i did have a lot of fun with sp studio.
+
+
+
+
+new design
+
+
+for half the web sites i visit, i use either a tablet or w3m
+(in an emacs window, of course), iâve realized that i should make my
+own web more accessible and flexible.
+
+
+youâre viewing the results.
+
+
+everything should be simple, open, and easy. oh, and did i mention
+that iâm publishing directly from emacs. yeah, that is how old men
+do.
+
+
+my original blog was originally written in markdown. once easy to
+write in, org-mode is much better. to convert or not convert them
+all? iâve done these, but most of my original essays will continue
+to date themselves.
+
+
+
+
+footnotes: 
+
+1 
+qwan stands for quality without a name, and reminds me of much
+of the thesis of the book, zen and the art of motorcycle maintenance.
+regardless of what you think of the book, we often recognize quality
+without being able to define it.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

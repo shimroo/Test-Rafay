@@ -1,0 +1,805 @@
+
+
+
+73699 – classids must be of type long and better management of negative ids
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+downloadgetting startedmembersprojects community marketplaceeventsplanet eclipsenewslettervideosparticipate report a bugforumsmailing listswikiirchow to contributeworking groups automotiveinternet of thingslocationtechlong-term supportpolarsysscienceopenmdm 
+
+more
+
+
+
+
+
+communitymarketplaceeventsplanet eclipsenewslettervideosparticipatereport a bugforumsmailing listswikiirchow to contributeworking groupsautomotiveinternet of thingslocationtechlong-term supportpolarsysscienceopenmdm 
+
+
+
+
+
+
+
+
+toggle navigation
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+bugzilla – bug 73699
+classids must be of type long and better management of negative ids
+last modified: 2012-02-15 13:47:16 est
+
+
+home
+| new
+| browse
+| search
+
+| 
+
+
+
+
+
+[?]
+| reports
+
+| 
+requests
+
+| 
+help
+
+
+| 
+log in
+
+
+
+
+
+[x]
+
+
+| 
+terms of use
+| 
+copyright agent
+
+
+
+this bugzilla instance is deprecated, and most eclipse projects now use 
+ github or eclipse gitlab. please see the deprecation plan for details.
+
+
+
+
+
+
+bug 73699 
+      - classids must be of type long and better management of negative ids
+
+
+summary:
+classids must be of type long and better management of negative ids
+    
+
+
+
+
+
+
+
+
+status:
+    
+
+closed
+          fixed
+      
+
+
+
+
+
+
+alias:
+
+
+        none
+    
+
+
+
+
+
+product:
+
+z_archived
+
+
+
+
+classification:
+
+eclipse foundation
+
+
+
+
+component:
+
+hyades
+
+  (show other bugs)
+
+
+
+version:
+
+unspecified   
+
+
+hardware:
+
+all
+        all
+      
+
+
+
+
+
+
+
+importance:
+      
+p1
+       enhancement
+    (vote)
+  
+
+
+
+target milestone:
+
+---   
+
+
+assignee:
+
+marius slavescu 
+
+
+
+
+qa contact:
+
+
+
+
+
+
+
+
+
+
+url:
+
+
+
+
+
+
+
+whiteboard:
+closed460  
+  
+
+
+keywords:
+
+
+
+
+
+
+
+
+depends on:
+
+
+
+
+
+
+
+blocks:
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+      reported:
+    
+2004-09-10 15:10 edt by anandi krishnamurthy 
+
+
+
+
+
+      modified:
+    
+2012-02-15 13:47 est
+      (history)
+    
+
+
+
+
+          cc list:
+        
+
+0 
+          users
+        
+
+
+
+
+
+
+
+
+see also:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      attachments
+    
+
+
+
+add an attachment
+        (proposed patch, testcase, etc.)
+    
+
+
+
+
+
+
+
+
+note
+              you need to
+              log in
+              before you can comment on or make changes to this bug.
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+description
+
+
+anandi krishnamurthy 
+
+
+
+
+
+          2004-09-10 15:10:11 edt
+        
+
+leak analysis is having to go through contortions to work around a design
+feature of the trace data model.
+currently, in the model classids are ints (eclassid) while objids are
+longs
+(eobjectid). the loader further reduces the classid range by taking
+ownership of the negative ids. for example, it creates trcclass objects
+for
+arrays and assigns them negative ids without checking for conflicts.
+
+we are encountering classids and objectids that are in the high end of the
+int range on several platforms. we are also having to deal with ids larger
+than max_unsigned_int on the as400.
+
+to fix this problem, the leak analysis folks would like to see the
+eclassid
+be changed to a long.
+
+
+
+
+comment 1
+
+
+anandi krishnamurthy 
+
+
+
+
+
+          2004-09-10 15:11:53 edt
+        
+
+the contents of an email thread regarding this topic:
+
+
+i missed anandi's blue comments first time through this.  yes anandi, my 
+comments are intended to be explanatory, i am not implying the proper solution 
+but rather explaining why this has worked in the past and what would need to 
+happen in order to use the trace model as is.
+
+richard k. duggan
+problem determination enablement
+ibm toronto laboratory
+external: 905-413-2396
+internal: 969-2396
+
+
+
+anandi krishnamurthy/cupertino/ibm@ibmus
+08/18/2004 12:31 pm	
+to
+richard duggan/toronto/ibm@ibmca
+cc
+allan k pratt/cupertino/ibm@ibmus, satish c gupta <satish.gupta@in.ibm.com>, 
+marius slavescu <slavescu@ca.ibm.com>, harm sluiman <sluiman@ca.ibm.com>, tanuj 
+vohra/cupertino/ibm@ibmus
+subject
+re: a problem with the current trace model.
+	
+
+	
+
+i agree with allan that "64-bit object ids in the trace model is wasteful of 
+memory". we are, however, paying that price in the trace model where the 
+objectids are 64-bit long. why not also make the classids long, since there are 
+far fewer of them and the additional cost is comparatively small? i am not 
+philosophically opposed to static ids, though there is some value to real ids, 
+for example to match up with what you see in the debugger.
+
+more comments below.
+thanks,
+anandi
+
+
+
+
+richard duggan/toronto/ibm@ibmca
+08/18/2004 07:05 am	
+to
+allan k pratt/cupertino/ibm@ibmus
+cc
+anandi krishnamurthy/cupertino/ibm@ibmus, satish c gupta 
+<satish.gupta@in.ibm.com>, marius slavescu <slavescu@ca.ibm.com>, harm sluiman 
+<sluiman@ca.ibm.com>, tanuj vohra/cupertino/ibm@ibmus
+subject
+re: a problem with the current trace model.
+	
+
+	
+
+fyi, the reason the trace model was able to successfully deal with integer 
+values in the past was because the profiler does its own mappings of id's.  it 
+contains a 'static' id for each class so that when gc moves these things around 
+the ui doesn't have to do all the computations.  now, with the leakbot work, 
+the team has elected to send the raw heap over the wire and work with it.  if 
+they wish to use the trace model as it stands today they will need to duplicate 
+the mechanism as it is in the profiler today.
+
+richard, i hope this comment is explanatory and that you are not suggesting 
+that we do this. if you are, we need to have a longer discussion. i like your 
+initial response better! 
+
+richard k. duggan
+problem determination enablement
+ibm toronto laboratory
+external: 905-413-2396
+internal: 969-2396
+
+
+
+allan k pratt/cupertino/ibm@ibmus
+08/17/2004 06:14 pm	
+to
+marius slavescu <slavescu@ca.ibm.com>
+cc
+anandi krishnamurthy/cupertino/ibm@ibmus, richard duggan <rduggan@ca.ibm.com>, 
+satish c gupta <satish.gupta@in.ibm.com>, harm sluiman <sluiman@ca.ibm.com>, 
+tanuj vohra/cupertino/ibm@ibmus
+subject
+re: a problem with the current trace model.
+	
+
+	
+
+
+a classid is often just the objectid of the instance of java.lang.class
+that represents the class in question. since objectids can be bigger than
+int, so can class ids.
+
+since there won't really be more than 2^32 classes in a process, an agent
+can use a hash table approach to turn a larger classid value into a
+smaller one. this might not be the way you'd wish to go but it is an
+approach that works.
+
+truly, having 64-bit object ids in the trace model is wasteful of memory
+footprint, and does not increase efficiency on 32-bit machines. obviously
+it helps efficiency on machines with 64-bit objectids. i can't say where
+the right tradeoff is, but i guess we got talked into 64-bit objectids
+when we were designing the model. i don't remember anything about the
+negative id space for objects or classes being reserved.
+
+currently, the loader does take ownership of the negative ids. us leakbot folks 
+could take a significantly simpler approach if this was not the case.
+
+-- allan pratt, apratt@us.ibm.com
+rational software division of ibm
+
+
+
+
+marius slavescu <slavescu@ca.ibm.com>
+08/17/2004 12:07 pm
+
+to
+richard duggan <rduggan@ca.ibm.com>
+cc
+anandi krishnamurthy/cupertino/ibm@ibmus, allan k
+pratt/cupertino/ibm@ibmus, satish c gupta <satish.gupta@in.ibm.com>, tanuj
+vohra/cupertino/ibm@ibmus, harm sluiman <sluiman@ca.ibm.com>
+subject
+re: a problem with the current trace model.
+
+
+
+
+
+
+
+
+
+
+we use int for classid because the classid is supposed to be unique in a
+specific trace and we don't expect more then integer.max_value
+classdefs/classes (in any application) in the same session. we use
+negative
+values to distinguish fake classids (to point to a class for which we
+didn't receive the classdef).
+
+objids values cannot go over long.max_value (only positive values,negative
+values are for fake objids), which is much bigger then in the event
+specification (64bit vs 32 bit).
+
+i agree that would be better if we match what is in the event
+specification, although as i said above integer.max_value should be large
+enough for classids:
+
+objid/objidref
+objid defines and objidref refers to the object associated
+with
+the event, but unlike objid and objidref, cannot be changed by
+garbage collection. expressed as a 32-bit unsigned value in string
+format.
+classid/classidref
+classid defines and classidref refers to the class associated
+with the event, but unlike classid and classidref, cannot be changed
+by garbage collection. expressed as a 32-bit unsigned value in
+string
+format.
+
+why do you get classids larger then integer.max_value ?
+
+we can discuss this in more detail in the next trace model subgroup call.
+i
+will setup one for next week.
+
+thanks !
+
+marius slavescu
+test and analysis tool enablement, toronto adtc
+phone:905-413-3610      mailto:slavescu@ca.ibm.com
+fax:  905-413-4920
+ibm canada limited.
+8200 warden ave.
+markham, ontario l6g 1c7
+
+
+
+
+
+richard duggan
+<rduggan@ca.ibm.c
+om>                                                        to
+
+anandi krishnamurthy
+08/17/2004 01:35          <anandik@us.ibm.com>
+pm                                                         cc
+
+allan k pratt <apratt@us.ibm.com>,
+satish c gupta
+<satish.gupta@in.ibm.com>,
+slavescu@ca.ibm.com, tanuj vohra
+<tvohra@us.ibm.com>
+subject
+
+re: a problem with the current
+trace model.(document link: marius
+slavescu)
+
+
+
+
+
+
+
+
+
+
+
+i agree, the model needs to handle the full range of possible values that
+may be presented within the trace.  otherwise, it needs to do mapping,
+which is the wrong thing to do for a number of reasons.
+
+
+marius will need to discuss this with harm.  harm is the hyades committer
+for the models.
+
+richard k. duggan
+problem determination enablement
+ibm toronto laboratory
+external: 905-413-2396
+internal: 969-2396
+
+
+
+anandi
+krishnamurthy/cupertino/
+ibm@ibmus
+to
+
+allan k
+08/17/2004 01:21 pm                     pratt/cupertino/ibm@ibmus,
+slavescu@ca.ibm.com, richard
+duggan/toronto/ibm@ibmca
+cc
+
+tanuj vohra/cupertino/ibm, satish
+
+c gupta/india/ibm
+subject
+
+a problem with the current trace
+model.
+
+
+
+
+
+
+
+
+
+
+
+hello allan, marius and richard,
+this email is to make you aware of a critical problem in the trace model
+and is fyi for now. we would like to address this in a future release of
+hyades.
+
+leak analysis is having to go through contortions to work around a design
+feature of the trace data model.
+currently, in the model classids are ints (eclassid) while objids are
+longs
+(eobjectid). the loader further reduces the classid range by taking
+ownership of the negative ids. for example, it creates trcclass objects
+for
+arrays and assigns them negative ids without checking for conflicts.
+
+we are encountering classids and objectids that are in the high end of the
+int range on several platforms. we are also having to deal with ids larger
+than max_unsigned_int on the as400.
+
+to fix this problem, the leak analysis folks would like to see the
+eclassid
+be changed to a long.
+
+thanks,
+anandi
+
+
+
+
+
+
+
+
+
+
+
+comment 2
+
+
+curtis d'entremont 
+
+
+
+
+
+          2004-09-10 16:58:30 edt
+        
+
+please target.
+
+
+
+
+comment 3
+
+
+marius slavescu 
+
+
+
+
+
+          2004-11-01 09:22:12 est
+        
+
+fix in cvs.
+
+
+
+
+comment 4
+
+
+paul slauenwhite 
+
+
+
+
+
+          2009-06-30 12:38:07 edt
+        
+
+as of tptp 4.6.0, tptp is in maintenance mode and focusing on improving quality by resolving relevant enhancements/defects and increasing test coverage through test creation, automation, build verification tests (bvts), and expanded run-time execution. as part of the tptp bugzilla housecleaning process (see http://wiki.eclipse.org/bugzilla_housecleaning_processes), this enhancement/defect is verified/closed by the project lead since this enhancement/defect has been resolved and unverified for more than 1 year and considered to be fixed. if this enhancement/defect is still unresolved and reproducible in the latest tptp release (http://www.eclipse.org/tptp/home/downloads/), please re-open.
+
+
+
+
+
+
+
+
+
+format for printing
+ - xml
+ - clone this bug
+ - top of page 
+
+
+
+
+
+
+
+home
+| new
+| browse
+| search
+
+| 
+
+
+
+
+
+[?]
+| reports
+
+| 
+requests
+
+| 
+help
+
+
+| 
+log in
+
+
+
+
+
+[x]
+
+
+| 
+terms of use
+| 
+copyright agent
+
+
+
+
+
+

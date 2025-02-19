@@ -1,0 +1,378 @@
+
+
+
+
+s.f.t. inc. - software tools, engineering, and the home of mrp iii
+
+
+
+
+
+
+
+
+
+
+
+
+
+software engineering, software tools, electronics engineering,and integrating hardware and software as a solution
+
+getting things done, quickly, on-budget, and on-time
+
+
+
+
+
+public and customer projects - examples of work
+microcontroller and raspberry pi - recent and ongoing projects - hardware and software
+
+
+ 
+
+sft synth(codename: 'piranha') 
+this is an avr microcontroller-based monophonic midi synthesizer project, now at version 3.
+                     it uses a microcontroller as a combined tone generator, envelope controller, filter controller,
+                     and midi client device.  having the microcontroller do all that work saves a lot on overall
+                     component cost, while in many ways simplifying the design.  more info on the project's web page.
+
+ 
+
+xmega for arduino 
+                     support for atmel atxmega processors using the arduino ide 
+the atmel atxmega processors are more advanced than the corresponding atmega processors currently used by
+                     arduino and compatibles.  with some effort, it may be possible to swap in one of these more advanced processors
+                     into an existing device that uses an atmega processor, and in some cases, at a significantly lower cost.
+                     the original web page describes my efforts in building equivalent devices, programmed with
+                     a (slightly) modified arduino ide, and provides some (older) code and binaries that are necessary to modify
+                     the arduino ide to build and flash images onto an atxmega-based device.
+
+ 
+
+freebsd on raspberry piand the gpio 'shutdown' driver 
+a general discussion of running freebsd on the raspberry pi hardware,
+                     particularly for a 'headless' system, as well as building and setting up 'gpioshutdown', a kernel driver
+                     port that properly resets the gpio pins on shutdown.  it also has plenty of links and references to help
+                     get a new user started with the raspberry pi.
+
+ 
+
+sft power supply 
+a prototype switching 'bench' power supply, providing 4 different voltage outputs,
+      and controlled using a single microcontroller.  an lcd display continuously displays output voltages,
+      and also indicates the voltage setting when one of the 3 voltage setting knobs is changed.  more info
+      on the project's web page.
+
+ 
+
+sft component tester 
+another prototype device that uses an avr microcontroller to perform various tests
+      on an 'unknown' electronic component, identifying the component and its value, and whether or not
+      it is 'good', using an lcd display.  a recent change to the design (to improve consistency for higher
+      impedence measurements) will require software updates and extensive testing.  this device was primarily
+      used for testing various proofs of concept, including the development of the 'base' calibration program
+      and serial port communications functions used by other avr-based devices.
+
+
+
+
+customer projects
+
+
+
+smartfin™ bed of nails 
+                     a 'bed of nails' test rig for the smartfin project 
+this is a 'bed of nails' production test device for the smartfin, a project that
+                     originally began with boardformula inc., for which i was the primary engineer,
+                     under contract, from august 2013 through december 2017.  it is a data collection device that fits inside of a
+                     surfboard fin.  it collects motion and environmental data related to the 'surfing experience', and was under
+                     development and testing during that time.  the 'bed of nails' device, which i designed and constructed, was
+                     designed to facilitate rapid automated assembly line testing in a production environment, flashing the smartfin
+                     firmware and testing the smartfin's basic functionality before final assembly within a surfboard fin.
+
+
+
+
+public and open source (software) projects
+
+
+** latest **
+
+x11workbench 
+a pre-alpha native x11 project featuring a lightweight gui toolkit.  it is intended
+      to (eventually) become an integrated development environment, similar to microsoft's visual studio (but without the cruft).
+      more info on the sourceforge project web page (link, left), and at the github repository.
+main features (preliminary):
+integrated development environment (ide) for software development
+lightweight c language toolkit, primarily for x11 (to be ported to native win32 and other platforms)
+comprehensive doxygen-generated documentation from source files
+minimal dependencies
+uses standard open source tools (gcc, make, autotools)
+      context-sensitive help system that includes 'man' pages
+gpl or bsd-like license (your choice)
+complete source tree and support on github
+
+      this project is still very preliminary.  most features have not been implemented.  however, the core code
+      necessary to implement these features is mostly complete, in particular the event support, dialog boxes, and
+      basic clipboard support.  it is already possible to use the existing toolkit to write an x11 application,
+      though its features would likely be limited.
+note:  if you like the way i code, please consider hiring me to do contract software development.
+
+ 
+
+sftardcal 
+this cross-platform serial communications utility is designed to do a whole lot of useful things
+      with respect to devices that communicate using a serial port.  it can also do xmodem transfers.  it won't flash
+      firmware onto an arduino (yet), but it can work with arduino-based devices.  its original intent was as an
+      automated calibration utility. what it has been used for is a whole lot more.  and of course, it's open source
+      (bsd or gplv2, your choice).
+
+ 
+
+s.f.t. setup gizmo 
+this is an old project, from around 1998, for a windows 'setup' utility.  it has a lot of useful capability,
+      mostly for things i'm interested in, but you may also find it interesting.  this project has a lot of legacy in it, including
+      the help file (which i recently converted to use 'chm' rather than 'hlp' format).  i think it has a lot of value as an open
+      source project, particularly for distributing open source project binaries. licensed via bsd-like or gplv2, your choice.
+      original product page here (with minor updates).
+
+ 
+
+incrver project 
+this is another old windows project, from around 1996, released under a 2-clause bsd-like license.  it
+      allows you to automatically increment (or assign) a 'version' resource version number, either by incrementing the last
+      digit, or by assigning a specific version (as specified or read from an rc or inf file).  it operates on rc files
+      (unicode or ascii) and driver inf files.  useful when writing a device driver or building a complex project, to make
+      sure all of the components have the same version info.
+
+
+
+
+microcontroller and related 'old' projects
+
+
+ 
+
+isp/pdi bed of nails 
+                     universal 'bed of nails' for isp/pdi programming 
+the atmel atmega and atxmega processors use a 3x2 header for programming via the isp/pdi
+                     interface.  rather than soldering pins onto each board you program, you can construct a
+                     'universal' bed of nails using readily available parts.  a 'bed of nails' is usually for
+                     final assembly and test of circuit boards in manufacturing.  typically they do more than
+                     just program the firmware.  but if you want something universal to just program firmware,
+                     you can see an example here.  it's somewhat low-tech, but very effective.  (i built a
+                     couple of much better ones for a customer, one of which is linked under 'customer projects', above)
+
+ 
+
+the unbricker 
+a simple, yet useful, device for programming atmel atmega328p cpus, based on the 'arduino isp' design,
+      hand-built on a proto board, with a zif socket for the cpu to be programmed.
+
+
+
+xmodem library 
+a generic open source xmodem library, written with microcontrollers in mind, and suitable for use with posix-compatible (linux, bsd) and arduino (and compatible) devices
+
+ 
+
+freebsd® driverfor the arduino uno 
+a usb to serial driver for the arduino uno for freebsd, as a kernel module 'uarduno'.  this corrects some of the issues regarding usb device identifiers for various arduino devices under freebsd, as well as giving you the capability of adding your own manufacturer/device identifier pairs (if needed)
+
+
+
+
+
+
+
+
+
+
+articles and information
+
+
+
+ 
+
+op-amps 
+a discussion on operational amplifiers, aka 'op amps', how they work, and some creative uses
+
+ 
+
+emulating hardwarethrough software 
+the use of microcontrollers in place of discrete components or custom logic chips, or even specialized devices
+                     that might actually cost more than a microcontroller.  the software is a fixed cost, so b.o.m. cost can be
+                     much lower, leading to lower prices or higher profit margins.
+
+ 
+
+freebsd utility'top level packages' 
+whenever i update the ports on freebsd, which typically must be built from source, i find a
+                     lot of problems if i attempt to leave things installed and just upgrade the changes.  to
+                     facilitate a 'clean re-install' i developed a script that uses a similar technique to
+                     'bom leveling' typically used by an mrp process.
+
+ 
+
+network devices 
+a review of a couple of very useful and highly available networking devices
+                     that are both compatible with microcontrollers.  it could help you 'wifi' and/or
+                     'ethernet' your next microcontroller-based project
+
+ 
+
+making gnome 3 usable 
+there appears to be a current trend by software makers to change the way we use our computers, whether
+                     we like it or not.  gnome version 3 and microsoft windows™ 8 both
+                     exhibit this, in my view, as well as windows 10 [which is even worse].  but for gnome desktop users,
+                     i have provided some instructions on how to get back most of the functionality and appearance of your
+                     familiar gnome 2 desktop, with a bit of tongue-in-cheek.
+                     it's worth pointing out that the mate desktop retains
+                     all of the old gnome 2 functionality, with packages and installation instructions for many of
+                     the more popular linux distributions, and source for everythign else.  and several major os
+                     distributions have already included the mate packages within their own repository.
+
+ 
+ 
+older stuff
+ 
+
+computing trends 
+a set of articles on computing and internet trends, multi-threading and smp,
+                     and the failure of the '.net' initiative (more to come)
+
+ 
+
+windows to unix 
+converting a network with a windows server to a unix or linux server
+
+ 
+
+data encryption methods 
+a discussion of methods used to encrypt data
+
+ 
+
+using interix 
+helpful information regarding microsoft's posix subsystem.
+
+ 
+
+windows vs unix/linux 
+the debate continues!  unix/linux vs microsoft windows(tm) operating systems
+
+
+
+
+information on 'm.r.p. iii'
+
+
+
+m.r.p. iii 
+the definition for
+                     m.r.p. iii,
+                     an evolutionary change in m.r.p.
+
+ 
+
+m.r.p. simulation 
+an effective inventory modeling tool for e.c.o.'s and
+                     end-of-life products
+
+ 
+
+bandwidth management 
+information on bandwidth management
+
+ 
+
+forecast accuracy 
+information on improving sales forecast accuracy
+
+ 
+
+mechanical forecasts 
+a discussion of computer-generated forecasts based on statistical models
+
+
+
+
+computing history and ancient hardware
+
+
+
+dec's pdp-11 
+when i was in high school i first learned how to program on a pdp-11 using 'mark sense' cards.  later at sjsu i became
+                     familiar with more detailed aspects of rt-11 and rsts/e, writing various programs in basic, fortran, and 'macro-11'
+                     assembly language.  these old computers really were on the bleeding edge in a lot of respects, from the ability
+                     to add custom hardware (and write custom drivers), and 'complex instruction set' cpus (making assembly language
+                     much less tedious), to being a major platform upon which the 'c' language and unix were developed.  we owe at least
+                     a little respect for our 'computer roots' with the pdp-11, for helping to get us where we are today.
+
+
+
+
+
+
+
+
+
+s.f.t. inc. is owned and operated by:
+
+
+
+
+bob frazier
+e-mail: 
+          bobf (at) mrp3 (dot) com
+
+
+
+
+
+
+
+
+stewart~frazier tools, inc. (s.f.t. inc.) is a software development, electronics engineering,
+and consulting firm.  s.f.t. inc. once specialized in providing 'software tools' to improve
+productivity, with special emphasis on manufacturing industries, and improving process quality for
+manufacturing planning through accurate demand forecasting.
+s.f.t. inc. provides professional services on a contract basis for software and electronics engineering,
+specializing in embedded devices, networking, device control and communication, data collection, and data analysis.
+for more information about s.f.t. inc., press here.
+
+
+
+
+©1996-2020 by stewart~frazier tools, inc. - all rights reserved
+last update: 05/20/2021
+
+html pages and graphics at this site have been written/designed by bob frazier.
+the author is a member of
+
+
+site rating labeled with
+
+
+
+
+
+
+
+
+s.f.t. inc. has a strict no spam policy regarding the use
+of the 'mrp3.com' domain.  unsolicited bulk or commercial e-mail that claims to originate
+from this domain should be reported as 'spam' to isps and 'www.ifccfbi.gov'.
+
+
+
+
+s.f.t. inc. also does not collect, store, nor sell any personal information obtained from
+the internet.  web site logs are managed automatically by the hosting company.
+
+
+
+
+
+
+

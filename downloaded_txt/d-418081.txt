@@ -1,0 +1,630 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ramesh srinivasan's blog
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skip to main  |
+      skip to sidebar
+
+
+
+
+
+
+ramesh srinivasan's blog
+
+
+
+tips, q/a and troubleshooting microsoft® windows and internet explorer.
+
+
+
+
+
+
+
+
+
+
+
+
+tuesday, june 03, 2008
+
+
+
+
+
+
+
+this blog is moved!
+
+
+
+
+
+now continued at the winhelponline blog. [blog rss]
+
+
+
+
+
+posted by
+
+
+
+ramesh srinivasan
+
+
+
+
+at
+
+3:58 pm
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wednesday, february 22, 2006
+
+
+
+
+
+
+
+list all the processes running under the current user account.
+
+
+
+
+
+this wmi script lists all the processes running under the currently logged on user account.- - -strcomputer = "."dim strusernameset objwmiservice = getobject("winmgmts:\\" & strcomputer & "\root\cimv2")set colitems = objwmiservice.execquery("select * from win32_computersystem")for each objitem in colitemsstrusername = objitem.usernamenextset objwmiservice = getobject("winmgmts:" _& "{impersonationlevel=impersonate}!\\" & strcomputer & "\root\cimv2")set colprocesslist = objwmiservice.execquery _("select * from win32_process")for each objprocess in colprocesslist  colproperties = objprocess.getowner(strnameofuser,struserdomain)    if struserdomain & "\" & strnameofuser = strusername then     wscript.echo "process " & objprocess.name & " is owned by " _     & struserdomain & "\" & strnameofuser & "."   end ifnext 
+
+
+
+
+
+posted by
+
+
+
+ramesh srinivasan
+
+
+
+
+at
+
+12:20 pm
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wednesday, february 15, 2006
+
+
+
+
+
+
+
+message "security center is currently unavailable"
+
+
+
+
+
+q: when i run windows security center i get this message:the security center is currently unavailable because the "security center" service has not started or was stopped. please close this window, restart the computer (or start the "security center" service), and then open the security center again.a: to start the "security center" service, use these steps:click start, run and type services.mscdouble-click "security center" service from the listingset the startup type of the service to "automatic"start the service by clicking the "start" button in that applet.
+
+
+
+
+
+posted by
+
+
+
+ramesh srinivasan
+
+
+
+
+at
+
+6:34 pm
+
+
+
+35 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tuesday, february 07, 2006
+
+
+
+
+
+
+
+
+
+
+question: i'm attempting to find out how to use a wmi or vbscript to modify the default "open with" program for a given 'file type' in windows xp. (both local and remote systems using wmi) i have users that want to open .doc files in wordpad.exe instead of wordview.exe.is there an object or method that exposes this availability? if so, does anybody have any code snips? i have to update about 1000+ computers and i would like to send out this script via sms or during login.batany help would be greatly appreciated!answer: the following command-line should do the trick for you:%comspec% /c assoc .doc=wordpad.document.1-or-cmd /c assoc .doc=wordpad.document.1this can be executed from a batch file.
+
+
+
+
+
+posted by
+
+
+
+ramesh srinivasan
+
+
+
+
+at
+
+2:58 pm
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+thursday, january 12, 2006
+
+
+
+
+
+
+
+winexit.scr permissions
+
+
+
+
+
+question: when a limited user uses the winexit screen saver, i get the following error message:"error encountered while creating registry key.  make sure you have set value and create subkey permissions."answer: the winexit.scr does not run correctly under limited accounts by default. however, by altering the permissions for a registry key, you can resolve the problem.see : logoff screen saver does not function in windows ntnote that this kb was written for windows nt, but very much applies to windows xp as well.for configuring the registry permissions, see the kb below:how to use the windows xp and windows server 2003 registry editor features
+
+
+
+
+
+posted by
+
+
+
+ramesh srinivasan
+
+
+
+
+at
+
+12:10 pm
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+older posts
+
+home
+
+
+
+
+subscribe to:
+posts (atom)
+
+
+
+
+
+
+blog archive
+
+
+
+
+
+
+
+
+        ▼ 
+      
+
+
+
+2008
+
+(1)
+
+
+
+
+
+        ▼ 
+      
+
+
+
+06/01 - 06/08
+
+(1)
+
+this blog is moved!
+
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2006
+
+(4)
+
+
+
+
+
+        ► 
+      
+
+
+
+02/19 - 02/26
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+02/12 - 02/19
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+02/05 - 02/12
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+01/08 - 01/15
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2005
+
+(5)
+
+
+
+
+
+        ► 
+      
+
+
+
+12/25 - 01/01
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+11/20 - 11/27
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+10/09 - 10/16
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+10/02 - 10/09
+
+(1)
+
+
+
+
+
+
+
+
+
+links
+
+
+the winhelponline blog
+winxptutor
+winhelponline
+windows xp troubleshooting
+
+
+
+
+about me
+
+
+
+
+ramesh srinivasan
+
+
+microsoft mvp [windows]
+
+view my complete profile
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+

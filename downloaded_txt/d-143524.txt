@@ -1,0 +1,149 @@
+
+
+
+
+
+
+
+
+    
+      curiosity is bliss · julien couvreur's programming blog and more
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+curiosity is bliss
+          
+            
+               archive
+            
+               feed
+            
+               about
+            
+               search
+
+
+julien couvreur's programming blog and more
+
+
+
+
+
+
+
+        analyzing a nullability example
+      
+
+15 jan 2020
+cezary piątek posted a good overview of the c# nullable reference types feature. 
+it includes a critique of a code snippet. examining that snippet is a good way to understand some of the c# ldm’s decisions.
+in the following, cezary expects a warning on a seemingly unreachable branch and no warning on the dereference.
+#nullable enable
+
+public class user 
+{
+    public static void method(user userentity)
+    {
+        if (userentity == null) // actual: no warning for seemingly unreachable branch. 
+        {
+        }
+        
+        var s = userentity.tostring(); // actual: warning cs8602: dereference of a possibly null reference.
+    }
+}
+
+sharplab
+why is there no warning on the seemingly unnecessary null test if (userentity == null) ... or the apparently unreachable branch?
+it’s because such tests are useful and encouraged in public apis. users should check inputs and the compiler should not get in the way of good practices. the branch of the if is therefore reachable.
+then, what is the state of userentity within the if block?
+we take the user’s null test seriously by considering userentity to be maybe-null within the if block. so if the user did userentity.tostring() inside the if, the compiler would rightly warn. this protects the user against a null reference exception that could realistically happen.
+given those, what should be the state of the userentity at the exit of the if?
+because we’re merging branches where userentity is maybe-null (when the condition of the if is true) and not-null (in the alternative), the state of userentity is maybe-null. therefore we warn on dereference on userentity after the if.
+note that if the if block contained a throw, the userentity would be considered not-null after the if. this is a common patter: if (userentity is null) throw new argumentnullexception(nameof(userentity));.
+
+
+
+
+        my 2019 econtalk favorites
+      
+
+13 jan 2020
+
+susan mayer on what money can’t buy (on effectively helping kids in poverty)
+mauricio miller on poverty, social work, and the alternative (on effectively helping families in poverty)
+keith smith on free market health care (on unintended effects of healthcare policies)
+rory sutherland on alchemy (on subjective value, the benefits of marketing and lateral thinking)
+anja shortland on kidnap (on the economics and game theory of kidnapping)
+bjorn lomborg on the costs and benefits of attacking climate change (on the trade-offs of climate policies)
+
+
+
+
+
+        overview of nullability analysis
+      
+
+14 may 2019
+a regular roslyn contributor, yair, asked for some pointers about c# 8.0’s nullability analysis on the gitter channel. i thought i’d expand on my reply and share it more broadly.
+this post assumes familiarity with the “nullable reference types” feature, including the concepts of nullability annotations (annotated, not-annotated, oblivious) and states (not-null, maybe-null).
+bound trees
+the backbone of the compiler consists of four main stages:
+
+parsing source code into syntax trees,
+building symbols from declarations and binding the syntax of each method body into an initial bound tree,
+lowering the bound tree into a set of simpler bound nodes,
+emitting il from the lowered bound nodes, along with some metadata.
+
+nullability analysis rests on the initial bound tree. this tree has a structure similar to the syntax tree, but instead of referencing un-interpreted identifiers (like x or method) it references symbols. symbols are an object model for entities declared by a program or loaded from metadata. 
+for example, symbols allow differentiating different uses of a given identifier in code. you could have a parameter x, a local x, a type x or even a method x. for each kind of symbol you can ask different questions, such as the type of the parameter or local, or the return and parameter types of a method.
+when types are explicit in source (for example, string nonnulllocal = "";, string? maybenulllocal = ""; or makearray<string?>(item)), the bound nodes and symbols capture an explicit/declared nullability: typewithannotations with annotated or notannotated annotations in a context with nullability annotations enabled, or oblivious in a disabled context.
+when types are inferred (for example, in var local = ""; or makearray(item)), the bound node just uses an oblivious annotation, which the nullability analysis will later revise.
+nullablewalker
+nullablewalker is responsible for most of the analysis. it is a visitor for the initial bound tree, which:
+
+computes the nullability state of expressions (and save those to answer queries from the ide),
+keeps track of knowledge for different variables (more on that below), and
+produces warnings.
+
+state tracking
+as the analysis progresses through a method body, nullablewalker tracks some knowledge for each variable (or more generally, storage location). at a certain point in the analysis, the state for a given variable is either maybenull or notnull.
+for all the tracked variables, this is represented as a state array, in which each variable gets an index/position/slot.
+for instance, each parameter and local in a method gets a slot, which holds either a notnull or maybenull state. consider a parameter string? p1: we give it a slot/index and we’ll initialize its state to maybe-null (ie. state[slot] = maybenull, because its declared type is annotated), then when we visit p1 = ""; we can just override that state, and when we visit p1.tostring() we consult that state to decide whether to warn for possible null dereference.
+nullablewalker not only tracks variables, it also tracks fields, so it assigns slots for those too. that way, it can warn on localstruct.field1.tostring(), but not localstruct.field2.tostring() independently.
+such nested slots are known to have a containing slot. with that information, we can look at an assignment like local2 = local1; and we can not only copy the slot for local1 to set the state of local2, but we can copy the nested slots thereby transfering all of our knowledge of local1 to local2.
+the state is generally just a simple array, but it can also be two arrays in some cases. that’s called “conditional state”. it is used for analyzing expressions like x == null. we keep track of the states “if the expression were true” and “if the expression were false” separately. slots are still used to index into those arrays as normal.
+cloning states is another common operation. when analyzing if (b) ... else ..., we clone the state so that we can analyze each branch separately. we can merge those states when the branches rejoin (meet takes the worst case values). that gives us the state following the if statement.
+in code that isn’t reachable, as in if (false) { ... unreachable ...}, every value you read is notnull regardless of tracked state to minimize warnings.
+simple example
+let’s wrap up this overview by looking at an assignment, x = y. to analyze this expression, we’re going to:
+
+visit the right-hand-side expression and get a typewithstate back which tells us the null-state of y at this point in the program,
+visit the left-hand-side expression as an l-value (i.e., for assigning to) and get a typewithannotations back which tells us the declared type of x (not its state),
+we check if the assignment from the state of y to the declared type of x poses problems, both in terms of top-level nullability (for instance, are we assigning a null value to a un-annotated string variable?), or nested nullability (for example, are we assigning a list<string> value to a list<string?> variable?),
+we update the state of x based on the state of y,
+return the state of x as the state of the assignment expression, in case it is a nested expression like (x = y).tostring().
+
+in that example, y might not be a simple bound node for accessing y, but it could also involve implicit conversions. in that case, visiting y at the step (1) will visit a bound conversion which holds y as its operand. as long as the visit operation for each kind of bound node does its part (i.e., produce a typewithstate for the expression, produce proper side effects on state and diagnostics) then this process composes well.
+
+
+
+older
+newer
+
+
+
+
+
+
+

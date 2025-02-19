@@ -1,0 +1,811 @@
+
+
+
+.net compact framework tutorials
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+	.net compact framework tutorials
+    
+	
+    
+
+
+simple .net compact framework 2.0 samples and quickstart tutorials to kick start your development (and most things on windows mobile 5.0, pdas, blogging, and many more...)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+new to compact framework tutorials? learn to write your first compact framework application here.
+
+zac efron - hairspray star 
+and
+mythbusters' kari byron 
+at celebrity treat. check out 
+income and career information in singapore.
+
+
+saturday, january 07, 2006
+
+
+
+- msmq message queueing in compact framework (part 1)
+
+
+
+in this tutorial, we write a simple msmq application for a windows mobile device. the application automatically installs the msmq service if it's not already present. a simple interface is provided to let the user send and receive messages via msmq.
+
+
+
+msmq is a microsoft message queueing technology that allows disparate applications, not necessarily running in the same machine, to send messages to one another. part of this store-and-forward technology is a failsafe mechanism to ensure guaranteed delivery (well, to an extent). message priorities can also be set as well.
+
+one of the strongest competitors to microsoft, in terms of providing message queueing middleware, remains to be ibm, which offers the product called websphere mq (previously called ibm mqseries).
+
+this tutorial is based on mark ihimoyan's posts in his excellent blog.
+
+as usual, start visual studio and create a new smart device project.in solution explorer, right-click on references, and add the reference to system.messaging component. we need this reference as we are using the messaging classes later.change the form property minimizebox to false, so that the use can close the application easily.add a textbox, 2 buttons and a label to the form, naming them txtsendmsg, btnsend, btnreceive and lblreceivemsg respectively. the first button lets the user send the message in the textbox to a message queue. the second button receives a message from the queue. even if the user closes the application, the stored messages in the queue remain intact and can be received when the application is restarted (however, a soft reset clears the queue).next, we want to make the application self-contained, in that it will check for the presence of the msmq service and automatically installs it if it is not detected.go to microsoft mobile development center and follow the link "redistributable server components for windows mobile 5.0" to download the package. we need the msmq.arm.cab file in the package.after downloading, extract the msmq.arm.cab file (under msmq folder in the downloaded package). this is the cab file that installs the msmq service in the device.back in visual studio, right-click on your project in solution explorer and add msmq.arm.cab to your project (use add-> existing item...). then click on msmq.arm.cab in solution explorer and change its "copy to output directory" property to "copy if newer". this will ensure that the cab file is copied over to the program folder in the device.in your form code, import the namespaces:
+
+using system.io;
+using system.messaging;
+using system.runtime.interopservices;
+
+then within the form partial class, add the following declarations needed to p/invoke the createprocess win32 function. we need to call createprocess to install the cab.
+
+public class processinfo
+{
+  public intptr hprocess;
+  public intptr hthread;
+  public int32 processid;
+  public int32 threadid;
+}
+
+[dllimport("coredll.dll", setlasterror = true)]
+private extern static
+    int createprocess(string imagename,
+    string cmdline,
+    intptr lpprocessattributes,
+    intptr lpthreadattributes,
+    int32 boolinherithandles,
+    int32 dwcreationflags,
+    intptr lpenvironment,
+    intptr lpszcurrentdir,
+    intptr lpsistartinfo,
+    processinfo pi);
+[dllimport("coredll.dll")]
+private extern static  int32 getlasterror();
+
+[dllimport("coredll.dll")]
+private extern static
+    int32 getexitcodeprocess(intptr hprocess, out int32 exitcode);
+
+[dllimport("coredll.dll")]
+private extern static
+     int32 closehandle(intptr hprocess);
+
+[dllimport("coredll.dll")]
+private extern static
+    intptr activatedevice(
+      string lpszdevkey,
+        int32 dwclientinfo);
+
+[dllimport("coredll.dll")]
+private extern static
+    int32 waitforsingleobject(intptr handle,
+    int32 wait);
+
+public static bool createprocess(string exename, string cmdline)
+{
+  int32 infinite;
+  unchecked { infinite = (int)0xffffffff; }
+  processinfo pi = new processinfo();
+  if (createprocess(exename, cmdline, intptr.zero, intptr.zero,
+      0, 0, intptr.zero, intptr.zero, intptr.zero, pi) == 0)
+  {
+    return false;
+  }
+  waitforsingleobject(pi.hprocess, infinite);
+  int32 exitcode;
+  if (getexitcodeprocess(pi.hprocess, out exitcode) == 0)
+  {
+    messagebox.show("failure in getexitcodeprocess");
+    closehandle(pi.hthread);
+    closehandle(pi.hprocess);
+    return false;
+  }
+  closehandle(pi.hthread);
+  closehandle(pi.hprocess);
+  if (exitcode != 0)
+    return false;
+  else
+    return true;
+}
+
+in the form load event handler (remember to generate the event handler stub by double-clicking on the form in design mode; similarly for the button click event handlers later), enter the following code which checks for and installs the msmq service.
+
+string msmq_adm = @"\windows\msmqadm.exe";
+if (!createprocess(msmq_adm, "status"))
+{
+  if (!file.exists(msmq_adm) ||
+     !file.exists(@"\windows\msmqd.dll") ||
+     !file.exists(@"\windows\msmqrt.dll"))
+  {
+    //install msmq
+    string _path = path.getdirectoryname(system.reflection.assembly.getexecutingassembly().getname().codebase);
+    string docname = _path + "\\msmq.arm.cab";
+    createprocess("wceload.exe", "/noui \"" + _path + "\\msmq.arm.cab\"");
+  }
+  //check again
+  if (!file.exists(@"\windows\msmqadm.exe"))
+  {
+    messagebox.show("failed to install msmq cab");
+    close();
+  }
+  else //register, start and activate service
+  {
+    createprocess(msmq_adm, "register cleanup");
+    if (createprocess(msmq_adm, "register install")
+      && createprocess(msmq_adm, "register") 
+      && createprocess(msmq_adm, "enable binary"))
+    {
+      intptr handle = activatedevice(@"drivers\builtin\msmqd", 0);//device registry key
+      closehandle(handle);
+      if (createprocess(msmq_adm, "status")) return; //success
+    }
+    messagebox.show("failed to start msmq");
+    close();
+  }
+}
+
+in the btnsend click event handler, enter the following code to send a message to the "testq" queue.
+
+if (txtsendmsg.text.trim() == "") return;
+string strdestq = @".\private$\testq"; //queue name
+try
+{
+  if (!messagequeue.exists(strdestq))
+    messagequeue.create(strdestq);
+  messagequeue mq = new messagequeue(strdestq);
+  mq.send(txtsendmsg.text);
+  txtsendmsg.text = "";
+}
+catch { }
+
+finally, in the btnreceive click event handler, we will receive the frontmost message in the "testq" queue. note that we are setting a simple timeout of 1 second (so the ui is not blocked for too long) in case there isn't any message in the queue.
+
+lblreceivemsg.text = ""; refresh();
+messagequeue mq = new messagequeue(@".\private$\testq");
+//set formatter for deserializing message
+mq.formatter = new xmlmessageformatter(new type[] { typeof(string) });
+try
+{
+  message messagereceived = mq.receive(new timespan(0, 0, 1));//timeout in 1s
+  lblreceivemsg.text = (string)messagereceived.body;
+}
+catch { lblreceivemsg.text = "- timeout -"; }
+
+we are done! deploy and run. the first time you run, there is quite a long delay on form load, as the application is invoking wceload.exe to install the msmq service. when the form is loaded, type something in the textbox and click the send button. send a few more messages. then click the receive button a few times.try closing and reopening the application and test if sent messages are still receivable. what about the effect of doing a soft reset?
+
+in part 2, coming soon, we will send msmq messages across the network. watch this space.
+
+categories: [msmq_] [networking_]
+tags: [netcf2] [compact framework] [msmq] [networking]
+read more...
+
+
+
+permalink
+
+posted 11:36 am
+30 comments
+
+
+
+
+
+
+
+
+
+tuesday, january 03, 2006
+
+
+
+- create a sql mobile database (part 1)
+
+
+
+i recently conducted a small poll and it turns out that sql mobile is the most requested topic (see ongoing voting results here). so in this tutorial, we will cover how to create a sql mobile database for the pda or emulator.
+
+having seen the sql server express (mentioned here), let's now look at sql mobile.
+
+being the successor of sql server ce 2.0, sql mobile is microsoft's lightweight database server that has a small enough footprint (~1.5mb) to fit and run smoothly in a pocket pc device. it is included in visual studio .net 2005, so you don't have to install anything as a developer. for end users, sql mobile can be installed on the pocket pc 2003, windows mobile 5.0, smartphone 5.0 as well as windows ce 5.0 platforms. word has it that sql mobile will be pre-installed in the rom of all new windows mobile devices, just like compact framework 2.0.
+
+in terms of features, sql mobile offers transactional support, multi-user access, as well as synchronization and replication with back-end servers. in terms of competition, i'm not too sure if these few players are still fighting close: sybase sql anywhere, oracle lite and ibm db2 everyplace.
+
+alright, let's dive in to create our very first sql mobile database.
+
+
+start visual studio and create a new smart device project.
+click data in the menu and select "add new data source..." to see the following dialog window.
+
+
+
+
+select the database icon (to indicate that you are creating a database) and click next.
+in the next screen, click "new connection..." to create a new database.
+in the the pop-up "add connection" window, click "change..." to select a data source type. you should see the following:
+
+
+
+
+select "microsoft sql server mobile edition" as the data source and leave the data provider as ".net framework data provider for sql server mobile edition". click ok.
+
+back at the "add connection" dialog, leave "my computer" radiobutton selected, and then click "create" to specify the filename of the sql mobile database. enter "c:\firstdb.sdf" for the filename and leave the other fields as they are (you can also specify the password here, but we leave it empty for convenience).
+
+
+
+click ok. if prompted on the empty password, click yes.you may now click "test connection" to check if the database is in order.click ok. back at the first dialog window, click next, and click yes to add the database file to your project. in the next screen, click cancel as we are not using generated datasets in this tutorial.
+
+you will notice that the firstdb.sdf has been added to your project. click on it and press f4 to check that its "copy to output directory" property is "copy if newer". this means that the file will be copied to the emulator if the emulator does not have a copy or have an older copy.
+
+now, from the menu, click view-> server explorer. and in the server explorer pane, click the "connect to database" icon (2nd icon from the right; or move your mouse over each icon to see the tooltip).
+click browse and go to your project folder and select the firstdb.sdf file. (note that you can also create a database here, but care must be taken to add the created file to your project.)test the connection and click ok.in the server explorer pane, expand the tree, right-click on tables and select "create table". enter the table name and create 2 columns for it, as shown below. click on the image below to zoom in. (note that the custid column has identity set to true, so that this column's value for each record is auto-generated.)
+
+
+
+
+click ok.finally, run your program.there's nothing interesting in your form. however, open file explorer and browse to the folder which contains the deployed files (at \program files\yourprojname). you should see a file with the name "firstdb" there. the .sdf extension is not displayed. click on this file to open it with query analyzer. query analyzer allows you to explore and manage sql mobile databases from within the pda environment.
+in query analyzer, expand the tree under the objects tab. you should see this:
+
+
+
+that's it! you have created a simple sql mobile database and transferred it to the emulator/device. part 2, coming soon, will cover how to create a sql mobile database programmatically.
+
+categories: [data access_]
+tags: [netcf2] [compact framework] [sql server mobile]
+read more...
+
+
+
+permalink
+
+posted 10:57 am
+27 comments
+
+
+
+
+
+
+
+
+
+
+
+
+- plasma or lcd tv?
+
+
+
+two years ago, the choice was clear. just by comparing their response times, plasma television sets won hands down, never mind the burn-ins. lcd tvs were simply too slow and left streaks of image blurs when viewing action movies. fast forward to today. have things changed?
+
+
+
+
+the response time problem for lcd television is no longer an issue, with some models (in particular sharp aquos) even boasting a remarkable 4ms in their specifications. although plasma tvs still have more vivid colors, lcds have surpassed them in terms of viewing angles. some lcd models even have wider viewing angles than the typical 170 degrees that plasmas offer. the sony bravia, for example, offers a 178-degree viewing angle.
+
+lcd models have a longer lifespan of 65,000 hours, almost twice longer than that of plasmas. to be fair, a few plasmas also claim to have a 60k-hour lifespan, but these are the exception rather than the norm. moreover, lcd tvs have replaceable fluorescent tubes, allowing for even longer extended operation. in contrast, there's nothing in plasmas that can be easily and affordably replaced.
+
+
+
+
+
+
+finally, plasma tvs are in general a lot heavier than lcd tvs, and plasmas still suffer from burn-ins (images get permanently etched on the screen when left displayed for too long). price-wise, both are on par. lcds have the added advantage of being more energy efficient. so, all other things equal, i will definitely go for an lcd. won't you?
+
+categories: [blogging_]
+tags: [lcd] [plasma] [flat panel]
+read more...
+
+
+
+permalink
+
+posted 12:20 am
+10 comments
+
+
+
+
+
+
+
+
+
+wednesday, december 28, 2005
+
+
+
+- co-founder of opennetcf mentions my blog!
+
+
+
+i'm delighted to say that neil cowburn, co-founder of opennetcf.org, has put up a short plug for my compact framework tutorials blog. in his words, my blog is "very well worth a read if you are looking to get into smart device development."
+
+thanks, neil! you made my day.
+
+categories: [blogging_]
+tags: [netcf2] [compact framework] [windows mobile]
+read more...
+
+
+
+permalink
+
+posted 6:14 pm
+4 comments
+
+
+
+
+
+
+
+
+
+thursday, december 15, 2005
+
+
+
+- accessing sql server express from the emulator (or pda)
+
+
+
+this post talks about data access from the emulator (or actual device) to your pc. if you're just getting started on the .net compact framework 2.0, you can read this to install the tools and this to write your first app.
+
+in this tutorial, you learn how to let the emulator access a sql server express database in your pc.
+
+
+
+
+sql server 2005 express edition is free and is installed together with most editions of visual studio 2005. as the successor of the very useful msde, sql server express offers the equivalent, if not better, feature set of other free database servers (mysql in particular). compared to msde, sql server express does not have the workload throttle restriction, thus giving better scalability, and allows a higher maximum database size of 4gb (an increase of 2gb). however, the new kid on the block always uses only a single cpu (even if the machine has multiple), and supports only replication subscriptions (it can't be a publisher). still, it is extremely useful for basic development and exploration, in my opinion. it even comes with a management console (currently in community technology preview, downloadable from a link on this page), something that its predecessor lacks.
+
+
+
+
+now, let's dive in! this step-by-step tutorial requires a sample database such as northwind.mdf (which can be extracted from a download here). although northwind was created for sql server 2000, it can also be used in sql server 2005.
+
+you should have downloaded and extracted the northwind sample database (download from here). place both northwind.mdf and northwind.ldf files in a folder of your choice.download and install the management studio express from a link on this page. start the management studio and login using windows authentication. right-click on the first node in the treeview and click "properties". in the dialog window, click "security" on the left and select "sql server and windows authentication". this will allow connections to be made using sql server authentication.next, still in management studio, expand the security node in treeview, then expand logins. in the main panel, right-click on "sa" and click "properties". change the password. still within properties dialog, click "status" in the leftside panel, and enable the "sa" account. click ok.right-click on databases, and attach the northwind database.
+next, we need to enable tcp/ip connections. click start-> all programs-> sql server 2005-> configuration tools-> sql server configuration manager.under "protocols for sqlexpress", ensure that "tcp/ip" is enabled. double-click on tcp/ip, set enabled to yes, and under the "ip addresses" tab, clear all the "tcp dynamic ports" entries (set them blank), and set tcp port (under ip all) to 1433. we are fixing the port, which means sql browser service can be stopped (in fact, this is a security best practice). you may need to use another port number if you have other versions/instances of sql server running.restart the sql express service to activate the new configurations.
+start visual studio and create a new smart device project.add a combobox called cbocountries to the form. add the reference system.data.sqlclient to your project. in code view, add the line "using system.data.sqlclient;" near the top.
+in the form_load event handler, add the following code (replacing "192.1.2.3" with your ip address, and "yourpassword" with the password for your sa account:
+
+
+
+string sconnection = "data source=192.1.2.3,1433;initial catalog=northwind;user id=sa;password=yourpassword;";
+string ssql = "select distinct country from customers order by country";
+sqlcommand comm = new sqlcommand(ssql, new sqlconnection(sconnection));
+sqldatareader dr = null;
+try
+{
+  comm.connection.open();
+  dr = comm.executereader();
+  while (dr.read())
+    cbocountries.items.add(dr[0]);
+}
+catch (exception e)
+{
+  messagebox.show(e.message);
+  return;
+}
+dr.close();
+comm.connection.close();
+
+
+
+start the emulator and cradle it (see this post on cradling the emulator). make sure that it can access the network.run your program. you should see the combo box populated with a list of countries extracted from the northwind sample database.
+
+what next? learn how to create a sql server mobile database here.
+
+categories: [data access_] [networking_]
+tags: [netcf2] [compact framework] [sql server]
+read more...
+
+
+
+permalink
+
+posted 11:43 pm
+105 comments
+
+
+
+
+
+
+
+
+
+wednesday, december 14, 2005
+
+
+
+- vote or suggest a tutorial topic
+
+
+
+there are some compact framework tutorials that i'm thinking of writing, particularly in the area of sql server mobile. however, i would like the readers of this blog to have a say. i therefore sincerely invite you to suggest or vote for a compact framework topic that you'd like to see most. to vote, click on one or more of the links in the frame below. to suggest a topic, simply type in the textbox and click the "suggest" button. thanks for your support.
+
+
+
+
+the above "votebox" is written using asp.net 2.0. if you're interested in using it in your own websites/pages, kindly leave me a note (comment).
+
+categories: [blogging_]
+tags: [netcf2] [compact framework]
+read more...
+
+
+
+permalink
+
+posted 12:46 am
+3 comments
+
+
+
+
+
+
+
+
+
+wednesday, november 30, 2005
+
+
+
+- multithreaded prime number generator
+
+
+
+this is more of an intermediate topic. if you're just getting started on the .net compact framework 2.0, you can read this to install the tools and this to write your first app.
+
+in this tutorial, you learn how to write a multithreaded program that does some background processing and yet maintains a ui that's responsive to the user.
+
+
+a multithreaded program is useful in that it gives the user a responsive ui and at the same time be productive in some background work, such as doing long calculations and io. how do you decide when to start a thread? if the program is about to be engaged in some long processing, and you do not want to user to wait, then it's better to start a thread that works on the processing, while leaving the main ui thread running. this is known as threading.
+
+as usual, we will illustrate how to do threading with this simple step-by-step tutorial. we will write a program that keeps calculating prime numbers in the background, while leaving the ui responsive.
+
+create a c# windows mobile 5.0 ppc device application project in visual studio .net 2005.
+change the form's minimizebox property to false (so that you can easily close it by clicking the ok at the top-right corner).
+
+add 2 button controls and a label control. call them btnstart, btnstop and label1. set their text properties to: "start", "stop" and [empty string] respectively.go to the code view (press f7). add the line "using system.threading;" to the top, so that your code can use the threading namespace.
+add 2 private attributes to your partial class: private string texttoshow, private bool runthread.
+go back to design view (press shift-f7). double-click on the start button and enter the following code to start a thread.
+
+thread t = new thread(new threadstart(workerthread));
+runthread = true;
+t.start();
+
+
+in design view, double-click the stop button and give it this code which informs the thread to stop:
+
+runthread = false;
+
+
+back in design view, select the form, and in the properties panel, click on the events button (the one with the thunderbolt image on it). double-click on the closing event. we will write one line of code for the closing event of the form, also to end the thread:
+
+runthread = false;
+
+
+finally, add these 2 methods to the partial class:
+
+private void workerthread()
+{
+  int n = 3;
+  while (runthread)
+  {
+    bool isprime = true;
+    for (int f = 3; f <= math.sqrt(n); f += 2)
+    {
+      if (n % f == 0)
+      {
+        isprime = false;
+        break;
+      }
+    }
+    if (isprime)
+    {
+      texttoshow = n.tostring();
+      this.invoke(new eventhandler(update_label));
+    }
+    n += 2;
+  }
+}
+private void update_label(object sender, eventargs e)
+{
+  label1.text = texttoshow;
+}
+
+
+compile, deploy to emulator and run. test it by clicking the buttons. you will see that the prime numbers are being calculated and displayed, while leaving ui not blocked (i.e. still responsive).
+notice that in the code, the label can't be updated directly from the worker thread. this is because the label object belongs to the main process thread and has to be synchronously updated through an invoke call.
+
+do you like solving sudoku puzzles? how about writing a sudoku solver application for your pda?
+categories: [threading_]
+tags: [netcf2] [compact framework] [windows mobile]
+[threading]
+read more...
+
+
+
+permalink
+
+posted 11:52 pm
+8 comments
+
+
+
+
+
+
+
+
+
+sunday, november 27, 2005
+
+
+
+- networking_: ping the emulator
+
+
+
+this is more of an intermediate topic, which is especially useful if you're writing applications that requires networking. if you're just getting started on the .net compact framework 2.0, you can read this to install the tools and this to write your first app.
+
+here's how you can ping your windows mobile 5.0 pocket pc emulator:
+ first, ensure that you do not "cradle" your emulator, which is already the case by default (so you don't have to do anything). if you want to know more on cradling emulators, see this. next, in the window that contains the emulated pocket pc, click file-> configure. you should see the "emulator properties" dialog box. under the network tab, check the checkbox "enable ne2000...". this will bind the emulator's network adapter to your host pc's network. (if you're familiar with using virtual pc, this is exactly the same as binding the network adapter in a virtual machine to the host pc's network).
+
+within the emulator, click start-> settings-> connections (tab)-> network cards. check that the card connects to "work".
+
+
+then click on the ne2000 driver and ensure that "use server-assigned ip address" is selected (this is assuming that you have a dhcp server in your network; if not, you need to specify a valid ip address within the same subnet as your host pc, and also configure the name servers). click ok a few times to close the dialog boxes.
+
+
+still within the emulator, click start-> settings-> connections (tab)-> connections-> advanced (tab), click "select networks" button, and change the first dropdown to "my work network". click ok.
+
+
+soft reset the emulator (in the window containing the emulator, click file-> reset-> soft). to find out the ip address assigned to the emulator, click start-> settings-> connections (tab)-> network cards, and click on the ne2000 driver.
+
+you can now ping the emulator from your host pc.
+  we will explore writing networking applications some time soon. (in fact, you have already written a browser app, which actually depends on activesync as a virtual router to connect to the internet, but the problem is that by doing so, connection initiation can only be from emulator to the network, which means you can neither ping nor connect to the emulator from outside.)
+
+categories: [networking_]
+tags: [netcf2] [compact framework] [windows mobile]
+read more...
+
+
+
+permalink
+
+posted 3:04 pm
+2 comments
+
+
+
+
+
+
+
+
+
+friday, november 25, 2005
+
+
+
+- getting started_: new features in .net compact framework 2.0
+
+
+
+you have seen the introduction to the .net compact framework. this post talks more on the latest version 2.0 of the framework.
+
+i shall not delve deep into the previous version of the .net compact framework, but it suffices to say that it was working well, and that version 2.0 improves on it a lot more. it's not hard to tell, looking at the new features the .net compact framework 2.0 offers beyond it's older cousin:
+ additional windows forms features and controlsanonymous methodscom interoperability (rcw)cryptographic support for md5, sha1, des, 3des, rsadataset improvementsdirect3d and directdraw mobilegenericsimrpoved threadingipv6 supportmesssage queueing (msmq)networking support for ntlm, negotiate and kerberos authentication protocolspartial classespocket outlook managed libraryregistrykey classserial port supportsimplified asynchronous web services programming modelsoap 1.2 supporttelephony managed libraryxml improvements and support for xmlserializer, xpath, schemai'm interested in the ones that are boldfaced. let's delve into them some time.
+
+categories: [getting started_]
+tags: [netcf2] [compact framework] [windows mobile]
+read more...
+
+
+
+permalink
+
+posted 8:15 pm
+2 comments
+
+
+
+
+
+
+
+
+
+
+
+
+- getting started_: what is the .net compact framework
+
+
+
+you have been using the microsoft .net compact framework (let's call it compact framework for short) to write your first pocket pc application, a browser app and even a sudoku solver app! let's look at what the compact framework really is about.
+
+
+as the compact framework is a subset of the .net framework, let's look at the bigger .net framework first.
+
+think of the .net framework as the microsoft equivalent of the java software development kit. just like java, the .net framework provides the developer a set of apis with which he/she writes code that are executed in a "virtual machine". in .net lingo, such code is called managed code, and the "virtual machine" is known as common language runtime (clr). in short, the clr manages the execution of the code, and does all the resource management, code access security, threading, type safety, and all necessary plumbing, so that you as the programmer can churn out code more productively, focusing on the all-important business logic, and without having to worry too much about the nitty gritty.
+
+as for the compact framework, it does to windows ce devices what its grand uncle .net framework does to desktops and servers. think of it as a platform for developing managed code to be run on mobile devices.
+
+the compact framework is currently in version 2.0. here's a list of what are the new features version 2.0 offers.
+
+categories: [getting started_]
+tags: [netcf2] [compact framework] [windows mobile]
+read more...
+
+
+
+permalink
+
+posted 6:01 pm
+4 comments
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+donate to keep this blog going. thanks!
+
+
+
+
+
+select a category right here:
+- categories!!! -
+
+ - main page -
+ getting started
+ controls
+ data access
+ networking
+ msmq
+ threading
+ pdas
+ blogging
+get blogger categories!
+
+
+
+
+
+
+previous posts
+
+
+  - current posts -
+
+  msmq message queueing in compact framework (part 1)
+
+  create a sql mobile database (part 1)
+
+  plasma or lcd tv?
+
+  co-founder of opennetcf mentions my blog!
+
+  accessing sql server express from the emulator (or...
+
+  vote or suggest a tutorial topic
+
+  multithreaded prime number generator
+
+  networking_: ping the emulator
+
+  getting started_: new features in .net compact fra...
+
+  getting started_: what is the .net compact framework
+
+
+archives
+
+- current posts -
+november 2005
+december 2005
+january 2006
+
+links
+
+neil cowburn
+code project
+wei-meng lee's blog
+zandoná mobile®
+pocket pc mag
+windows mobile
+
+
+
+
+
+
+
+
+
+www.bloguniverse.com
+blog maintained by blogger
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+

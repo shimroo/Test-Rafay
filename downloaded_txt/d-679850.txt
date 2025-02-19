@@ -1,0 +1,471 @@
+
+
+
+palstar - la-1k rf sensing dual hf ldmos 1000 watt amplifier
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+toll-free: (800)773-7931
+
+
+
+
+
+
+dealers
+
+support
+about
+my cart 
+
+
+
+
+
+
+
+
+
+
+
+click on images below to enlarge:
+
+   
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+la-1k
+
+
+description
+
+
+specifications
+
+manual 
+
+
+price: $3695.95
+buy now
+ model#: 9005800
+
+	introducting the new la-1k rf sensing dual hf ldmos 1000 watt amplifier. while the la-1k will work with a wide variety of tuners and transceivers,
+	palstar custom-designed the la-1k to work as the perfect match for our very popular hf-auto autotuner. made in the usa
+
+	new design for 2018 with gray front panel.
+
+	we are pleased to announce that the la-1k far exceeded all standards in fcc testing at a fcc-certified laboratory and received
+	certification for equipment authorization.
+
+
+
+video review of la-1k:
+	[click on photo to view on youtube]
+
+
+
+
+
+
+
+la-1k in the ham shack photos:
+[click on photo to view on facebook]
+
+
+
+
+
+
+
+customer review of la-1k:
+
+	"i received the la-1k. commissioning it was simple. like the hf-autos i have, it just does what it is supposed to do while looking pretty,
+	particularly as it sits on top of the tuner.
+
+	thank you for a great job again, paul, and to your very good people.
+
+	vy 73,
+	- w2bwl / m0ibd / v26wt
+
+
+
+downloads:
+
+
+
+	1. download the la-1k brochure:
+
+
+
+
+
+	2. download the la-1k user interface touchscreen menu options (click below):
+
+
+
+
+
+	3. download the la-1k manual insert:
+
+
+
+la-1k am/fm & troubleshooting
+
+
+
+
+	4. 	download la-1k quickstart guide:
+
+
+
+
+
+		5. download la-1k firmware:
+
+
+
+latest firmware link: la-1k firmware 1.08s.zip
+	[updating the firmware requires a usb a to b cable (not included).]
+	
+
+
+
+document: la-1k fault and display notifications
+
+la-1k firmware summary:
+
+
+v1.08s: restrict the changing of the band or detecting a band error to a time window of about 20 ms after the ptt is energized.
+			when operate mode is selected by the operator, a band cable input if any, results in the band selection to revert to the band as input through that cable.
+		if the remote computer control connection changes to the operate
+		mode, if the 4 bit band control cable is connected then the filter
+		will change to that selected filter, or if the icom voltage
+		control cable is connected the filter will change to that
+		selected filter. the am1; command to select operate mode needs
+		to be sent twice when the band filter has been set to the wrong
+        value. (the second command to select operate mode then changes the mode)
+
+
+	add the detection of additional band frequency changes that return
+    the amplifier to the standby mode when there is a change detected
+    going from one band to another band and also in direct keying mode.
+    the 160m 80m and 6m band changes are handled by the filter select
+    handling process already in effect. the kenwood and four bit band
+    control will now include detection for changes between
+    30m, 40m, 20m, 17m, 15m, 12m, and 10m bands. the icom band control
+    cable will be able to control changes between 30m, 40m, and 20m bands.
+    the icom band control cable does not distinguish between the 10m and 12m
+    bands, or the 15m and 17m bands.
+
+
+
+v1.08c: allow the displayed frequency to show any changes for only 20 ms after the ptt is activated. any changes in the frequency after that initial time window will not be displayed while the ptt remains activated. 
+
+
+v1.07m: corrects an issue regarding false tripping of "tx overdrive" on some units. 
+
+
+v1.07e: allows hidden menu adjustment of transmit relay sequencing delay to correct false tripping when in direct keying mode, under certain operating conditions.default relay sequencing delay is 1 ms.  max delay is 5 ms.  the menu incorrectly indicates 2 ms through 6 ms for this setting.  note:  la-1ks with serial number below 33728 should be left at a 2 ms default setting when this version is installed. 
+
+
+v1.07c: correct occasional false high swr tripping due to very short duration antenna disturbances such as corona discharge..if the swr is above 2.5:1,but less than 6:1, the swr must be high for 50 milliseconds duration before the la-1k trips and shows "bypass swr".
+
+
+v1.07b: increase the required raw power level required to update the frequency (avoiding problems that cause a transmission going into bypass).
+
+
+v1.05k: expand version 1.05e to test for the condition where the unit is transmitting only on antenna 2 or 3.
+
+
+v1.05j: if a band change while in direct keying, change to standby.
+
+
+v1.05h: expand keying status to include: 3= fault overdrive, 5=  fault id, 9= fault +vd
+		added firmware version information to the end of the rs232 status message.
+		added variable displayed_fault that extends the display of the condition that caused the bypass of the amplifier and that indication will now be sent as the keying status through the rs232 and will blink on the
+		tft display. 
+		the indication on the display will be cleared on the next ptt or if the mode is changed.
+		blank out the alc display when displaying a fault condition.
+		increase the size of the fault display, capitalize 'overdrive'.
+	
+
+
+v1.05e: increase the delay switch timing when a frequency change is detected that causes an antenna change.
+
+
+v1.05b: allow 5mhz operation.
+
+
+v1.04c: remove low signal level swr and frequency detect when in standby mode.
+
+ 
+specifications:
+
+
+
+ssb power:
+power levels up to 1000w
+
+
+cw mode:
+1000 watts cw icas
+
+
+fm/rtty:
+500 watts
+
+
+
+am:
+275 watts
+
+
+frequency range:
+1.8 to 54 mhz
+
+
+display:
+color tft touch screen
+
+
+input drive level:
+45w - 55w (all bands)
+
+
+output:
+3 x rf so-239 or type n
+
+
+alc:
+exciter power control
+
+
+
+gain:
+13db + or - 1db (nominal)
+
+
+rf sensing:
+auto band switching without band data cable from transceiver
+
+
+rf output:
+vacuum relay t/r switching
+
+
+power supply:
+internal medical grade
+
+
+ac power:
+100-125vac 15a or 200-250vac 10a
+
+
+dc supply:
+50vdc @42a
+
+
+power devices:
+2 x 5600h 600w ldmos
+
+
+auto-protect:
+swr/short circuit/over temp
+
+
+cooling:
+variable speed fans (3 speed)
+
+
+intermod:
+low imd distortion >-35db
+
+
+pure signal:
+sample@+10dbm (rear panel@1kw output)
+
+
+chassis:
+.090 ga. aluminium
+
+
+top cover:
+.090 ga. aluminium powder coated
+
+
+dimensions:
+12.75" wide x 6.25" high x 16.5" deep
+
+
+shipping weight:
+27 lbs, 12.25 kg
+
+
+design concept:
+full compatibility with the palstar hf-auto autotuner
+
+
+ 
+
+
+warranty:
+one year
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+antenna tuners & amps experience the ultimate.
+
+
+autotuners
+manual tuners
+balanced tuners
+amplifiers
+
+la-1k
+
+
+
+shortwave  classic design quality.
+
+
+
+speakers coherence and accuracy.
+
+
+
+accessories  built to last.
+
+
+
+components  engineered for amateur radio.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+comments
+contact
+support
+
+
+privacy policy
+terms of use
+site map
+
+
+
+
+
+
+palstar on facebook 
+
+
+
+
+
+
+
+â© 2018 palstar inc. all rights reserved.
+
+
+
+
+
+| millions of visitors since 1999 |
+
+
+
+
+
+
+
+

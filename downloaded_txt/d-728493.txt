@@ -1,0 +1,445 @@
+accelerated c++: practical programming by example | informit
+
+
+
+
+
+			if(isenablega){
+			if(currentenvironment == 'qa'){
+			
+			}else{
+			
+			}
+			}
+		
+
+
+
+
+home
+            >
+            store
+
+
+
+
+
+
+
+
+view larger image
+
+
+
+
+
+
+add to my wish list
+
+
+
+
+
+
+
+register your product
+                                to gain access to bonus material or receive a coupon.
+                            
+
+
+
+
+
+                accelerated c++: practical programming by example
+            
+
+
+by andrew koenig, barbara e. moo
+
+                    published sep 8, 2000
+ by                             addison-wesley professional.                                            part of the c++ in-depth series series.
+                
+
+
+
+
+
+
+
+
+book    
+
+your price: $39.99
+list price: $49.99
+usually ships in 24 hours.
+
+
+add to cart
+
+free shipping!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            description
+        
+
+
+
+
+            downloads
+        
+
+
+
+
+            extras
+        
+
+
+
+
+            sample content
+        
+
+
+
+
+            updates
+        
+
+
+
+
+                more information
+            
+
+
+
+
+
+description
+
+
+copyright 2001
+dimensions: 7-3/8" x 9-1/4"
+pages: 352
+edition: 1st
+
+
+
+
+book            
+
+isbn-10: 0-201-70353-x
+isbn-13: 978-0-201-70353-5
+
+
+want to learn how to program in c++ immediately? want to start writing better, more powerful c++ programs today? accelerated c++'s uniquely modern approach will help you learn faster and more fluently than you ever believed possible. based on the authors' intensive summer c++ courses at stanford university, accelerated c++ covers virtually every concept that most professional c++ programmers will ever use -- but it turns the "traditional" c++ curriculum upside down, starting with the high-level c++ data structures and algorithms that let you write robust programs immediately. once you're getting results, accelerated c++ takes you "under the hood," introducing complex language features such as memory management in context, and explaining exactly how and when to use them. from start to finish, the book concentrates on solving problems, rather than learning language and library features for their own sake. the result: you'll be writing real-world programs in no time -- and outstanding code faster than you ever imagined. 
+
+
+
+downloads
+source code
+
+ source code (packaged for unix and similar systems, tar file compressed with gzip)
+ source code (packaged for windows systems using microsoft visual studio.net)
+ source code (packaged for windows systems using the microsoft visual c++ compiler, version 6.0 sp4 or later)
+ getting the code to run under microsoft visual c++ 6.0
+ a note for macintosh users
+ source code (packaged for windows systems using borland c++builder version 5 or later).
+thanks to mogens hansen for providing the borland makefiles.
+
+
+
+
+extras
+author's site
+read andrew koenig's dr. dobb's blog. 
+
+
+
+sample content
+
+                            online sample chapter 
+                    
+
+
+                                using library algorithms in c++
+                            
+
+table of contents
+  preface.    0. getting started.      comments.      #include.      the main function.      curly braces.      using the standard library for output.      the return statement.      a slightly deeper look.      details.    1. working with strings.      input.      framing a name.      details.    2. looping and counting.      the problem.      overall structure.      writing an unknown number of rows.      writing a row.      the complete framing program.      counting.      details.    3. working with batches of data.      computing student grades.      using medians instead of averages.      details.    4.organizing programs and data.      organizing computations.      organizing data.      putting it all together.      partitioning the grading program.      the revised grading program.      details.    5. using sequential containers and analyzing strings.      separating students into categories.      iterators.      using iterators instead of indices.      rethinking our data structure for better performance.      the list type.      taking strings apart.      testing our split function.      putting strings together.      details.    6. using library algorithms.      analyzing strings.      comparing grading schemes.      classifying students, revisited.      algorithms, containers, and iterators.      details.    7. using associative containers.      containers that support efficient look-up.      counting words.      generating a cross-reference table.      generating sentences.      a note on performance.      details.    8. writing generic functions.      what is a generic function?      data-structure independence.      input and output iterators.      using iterators for flexibility.      details.    9. defining new types.      student_info revisited.      class types.      protection.      the student_info class.      constructors.      using the student_info class.      details.    10. managing memory and low-level data structures.      pointers and arrays.      string literals revisited.      initializing arrays of character pointers.      arguments to main.      reading and writing files.      three kinds of memory management.      details.    11. defining abstract data types.      the vec class.      implementing the vec class.      copy control.      dynamic vecs.      flexible memory management.      details.    12. making class objects act like values.      a simple string class.      automatic conversions.      str operations.      some conversions are hazardous.      conversion operators.      conversions and memory management.      details.    13. using inheritance and dynamic binding.      inheritance.      polymorphism and virtual functions.      using inheritance to solve our problem.      a simple handle class.      using the handle class.      subtleties.      details.    14. managing memory (almost) automatically.      handles that copy their objects.      reference-counted handles.      handles that let you decide when to share data.      an improvement on controllable handles.      details.    15. revisiting character pictures.      design.      implementation.      details.    16. where do we go from here?      use the abstractions you have.      learn more.    appendix a. language details.      declarations.      types.      expressions.      statements.    appendix b. library summary.      input-output.      containers and iterators.      algorithms.    index. 020170353xt04062001 
+preface
+a  new approach to c++ programming   we assume that you want to learn quickly how to write useful c++ programs.  therefore, we start by explaining the most useful parts of c++.  this strategy may seem obvious when we put it that way, but it has the radical implication that we do not begin by teaching c, even though c++ builds on c.  instead, we use high-level data structures from the start, explaining only later the foundations on which those data structures rest.  this approach lets you to begin writing idiomatic c++ programs immediately. our approach is unusual in another way: we concentrate on solving problems,    rather than on exploring language and library features. we explain the features,    of course, but we do so in order to support the programs, rather than using    the programs as an excuse to demonstrate the features. because this book teaches c++ programming, not just features, it is particularly    useful for readers who already know some c++, and who want to use the language    in a more natural, effective style. too often, people new to c++ learn the language    mechanics without learning how to apply the language to everyday problems.   our approach works--for    beginners and experienced programmers we used to teach a week-long    intensive c++ course every summer at stanford university. we originally adopted    a traditional approach to that course: assuming that the students already knew    c, we started by showing them how to define classes, and then moved systematically    through the rest of the language. we found that our students would be confused    and frustrated for about two days--until they had learned enough that they could    start writing useful programs. once they got to that point, they learned quickly. when we got our hands on a c++ implementation that supported enough of what    was then the brand-new standard library, we overhauled the course. the new course    used the library right from the beginning, concentrated on writing useful programs,    and went into details only after the students had learned enough to use those    details productively. the results were dramatic: after one day in the classroom, our students were    able to write programs that had taken them most of the week in the old course.    moreover, their frustration vanished.   abstraction our    approach is possible only because c++, and our understanding of it, has had    time to mature. that maturity has let us ignore many of the low-level ideas    that were the mainstay of earlier c++ programs and programmers.  the ability to ignore details is characteristic of maturing technologies. for    example, early automobiles broke down so often that every driver had to be an    amateur mechanic. it would have been foolhardy to go for a drive without knowing    how to get back home even if something went wrong. today's drivers don't need    detailed engineering knowledge in order to use a car for transportation. they    may wish to learn the engineering details for other reasons, but that's another    story entirely. we define abstraction as selective ignorance--concentrating on the ideas that    are relevant to the task at hand, and ignoring everything else--and we think    that it is the most important idea in modern programming. the key to writing    a successful program is knowing which parts of the problem to take into account,    and which parts to ignore. every programming langauge offers tools for creating    useful abstractions, and every successful programmer knows how to use those    tools. we think abstractions are so useful that we've filled this book with them.    of course, we don't usually call them abstractions directly, because they come    in so many forms. instead, we refer to functions, data structures, classes,    and inheritance--all of which are abstractions. not only do we refer to them,    but we use them throughout the book.  if abstractions are well designed and well chosen, we believe that we can use  them even if we don't understand all the details of how they work. we do not need  to be automotive engineers to drive a car, nor do we need to understand everything  about how c++ works before we can use it.  coverage   if    you are serious about c++ programming, you need to know everything in this book--even    though this book doesn't tell you everything you need to know.  this statement is not as paradoxical as it sounds. no book this size can contain    everything you'll ever need to know about c++, because different programmers    and applications require different knowledge. therefore, any book that covers    all of c++--such as stroustrup's the c++ programming language (addison-wesley,    2000)--will inevitably tell you a lot that you don't need to know. someone else    will need it, even if you don't. on the other hand, many parts of c++ are so universally important that it is    hard to be productive without understanding them. we have concentrated on those    parts. it is possible to write a wide variety of useful programs using only    the information in this book. indeed, one of our reviewers, who is the lead    programmer for a substantial commercial system written in c++, told us that    this book covers essentially all of the facilities that he uses in his work. using these facilities, you can write true c++ programs--not c++ programs in the style of c, or any other language.  once you have mastered the material in this book, you will know enough to figure out what else you want to learn, and how to go about it.  amateur telescope makers have a saying that it is easier to make a 3-inch mirror and then to make a 6-inch mirror than to make a 6-inch mirror from scratch. we cover only standard c++, and ignore proprietary extensions. this approach    has the advantage that the programs that we teach you to write will work just    about anywhere. however, it also implies that we do not talk about how to write    programs that run in windowing environments, because such programs are invariably    tied to a specific environment, and often to a specific vendor. if you want    to write programs that will work only in a particular environment, you will    have to turn elsewhere to learn how to do so--but don't put this book down quite    yet! because our approach is universal, you will be able to use everything that    you learn here in whatever environments you use in the future. by all means,    go ahead and read that book about gui applications that you were considering--but    please read this one first.    a note to experienced c  and c++ programmers when you learn a new programming language, you may  be tempted to write programs in a style that is familiar from the languages that  you already know. our approach seeks to avoid that temptation by using high-level  abstractions from the c++ standard library right from the start. if you are already  an experienced c or c++ programmer, this approach contains some good news and  some bad news--and it's the same news. the news is that you are likely to be surprised  at how little of your knowledge will help you understand c++ as we present it.  you will have more to learn at first than you might expect (which is bad), but  you will learn more quickly than you might expect (which is good). in particular,  if you already know c++, you probably learned first how to program in c, which means that your c++ programming style is built on a c foundation. there is nothing  wrong with that approach, but our approach is so different that we think you'll  see a side of c++ that you haven't seen before. of course, many of the syntactic details will be familiar, but they're just    details. we treat the important ideas in a completely different order from what    you've probably encountered. for example, we don't mention pointers or arrays    until chapter 10, and we're not even going to discuss your old favorites, printf    and malloc, at all. on the other hand, we start talking about the standard-library    string class in chapter 1. when we say we're adopting a new approach, we mean    it!   structure of this book you    may find it convenient to think of this book as being in two parts. the first    part, through chapter 7, concentrates on programs that use standard-library    abstractions. the second part, starting with chapter 8. talks about defining    your own abstractions.  presenting the library first is an unusual idea, but we think it's right. much    of the c++ language--especially the harder parts--exists mostly for the benefit    of library authors. library users don't need to know those parts of the language    at all. by ignoring those parts of the language until the second part of the    book, we make it possible to write useful c++ programs much more quickly than    if we had adopted a more conventional approach.  once you have understood how to use the library, you will be ready to learn    about the low-level facilities on which the library is built, and how to use    those facilities to write your own libraries. moreover, you will have a feeling    for how to make a library useful, and when to avoid writing new library code    altogether.  although this book is smaller than many c++ books, we have tried to use every    important idea at least twice, and key ideas more than that. as a result, many    parts of the book refer to other parts. these references look like §39.4.3/857,    which refers to text on page 857 that is part of section 39.4.3--or at least    it would do so if this book had that many sections or pages. the first time    we explain each idea, we mention it in bold italic type to make it easy to find    and to call your attention to it as an important point.  every chapter (except the last) concludes with a section called "details."    these sections serve two purposes: they make it easy to remember the ideas that    the chapter introduced, and they cover additional, related material that we    think you will need to know eventually. we suggest that you skim these sections    on first reading, and refer back to them later as needed. the two appendices summarize and elucidate the important parts of the language    and library at a level of detail that we hope will be useful when you are writing    programs.    getting the most out    of this book   every book about programming includes example programs, and this one is no different.    in order to understand how these programs work, there is no substitute for running    them on a computer. such computers abound, and new ones appear constantly--which    means that anything we might say about them would be inaccurate by the time    you read these words. therefore, if you do not yet know how to compile and execute    a c++ program, please visit http://www.acceleratedcpp.com    and see what we have to say there. we will update that website from time to    time with information and advice about the mechanics of running c++ programs.    the site also offers machine-readable versions of some of the example programs,    and other information that you might find interesting.    andrew koenig   barbara e. moo gillette, new jersey   june 2000  
+
+
+
+updates
+errata
+accelerated c++ errata
+
+submit errata
+
+
+
+more information
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ informit promotional mailings & special offers
+
+
+⚠
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            i would like to receive exclusive offers and hear about products from informit and its family of brands. i can unsubscribe at any time.
+                        
+
+
+privacy notice
+
+
+
+overview
+pearson education, inc., 221 river street, hoboken, new jersey 07030, (pearson) presents this site to provide information about products and services that can be purchased through this site.
+this privacy notice provides an overview of our commitment to privacy and describes how we collect, protect, use and share personal information collected through this site. please note that other pearson websites and online products and services have their own separate privacy policies.
+collection and use of information
+to conduct business and deliver products and services, pearson collects and uses personal information in several ways in connection with this site, including:
+questions and inquiries
+for inquiries and questions, we collect the inquiry or question, together with name, contact details (email address, phone number and mailing address) and any other additional information voluntarily submitted to us through a contact us form or an email. we use this information to address the inquiry and respond to the question.
+online store
+for orders and purchases placed through our online store on this site, we collect order details, name, institution name and address (if applicable), email address, phone number, shipping and billing addresses, credit/debit card information, shipping options and any instructions. we use this information to complete transactions, fulfill orders, communicate with individuals placing orders or visiting the online store, and for related purposes.
+surveys
+pearson may offer opportunities to provide feedback or participate in surveys, including surveys evaluating pearson products, services or sites. participation is voluntary. pearson collects information requested in the survey questions and uses the information to evaluate, support, maintain and improve products, services or sites, develop new products and services, conduct educational research and for other purposes specified in the survey.contests and drawings
+occasionally, we may sponsor a contest or drawing. participation is optional. pearson collects name, contact information and other information specified on the entry form for the contest or drawing to conduct the contest or drawing. pearson may collect additional personal information from the winners of a contest or drawing in order to award the prize and for tax reporting purposes, as required by law.
+newsletters
+if you have elected to receive email newsletters or promotional mailings and special offers but want to unsubscribe, simply email information@informit.com.
+service announcements
+on rare occasions it is necessary to send out a strictly service related announcement. for instance, if our service is temporarily suspended for maintenance we might send users an email. generally, users may not opt-out of these communications, though they can deactivate their account information. however, these communications are not promotional in nature.
+customer service
+we communicate with users on a regular basis to provide requested services and in regard to issues relating to their account we reply via email or phone in accordance with the users' wishes when a user submits their information through our contact us form.other collection and use of information
+application and system logs
+pearson automatically collects log data to help ensure the delivery, availability and security of this site. log data may include technical information about how a user or visitor connected to this site, such as browser type, type of computer/device, operating system, internet service provider and ip address. we use this information for support purposes and to monitor the health of the site, identify problems, improve service, detect unauthorized access and fraudulent activity, prevent and respond to security incidents and appropriately scale computing resources.
+web analytics
+pearson may use third party web trend analytical services, including google analytics, to collect visitor information, such as ip addresses, browser types, referring pages, pages visited and time spent on a particular site. while these analytical services collect and report information on an anonymous basis, they may use cookies to gather web trend information. the information gathered may enable pearson (but not the third party web trend services) to link information with application and system log data. pearson uses this information for system administration and to identify problems, improve service, detect unauthorized access and fraudulent activity, prevent and respond to security incidents, appropriately scale computing resources and otherwise support and deliver this site and its services.
+cookies and related technologies
+this site uses cookies and similar technologies to personalize content, measure traffic patterns, control security, track use and access of information on this site, and provide interest-based messages and advertising. users can manage and block the use of cookies through their browser.  disabling or blocking certain cookies may limit the functionality of this site. 
+do not track
+this site currently does not respond to do not track signals.
+security
+pearson uses appropriate physical, administrative and technical security measures to protect personal information from unauthorized access, use and disclosure.
+children
+this site is not directed to children under the age of 13.marketing
+pearson may send or direct marketing communications to users, provided that
+
+pearson will not use personal information collected or processed as a k-12 school service provider for the purpose of directed or targeted advertising.
+such marketing is consistent with applicable law and pearson's legal obligations.
+pearson will not knowingly direct or send marketing communications to an individual who has expressed a preference not to receive marketing.
+where required by applicable law, express or implied consent to marketing exists and has not been withdrawn.
+
+pearson may provide personal information to a third party service provider on a restricted basis to provide marketing solely on behalf of pearson or an affiliate or customer for whom pearson is a service provider. marketing preferences may be changed at any time.
+correcting/updating personal information
+if a user's personally identifiable information changes (such as your postal address or email address), we provide a way to correct or update that user's personal data provided to us. this can be done on the account page. if a user no longer desires our service and desires to delete his or her account, please contact us at customer-service@informit.com and we will process the deletion of a user's account.
+choice/opt-out
+users can always make an informed choice as to whether they should proceed with certain services offered by informit. if you choose to remove yourself from our mailing list(s) simply visit the following page and uncheck any communication you no longer want to receive: www.informit.com/u.aspx.sale of personal information
+pearson does not rent or sell personal information in exchange for any payment of money.
+while pearson does not sell personal information, as defined in nevada law, nevada residents may email a request for no sale of their personal information to nevadadesignatedrequest@pearson.com.
+supplemental privacy statement for california residents
+california residents should read our supplemental privacy statement for california residents in conjunction with this privacy notice.  the supplemental privacy statement for california residents explains pearson's commitment to comply with california law and applies to personal information of california residents collected in connection with this site and the services.
+sharing and disclosure
+pearson may disclose personal information, as follows:
+
+as required by law.
+with the consent of the individual (or their parent, if the individual is a minor)
+in response to a subpoena, court order or legal process, to the extent permitted or required by law
+to protect the security and safety of individuals, data, assets and systems, consistent with applicable law
+in connection the sale, joint venture or other transfer of some or all of its company or assets, subject to the provisions of this privacy notice
+to investigate or address actual or suspected fraud or other illegal activities
+to exercise its legal rights, including enforcement of the terms of use for this site or another contract
+to affiliated pearson companies and other companies and organizations who perform work for pearson and are obligated to protect the privacy of personal information consistent with this privacy notice
+to a school, organization, company or government agency, where pearson collects or processes the personal information in a school setting or on behalf of such organization, company or government agency.
+
+links
+this web site contains links to other sites. please be aware that we are not responsible for the privacy practices of such other sites. we encourage our users to be aware when they leave our site and to read the privacy statements of each and every web site that collects personal information. this privacy statement applies solely to information collected by this web site.
+requests and contact
+please contact us about this privacy notice or if you have any requests or questions relating to the privacy of your personal information.
+changes to this privacy notice
+we may revise this privacy notice through an updated posting. we will identify the effective date of the revision in the posting. often, updates are made to provide greater clarity or to comply with changes in regulatory requirements. if the updates involve material changes to the collection, protection, use or disclosure of personal information, pearson will provide notice of the change through a conspicuous notice on this site or other appropriate way. continued use of the site after the effective date of a posted revision evidences acceptance. please contact us if you have questions or concerns about the privacy notice or any objection to any revisions.
+last update: november 17, 2020
+ 
+
+email address
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+                                                request an
+                                                instructor
+                                                or
+                                                media
+                                                review copy.
+                                            
+
+corporate, academic, and employee purchases
+
+
+international buying options
+
+
+
+
+
+other things you might like
+
+ 
+
+
+ 
+
+                        c++20 fundamentals livelessons part ii (video course)
+                    
+
+
+
+                        by paul deitel
+
+
+                        online video 
+                        $199.99                        
+                    
+
+
+
+ 
+
+
+ 
+
+                        c++20 fundamentals livelessons part i (video course)
+                    
+
+
+
+                        by paul deitel
+
+
+                        online video 
+                        $199.99                        
+                    
+
+
+
+ 
+
+
+ 
+
+                        c++20 fundamentals livelessons, part iii (video course), 3rd edition
+                    
+
+
+
+                        by paul deitel
+
+
+                        online video 
+                        $199.99                        
+                    
+
+
+
+
+
+
+books, ebooks, and digital learning
+
+
+
+view your cart
+        
+
+
+join|sign in
+
+searchsearch
+
+
+  view your cart
+        
+
+
+
+👤 sign in
+        
+
+
+join
+
+store
+										business & management
+									certification
+										cloud computing & virtualization
+									datadigital photographyengineering
+										graphics & web design
+									
+										home & office computing
+									information technology
+										mobile application development & programming
+									networkingopen sourceoperating systems, serverprogrammingsecurity
+										software development & management
+									web developmentweb servicesformatsbooksebookspractice testssoftwarevideoweb editions
+								deals & promotions
+							video trainingimprintsaddison-wesley professionaladobe presscisco pressft pressibm pressmicrosoft press storeoracle press bookspeachpitpearson it certificationque publishingsams publishingexploreaboutaffiliate programauthors
+										chapters & articles
+									
+										deals & promotions
+									popular topicsproduct registration
+										special offers & newsletter
+									supportvideo trainingcommunitypress and media relationsproduct review teamuser groupsaboutaffiliatescookiesfaqlegal noticeordering informationpearson+privacy noticedo not sell my personal informationpresspromotionssupportwrite for us
+					©  2025 pearson education, informit. all rights reserved.221 river street, hoboken, nj 07030pearson

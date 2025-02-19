@@ -1,0 +1,494 @@
+
+
+descriptors faq
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+	descriptors faq
+	
+  
+"everything about symbian os descriptors"
+
+
+
+
+
+
+
+
+saturday, november 25, 2006
+
+
+36. how do i use rbuf to read from a file?
+
+this was posted by simo as a comment here:rbuf is also the best choice when reading strings from file. using rbuf instead of hbufc requires less code. also, error handling becomes more simpler.here is simple example how to read from rreadstream:in .h: rbuf isomesetting;in .cpp: isomesetting.createl( stream, kmaxtint );the hbufc would be:in .h: hbufc* isomesetting;in .cpp: isomesetting = hbufc::newl( stream, kmaxtint );tptr tmp( isomesetting->des() );stream >> tmp;error handling is also easier because there are no null pointer checks required for rbuf.
+# posted by jo stichbury @ 1:26 pm 0 comments  
+
+ 
+
+sunday, may 21, 2006
+
+
+references to other descriptors resources
+
+general symbian resourcessymbian developer library on the symbian site (www.symbian.com/developer/techlib/index.asp)version 9.1: www.symbian.com/developer/techlib/v9.1docs/doc_source/index.htmlversion 8.1a: www.symbian.com/developer/techlib/v8.1adocs/doc_source/index.htmlversion 7.0s: www.symbian.com/developer/techlib/v70sdocs/doc_source/index.htmldeveloper communitiessymbian: www.symbian.com/developer/forum nokia: www.forum.nokia.comuiq developer community: developer.uiq.com/my book: "symbian os explained" www.symbian.com/developer/books/sose/sose_info.html and personal web site www.whoshavesthebarber.com.other symbian press titles: www.symbian.com/developer/books/index.htmlsymbian developer faq and tech tips site: www.symbian.com/developer/faq/index.htmlreferencesreference [1] descriptors overview from the symbian developer librarywww.symbian.com/developer/techlib/v9.1docs/doc_source/guide/base-subsystem-guide/n10086/buffersandstrings/descriptorsoverview.guide.html#buffersandstringsoverview%2edescriptorsoverview%2emainreference [2] user panic category in the symbian developer librarywww.symbian.com/developer/techlib/v9.1docs/doc_source/reference/n10352/userpanics.html#panics%2euserreference [3] format string syntax in the symbian developer librarywww.symbian.com/developer/techlib/v9.1docs/doc_source/guide/base-subsystem-guide/n10086/buffersandstrings/descriptors/descriptorsguide3/formatstringsyntax.guide.html#descriptors%2eformat%2dstring%2dsyntaxreference [4] pointer descriptors guide in the symbian developer librarywww.symbian.com/developer/techlib/v9.1docs/doc_source/guide/base-subsystem-guide/n10086/buffersandstrings/descriptors/descriptorsguide2/pointerdescriptors.guide.html#descriptorsguide2%2epointersreference [5] buffer descriptors guide in the symbian developer librarywww.symbian.com/developer/techlib/v9.1docs/doc_source/guide/base-subsystem-guide/n10086/buffersandstrings/descriptors/descriptorsguide2/bufferdescriptors.guide.html#descriptorsguide2%2ebuffersreference [6] documentation for rbuf in the symbian developer librarywww.symbian.com/developer/techlib/v9.1docs/doc_source/guide/base-subsystem-guide/n10086/buffersandstrings/descriptors/descriptorsguide2/resizablebufferdescriptors.guide.html#descriptorsguide2%2eresizable"introducing the rbuf descriptor" mark shackman, symbian:www.symbian.com/developer/techlib/papers/rbuf/introduction_to_rbuf_v1.0.pdfreference [7] forum nokia: "symbian os: descriptors for text and binary data (with example) v1.0"www.forum.nokia.com/info/sw.nokia.com/id/7ad95f0e-d7aa-4acc-90f1-890e21207b75/symbian_os_descriptors_for_text_and_binary_data_with_example_v1_0.zip.htmlreference [8] reverse polish notationwww.calculator.org/rpn.htmlreference [9] reference information about tlex in the symbian developer librarywww.symbian.com/developer/techlib/v9.1docs/doc_source/reference/reference-cpp/n101ca/tlex16class.html#%3a%3atlex16reference [10] lexical analysis and tlex in the symbian developer librarylexical analysis overviewwww.symbian.com/developer/techlib/v9.1docs/doc_source/guide/base-subsystem-guide/n10086/buffersandstrings/lexicalanalysisoverview.guide.html#buffersandstringsoverview%2elexicalanalysisoverview%2emainusing lexical analysiswww.symbian.com/developer/techlib/v9.1docs/doc_source/guide/base-subsystem-guide/n10086/buffersandstrings/lexicalanalysis/index.html#lexicalanalysisguide%2etoc
+# posted by jo stichbury @ 2:16 pm 0 comments  
+
+ 
+
+wednesday, april 26, 2006
+
+
+10,000 hits!
+
+my hit counter (www.statcounter.com) informs me that this blog clocked over 10,000 hits today.  thanks everyone for visiting over the last few months!  the blogs have been running for about a year now and are overdue for a makeover.  i'm hoping to make some changes to the format and include more regular updates and new content in the near future.  this will probably include moving them to a new home.  but don't worry, the current content won't be removed and there will be plenty of notice of any changes.besides this blog, i'd just like to flag another descriptors resource on the web.  take a look at this presentation on the symbian site, for another view of descriptors. best wishes,jovancouver, april 26th 2006
+# posted by jo stichbury @ 12:52 pm 1 comments  
+
+ 
+
+saturday, august 06, 2005
+
+
+35. how do i use tlex?
+
+well firstly, what is tlex?it's a lexical analysis class and the lexer example code, which comes with the symbian os sdk, gives one example of how to use it. you can find a brief description of the lexer example in the symbian developer library documentation which comes with each sdk; it is also available on the symbian website (see the references section for details).and, in case you're in some doubt as to what the lexer example is doing - i did - [reference 8] is a very useful resource about reverse polish notation.the rest of this article will summarise the main features of tlex into groups of useful api calls. i'd like to create another, simple, example of how to use the class, but am a bit stuck for ideas of what would be useful. if anyone's got any thoughts on how best to illustrate the main features, please do add a comment to this post and i'll see what i can do.the main class, tlex, is like the descriptors in that two classes are available, tlex8 and tlex16 and the neutral version, tlex, is a typedef to tlex16 for today's unicode builds of symbian os. you can find the symbian api reference documentation for tlex16 in [reference 9].as the documentation states, tlex "...provides general string-parsing functions suitable for numeric format conversions and syntactical-element parsing...an instance of this class stores a string, maintaining an extraction mark to indicate the current lexical element being analysed and a pointer to the next character to be examined..."tlex can be constructed with the data for lexical analysis or constructed empty and later assigned the data. both construction and assignment take either another tlex object, a 16 bit non-modifiable descriptor or a tuint16* pointer to string data.at the very simplest level, when the string contains just numerical data, the descriptor contents can be converted to an integer by using the val() function of tlex. for example:    _lit(kteststring1, "54321");    tlex lex(kteststring1());    tint value = 0;    user::leaveiferror(lex.val(value));    assert(value==54321);the val() function is overloaded for different signed integer types: tint, tint8, tint16, tint32, tint64 - with or without limit checking. likewise, there are val() overloads for the unsigned integer types, passing in a radix type (decimal, hexadecimal, binary or octal). there are also overloads of val() for treal.however, there's a lot more you can do with tlex.  the symbian developer library has more information about lexical analysis with tlex - see [reference 10] for more information.for example, you can move through the string using the inc() functions, or just inspect each character using peek(). calling get() will both increment the position and return the character - it can be reversed using unget().you can skip whitespace using skipspace() or characters using skipcharacters(). the end of the string is hit when eos() returns etrue.you can put an extraction marker at position in the string, using the mark() overloads. marking is also useful if you want to reverse (ungettomark() or skip using skipandmark() or skipspaceandmark()).tokens are used to describe a character string which is deliminated by white space. there are a number of token methods available, such as tokenlength(), markedtoken() - which extracts a token - and nexttoken(). if you don't use tokens, you can use offsets and remainders instead - there are a number of methods for navigating the string in this way.
+# posted by jo stichbury @ 1:18 pm 4 comments  
+
+ 
+
+monday, june 27, 2005
+
+
+34. is there a way to get binary data in a _lit?
+
+check out the answer to faq-0814 on symbian's developer faq & tech tips site:is there a way to get binary data in a _lit?
+# posted by jo stichbury @ 5:20 pm 0 comments  
+
+ 
+
+sunday, june 26, 2005
+
+
+33. can you give an example of how to use rbuf?
+
+yes. i was initially reluctant to do so, because there isn't any published example code out there yet. but i'll take the plunge with this example, which shows how to use rbuf16.  i'll leave code to use rbuf8, and to use the non-leaving create() methods as an exercise for the reader, for now.void examplerbufcodel(){__uheap_mark;//  rbuf::createl    rbuf modifiablebuf;    modifiablebuf.createl(12);    assert(modifiablebuf.length()==0);    assert(modifiablebuf.maxlength()==12);... // do stuff. first push modifiablebuf onto the cleanup stack if a leave may occur    modifiablebuf.close();//  rbuf::createmaxl    modifiablebuf.createmaxl(12);    assert(modifiablebuf.length()==12);    assert(modifiablebuf.maxlength()==12);... // do stuff. first push modifiablebuf onto the cleanup stack if a leave may occur    modifiablebuf.close();//  rbuf::createl passing in a descriptor    _lit(khelloworld, "hello world");    modifiablebuf.createl(khelloworld());    assert(modifiablebuf.length()==11);    assert(modifiablebuf.maxlength()==11);... // do stuff. first push modifiablebuf onto the cleanup stack if a leave may occur    modifiablebuf.close();//  rbuf::createl passing in a descriptor and a maximum lengthmodifiablebuf.createl(khelloworld(), 15);    assert(modifiablebuf.length()==11);    assert(modifiablebuf.maxlength()==15);... // do stuff. first push modifiablebuf onto the cleanup stack if a leave may occur    modifiablebuf.close()//  rbuf::createl and reallocl & modifiable descriptor base class methods_lit(khello, "hello");    _lit(kworld, " world");    modifiablebuf.createl(5);    modifiablebuf.copy(khello());modifiablebuf.cleanupclosepushl(); // push onto cleanup stack for leave safety    modifiablebuf.reallocl(11);    modifiablebuf.append(kworld);cleanupstack::popanddestroy(); // calls modifiablebuf.close()//  rbuf::assignhbufc* hbuf = khello().allocl();    modifiablebuf.assign(hbuf);    assert(modifiablebuf.length()==5);... // do stuff. first push modifiablebuf onto the cleanup stack if a leave may occur    modifiablebuf.close();//  rbuf::assign, reallocl and use of tdes::append    tuint16* ptr = static_cast(user::allocl(5*sizeof(ttext)));    modifiablebuf.assign(ptr,5);    assert(modifiablebuf.length()==0);    modifiablebuf.copy(khello()); // copying any more would panicmodifiablebuf.cleanupclosepushl(); // push onto cleanup stack for leave safetymodifiablebuf.reallocl(12);    modifiablebuf.append(kworld);cleanupstack::popanddestroy(); // calls modifiablebuf.close()     __uheap_markend;    }
+# posted by jo stichbury @ 7:28 pm 12 comments  
+
+ 
+
+
+
+32. how do i use rbuf?  what is it?
+
+from the symbian os 8.1a sdkrbuf1616-bit resizable buffer descriptor [jo comments - an equivalent 8-bit version, rbuf8, also exists]the class provides a buffer that contains, accesses and manipulates tuint16 data. the buffer itself is on the heap, and is managed by the class.internally, rbuf16 behaves in one of two ways:* as a tptr16 descriptor type, where the buffer just contains data,* as a pointer to a heap descriptor, an hbufc16* type, where the buffer contains both descriptor information and the data.note that the handling of the distinction is hidden from view.an rbuf16 object can allocate its own buffer. alternatively, it can take ownership of a pre-existing section of allocated memory, or it can take ownership of a pre-existing heap descriptor. it can also reallocate the buffer to resize it. regardless of the way in which the buffer has been allocated, the rbuf16 object is responsible for freeing memory when the object itself is closed.the class is intended for instantiation.the class is derived from tdes16, which means that data can be both accessed and modified. the base classes provide the functions through which the data is accessed. in addition, an rbuf16 object can be passed to any function that is prototyped to take a tdes16 or a tdesc16 type.so what does this mean for me?an rbuf object is rather like an hbufc in that it can be created dynamically by specifying the maximum length required. however, it also benefits from being modifiable, since it derives from tdes16. this means that you don’t have to create a tptr around the data in order to modify it, which makes it preferable to hbufc when you know you need to dynamically allocate a descriptor, and later modify it.you don’t need to worry too much about how it’s represented internally – either as a tptr or hbufc. in fact, all you need to know is how to create and destroy an rbuf, because calling the other descriptor operations on it should be second nature, given that you have access to all the base class methods of tdes16 and tdes16c.but you must remember that, although rbuf manages the descriptor buffer by freeing it when you call close(), it doesn’t manage the size of the buffer and reallocate it when you need more memory for any particular operation.so, for example, if you call append() on a rbuf object for which there is insufficient memory available, a panic will occur – the rbuf object will not automatically reallocate the buffer. this should be clear from the fact that the base class methods are non-leaving, that is, there is no scope for the reallocation to fail in the event of low memory.so you still need to manage the memory for descriptor operations that may need to extend the descriptor.the rbuf class was first introduced in symbian os v8.0, but first documented in the 8.1 sdk and is used extensively in software written for devices based on v9.x.  the rbuf class is ideal for handling hbufc using a stack-based r class object, and may often be preferable to the contortions required to modify an hbufc.i've created a short example of how to use the class in 33. can you give an example of how to use rbuf?i'd like to acknowledge jp's help and advice with this post.
+# posted by jo stichbury @ 6:54 pm 0 comments  
+
+ 
+
+friday, june 24, 2005
+
+
+31. how do i convert between java strings and descriptors?
+
+check out the answer to faq-0277 on symbian's developer faq & tech tips site:"how do i convert between java strings and unicode descriptors?"
+# posted by jo stichbury @ 1:42 pm 0 comments  
+
+ 
+
+
+
+30. how do i convert an 8-bit descriptor to a java string?
+
+check out the answer to faq-0298 on symbian's developer faq & tech tips site:"how do i convert an 8-bit descriptor to a java string?"these days, it's not necessary to use the symbian cast macros (eg reinterpret_cast) since these are simply defined as the equivalent c++ standard (eg reinterpret_cast). they're a legacy from when gcc didn't support the casts.
+# posted by jo stichbury @ 11:52 am 0 comments  
+
+ 
+
+friday, june 17, 2005
+
+
+29. how can i write the most efficient code when using hbufc?
+
+(1) spawn hbufc from existing descriptors using tdesc::allocl() rather than creating and copying into themhbufc can be spawned from a existing descriptor using the alloc() or allocl() overloads of by tdesc.  you can thus replace code like this:void somefunctionl(const tdesc& ades){    hbufc* heapbuffer = hbufc::newl(ades.length());    tptr ptr(heapbuffer->des());    ptr.copy(ades);    ...}with the more efficient single line:void somefunctionl(const tdesc& ades){    hbufc* heapbuffer = ades.allocl();    ...}(2) don't call hbufc::des() if you need only non-modifiable access to the datait is clearer and more efficient simply to dereference an hbufc if you need a non modifiable reference to its data.  you only need to call des() when you need to modify it - des() will return a tptr.  that is:void log(const tdesc& alogbuf); // forward declarationvoid convert(tdes& abuf);void cmyclass::somefunction(){// iheapbuf is a member of cmyclass//  get non-modifiable access (tdesc&) to iheapbuf log(*iheapbuf); // call a method which takes const tdesc&//  now get modifiable access (tdes&) to iheapbuf convert(iheapbuf->des()); // call a method which takes tdes&}by the way, an interesting side-effect of creating a modifiable descriptor from a non-modifiable heap descriptor is discussed in tip 9.
+# posted by jo stichbury @ 2:29 pm 0 comments  
+
+ 
+
+
+
+28. how do i know what the equivalent c string library functions are for descriptors?
+
+just about all the c string library functionality has been implemented by the descriptor base classes, so you can chop them up, rearrange, tokenise and format them just like you have always been able to do with c strings.here's a useful table which compares c string functions with their descriptor equivalents.  i found the information in section 5 of [reference 7]
+# posted by jo stichbury @ 11:38 am 1 comments  
+
+ 
+
+monday, june 13, 2005
+
+
+27. how do i know which kind of descriptor to use?
+
+this flowchart may help.  it's taken from my book, symbian os explained (page 76), with some modification:
+# posted by jo stichbury @ 4:15 pm 5 comments  
+
+ 
+
+sunday, june 12, 2005
+
+
+26. how do i convert between 8 bit and 16 bit descriptors?
+
+tdes defines a set of copy() methods to copy data from another descriptor of either width, from a pointer to a block of data of a specified length or from a null-terminated string. there are also methods for copying with folding,collation or case adjustment.in each case, the data is copied *from* the source specified in the parameter *into* the modifiable, target, descriptor upon which the method is called. if the length of the 'incoming' data is greater than the target descriptor, a user 11 panic occurs.// from the definition of tdes16 in e32des16.himport_c void copy(const tdesc8& ades); // copies an 8 bit descriptorimport_c void copy(const tdesc16& ades); // copies a 16 bit descriptorimport_c void copy(const tuint16* abuf, tint alength); // copies alength characters from the abuf pointerimport_c void copy(const tuint16* astring); // copies the null terminated astringimport_c void copyf(const tdesc16& ades); // copies and foldsimport_c void copyc(const tdesc16& ades); // copies and collatesimport_c void copylc(const tdesc16& ades); // copies and converts the text to lower caseimport_c void copyuc(const tdesc16& ades); // copies and converts the text to upper caseimport_c void copycp(const tdesc16& ades); // copies and capitalizes the textnote that, because the copy() method is overloaded to take either an 8- or 16-bit descriptor, it is possible to copy: a narrow descriptor onto a narrow descriptor (tdes8 -> tdes8),  a wide descriptor onto a wide descriptor (tdes16 -> tdes16),  a narrow descriptor onto a wide descriptor (tdes8 -> tdes16), a wide descriptor onto a narrow descriptor (tdes16 -> tdes8). copying between descriptors of equivalent character widths is fairly self-explanatory, but copying between descriptors of different character widths is worthy of elaboration:the copy() method implemented by tdes16 to copy an 8 bit descriptor parameter will pad each incoming character with a trailing zero.// instantiate a wide descriptor_lit16(kfred, "fred");tbuf16<4> widefred(kfred); // bytewise = f\0r\0e\0d\0// instantiate a narrow descriptor_lit8(kbert, "bert");tbuf8<5> narrowbert(kbert); // bytewise = bert// copy the contents of the narrow descriptor into the wide descriptorwidefred.copy(narrowbert); // bytewise = b\0e\0r\0t\0the copy() method implemented by tdes8 to copy an incoming 16-bit descriptor will strip out alternate characters which are assumed to be zeroes. this means that this form of copy will only work if the characters in the wide string do not exceed 255 (decimal).// instantiate a wide descriptor_lit16(kfred, "fred");tbuf16<4> widefred(kfred); // bytewise = f\0r\0e\0d\0// instantiate a narrow descriptor_lit8(kbert, "bert");tbuf8<5> narrowbert(kbert); // bytewise = bert// copy the contents of the wide descriptor into the narrow descriptornarrowbert.copy(widefred); // bytewise = fredcopy() thus forms a simple way to copy and convert between narrow and wide descriptors when the character set is encoded by one 8-bit byte per character and the last byte of each wide character is simply a null character padding.if you need to do a proper conversion between 16-bit unicode and 8-bit, non-unicode, character sets (or between unicode and the utf-7 and utf-8 transformation sets), use the symbian os conversion library, charconv.lib.
+# posted by jo stichbury @ 6:49 pm 2 comments  
+
+ 
+
+
+
+25. what do length(), maxlength(), setlength() and setmax() do?
+
+tdesc::length() returns the number of characters the descriptor contains.[while we're on the subject of descriptor length, beware!  be careful not to confuse size() and length().  they do similar things, but while length() returns the number of characters the descriptor contains, size() returns the number of bytes it occupies. for 8-bit descriptors, where each character occupies a byte, this is the same thing. however, on all releases of symbian os since v5u, the native character width has been 16 bits, so each character occupies two bytes. unless you're working with a very old sdk, you'll find that size() always returns a value which is double that of length()].tdes::maxlength() returns the maximum length allowed for a modifiable descriptor.tdes::setlength() can be used to change the descriptor's length to any value between zero and its maximum length.  you can also use tdes::zero() to set the length to zero.  and tdes::setmax() to set the length to the maximum.[setmax() has a slightly misleading name. it doesn’t allow you to change the maximum length of the descriptor, which would, in effect, allow you to resize its data area].
+# posted by jo stichbury @ 5:59 pm 0 comments  
+
+ 
+
+saturday, may 28, 2005
+
+
+23. why is the _l literal descriptor macro deprecated?
+
+why is the original _l macro now deprecated in all but test code?  these have the advantage of being used in place rather than declared separately, for example:user::panic(_l("test server"), kerrnotoverflow);you will still see them used in test code since they saves typing and thinking up a name for each literal.  it's ok to do so where memory use is not critical, but you should avoid using them in production code.  why?well, the text, for example "test server" is built into rom as a basic, null-terminated c style string, with no initial length member. because the layout of the stored literal is not like that of a descriptor, it means that when each instance of the literal is used, a temporary tptrc must be constructed around the data in rom.  the construction of the temporary, which requires 4 bytes of memory for the length/type data, and instructions to set the pointer, the length and the descriptor type, is an unnecessary overhead when compared to _lit descriptors which can be used directly because they are stored in rom to look like descriptors. the generation of each temporary results in inline constructor code which may bloat binaries where many string literals are used.  furthermore, the use of a run-time temporary is safe as long as it is used only during the lifetime of the function in which it is createdso, in summary, you should use _lit to _l for your literal descriptors, because _l has an overhead associated with constructing a run-time temporary tptrc and _lit does not.
+# posted by jo stichbury @ 5:36 pm 0 comments  
+
+ 
+
+
+
+22. what are literal descriptors?
+
+literal descriptors are constant descriptors which are compiled into rom because their contents does not ever change. they are equivalent to static char[] in c.there are two types of literal descriptor, _lit which is the most efficient, and preferred, symbian os literal and _l, which is now deprecated in all but test code.in the examples i've included in this blog, i've used _lit throughout, so you've seen it in action already, for example:_lit(kfred, "fred");on the wide builds of symbian os created today, this is equivalent to the following:_lit16(kfred, "fred");if an explicitly narrow literal descriptor is required, this can be created using the _lit8 macro:_lit8(kfred, "fred");kfred can then be used as a constant descriptor, either directly or to initialise a tptrc/tptr or tbufc/tbuf.the macros are defined in the symbian os header file e32def.h and create an object of type tlitc16 or tlitc8 (defined in e32des.h). these classes do not derive from tdesc8 or tdesc16 but have the same binary layout as tbufc8 or tbufc16. this means that the literal object can be used wherever tdesc is used. the literal classes provide operator()() which is very useful to cast the literal object to a tdesc. for example:_lit(kfred, "fred");hbufc8* theheapbuffer = kfred().allocl();to save you additional code, symbian os already defines a literal to represent a blank string, defined as follows:build independent: _lit(knulldesc,"");8-bit for non-unicode strings: _lit8(knulldesc8,"");16-bit for unicode strings: _lit16(knulldesc16,"");
+# posted by jo stichbury @ 5:34 pm 1 comments  
+
+ 
+
+
+
+21. why is there no hbuf class?
+
+well, there is and there isn't. up until symbian os v8.0, there was no modifiable heap descriptor class, hbuf, in symmetry with the tbufc and tbuf stack buffers. there were a number of reasons for this:(1) the expectation might be that, for a modifiable heap descriptor, the maximum length would expand and contract on the heap as the content was modified. an hbuf class which is modifiable but does not dynamically resize could be considered odd and rather pointless. but to add dynamic resizing to hbuf would be difficult because these methods could leave under low memory conditions and would have to be adjusted accordingly. but, as i’ve previously described, all the modifiable descriptor operations are implemented in the base class, tdes, thus affecting all descriptor types.(2) if dynamic reallocation were added to hbuf, the location of the buffer might change as code is reallocated, affecting all tptr objects referencing that heap buffer's data, as well as compromising the cleanup stack, if the hbuf pointer is stored there.(3) heap buffers were initially intended to allow efficient reading of constant resource strings of variable length. because they are constant, they save on the additional four bytes required to store a maximum length, which allows them to be as compact as possible. they can still be modified using des() if necessary, if a separate hbuf class were provided, it would have an extra 4-byte overhead - and may frequently be created unnecessarily, which might add to a significant waste of heap space over time.however, this is a somewhat spurious argument since making an hbufc::des() call is non-trivial and the resultant tptr itself occupies 12 bytes of stack space. if a modifiable heap descriptor is definitely needed, creating a constant buffer and then an additional, tptr to update wastes memory *and* processor instructions.to this end, symbian os 8.0 and 8.1 introduced class rbuf for resizable descriptors.  the symbian documentation for this class can be found in [reference 6]. i discuss class rbuf in more detail in 32. how do i use rbuf? what is it?.
+# posted by jo stichbury @ 4:53 pm 3 comments  
+
+ 
+
+
+
+20. how do i use heap-based buffer descriptors?
+
+heap-based descriptors, hbufc<n>, can be used for dynamic allocation of string data whose size is not known at compile time.  it should also be used to store string data too large for the stack.  in effect, hbufc should be used where malloc’d data would be used in c.although the class representing these descriptors is hbufc, these descriptors are always referred to by pointer, hbufc*. the class doesn’t comply with the standard symbian os naming conventions, but then, it doesn’t really fit any of the standard symbian os types exactly. it is simply prefixed with h to indicate that the data is stored on the heap.hbufc can be created using one of the static newl() functions of the class.  these may leave if there is insufficient memory available (the non-leaving version will return null). the heap buffers must be constructed using one of these methods or by using one of the alloc() or allocl() methods of the tdesc class to spawn an hbufc copy of any descriptor.the ‘c’ suffix in the class name indicates that these descriptors are constant, although, in common with the stack-based non-modifiable buffer descriptors, the class has a set of assignment operators to allow the entire contents of the buffer to be replaced (as long as the new data does not exceed the length of the heap cell originally allocated).  in addition, as with tbufc, the heap-based descriptors can be manipulated at runtime by creating a modifiable pointer descriptor, tptr over the heap buffer, using the des() method.  for example:_lit(kfred, "fred");// allocate an empty heap descriptor of max length 4hbufc* heapbuf = hbufc::newl(4);// copy in the contents of kfred*heapbuf = kfred; // heapbuf now contains "fred"// or, a more direct alternative:hbufc* heapbuf = kfred().allocl();_lit(kbert, "bert");tptr ptr(heapbuf->des()); // modifiable tptr over heapbuf data areaptr = kbert(); // copies "bert" into heapbufdelete heapbuf; // heapbuf deleted - ptr is now invalidthe heap descriptors can be created dynamically to the size required, but are not automatically resized when additional data storage is needed.  instead, you must make sure the buffer has sufficient memory before calling a modification operation.  if necessary, you can reallocate the buffer, to grow it to the desired size, using the set of reallocl() methods.  these may potentially move the buffer from its previous memory location.  if there is insufficient memory, they will leave._lit(kfred, "fred");// allocate a heap descriptor of max length 4hbufc* heapbuf = kfred().alloclc();_lit(kcyril, "cyril");tptr ptr(heapbuf->des()); // modifiable tptr over heapbuf data areaptr = kcyril(); // this would panic because max length (4) is exceeded// instead, we need to do a reallocation// leave on cleanup stack in case the realloc fails and a leave occursheapbuf = heapbuf->reallocl(5);// realloc succeeded, but heapbuf pointer may have changed// we must update the pointer stored on the cleanup stackcleanupstack::pop(); // push it off// push it back on againcleanupstack::pushl(heapbuf);// since realloc may have changed the location in memory// we must also reset ptrptr.set(heapbuf->des());ptr = kcyril(); // copies "cyril" into heapbufcleanupstack::popanddestroy(heapbuf); // heapbuf destroyedmoral of the storyheap descriptors can be created dynamically but are not automatically resized should they need to be extended.
+# posted by jo stichbury @ 4:05 pm 7 comments  
+
+ 
+
+
+
+19. how do i use stack-based buffer descriptors?
+
+the stack-based buffer descriptor classes are tbufc<n> and tbuf<n>. they are useful for fixed-size or relatively small strings, say up to the length of a 256-character filename (i.e. where n <=256). as i've previously described in 6. large stack-based descriptors and in tip 3, because they are stack-based, and stack space is limited on symbian os, if you need a larger buffer, you should use the heap (either by using the heap-based buffer descriptors, or having tbuf or tbufc as member variables of c classes). being stack-based, these descriptors should also only be used when they have a lifetime that coincides with that of their creator.the tbuf and tbufc descriptors are somewhat equivalent to char[] in c, but benefit from internal overflow checks. as you've probably guessed by now, they may be constant (tbufc) or modifiable (tbuf).tbufcthe layout of the buffer descriptors is such that the string data forms part of the descriptor object itself, and follows the length word for tbufc and the maximum length word for tbuf. you can find a diagram in [reference 5].tbufc is a thin template class which uses the tint value to fix the size of the data area. the non-modifiable buffer class is used to hold constant string or binary data. it derives from tbufcbase (which derives from tdesc, and only exists as an inheritance convenience. it should not be used directly).  you can find more about thin templates from chapter 19 of my book, symbian os explained, more details of which are in the references section.tbufc defines constructors that allow it to be created from a copy of any other descriptor or from a zero-terminated string. they can also be created empty and filled later. this may at first seem unintuitive for a constant buffer, but in fact, while the data itself is constant, the contents of the buffer may be replaced by calling the assignment operator of the class. the replacing data must not exceed the length specified when the buffer was created, or a panic will occur, in both debug and release modes.tbufc also has a des() method which returns a modifiable pointer descriptor for the data represented by the buffer. so, while the contents cannot be altered directly by calling functions such as format() or lowercase() upon it, it is possible to change the data indirectly by creating a tptr around the data in the buffer. when the modification occurs, the length of both the pointer descriptor and the constant buffer descriptor it refers to are changed. but remember, it cannot be extended because the descriptor classes do not provide memory management. so, don't call append() on the tptr unless you know there's sufficient space!_lit(kfred, "fred");_lit(kbert, "bert");tbufc<4> fredbuf(kfred); // constructed from literal descriptortptr ptr(fredbuf.des()); // max length = 4ptr = kbert; // fredbuf now containts "bert"_lit(kcyril, "cyril");ptr = kcyril; // panic! kcyril exceeds max length of ptr (=4)tbuflike tbufc, the corresponding modifiable buffer class, tbuf<n>, is a thin template class, where n defines the maximum length of the descriptor data area. tbuf derives from tbufbase, which itself derives from tdes. tbuf thus inherits the full range of descriptor operations from tdes and tdesc.although the buffer is modifiable, as with all descriptors, memory management of the tbuf is your responsibility and it cannot be extended beyond the initial maximum length set on construction. if it needs to expand, you need to make sure that you either make it large enough at compile time (but not too large to waste valuable stack space) or use a descriptor which you can dynamically allocate at runtime. this means using an hbufc heap descriptor, described in 20. how do i use heap-based buffer descriptors?.
+# posted by jo stichbury @ 3:05 pm 6 comments  
+
+ 
+
+
+
+18. how do i declare a tptr or tptr8 for definition later?
+
+i want to initialise a tptr later, but declare it now.  how do i do this?tptr8 myptr(null, 0);or, for member data, in the constructor's initialization list:cmyclass::cmyclass() : iptr(null, 0){}to assign to it later, use set() as described in 16. what does tptrc::set() do?.  for example:mytptr.set(myhbufc->des());iptr.set(someexistingbuf);
+# posted by jo stichbury @ 12:08 pm 0 comments  
+
+ 
+
+saturday, may 14, 2005
+
+
+17. what does tptr::operator=() do?
+
+the assignment operator, operator=(), defined for modifiable pointers only, copies data into the memory already referenced by the pointer.if the length of the data to be copied exceeds the length available, the assignment will panic. tptr also has a set() method to change the descriptor to point at different data and you should be careful not to confuse them.to reiterate:as i described in 16. what does tptrc::set() do?, tptr::set() resets either a constant or modifiable pointer descriptor to point at a new data area (with corresponding changes to the length and maximum length members).the assignment operator on tptr copies data into the existing descriptor area if it is large enough, or panics if it is not. it may modify the descriptor length but will not affect its maximum length.
+# posted by jo stichbury @ 2:00 pm 0 comments  
+
+ 
+
+
+
+16. what does tptrc::set() do?
+
+set() may be called on a constant or modifiable pointer descriptor to change what it points to, that is, to set it to reference different string data.for example:_lit(kfred, "fred");_lit(kbert, "bert");tptrc fred(kfred); // contains 'fred'tptrc bert(kbert); // contains 'bert'bert.set(fred); // bert now contains 'fred'
+# posted by jo stichbury @ 1:59 pm 0 comments  
+
+ 
+
+
+
+15. what is the memory layout of pointer descriptors?  how much memory do they occupy besides the data itself?
+
+since pointer descriptors all derive from tdesc (either directly for constant pointer descriptors or from tdes, for modifiable descriptors), the first 4 bytes are used to store the current length of the descriptor data.in a constant pointer descriptor (tptrc), a 4-byte pointer to the data follows the length word, thus the total size of the descriptor object is two words (8 bytes).in a modifiable pointer descriptor (tptr) which derives from tdes, the maximum data length word follows the current length, which is then followed by the data pointer.  thus, the descriptor object is three words in length (12 bytes).you can find some diagrams which illustrate this in [reference 4].
+# posted by jo stichbury @ 1:37 pm 0 comments  
+
+ 
+
+
+
+14. do pointer descriptors own and manage the memory they point to?
+
+no.  absolutely not.the memory that holds the data referenced by a pointer descriptor is not owned by it, but will have been previously allocated.  pointer descriptors are agnostic about where the memory they point to is actually stored (in rom, on the heap or on the stack). the string data of a pointer descriptor is separate from the descriptor object itself and pointer descriptors themselves are usually stack-based, although they can be used on the heap, for example as a member variable of a cbase-derived class.
+# posted by jo stichbury @ 1:18 pm 0 comments  
+
+ 
+
+monday, may 09, 2005
+
+
+12. what is the layout of modifiable descriptors?
+
+modifiable descriptors all derive from the base class tdes, which itself is a subclass of tdesc.  tdes has an additional 4-byte member variable, which is used to store the maximum length of data currently allocated to the descriptor. tdes defines a range of methods for modifying string data.  like the non-modifiable descriptors, all the manipulation is inherited by the derived classes, and works regardless of their type. the subclasses only implement specific methods for construction and copy assignment.apart from the allocation methods of the heap buffer descriptors, no descriptor functions allocate any memory.  so any modification which extends the data of the descriptor, eg append(), will check that there is sufficient memory available before proceeding.  the contents of the descriptor can shrink and expand at will, as long as the length does not exceed the maximum.  if the length of the descriptor contents is less than the maximum length, the end of the block of memory allocated to the descriptor is simply unused.descriptor code uses assertion statements to ensure that the maximum length of the descriptor is sufficient, before proceeding.   the checks are made in both debug and release builds, and panic if an overflow would occur.  this avoids the hard-to-trace memory scribbles and buffer overflows typical of c style strings. (see also 11. what is the layout of non-modifiable descriptors?)
+# posted by jo stichbury @ 4:27 pm 0 comments  
+
+ 
+
+
+
+11. what is the layout of non-modifable descriptors?
+
+first, let’s distinguish between descriptor literals, which are constant and can be built into rom because their contents is fixed at build time, and non-modifable descriptors, whose contents are constant but not fixed at build time. symbian os, literals are treated a bit differently to the other descriptors, and i’ll discuss them separately in 22. what are literal descriptors?.all (non-literal) descriptors derive from the base class tdesc (typedef’d to tdesc16 in e32std.h and defined in e32des16.h). the ‘c’ at the end of the class name indicates that the descriptor is non-modifiable. tdesc class has methods for determining the length of the descriptor and accessing its data, and implements other descriptor methods which access the descriptor data but do not modify it, such as data access, comparison and search functionality.it is worth pointing out that all non-modifiable descriptor methods are implemented in this generic base class rather than overridden by each non-modifiable descriptor subclass (tbufc, tptrc and hbufc). this is for memory efficiency. it’s done this way, rather than by use of virtual functions, because these would require each derived descriptor object to occupy an extra 4 bytes by adding a virtual pointer (vptr) for access to the virtual function table. this memory size overhead is undesirable, particularly for smaller strings, where the 4 bytes becomes a large percentage of the overall size.and by keeping the descriptor methods in the base classes, the amount of code to implement a full set of string functionality is minimized too. this reuse is a benefit in terms of rom size, and an illustration of c++ best practice for testing and maintenance.  the subclasses only implement specific methods for construction and copy assignment.the first 4 bytes of every descriptor object is the same: these hold the length of the data it currently contains. well, actually, only 28 of these 32 bits are used to hold the length of the descriptor data; the top 4 bits are used to indicate the type of descriptor. the use of 4 bits to identify the type limits the number of different types of descriptor to 2^4 (=16), but since only six types have been necessary in all previous releases of symbian os (tbufc, tbuf, tptrc, tptr, hbufc and rbuf) , it seems unlikely that the range will need to be extended significantly in future. the use of the other 28 bits to store the data length, also means that the maximum number of byes a descriptor may occupy is limited to 2^28 bytes = 256 mb.the rest of the layout of a descriptor object depends upon the implementation of each of the subclasses. access to the descriptor data of each type goes through the (nonvirtual) ptr() method of the tdesc base class, which uses a switch statement to identify the type of descriptor (using the top 4 bits of the beginning of the descriptor object) and return the correct address for the beginning of its data.of course, this requires that the tdesc base class has knowledge of the memory layout of its subclasses hardcoded into ptr(). this means that you can’t create your own descriptor class, deriving from tdesc, and expect it to work.
+# posted by jo stichbury @ 3:28 pm 7 comments  
+
+ 
+
+
+
+10. how do i use heap descriptors as return types?
+
+i want to create a new descriptor in my function.  how do i return it to the caller? you must return an hbufc* as follows:hbufc* createsomedescriptorl(){    _lit(kbert, "bert");    hbufc* newbert = kbert().allocl();    return (newbert);}the calling function needs to know that it must take ownership of the returned heap-based descriptor and be responsible for deleting it when it has finished with it. failure to do this is a common cause of memory leaks.a similar function, which leaves the created descriptor on the cleanup stack for the caller, would be coded as follows:hbufc* createsomedescriptorlc(){    _lit(kbert, "bert");    hbufc* newbert = kbert().alloclc();    return (newbert);}when should i return a tptr or tptrc?  when shouldn't i?tptr or tptrc are descriptors which do not own string data; they simply refer to data that exists in another descriptor. so you can use them to return a descriptor which references part of another descriptor argument, as long as its lifetime will not extend beyond that descriptor's lifetime. for example:tptrc leftchar(const tdesc& ainput){    if (ainput.length()>0)        return ainput.left(1); // returns the left-most character    else        return knulldesc;}this, however, is not ok because stack-based fred will cease to exist when getfred() returns:tptrc getfred(){    _lit(kfred, "fred");  tbufc<4> fred(kfred());  tptrc fredptr(fred);  return (fredptr);}
+# posted by jo stichbury @ 9:58 am 5 comments  
+
+ 
+
+
+
+9. how do i use descriptors as parameters?
+
+the descriptor base classes are described in 11. what is the layout of non-modifiable descriptors? and 12. what is the layout of non-modifiable descriptors?the base classes provide and implement the constant and modifiable descriptor operations regardless of the actual type of the derived descriptor. for consistency, they should be used as arguments to functions, allowing descriptors to be passed without restricting the caller of the function to using a specific type.for example, the caller can call the following function with anything derived from tdesc and tdes for the first and second arguments respectively. for example an hbufc and a tbuf<8>, or a tptr and a tbuf<3>:void somefunction(const tdesc& areadonlydescriptor, tdes& areadwritedescriptor);how do i make a descriptor parameter read-only?pass it as a constant reference to a non-modifiable descriptor (const tdesc&).  for example:void somefunction(const tdesc& areadonlydescriptor);this function can still be called with a modifiable descriptor like a tptr as the argument, because these derive from tdesc (a tptr is a specialised type of tdes).   inside the function, only the tdesc operations may be performed on the parameter.  its contents will not be changed, even if you have passed in a modifiable, tdes-derived descriptor.how do i make a descriptor parameter read/write?pass it as a non-constant reference to a modifiable descriptor (tdes&). for example:void  somefunction(tdes& areadwritedescriptor);you cannot call this function with a non-modifiable descriptor, which makes sense because you don’t want a read only descriptor to be modified.inside the function you can both read from and write to the parameter. remember that the descriptor must already have sufficient space in it for the data to expand into, if necessary. if there isn’t, you’ll get a panic. (some functions will be coded to check the length of the descriptor before attempting something that may cause a panic and return an overflow error instead. but others will not and the results will be messy).[ this is one reason why you should always test your code with "boundary conditions" - that is, passing in parameters to functions at the boundary of their acceptable values, and beyond, to check that resulting errors are handled gracefully.]can i use other descriptor types as function parameters?yes you can, but don’t. for example you could specify your function requiring a parameter passed a tbuf<10>&. but what if the caller has got a tptrc, or an hbufc, or even a tbuf<11>? this means that they won’t be able to call your function without some extra hassle to fit in with exactly what you have specified. tdes and tdesc are the most general types you can use for your function parameters.my function uses tdes or tdesc parameters like you say, but my descriptor passing doesn’t work. why not?oh how much pain has this one caused? missing out that little & symbol makes all the difference. your parameter types must be references, not values, ie const tdesc& or tdes&.the base classes tdesc and tdes contain no string data. if you pass them by value rather than by reference, you are using static binding, which means that polymorphism won’t work, and you'll end up with a data-free base class object. it will all compile ok, but nothing works.never attempt to instantiate or work directly with objects of the base classes tdesc or tdes, as tip 1 advises.  they are effectively abstract classes. there is rarely, if ever, a valid reason for instantiating them rather than an object of their deriving classes (tbufc, tbuf, tptrc, tptr, hbufc or rbuf).
+# posted by jo stichbury @ 9:36 am 10 comments  
+
+ 
+
+friday, may 06, 2005
+
+
+8. so how do i create a heap based descriptor? and how do i use it when i've got it?
+
+create an hbufc (or an hbufc8 if you explicitly need 8-bit text).hbufc* heapbasedfred=hbufc::newl(4);but how do i then write to a heap descriptor? hbufc is not derived from a modifiable descriptor class?this is also easy. first you must call hbufc::des() to get a tptr, which is modifiable.  you can then use that:tptr fredptr(heapbasedfred->des());_lit(kfred, “fred”);fredptr.copy(kfred);and how do i read from hbufc?you can just dereference the hbufc pointer, like this:tbuf<4> stackbasedfred(*heapbasedfred);but i’ve seen code which calls des() on an hbufc. why’s that?this is a common mistake, which fortunately does little harm except to overall efficiency.des() gives you a modifiable descriptor, tdes, which itself derives from tdesc, so you can use it to call any of the tdesc functions.  but it’s unnecessary.here’s an example of this common mistake:tbuf<4> stackbasedfred(heapbasedfred->des()); // unnecessary, just usetbuf<4> stackbasedfred(*heapbasedfred); // more efficient
+# posted by jo stichbury @ 2:02 pm 2 comments  
+
+ 
+
+
+
+7. how do i create a small, stack-based descriptor?
+
+if it needs to be modifiable, use a tbuf.  if it's constant, use a tbufc. you'll need to specify the size of stack space allocated for the descriptor's data.here’s an example:_lit(kfred, “fred”); // a string literal, these will be described latertbufc<4> constantfred(kfred);in reality, you probably wouldn't do this for a non-modifiable descriptor, since you can use  the literal, kfred directly by calling the operator()()  (as i'll describe separately in 22. what are literal descriptors?).  that is, instead of creating constantfred, you could just call kfred().however, this approach is still useful for modifiable descriptors, for example, for logging purposes:tint cmyactiveobject::runerror(tint aerror){_lit8(kerror, "cmyactiveobject::runerror: %d");tbuf8<35> errorbuf;errorbuf.format(kerror, aerror); // reference 3 has more information about tdes::format()ilogger.log(errorbuf); // ilogger is a log object owned by the classreturn (kerrnone);}what if i want a descriptor to hold ascii text?there are some cases where you do need to hold 8-bit text: mime types, or binary data, for example. to do this, you should explicitly use the 8 bit descriptors:_lit8(kimagegif, “image/gif”);tbufc8<15> mimetype(kimagegif);
+# posted by jo stichbury @ 2:01 pm 2 comments  
+
+ 
+
+thursday, may 05, 2005
+
+
+6. large stack-based descriptors
+
+the amount of stack space on symbian os is pretty limited (the default is 8 kb). so you should avoid creating large stack-based descriptors when it is unnecessary to do so. symbian os sometimes makes it easy to transgress this rule, by defining a number of classes and typedefs that can be used inefficiently on the stack. it pays to be aware of the these and only use them when you know the descriptor you are reading will fill the entire space allocated.for example, tfilename is typedef-ed as follows:typedef tbuf<kmaxfilename> tfilename;whereconst tint kmaxfilename=0x100;  // = 256 decimalbut, of course, each character in a descriptor is 2 bytes, since symbian os is a wide, unicode, build (as described in 1. the basics).  so each tfilename object created on the stack occupies 512 bytes (1/16th of the default stack size), regardless of whether the text occupying it is actually that long!sure, these objects can be very appealing, because they mean you don't have to worry about buffer overrun.  but they come at a price.for stack conservation, it's advisable to be aware of the amount of space the following objects consume: tfilename   512 bytes  tentry           544 bytes  tfullname    512 bytes tname              256 bytes if you do need to use these objects, it's best to use them on the heap. you can do this simply by making them a member of a heap-based object (ie a c class object) . they don't then need to be created on the heap themselves - just by being a member of the c class, they are automatically heap-based. alternatively, you can alloc them on the heap using the new operator - but make sure they are leave-safe and destroyed when no longer needed.
+# posted by jo stichbury @ 11:17 am 4 comments  
+
+ 
+
+
+
+5. is there any size limit for a descriptor?
+
+sort of.descriptors can be stored on the stack or heap. the normal limitations apply as for other symbian os variables: stack descriptors should be kept small: a 256 byte limit (128 double-byte characters) is a good guide.  see 6. large stack-based descriptors for more information about how to avoid accidentally wasting stack space through use of symbian os descriptor typedefs and stack-based classes which encapsulate large descriptors. heap descriptors can be much larger, depending on the size of heap memory available. but remember, symbian os runs on limited memory devices, so allocating a massive descriptor is always unwise.   but the layout of a descriptor object (described elsewhere) will limit the maximum size of a descriptor to 2^28 bytes (256 mb).  since each unicode character = 2 bytes, the maximum length of a descriptor is thus 2^27 characters.
+# posted by jo stichbury @ 11:10 am 2 comments  
+
+ 
+
+
+
+4. memory management and descriptors
+
+do descriptors automatically resize themselves if i need more memory?no. the memory allocated for a descriptor is fixed, and specified on construction. they do not resize themselves dynamically, although you can re-allocate memory for an hbufc heap descriptor. but this has pitfalls of its own as will be described in 20. how do i use a heap-based buffer descriptor?why? it would be more useful if it were automatic.it would make life easier for the programmer, but it could also make them less efficient, and it would require complex code to be exception-safe. think of it like this:most descriptor modification methods can potentially require an increase in the amount of memory allocated to the descriptor. if the descriptor classes themselves did this, most of the methods would have to be able to leave, or would be surrounded by less-than-efficient traps. this is quite an overhead when, in the majority of cases, a fixed size string is fine.on symbian os, efficiency is paramount, so the programmer must take responsibility for memory management.what happens if i overrun a descriptor’s allocated space?you will get a panic in both debug and release builds.   the panic will be part of the user category which can be found documented in [reference 2].  it can be assumed that no illegal access of memory has taken place and that no data was moved or corrupted. however, your code will rapidly cease executing, and if you are running in a system thread, you could even reboot the phone.isn’t that a bit drastic?drastic maybe, but safe. you will not be overwriting any memory that you shouldn’t be, which avoids the difficult-to-find errors this can cause for c strings.do descriptors perform garbage collection?no. in the same way that descriptors do not perform allocation or re-allocation, they do not perform garbage collection, because of the extra overhead that would carry.
+# posted by jo stichbury @ 10:57 am 1 comments  
+
+ 
+
+wednesday, may 04, 2005
+
+
+3. what *aren't* descriptors?
+
+because their underlying memory allocation and cleanup must be managed by the programmer, as described in 4. memory management and descriptors, they’re not like standard c++ strings, java strings or the mfc cstring.and because they protect against buffer overrun and don’t rely on null terminators to determine the length of the string, they are not like c strings either.  see 2. why use descriptors? for why you should prefer to use descriptors rather than familiar, but clunky, c strings.
+# posted by jo stichbury @ 3:04 pm 0 comments  
+
+ 
+
+
+
+2. why use descriptors?
+
+can i use standard c arrays to store my text and binary data, and the c string library to manipulate them, like i have always done?yes.should i use standard c arrays and the c string library for symbian os programming?no.why not?standard c arrays are unsafe. why? because they have no concept of how big they are. null-terminated strings are clunky and inefficient. what’s more, if you want to write past the end of the allocated space of a standard c string, nothing is going to stop you. this leads to all kinds of mayhem, such as data corruptionan api i want to use requires descriptors, but i’ve used c strings. how do i convert between them?quite. just about every symbian os c++ api you come across will use descriptors for transferring text and binary data somewhere, so if you’ve used c strings, you are going to have a problem using these apis. you’ll have to do the conversion every time you want to use an api call requiring a descriptor, which is inefficient. so you might as well keep reading, and learn how to use descriptors correctly.
+# posted by jo stichbury @ 12:58 pm 3 comments  
+
+ 
+
+
+
+1. the basics
+
+what are descriptors?descriptors are symbian os strings.so why are they called 'descriptors' rather than strings?they're known as 'descriptors', because they are self describing. each descriptor object holds the length of the string of data it represents as well as its 'type', which identifies the underlying memory layout of the data it holds.so they can be used to store text?they can. they can also be used to store binary data.do they store text data as ascii or unicode?either. there are two types, 8-bit and 16-bit descriptors. the 8-bit variant is used to store ascii characters and raw binary data. the smallest data unit in these is a “narrow” 8 bit (1 byte) character. the 16-bit type is used to store unicode characters; for these, the data unit is a “wide” 16-bit (2 byte) character.how do i know which i have got?each type ends in 8 or 16, for example tdesc8 or tdesc16.what about descriptors without 8 or 16 at the end, such as tdesc?these are said to be of ‘neutral’ width because they are built with the platform default character size. in the old days, symbian os (or epoc32 as it was known then) used 8-bit ascii text, so a neutral descriptor defaulted to the 8-bit variety. since symbian os v5u (also known as er5u) symbian os has used wide strings. thus, unless you're working with a pre-v5u  sdk, the neutral descriptors (tbufc, tptr, hbufc etc) are implicitly 16-bit and are actually tbufc16, tptr16, hbufc16 etc.how do i find out the character width of my platform?as described above - unless you’re working with a version of the os which pre-dates symbian os v5u (used in the ericsson r380 mobile phone in the year 2000) you’ll be working with the wide, 16-bit platform.so which width should i use?if you need to use 8-bit data, for example, to call a particular api method (such as the read() or write() functions of rfile), for internet email, or to manipulate ascii data, you should use the explicitly 8-bit descriptors.if you want to store a chunk of binary data, use the 8 bit variety too.if you need to work with 16-bit text, for example, java strings, and want to indicate this explicitly, use the 16-bit descriptors.but, in general, unless you need to make the data width explicit, use the neutral descriptors. if nothing else, your code is more readable and it may even be portable if the default character width changes on a later platform.are they null-terminated like c strings?no.how come?because they're self-describing, descriptors know the length of their internal data.  this means there’s no need for the data to be null-terminated to mark where the data ends. it also means that binary data can be stored in the same descriptor classes as store text data. this isn’t possible with c strings because there’s no way of distinguishing the null terminating character from valid binary data.are they hard to use?not really. they’re easy to use badly but in fact there are only a few rules, and a few gotchas. they just haven’t been fully explained: until now...you can find an overview of descriptors in the symbian developer library which accompanies each software development kit (e.g. for uiq or s60 phones).  it is also available online as described in the references section (references to other descriptors resources).the descriptors overview can be found in [reference 1].
+# posted by jo stichbury @ 12:37 pm 2 comments  
+
+ 
+
+
+
+a different approach to explaining descriptors
+
+every symbian os programming book has a chapter on descriptors, which is usually fairly near the start. they are all quite similar and will show the class hierarchy, a few diagrams with boxes and pointers, and more often than not will give some comparison with an equivalent c string type for each descriptor type. then there will be a few examples of how to use them, which will all work.you will read this not-too-interesting chapter while trying to keep awake; you’ll look at the examples and it will all make sense so you’ll think you can use descriptors. you may still have a few worries in your mind, like “why doesn’t ptr() return a tptr?”, but you move on. then you do some development for real, which inevitably involves descriptors, and bang. it all goes wrong. you can’t decide which descriptor type to use and, when you think you’ve got it, the darned things won’t compile, or work without crashing or simply work at all. but don’t worry, this happens to many new symbian os developers, if not all of them. we’re here to help by taking a new approach to explaining descriptors.faqs facts, faxthe blog will consist of frequently asked questions. it’s difficult to take in information from a long, dry and dull chapter on descriptors. faqs are different. they are much more interesting to read and present one piece of information at a time.good examples, bad examplessymbian os books always give examples that work (or that should work but for bugs introduced during publication). we are usually left to discover how to misuse descriptors at our leisure. then we have to figure out why they are not working. this is hardly leisure. so this article will give lots of misuse examples too. we’ve made all our mistakes public so you don’t have to make them too.repetitionwe say the same things again and again in different ways. we repeat ourselves. this is intentional. some of these things are so important that you must understand them in order to use descriptors successfully. if repeating and re-describing helps your understanding, it's worth the effort. did we mention that we repeat ourselves?
+# posted by jo stichbury @ 11:04 am 3 comments  
+
+ 
+
+
+
+welcome to the descriptor faq
+
+someone famous once said that some high percentage of computing was manipulating strings. if you believe this to be true, then getting the hang of string handling is vital.  most programmers come to symbian os from some other development environment, and tend to think they’ve already got strings pretty much sussed. after all, there’s not much to c strings to understand, although there are plenty of ways they can go wrong. the java string and stringbuf classes have about the best combination of power and simplicity that you can get. and the various string and cstring classes found in different flavours of c++ environments are usually mastered fairly quickly.  but then they encounter symbian os descriptors. if there was anything invented to bring a high flying c++ developer firmly back to ground during their first week of symbian os development, it’s descriptors. “good grief, there’s a whole zoo of them” is a typical comment upon the first reading of the descriptor chapter in a symbian os programming book. they look at the various diagrams showing the c equivalents for each descriptor types. they try the examples. it seems just about to make sense. and then they try using them for real, and it all goes wrong.  descriptors seem designed to restrict you. they don’t compile when you think they should. or they compile without complaint, but panic when you use them. and if they do compile and run without crashing, they still may just plain refuse to do what you expect them to do. at which point it’s tempting to turn to the chapter in the book on using the standard c library and use c strings instead. well don’t. stick with them. you don’t really have a choice anyway if you are going to be a symbian os developer. there are many good reasons to use descriptors, as will become apparent as we proceed. what is needed is a really good explanation of descriptors in simple language that non-symbian os developers can understand. it should be detailed, because without the detail you can’t use them successfully. there should be examples of how not to use them, as well as the more typical book examples of how they should be used.  all symbian os developers will have made the same mistakes of using descriptors incorrectly and not understanding what’s going wrong. this article sets out to short-cut the painful learning curve. the authors have been along it, slowly and painfully. don’t follow in their footsteps.
+# posted by jo stichbury @ 10:23 am 1 comments  
+
+ 
+
+
+
+i've got a question or comment not already listed. what do i do?
+
+let me know by adding it as a comment to the most relevant post in the blog (i get notification when a comment is added). please feel free to add as many questions as you like, though bear in mind it may take me a while to get around to answering them. i'd like this to be the most comprehensive online resource for symbian os descriptors available, so your input is really valuable. if you have any descriptor tips you'd like to share, for the descriptor tips blog (descriptor-tips.blogspot.com), please add them as comments to the blog and i'll transfer them - and attribute them to you of course!alternatively, if you have a comment to a particular item, you can post it directly by clicking on the comments link at the bottom of the posting. i'll regularly monitor the comments and make corrections/additions accordingly.
+# posted by jo stichbury @ 10:15 am 11 comments  
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ www  descriptors faq 
+
+
+
+
+ 
+
+
+
+
+internal links
+ 
+
+who are you?
+how do i search this blog?
+what should i do if i have a question?
+ 
+welcome to the descriptors faq
+a different approach
+ 
+the basics
+why use descriptors?
+what *aren't* descriptors?
+memory management
+is there any size limit for a descriptor?
+comparison of length() functions
+ 
+how do i know what kind of descriptor to use?
+what are the descriptor equivalents of c string functions?
+ 
+large stack based descriptors
+how do i create a small, stack based descriptor?
+how do i use stack-based buffer descriptors?
+ 
+how do i create & use bigger, heap based descriptors?
+how do i use heap-based buffer descriptors?
+how do i use hbufc efficiently?
+why is there no hbuf?
+how do i use rbuf?
+an example of how to use rbuf?
+ 
+how do i use descriptors as parameters?
+how do i use descriptors as return types?
+ 
+what is the layout of non-modifiable descriptors?
+what is the layout of modifiable descriptors?
+ 
+do pointer descriptors own the memory they point to?
+what are pointer descriptors?
+what does tptrc::set() do?
+what does tptr::operator() do?
+how do i do lazy initialization on a tptr?
+ 
+what are literal descriptors?
+why is _l deprecated?
+how do i get binary data into a _lit?
+ 
+conversion between 8 and 16 bit descriptors
+how do i convert an 8 bit descriptor to a java string?
+how do i convert a java string to a descriptor?
+ 
+how do i use tlex?
+
+page loads since may 2005
+
+
+ 
+
+
+
+
+
+
+
+
+
+

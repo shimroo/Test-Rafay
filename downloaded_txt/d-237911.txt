@@ -1,0 +1,470 @@
+
+
+6-4-2 — an angels/dodgers double play blog
+
+
+
+
+
+
+
+
+	        <$blogrsdurl$>
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6-4-2 — an angels/dodgers double play blog
+
+
+a blog mostly about the dodgers, angels, baseball in general, and other minutiae as it may happen.
+
+
+
+
+
+ proceeds from the ads below will be donated to the
+ bob wuesthoff scholarship fund.
+
+
+
+
+
+thursday, june 15, 2023
+administrivia: comments locked
+
+
+having received a godawful amount of spam comments this morning, i am locking comments for the time being, until the spammers give up. not that anyone cares anymore...
+
+// posted by rob @ 8:01 am link
+ // 
+
+              
+                  
+                    0 comments
+
+
+
+tuesday, june 23, 2020
+mlb 2020 season announced, stupid rules ensue
+
+
+mlb has announced there will, in fact, be a 2020 major league baseball season, which surprised the hell out of me. there will be a 60-game schedule, with opening day on july 23 or 24. the schedule will be optimized for in-division (regardless of league) play to minimize travel.
+
+rob manfred is using this opportunity to annoy us with other stupid rule changes, including the runner on second rule for extra innings, which is un-american and probably a commie plot. likewise, national league teams will adopt the designated hitter at home, which was an inevitability but is there some reason to think anything other than that a pandemic was a convenient excuse?
+
+play ball, but stop annoying me, manfred.labels: dh rule, stupid ideas
+
+// posted by rob @ 8:35 pm link
+ // 
+
+              
+                  
+                    0 comments
+
+
+
+thursday, march 12, 2020
+nba, nhl suspend seasons, mlb suspends spring training in response to coronavirus
+
+
+following yesterday's announcement that the nba has suspended its season following yesterday's scheduled games, the nhl has suspended its entire season. also, mlb has suspended spring training indefinitely according to the los angeles times.
+
+update: the mlb regular season will be “delayed” by two weeks.labels: angels, dodgers
+
+// posted by rob @ 11:22 am link
+ // 
+
+              
+                  
+                    0 comments
+
+
+
+saturday, january 04, 2020
+administrivia: sidebar cleanup
+
+
+for the one person who cares (me, now), i finally cleaned up the sidebar of dead links, including duplicated links to now-defunct blogs, both at major newspapers (the lat and ocr dodgers and angels blogs are now long-gone), and other cruft that has vanished over time. labels: administrivia
+
+// posted by rob @ 5:46 pm link
+ // 
+
+              
+                  
+                    0 comments
+
+
+
+thursday, october 03, 2019
+the one stat that tells you everything you need to know about the 2019 angels' rotation
+
+
+matt welch recently tweeted something about the 2019 angels that grabbed my attention in a sad and disturbing way:
+
+
+the angels today fired their pitching coach, a day after firing their manager. how bad was the team's pitching in 2019? this bad: by wins above average, the angels' rotation (at -6.5) and overall staff (-9.4) were the worst in all of baseball. yet there's a much crazier stat.
+— matt welch (@mattwelch) october 2, 2019
+
+
+
+
+the team leader in innings pitched in 2019 was trevor cahill, with 102.1. respectfully, i don't think you fully realize how bonkers that number is.
+— matt welch (@mattwelch) october 2, 2019
+
+
+
+
+remember the strike-aborted season of 1994, when teams played around 114 games? the lowest ip total from a team leader that year was 130, from greg harris, in the second-ever season of the colorado rockies.
+— matt welch (@mattwelch) october 2, 2019
+
+
+
+
+how about strike-disfigured 1981, when teams averaged 107 games? the low total from a team leader then was 130.1, by seattle’s glenn abbott. 
+
+i think it’s likely that trevor cahill’s 102.1 ip is the lowest team-leading total in modern baseball history.
+— matt welch (@mattwelch) october 2, 2019
+this got me updating my lahman database for the first time this year. (note to sean: why hasn't there been a mysql/mariadb-compatible schema available for two years now?) after a good bit of sql detective work, it turns out there are only four team innings-pitched leaders with less than the measely 102.1 mr. cahill managed:
+
+
+
+
+yearteampitcherip
+1872washington olympics*asa brainard79.0
+1873baltimore marylands*ed stratton27.0
+1884st. paul white capsjim brown36.0
+1891milwaukee brewersgeorgedavies102.0
+
+
+
+all of them are 19th century teams, and two (those denoted with an asterisk [*]) were national association teams. in other words, we are talking about some of the sketchiest professional teams ever assembled in the earliest days of the sport. for context, here's a graph of lowest team innings pitched leaders throughout history:
+
+
+
+unsurprisingly, the number settles down right about at the turn of the 20th century, and has drifted down ever since. while the current trend certainly projects that eventually, trevor cahill won't be such an outlier, for now, he is more than 40 innings off last year's low-high champion, toronto's marco estrada (143.2 ip). in the last decade, his nearest competition is jeff francis on the 2012 rockies, whose 113 ip was the lowest in the 21st century, and lower than any 20th century ip team leader.
+
+this is obviously awful; as matt goes on to observe, "the angels gave a mind-numbing 492 innings to pitchers who had a season era+ of under 80." the halos now have a losing record for four consecutive years for the first time since they lost seven straight years from 1971 to 1977. they have no depth, poor roster construction, and absolutely no idea how to get out of this pit.
+
+ labels: angels
+
+// posted by rob @ 11:59 am link
+ // 
+
+              
+                  
+                    0 comments
+
+
+
+thursday, november 02, 2017
+the end of dreams: astros 5, dodgers 1
+
+
+if it is possible for the dodgers to have a more ignominious end to their season, i cannot think of it. battered in game 3, dave roberts sent yu darvish out for second helpings in a win-or-die scenario; darvish made it clear early that the second option was his choice. the astros out pitched the dodgers, whose offense never bothered to show up. honestly, that was the team i watched through much of august and september, the hellacious losing streak that made you wonder which team would be playing in october.
+
+dylan hernandez' lat piece pulls no punches. i think he oversteps by claiming
+
+the rangers probably knew something. they probably knew he was as likely to perform how he did in this world series as he was of ever realizing his breathtaking potential. darvish made two postseason starts for the rangers and lost both.
+ the dodgers knew that too, but i suspect they were hopeful the better pitching environment of dodger stadium would attenuate those bad outings. nevertheless, dave roberts leaving him in for so long was a critical failure; he had to be on a very short leash. darvish got only two swings-and-misses total in the ten batters he faced, a bad sign that roberts ignored. not that it mattered with the offense failing; the two runs the astros collected in that first inning would be enough.
+
+so, congratulations to the now american league astros, who win their first title ever for america's fourth-largest city. the dodgers have their work cut out for them in the offseason.
+
+espn box • mlb recaplabels: astros, dodgers, postseason, world series
+
+// posted by rob @ 8:08 am link
+ // 
+
+              
+                  
+                    0 comments
+
+
+
+thursday, august 17, 2017
+disney's $1.5b mlbam purchase foretells grim tidings for espn
+
+
+al yellon a couple days ago posted a piece about mlbam being sold to disney in a $1.5 billion deal. the upshot of this is that every mlb team will get $50 million in cash off the bat, but it also suggests something else: mlbam, which has been a cash cow for the league, is going away at the exact moment cord-cutting continues to be a problem for cable tv. there's something about this deal that reminds me of the yankees getting out from yes network, which now seems prescient: better to let someone else figure out how to sell those ad dollars, and take whatever they want off the top.
+
+along those lines, espn is now launching its own streaming service, which looks from the outside like a pyrrhic victory. as techcrunch explains,
+
+"a streaming service, while it might attract sports fans who have 
+cut the cord, won’t solve espn’s profit problems. instead it will 
+exacerbate them. why? because espn will continue to lose the millions 
+upon millions of cable subscribers who pay for it but never watch it. 
+losing $7.21 from each non-watcher is going to be a revenue killer. 
+there is no possible way the universe of sports fans who want espn can 
+make up that revenue, even if they’re charged more for a streaming 
+service."
+
+(the above was quoted in the story text, but it's unclear from context who was being quoted. edit: it's an excerpt of this bloomberg news story.) this is a problem of long-standing i first noticed with the dodgers and their cable tv deal; there's simply no way the insane tv rights deals stand up without mandatory bundling. things are going to get tighter for everyone in this space, and soon.
+
+update 2017-08-23: one aspect of this that has bothered me from the beginning is the same sense i got when the guggenheim group bought the dodgers for $2.1 billion, and that is that this is predicated on revenue streams that simply cannot exist in the real world. (even my rough contemporaneous pencil test showed the dodgers couldn't milk that stream for the kind of dough they were getting out of bundled cable deals.) i'll spend some time digging and see if i can get mlbam subscriber numbers somewhere. also, it's important to know for return-on-investment figures that disney earlier bought 33% of bamtech for $1 billion, so their total investment appears to be $2.5 billion for (effectively) the whole magilla, or at least a majority stake.
+
+it appears that mlbam as of two years ago had 3.5 million subscribers, though this la times article doesn't mention how many are mlb.tv subscribers. but assume that 90% of them are paying for mlb.tv at $112.99/year. that means revenues are
+
+3.5m subscribers * .9 * $112.99 subscriber-1*year-1 = $356m/year
+
+it's not implausible that they might be able to make money under this scenario, but it omits the costs of carriage for mlb, milb, pga, and other content. labels: broadcasters, dodgers, tv
+
+// posted by rob @ 5:41 am link
+ // 
+
+              
+                  
+                    0 comments
+
+
+
+‹older
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ www  6-4-2 
+
+
+
+
+
+
+
+
+
+
+contact
+
+rob mcmillin rlm@scareduck.com
+e-mail may be published unless you request otherwise.
+follow me on teh twitter
+scareduck, a personal homepage
+
+
+
+
+
+
+
+
+
+
+
+about
+
+motivation
+about the name
+manifesto
+link policy
+
+club links
+
+
+
+levelangelsdodgers
+mlbangels
+dodgers
+aaasalt lake
+bees
+
+oklahoma city
+baseball club
+
+aarocket city
+trash pandas
+
+tulsa 
+drillers
+
+hi atri city
+dust devils
+
+great lakes
+loons
+
+single ainland empire
+                        66ers
+
+rancho cuc.
+quakes
+
+complexleaguesazl angels
+
+azl dodgers
+
+roundups
+angels
+
+dodgers
+
+
+
+links
+
+baseball almanac
+the baseball cube
+baseball prospectus
+baseball reference
+cot's baseball contracts
+fangraphs
+japanese baseball
+mccourt sale timeline
+minorleaguebaseball.com
+mlb depth charts
+retrosheet
+
+news
+
+baseball america
+btf newsblog
+espn mlb home
+fox sports mlb home
+sports illustrated mlb home
+rotoworld
+yahoo sports
+la times angels
+dodgers
+la daily news
+angels
+dodgers
+oc register
+angels
+dodgers
+google news
+                            angels
+dodgers
+mlb trade rumors
+
+angels blogs
+
+halos heaven
+true grich
+angels win
+
+dodgers blogs
+
+dodger insider
+sons of steve garvey
+dodgers digest
+true blue la
+elysian fields
+vin scully is my homeboy
+the left field pavilion
+blue heaven
+dodger therapy
+plaschke, thy sweater is argyle
+opinion of kingman's performance
+fire tommy lasorda
+jon weisman's dodger thoughts (defunct)
+                
+sectarian baseball blogs
+
+aaron's baseball blog (twins, etc.)
+                        tyler bleszinski's athletics nation
+az snake pit (d'backs)
+                        bleed cubbie blue
+brew crew ball
+bronx banter (yanks)
+                        the cub reporter
+ducksnorts (padres)
+                        el lefty malo (giants)
+                        gaslamp ball (padres)
+                        lone star ball (rangers)
+                        lookout landing (mariners)
+                        mccovey chronicles (giants)
+                        only baseball matters (giants)
+                        purple row (rockies)
+                        the ranger rundown
+u.s.s. mariner
+the view from the bleachers (cubs)
+                
+non-denominational baseball blogs
+
+baseball analysts
+baseball guru
+baseball crank
+david pinto's baseball musings
+beyond the boxscore
+maury brown's the biz of baseball
+deadspin
+jay jaffe's the futility infielder
+nbc sports hardball talk
+hardball times
+management by baseball
+vorosmccracken.com
+
+dirtbags links
+
+dirtbag baseball
+former dirtbags
+
+other blogs
+
+blogging la
+double dog doings
+farmhouse journal
+fandom fantasias & political ponderings
+matt welch's warblog
+la observed
+laist
+scareduck blog
+
+spreadin' the love
+
+get friendly with the fox
+block pesky ads
+convert textual links
+better tinyurl creator
+a stylish fedora
+b-ref search plugin
+autodiscoverable search plugins!
+
+syndicate
+
+atom
+
+
+archives
+
+by label*year
+
+
+
+
+
+
+
+
+

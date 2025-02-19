@@ -1,0 +1,217 @@
+
+
+
+
+
+
+
+
+
+
+strawberry prolog
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+this program is dedicated to our teacher, prof. dimiter skordev.
+
+
+strawberry prolog
+version 6.1
+from august 23, 2023
+
+this prolog compiler is part of ai - project.
+download strawberry prolog light. this is our free edition.
+
+
+
+
+
+strawberry prolog is being developed in the institute of mathematics and informatics – bulgarian academy of sciences, in the 
+faculty of mathematics and informatics – university of sofia and in 
+new bulgarian university.
+
+
+
+new sample programs
+
+  metro – we present a new scheme for the movement of metro trains which will increase the capacity of the metro tube with 50%.
+this will decrease the traveling time by 33% and the power consumption by 30%.
+with the new scheme, the waiting time at the stations increases, but this problem is solved in a clever way (version 5.0 from 23 august, 2023).
+
+  ai unravels chess –  this is an attempt to build ai. first, we need to learn how to describe the world. for this purpose, we need a special language for description of worlds.
+this program is an attempt to create such a special language and describe through it the world of chess game
+(last version from 7 march, 2023), read this article.
+
+  warcraft – action game! one epic battle in an infinite forest. (the map is really infinite. this is not a joke!)
+  3d studio – you can create your own 3d world and to move in it in order to see everything from a different point of view.
+  digital tv – compression and decompression of video signal. new format for the digital tv of the future.
+  fractals – you will see an infinite fractals field in which you 
+can move and even get lost.
+  multitetris – new variant of the game tetris where several figures fail down simultaneously.
+  chess – you will see how easy it is to make a 
+chess playing program with strawberry prolog.
+  galvanic line – real program for real galvanic line. 
+
+
+
+what do we do right now?
+currently, at sofia university, together with our students, we write a program demonstrating the event-driven models. 
+these models are the basic models in artificial intelligence. you can see the current variant of this program.
+
+
+what is new in the last versions?
+  new syntax of
+some of the built-in predicates. for example the predicate window
+has about 20 arguments. of course, it would be terrible to write all of
+them to create a simple window. instead, you can write only these parameters
+which are important for you, others will be filled by default. for example
+you can write window(icon("icon.ico"), size(100, 120) ) or even only window( ).
+  better debugger and better visualization in the proof tree window.
+  you can embed activex objects 
+in your prolog program by the predicate embed_server. also you can receive events from 
+ole servers (activex objects). when your prolog program is ole server then by the 
+predicate raise_event it can send events to its client program.
+  you can call
+external functions from dll files and from ole servers. you can call 
+prolog program as ole server but for the moment you cannot call it as dll.
+  a special tool
+called object browser which gives you the possibility to view the methods
+and properties of the ole servers which are installed on your computer
+(like ms word, corel draw, etc.). this will make easier the task for creating
+prolog programs which are using these servers.
+  you can use odbc is order to work with databases. 
+the support of odbc is made through ole server adodb.connection.
+  you have support of unicode. 
+also, you can use different char sets and you can change the char set in the time of program execution by 
+the predicate char_set.
+  you will find 
+some new and very powerful predicates like print_file.
+by this predicates and functions you can create really exiting text processing
+programs. for example the software of second-box
+is made entirely on strawberry prolog.
+  strawberry prolog
+now has syntax coloring.
+  support of object
+oriented programming (this feature is still under development).
+  you already have
+the possibility to define your own built-in predicates, functions and constants
+and even if you like you can specify the types of their arguments. this
+extension of the prolog language is so convenient that we are sure it soon
+will be accepted also from the other prolog compilers.
+  global variables
+which give you the possibility to access their values in different places
+of your program. use of global variables is so powerful that with them
+you can avoid the use of assert in the most cases. this innovation already
+is accepted from some of the competitors prolog compilers.
+  support of sql
+servers, tcp/ip sockets and cookies. these innovations are important for
+creating prolog cgi scripts.
+  many new predicates for work with window's messages. (look at sample program fractals.pro in order to see them.)
+  predicate := is now working with any type of terms. (in the previous versions it was not possible to use it with open terms, which was a serious restriction.)
+  a new powerful cut 
+predicate. for example, cut(1) is the same as !, cut(2) 
+cuts more than ! and cut(0.5) cuts less than !.
+
+
+strawberry prolog and internet.
+  strawberry prolog
+already covers one of the main problems connected with the creating web
+sites and this is the problem for creating programs which can run directly
+on the server to provide service for your web site visitors. all functionality
+on this site is made as strawberry prolog cgi scripts. to receive an idea
+of them you can go to play some games or to visit
+our chat room (all this is made on strawberry prolog).
+  strawberry prolog
+will cover soon also the second fundamental problem in the web design:
+how to include in your site programs which will run on the computer of
+your web site visitor. to cope with this problem strawberry prolog will
+support the plug-in technology. in order to handle this task people use
+java applets or activex controls for the moment .
+
+
+what is strawberry prolog?
+prolog is a language of a higher level. this turns out
+to be an advantage and disadvantage at the same time. on one hand it shortens
+the time of your program development and on the other it may sometimes
+affect the efficiency. prolog programs usually work slower than the programs written on language like c but the problem is not in the language but in the prolog compilers.
+what does it mean "a higher level"?
+on a low level you describe the way for solving your
+problem. in assembler (the lowest level) you describe everything in the
+style: "get the contents from this register and put it in that one". in
+c you do not care about the registers (leaving this to the compiler) and
+write in the style: "get the contents from this memory box (variable) and
+put it in that one". in prolog the approach is different. you describe
+your problem but do not say how it can be solved (leaving this to the compiler).
+for example, you can say that you need the answer to a question.
+why are low-level programs more efficient?
+because you are cleverer than the compiler. if you take
+care of the registers you will do it better than any compiler. of course,
+this is true only for small programs. if the program is too large then
+the optimizer will do this routine work better than you will.
+does it matter to work on the low level?
+yes, sometimes but only for very short and responsible
+subroutines which will run billions of times. sometimes you can achieve
+the opposite effect. this happens often with different software companies.
+they have a program written on c and rewrite it on an assembler to achieve
+higher efficiency, however they obtain a slower one instead. this is because
+sometimes when the source is very big the compiler manages to find better
+solution than the human being and because the c compilers are already quite
+good and it is not easy to write a more optimal program than the compiler.
+are the prolog compilers good enough?
+the answer is no. we believe that strawberry prolog is
+the best choice but it is still far from being perfect, either. for this
+reason (so far) if you write two programs, one in c and second in prolog,
+then the first will be the faster one. nevertheless you will waste too
+much time writing a c program that it does not worth the effort. even if
+you are working on a big and complicated project it may be impossible to
+do it in c (pascal, fortran) because you will be lost in small details
+and  the idea of your project will become vague. if you want to use
+the windows interface it will take plenty of time to study environments
+like visual basic, delphi or visual c++, it will be easier to do this with
+strawberry prolog where there is no need to study (just look at the examples).
+for the moment we give you less possibilities than visual c++ and even
+less than visual basic. however, this product is a quickly developing one
+and soon we will bridge the gaps.
+
+
+how are we going to develop a prolog language?
+prolog is a high-level language and employing it you
+describe the nature of your problem but not the way to its solution. the
+compiler has to find this way itself. unfortunately the compiler is not
+very clever and searches the answer in the tree from left to right, depth
+first. this way of searching often causes infinite loops. many of these
+loops are absolutely ridiculous like a=b if b=a, b=a if a=b and so on.
+other loops are much more complicated. our goal is to build in the compiler
+the possibility to catch all foolish loops and make in this way prolog
+language much more powerful. you can read more about loop checking (the
+most important strawberry prolog feature) in the "periodical
+cyclings in prolog" (zipped postscript file). this is the
+master's thesis of dimiter dobrev (the leader of our team). the loop checking
+implementation will be available in version 3.0. presently we are working
+on the theoretical part of the loop checker.
+
+
+license
+open source prolog compiler under the antignu license.
+
+other sites made by us: 
+free e-mail without spam, 
+club everybody knows your name, 
+a book with illustrations,
+transliteration 
+ and 
+applied electrochemistry. 
+
+
+

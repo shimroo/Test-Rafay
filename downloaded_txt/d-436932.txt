@@ -1,0 +1,415 @@
+
+
+
+brent scheffler
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+brent scheffler
+engineering leader
+
+
+
+
+
+
+
+
+linkedin
+
+
+
+
+
+resume
+
+
+
+
+
+
+	i am an engineering leader with a background in backend services with significant experience
+	in api and event driven distributed systems.
+	i am results oriented with a strong bias toward action with a proven track record of delivery.
+
+
+	as a big proponent of opensource software, i contribute back to the community whenever i can. check out some of
+	the  code i've written and have made available via
+	packagist.org.
+
+
+	in my free time i enjoy restoring vintage vespas, gardening, and working on personal open source projects.
+
+
+	for those curious, here is my home office setup.
+ 
+ education
+
+cal poly humboldt
+b.s. computer information systems  history
+
+
+remitz
+
+
+director of engineering, jan 2024 – jan 2025 (contractor)
+
+remitz is a startup leveraging ai and ml models to process millions of health care records in the effort to identify and recover underpaid insurance claims for healthcare providers.
+
+tech stack:
+		python, golang, postgresql, opentofu, github actions, aws
+integrations:
+		sendgrid, airbrake, twingate
+			
+
+built three software development teams: range of experience from junior to senior, across front and back ends
+provide guidance, mentorship, best practices, and continued training to teams
+define and enforce consistent sdlc processes and practices across all engineering teams resulting in better communication and understanding within product & business teams and easier developer portability to other teams
+architect, roadmap, and execute on engineering platform and tech stack
+implemented low friction deployments allowing engineering teams to move faster
+implemented monitoring and alerting systems and processes for engineering teams to own their code and its success post-deployment
+point person for execution of security related planning, tasks, and best practices partnering with security consultant
+work closely with product and business stakeholders to get alignment on priorities, iterate on vision and design, offering rough estimates on levels of effort, and making compromises when needed
+defined and enforce consistency in api design by using a schema first approach in openapi, resulting in reliable and testable api contracts, automated code generation, and api documentation for internal teams
+defined & documented consistent event schema, implemented event bus, resulting in decoupling of services, sharing of data, and faster data processing
+contribute code as an ic when needed — i am not afraid to roll my sleeves up and dive into code when necessary
+
+
+
+
+ethos
+
+
+engineering manager, jan 2022 – jan 2024
+	
+ethos is an online life insurance provider with a mission statement of protecting the next million families. they serve both direct to customer and direct to business via life insurance agents.
+
+tech stack:
+		javascript/ts, react, golang, kafka, aws, opentofu, krakend, argo cd
+integrations:
+		twilio, sendgrid, snowflake, segment, datadog, pagerduty
+			
+
+manage a team of five engineers across back end & front end
+		
+educate and level-up team with weekly group“brown bag”sessions focused on software engineering  theory, new technologies, and best practices
+regular 1:1s with team members to help mentor and guide them in career growth
+prepare and present technical team initiative proposals for quarterly okrs
+solution architect and general technical oversight for large and critical company projects
+
+
+identify and execute on opportunities to iterate on team process and development to deliver better results with better efficiency
+work with stakeholders on major projects to identify dependencies and potential breaking changes and coordinate work streams and timelines to achieve deadlines
+designed and lead technical initiative of integrating tomorrow (see below) and ethos systems and users
+lead a team in the first major initiative of migrating legacy systems to an event driven architecture in golang, backed by kafka
+		
+legacy service went from 3 hour (and growing) latency of data processing down to ~25 seconds
+code architected in a scalable, reusable, and easily extensible solution to be used throughout org to help bootstrap other teams in adopting event driven pattern
+
+
+member and contributor to engineering review board, focusing on infra, architectural, and operating excellence and planning across company
+
+
+
+
+
+tomorrow
+
+
+director of engineering, nov 2016 – jan 2022 (acquired by ethos)
+
+tomorrow was a start-up dedicated to making sure every american has access to a legal will and trust backed
+		with the financial security of a life insurance policy. the product allowed users to generate estate planning
+		documents that were customized for their family needs and state laws along with cross selling of life insurance
+		products that were based on real recommendations according to their family needs.
+
+tech stack:
+		react, python, php, swift, kotlin, postgresql, redis, github actions, aws
+integrations:
+		twilio, customer.io, snowflake, segment, branch.io, airbrake, stitch
+			
+
+first full-time hire for company, initially focusing on backend architecture, data model, and development
+lead technical role on acquisition team, focusing on documenting tech stack, infrastructure, practices, compliance, data flow, and responding to due diligence questionnaires
+oversaw technical and architectural decisions across organization, managed security audits, compliance, and remediation
+focused on optimizing and improving code quality and deployment process by using continuous integration and deployments with github actions and aws
+lead initiative to break apart monolithic application into various api and event processing services
+			
+containerization using ecr & ecs fargate
+migrated api services to leverage openapi schema as the source of truth using a deep integration via middleware
+moved several key services to an event driven architecture pattern - decoupling them further from the core api
+
+
+lead, managed, and mentored a team of five engineers across front and back ends
+established best coding and engineering practices with unit testing & code coverage requirements, static analysis, and dependency cve scanning
+partnered with estate planning attorneys to build templates for legal documents in 48 states and d.c.
+architected and built initial monolithic api using a restful (rmm level 2) design pattern
+
+
+
+
+zulily
+
+
+sr. software engineer, aug 2012 – nov 2016
+	
+zulily is an online retailer offering daily deals for moms on everything from children's clothing, toys, furniture, and lots more.
+
+tech stack:
+		php, mysql, mongodb, rabbitmq, redis, splunk
+
+
+lead development of payment related backend services
+			
+worked closely with sox controlled code bases and pci compliant code bases
+familiar with pci audits and sox change management controls
+worked closely with security, book keeping, and fraud teams
+
+
+lead initiative to build a unified internal api around a large body of fragmented legacy code
+worked with new team to build a unified internal api around a large body of fragmented legacy code:
+			
+the goal was to achieve data and implementation consistency across the various platforms employing a strictly defined and typed sdk that abstracts legacy code complexities and transport layer as well as removes direct database access from developers
+designed a restful api interface and contract
+provided a pre-built sdk for teams to use and include in their projects
+
+
+built mobile api from ground-up to support new version of mobile apps (ipad/iphone & android)
+			
+api had full feature parity as website: browsing catalog, add items to cart, checkout, order history/status, etc.
+worked closely with frontend app developers (ios and android)
+
+
+built dedicated push notification server using nodejs that supports both apn and gcm protocols and implements a custom built redis queuing library to handle batches of 2+ million pushes
+
+
+
+
+					wonderful union (acquired by please & thank you)
+
+
+software engineer, jun 2008 – aug 2012
+	
+wonderful union was a social media and community engine for artists and celebrities and their
+		fans with features like member accounts and profiles, blogs, discussion forums, ticketing & vip
+		experiences, and merchandising. i lead the developers and direction of development of all company projects.
+
+tech stack:
+		php, mysql, mongodb, memcached & redis
+integrations:
+		ups
+			
+
+built custom multi-tenant framework in php that could be customized for each client offering:
+			
+web store for merch
+blogs and updates from bands (clients)
+fan discussion forums
+vip experience ordering:
+
+extremely high demand with relatively small inventory required user reservation system and db locking strategies
+db configuration with multi-master ring replication and several read replicas attached to each master node
+db sharding strategy with each client on a specific node
+
+
+
+built internal business management system:
+			
+user and client management interfaces
+product, inventory, and warehouse management, order fulfillment, customer support, financial reports, etc). built in zendframework
+
+
+architected and lead end-to-end redesign and implementation of company order fulfillment process:
+			
+redefined fulfillment process from order placed to order shipped
+restructuring of data model
+deep integration with ups apis and shipping label printers
+inventory tracking with barcodes
+average fulfillment times dropped by 50%
+
+
+developed concert ticketing algorithm to select best available seats in a venue
+co-creator and lead developer of crowd(ctrl) (eventually acquired by eventbrite) – a ticketing and venue management platform with ability to print concert tickets, manage will call lists, guest lists, and track venue capacity in realtime.
+
+
+
+
+					windows secrets newsletter
+			
+
+software engineer, jun 2005 – jun 2008
+	
+the windows secrets newsletter was a weekly e-mail newsletter about security related issues, especially in microsoft products, including reviews of the latest patches from microsoft.
+
+maintain and refactor existing legacy code
+technology stack is rhel5 with apache, mysql, and php on a colocated server
+extracted over 5 years worth of newsletters from static archived html content into indexed & searchable content persisted in a database
+			
+developed new process to accept incoming content from editors (ms word and html formats) and extract content and push to database
+this same content would be used to assemble e-mail newsletter
+
+
+built subscription funnel, integrating with paypal for credit card transactions
+built custom ad auction process to purchase ad space on website and within e-mail newsletter
+parsing of html files to extract data using regular expression pattern matching
+
+
+
+
+kexp 90.3 fm
+
+
+web developer intern, may 2005 – jun 2005
+	
+
+	
+	
+	assist the webmaster with all aspects of web development on kexp.org, both external and internal sites. site
+		developed in asp, sqlserver, and javascript. last project included developing content and layouts for wireless devices
+		such as cell phones and pdas.
+
+
+
+cal poly humboldt / its department
+
+
+it assistant, may 2002 – may 2003
+	
+
+administered and maintained lab servers and workstations for the college of natural resources and sciences
+user profile management via windows nt pdc and linux file servers via smb and nfs
+built dual boot (xp and linux) workstation prototypes and imaged entire labs using ghostcast
+various hardware upgrades and installations when needed
+pulled over 1000' of cat5 cable, hand cut & crimped
+responded to faculty and student trouble-tickets
+
+
+
+
+cal poly humboldt / computer science department
+
+
+internet teaching lab t.a., aug 2001 – may 2003
+	
+
+installed, configured, and prepared labs for instructors:
+			
+lab contains enterprise networking equipment (cisco 7000 series routers and 3com, cisco, and hp switches) for student and faculty use
+lab is isolated from campus backbone allowing students a hands-on approach to networking and faculty a chance to design labs that would otherwise compromise security
+
+
+administered redhat linux dns, dhcp, and smb file servers as well as dual boot workstation image management
+repairing and reconfiguring equipment after each lab session
+
+
+
+
+
+
+ code
+
+
+
+
+
+github
+
+
+
+
+here are some opensource packages that i have authored and maintain.
+
+
+
+plaid-sdk-php provides php bindings for plaid. this package
+		is listed as a community library by plaid.
+		
+
+
+
+
+
+
+
+
+
+limber is a php micro-framework designed to be containerized.
+		with such a diverse ecosystem of php packages, libraries, and tools, you pull-in only what your application
+		actually needs. fully compliant with psr-7 http message, psr-11 container interface, and psr-15 http handlers
+		(middleware).
+		
+
+
+
+
+
+
+
+
+
+syndicate is a powerful framework able to both publish and consume messages - ideal
+		for your event driven application or as a job processor. it supports many common queues and pubsub integrations.
+		syndicate can be used to route incoming messages to any handler of your choosing with full dependency resolution and injection
+		using a psr-11 container instance.
+		
+
+
+
+
+
+
+
+
+
+proof is an intuitive and secure jwt encoding and
+			decoding library that supports hmac & asymmetric key signing.
+		
+
+
+
+
+
+
+
+
+
+resolve is a dependency resolver trait that can be included
+			in your libraries to add dependency injection capabilities to your project. it supports (but does not
+			require) psr-11 container instances as well as user supplied arguments.
+		
+
+
+
+
+
+ 
+
+
+
+
+
+
+			made with ❤ in seattle.
+		
+
+

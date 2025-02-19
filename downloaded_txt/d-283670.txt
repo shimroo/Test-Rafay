@@ -1,0 +1,132 @@
+
+
+
+daemon news
+
+
+
+
+
+
+
+
+daemon news ezine
+bsd news
+bsd mall
+bsd support forum
+bsd advocacy
+bsd updates
+
+
+
+
+
+
+
+
+
+
+
+your ad here, right now, for as low as $1.00
+
+
+
+
+ 
+ home 
+ editorial 
+ daemon's advocate 
+ newbies 
+ answerman 
+ bsd blueprints 
+ this month in bsd 
+ features 
+ columns 
+ list authors 
+ new to bsd? 
+ mailing list archives 
+
+
+
+
+
+
+
+project wonderful - your ad here, right now, for as low as $0.00
+
+
+
+
+
+
+articles
+more articles
+dn feeds
+project news
+bsd blogs
+news items
+code
+misc
+
+
+
+the book of pf  (silva, chris) 200801
+chris silva reviews the book of pf a no-nonsense guide to the openbsd firewall by peter n.m. hansteen (no starch press isbn-10 1-59327-165-4, isbn-13 978-1-59327-165-7).
+absolute freebsd, 2nd edition  (silva, chris) 200801review: absolute freebsd, 2nd edition
+the complete guide to freebsd
+by michael w. lucaspractical packet analysis  (silva, chris) 200712practical packet analysis
+using wireshark to solve real-world network problems
+by chris sanders
+
+i found this an easy read and it does a great job of taking you into the world of packet sniffing using wireshark.virtually serving virtual servers  (king, mikel) 200711
+while just about every major vendor has developed a server virtualization product, often the open source varieties are treated like heirloom tomatoes; overlooked for whatever reason that may be. that is until you accidentally have one and wonder how you could have been living without it for so long. since i have already covered how to run freebsd as a guest operating system under vmware i thought it was worth an analysis of the virtualization technology built into freebsd.
+
+i have written the subsequent article discussing freebsd jails, which i hope to be both informative as well as entertaining. additionally, i intend to utilize the article as a reference for future articles and discussions.
+
+now without further ado, please follow the url to the article.
+bsd certification beta exam  (lavigne, dru) 200707
+public service announcement: time and location of the bsd certification beta exam.
+
+also included is all of the background information on the bsd certification exam beta, including registration requirements, and benefits for participating in the beta exam.
+review: html utopia: designing without tables using css (2nd edition)  (king, mikel) 200705this article is an in depth review of html utopia. if you have ever desired to truly understand cascading style sheets then take a few moment to check this article out.
+
+
+title: html utopia: designing without tables using css (2nd edition)
+co-author: rachel andrew
+co-author: dan shafer
+isbn: 0975240277
+publisher: siteoint
+url: www.sitepoint.com
+review: the openbsd pf packet filter book  (king, mikel) 200705
+review of the openbsd pf packet filter book which includes pf for netbsd, freebsd, dragonfly, and of course openbsd. if you are only familiar with a single firewall system, freebsd's ipfw for instance this is a very handy book to read. 
+
+isbn-13: 978-0-9790342-0-6
+isbn-10: 0-9790342-0-5
+editor: jeremy c. reed
+review: designing bsd root kits  (hernandez, michael) 200704
+review of:
+
+designing bsd rootkits
+an introduction to kernel hacking
+by joseph kong
+isbn-10 1-59327-142-5
+isbn-13 978-1-59327-142-8
+
+this book seemingly overwhelming at first, as the reviewer michael hernandez admitted, is an intense trip through the land of kernel hacking. this is a handy lead by example and certainly well worth your time if you've ever been remotely interested in delving deeper under the hood of the bsd kernel.
+installing freebsd 6.x under vmware server  (king, mikel) 200702
+the original title was 'the care and feeding of your new freebsd 6.x instance' but it was determined that that would be a bit misleading. especially since the article really only covers the installation of freebsd 6.x into a virtual machine, using vmware server. the vmware server is deployed in a lab environment on an hp proliant dl380 running microsoft windows server 2003.
+stupid launchd tricks  (king, mikel) 200701
+this article covers some background on the new startup mechanism from apple called launchd. it includes a simple demonstration of how to work with it and how the author overcame difficulties as a result of limited documentation.
+
+launchd is the default daemon startup mechanism as of mac os x tiger, and there is currently a port underway for freebsd. 
+installing bsd on ibm netvista s40 - part 5: os/2 installation  (durdevich, micho) 200701
+part 5: installing bsd on an ibm netvista s40.
+
+in this article the author faced several initial setbacks attempting the install. finally resolved the installation cd driver incompatibilities by pxe booting the system off of a similar machine.review: nagios system and network monitoring  (king, mikel) 200608review of the book 'nagios' written by wollfgang barth of no starch press.working with gmirror and a sun fire x2100 (part 2)  (czaplinski, grzegorz) 200608the follow up to gregory's article on gmirror. in part one we learned how to build a mirror and in this part we will learn how to tare down a mirror as well as rebuild one. this should give enough background if you encounter a disk failure.working with gmirror and a sun fire x2100 (part 1)  (czaplinski, grzegorz) 200608the first in a two part series start to finish building up and tearing down of a gmirror system. the system is built upon the new sun fire x2100 series server with two 250gb sata disks.open source initiatives and you...  (king, mikel) 200608an editorial regarding the state of dn and what you the casual reader can do to help you source project grow. we are a fan of other open source projects as well.  instead of using a commercial program, we think the best web site builder is an open-source cms like wordpress or joomla.  you can find out how to start a blog using this guide to blogging with wordpress.installing bsd on ibm netvista s40 - part 4: netbsd installation  (durdevich, micho) 200607this article covers step by step how to create a live netbsd install cd, and using grub as the bootloader. the cd should be a complete, working, text-mode netbsd system. it should contain all netbsd distribution sets, a complete grub install, and the full kernel sources.book review: open source pen testers toolkit  (kohl, florian) 200605
+review: "penetration tester's open source" toolkit (isbn: 1597490210, available from syngress publishing).  approaching the art of penetration testing from an analytical viewpoint it contains many examples, with actual hands on sessions.daemon's advocate  (peters, wes) 200605wes takes on another industry pundit who fails to understand yesterdays solutions do not apply to tomorrows problems.bsdcan 2006 friday photos  (bruce, diane) 200605more bsdcan photos!installing bsd on ibm netvista s40 - part 3: dragonfly installation  (durdevich, micho) 200605let us take an overview of a manual installation of dragonfly, which will use the whole hard disk space. more detailed explanations on installing dragonfly can be found in the dragonfly handbook. we first initialize the mbr for a dedicated disk, and create the bsd slice with the appropriate disk label. as in the case of freebsd, we use the custom-prepared bootstraps, without any a20 subroutine.
+
+
+
+
+ (c)2000-2006 daemonnews.
+

@@ -1,0 +1,197 @@
+
+
+linux audio developer's simple plugin api (ladspa)
+
+
+
+
+
+
+linux audio developer's simple plugin api (ladspa)
+overview
+ladspa is a standard that allows software audio processors and
+      effects to be plugged into a wide range of audio synthesis and
+      recording packages.
+for instance, it allows a developer to write a reverb program
+      and bundle it into a ladspa "plugin library." ordinary users can
+      then use this reverb within any ladspa-friendly audio
+      application. most major audio applications on linux support
+      ladspa.
+if you are a developer and want to jump straight into the code,
+      you may want to look at
+      the ladspa header file
+      or download
+      the ladspa sdk.
+for a well-written introduction to ladspa, see dave phillips'
+      
+        article on oriellynet.
+plugin libraries
+libraries contain a number of individual plugins. a large
+      number of plugin libraries have been written. here are some of
+      them:
+
+probably the largest range of plugins is available from
+        steve harris at 
+        http://plugin.org.uk/.
+blop,
+        by mike rawes, provides a set of oscillator plugins and
+        more.
+the caps audio
+          plugin suite by tim goetze provides a number of plugins,
+          including a range of guitar amp emulations.
+the computer music toolkit
+        (cmt) contains plugins by david bartold, richard furse,
+        jezar and nathaniel virgo.
+fons adriaensen provides a
+        wide
+          range of plugins includings filters, phase vocoded
+          compression/expansion, reverb and ambisonics.
+dr. matthias nagorni has provided
+        a set of eq biquad
+          filters.
+tap plugins are
+        by tom szilagyi.
+settel's vocoder program has been
+        ported to ladspa by josh
+        green.
+vlevel is
+        a dynamic compressor with look-ahead by tom felker.
+
+and here are some tools for generating plugins:
+
+csladspa allows
+        plugins to be written with the
+        csound programming language.
+faust is a compiled dsp
+        language that can be used to produce ladspa plugins.
+gdam
+        provides facilities to generate plugins automatically from
+        graphs of simple plugins.
+
+hosts
+there are many hosts out there. here are a few:
+
+
+        alsamodularsynth is a modular synthesiser system.
+"analyseplugin", "applyplugin" and "listplugins" are trivial
+        ladspa hosts included in
+        the ladspa sdk.
+ardour is a multitrack
+        hard-disk recording system by paul davis and others.
+audacity
+        is an audio editor.
+
+csound is a software
+        synthesis package.
+ecasound and ecawave make up
+        a graphical multitrack audio processing package by kai
+        vehmanen.
+gdam is
+        an mp3 player and audio manipulator by david benson and geoff
+        matters.
+glame is a sound
+        editing package.
+gnu
+        sound is a multitrack sound editor for linux/x86.
+gstreamer is
+        an open-source multimedia framework.
+lmms is a cross-platform
+        digital audio workstation.
+muse is a midi and
+        audio sequencer by werner schweer.
+mustajuuri
+        is an audio signal processing application and
+        toolkit.
+pd is a graphical
+        computer music system based for
+        which ladspa
+        support is available.
+rezound is a
+        graphical audio file editor.
+ rosegarden is
+        a midi and audio sequencer with notation support.
+snd
+        is a sound editor by bill schottstaedt.
+spiral synth
+          modular is a live music and sound production
+          package.
+sweep is a sound
+        editor.
+terminatorx is a
+        real-time software synthesiser and sequencer for djs.
+wired
+        is a midi and audio sequencer.
+
+you may find links to other interesting things at
+      http://linux-sound.org/ladspa.html.
+history
+the original ladspa proposal was included in
+      an email to the
+      linux audio developer
+        mailing list as part of an ongoing discussion on plugin
+        api design.
+the proposal was bounced around for a number of weeks before
+      version 1 was finalised, on the 2nd april 2000. the focus was -
+      and is - to provide an api that is a good compromise between
+      functionality, intuition and compatibility but is
+      simple. the "s" in "ladspa" is meant seriously.
+because of this, there are conspicuous features missing
+      (e.g. support for data types other than 32bit floating point
+      numbers). many of these have been excluded deliberately because
+      including support would require excessive complexity for the
+      host or plugin programmer or too specific an approach to overall
+      architecture. the common ground between audio applications is
+      not as large as one might imagine and ladspa aims at this.
+and all this seems to have worked out rather well. ladspa is a
+      very straightforward api to work with from both the host and
+      plugin sides for most conventional plugins. it does not attempt
+      to impose a way of doing things on the host, instead allowing
+      the host to use plugins in almost any way it chooses. plugin
+      writers can start from example plugins or just the api and code
+      up new plugins very quickly.
+ladspa has been released under lgpl (gnu
+      lesser general public license). this is not intended to be the
+      final license for ladspa. in the long term it is hoped that
+      ladspa will have a public license that is even less restrictive,
+      so that commercial applications can use it (in a protected way)
+      without having to use a derived lgpl library. it may be that
+      lgpl is already free enough for this, but we aren't sure. does
+      anyone want to pay for a lawyer? in the meantime, please mail me
+      if this is an issue for you.
+ladspa has moved to version 1.1 with the introduction of
+      default values and standardisation of 1.0f as 0db.
+there is nothing particularly linux-specific about ladspa's
+      core design and it has been used on a number of different
+      platforms. these are currently not supported on this
+      website.
+resources
+the api is captured within a
+      header file. a
+      simple software development
+      kit (sdk) is available which includes terse documentation,
+      three simple hosts and ten example plugins.
+plugin types are identified by unique ids. see the
+      sdk
+      for more details.
+dave phillips provides an
+      
+        excellent overview.
+many linux distributions manage ladspa plugin libraries for you
+      in a central location. however, if your plugins are not found by
+      the host you are using, you may need to set the environment
+      variable ladspa_path manually. this should be a colon-separated
+      list of directories to search to find plugin libraries. if this
+      is set correctly, the "listplugins" program in
+      the sdk should list all
+      your plugins.
+if you want to start writing ladspa plugins in c++ but do not
+      wish to produce your own independent library, you might be
+      interested in the framework used by
+      the computer music toolkit
+      project.
+
+
+the author (richard furse) can be emailed at richard at ladspa
+      dot org.
+
+

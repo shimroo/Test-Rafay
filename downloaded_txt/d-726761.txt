@@ -1,0 +1,334 @@
+
+
+
+
+
+
+
+preshing on programming
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+preshing on programming
+
+
+
+twitter
+rss
+
+
+blog
+archives
+about
+contact
+
+
+
+
+
+
+
+
+mar 15, 2021
+
+how c++ resolves a function call
+
+c is a simple language. you’re only allowed to have one function with each name. c++, on the other hand, gives you much more flexibility:
+
+you can have multiple functions with the same name (overloading).
+you can overload built-in operators like + and ==.
+you can write function templates.
+namespaces help you avoid naming conflicts.
+
+i like these c++ features. with these features, you can make str1 + str2 return the concatenation of two strings. you can have a pair of 2d points, and another pair of 3d points, and overload dot(a, b) to work with either type. you can have a bunch of array-like classes and write a single sort function template that works with all of them.
+
+
+read on →
+
+
+
+
+
+dec 10, 2020
+
+flap hero code review
+
+flap hero is a small game written entirely in c++ without using an existing game engine. all of its source code is available on github. i think it can serve as an interesting resource for novice and intermediate game developers to study.
+
+in this post, i’ll explain how flap hero’s code is organized, how it differs from larger game projects, why it was written that way, and what could have been done better.
+very little information in this post is specific to c++. most of it would still be relevant if flap hero was written in another language like c#, rust or plain c. that said, if you browse (or build) the source code, you will need some fluency in c++. learn c++ and learn opengl are two great resources for beginners. for the most part, flap hero’s source code sticks to a fairly straightforward subset of c++, but the deeper you go into its low-level modules (like runtime), the more you’ll encounter advanced c++ features like templates and sfinae.
+
+
+read on →
+
+
+
+
+
+nov 26, 2020
+
+a small open source game in c++
+
+i just released a mobile game called flap hero. it’s a flappy bird clone with cartoony graphics and a couple of twists: you can go in the pipes (wow!) and it takes two collisions to end the game. flap hero is free, quick to download (between 3 - 5 mb) and opens instantly. give it a try!
+
+
+
+
+
+
+
+flap hero is open source, too. its source code is released under the mit license and its assets (3d models, sounds, music) are dedicated to the public domain. do whatever you want with them! everything’s available on github.
+
+
+read on →
+
+
+
+
+
+jul 27, 2020
+
+automatically detecting text encodings in c++
+
+consider the lowly text file.
+
+this text file can take on a surprising number of different formats. the text could be encoded as ascii, utf-8, utf-16 (little or big-endian), windows-1252, shift jis, or any of dozens of other encodings. the file may or may not begin with a byte order mark (bom). lines of text could be terminated with a linefeed character \n (typical on unix), a crlf sequence \r\n (typical on windows) or, if the file was created on an older system, some other character sequence.
+sometimes it’s impossible to determine the encoding used by a particular text file. for example, suppose a file contains the following bytes:
+
+
+read on →
+
+
+
+
+
+jul 08, 2020
+
+i/o in plywood
+
+plywood is an open-source c++ framework i released a few weeks ago. it includes, among other things, a runtime module that exposes a cross-platform api for i/o, memory, threads, process management and more.
+this post is about the i/o part. for those who don’t know, i/o stands for input/output, and refers to the part of a computer system that either writes serialized data to or reads serialized data from an external interface. the external interface could be a storage device, pipe, network connection or any other type of communication channel.
+
+typically, it’s the operating system’s responsibility to provide low-level i/o services to an application. but there’s still plenty of work that needs to happen at the application level, such as buffering, data conversion, performance tuning and exposing an interface that makes life easier on application programmers. that’s where plywood’s i/o system comes in.
+
+
+read on →
+
+
+
+
+
+may 26, 2020
+
+a new cross-platform open source c++ framework
+
+for the past little while – ok, long while – i’ve been working on a custom game engine in c++. today, i’m releasing part of that game engine as an open source framework. it’s called the plywood framework.
+
+
+
+view the documentation
+
+
+
+view on github
+
+
+please note that plywood, by itself, is not a game engine! it’s a framework for building all kinds of software using c++.
+for example, plywood’s documentation is generated with the help of a c++ parser, formatted by a markdown parser, and runs on a custom webserver all written using plywood.
+
+
+read on →
+
+
+
+
+
+jan 24, 2018
+
+a flexible reflection system in c++: part 2
+
+in the previous post, i presented a basic system for runtime reflection in c++11. the post included a sample project that created a type descriptor using a block of macros:
+
+// define node's type descriptor
+reflect_struct_begin(node)
+reflect_struct_member(key)
+reflect_struct_member(value)
+reflect_struct_member(children)
+reflect_struct_end()
+
+
+
+at runtime, the type descriptor was found by calling reflect::typeresolver<node>::get().
+this reflection system is small but very flexible. in this post, i’ll extend it to support additional built-in types. you can clone the project from github to follow along. at the end, i’ll discuss other ways to extend the system.
+
+
+
+read on →
+
+
+
+
+
+jan 16, 2018
+
+a flexible reflection system in c++: part 1
+
+in this post, i’ll present a small, flexible system for runtime reflection using c++11 language features. this is a system to generate metadata for c++ types. the metadata takes the form of typedescriptor objects, created at runtime, that describe the structure of other runtime objects.
+
+i’ll call these objects type descriptors. my initial motivation for writing a reflection system was to support serialization in my custom c++ game engine, since i have very specific needs. once that worked, i began to use runtime reflection for other engine features, too:
+
+
+read on →
+
+
+
+
+
+dec 18, 2017
+
+how to write your own c++ game engine
+
+lately i’ve been writing a game engine in c++. i’m using it to make a little mobile game called hop out. here’s a clip captured from my iphone 6. (unmute for sound!)
+
+
+
+
+
+
+hop out is the kind of game i want to play: retro arcade gameplay with a 3d cartoon look. the goal is to change the color of every pad, like in q*bert.
+hop out is still in development, but the engine powering it is starting to become quite mature, so i thought i’d share a few tips about engine development here.
+
+
+read on →
+
+
+
+
+
+jun 12, 2017
+
+can reordering of release/acquire operations introduce deadlock?
+
+i wasn’t planning to write about lock-free programming again, but a commenter named mike recently asked an interesting question on my acquire and release semantics post from 2012. it’s a question i wondered about years ago, but could never really reconcile until (possibly) now.
+a quick recap: a read-acquire operation cannot be reordered, either by the compiler or the cpu, with any read or write operation that follows it in program order. a write-release operation cannot be reordered with any read or write operation that precedes it in program order.
+those rules don’t prevent the reordering of a write-release followed by a read-acquire. for example, in c++, if a and b are std::atomic<int>, and we write:
+
+a.store(1, std::memory_order_release);
+int b = b.load(std::memory_order_acquire);
+
+
+
+…the compiler is free to reorder those statements, as if we had written:
+
+int b = b.load(std::memory_order_acquire);
+a.store(1, std::memory_order_release);
+
+
+
+and that’s fair. why the heck not? on many architectures, including x86, the cpu could perform this reordering anyway.
+
+
+read on →
+
+
+
+← older
+blog archives
+
+
+
+
+check out plywood, a cross-platform, open source c++ framework:
+
+
+
+recent posts
+
+
+how c++ resolves a function call
+
+
+flap hero code review
+
+
+a small open source game in c++
+
+
+automatically detecting text encodings in c++
+
+
+i/o in plywood
+
+
+a new cross-platform open source c++ framework
+
+
+a flexible reflection system in c++: part 2
+
+
+a flexible reflection system in c++: part 1
+
+
+how to write your own c++ game engine
+
+
+can reordering of release/acquire operations introduce deadlock?
+
+
+here’s a standalone cairo dll for windows
+
+
+learn cmake’s scripting language in 15 minutes
+
+
+how to build a cmake-based project
+
+
+using quiescent states to reclaim memory
+
+
+leapfrog probing
+
+
+a resizable concurrent map
+
+
+new concurrent hash maps for c++
+
+
+you can do any kind of atomic read-modify-write operation
+
+
+safe bitfields in c++
+
+
+semaphores are surprisingly versatile
+
+
+
+
+
+
+
+  copyright © 2021 jeff preshing -
+  powered by octopress
+
+
+
+

@@ -1,0 +1,474 @@
+
+
+
+sed's stuff
+
+
+ 
+2019-12-20: everything eventually comes to an end.
+this website is entering a semi-sleeping state. i have a computer
+at home that will serve the important stuff (what i consider important).
+see sedcore.eu.org. (sometimes it
+does not work. my ip address changes all the time and i don't check
+every day. plus the computer may fail to function properly, plus whatever
+crap this universe is capable of.) content here will stay here. i probably
+won't update stuff much. maybe at some point the private company that is
+offering free hosting will decide to remove it. maybe without any notice,
+as private companies often do. but who cares...
+internet these days has become, well, what humanity in general has become.
+obsession of money, fame, porn, and so on, and so on. again, who cares...
+so is it some kind of goodbye? maybe.
+
+there is no god. there is no value.
+
+i'm happy, thatcher is dead.
+some stuff
+the best program is the one you write.
+-1. my gpg key
+modernity! (writing this 2017-12-10)
+my gpg key is: e8610311cdd4c51947a662319ed6edaa1724abb3
+some notes on gpg usage.
+if you want to trust my key, get in touch with me by email. i do not
+control this website, but i control my key (i hope). so we would need to
+establish some secure communication channel so that you trust the real me
+and not some third-party. how to do that properly? i don't know. i don't
+even control my email. (but neither do you with yours!)
+so as of today, that key is practically useless. in the future i intend
+to use it for people downloading software from here to be sure they
+downloaded what i put and not something else. i'm not 100% confident that
+gpg is enough, but it makes the life of "bad entities" harder i'd say, so
+why not.
+
+0. news
+dec 20, 2019: oh my, 2019 is already getting old! what
+is happening to me? i'm losing it... anyway, read the top of this
+page for some important news, and, goodbye?
+
+aug  7, 2018: oh my, 2018 is already getting old! i
+just released a musical fragment for the
+classical guitar. ah, there is also my composition number 2 on
+the same page. but i don't like it much to be honest.
+of course i still work on compose
+to write music. at some point in a maybe near future i may well go
+away from free.fr and host my tiny presence on this crazy network
+all by myself, on a computer sitting safe at home. or maybe not.
+because i'm lazier than you, whoever you are. but i'm working on it,
+at a slow pace. i will try to use a mini2440 with a modern linux
+kernel and write userland programs to do the work (http(s) server,
+mail, vpn, whatever). tls is going to be fun. or not. we'll see.
+or not.
+
+dec  8, 2017: pulseaudionano,
+that little stinky creature, came out of my brain.
+
+nov 24, 2017: let's make some noise.
+
+oct  8, 2017: woo! a new version of my
+mini ftp server that works
+with recursive directories and whatever-filenames. the problem
+is that ftp does not work with "whatever-filenames". they have
+to be 7 bits in the basic version and there is an rfc to let it
+work with utf8 filenames. what the fuck... a filename is anything
+but "/" that is used as separator, and also without 0 as it is an
+end-of-string in c, and live with that. this world is insane.
+(i am sure some shit committee made it as it is today, for some
+"vendor neutral" crap shit, because some, say microsoft, don't
+deal with filenames as everyone else. not even sure there is such
+a thing as "everyone else". bah, fuck them all. ftp sucks anyway.)
+(if you don't understand anything you can be proud of yourself,
+you have a life!)
+
+apr 17, 2017: chess is
+there! a graphical program to play against the computer chess
+program stockfish.
+
+0.5 simple programs
+those are simple but efficient programs of mine.
+all in the public domain.
+first category of the website, because this is very
+important. programs must be simple so that you
+can create, understand, use and modify them with ease.
+a computer is a machine that you program, never forget
+that, despite all the propaganda that reaches your brain
+on a daily basis.
+
+
+
+miniftp-1.c: a small (around
+500 lines) ftp totally insecure server. read the source for
+details. do not use it! there is also miniftp-2.c
+that has more features (recursive directories, arbitrary filenames) but
+may then contain more security problems. do not use it either!
+
+compose: a more or less graphical
+tool i write (yes, present tense; that thing will hopefully
+never be finished) to study/write tonal classical music.
+
+slide-1.0.tar.gz: a slideshow
+generator (takes images as input and spits raw video on output)
+(more specifically: the input is a "program" describing a slideshow
+with images and timing/transition informations).
+
+1. programs
+alphabetical order.
+
+all is released in the public domain unless stated otherwise.
+
+
+asn1: an implementation of the asn.1
+stuff.
+
+audiotag:
+a small tool to visualize big audio files
+in a very responsive gui.
+
+casse-tete:
+a little reflexion game.
+
+chat: a secure underground one to one chat
+system.
+
+effects:
+some old code. it waits for some audio,
+applies an effect on it and sends audio back to soundcard.
+
+gcomposer: a program to compose music.
+it has a graphical user interface, is very keyboard-centric and
+provides audio feedback.
+
+gtkcooker: an abstract gui language.
+the guis of gcomposer and xgprof are written with gtkcooker.
+
+mark_malloc:
+a tool to detect memory leaks in your
+c programs.
+
+oa:
+a tool to experiment with sounds.
+
+orangetv:
+watch tv on your computer.
+
+phone:
+a very simple sip audio client, because
+linphone is a horrible bloat.
+
+phpoor:
+a secure connection with a php web server.
+
+player:
+a simple audio player, because vlc is a bloat.
+
+popit:
+a very simple program to quickly check your
+messages on a pop3 server. has a nice gui.
+
+posix:
+a game.
+
+rubiclox:
+an implementation of the rubik's clock.
+3d javascript version of it.
+
+rubix:
+a 3d implementation of the rubik's cube.
+
+sedwm:
+1.2 (2008/05/16)
+1.1 (2008/04/07)
+1.0 (no real date)
+a window manager for x window.
+[ screenshot ]
+not as small as
+tinywm.
+
+sight: a simple exercise for classic
+guitarists to work their sight-reading (x11 and android).
+
+songs:
+a little tool to record and mix
+audio files. it has a graphical user interface.
+
+spectrojack:
+a spectrogram for the jack world.
+
+sverb:
+a nice order 15 cfdn reverb. "reverb" means
+"artificial reverberation". it adds naturalness to audio files, by
+providing a feeling of presence in some kind of room. it is a very
+common audio effect, but a bit costly.
+
+tinlink:
+a program to make small elf programs.
+
+virtual drum machine:
+virtual drum machine is a non-gui drum machine.
+
+xgprof:
+a faster gprof with a nice gui.
+
+xlightoff:
+a little reflexion game (known as quinto
+i think).
+
+xsoundtrack:
+a program to create music based on samples.
+
+624:
+a port for linux of the 624 compression program.
+
+
+2. some hacks, stuff...
+more or less reverse time order.
+
+
+
+pulseaudionano: a small version
+of pulseaudio, to fight the bloat.
+
+sdr (software defined radio) quick notes,
+not to forget.
+
+chess [version: 2017-04-17]: a
+graphical program to play chess against
+stockfish.
+there is also an opening book:
+chess-opening-2017-04-17.tar.bz2.
+you need stockfish on your computer.
+
+how to automatically hibernate when
+the battery of your laptop is too low.
+
+some documentation to update the
+ec firmware of my msi computer.
+
+al zimmermann's programming contests: my
+entry for the delacorte numbers
+thing. see here for my entry for the scrabble
+like contest (alphabet city).
+
+a nfs2 server, for the lulz.
+
+a small bootloader to load linux
+on my 486 from the network. i didn't dig the web but i strongly
+suspect this thing to be the smallest network bootloader for linux
+in this useless universe.
+
+some documentation (with some code) on how to
+boot a debian system on an old 486 pc. the linux kernel, the gnu libc,
+debian, bootloader, all is a big bag of pain.
+
+a patch for spk3cc4.bin which seems to
+be bugged (at least within xplus4 from the vice emulator).
+
+bintree.c a little program to display
+binary trees in a x window. tries to be nice looking.
+
+say364.c is a little
+hack to speak like a commodore v364. why? why not! i saw a video
+on the internet of that v364 thing speak and it reminded me of my youth
+and the dictã©e magique (speak and spell) which has a very
+similar voice. let's call it nostalgia.
+
+monkey island 2 walkthrough.
+
+ti85.skn a ti 85 skin for the
+tilem
+emulator.
+
+git.php, a git php server for repositories
+stored as one file.
+
+a hr16 / hr16b rom files editor.
+
+extract words from a pdf dictionary.
+
+a little program to bip when new
+mail is there on an imap account.
+
+some hacks to have fun with scrabble games.
+
+some hacks with orange, the ugly isp.
+
+turkish stuff (wiktionary rocks).
+
+how to update the bios of your acer
+aspire timeline x 5820tzg to have real battery status in gnu/linux.
+
+some raytracing stuff.
+
+some archos g9 hacks.
+
+some android rooting stuff.
+
+some android stuff.
+
+here are the releases for a programming contest
+where i won the jury's prize.
+
+grindplot, a data language to display
+stuff over the earth.
+
+a tool to browse and search in the infamous
+file cables.csv that contains all the unedited diplomatic cables
+you may have heard of.
+
+connect to freenode via the web interface, but! with
+an irc client.
+
+how to download music from myspace.
+
+smokenrg-1.0.c. a little hack to extract
+audio files from an nrg file (proprietary format of the nero software).
+
+crack-indy3-last-crusade.c.
+a crack for the game indiana jones and the last crusade.
+useless. scummvm lets you play, load and save it...
+indy3-opcodes.c is a barbarian
+disassembler i made because i didn't know i had to use the -n
+option of descumm. it's nevertheless a cool disassembler,
+because it reads any file and tries to disassemble what it can, not failing
+if it gets garbage. (script 204 of room 92 is the guilty one here!)
+
+crack-indy4-fate-of-atlantis.c.
+a crack for the well known game indiana jones and the fate of atlantis.
+useless because scummvm already bypasses the protection. but many many
+years ago i struggled hard to crack this game and i failed. i had to do it,
+one day, even if it's a lame crack... (read the source for a bit more
+details, but not that much either) (extract_all.c
+to suck the scripts out of atlantis.001. you also need
+atlantis.000. then use scummvm tools to extract scripts.
+you want to look at script 207 of room 81.)
+
+msa.c a little program to extract files
+from a msa archive (msa stands for magic shadow archiver). msa
+files come from the atari scene as it seems.
+
+anonymize a pdf file.
+
+backup your phpbb3 data.
+
+some stuff around the commodore 64.
+
+i did the icfp code contest. in 2003,
+in 2004, and in 2005.
+
+some demo stuff. there is also the
+ltp3 page and the ltp4 page.
+
+aifc to wav translator. a tool to
+translate audio files from some aifc encodings to wav.
+
+exporting a phpbb forum to rss.
+(does not work with phpbb 3.)
+
+print_scale.c. a little program
+to print a given scale (like a minor melodic) on the guitar.
+
+save realplayer output.
+
+xpress2html.c. a tool to extract
+text from a quark xpress file.
+xpress2html.exe is a windows binary
+of it (by n8vi, it's his callsign, dig the web to find his contact).
+(xpress2html-win.c and
+xpress2html-win.exe to deal with
+windows xpress files)
+
+opera with no ads.
+
+lilimath sous linux (french only).
+
+ptrace.c. an exploit for old linux
+versions.
+
+config files.
+
+ffmpeg tricks.
+
+
+3. music
+
+
+some compositions.
+
+happy birthday! for classic guitar.
+
+sight reading for guitarists:
+test/improve your sight reading.
+
+khoomei's page:
+my little pages about khoomei.
+
+the ney diary:
+some informations about my little journey with the
+ney.
+
+some metal songs:
+
+erdoäan istifa! (erdogan, resign!)
+(melody is from turkish "mevlana oyun havasä±")
+hayat (eliz iã§in) (translates to:
+life (for eliz)), some turkish lyrics
+in there: "bu ne? bu hayat. hayat zor." translates to: "what's
+this? this is life. life is hard." eliz' voice in there. welcome
+on earth. you'll see, it's fun...
+fuck your sexism,
+dark obsessions, some, what?
+"obsessive" metal? (drone/doom, maybe...) one hour long, guitar/voice,
+maya, a grind/noise song for a newborn,
+pitt bull, a cover song let's say,
+vive le vent, still a cover (jingle bells
+theme, description of the song),
+bloody christmas, deadly new year,
+another cover,
+karcher, about, well, life
+(description).
+
+apopathodiaphulatophobie: a six months (now defunct) grindcore
+experiment. (hell, that was fun!)
+
+a cappella: stuff, in french. raw voice,
+no instrument, crappy microphone.
+
+4. technical texts
+
+debug techniques: some debug techniques i
+use when something wrong pops up in my programs.
+
+minesweeper is np-complete:
+some stuff about it, mostly because
+the research paper about it is not available online (as far as i checked).
+
+sudoku and sat:
+a rather long text about sudoku and
+sat.
+
+a research paper (model checking):
+here.
+
+
+5. random stuff
+
+some noise.
+dã©truire la dã©mocratie.
+(english version some day maybe, or maybe not. you care? really?)
+
+the stupid game of power (no fear).
+le jeu stupide du pouvoir (même pas peur).
+
+on free software (no fear 2).
+
+des trucs (même pas peur 2). d'autres
+trucs (même pas peur 3).
+
+
+
+contact: sed@free.fr
+
+created: around 1998 or 1999.
+last update:
+fri, 20 dec 2019 18:45:15 +0100
+
+
+

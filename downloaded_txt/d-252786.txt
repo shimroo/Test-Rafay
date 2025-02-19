@@ -1,0 +1,641 @@
+
+
+
+
+
+alessandro crugnola - sephiroth.it | programmer by pure chance
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+skip to content
+
+
+
+alessandro crugnola – sephiroth.it
+programmer by pure chance
+
+
+menu
+categories
+
+actionscript
+amfphp
+android
+aviary
+firefox
+flash media server
+flex
+general
+iphone
+php
+purepdf
+python
+scripting languages
+sepy
+
+
+my github
+about
+cookie policy (eu)
+ 
+
+
+
+
+
+
+
+android: pipe(“|”) and processbuilder
+
+october 22, 2022october 23, 2022 alessandro crugnola
+android, blog, general
+android, kotlin 
+
+
+as of today there’s no public implementation of the java processbuilder.startpipeline in android.
+so i came out with this quick solution, using kotlin, to pipe multiple processes in android:
+object processutil {
+    private fun check(process: process, error: (() -> string)) {
+        try {
+            if (process.errorstream.available() > 0) {
+                process.errorstream.bufferedreader().use {
+                    it.readtext().also { errortext ->
+                        check(errortext.isblank()) { "${error.invoke()} failed with error: $errortext" }
+                    }
+                }
+            }
+        } catch (_: ioexception) {
+            // ignore
+        }
+    }
+
+    @throws(ioexception::class, illegalstateexception::class)
+    fun pipe(vararg processes: processbuilder): string {
+        check(processes.size > 1) { "at least 2 processes are required" }
+
+        var previous: process? = null
+        var result: string = ""
+
+        processes.foreachindexed { index, builder ->
+            val cmdstring = builder.command().jointostring(" ")
+            println("executing command $index -> $cmdstring")
+
+            if (index > 0) {
+                check(builder.redirectinput() == redirect.pipe) { "builder redirectinput must be pipe except for the first builder" }
+            } else if (index < processes.size - 1) {
+                check(builder.redirectoutput() == redirect.pipe) { "builder redirectoutput must be pipe except for the last builder" }
+            }
+
+            val current: process = builder.start()
+            check(current) { cmdstring }
+
+            previous?.let { prevprocess ->
+                prevprocess.inputstream.bufferedreader().use { reader ->
+                    current.outputstream.bufferedwriter().use { writer ->
+                        reader.readlines().foreach { line ->
+                            println("writing --> $line")
+                            writer.write(line)
+                            writer.newline()
+                        }
+                        check(current) { cmdstring }
+
+                    } // writer
+
+                    if (index == processes.size - 1) {
+                        current.inputstream.bufferedreader().use { reader2 ->
+                            result = reader2.readtext()
+                        }
+                    }
+
+                } // reader
+            }
+            previous = current
+        }
+        return result
+    }
+
+    fun pipe(vararg commands: list<string>) = pipe(*commands.map { processbuilder(it) }.totypedarray())
+
+    fun pipe(vararg commands: string) = pipe(*commands.map { processbuilder(it) }.totypedarray())
+}
+and it can be used like this:
+    @test
+    fun testpipe() {
+        val packagename = context.packagename
+        val result = processutil.pipe(listof("ps", "-a"), listof("grep", packagename), listof("awk", "{ print $9 }"))
+        println("result = '$result'")
+        assert.asserttrue(result.contains(packagename))
+    }
+
+
+leave a comment
+
+
+
+
+
+
+photoshop extension: opacity editor
+
+september 29, 2018 alessandro crugnola
+blog, general
+extension, layers, opacity, photography, photoshop, stack 
+
+
+today i’d like to introduce an extension i’ve created for adobe photoshop: opacity editor.
+i like to take pictures, ok, i’m definitely not a professional photographer, but i still like to try to be one 🙂
+in particular i like to take pictures at night, i like to take pictures of moving clouds, stars.. etc. and then i like to stack all the photos into a single document. the problem is that most of the times this photoshop document has hundreds, if not thousands, of layers (and we’re talking about 40mp images) and, despite the fact that photoshop can barely survive after i’ve added all those layers to the document, the real problem comes after that.. in order to create a nice stacking effect it’s not just a matter of changing the blending mode of the different layers, but also to change their opacity.
+unfortunately photoshop doesn’t have an option to manage the opacity of multiple layers at the same time, like, for instance, from 0 to 100 of all the selected layers.. or even more advanced options.
+that’s why i’ve decided to make an extension (available here) for this. this is it’s pretty easy interface:
+
+so basically what it does is: you select a bunch of layers in your document, then you create the bezier curve. once you click on “apply opacity” the opacity of every selected layer will follow the designed curve value. let’s make it easier. if you design a curve like this:
+
+the first selected layer will have an opacity of 0 (completely invisible), while the last layer will have 100 as opacity. (if you’ve selected 100 layers, then the second one will have an opacity value of 1, the third of 2 and so on..)
+these 2 images, for instance, have been created using this extension:
+ 
+
+
+
+
+
+1200~ pics
+
+
+
+ 
+the second one is the result of 1200 layers stacked together and without that extension i would probably still working on it!
+and here’s an example of the extension in action:
+
+
+
+
+
+
+
+ 
+for more information and download:
+https://www.adobeexchange.com/creativecloud.details.20327.html
+
+
+leave a comment
+
+
+
+
+
+
+why it’s hard to find android developers
+
+september 16, 2014october 22, 2022 alessandro crugnola
+android, blog
+android, ios, job, new york, startups, tech 
+
+
+
+i’m an android developer (at aviary) and a new yorker since late 2010. i’ve been also an actionscript and python developer for more than 10 years.
+
+i hear this every day. your new york based company is desperately looking for an android developer, and it’s damn hard to find one.
+and you know what? this is your fault. i mean you, tech startup. yes, you.
+almost all the startups i know here in nyc have launched their core product for ios first (most of the pms i’ve spoken with have said that was because of lack of people or time). and then, maybe, if there’s time… they start to realize they need to have an android version of their app. but by this point the job is not to “create” something, it’s just a “porting” job. which, for obvious reasons, is a much less attractive job for developers, just as it would be for a pm or a designer. continue reading →
+
+
+50 comments
+
+
+
+
+
+
+android – create a vignette effect
+
+july 6, 2014october 22, 2022 alessandro crugnola
+android
+android, github, matrix, radialgradient, shader, vignette, xfermode 
+
+
+let’s say you want to want to dynamically apply a “vignette” on an imageview.
+something like this:
+
+
+
+
+
+
+
+these are basically 4 steps we need in order to accomplish the task:
+continue reading →
+
+
+leave a comment
+
+
+
+
+
+
+floating action menu for android
+
+may 25, 2014 alessandro crugnola
+android
+android, github, opensource 
+
+
+i’ve just created this simple android library, inspired from the recent changes to the google+ app, which introduced a floating action item to the bottom. in g+ the action item appears and disappears based on the page scrolling.
+in the same way i’ve created this library, with some more customization options, like the gravity and direction of the floating menu items.
+here’s a video of a sample implementation:
+
+source code and documentation can be find on the github project page:
+https://github.com/sephiroth74/android-floating-action-menu
+
+
+1 comment
+
+
+
+
+
+
+java.lang.unsatisfiedlinkerror workaround
+
+april 12, 2014april 12, 2014 alessandro crugnola
+android
+android, bug, chromium, packagemanager, unsatisfiedlinkerror, workaround, xperia 
+
+
+if you ever worked with native shared libraries in android you’ve probably already faced the “java.lang.unsatisfiedlinkerror” java exception which randomly seems to happen on certain devices ( actually it’s happening on xperia phones mostly, based on my reports ).
+there are a bunch of bug reports in the android project like this: https://code.google.com/p/android/issues/detail?id=35962 or this https://code.google.com/p/android/issues/detail?id=64111.
+the problem is that google basically marked all of them as “resolved”, even if developers are still complaining about it.
+ continue reading →
+
+
+5 comments
+
+
+
+
+
+
+more picasso changes
+
+january 28, 2014 alessandro crugnola
+android
+android, fork, github, gradle, opensource, picasso 
+
+
+i recently added more changes to my forked version of the picasso library.
+delay
+added withdelay(long ms) method in the requestcreator class. basically it will delay the load of the passed resource by n milliseconds.
+[cce]
+picasso.with( context )
+	.load( url )
+	.withdelay( 100 )
+	.into( image );
+[/cce]
+batch toggle on/off
+in the original picasso code all the “complete” events are dispatched using a batch operation, this means that you can have at the same time 3/4 “complete” events being triggered, which eventually can cause lags in the ui.
+in this fork the batch is disabled by default and can be re-enabled by using:
+[cce]
+picasso.with( context )
+	.setusebatch( true );
+[/cce]
+fork or download the source from github: 
+https://github.com/sephiroth74/picasso
+link the library in your build.gradle: compile “it.sephiroth.android.library.picasso:picasso:+”
+
+
+2 comments
+
+
+
+
+
+
+forking picasso
+
+october 16, 2013october 16, 2013 alessandro crugnola
+android
+android, fork, github, picasso 
+
+
+recently i started using this nice library, picasso, for my android projects.
+basically it’s a library which allows you to load any type of images (local or remote, assets or resources) asynchronously into your imageview. it will load them in background for you, this not blocking the ui. it has also an internal cache system and it also comes with some useful features like “fade” ( when an image is loaded into the view it will automatically create a fade in effect ), “transform” ( you want to post transform the loaded bitmap ), “resize”, “fit” and more.
+you can find a better explanation of the project here: http://square.github.io/picasso/
+by the way, long story short, as often happens, when you start to use a 3rd party library you also find it’s limitations and you want to make your own changes to fit your particular needs. in fact i made a fork of this library starting adding my changes.
+here’s a first list of changes i made:
+cache
+added the possibility to use an external cache instance per request.
+example:
+[cce]// creating a cache object with 1mb max size
+cache cache = new lrucache( 1024*1024*1 );
+// now create a new request which will use this cache object
+picasso.with( this ).load( file ).withcache( mycache ).into( imageview );[/cce]
+remember to clear the cache when you don’t need that anymore ( using cache.clear() )
+generators
+generators can be used to load images which cannot be loaded using the common scheme convention. there are different situations when you need to generate a bitmap which is not directly related to a file or url or even a real bitmap resource.
+in this case you can use the scheme “custom.resource” with a generator.
+a generator is a simple interface with only one method:
+[cce]public interface generator {
+	bitmap decode( string path ) throws ioexception;
+}[/cce]
+so you can use a generator in this way:
+[cce]picasso.with(this)
+	.load( uri.parse( “custom.resource://” + file ) )
+	.withgenerator( new generator() {
+		@override
+			public bitmap decode( string path ) throws ioexception {
+				return whatever(path);
+			}
+		} ).into( imageview );
+[/cce]
+resize
+both the original picasso methods resize and resizedimen have been modified in the followings new methods:
+[cce]public requestcreator resizedimen(int targetwidthresid, int targetheightresid, boolean onlyifbigger);
+public requestcreator resize(int targetwidth, int targetheight, boolean onlyifbigger);[/cce]
+basically you can pass an option to skip the resize operation if the loaded bitmap is smaller than the passed `targetwidth` and `targetheight`
+bitmapfactory.options
+picasso uses a default bitmapfactory.options object, every time, to decode the required bitmap.
+i’ve added a method `withoptions` in the requestcreator which allow you to pass your own options object which will be used to decode the image.
+example:
+[cce]bitmapfactory.options options = new bitmapfactory.options();
+options.inpreferredconfig = config.rgb_565;
+picasso.with(this)
+	.load(file)
+	.withoptions(options)
+	.into(imageview);
+[/cce]
+https://github.com/sephiroth74/picasso
+
+
+2 comments
+
+
+
+
+post navigation
+← older posts
+
+
+
+
+searchsearchpopular posts
+
+ imageview zoom and scroll update: the source code has moved to github, so it's easier for anyone to f...
+ flashtracer 2.1.0 thanks to chad upton who sent me some suggestions on how to improve flashtr...
+ widget: slidingdrawer top to bottom my android experiments continue...
+in the last project i had to implement a...
+ firefox 1.0.2 update available what's new 1.0.2 firefox 1.0.2 is a security and stability update that is p...
+ why it’s hard to find android developers i'm an android developer (at aviary) and a new yorker since late 2010...
+ android: pipe(“|”) and processbuilder how to implement a pipe between processes in android using kotlin.
+
+
+tagsactionscript
+adobe
+amfphp
+android
+apollo
+aviary
+beta
+bug
+bytearray
+compiler
+component
+contest
+debug
+eclipse
+ecma
+editor
+extension
+firefox
+flash
+flash 8
+flash 9
+flash tracer
+flex
+game
+github
+holidays
+internet explorer
+iphone
+java
+linux
+media server
+mtasc
+mysql
+opensource
+osx
+parser
+pdf
+php
+purepdf
+python
+regular expression
+sdk
+sepy
+windows
+xmlrecentsandroid: pipe(“|”) and processbuilderoctober 22, 2022how to implement a pipe between processes in android using kotlin.
+photoshop extension: opacity editorseptember 29, 2018today i’d like to introduce an extension i’ve created for adobe photoshop: opacity editor. i like to take pictures, ok, i’m definitely not a professional photographer, but i still like… read more: photoshop extension: opacity editor
+why it’s hard to find android developersseptember 16, 2014i’m an android developer (at aviary) and a new yorker since late 2010. i’ve been also an actionscript and python developer for more than 10 years. i hear this every day.… read more: why it’s hard to find android developers
+android – create a vignette effectjuly 6, 2014let’s say you want to want to dynamically apply a “vignette” on an imageview. something like this: these are basically 4 steps we need in order to accomplish the task:
+floating action menu for androidmay 25, 2014i’ve just created this simple android library, inspired from the recent changes to the google+ app, which introduced a floating action item to the bottom. in g+ the action item… read more: floating action menu for android
+ 
+
+
+
+
+proudly powered by wordpress
+ | 
+				theme: big brother by wordpress.com.			
+
+
+
+
+facebook  
+twitter 
+linkedin
+reddit 
+whatsapp
+
+
+
+
+
+manage cookie consent
+
+
+
+
+
+
+to provide the best experiences, we use technologies like cookies to store and/or access device information. consenting to these technologies will allow us to process data such as browsing behavior or unique ids on this site. not consenting or withdrawing consent, may adversely affect certain features and functions.
+
+
+
+
+
+functional
+
+
+
+functional
+
+								always active							
+
+
+
+
+
+
+the technical storage or access is strictly necessary for the legitimate purpose of enabling the use of a specific service explicitly requested by the subscriber or user, or for the sole purpose of carrying out the transmission of a communication over an electronic communications network.
+
+
+
+
+
+preferences
+
+
+preferences
+
+
+
+
+
+
+
+the technical storage or access is necessary for the legitimate purpose of storing preferences that are not requested by the subscriber or user.
+
+
+
+
+
+statistics
+
+
+statistics
+
+
+
+
+
+
+
+the technical storage or access that is used exclusively for statistical purposes.
+the technical storage or access that is used exclusively for anonymous statistical purposes. without a subpoena, voluntary compliance on the part of your internet service provider, or additional records from a third party, information stored or retrieved for this purpose alone cannot usually be used to identify you.
+
+
+
+
+
+marketing
+
+
+marketing
+
+
+
+
+
+
+
+the technical storage or access is required to create user profiles to send advertising, or to track the user on a website or across several websites for similar marketing purposes.
+
+
+
+
+
+manage options
+manage services
+manage {vendor_count} vendors
+read more about these purposes
+
+
+
+accept
+deny
+view preferences
+save preferences
+view preferences
+
+
+{title}
+{title}
+{title}
+
+
+
+manage consent
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,323 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+conference xp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+conferencexp.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+microsoft conference xp project
+ 
+this was the website for the microsoft conference xp project.
+content is from the site's 2004 - 2006 archived pages. 
+ 
+introducing conferencexp
+conferencexp is an initiative of microsoft research. we’re exploring how to make wireless classrooms, collaboration, and distance learning a compelling, rich experience by assuming the availability of emerging and enabling technologies, such as high-bandwidth networks, wireless devices, tablet pcs, and the advanced features in microsoft® windows® xp.
+the conferencexp research platform enables researchers and developers to create distributed applications that take advantage of conferencexp technology as well as tablet pcs and wireless networks. it also enables them to develop the collaborative tools and applications they need without having to build them from the ground up. making use of the latest big data technologies, the data science consultants and devops engineers enabled rapid developing and implementation of new applications tailored to the specific needs defined by the users. the process eliminates much of the down time and testing because the software reviews are ongoing along with the coding. this cuts the time from inception to delivery often in half compared with the previously familiar development process. by partnering with research organizations and universities, the conferencexp project combines the academic community’s expertise in the learning sciences with microsoft’s expertise in technology.
+explore this web site to learn more about conferencexp and join the community of conferencexp developers and researchers.
+get the latest conferencexp software
+download the latest releases of conferencexp software and experience the improved user experience, performance, and network connectivity.
+conferencexp client 3.5
+with conferencexp, you can interact and collaborate with others in a virtual collaborative space, called a venue. conferencexp 3.5, released march 10, 2006, enables you to choose advanced settings for your audio and video devices, and it supports microsoft windows media player 10 and the latest conferencexp services. for a list of what’s new, see the conferencexp client 3.5 release notes.           
+note to run conferencexp client 3.5, you’ll need windows media player 10 installed.
+ 
+conferencexp services
+check out the latest conferencexp services. with conferencexp venue service 2.1, you can create and manage venues. with archive service 1.3, you can store recorded conferences for later playback. and with reflector service 1.3, you can connect to a multicast venue over unicast. all three services supports ipv6.  
+ 
+conferencexp source code (march 2006)
+with conferencexp, developers and researchers can design powerful new conferencing and collaborative environments, create custom interfaces, and integrate conferencexp with existing conferencing and classroom systems. the conferencexp source code (march 2006) includes the source code for conferencexp client 3.5, venue service 2.1, archive service 1.3, and reflector service 1.3.          
+conferencexp source code (march 2006)
+commercial licensing
+conferencexp is licensed for non-commercial use, subject to the restrictions in the license. if you are interested in using conferencexp for commercial use, contact us or visit the microsoft ip ventures web site.
+conferencexp research platform
+the conferencexp research platform empowers universities to build rich collaborative applications that enhance the learning experience in and out of the classroom. by delivering high-quality, low-latency audio and video over broadband connections, conferencexp supports the development of real-time collaboration and videoconferencing applications. it also serves as an open research platform by providing a flexible, common framework for designing and implementing collaborative learning applications.
+the conferencexp research platform was designed with these goals in mind:
+
+rich experience—integrate high-performance audio, video, and network technologies into a rich, immersive en­vironment for instruction, conferencing, and collaboration.
+	 
+ease of use—enable participants to join online confer­ences, presentations, and meetings by using a simple point-and-click user interface. ensure easy hardware and software setup by supporting standard plug-and-play devices and installing (and uninstalling) as a standard microsoft® windows® application.
+	 
+scalability—support a simple single-computer-per-node architecture, without requiring a complex server-based infrastructure, that can share high-quality audio and video between multiple local and remote locations. support mul­ticast to accommodate large classrooms with high throughput.
+	 
+extensibility—provide apis that enable the development of custom user interfaces and applications.
+	 
+advanced technologies—build 100% managed code on the microsoft .net framework. support wireless networks and tablet pcs. integrate advanced media and display technologies, such as microsoft directshow®, microsoft windows media®, and microsoft directx®.
+
+learn more about the conferencexp research platform by reading the overview of the conferencexp architecture.
+ 
+
+
+ 
+conferencexp architecture
+with conferencexp, developers can build a set of interoperable solutions on top of a common framework. with published apis and a set of base classes, developers and researchers can design powerful new conferencing and collaborative environments, create custom interfaces, and integrate conferencexp with existing conferencing and classroom systems. the difficult parts of developing collaborative applications—forming groups, managing group state and status, dealing with network errors—are taken care of by the conferencexp platform and its services.
+conferencexp employs a peer-to-peer architecture. because no server is involved, this architecture makes deployment easy, and it prevents network traffic bottlenecks and single points of failure. this architecture uses multicast to ensure efficiency and scaling for multipoint video conferencing over a broadband network, as well as for sharing documents and ink over a 802.11b wireless network. it also supports point-to-point unicast for environments where multicast is unavailable.
+
+the architecture of the conferencexp research platform
+the conferencexp architecture enables developers to create conferencexp learning applications that take advantage of the underlying network, conferencing, and distributed application protocols. it is divided into four logical layers: conferencexp application, conferencexp capability, conference api, and network transport.
+conferencexp application and capability layers
+the conferencexp application and conferencexp capability layers provide the user interface for conferencexp. capabilities are add-in components that add functionality to a conferencexp appli­cation. both conferencexp applications and capabilities use the conference api.
+the user interface of the conferencexp client application is designed so that it can be easily customized. developers who build on the conferencexp platform can use the built-in conferencexp client application, customize or extend the built-in applications, or use the audio and video conferencing features in their own custom-built learning application.
+the conferencexp capability layer includes the audio/video and presentation capabilities included with conferencexp. the audio/video capability enables a conferencexp applica­tion to send and receive audio and video streams, and the presentation capability enables a conferencexp application to send and receive documents and ink.
+developers can create multipoint collaborative capabilities for the built-in conferencexp client application or for their own conferencexp application, either by writing them from scratch or by modifying existing windows applications built on the .net framework.
+conference api layer
+by using the conference api, developers can quickly and easily create a conferencexp application or capability. for example, capabilities can inherit from the capabilitybase class, which performs most of the work and enables develop­ers to convert most applications into a capability in under 100 lines of code.
+the rtdocuments api provides applications and capabilities with a standard protocol to transfer documents and ink strokes. by using the rtdocuments protocol, applications and capabilities that handle documents and ink can interoper­ate with each other. the rtdocuments protocol is a microsoft .net runtime implementation of thescorm interchange specification.
+the directshow and windows media apis provide access to audio and video features in windows. the directshow api provides a .net wrapper around the directshow multimedia api so that conferencexp applications and capabilities can use them to connect devices with codecs, as well as send audio and video data over the network. conferencexp appli­cations and capabilities can also use windows media audio and video codecs.
+network transport layer
+the network transport layer provides custom-written net­work transport technology to ensures audio, video, and data streams are transmitted with minimum data loss. conferencexp sends audio, video, and data streams over the network by using an implementation of the real-time transport protocol (rtp), which is based on the managed implementation of windows sockets (system.net.sockets).
+the rtp peer-to-peer network transport is an internet engi­neering task force (ietf) standard for audio and video transmission. it is designed for scenarios where low latency is required, such as high-performance conferencing. to help prevent data loss in difficult network environments, such as wireless networks in large classrooms, conferencexp uses extensions to the rtp protocol, as well as forward error correction (fec) algorithms.
+ 
+
+
+ 
+conferencexp applications
+developers who build on the conferencexp platform can take advantage of conferencexp conferencing and collaboration technology.
+conferencexp client
+the conferencexp client application enables you to interact and collaborate with others in a virtual collaborative space, called a venue. (on the network, a venue is a multicast endpoint defined by an ip address and port.) when you start conferencexp client, it opens a window that displays the available venues you can join.
+ 
+after you join a venue, conferencexp automatically starts the multipoint real-time audio and video capability, which enables you to see and hear others in the same venue.
+
+
+tiled video windows showing four-way conferencing.
+the conferencexp client application includes two sample capabilities: conferencexp presentation and chat. with conferencexp presentation, participants can collaborate with real-time ink on an electronic whiteboard or distributed microsoft powerpoint® presentation. chat enables participants to send instant messages to each other.
+conferencexp audio and video support is designed for high-speed networks—2 megabits per second (mbps) or faster—which enables high-quality multipoint conferencing. it delivers full-screen video at 30 frames per second and supports custom video data transfer rates.
+as a peer-to-peer application, conferencexp sends audio, video, and data streams between conferencexp clients, instead of sending these streams to or receiving them from a server. to support simultaneous users while keeping network traffic to a minimum, conferencexp uses multicast. this way, a conferencexp client can send a stream once to all conferencexp clients set up to receive the data.
+research project applications
+universities and research organizations partner to design and build applications that take advantage of the conferencexp platform, mobile devices, and wireless infrastructure to provide rich, engaging learning experiences. to learn more about these applications built by conferencexp research partners.
+ 
+
+
+
+conferencexp frequently asked questions (faqs)
+ 
+conferencexp
+if i want to try conferencexp, what hardware do i need?
+for conferencexp system requirements and recommended hardware, see the conferencexp classroom setup guide.
+ican i use more than one camera with conferencexp?
+yes, conferencexp 3.0 and later support multiple cameras. for more information about the new features and enhancements in conferencexp 3.0, see for more information about the new features and enhancements in conferencexp 3.1, seeconferencexp 3.1 release notes. for conferencexp 3.1 system requirements and installation instructions, see theconferencexp client 3.2 installation guide.
+can i run conferencexp on a laptop computer?
+yes, but the quality of video conferencing in conferencexp rapidly degrades when the system nears or hits 100% cpu utilization, so we recommend you monitor the cpu utilization and use high-end laptop hardware. in our observations, a laptop with a pentium iii 1.2 ghz processor with the nvidia quadro2 go graphics processing unit (gpu) can do two-way conferencing, and a laptop with a pentium iv 2.0 ghz processor with the nvidia geforce4 go gpu can do five-way conferencing. in both cases, the laptops are plugged into a power outlet to prevent the cpu from running at a lower speed to save power and the laptops use 100baset wired networking. for more information about using wireless networks, see does conferencexp work over wireless networks?.
+does conferencexp work over a wireless network?
+conferencexp 3.0 and later include enhancements that enable better transmission of slides and ink over wireless networks. however, these enhancements do not affect the quality of audio and video transmission over wireless networks. generally, wireless networks do not have sufficient bandwidth and quality of service to support transmitting high-bitrate, high-quality audio and video streams.
+can i run conferencexp on windows server 2003?
+if the windows media codec that conferencexp requires is installed (which is included with windows media player), you can run conferencexp on windows server 2003. however, because we support running conferencexp on windows xp, we have not done extensive testing of conferencexp running on windows server 2003.
+can conferencexp be deployed on a multicast-enabled intranet with no internet connectivity?
+yes it can, although it will require port tcp/80 (also known as http port for soap) connectivity either directly or through a proxy server which must be specified in the internet explorer connectivity settings to communicate with the venue server to find the venue and participant information it needs to function.
+to be entirely self contained, you can run a venue server on your intranet and keep that tcp/80 traffic internal too. there’s a *.config file for each client that has a url that can be changed to point to a local venue server.
+in the case that tcp/80 is closed, a http proxy is not set up, and the client has not been redirected to a local venue server, then the client is unable to get a hold of venue or participant information. when this happens, a default mode is used to allow the client to continue working, though with only one default venue to select from.
+ 
+does conferencexp require a server for receiving and sending streams?
+conferencexp employs a peer-to-peer architecture. because no server is involved, this architecture makes deployment easy, and it prevents network traffic bottlenecks and single points of failure.
+can i use conferencexp without windows messenger or passport?
+you do not need to have windows messenger running to run conferencexp; it will automatically roll over to your windows credentials if messenger is not and has never been run under that account. we do plan to authenticate your profile entry on our venue server using passport in the future when passport and web services have been integrated. we publish the venue server binaries and source code so setting up your own venue server using either windows or a custom (or no) authentication method would be possible.
+why does conferencexp use windows media codecs?
+video conferencing requires low latency and not all video codecs can do this. when we started designing conferencexp, we found that the windows media video codecs, included with windows media player, met all our latency and bandwidth requirements, worked well, and is free with your windows xp license, which is the supported operating system. conferencexp 3.0 and later use the windows media 9 series audio and video codecs.
+how are conferencexp multicast addresses selected?
+the specific ip address chosen is determined by what venue is selected. one ip address is statically bound to each venue. when two conferencexp clients join the same venue, they are talking on the same multicast address and can see each other.
+the venue server contains a database that maps friendly venue names onto the ip addresses.
+which multicast addresses does conferencexp use?
+conferencexp uses a range of 233.45.17.172-175:5004/5005 as well as a range of ‘non-routed’ multicast addresses in 234.*.*.*.
+are conferencexp video signals multicast?
+yes, conferencexp sends rtp and rtcp packets over multicast udp/ip.
+is conferencexp compatible with my existing video conferencing system?
+no, conferencexp uses the windows media codecs, which have been highly optimized for quality and efficiency on personal computers. most commercial video conferencing systems today are based on the h.261 or h.263 video codecs, which provide relatively poorer quality and higher cpu utilization.
+conferencexp transports its data over rtp (real-time transport protocol), described in rfc 3550 from the ietf. if you’re a researcher interested in working with us to implement a backwards compatibility solution, let us know.
+can i run conference 3.x and conferencexp 2.4.2 on the same computer?
+because conferencexp 3.x includes major changes at the networking and audio/video levels, having both conferencexp 2.4.2 and conferencexp 3.x installed at the same time is not supported.
+which video devices does conferencexp support?
+for a complete list of the cameras, video capture cards, and video drivers we’ve tested with conferencexp 3.0 and later, see conferencexp supported video devices.
+troubleshooting
+why does conferencexp 3.x take a long time to start?
+because venue service has a 10-second timeout, conferencexp will take at least 10 seconds to start. during startup, conferencexp also checks windows messenger to get your identifier.
+make sure windows messenger is not causing the problem:
+
+do one of the following:
+
+ 
+	
+make sure windows messenger is working properly by restarting your computer and then restarting windows messenger. (to restart windows messenger, on the start menu, point to all program, and then click windows messenger.)
+		 
+temporarily uninstall windows messenger.
+		 
+
+
+start conferencexp again.
+
+ 
+how do i troubleshoot multicast network problems?
+if multicast isn’t working at your site, try the following:
+
+use the connectivity detector network diagnostic utility.
+follow the tutorial on diagnosing multicast problems for the access grid.
+in conferencexp, create a peer-to-peer connection by starting a two-way conference over unicast.
+create a unicast bridge by using the conferencexp reflector service.
+for more troubleshooting help, see the conferencexp frequently asked questions (faqs), visit the message boards, or subscribe to the e-mail distribution lists.
+
+
+it is possible to view and enter a conferencexp venue without internet2 and multicast connectivity. however, unless you have internet2 and multicast connectivity, you will be unable to view other participants in the venue or send and view video and audio streams.
+to determine if you have internet2 and multicast connectivity, use the connectivity detector (conferencexp 3.x) or pipecleaner stoplight (conferencexp 2.4.2 and earlier) network diagnostic utility. this utility checks your networking connectivity and directs you to troubleshooting information if the connectivity check fails. for more information, see about internet2 and multicast connectivity.
+to use the network diagnostic utility included with conferencexp, do one of the following:
+
+in conferencexp 3.x, on the settings menu, click start connectivity detector.
+in conferencexp 2.4.2, on the help menu, click internet2 & network connectivity.
+
+
+if you notice symptoms of poor network conditions, such as lost slides or ink strokes, try the following:
+
+
+if you’re using a laptop with intel centrino mobile technology, the power save polling feature may be interfering with wireless connections. to prevent this problem, see psp (power save polling) causes connection issues with some access points. 
+
+try adjusting conferencexp for poor network conditions. for more information, see is there a way to adjust conferencexp for poor network conditions?
+
+
+if you’re using conferencexp in less than optimal network conditions, you may experience performance issues, such as lost slides or ink strokes. to prevent or workaround this problem, try the following:
+
+
+if you’re using a laptop with intel centrino mobile technology, the power save polling feature may be interfering with wireless connections. to prevent this problem, see psp (power save polling) causes connection issues with some access points. 
+
+to minimize these symptoms of poor network conditions, you can increase the forward error correction (fec) ratio, decrease the data throughput, or both.
+
+increase the fec ratio for capabilities
+
+open the cxpclient.exe.config file in a text editor, such as notepad.
+edit the value for the following key:
+
+where 50 is the default fec ratio, indicating the ratio of checksum packets to data packets sent. increasing this value causes conferencexp to send more checksum packets, which enables more data packets to be reconstructed if lost.
+
+
+decrease the rate of data being sent for capabilities
+
+open the cxpclient.exe.config file in a text editor, such as notepad.
+edit the value for the following key:
+
+where 256000 is the amount of data sent over the network, in bytes per seconds. decreasing this value causes conferencexp to send data over the network less frequently, which decreases network traffic.
+
+
+for conferencexp applications (that is, non-capabilities), you can change these values on the rtp sender.
+how do i prevent video problems on my computer?
+if you see video problems on your computer, such as several videos in the same window or not seeing your video on your computer while other participants can see your video, there may be a conflict with your graphics card. to determine if this is the problem, do the following:
+disable the directdraw acceleration feature
+
+on the start menu, click run.
+in the open box, type dxdiag.
+click the display 1 tab.
+under directx features, next to directdraw acceleration: enabled, click disable.
+if you have a second monitor, click the display 2 tab, and then next to directdraw acceleration: enabled, click disable.
+
+ 
+why can’t i and others not hear or see my audio or video?
+if you and others cannot see or hear your video or audio stream, make sure your video or audio device is working properly. to do so, determine if your audio and video works in other programs to see if the problem is with your audio or video device or if the problem occurs only in conferencexp.
+determine if your camera or audio device works as expected in another program
+
+do one of the following:
+	
+
+use the audio and video tuning wizard feature in windows messenger
+		.
+on the start menu, click control panel. click scanners and cameras, and then click your video device to see if it displays an image.
+open microsoft movie maker, or another program that can capture audio and video from your camera or audio device, and then make sure your camera or audio device works as expected.
+
+
+
+
+if your audio or video device does not work in other programs, you’ll need to troubleshoot that problem. if your audio or video device does work in other programs, but not in conferencexp, see the conferencexp message boards or distribution lists for troubleshooting help.
+tip  if you’re using a firewire camera and no image appears, try resetting your firewire camera by removing and replacing the firewire cable from the back of your computer or camera. this removes power from the camera and resets the device.
+
+
+in conferencexp 2.4.2, if your monitor power settings are set to turn off while conferencexp video streams are running, the video stream does not appear on the monitor, but the directx component of conferencexp continues to buffer the stream. this can quickly cause your system’s memory to be depleted, resulting in the message, “your system is low on virtual memory.” this problem is fixed in conferencexp 3.0 and later.
+you can avoid this problem in conferencexp 2.4.2 by stopping conferencexp streams before you leave your computer, by adjusting your monitor power setting to never turn off, or both.
+stop a stream
+
+in the conferencexp 2.4.2 venue window, right-click the icon you want, and then click the stream you want to stop.
+
+adjust the monitor power setting to never turn off
+
+in control panel, click display.
+click the screen saver tab.
+under monitor power, click power.
+in the turn off monitor list, click never.
+
+ 
+why is my conferencexp 2.4.2 video stream out of sync with current events?
+in conferencexp 2.4.2, if you have the monitor power set to turn off after a specified amount of time when you’re running conferencexp, the conferencexp video stream is interrupted. when you resume using the computer, which restores power to the monitor, conferencexp starts the video stream. the video stream starts where it left off, playing a delayed stream compared to actual events at a faster speed while directshow clears the cache. to avoid this problem, which also uses up available memory, adjust the monitor power setting to never turn off.
+adjust the monitor power setting to never turn off
+
+in control panel, click display.
+click the screen saver tab.
+under monitor power, click power.
+in the turn off monitor list, click never.
+
+
+venue service uses the standard unicast http protocol to communicate with clients. the clients submit requests and get results just like they were submitting a form request.
+venue service is a very lightweight web service-sql server application, so it should run on any computer that can run microsoft sql server™ 2000 personal or developer edition or microsoft sql server 2000 desktop engine (msde) 2000. for more information, see the conferencexp venue service 2.1 installation guide.
+if you have installed venue server on windows server 2003 and cannot see your list of venues, make sure that the status of the asp.net web service extension in iis manager is set to allowed.
+change the status of the asp.net web service extension in iis manager
+
+open the internet information services (iis) manager.
+under reflector (local computer), click web service extensions.
+in the right pane, click asp.net, and then click allow.
+
+if only the local venue appears for participants connecting to your venue service, make sure port 80 (http port) is open on the venue service computer.
+ 
+connectivity detector and pipecleaner
+
+connectivity detector (conferencexp 3.0 and later) and pipecleaner stoplight (conferencexp 2.4.2 and earlier) send rtp and rtcp packets over multicast udp/ip. they use 233.45.17.171:5004 for rtp and 233.45.17.171:5005 for rtcp. for more information, see about internet2 and multicast connectivity.
+source code
+why does an unhandled exception error occur when i build the conferencexp client (bar ui) solution?
+if the error, “an unhandled exception of type ?system.dllnotfoundexception’ occurred in mdshowmanager.dll. unable to load dll (netrenderer.ax).” occurs when you run the “conferencexpclient (bar ui)” solution, do the following:
+manually copy the netrenderer.ax and netsource.ax files from their build directories under dshow\* into the directory from which you are going to run barui.exe.
+unfortunately, microsoft visual studio .net does not have a way of specifying unmanaged (older win32) code dependencies for a managed (.net) project and these are the files conferencexp uses to link its managed conferencing logic into the directshow apis.
+ 
+ 
+conferencexp.net
+
+
+
+
+
+
+
+
+
+
+
+

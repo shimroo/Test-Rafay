@@ -1,0 +1,356 @@
+
+
+
+
+	pennsylvania child support program
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+search | site map | contact us
+
+
+
+
+
+
+
+
+
+
+pa state agencies
+educationenvironmental protectiongame commissionhomeland securitylabor & industrylotteryhuman servicesrevenuestatetransportationmore...
+
+
+
+
+
+
+
+online services
+compass: access to social servicesdriver & vehicle servicesfind a jobfishing licenseshomeland security tip submissionhunting licensespersonal income taxesplaces to stay in paturnpike e-zpassunemployment compensationmore...
+
+
+
+
+
+
+
+
+
+english
+|
+espanól
+|
+
+|
+中文
+|
+tiếng việt
+|
+русский
+
+
+
+
+
+home
+
+
+fidm
+
+
+
+
+
+
+
+homelegislation & ffsffs pa addendumreporting changesexemption requestfaqscontact us
+
+
+
+pa child support program
+
+
+pennsylvania addendum to the multistate financial institution data match specifications handbook
+fidm addendum
+
+    the pennsylvania financial institution data match (pa fidm) program is required to 
+    use the multistate financial institution data match specifications handbook 
+    provided by the federal office of child support enforcement. you may download a copy of this handbook at: 
+
+
+    http://www.acf.hhs.gov/sites/default/files/programs/css/msfidm_specifications_handbook.pdf
+   
+
+
+    pennsylvania has modified its pa fidm program requirements and file specifications 
+    to match the multistate fidm file specifications according to the multistate financial institution data match specifications handbook. 
+    all institutions participating in the pa fidm program are required to follow these federal specifications.
+
+
+    however, please be aware of significant differences between the federal fidm program and the pa fidm program. 
+    please be sure to carefully review this document in its entirety. 
+    the differences between the federal program and the pa fidm program are illustrated in the tables below.  
+
+
+
+
+
+position
+size
+description
+comment/format
+
+
+
+
+federal
+351-357
+7
+
+                account balance
+            
+
+                numeric, whole dollars, sign trailing. zeros are required if position 361 = 0
+            
+
+
+pa
+351-357
+7
+
+                account balance
+            
+
+                must be reported cannot be blank
+            
+
+
+federal
+361
+1
+
+                account balance indicator
+            
+
+                0 = not provided
+                1 = average balance
+                2 = current balance
+            
+
+
+pa
+361
+1
+
+                account balance indicator
+            
+
+                0 - not allowed, only 1 or 2
+            
+
+
+federal
+362
+1
+
+                account update file indicator
+            
+
+                0 = delete (closed account)
+                1 = add-new account since last match
+                2 = change (name/address)
+            
+
+
+pa
+362
+1
+
+                account update file indicator
+            
+
+                blank
+            
+
+
+federal
+371
+1
+
+                data match file indicator
+            
+
+                m = method 2
+                a = method 1
+                u = account file update
+            
+
+
+pa
+371
+1
+
+                data match file indicator
+            
+
+                u = not allowed, only m & a
+            
+
+
+
+
+    please also note the following pennsylvania specific program requirements:
+
+
+
+
+        the pa fidm program will not accept data files in ebcdic format.
+    
+
+        all data files must be in ascii format.
+    
+
+        the pa fidm program will not accept data files that span multiple media. 
+        the header, detail, and trailer records ("a", "b", and "t" records in the federal multistate 
+        financial institution data match specifications handbook) must be able to fit onto one media. 
+        therefore, the financial institution must select a media type 
+        that will be able to hold the data files for one quarter for one financial institution.
+    
+
+        each media type must contain only one file. the file may have multiple "a", "b", and "t" records.
+    
+
+        the pa fidm program does not accept 1099 file formats.
+    
+
+        pa fidm program file naming conventions. the following file naming conventions have been developed for method 1 and method 2.
+    
+
+
+
+
+
+
+method type
+descriptions
+file name
+
+
+
+
+method 1
+all accounts file
+allaccts.txt
+
+
+method 2
+matched file
+match.txt
+
+
+
+
+    please be sure to use these file names for all data file exchanges.
+
+
+
+media labeling procedures. the following procedures are applicable to both method 1 and method 2 filers.
+
+
+
+    if a financial institution is submitting its own account file, 
+    the following information must be included on the label:
+
+
+
+
+        financial institution name and fi fein
+    
+
+        data processor (dp) name, dp fein, and dp contact name and phone number
+    
+
+        method (1 or 2)
+    
+
+        the calendar quarter being submitted - (1, 2, 3, or 4)
+    
+
+
+
+    if the financial institution and data processor are the same, 
+    it is not necessary to repeat the fi name and fi fein in the dp name and dp fein section. 
+    the contact name and phone number must still be provided.
+
+
+    if a third party data processor is submitting the account file, the following information must be included on the label:
+
+
+
+data processor name, dp fein, and dp contact name and phone number
+
+        method (1 or 2) 
+    
+
+        the calendar quarter being submitted - (1, 2, 3, or 4)
+    
+
+        on a separate piece of paper, the third party data processor must include 
+        each financial institution name and fi fein included on the media
+    
+
+
+
+    for both financial institutions and third party data processors, 
+    the reporting quarter must be included on each media label. 
+    the reporting quarters establish a file submission frequency to the pa fidm program. 
+    the following reporting quarters are: 
+
+
+
+quarter 1 - january 1 through march 31
+quarter 2 - april 1 through june 30
+quarter 3 - july 1 through september 30
+quarter 4 - october 1 through december 31
+
+
+
+    if media is reused, please do not remove or conceal the pa fidm program’s media label. 
+    please add a new fi label or third party data processor label to the media. 
+    be sure that these two labels are visible and clear. the two labels must not overlap one another.
+
+
+    for additional clarification regarding 
+    technical modifications or reporting methods, please refer to the 
+    amendment or contact informatix, inc.
+
+home | privacy | disclaimer | security | browser compatibility | accessibility | about bcse | mobile site
+
+
+
+
+
+
+
+
+

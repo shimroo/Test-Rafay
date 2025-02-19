@@ -1,0 +1,3255 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+math refresher
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+math refresher
+
+
+
+
+
+review of fundamental math concepts in a straight-forward, accessible way.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wednesday, november 18, 2009
+
+
+
+
+
+
+
+
+
+
+
+bertrand's postulate (theorem)
+
+
+
+
+
+
+in today's blog, i will present a proof for bertrand's postulate which is really a theorem.
+
+the content is taken primarily from an excellent wikipedia article.
+
+lemma 1:
+
+if n is greater than 5, then 2n/3 is greater than √2n
+
+proof:
+
+(1)  for n ≥ 5, 2n(2n-9) is greater than 0 since 2n ≥ 10 and 2n-9 ≥ 1.
+
+(2)  2n(2n - 9) = 4n2 - 18n.
+
+(3)  since 4n2 - 18n is greater than 0, 4n2 is greater than 18n.
+
+(4) dividing both sides by 9 gives us 4n2/9 is greater than 2n.
+
+(5) taking the square root of both sides gives us 2n/3 is greater than √2n
+
+qed
+
+lemma 2:
+
+let p be a prime number that is greater than √2n
+
+let x be the highest nonnegative integer such that px divides 2n!/[(n!)(n!)]
+
+then:
+
+
+
+proof:
+
+(1)  we know that in general, the maximum power of p that divides n! is (see theorem, here):
+
+
+
+(2)  so the highest power of p that divides (2n)!/[(n!)(n!)] is:
+
+
+
+
+
+(3)  since p is greater than √2n, it follows that p2 is greater than 2n.  so we only need to consider the case where i=1.
+
+(4)  this leaves us with:
+
+
+
+qed
+
+lemma 3:
+
+bertrand's posulate is true for n less than 2048
+
+proof:
+
+between any n less than 2048 and its double, one will find one of the following primes:
+
+3, 5, 7, 13, 23, 43, 83, 163, 317, 631, 1259 and 2503
+
+since:
+
+n = 2 --> 3
+
+n between 3 and 4 --> 5
+
+n between 5 and 6 --> 7
+
+n between 7 and 12 --> 13
+
+n between 13 and 22 --> 23
+
+n between 23 and 42 --> 43
+
+n between 43 and 82 --> 83
+
+n between 83 and 162 --> 163
+
+n between 163 and 316 --> 317
+
+n between 317 and 630 --> 631
+
+n between 631 and 1258 --> 1259
+
+n between 1259 and 2047 --> 2503
+
+qed
+
+definition 1:  r(p,n): maximum divisor of  2n!/(n!)(n!)
+
+let r(p,n) be the function that returns the maximum power of a given prime that divides 2n!/(n!)(n!)
+
+for any prime p, pr(p,n) divides 2n!/(n!)(n!) but pr(p,n)+1 does not.
+
+
+example 1:  r(3,5)
+
+(2*5)!/(5!)(5!) = 10*9*8*7*6/5*4*3*2 = 2*9*2*7*2*2 = 24*32*7.
+
+r(3,5) = 2 since 32 divides 24*32*7 but 33 = 27 does not.
+
+
+lemma 4:
+
+for all p, pr(p,n) ≤ 2n
+
+proof:
+
+(1)  the multiplicity m of p in a factorial n! (see theorem 1, here) is:
+
+
+
+so that pm divides n! but pm+1 does not.
+
+(2)  based on this, the formula for r(p,n) is:
+
+
+
+which is equivalent to:
+
+
+
+(3)  we can see that if pi is greater than 2n, then:
+
+floor(2n/pi) = 0 and floor(n/pi) = 0 so that we have:
+
+floor(2n/pi) - 2*(n/pi) = 0
+
+so that we have:
+
+
+
+(4)  using the division algorithm (see theorem 1, here), there exists q,r such that:
+
+n = qpi + r
+
+where r is less than pi
+
+(5) from this, we can see that:
+
+
+
+since:
+
+case 1:  r = 0
+
+in this case, floor(2n/pi) = 2q and 2*floor(n/pi) = 2*q so that:
+
+floor(2n/pi) - 2*floor(2n/pi) = 0
+
+case 2:  r is less than (1/2)pi
+
+in this case, floor(2n/pi) = 2q and 2*floor(n/pi) = 2*q so that:
+
+floor(2n/pi) - 2*floor(2n/pi) = 0
+
+case 3:  r ≥ (1/2)pi
+
+in this case, floor(2n/pi) = 2q+1 and 2*floor(n/pi) = 2*q so that:
+
+floor(2n/pi) - 2*floor(2n/pi) = 1
+
+(5)  so that we have:
+
+pi ≤ plogp(2n) = 2n.
+
+qed
+
+
+lemma 5:
+
+for all i:
+
+0 ≤ i ≤ 2n → (2n!)/(n!)(n!) ≥ (2n!)/(i!)(2n-i)!
+
+proof:
+
+(1)  we know that (see definition 3, here for review of c(n,r) if needed):
+
+c(2n,i-1) = (2n!)/(i-1)!(2n-i+1)!
+
+c(2n,i) = (2n!)/(i!)(2n-i)!
+
+(2)  so, we see that:
+
+c(2n,i) = (2n-i+1)/(i)*c(2n,i-1)
+
+and
+
+c(2n,i-1) = (i)/(2n-i+1)*c(2n,i)
+
+(3)  if i ≤ n, it follows that:
+
+2n - i + 1 is greater than i since 2n - i + 1 ≥ n+1
+
+so up to i=n, c(2n,i) is greater than c(2n,i-1)
+
+(5)  if i ≥ n+1, it follows that:
+
+i is greater than  2n - i + 1 since 2n - i + 1 ≤ n
+
+so down to i=n+1, c(2n,i-1) is greater than c(2n,i)
+
+(6)  so, we have shown that c(2n,n) is greater than c(2n,i) for i less than n and c(2n,n) is greater than c(2n,i) for i greater than n.
+
+qed
+
+
+corollary 5.1:
+
+
+
+
+proof:
+
+(1)  using the binomial theorem (see theorem, here):
+
+
+
+(2)  using lemma 5 above, we know that:
+
+
+
+(3)  so that we have:
+
+
+
+(4)  and dividing both sides by (2n+1) finishes the proof.
+
+qed
+
+
+lemma 6:
+
+if 2t is less than 8t, then t is less than 6
+
+proof:
+
+(1)  if t=6, then 2t is greater than 8t since:
+
+26 = 64
+
+8(6) = 48
+
+(2)  assume it is true up to some t ≥ 6 so that:  2t is greater than 8t.
+
+(3)  then 2*(2t)=2t+1 is greater than 2*8t = 16t
+
+(4) 16t is greater than 8t+8 since 16=8t + 8t and for t ≥ 6, 8t is greater than 8.
+
+(5)  so that we have 2t+1 is greater than 8t+8 = 8(t+1).
+
+qed
+
+
+lemma 7:
+
+if:
+
+
+
+then:
+
+n is less than 2048.
+
+proof:
+
+(1)  let n = 22t-1
+
+(2) so 2n = 22t
+
+(3)  √22t = 2t
+
+(4) so √2nln(2) = 2tln(2)
+
+(5)  (4)ln(2n) = 4ln(22t) = 2t*4*ln(2)
+
+(6)  dividing both sides by ln(2) gives us:
+
+2t is less than 8t
+
+(7)  using lemma 6 above, we conclude that t is less than 6.
+
+(8)  so, it follows that n is less than 22(6)-1 = 211 = 2048.
+
+qed
+
+
+theorem:  bertrand's postulate
+
+for any n, there exists a prime p such that p is greater than n and less than 2n.
+
+proof:
+
+(1)  we know that bertrand's postulate is true for n less than 2048 [see lemma 3 above]
+
+(2)  assume for some n ≥ 2048, there is no prime between n and 2n.
+
+(3)  let p be the largest prime factor of (2n!)/[(n!)(n!)] that is less than or equal to n.
+
+(4)   using lemma 1 above, we know that p ≤ 2n/3 since:
+
+(a)  assume that that p is greater than 2n/3.
+
+(b)  since n ≥ 2048, using lemma 1 above, p is also greater than √2n
+
+(c)  this means that the highest power of x is given by (see lemma 2 above):
+
+
+
+(d)  since 2n/3 is less than p, it follows that 2n is less than 3p, and further that 2n/p is less than 3 so that 2n/p ≤ 2.
+
+(e)   but from step #3 above, we know that n ≥ p so that we have n/p ≥ 1.
+
+(f)  this gives us that 2n/p ≤ 2 and n/p ≥ 1 so that we have:
+
+x  = floor(2n/p) - 2*floor(n/p) ≤ 2 - 2*1 = 0.
+
+(g)  so, under these circumstances, the highest power of x is 0 which means that there is no such p and we can conclude that p ≤ 2n/3.
+
+(5) from step #4, we have:
+
+(2n!)/(n!n!) = ∏ (p ≤ 2n/3) pr(p,n)
+
+where r(p,n) is a function on p,n such that pr(p,n) divides (2n!)/(n!n!) but pr(p,n)+1 does not. [see definition 1 above]
+
+(6) from lemma 2 above, we know that if p is greater than √2n, then r(p,n)=1 so that we have:
+
+
+
+(7)  since there are less than √2n primes less than √2n, using lemma 4 above, we have:
+
+
+
+(8) if we use a limit for primorials (see theorem, here), we have:
+
+
+
+(9)  using corollary 5.1 above, we also have:
+
+
+
+(10)  so, putting it all together, we have:
+
+
+
+(11) if we multiply 4(-2n/3) to both sides we get:
+
+
+
+(12)  now, since n ≥ 1, we note that 4n2 is greater than 2n+1
+
+(a)  for n=1, 4(1)2 is greater than 2(1)+1
+
+(b)  assume that 4n2 is greater than 2n+1
+
+(c)  since n ≥ 1, 4n2 + 8n is greater than 2n+1+2
+
+(d)  4n2 + 8n + 1 is greater than 2(n+1) + 1
+
+(e)  and:
+
+4(n+1)2 is greater than 2(n+1)+1
+
+(13)  so it follows that:
+
+
+
+(14)  since n is greater than 18, it follows that (4/3)√2n is greater than 2 + √2n since:
+
+(a)  √2(n) is greater than 6
+
+(b)  (4/3)√2n = (1/3)√2n + √2n
+
+(c)  and (1/3)√2n is greater than (1/3)*6 = 2.
+
+(15)  this gives us:
+
+
+
+(16)  putting it all together gives us:
+
+
+
+(17)  taking the logarithm of both sides, gives us:
+
+
+
+(18)  we can simplify this further by multiplying 3 to both sides and noting that 4=22 so that we get:
+
+
+
+(19)  we can further simplify it by dividing both sides by √2n to get:
+
+
+
+(20)  but now we use lemma 7 above to reach a contradiction.
+
+qed
+
+references
+
+"proof of bertrand's postulate", wikipedia.org
+
+
+
+
+
+
+posted by
+
+
+
+
+larry freeman
+
+
+
+
+
+at
+
+
+
+10:30 pm
+
+
+
+
+
+1 comment
+                                    :
+                                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email this
+
+
+
+
+blogthis!
+
+
+
+
+share to x
+
+
+
+
+share to facebook
+
+
+
+
+share to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+primorial
+
+
+
+
+
+
+the primorial is the product of primes less than or equal to a number n.definition:  primorial: n#the primorial n# is defined as follows:example:1# = 13# = 3*(2#) = 3*2*(1#)=3*26# = 5# = 5*3*2theorem:  if n≥ 1, then n# is less than 4nproof:(1) it is true for (n=1 and n=2)for n=1, 1#=1 is less than 4.for n=2, 2#=2 is less than 42 = 16(2) if n is even and n is greater than 2, then n is composite and we have:n# = (n-1)# which is proven if we show that (n-1)# is less than 4n-1 since 4n-1 is less than 4n.(3)  to complete the proof, we show that n# is less than 4n if n is odd:(a) by the inductive hypothesis, we can assume that it is true for all integers less than n and we assume that n is an odd integer where n=2x+1 and x ≥ 1 so that n ≥ 3.(b) now, we note that 4m = (1+1)2m = (2-1)*(1+1)2m+1 = (1/2)(1+1)2m+1(c) using the binomial theorem (see here), we note that:(1+1)2m+1 = ∑ (i=0, 2m+1) (2m+1!)/[(i!)(2m+1-i)!](d)  so,(1/2)(1+1)2m+1 = (1/2) ∑ (i=0, 2m+1) (2m+1)!/[(i!)(2m+1-i)!]is greater than:(1/2) [(2m+1)!/(m!)(m+1)! + (2m+1)!/(m+1)!(m)!] = (2m+1)!/(m!)(m+1)!(e)  so, from (b) and (d), we can conclude that:4m is greater than (2m+1)!/(m!)(m+1)!since 4m = (1/2)(1+1)2m+1 which is greater than (2m+1)!/(m!)(m+1)!(f) each prime p that is greater than m+1 and less than 2m+1 divides (2m+1)!/(m+1)!(m!) since:(2m+1)!/(m+1)!(m!) is an integer.  [see lemma 5, here]let u = (2m+1)!/(m+1)!(m!)(2m+1)! = u(m+1)!(m!)since p does not divide (m+1)! and does not divide (m!),  by euclid's generalized lemma (see corollary 2.1, here), p must divide u.(g)  this gives us:from the definition of primorial [see definition above], step #3f above, and step #3e above.(h)  from the inductive hypothesis in step #3a, we can assume that:(m+1)# is less than 4m+1(i)  so, we have (using step #3g above):n# = (2m+1)# which is less (m+1)#*4m(j) using step #3h above, we have:(2m+1)# is less than 4m+1*4m = 42m+1qedreferences"primorial", wikipedia.org"proof of bertrand's postulate", wikipedia.org
+
+
+
+
+
+posted by
+
+
+
+
+larry freeman
+
+
+
+
+
+at
+
+
+
+1:30 am
+
+
+
+
+
+no comments
+                                    :
+                                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email this
+
+
+
+
+blogthis!
+
+
+
+
+share to x
+
+
+
+
+share to facebook
+
+
+
+
+share to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pascal's rule
+
+
+
+
+
+
+theorem: pascal's rulec(n,k) + c(n,k-1) = c(n+1,k)where:proof:(1)  we can find a common denominator for c(n,k) and c(n,k-1) so that we have:(2)  so that:(3)  to complete the proof, we note that:  n-k+1 = n+1-k so that we have:= c(n,k+1)qedreferences"pascal's rule", wikipedia.org
+
+
+
+
+
+posted by
+
+
+
+
+larry freeman
+
+
+
+
+
+at
+
+
+
+1:16 am
+
+
+
+
+
+1 comment
+                                    :
+                                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email this
+
+
+
+
+blogthis!
+
+
+
+
+share to x
+
+
+
+
+share to facebook
+
+
+
+
+share to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+monday, november 16, 2009
+
+
+
+
+
+
+
+
+
+
+
+multiplicity of a prime factor
+
+
+
+
+
+
+definition 1:  multiplicity of a prime factorthe multiplicity of a prime factor of a given integer is the highest power of that factor that divides the integer.example 1: 60the prime factorization of is 2*2*3*5the multiplicity of 3 is 1.  the multiplicity of 5 is 1.  the multiplicity of 2 is 2.adrien-marie legendre came up with the following theorem regarding the multiplicity of a prime for n!.  (for review of factorials (n!), see here)theorem 1:  the multiplicity of a given prime p in n! is:that is, let x = the multiplicity of a prime p. then px divides n! but px+1 does not.proof:(1) if p is greater than n, then p doesn't divide n! and the answer is 0.(2) so, we can assume p ≤ n.(3)  let k be the largest power of p such that pk ≤ n.(4)  for each 1 ≤ i ≤ k, the number of integers from 1 to n that are divisible by pi but not divisible by pi+1 is:if no numbers are divisible by pi, then floor(n/pi) = 0 [as does floor(n/pi+1)].floor(n/pi+1) equals the number of integers that are greater than pi+1 and divisible by pi+1.so the number of integers that are uniquely divisible by pi is the difference of these two floor functions.(5)  the value of px which divides n! is equal to the product of all the powers of p that divide any of the integers in the sequence from 1 .. n.(6)  so, the we can compute the value of x with:(7)  putting this together, we see the following pattern:(8)  we can see for i=1, we have floor(n/p1), for i=2, we have 2*floor(n/p2) - 1*floor(n/p2), and for i=3, we have 3*floor(n/p3) - 2*floor(n/p3) and so on.(9)  the net result of this is that we rewrite the equation in step #7 to the following:qedreferences:"prime power dividing a factorial", planetmath.org"multiplicity", wikipedia.org
+
+
+
+
+
+posted by
+
+
+
+
+larry freeman
+
+
+
+
+
+at
+
+
+
+4:47 pm
+
+
+
+
+
+no comments
+                                    :
+                                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email this
+
+
+
+
+blogthis!
+
+
+
+
+share to x
+
+
+
+
+share to facebook
+
+
+
+
+share to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+monday, october 05, 2009
+
+
+
+
+
+
+
+
+
+
+
+common roots with an irreducible polynomial
+
+
+
+
+
+
+the content in today's blog is taken straight from jean-pierre tignol's galois theory of algebraic equations. theorem:let f(x) be a rational function in one indeterminate over a field f.let v be a root of an irreducible polynomial r(x) ∈ f[x]if f(v) = 0, then all roots of p are also roots of f.proof:(1)  let f = p/q  where p,q are polynomials and ∈ f[x] and q(v) ≠ 0 and p(v) = 0.(2)  since v is a root an irreducible polynomial r, it follows that r divides p.  [see lemma 2, here](3)  let w be any root of r.(4)  it follows that w is also a root of p since:(a)  if w is a root a r, then x - w divides r.(b)  then it follows that x - w must also divide p since r divides p.(4)  it also follows that if w is a root of r, then w is not a root of q since:(a)  assume that w is a root of q so that q(w)=0(b)  then it would follow that r divides q.(c)  but then q(v)=0 since r(v)=0(d)  but this is not true since q(v) ≠ 0.(e)  therefore, we reject our assumption in step #4a.(5)  therefore, we have shown that p(w)=0 and q(w) ≠ 0(6)  hence f(w)=0 for any root w of the irreducible polynomial r.qedreferencesjean-pierre tignol, galois' theory of algebraic equations, world scientific, 2001
+
+
+
+
+
+posted by
+
+
+
+
+larry freeman
+
+
+
+
+
+at
+
+
+
+2:22 pm
+
+
+
+
+
+no comments
+                                    :
+                                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email this
+
+
+
+
+blogthis!
+
+
+
+
+share to x
+
+
+
+
+share to facebook
+
+
+
+
+share to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+saturday, october 03, 2009
+
+
+
+
+
+
+
+
+
+
+
+a polynomial invariant on all but one variable
+
+
+
+
+
+
+the content in today's blog is taken from jean-pierre tignol's galois' theory of algebraic equations.lemma:let g be a polynomial in n indeterminates x1, ..., xn over some field k.let g be invariant under every permutation of x2, ..., xnthen:g can be written as a polynomial in x1 and the elementary symmetric polynomials s1, ..., sn-1 in x1, ..., xnproof:(1)  we can view g as a polynomial in x2, ..., xn with coefficients in k[x1].(2)  using waring's method [see theorem 4, here], we know that g can be written as a polynomial in the elementary symmetric polynomials s'1, ..., s'n-1 in x2, ..., xn with coefficients in k[x1](3)  therefore, there exists a polynomial g' such that:g(x1, ..., xn) = g'(x1, s'1, ..., s'n-1)where:s'1 = x2 + ... + xns'2 = x2x3 + ... + xn-1xn...s'n-1 = x2*...*xn(4)  to complete the proof, we need to show that s'1, s'2, ..., s'n-1 can be restated in terms of s1, s2, ..., sn where:s1 = x1 + ... + xns2 = x1x2 + ... + xn-1xn...sn = x1*...*xn(5)  we know that for any given polynomial [see theorem 1, here]:(x - x1)*...*(x - xn) = xn - s1xn-1 + ... + (-1)nsn(6)  now, we can use the same principle to get:(x - x2)*...*(x - xn) = xn-1 - s'1xn-2 + ... + (-1)n-1s'n-1(7) multiplying the above equation by (x - x1) gives us:(x - x1)*...*(x - xn) = (x - x1)xn-1 - (x - x1)s'1xn-2 + ... + (x - x1)(-1)n-1s'n-1 =xn - (x1+s'1)xn-1  + (x1s'1 + s'2)xn-2 - (x1s'2 + s'3)xn-3 + ... + (-1)n(x1s'n-1)(8)  combining step #5 and step #7 gives us:s1 = x1 + s'1so that:s'1 = s1 - x1s2 = x1s'1 + s'2so that:s'2 = s2 - x1s'1 = s2 - x1(s1 - x1) = s2 - x1s1 + x12and so on...(9)  since we can subtitute all values s'i in terms of x1 and s1, ..., sn, we can use the equation in step #3 to get:g(x1, ..., xn) = g'(x1, s'1, ..., s'n-1) = g'(x1, s1 - x1, s2 - s1x1 + x12, ... )qedreferencesjean-pierre tignol, galois' theory of algebraic equations, world scientific, 2001
+
+
+
+
+
+posted by
+
+
+
+
+larry freeman
+
+
+
+
+
+at
+
+
+
+9:29 pm
+
+
+
+
+
+no comments
+                                    :
+                                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email this
+
+
+
+
+blogthis!
+
+
+
+
+share to x
+
+
+
+
+share to facebook
+
+
+
+
+share to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+thursday, october 01, 2009
+
+
+
+
+
+
+
+
+
+
+
+nonzero polynomials with distinct parameters
+
+
+
+
+
+
+the following is taken from harold m. edwards in his book galois theory.theorem:let k be a field.let x1, x2, x3, ... be an infinite sequence of distinct elements of klet f(a,b,c,...) be a nonzero polynomial in n variables a,b,c,... with coefficients in kthen:it is possible to select values  a=xj, b = xk, c = xm for the variables a,b,c from the sequence  x1, x2, x3, ... so that f( xj, xk, xm, ...) ≠ 0proof:(1)  assume that f(x) is a nonzero polynomial of one variable with degree m.(2)  using the fundamental theorem of algebra (see theorem, here), we know that f(x) has at most m distinct roots.(3)  if we list off m+1 distinct elements of k from the infinite sequence, it is clear that at least one (let us say xr) will not be a root.(4) so that f(xr) ≠ 0(5)  assume that this is true up to n-1 variables for f(a,b,c...,y) so that we know that f(xi, xj, ..., xy) ≠ 0(6)  let g be a function of n variables so that we have g(a,b,c,...z)(7)  let h be a function on the first n-1 variables so that we have h(a,b,c,...y) = g(a,b,c,...,y,1)(8)  by assumption, we can find xi, xj, ... xy such that:h(xi, xj, ..., xy) ≠ 0(9)  but then g(xi, xj, ..., xy, 1) ≠ 0.qedreferencesharold m. edwards, galois theory, springer, 1984
+
+
+
+
+
+posted by
+
+
+
+
+larry freeman
+
+
+
+
+
+at
+
+
+
+2:00 am
+
+
+
+
+
+no comments
+                                    :
+                                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email this
+
+
+
+
+blogthis!
+
+
+
+
+share to x
+
+
+
+
+share to facebook
+
+
+
+
+share to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+products of nonzero polynomials
+
+
+
+
+
+
+the following is taken from harold m. edwards in his book galois theory.theorem:  the product of nonzero polynomials is a nonzero polynomialproof:(1)  this theorem is clearly true in the case of one nonzero polynomial.(2)  let's assume that it is true up to p-1.(3)  so that the product of p-1 nonzero polynomails is a nonzero polynomial g(x) of degree n so that we have:g(x) = a0xn + a1xn-1 + ... + an-1x + anwhere a0 is nonzero.(4)  let us assume that f(x) is a nonzero polynomial of degree m so that:f(x) = b0xm + b1xm-1 + ... + bm-1x + bmwhere b0 is nonzero(5) f(x)*g(x) is nonzero since:the only term with degree m+n is a0*b0 which cannot be 0.(6) so, by induction this proposition is true for all products.qedreferencesharold m. edwards, galois theory, springer, 1984
+
+
+
+
+
+posted by
+
+
+
+
+larry freeman
+
+
+
+
+
+at
+
+
+
+1:48 am
+
+
+
+
+
+no comments
+                                    :
+                                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email this
+
+
+
+
+blogthis!
+
+
+
+
+share to x
+
+
+
+
+share to facebook
+
+
+
+
+share to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tuesday, september 29, 2009
+
+
+
+
+
+
+
+
+
+
+
+the discriminant
+
+
+
+
+
+
+the content in today's blog is taken from jean-pierre tignol's galois' theory of algebraic equations.for a definition of symmetric polynomials, see definition 1, here.lemma 1:letthen:δ(x1, ..., xn)2 is a symmetric polynomialproof:(1)  let p = ∏ (xi - xj)(2)  if any xi = xj, then p = 0.  [that is, if there is a multiple root](3)  assume that there are no multiple roots.(4)  if we swap any two roots, then the result is either p or -p, then the result is to permute the ordering of each of the differences and to change the signs of some.(5)  ordering doesn't change the product so the only the change that occurs is the sign of the product.  that is, the result is p or -p depending upon which parameters get swapped.(6)  so it is clear that ∏ (xi - xj) is not symmetric.(7)  if we permutate the values of [∏ (xi - xj)]2, it is clear that the result is always p2 = p2 = (-p)2qedusing waring's method (see theorem 4, here), we know that  [∏ (xi - xj)]2 can be expressed as a function of the elementary symmetric polynomials (for review, see here) so that we have:definition 1:  the discriminant  δletthen the discriminant d is:d(s1, ..., sn) = δ(x1, ..., xn)2where s1, ..., sn are the elementary symmetric polynomials.example 1: discriminant of a generic polynomial of degree 2d(s1,s2) = s12 - 4s2first, we carry out the multiplication:δ(x1,x2)2 = (x1 - x2)2 = x12 + x22 - 2x1x2then, we show it as a function of the elementary symmetric polynomials:x12 + x22 - 2x1x2 = (x1 + x2)2 - 4x1x2=s12 - 4s2example 2: discriminant of a generic polynomial of degree 3d(s1,s2,s3) = s12s22 + 18s1s2s3 - 27s32 -4s13s3 - 4s23we note that:δ(x1,x2,x3) = (x1 - x2)(x1 - x3)(x2 - x3)we can simplify this by restating δ(x1,x2,x3) as:δ(x1,x2,x3) = a - bwhere:a = x12x2 + x22x3 + x32x1andb = x1x22 + x2x32 + x3x12so that:δ(x1,x2,x3)2 = (a - b)2 = a2 + b2 - 2ab = (a + b)2 - 4abnow, we note that a+b and ab are symmetric polynomials and using waring's method (see theorem 4, here), we have:a + b = ∑ x12x2 = s1s2 - 3s3ab = ∑ x14x2x3 + ∑ x13x23 + 3x12x22x32 = s13s3 + s23 - 6s1s2s3 + 9s32now, we can combine these results to get the discriminant:(a + b)2 - 4ab = ( s1s2 - 3s3)2 - 4( s13s3 + s23 - 6s1s2s3 + 9s32) ==  s12s22 + 18s1s2s3 - 27s32 -4s13s3 - 4s23example 3:  discriminant of x3 + px + qd(s1,s2,s3) = -27q2 - 4p3first, we note that the values of the elementary symmetric polynomials can be derived from the coefficients of a polynomial (see theorem 1, here) so that:s1 = 0s2 = ps3 = -qso that:s12s22 + 18s1s2s3 - 27s32 -4s13s3 - 4s23= 0 + 0 - 27(-q)2 - 0 - 4p3 = -27q2 - 4p3theorem 2:let p ∈ r[x] be a monic polynomial with real coefficients, which splits into a product of linear factors over c such that:p = (x - u1)*...*(x - un)for some u1, ..., un ∈ c.let d ∈ r be the discriminant of pthe equality d=0 holds if and only if p has a root of multiplicity at least 2 in cif all the roots of p are real, then d ≥ 0.  if n=2 or n=3 and not all the roots are real, then d ≤ 0.proof:(1)  d = ∏ (ui - uj)2 where 1 ≤ i is less than j ≤ n(2)  if p has a root of multiplicity at least 2, then d = 0 since we have a case where ui = uj(3)  if all the roots are real, then d ≥ 0 since any real number squared is greater or equal to 0 and product of nonnegative numbers is greater or equal to 0.(4)  assume n =2 (5) d = (u1 - u2)2  [see definition 1 above](6) if u1 is not real, then u2 = u1  [see theorem 5, here](7)  let u1 = a + bi(8)  let u2 = a - bi(9)  (u1 - u2)2 = (a + bi - [a - bi])2 = (2bi)2 = -4b2 = -abs(4*b2)(10)  so that d  ≤ 0.(11)  assume that n = 3 (12)  then, d = (u1 - u2)2(u1 - u3)2(u2 - u3)2(13) assume that not all three roots are real.  so, we can assume that u1 is not real.(14)  then, it follows that its conjugate is also a root.  so we can assume that u2 is not real and u1 = u2(15) we know that u3 is then real.  [see theorem 3, here](16)  so there exists real numbers a,b,c such that:u1 = a + biu2 = a - biu3 = cand we have:(u1 - u2)(u1-u3)(u2 - u3) = [a+bi - (a - bi)][a+bi - c][a-bi - c] = (2bi)([a-c]+bi)([a-c]-bi)now, we know that:([a - c] + bi)([a - c] - bi) = [a - c][a - c] - bi[a - c] + bi[a - c] - [bi][bi] =[a - c]2 + b2combining this with the above we get:(2bi)[(a - c)2 + b2] = i[(2b)(a - c)2 + 2b2]now, it is clear that (2b)(a - c)2 + 2b2 is a real number since a,b,c are real and we can set s = (2b)(a - c)2 + 2b2 where s is a real number.so d = (is)2 = -(s2) = -abs(s2)(17)  so, d ≤ 0.qedcorollary 2.1:x3 + px +q = 0has three distinct real solutions if and only if (p/3)3 + (q/2)2 is less than 0.proof:(1)  by exercise 3 above, the discriminant of x3 + px +q is d = -27q2 - 4p3we further note that:d = -27q2 - 4p3 = -2233[(p/3)3 + (q/2)2](2)  now if  (p/3)3 + (q/2)2 is less than 0, it follows that d ≥ 0.(3)  so, using theorem 2 above, we are done.qedreferencesjean-pierre tignol, galois' theory of algebraic equations, world scientific, 2001
+
+
+
+
+
+posted by
+
+
+
+
+larry freeman
+
+
+
+
+
+at
+
+
+
+10:22 pm
+
+
+
+
+
+no comments
+                                    :
+                                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email this
+
+
+
+
+blogthis!
+
+
+
+
+share to x
+
+
+
+
+share to facebook
+
+
+
+
+share to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+older posts
+
+
+
+home
+
+
+
+
+
+subscribe to:
+
+posts
+                                      (
+                                      atom
+                                      )
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+followers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+about me
+
+
+
+
+
+
+
+
+larry freeman
+
+
+
+
+view my complete profile
+
+
+
+
+
+
+
+
+blog archive
+
+
+
+
+
+
+
+
+                ▼ 
+              
+
+
+2009
+
+
+                (
+                32
+                )
+              
+
+
+
+
+                ▼ 
+              
+
+
+11/15 - 11/22
+
+
+                (
+                4
+                )
+              
+
+
+
+bertrand's postulate (theorem)
+
+
+
+
+primorial
+
+
+
+
+pascal's rule
+
+
+
+
+multiplicity of a prime factor
+
+
+
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+10/04 - 10/11
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+09/27 - 10/04
+
+
+                (
+                5
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+09/20 - 09/27
+
+
+                (
+                5
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+09/13 - 09/20
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+09/06 - 09/13
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+08/30 - 09/06
+
+
+                (
+                3
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+02/01 - 02/08
+
+
+                (
+                5
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+01/25 - 02/01
+
+
+                (
+                6
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+01/11 - 01/18
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+2008
+
+
+                (
+                11
+                )
+              
+
+
+
+
+
+                  ► 
+                
+
+
+
+10/19 - 10/26
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+02/24 - 03/02
+
+
+                (
+                3
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+01/27 - 02/03
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+01/20 - 01/27
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+01/06 - 01/13
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+2007
+
+
+                (
+                41
+                )
+              
+
+
+
+
+
+                  ► 
+                
+
+
+
+12/30 - 01/06
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+12/02 - 12/09
+
+
+                (
+                4
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+11/25 - 12/02
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+10/14 - 10/21
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+09/16 - 09/23
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+07/15 - 07/22
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+07/01 - 07/08
+
+
+                (
+                3
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+06/24 - 07/01
+
+
+                (
+                3
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+06/17 - 06/24
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+06/10 - 06/17
+
+
+                (
+                3
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+06/03 - 06/10
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+05/27 - 06/03
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+05/13 - 05/20
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+05/06 - 05/13
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+04/29 - 05/06
+
+
+                (
+                3
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+04/22 - 04/29
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+04/15 - 04/22
+
+
+                (
+                3
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+03/18 - 03/25
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+02/25 - 03/04
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+01/28 - 02/04
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+01/07 - 01/14
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+2006
+
+
+                (
+                75
+                )
+              
+
+
+
+
+
+                  ► 
+                
+
+
+
+12/31 - 01/07
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+11/05 - 11/12
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+10/29 - 11/05
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+10/22 - 10/29
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+09/24 - 10/01
+
+
+                (
+                5
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+09/17 - 09/24
+
+
+                (
+                4
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+09/10 - 09/17
+
+
+                (
+                8
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+09/03 - 09/10
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+08/27 - 09/03
+
+
+                (
+                4
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+08/13 - 08/20
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+07/16 - 07/23
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+06/18 - 06/25
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+06/04 - 06/11
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+05/28 - 06/04
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+05/21 - 05/28
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+05/14 - 05/21
+
+
+                (
+                4
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+05/07 - 05/14
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+04/30 - 05/07
+
+
+                (
+                3
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+04/23 - 04/30
+
+
+                (
+                3
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+04/16 - 04/23
+
+
+                (
+                5
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+04/09 - 04/16
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+04/02 - 04/09
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+03/26 - 04/02
+
+
+                (
+                3
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+03/19 - 03/26
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+03/12 - 03/19
+
+
+                (
+                5
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+03/05 - 03/12
+
+
+                (
+                6
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+02/19 - 02/26
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+02/05 - 02/12
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+01/08 - 01/15
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+01/01 - 01/08
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+2005
+
+
+                (
+                16
+                )
+              
+
+
+
+
+
+                  ► 
+                
+
+
+
+12/18 - 12/25
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+10/09 - 10/16
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+09/18 - 09/25
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+08/28 - 09/04
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+07/31 - 08/07
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+07/24 - 07/31
+
+
+                (
+                2
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+07/17 - 07/24
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+06/12 - 06/19
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+05/15 - 05/22
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+05/08 - 05/15
+
+
+                (
+                1
+                )
+              
+
+
+
+
+
+
+
+                  ► 
+                
+
+
+
+05/01 - 05/08
+
+
+                (
+                3
+                )
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+powered by blogger.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

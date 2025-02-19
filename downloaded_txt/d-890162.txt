@@ -1,0 +1,352 @@
+
+
+
+
+
+
+
+
+
+phroggy.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+warning
+
+a lockfile is stuck; please send me e-mail to let me know.
+
+
+
+
+
+
+welcome to phroggy.com
+
+
+
+
+you are visitor #808968.
+
+
+
+
+
+
+
+
+
+weblog archive
+
+about me
+
+about this site
+
+
+
+
+
+
+
+
+
+
+
+bannerfilter
+
+open source
+
+frogbot
+
+
+
+
+
+
+
+
+
+
+
+fish banner
+
+cannons and castles
+
+tic-tac-toe
+
+
+
+
+
+
+
+
+
+
+
+articles
+
+recipes
+
+files
+
+
+“in a world without walls or fences, who needs windows and
+gates?”
+- dino esposito
+
+
+
+
+
+
+
+
+new captcha for contact form
+sunday, february 15th, 2015
+
+in keeping with the theme of reinventing the wheel and writing
+everything from scratch on this site, i created my own captcha
+solution several years ago to prevent spambots from emailing me
+via the contact form on the home page.  it's fairly simple, but
+since it's completely unique to my site, i figured there's no way
+anybody would bother taking the time to write a bot just to
+solve my little custom captcha.
+it seemed to be working fine.  every once in awhile i'd get
+some spam, but i suspect the spammers were actually paying some
+poor schmuck to fill out the captcha form manually.  not a big
+deal - a captcha isn't going to stop a real person.
+but this week i started getting a series of test messages,
+identifying as “xrumertest”.  a quick google
+search reveals that xrumer is an advanced spambot capable
+of solving basic ai-based captchas such as mine.  these were
+clearly test messages, and not actually spam attempts, but they
+were clearly sent by a spambot which had solved my captcha.
+what interesting times we live in.  anyway, it recently came
+to my attention that google's re:captcha has gotten less
+obnoxious to use, and i've implemented the older version
+of it before without any trouble, so i've switchd to that.
+
+
+
+
+
+
+uploading files over http from perl
+saturday, march 3rd, 2012
+
+so it turns out that uploading files over http from a perl script using lwp isn't
+as obvious and straightforward as you might expect it to be.  this stuff should be
+plainly documented, and it's not.  all the examples i could find online for how to do
+it are about ten years old and each of them is slightly wrong, in various different
+ways!
+so first off, yes, the right way to do this is probably www::mechanize.
+but if you really want to use lwp::useragent and do things manually, here are the
+undocumented secrets:
+# you must specify the boundary explicitly here.  you can use whatever
+# unique string you like here, and it will do the right thing.
+my @headers=('content-type'=>'multipart/form-data; boundary=xyzzy');
+
+# notice that we're passing an arrayref, not a hashref,
+# even though the contents look like a hash.
+my $request=new http::request('post'=>$url,\@headers);
+
+# if you have other form fields you need to submit in addition
+# to the file you're uploading, here's how you attach them.  this is
+# equivalent to:
+# <input name="field1" value="value1">
+$request->add_part(new http::message([
+  'content-disposition'=>'form-data; name="field1"'
+],'value1'));
+
+# finally, to upload your file:
+$request->add_part(new http::message([
+  'content-disposition'=>'form-data; name="myfile"; filename="upload.csv"',
+  'content-type'=>'text/csv',
+],$filecontents));
+
+# finally, submit the query::
+my $response=$ua->request($request);
+obviously you should choose the right mime type for the type of file
+you're uploading, only use valid characters for the filename, and that
+sort of thing.  i actually haven't tested this with binary data; i assume
+it works but it's possible there may be some escaping required somewhere
+that i've skipped here.  please let me know if you notice something i've
+missed, but this is working for me!
+
+
+
+
+
+
+html 5 is now html
+thursday, january 20th, 2011
+
+whatwg says they're dropping the version number from html, and calling 
+the specification a “living document” that will continually 
+evolve without the need for specific version numbers (like “html 
+5”).  like everything else i've seen from whatwg, this new position 
+reflects reality pretty well, at least for now.
+critics are complaining that a standard should be a complete and 
+consistent target that implementers can aim for, and if there are no 
+version numbers, you can never be sure when you've achieved conformance 
+with the spec, and different browsers that implement different revisions 
+of the spec will be incompatible.  however, these people have an 
+idealistic view of how things should work - they have no idea how 
+things actually do work in this field.  no browser has ever been 
+100% compliant with one specific version of the html specification; 
+browsers implement whichever bits and pieces of the latest spec that they 
+like best (plus other bits and pieces they made up themselves).  thanks 
+largely to whatwg's work, this situation has rapidly improved over the 
+last several years, but it will be many more years before the web is 
+stable enough that trying to implement a particular version of html 
+actually becomes useful.
+meanwhile, w3c will still put version numbers on everything.  they 
+still cling to the fantasy that someday somebody somewhere will try to 
+implement a spec just because the w3c says they should.
+
+
+
+
+
+
+more...
+
+
+search:
+
+
+
+
+
+
+
+
+
+e-mail me
+
+
+you can send me e-mail at
+contact@phroggy_nospam.com
+or use this form:
+
+
+
+your name:
+
+
+
+your e-mail address:
+
+
+
+subject:
+
+
+
+message:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		this site has been rated
+		among the bottom 95%
+		of all web sites by
+
+		pointless communications ®
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+made with
+moof! in
+mind.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+© 2011 phroggy, all rights reserved.
+all models 18 years or older.  may cause drowsiness.  external use only.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,549 @@
+
+
+
+
+
+
+    
+      thinair · boulder, colorado. elevation 5400 feet.
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+thinair
+boulder, colorado. elevation 5400 feet.
+
+
+
+
+
+
+
+        insight and incidents
+      
+
+25 jun 2023
+
+  conventional thinking in the software industryâwhat we call our best practicesâsees incidents as an irritating interruption that slows progress against our roadmap. whatever the most recent failure is, we seek minimum viable fixes to prevent the failure from ever happening again. the range of solutions that can be considered are limited to whatever minimizes disruption to our existing plan. we add alerts, add dashboards, update a runbook, and maybe instrument our code with more logging or tracing. the often unspoken pressure to maintain velocity and get back to the planned work hangs over retrospectives confining what participants will even consider.
+
+
+  there are a few pockets of excellence adopting a different paradigm where incidents are seen as an opportunity to uncover some of the most important insights about our software and our business. incidents can fuel powerful innovation. of course we will continually improve the robustness of our systems as we learn new ways they can fail. and there is so much more.
+
+
+  software design aims to reshape, mold, and change reality. but reality pushes back against our designsâeverywhere our systems contact the world we find the world demanding changes to our designs. paying attention to these points of friction is a way to get a better fit between our code and the world we are trying to improve.
+
+
+  design and reality
+
+
+in design and reality: reframing the problem through design, mathias verraes and rebecca wirfs-brock
+[1] describe a moment of insight that resolved tensions in their software design and opened new opportunities. wirfs-brock was invited to consult for a company that makes hardware and software for oil rigs. early in her contract, a competitorâs oil rig exploded in the gulf, motivating their team to look closely at how their own software performed during incidents.
+
+
+  consider how unusual this is in the software business. the incident wasnât for their team. it wasnât even their company. yet wirfs-brock led her team to take their competitorâs misfortune as an opportunity to reflect carefully on their own system to see what there was to learn.
+
+
+  their initial model assumed alarms are directly connected to emergency conditions in the world. the softwareâs image of the world was distorted: when engineers turned off the alarm, the software assumed the emergency was over. but it was not. turning an alarm off doesnât change the emergency condition in the world. reflecting on an incident outside of their company, the team discovered a distinction between the alarm sounding, and the state of alertness. they adapted their model to decouple the emergency from the sounding of the alarm by introducing "alert conditions" in addition to "alerts".
+
+
+
+  there was a missing concept, and at first the team didnât know something was missing. it wasnât obvious at first, because there wasnât a name for âalert conditionâ in the domain language. the oil rig engineersâ job isnât designing software or creating a precise language, they just want to be able to respond to alarms and fix problems in peace. alert conditions didnât turn up in a specification document, or in any communication between the oil rig engineers. the concept was not used implicitly by the engineers or the software; no, the whole concept did not exist.
+
+â¦
+
+  these creative introductions of novel concepts into the model are rarely discussed in literature about modeling. software design books talk about turning concepts into types and data structures, but what if the concept isnât there yet? forming distinctions, not just abstractions, however, can help clarify a model. these distinctions create opportunities.
+
+
+
+  also noteworthy, it often isnât sufficient to discover a different way of thinking about the business problems. wirfs-brockâs team invested the time to improve the design of their software with something not previously on the roadmap.
+
+
+  generating insight
+
+
+
+  thereâs an enormous competitive advantage for making this paradigm shift to treat incidents as a source of insight and innovation. this idea comes from gary klein, a research psychologist famous for pioneering work in the field of naturalistic decision makingâhow experts make effective decisions under pressure
+  [2].
+  he shares three paths to generate insight: contradictions, connections, and creative desperation
+  [3].
+  incidents are a rich source for insights using all three paths.
+
+
+  what contradictions do we see?
+
+
+how does this process usually work?
+and what made it work differently this time?
+what surprised us?
+what were we expecting to happen and how did reality turn out differently?
+what aspects contributed to this failure that were originally added to prevent previous failures?
+    [4]
+
+
+
+  what connections can we find?
+
+
+do other people here see similar symptoms?
+how have others responded to similar situations?
+who had the expertise to mitigate and how did they know what to do?
+who was it that knew how to navigate the organization to find the right people?
+
+
+  what can we learn from creative desperation?
+
+
+when time was running out and limiting our options, what policies did we have to break?
+what assumptions did we drop in order to resolve this incident?
+should we change the rules now that weâve seen how they play out under real pressures?
+
+
+  most of the time we donât notice the partial degradation ever-present in our complex systems. we build in redundancy and keep everything running despite dark debt and known limitations
+  [5].
+we can predict a steady stream of incidents. it will take more time and effort to consider these questions than the more typical and more shallow interventions of estimating impact, measuring time to detect, adjusting alert thresholds, or adding to the runbook. but insights into your business may uncover opportunities you would otherwise miss.
+
+
+  thanks to will gallego, fred hebert, and vanessa huerta granda for valuable feedback on early drafts. this is a much more focused story than where i began.
+
+
+
+[1]
+  rebecca wirfs-brock was the lead author on two pioneering books on object-oriented design, designing object-oriented software, 1990, and object design: roles, responsibilities, and collaborations, 2003.
+  https://www.wirfs-brock.com/designbooks.html
+
+
+[2]
+  readers interested in more from klein can find much more in this curated list of resilience engineering papers:
+  https://github.com/lorin/resilience-engineering#gary-klein
+
+
+[3]
+  seeing what others donât, klein, 2015.
+
+
+[4]
+  see lorinâs law:
+  https://surfingcomplexity.blog/2017/06/24/a-conjecture-on-why-reliable-systems-fail/
+
+
+[5]
+  how complex systems fail, cook, 1998
+  https://how.complexsystems.fail/#5
+
+
+
+
+
+        resilience â  reliability?
+      
+
+07 may 2023
+resilience is human skills and human relationships. reliability is what we build into our software. there are four different concepts that get lumped into conversations about resilience and reliability. this post uses software engineering examples to clarify the four different meanings of resilience from dr. david woods paper: four concepts for resilience and the implications for the future of resilience engineering. reliability engineering and system safety 141 (2015) 5-9. pdf at researchgate.
+reboundâreturns to previous level of function
+there are many common examples of rebound. weâll name a few and trust your own experience to fill in with other examples. roll back a deploy. restore lost data from a backup. reboot a server. restart a container. truncate log files to free up disk space. follow the instructions in a runbook. basically, this is anything you do to put some sub-system more or less back the way it was.
+robustnessâcopes with predictable challenges
+robustness is what we build when we automate common rebound scenarios. monitoring and alerting are the most basic measures. we build one component to monitor another and call in the humans if some threshold is crossed. kubernetes comes with built-in behavior that kills containers that run out of memory and other behavior which restarts containers when they fail. common practice for databases includes having read-only replicas, hot-standby replicas, or automated failover. load balancers include built-in health-checks for the servers theyâre balancing and will adapt to send traffic only to the healthy servers. one of the most common reasons people want to move to the cloud is to enable autoscaling, where the systems can adapt to extra traffic by spinning up more containers and then spin down those extras when the surge in traffic subsides. more sophisticated examples of robustness include bulkheads, circuit breakers, and automated chaos experiments.
+the basic idea behind most of these interventions is that we build the system to adapt to failure modes we know can happen. that is also one of the key weaknesses of robustness measures. every automation that handles some known failure becomes something new that can fail in a surprising way. or the measures we put in place get tested by loads that exceed their response.
+graceful extensibilityâchanges performance to meet urgent new challenges
+when circumstances change in surprising ways, especially under pressure, we must change goals. every adaptive part of a complex system, at any scale you examine, needs ways to stretch and change under pressure. every part has limits. stuff happens that exceeds those limits. we gracefully extend under these pressures or we collapse in brittle failure. the best example we have of graceful extensibility in the software business is incident response. once we detect that some part of our system is getting overwhelmed or otherwise misbehaving, some group of us drop what weâre doing to prevent the problem from getting worse and to remediate.
+sustained adaptabilityâmaintains ability to adapt to new surprises
+this is woodsâ most demanding concept of resilience. all systems reach their own previously known limits. this happens almost continuously. people in the systems continually stretch the systems to adapt to new circumstances. successful components in the system induce demand that exceeds their original design. it is completely predictable that something will fail under the changing conditions. the specifics of what will fail and when is less predictable.
+there are always multiple, competing trade-offs at work in successful systems. sustained adaptability calls on us to identify the trade-offs and monitor how we balance and prioritize among them to protect our capacity to continuously adapt the system.
+we have a few examples that address sustained adaptability. many teams are adopting operational review meetings which is an excellent practice to help monitor how the ecosystem around them is changing and how their services are responding to the relentless change. creating a learning from incidents team to conduct cognitive interviews, facilitate learning reviews, and generally help other teams broaden and deepen what we learn when circumstances overwhelm our sub-systems.
+we need both resilience and reliability
+improving reliability calls for building robustness wherever it makes sense balanced with customer facing product features. improving resilience calls for practicing and extending our skills, describing and sharing our expertise and experience, and prioritizing our work differently. resilience is about us humans. improving it looks more like the school of hard knocks, mentoring, apprenticeship, or learning and development.
+
+
+
+
+        who do i think i am?
+      
+
+09 jan 2023
+
+  husband, dad, friend, brother, son, uncle, cousin; programmer, martial artist, teacher, downhill skier, and thinker. i used to write and publish a lot of prose here back when i was a lot more sure the world needed to hear what i was thinking. i write a fair bit of code: github.com/dobbs. i sometimes microblog: rls.social/@dobbs. i used to tweet: @dobbs. in the early 2000s, i contributed to the turbine project at the apache software foundation: committers.
+
+my career has turned towards learning from incidents in complex software systems.
+i am a systems adventurer and a resilience engineer.
+i am one of the federated wiki core contributors. i study ward cunningham's practices like i study aikido shihan. i watch closely how they work and then copy what i can see to gradually build skills of my own. i have, among other things, created several wiki plugins, experimented widely with ways of hosting wiki servers, and used wiki pages as a database for a single-page javascript applications. i started the graphviz plugin and then collaborated with ward as he added a small programming language to it. i created the frame plugin and especilly the protocol that lets html scripts and wiki pages communicate. i added html5 to the video plugin. i got calendar plugin to share values with method plugin. my main wiki is hosted in digital ocean via docker compose: github. i used to run a wiki on my laptop using kubernetes: github. i extended nick neimier's work to get wiki running in glitch: wiki-wiki.glitch.me. i also have a few wikis running in github pages: wander.dbbs.co.
+
+eric dobbs can also introduce himself in the third person, in case you need that.
+eric dobbs is a principal incident analyst. a self-taught programmer, he's been writing code recreationally for over four decades and professionally for three. he has also practiced aikido for over three decades and taught for two of those. his career has meandered through education, consultancies, government, non-profit, and businesses from startup size to internet scale. he started deliberately practicing learning from incidents in 2018 as part of the snafucatchers consortium. he holds a bachelor's degree in environmental design from the university of colorado and a fourth-degree black belt from boulder aikikai.
+
+
+
+
+        hidden risks of counting 9s
+      
+
+12 oct 2022
+an experience report from measuring uptime. many software people believe measuring uptime to be a useful tool to support or assess improvement in software reliability. my experience is different.
+i joined a team at an internet scale company whose job was to manage an incident chat bot and related incident database. the main job of the database was to track uptime for teams and products. itâs the best calculator of uptime iâve seen through my career and better than most iâve heard of from other engineers. it is the kind of tool most software companies think they want.
+but iâm telling you this story in the month of october as a horror story and a cautionary tale. the clichã© summary: be careful what you wish for. the conclusion up front:
+
+measuring uptime is deceptively expensive and inaccurate
+reporting lapses in uptime leads to counterproductive behavior
+using lapses in uptime to trigger mechanical consequences destroys morale
+
+the calculator
+the chat botâs main job was to support incident response. it had a bunch of features. but for this story weâll focus on how it helped with calculating uptimes. the bot would record the start time and end time of any incident along with any time severity changed over the duration of the incident.
+after an incident, teams were expected to estimate the customer impact for each of the major products and for each of the severity timespans over the duration of the incident.
+one of the expected outcomes from an incident retro was to identify which team owned the impact for the incident.
+from this data, we would generate reports of uptime expressed as number of nines, adjusted by the percentage of customer impact. so 99.5, 99.7, 99.8, whatever was happening for a specific group.
+these were broken down by both team and product and grouped over the past three months, alongside the past 30 day rolling window. the cells were colored green, yellow, or red according to team-specific or product-specific objectives for uptime. reports were delivered in a weekly email to pretty well everybody in the engineering organization.
+context
+these tools were built alongside a deep investment in nurturing a world-class incident response culture. for example, a self-guided training module was required as part of onboarding every engineer to teach them how to use the chat bot, how to run an incident, and how to know when to escalate. there were a lot of beneficial returns on the investment of developing that kind of culture. it is tracking uptime that i hope to discourage.
+deceptively expensive
+these tools had been under development by a team of about four engineers for four years at the time i joined the company. this level of investment doesnât seem particularly outlandish. at the time i joined the company there were about 500 developersâa back-of-the-envelope estimate of 1% of engineering effort is maybe even inexpensive.
+one hidden expense was that the longer incidents created more expensive data collection and data entry. they included ups and downs in severity; symptoms would cascade from one product area to another. where those cascades started or ended were hard to identify and didnât correlate cleanly with the changes in severity. each change in severity and cascade of impact would surface ambiguous boundaries for estimating impact. the more complex incidents involved many teams and many products. this further multiplied the ambiguity, difficulty, and costs of estimating impact.
+another unexpected outcome grew out of the ownership of incidents. ownership was meant as a kind of accountability. but many retros would fixate on âwho owned the impact?â or reassessing the impact instead of surfacing the things that would actually improve our incident response and service to customers: discovering mechanisms of failure, communication breakdowns, or places where the existing architecture wasn't keeping up with the customer growth.
+probably the most popular feature request that we got on the team was to allow incidents to share ownership between the teams involved. this was also the hardest thing for us to implement: it would have required a significant amount of change in the database schema and related calculations, and would have doubled (or more) the complexity of an already difficult and costly ux.
+best of intentions
+so time passed. we had a pretty rough couple of months over one august and september. it was in october (oh hey! an anniversary!) when leadership implemented a new policy: a kind of targeted code freeze. if teams entered the red, they were expected to stop feature development, and develop a plan that focused on reliability engineering. the plan had to be signed off by their vp and would include specific exit criteria that would enable them to resume work on their existing roadmap.
+as teams encountered the new policy, it became universally hated. this memory is particularly acute for me because not long after the venom started flowing, i wrote an impassioned defense of the new process. teams have an accumulation of technical debt. we know there are areas that get neglected. and the purpose of the policy was to create organizational cover, to buy time for teams to be able to invest in cleaning up some of that neglect.
+what i learned in the ensuing backlash from my blog post is that leadership were not universally aligned on the new policy. in some parts of the company the pressure to keep to our roadmaps was higher than the pressure to preserve reliability. it seemed few leaders were adjusting their schedule when they entered the code freeze. many kept to their expected deadlines. a few former colleagues remember it this way:
+one thing that i witnessed during this time frame was managers wrangling with each other over who would âownâ the incident and be forced into [the code freeze]. rather than doing what was best globally, they were both trying to optimize locally for their team. and, it led to misleading ownership that was assigned not for good reason, but so that managers could save their own slas and push things on to other teams who hadnât used up their budgets yet. so, in essence, the game became âhow to not be forced into [code freeze]â rather than âhow to most effectively fix our overall system.â
+for these teams, the result was perhaps the worst of policy outcomes. teams already most exhausted from recent incidents were now getting double the demands of their time. instead of us creating cover, the policy was doubling the workload on the teams already collapsed from overload.
+i should add that other former colleagues remember some mixed or positive outcomes from the policyânot uniformly terrible.
+i remember feeling pretty defensive (which is, like, the least useful emotion to have ever) and yes, it became more about âgetting my team out of [code freeze]â in addition to fixing the underlying problems. because it felt like the focus was more on âhere are the hoops the team needs to jump through to get out of [code freeze]â rather than (but, to be fair, in addition to) âhereâs how we get better as a companyâ. we ... really didnât need that split focus, imo. we didnât need hoops to jump through, or âreliability training wheelsâ. we had enough engineering excellence gravity that was already pulling us toward doing the right thing. [code freeze] was just noise on our end. needless friction.
+while preparing this report, i got feedback from one of the former vps who put a ton of their own time into ensuring incident data was filled out thoroughly despite having very good automation around collecting that data.
+iâll reiterate: it was deceptively expensive to get good data into the system. teams who were already displaying internal motivation to balance their reliability engineering with feature development were the ones making the extra effort to provide better data. but as cited in the earlier quote, they were also the teams who were least in need of âreliability training wheels.â
+i further learned that the report itself had a subtle effect of shaming teams by publicly drawing attention to their team in red. this had the effect of suppressing the reported severity of incidents. low severity incidents could skip the extra data entry and accounting visibility.
+these features had the combined effect of converting the reliability work into a kind of punishment.
+but thereâs more. as i looked more closely at the data that was in our database relative to the incidents that i witnessed, i recognized that every piece of data we had was being negotiated during the incidents.
+they werenât crisp measurable points. they were all judgment calls. every one of them.
+whatâs more, there were existing company processes related to customer root cause analysis documents our team was involved in that further negotiated the customer impact reported to customers. when a customer would demand a report, say after a bad month, our job was to identify the incidents over the span of that report that would have affected the customer based on what we had, which products were affected, and which products that customer was paying for.
+so a great deal of effort was spent on our part to clean the data and double-check with teams who had maybe not finished their data entry on the customer impact to ensure that that customerâs impact based on the incidents over the period was focused on only those things that could have affected them.
+and i donât want to suggest that the work we were doing for the rcas was in any way deceptive. i think it was appropriate. but what i do want to make clear is that it was very expensive.
+only my teammates and i could actually see how much it was costing the company to collect the data. it was spread thinly across every single team, hidden in ordinary day-to-day work. the resulting numbers were based on judgment calls. for the many teams where roadmaps and schedules remained even under the code-freeze, all these very expensive-to-collect numbers failed to reduce technical debt or otherwise improve reliability.
+the costs to morale across the company were substantial. and all of it further undermined the quality of what the company learned from incidents because so many were too busy fighting over who owned the impact.
+
+
+
+
+        emotion. reason. riot. revolution.
+      
+
+07 may 2015
+consider the optic nerve and the optic tract.
+
+
+
+
+      original image is from: biology-forums.com gallery
+
+
+
+light strikes the retina and signals fire along the optic nerves, through the optic chasm, through the optic tracts and into the left and right thalamus on route to the visual cortex at the back of our brain.  before the signals reach the visual cortex, they must first pass through the limbic sections of the brain, that is, the emotional center.
+by the time our brain has started to gather the shape and color and symmetry of whatever we see, long before we have words for what our eyes have met, we already have an emotional reaction.  the language cortex and prefrontal cortex are almost literally the last to find out what's going on.
+riot or revolution?
+when we see violence in the street, the word that appears in our mind reveals our emotional position to that violence.  if we see a "riot", our heart is with the establishment.  if we see a "revolution", our heart is with the protestors.
+the same general principle applies for all of our senses.  we are emotional creatures first and only occasionally have fits of reason.  there really is no such thing as "being reasonable."  we rationalize our emotional state, but we are not actually rational.
+
+
+
+
+        base eleven ï day
+      
+
+16 mar 2015
+π in base eleven: 3.16150702865a4
+today's date, numerically encoded according to us conventions: 3/16/15
+the time this article posted (mounatin daylight time): 07:02
+woo hoo!  π day all over again.
+if you casually ignore the first two digits of the year of our lord.  and ignore that i actually faked the publication date and time.  and ignore that the year of our lord is at best an approximation.  and ignore that there is no 0 between 1bc and 1ad on the number line of our lord.  and if you ignore that at least 2/3rds of the world disagrees about the "our lord" part.  in general you kinda have to overlook that everything about this exciting temporal milestone is layer upon layer of arbitrary human convention.
+i mean, except for the ratio of a circle's circumference to its diameter and the corresponding conversion from a base ten representation of that ratio to the base eleven representation.
+but by all means, don't let any of that stop you from celebrating this momentous occasion with a slice of pie.
+π in base twelve: 3.184809493b918
+π in base fifteen: 3.21cd1dc46c2b7
+π in base sixteen: 3.243f6a8885a3
+i'm actually more excited about τ in base eight day: 6.2207732504205.  if you arbitrarily chose a point close to the international date line, you could almost celebrate that day on the solstice.  tau day.
+
+
+
+
+        microagression waiting for the bus
+      
+
+19 dec 2014
+
+i rushed out to catch the bus for fear of missing it.  there was only
+one other person waiting.  i needn't have worried.  there's a whole
+story in there about unnecessary fear.  but that's not today's story.
+
+
+i recognized the woman waiting at the bus stop.  i've seen her fairly
+often on the bus.  our schedules are similar.
+
+
+she's beautiful.
+
+
+we're waiting together for the bus.  just the two of us.  it's dark
+out.  she's looking at her phone.
+
+
+i take out my phone too.  i put my phone away.  feels awkward.
+
+
+then i see a couple men walking along the sidewalk in our direction.
+the one looks her up and down.
+
+
+and then.  as he's passing us.
+
+
+his.  head.
+
+
+        follows her.
+
+
+his.  eyes.  locked.  on.  her.  face.
+
+
+too agressive.  i thought.  the moment passed with them as they
+proceeded along, yet her gaze seemed to follow him.
+
+
+or she might have been looking down the street to see if the bus was
+coming.
+
+
+that felt creepy.
+
+
+i should ask her if that was creepy to break the tension.
+
+
+i thought.
+
+
+that's what micro-aggression looks like, right?  would it help if i
+said something?
+
+
+i thought.
+
+
+what if he'd actually stopped walking to talk to her?  i think the
+unspoken social contract calls for me to intervene.  nevermind social
+contract, my gut was already preparing to step in if things escalated.
+
+
+  "move along," i imagined saying to him.
+
+
+  "what?  is she your girlfriend?"  he asked knowing the answer.
+
+
+i imagined her awkward body language at me picking a fight with a
+stranger to protect her from the escallating microagression.  was that
+fear that things would get out of hand?  or was it relief to not be
+standing alone at the bus stop?
+
+
+i should ask her if that was creepy to break the tension.
+
+
+this time she was a skilled martial artist.  her body language was
+angry at me for assuming she needed my protection.
+
+
+i should ask her if that was creepy to break the tension.
+
+
+i thought.
+
+
+but how is my impulse to talk to her any different than his stare?
+would that break the tension or just pile on?  am i just looking for
+an excuse to talk to a beautiful woman?  am i competing for her favor?
+
+
+i thought.
+
+
+this time things escalate.  he's armed with a knife.  i wake up
+briefly in the emergency room.  images of my young children playing at
+home, then interrupted by the sound in my wife's voice as she gets the
+call.  the joy on their faces melts to puzzled, worried looks as i
+fade to black.
+
+
+i thought.
+
+
+this time i'm waiting at the bus stop with a man.  the gut check is
+completely different.  he's got this.  it would be insulting to step
+in.  none of my business, anyway.
+
+
+i thought.
+
+
+this time i know she's transgender.  this is an unexpected variation.
+she's beautiful.  did he know her before the operation?  there's no
+hello nor even a nod nor raised eyebrow.  still my gut steps in to
+defend.  "move along."
+
+
+i thought.
+
+
+this time she's ugly.  how does this one plays out?  does he even
+pause in his step?  was it about her beauty?  or was it the sense of
+power?  as he gets further away i notice a subtle weave in his path.
+it's dark, but way too early to already be drunk.  was this stare the
+best he can do for a power trip?  an angry reaction to being out on a
+friday night with a friend instead of a date.  if he does stare and
+then stop, does my gut step in?  or am i only interested in competing
+for the favor of a beautiful woman?
+
+
+why am i still thinking about this?  i thought.
+
+
+unnecessary.
+
+
+should i ask her if that was creepy?
+
+
+fear.
+
+
+was she creeped out by standing alone in the dark at the bus stop with
+me?  i was watching him, not her.  could her face have been pleading
+to him for protection from me?
+
+
+
+
+
+        heraclitus, lau tzu, gautama buddha, and pink floyd
+      
+
+04 feb 2014
+
+
+
+time itself is an infinite scroll.
+
+past
+you are here wish you were here
+future
+
+
+
+
+
+        help me visualize the invisible in design
+      
+
+18 dec 2012
+
+hey design friends:
+
+
+what images do you think of when i ask you about the invisible part of design... the lines and shapes and proportions that make your design hang together in a coherent way?
+
+
+i'm writing an article to teach computer geeks about design and to explain why css sucks as a language for designers.  i need some visual support to explain the invisible.  words aren't going cut it.  although beautiful images about typeface design would work nicely. :-)
+
+
+i've got a few examples here: two from architecture, one a study for a figure drawing.  these are in the right direction, but i'd lovee images from many other design disciplines.
+
+
+
+
+
+
+
+
+
+
+
+
+        cultural bias, html, css, and conway's law
+      
+
+17 dec 2012
+
+overheard:  "i'm just a web designer.  i don't program or anything."
+
+
+here a web designer adopts the cultural bias which values programming above design.  but the bias cuts both ways.  designers are not to be trusted with code and coders are not to be trusted with design.
+
+
+html and css are unfortunate consequences of this bias.  in the ideal world, html can be purely semantic and the look-and-feel can be done completely with the css.  except that world doesn't really exist and html gets littered with extra <divs> to prop up the design needs.  and css gets littered with duplication of paddings and margins (at the very least) to adjust and control the positions of elements on the page.
+
+
+and so we have grown templating languages on the server side to try to manage the deficiencies in html and css in various ways.  the menagerie of html templating languages is beyond imagination.  for css we now have sass and less and scss:  basically templating languages for css.
+
+
+what the server-side languages have in common is introducing turing completeness for languages that are not themselves turing complete. when one language doesn't do what you want, invent another language which can be compiled into the lesser language.  this is how c begat c++ begat java and c# which... never mind, i've gone too far already.
+
+
+you can see conway's law at work here.  the programmers and designers are on separate teams and speak different languages.  so architectural interfaces are created between the teams.  code goes on this side.  design goes on that side.  over time the architectural boundary between the teams accumulates a lot of kludge on either side to accommodate the inability for the teams to really communicate.  and that boundary becomes a point of friction that slows down development and growth.
+
+
+css is especially unfortunate.  it is intended for design and it completely misses the mark right from the outset.  seriously.  the heart of css from a design point of view is the box model. let me say that again just so you really get the complete and painful irony.  the language designed for designers jams all web design into a box model.  designers by nature want to think non-linearly and outside-the-box and the language they've been given confines them to a hierarchical tree of boxes.  seriously.  so it's hobbled as a programming language and it's a cruel form of torture as a design language.
+
+
+
+
+archives2001
+2002
+2003
+2004
+2005
+2006
+2007
+2008
+2009
+2010
+2011
+2012
+2014
+2015
+2022
+2023
+
+
+
+
+          © 2023. all rights reserved.
+        
+
+
+
+

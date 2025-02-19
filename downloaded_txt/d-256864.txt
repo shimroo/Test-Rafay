@@ -1,0 +1,536 @@
+
+
+
+ transbay.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+click on the bold titles.
+
+
+home
+
+
+
+
+
+internet services
+web and mail
+
+
+
+setup information
+setup for mail services.
+
+
+
+history and mission
+
+
+
+contact
+ask questions, get pricing, submit trouble reports.
+
+
+
+online payment
+pay bill via credit card
+
+
+
+transbay webmail
+in a new window
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ahead of the crowduc telecommunications company is
+
+
+first to offer centrex isdn in the bay area (1996)
+first internet café west of the appalachians (1996)
+first to operate commercial dsl west of the rockies (1997)
+first to advertise wireless internet in the bay area (1998)
+first to offer 5mbps (2000) and 45mbps (2003) wireless internet!
+first to write a business plan to offer ten gigabit service in the bay area (2010)
+never found funding to do it! (and that's why you can't get 10gbps. sorry!)
+first to offer gigabit service in oakland (2011)
+
+
+ 
+
+
+
+
+
+
+
+home
+contact us
+isp services
+setup
+history and mission
+
+
+
+
+© 2011-2019, 22nd century artisans, oakland, california. all rights reserved.
+"fiber neighborhood" is a service mark, property of 22nd century artisans.
+view of bay area from grizzly peak
+by steven rosen,
+used with permission.
+eric dynamic.  phone: 734.709.0200. site last updated july 2021.
+
+
+
+
+
+
+
+
+ahead of the crowduc telecommunications company is
+
+
+first to offer centrex isdn in the bay area (1996)
+first internet café west of the appalachians (1996)
+first to operate commercial dsl west of the rockies (1997)
+first to advertise wireless internet in the bay area (1998)
+first to offer 5mbps (2000) and 45mbps (2003) wireless internet!
+first to write a business plan to offer ten gigabit service in the bay area (2010)
+never found funding to do it! (and that's why you can't get 10gbps. sorry!)
+first to offer gigabit service in oakland (2011)
+
+
+
+
+
+
+
+u.c. computers
+uc computers was one of the best-known local computer stores in the bay area in the early '90s.
+we built computers for nasa, the uc university system and state colleges, and for local school districts.
+since we moved to oakland, we no longer have a storefront, but we still build and service
+computers for businesses and for our existing residential clients. if you're looking for anything
+specialized - small form factor, specific hardware or what have you, give us a call at 510.316.5722.
+
+
+
+
+
+
+contact form
+
+
+
+passcode:
+  (previously provided for your specific use of this tool.)
+
+email address:
+ 
+
+subject:
+
+
+message:
+
+
+
+
+
+
+
+
+
+
+
+
+user email setup and tools
+default setup
+
+if your username is 'username' then your "inbox", also known as your "spool file", is /var/mail/username.
+you can edit this file directly if you like, so you can perform surgery on it (at your own risk!)
+the inbox is currently limited to 500,000,000 bytes (500 mb) and you have to watch it, for now.
+if your inbox overflows, additional mail cannot be delivered.
+a directory "mail" was created in your home directory. this is where you would create a folder system to contain your email.
+for historical reasons, the folders sent, trash and drafts appear in your home directory by default. since you designate in your
+mailing program where these files live, you can move them into the "mail" subdirectory as well as long as you tell your mail program.
+email is fetched with either the pop protocol or the imap protocol. pop is deprecated but still supported. only imap allows email
+to be stored in named accessible folders.
+
+a directory "admin" was created in your home directory. this is where 'the system' (specifically, procmail) will write an email audit log file
+(procmail.log.) the contents of the admin directory are readable only by you.
+the file named '.forward' in your home directory tells the mail system where to forward email. currently most users' .forward files
+feed the email through procmail; this is from the sendmail days. that mechanism is probably no longer needed, since procmail will
+process the user's .procmailrc since postfix knows it's using procmail, whereas when formerly using sendmail, sendmail couldn't know.
+in any case, .forward allows you to forward a copy of any email to multiple destinations. in .forward, either separated by commas or
+newlines, enter each destination. to specify your own mailbox (!) which you must do if you specified any other destination, use "\username"
+(username being yours.)
+
+by this means you can forward a copy of your inbound email to gmail or other place. in general, if you get a lot of spam, please don't
+forward email to gmail.
+
+email going to your inbox is processed by procmail according to the directions specified in the file .procmailrc in your home directory.
+procmail is a swiss-army knife of mail-handling operations and can't be documented here; see wikipedia, or "man procmail" on the system.
+
+most users are using the system default .procmailrc, which invokes spamassassin and bogofilter.
+email violating spamassassin or bogofilter, or the in-house antispam filter, is put into a file (folder) name suspect in your "mail" directory..
+this enables inspecting the rejected mail on the off-chance something you wanted got tossed. you should periodically empty the suspect file.
+
+
+tools
+
+the central tool is procmail.
+"fetchmail" is available.
+"tmda" will be made available.
+the in-house command "sdpass" returns a code indicating if the in-house spam filter would fail the mail or finds a whitelisted user or domain.
+to use it in procmail add this recipe (if control falls through, the email was whitelisted or not blacklisted.:
+     :0fw
+     | /usr/local/bin/sdpass
+
+in-house command "mkquickfix" writes a procmail recipe file derived from scanning the user's admin/procmail.log file. the recipe accepts email
+from any sender seen more than once and blocks everyone else. you should only use this when your log file is large enough (has enough history)
+to fairly identify your correspondents. once created, you must add new known correspondents to it before their email will be accepted, so using
+this tool "freezes" your known contacts as of the time you use it. (documentation to be completed.)
+i need to write a cron tool that will send you an email when your inbox is filling up.
+i have written a tool that will move email from one folder into another based on date (year/month.) i have to rewrite it for user use. it's a
+quick and handly tool for dealing with too-large inboxes manually (as opposed to using an email program to do it.)
+to be continued ...
+
+in-house antispam filter
+the in-house filter was originally written as a "milter" for sendmail.
+thankfully, postfix supports it. the directory /etc/mailfilter contains (mostly) user-readable data such that
+you can examine the table-driven rules the filter uses.
+a few files contain private data.
+the in-house filter does a lot of things. it checks spf and it also consults rbl (public blocklist) tables.
+it screens headers for references to known-bad and known-good domain names.
+it catches patterns like "from (google/yahoo) reply-to (somewhere else)", which are discarded.
+you can request to be a bypass user, in which case you'll get email the filter would otherwise discard (except dnsbl and spf errors.)
+otherwise, faulted email is discarded.
+the filter does so much it needs its own ... (documentation to be completed.) in particular, it was written anticipating user-interactive
+control via a web interface, and i would like to finish writing that aspect of it.
+
+
+email handling
+back to general setup
+
+
+
+
+
+
+
+
+mail handling on transbay.net
+
+in general, if you've not received an email you think you should have, let me know.
+if mail to or from a particular domain or network has any issues, let me know.
+
+firewall
+
+the firewall does not discriminate who is trying to get in to send email, only from where, and i block a lot of places.
+if you're curious whether i block a specific place, ask me.
+the system cannot log anything about an email that violates the firewall, only that a mail transfer attempt was made from an address and refused.
+a firewall block will cause a "failure to connect" bounce message to the sender, and only many hours, even days, after sending.
+
+ask your correspondents to let you know if they encounter this behavior with your email.
+
+domain name blocking
+
+i block a lot of domains, both country domains like .tk and vanity domains like .accountant.
+
+if you know you have a correspondent in one of those domains, let me know.
+
+mail server and nonstandard handling
+
+the mailer does not bounce failed mail, it discards it. postfix bounces 'unknown user',
+but email rejected by the in-house antispam filter discards it.
+most email is spam and most spam will generate bounce messages that nobody will read,
+ and that is too much more junk email on the internet and too much work for the server, for nothing.
+that means that the sender will not get an email saying their email to you bounced if for some reason the system rejects it.
+the sender does not know that the mail bounced,
+ so have people tell you if you didn't respond to an email when you would have - 'you never replied.')
+
+
+ the old motd:
+ i block email from most of the new vanity top-level domains such as .website ad nauseum.
+ i also block many country tlds: com.ar com.br cn eu in io kz me tk rs ru sr su ro and possibly others.
+ if you need bypasses for correspondents in these domains (vanity/country), let me know.
+ note: china india russia, so be aware!
+
+user email setup and tools
+back to general setup
+
+
+
+
+
+
+general setup information
+
+account names are always in all lower-case. both account names and passwords are case-sensitive.
+email addresses (username@transbay.net) are not case-sensitive, so username@transbay.net and username@transbay.net are the same address.
+
+mail servers
+if your user id is "username", then your email address is "username@transbay.net".
+our servers:
+
+smtp server (outbound mail): mail.transbay.net
+pop3 server (mail retrieval): mail.transbay.net
+imap server (mail retrieval): mail.transbay.net
+
+smtp (sending mail):
+(1) use port 587 instead of port 25;
+(2) connection security: starttls
+(3) authentication method:
+   old (current) system: encrypted password;
+   new system: normal password.
+provide your username where indicated.
+if your program can't do tls (and so far outlook cannot) then you will not be able to use encryption.
+imap, pop (receiving mail):
+for now, on both old and new servers,
+use port 143 (imap) or 110 (pop), connection security none, and auth method "password, transmitted insecurely".
+secure ports 993 (imap) and 995 (pop) may work if you specify connection security starttls, but the system may refuse.
+sending the password insecurely is fine if starttls is used, since the entire session is encrypted.
+squirrelmail (web mail):
+on the old server, squirrelmail's list of subscribed folders matched the contents of your ".mailboxlist" file,
+which thunderbird also uses. on the new server, the list of subscriptions is maintained in the file
+~username/mail/.subscriptions.if squirrelmail comes up on first use not reflecting your old subscriptions,
+you should be able to fix this by issuing "cat ~/.mailboxlist >> ~/mail/.subscriptions" and refreshing
+squirrelmail. the old server ran "uw-imap" and "qpopper", while the new server is using "dovecot".
+
+email handling is discussed more fully here.
+user email setup and tools are discussed here.
+
+dns (domain name service) server
+primary dns: 216.137.177.214 (dns1.transbay.net)
+secondary dns: 216.137.177.214 (dns2.transbay.net) ... it is the same for now.
+acceptable use policy
+we believe in free speech and in the broadest possible interpretation of the first amendment.
+we do not police user web pages, email or postings to the usenet.
+however, users are expected to comply with all applicable local, state and federal laws, and to observe at least a minimum of decorum.
+do not harass or spam from transbay.net or from a colocated or remote networked server.
+we are responsive to outside complaints of harassment or abuse by users of our services.
+we reserve the right to intervene immediately and without notice in cases of suspected abuse.
+we reserve the right to refuse service to anyone, to suspend service until a dispute or situation is resolved to our satisfaction,
+and to revoke service if we feel it necessary.
+you agree not to allow anyone besides yourself to use your account without consulting with us in advance and obtaining our approval;
+the only exception is usage by immediate family members.
+parents are expected to supervise their child's use of the service whenever there might be any concern for abuse of the child or by the child.
+we are not liable for the consequences of content accessed on the internet. your discretion is presumed.
+to report abuse, spam mail, etc., report the incident or forward the spam (including headers) to abuse@transbay.net.
+we do not permit our facilities to be used to perform unsolicited mass mailings (spam), commercial or otherwise.
+we do not permit users of our facilities to use spam to advertise their services hosted on our network.
+we reserve the right to block any and all internet traffic which in our opinion has the potential to materially interfere with our business,
+damage our reputation, or interfere with other services on the internet or the operation of our internet access.
+
+
+
+
+
+
+
+online payment
+sorry for the sparsity here, all there is for now is a paypal "pay" button,
+where you can pay the amount you specify. you don't need a paypal account to use the link.
+
+
+
+
+
+
+
+
+
+
+
+
+internet services and prices
+server services
+shell account.
+
+the shell account provides a unix login on our system and provides space for a personal web page.
+you have access to all the various development tools that people expect to find on a unix system -
+java, php, perl, python, c and c++ compiler, image processing libraries and tools, etc.
+provides an email address that supports pop and imap.
+
+mail services for a domain.
+
+includes 10 email addresses needing an account on our server. addresses that forward mail to another server are free.
+additional local accounts are available. a single mailing list is available at no charge.
+
+web services for a domain:
+
+we offer bulk rates for multiple domains and extended periods.
+for each domain, gives you http://www.yourdomainname.com, includes virtual mail services (described above) and 1gb disk space, or more as arranged.
+we run the apache webserver, with support for cgi, perl, php, mysql, and jsp if desired.
+
+domain services:
+
+if you wish to own your own virtual domain, it must first be registered with an internic recognized domain registrar,
+http://www.internic.net/regist.html. we are a reseller for
+opensrs (tucows) and can register domains and provide secure certificates for domains and other uses.
+it will be your responsibility to keep your domain name current with your registrar if we aren't the registrar.
+we configure your dns records as desired.
+
+
+
+
+
+
+
+
+the history and mission of uc telecommunications company
+a quick biography of uc telecommunications company
+
+
+
+
+
+
+u.c. computers, inc., a well-known berkeley computer hardware and software store on telegraph avenue,
+began offering dialup internet service direct to the public in early 1996,
+and by mid-1996 was the first isp in the bay area to offer anything faster than dialup -- centrex isdn.
+the store became the first internet café, either in the us or at least west of the rockies,
+and was always the only internet café with t3 (45mbps) access to the internet. (the only thing
+missing was the coffee ... you actually got that from next door.)
+
+
+
+
+
+in june 1997, u.c. computers had established a 440kbps dsl line (again the fastest thing in the bay area)
+between its premises and a local business further up telegraph avenue in berkeley, the first such service in operation,
+and actually advertised dsl service to the public a month ahead of pacific bell; in fact, the advertisement in
+computer currents probably forced pacific bell's entry into the market.
+
+
+
+
+
+ ?? ->
+
+
+
+
+
+of course, pacific bell wouldn't allow u.c. computers to use the lines needed to operate the service (making the papers,
+august 1997, sf chron business section) -- they told us to become a telephone company.
+
+
+
+
+
+so we did - form a telephone company. uc telecommunications company was formed in 1998 to operate the isp business
+and the telephone company, which came into existence in the spring of 1998.
+
+
+
+
+
+
+
+
+
+by then, however, covad had already secured
+funding to implement their dsl plans and had done deals with pacific bell to get started (doing something we had sketched
+on napkins in the store nine months earlier.) we were the 7th company to sign up with them, and bay area pricing for dsl
+was set between two companies in the bay area -- u.c. computers and the well (whole earth 'lectronic link) -- for more
+than a year.
+stymied by the telephone company for its copper in 1997, u.c. computers looked for a way around the telephone company
+and discovered wireless gear that outperformed dsl anyway, and by early 1998 had commenced commercial wireless internet service,
+again the first such commercially available service in the bay area, and as fast or faster than anything the telephone company --
+or anyone else -- had. by april 2000 we had introduced 5mbps wireless service -- again the fastest thing going anywhere.
+
+
+
+
+
+
+
+
+
+
+in 2002 we relocated to oakland, and then our market began to fail. we tried to introduce wireless with speeds above 10mbps but
+could not find wireless equipment providers who could do the job for a reasonable cost. by then the "dsl wars" had commenced,
+and just as the bottom fell out of the idsn market when dsl arrived, the cheap dsl dropped the bottom out of the "expensive wifi market".
+and so our business has been in the doldrums for the meantime. we focused more on the isp and colocation business and still host
+bookfinder.com, the preeminent new-used book search service on the internet, among other prominent and worthy clients (we host for free
+the berkeley pta and websites for all the busd schools, as busd does not offer such services!)
+by now we are a tough little industrial isp with a famous history and the intention and will and capacity to make more history
+providing the fastest service anywhere using a business model that will also make history ...
+the problem we shall solve:
+
+
+
+
+the telephone company (in any market) has no copper competition and so owns all pre-existing last-mile in the country. then there is the cable company,
+which is again a monopoly in any given market. meanwhile, the airwaves are dominated by the endless advertising done by these companies. these companies
+make a show of introducing new services, but the fact is that they have no incentive to compete in a genuine way, because they continue to reap large profits
+without having to do so.
+the fcc under michael powell had no problem allowing the telephone companies to stop having to discount services to competitors. but the unbundling rules
+were in effect in order to enable competition in the market, and when the fcc gave the telcos their wish, the telco monopolies ended up putting an enormous
+number of small isps out of business, very undeservedly. we small isps were why you could in fact get t1 service cheaper than the phone company would give it
+to you. we were willing to share, and they were not.
+all the "telco" works for is its own enlargement: for example, sbc bought pacific bell and then bought at&t, and changed its name. now all profits
+go to southwest bell under the name "the new at&t", yet while gigabit service is available to residential users in slovenia, at&t is still peddling
+6-megabit service for high rates years after it was introduced. that is neither competitive nor just.
+optical fiber is the only credible way to transport large amounts of data not only at incredible speeds, but reliably and cheaply, and the cost of fiber
+has dropped to the point of general affordability now. it is not dirt cheap; but it is cheap enough. the price per residence to bring fiber to the home has
+dropped beneath $700 and continues to decline. despite this, the telcos and cablecos are not much interested in developing fiber, as it will cost money and
+their profit margins will decline! meanwhile, gigabit fiber to the home (ftth) is available in japan, korea, the netherlands, and even slovenia,
+but not in the united states.
+quite simply, we intend to build the network that the telcos refuse to build.
+we're going to build a "gigabit internet" from the inside out.
+
+
+
+
+
+
+the preferred model for our telecommunications future is that telecom should be made into a public utility
+the same as water and power. getting communities to address the issue seriously is an uphill battle and will take time and media exposure. our business model
+occupies that niche between now and the future, now when good, fast services are hard to find, and the future, where the people of any given community are
+the owners of their own network infrastructure. we will build one or more "gigabit fiber neighborhoods", and in time interconnect them, in the expectation of
+extending gigabit fiber to 'the whole city', and hopefully to your city.
+
+
+
+
+
+
+
+
+
+
+
+

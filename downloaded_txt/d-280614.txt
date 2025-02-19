@@ -1,0 +1,2106 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+takashi's workspace
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skip to main  | skip to sidebar
+
+
+
+
+
+
+takashi's workspace
+
+
+
+
+
+
+
+
+
+website | twitter
+
+
+
+
+thursday, december 15, 2011
+
+
+
+
+
+
+
+various examples in haskell's frp.reactive
+
+
+
+
+
+after playing with flapjax library in javascript, i moved to reactive to
+learn more about frp. because research on functional reactive
+programming is most active in haskell, i thought it would be better to
+do that. reactive seems to be a nice library, but unfortunately i
+couldn't find many working code examples. so i show some of them as my
+exercise. to write this, i owe a maoe's great
+article in japanese.
+
+(this page has been translated into spanish language by maria ramos  from webhostinghub.com.)
+
+as i didn't have much time, i couldn't write a good explanation
+now. but still i hope it helps some people who learn reactive like
+me. i used haskell platform 2010 (slightly old) and did cabal install reactive --enable-documentation to install reactive.
+
+the first example shows "hello, world!" after three
+seconds. attime generates a timer event, and <$>
+convert this event to io action (\_ -> putstrln "hello, world!") which
+writes a string.
+
+
+this is as same as above, but it makes events each second.
+
+this makes running fibonnaci numbers. you can use scanle
+to process previous value and current value of the event in a
+function. in this case, (0, 1) is the initial value, and when
+an event occurs, the function \(n0, n1) _ -> (n1, n0 + n1) calculates
+next value, and the result (the first case is (1, 1)) is used as a
+next argument when a new event occurs.
+
+it shows characters as you type. it looks difficult but you don't
+have to worry about run function. the important part is
+machine :: event char -> event (io ()) that convert a
+character input event to an io action.
+
+this example shows how to merge two events. ontype is same
+as machine in the previous example, and onclock is
+same as hellomany.hs example. i used `mappend` to
+merge the two events
+
+this shows a simple state machine. the function next
+defines the state machine, and mealy_ convert the definition
+to an event. zipe is another way to merge two events. unlike
+mappend, you can see two values in the two events in a same
+time.
+
+
+
+
+
+posted by
+
+
+
+takashi
+
+
+
+
+at
+
+11:17
+
+
+
+1 comment:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tuesday, december 06, 2011
+
+
+
+
+
+
+
+flapjax vs tangle
+
+
+
+
+
+
+
+
+
+
+
+
+
+functional reactive programming (frp) is a framework to deal with
+time-varying data in a clean way. it is a combination of beauty of
+functional programming and dynamics of object oriented
+programming. the basic principle is easy enough as spreadsheets,
+however, its vague scope and arcane terminologies keep you from
+grasping it. it's not quite easy to answer the question such as what
+makes frp different from observer pattern, data flow, etc ??. i think
+a good way to explain frp is to compare frp library against non-frp
+library, and i could show you where frp is special, and pros-and-cons
+of frp.
+
+i examined flapjax as an example of frp, and took bred victor's
+tangle as the comparison target. although tangle has similar goal of
+frp as he wrote "tangle is a library for creating reactive documents",
+its implementation is quite different from flapjax.
+
+
+flapjax
+side-effect is hidden inside the framework. time-varying data is
+represented by dependent tree, and you can compose those trees to
+implement a complex behavior.
+tangle
+tangle provides a simple framework and ui widgets, but the data
+flow is represented by a normal imperative programming and
+assignments.
+
+because of those properties, i think comparing the two libraries is
+helpful to understand what frp is. i hope it makes clear idea about
+frp in your mind.
+simple calorie calculator in tangle
+this is the first example from the tangle's documentation. you can
+modify the number of cookies by dragging, and it keeps calculating the
+calories as you change the value.
+
+  when you eat  cookies,
+  you will consume  calories.
+
+to make this nice reactive document. this document consists with two parts,
+html for the view and javascript for the model.
+
+<p id="tangle"
+  when you eat <span data-var="cookies" class="tkadjustablenumber" data-min="2" data-max="100"> cookies</span>,
+  you will consume <span data-var="calories"></span> calories.
+</p>
+
+the html part is straightforward, this is just a normal html except
+special attributes for tangle. data-var is used to connect
+html elements to tangle object's
+properties. class name tkadjustablenumber makes a draggable input
+control. data-min and data-max are its
+parameters.
+
+var element = document.getelementbyid("tangle");
+
+new tangle(element, {
+  initialize: function () {
+    this.cookies = 4;
+  },
+  update: function () {
+    this.calories = this.cookies * 50;
+  }
+});
+
+
+the actual model of the document is described in the second argument
+of tangle object's constructor (new tangle). it consists with
+just two parts. initialize sets up the initial state,
+and update is invoked whenever you modify the input value.
+tangle connects the model and the html element specified
+by getelementbyid("tangle").
+
+this initialize-update structure is fairly common among end-user
+programming language like processing and arduino.
+
+simple calorie calculator in flapjax
+let's move on to flapjax. unfortunately, flapjax doesn't have a
+nice input widget as tangle has. instead, we use a traditional input
+field. but other than that, the behavior is identical.
+
+  when you eat  cookies,
+  you will consume  calories.
+
+as tangle, the flapjax version has html part and javascript
+part. note that flapjax provides "flapjax syntax" which allows you to
+write a simpler notation, but we don't use it because i want to
+compare those as javascript libraries.
+
+<p id="flapjax" class="example">
+  when you eat <input id="cookies" value="4" /> cookies,
+  you will consume <span id="calories"></span> calories.
+</p>
+
+flapjax's html part is similar as tangle's. the element identifiers
+(cookies and calories) are given by
+id attributes. unlike tangle, the initial number of cookies is written
+in the input field.
+
+var behavior = extractvalueb("cookies");
+var colories = behavior.liftb(function (n) { return n * 50; });
+insertdomb(colories, "calories");
+
+in flapjax, time-varying data is called behavior. the goal
+of the program is to make a behavior which always calculates calories
+of the cookies. it's not so difficult than it
+seems. extractvalueb creates a behavior from a form element,
+in this case, extractvalueb("cookies") tracks every changes
+happening in the input field named "cookies". this created
+behavior is processed by the function at the argument
+of liftb, in this case, whenever you modify
+"cookies" field, colories represents a value which
+is always 50 times by the number of cookies.
+
+eventually, insertdomb insert the content
+of colories where html element
+"calories" is and the calories are shown on the
+screen. this element is automatically updated.
+
+unlike tangle, there is no side-effect in the program. one
+advantage of frp is that you are not confused between old values and
+new values. in tangle's example, this.cookies is old value
+(input) and this.calories is new value (output). but you are
+free to be mixed up those. in flapjax, a new value is always the
+return value of a function, and there is no chance to be mistaken.
+
+implement adjustable number widget in flapjax
+one of advantages of frp is its composability. you can make a
+complicated behavior by combining simple behaviors (occasionally,
+imperative programming gives you a hard time for debugging if the bug
+involves with connected program modules with side-effects).  to
+demonstrate this feature, i will show you how to make a tangle-style
+draggable widget in flapjax. this problem is particularly interesting
+because processing drag and drop involves a state machine, but a state
+machine is not quite fit with a functional programming style. so you
+might find pros and cons of frp clearly from this example.
+
+
+  when you eat  cookies,
+  you will consume  calories.
+
+the html part is almost identical except adjustable class in
+the input field which points a tangle like (but not fashionable
+enough) stylesheet.
+
+<p id="flapjax-drag" class="example">
+  when you eat <input id="cookies-drag" value="4" class="adjustable"/> cookies,
+  you will consume <span id="calories-drag"></span> calories.
+</p>
+
+the main javascript part is also similar as above. but in this
+time, we are implementing makeadjustablenumber to make a draggable
+widget from the element named "cookies-drag".
+
+var element = document.getelementbyid("cookies-drag");
+var behavior = makeadjustablenumber(element);
+var colories = behavior.liftb(function (n) { return n * 50; });
+insertdomb(colories, "calories-drag");
+
+a drag gesture consists of three events, mousedown, mousemove, and
+mouseup. after a mousedown is detected, it has to track mousemove
+events to know how far you are dragging. you can make such a state
+machine to construct a higher order event stream. here are two
+new concepts. an event stream is similar as behavior, but it is
+a stream of discrete events instead of continuous values. but you
+don't have to worry about that. it's just another object which has
+slightly different api. a higher order event stream is an event
+stream of event streams. this is used to make a stream which behavior
+is switched depends on the input. 
+this mousedownmove makes a higher order event stream that
+tracks mousedown and
+mousemove. extractevente(element,"mousedown") extracts
+mousedown event in the element. when the event signaled, the function
+inside the mape is evaluated. mape is similar
+as liftb but it is only for an event stream. inside the
+function, extractevente(document,"mousemove") find mousemove
+events and track the distance from mousedown. note that i
+used document to find the event because occasionally you drag
+a mouse to outside the widget.
+
+function mousedownmove (element) {
+  return extractevente(element,"mousedown").mape(function(md) {
+    var initvalue = parseint(element.value);
+    var offset = md.layerx;
+
+    return extractevente(document,"mousemove").mape(function(mm) {
+      var delta = mm.layerx - offset;
+      return math.max(1, math.round(delta / 20 + initvalue));
+    });
+  });
+}
+
+we need to handle mouseup event also.  the mouseup
+function returns a higher order event stream that find mouseup event
+and the zeroe happily does nothing.
+
+function mouseup (element) {
+  return extractevente(document,"mouseup").mape(function() {
+    return zeroe();
+  });
+}
+
+and these two event stream make by mousedownmove
+and mouseup are going to be merged by the
+mousedownmoveup function to complete a mousedown, mousemove,
+and mouseup cycle. mergee is used to merge two events
+streams. we need one more step switche to convert a higher
+order stream to a nomal stream, in this case, a stream of numbers
+(distance).
+
+
+function mousedownmoveup(element) {
+  var downmoveup = mousedownmove(element).mergee(mouseup(element));
+  return downmoveup.switche();
+}
+
+finally, we connect the event stream into an html element. here i
+did slightly dirty work. whenever a drag gesture happens, the
+element.value attribute is set. probably
+using insertdomb to make an output element is cleaner way,
+but i chose this dirty way to make it simple. at the last line, the
+event stream is converted to a behavior object
+by startswith. and that's how makeadjustablenumber is
+implemented.
+
+
+function makeadjustablenumber (element) {
+  var drag = mousedownmoveup(element);
+  drag.mape(function(n) { element.value = n; });
+  return drag.startswith(element.value);
+}
+
+honestly, flapjax doesn't seems to be too easy to use. but part of
+the reasons might be that i chose to show a plain javascript syntax to
+introduce the mechanism.  flapjax also provides its own compiler which
+provides cleaner syntax. this flapjax syntax should improve
+readability a lot. anyway, i hope this short note helps you to grab a
+brief idea of flapjax and frp.
+
+references
+
+flapjax tutorial
+tangle: getting started
+
+
+
+
+
+
+
+posted by
+
+
+
+takashi
+
+
+
+
+at
+
+01:00
+
+
+
+1 comment:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+thursday, september 22, 2011
+
+
+
+
+
+
+
+yet another "alligator eggs!" animation
+
+
+
+
+
+bret victor came to our office
+yesterday, and we had a great chat. he is a great thinker and has a
+beautiful sense about visualizing abstract ideas. i really like his
+works. i want to learn his idea more, but as a starter, i tried to
+implement his early
+famous alligator
+eggs! game. this game was made to teach about lambda calculus to
+eight years old kids. but it's even more fun to adult hackers!
+alligator and an egg : λx.x
+
+this is a green alligator and her egg. this family shows a lambda
+expression λx.x (because i know you are not an eight years old, i use
+formulas without hesitation!). there is a no animation as there is
+nothing to eat.
+
+an alligator eats an egg : (λx.x) y
+
+but things are getting fun when there is something to eat before
+the alligator mother. in this case, a blue egg. if you click on the
+diagram, you see what's happening (i only tested chrome, safari, and
+firefox). the alligator eats the poor blue egg. but price for the
+sacrifice is too high. the mother will die, and we will see the
+new baby.
+and then, things are getting curiouser. the new baby doesn't look
+like the mother at all, rather it is like a blue egg, the victim of
+the slaughter. what's a amazing nature of the lambda land!
+take first : (λx.λy. x) a b
+
+this is slightly a hard example. there are two alligators "x" and
+"y", and two victim eggs "a" and "b" on the right side. if there are
+more than two things next to an alligator, the alligator eats left one
+first (it is called as left associative in jargon). can you guess what
+does happen after the meal? alligator "x" eats egg "a", and alligator
+"y" eats egg "b". and only egg "a" survives (because it transmigrates
+through the green "x" egg).
+you can think that this alligator family (λx.λy. x) eats two
+things and leave the first one. in a same way, can you think of an
+alligator family which eats two things and leave the second one? here
+is
+the answer.
+old alligator : (λx.x) ((λy.y) (λz.z))
+
+there are a few things to know more. old alligators are not
+hungry. but they keep guarding their family while they guard more than
+one things. they behave like parenthesis in a lambda expression.
+color rule : (λx.λy.x) (λy.y)
+
+this rule is the most tricky one. there are two blue alligators "y"
+at left and right, but those two are not in a same family. the only
+mother of the blue egg "y" is the right one. it gets trickier when the
+family is eaten by the green alligator because the blue family is
+reborn at the green egg is, where is bottom of another blue
+alligator. to make them different, the right blue family change the
+name and color to "y1" and orange.
+
+omega (mockingbird hears the mockingbird song) : (λx.x x) (λx.x x)
+
+by these rules, you can make various kinds of alligator
+ecosystem. this is my favorite one. (λx.x x) is called a
+"mockingbird" or, rather we should call it mockingalligator. it
+doubles its prey twice. so what happens if a mockingalligator eats a
+mockingalligator? the result is called one of omegas, an infinite
+loop. they are eating forever. to stop the endless violence, please
+click the diagram again. but please do not to click three times!
+because of my bug, something wrong will be happening.
+y combinator : λg.(λx.g (x x)) (λx.g (x x))
+
+this is dangerous but beautiful one. the omega ecosystem above kills each
+other but it doesn't make any, but this y combinator is very
+fertile. it produce many, so you have to watch it carefully, otherwise
+it consumes all the cpu power you have eventually!!
+
+3 + 4 : (λa.λb.λs.λz.(a s (b s z))) (λs.λz.(s (s (s z)))) (λs.λz.(s (s (s (s z)))))
+
+actually, alligators also can do serious jobs. if you design
+carefully, you can teach them how to calculate 3 + 4! in this example,
+the middle family represents three and the right family represents
+four (count green eggs). and the result is a family with seven green
+eggs! this is
+called church
+numbers (i don't have a time to explain the theory, so please read
+the link).
+
+i only introduced very few alligator families. if you want play it,
+visit
+http://metatoys.org/alligator/
+and design by your self. you can also download from
+http://github.com/propella/alligatoreggs. the
+source code is messy because i haven't written javascript recently,
+but i'll clean it up soon.
+
+
+
+
+
+
+posted by
+
+
+
+takashi
+
+
+
+
+at
+
+19:49
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+saturday, july 09, 2011
+
+
+
+
+
+
+
+
+a hidden story behind the etoys castle
+
+
+
+
+
+
+http://metatoys.org/demoncastle/
+
+
+
+
+
+
+
+ if you have played with etoys, you might have seen the etoys
+castle (or the demon castle) tutorial. but you would never know how
+the story ends, because the etoys distribution only includes the first
+chapter, and the last slide shows "to be continued ...". however,
+there are actually the hidden sequels, and the story has a happy
+ending.  
+ when i first wrote the story in 2006, there were three
+chapters. the first chapter was about learning "handles", the second
+one was about the painter, and the third one was about scripting. but
+due to some technical issues, i gave up to publish them. today, i
+happened to clean up my hard drive and i found old files. it's shame
+that i have never published rest of them. so i gathered the screen
+shots and made up one page html.  
+
+
+
+
+
+posted by
+
+
+
+takashi
+
+
+
+
+at
+
+19:21
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+friday, september 24, 2010
+
+
+
+
+
+
+
+tamacola (5)
+
+
+
+
+
+tamacola is not just another lisp language, it is designed as a
+meta-language to make a new language. i'll explain this feature today.
+today's goal is to design a subset of lisp language. if you think that
+a lisp is too simple to keep your passion, sorry, be patient, simple
+thing first.
+
+prepare your tamacola environment
+
+to setup tamacola environment, you need to download both tamacola
+distribution and tamarin vm. those are available on
+http://www.vpri.org/vp_wiki/index.php/tamacola. you
+need add the path environment variable to find the avmshell command,
+and also it would be useful to set the path to bin/ in the tamacola
+tree.
+
+to make sure tamacola works, plese type:
+
+
+make run-example
+
+
+it runs all of the examples in the tamacola distribution as well as
+recompile the compiler. if you don't find any error, you are ready to
+go. otherwise, please let me know the problem.
+
+tamacola command
+
+tamacola command read a tamacola program and run immediately. if you
+want to make a flash contents, another command tamacc (tamacola
+compiler) is more suitable. now we are playing with an interactive
+shell of tamacola command, so i'll give you a brief explanation.
+
+the interactive shell starts with minus (-) option. let's try a simple
+arithmetic. if you didn't setup path environment, please specify the
+directory name, too.
+
+
+$ tamacola -
+cola/tamarin
+> (+ 3 4)
+7
+
+
+you can also give tamacola source files as well as compiled binary
+names. typically, source code ends with .k, and a binary ends with
+.abc. tamacola is smart enough to detect newer file between .k and
+.abc.
+
+match against a string constant
+suppose you are on some working directory, and you have already set
+path environment to the bin/ directory. and then, we are going to
+write a very simple language, greeting:
+
+;; greeting.g - a simple peg example
+
+greeting = "morning" -> "good morning!"
+         | "evening" -> "good evening!"
+
+this stupid example answers "good morning!" if you say "morning", and
+it answers "good evening!" if you say "evening". this peg syntax is
+easy to understand. the right hand side of = is a rule name. a rule
+name is translated as a function once it is built.  -> means an action
+rule, where if the left hand is matched the right hand side is
+returned. | is an ordered options. in this case, the parser tries the
+first case "morning", and tries the second case "evening" only if the
+first case fails.
+save this syntax named "greeting.g". to test this language, type those
+commands:
+
+$ mkpeg greeting.g
+$ tamacola greeting.k -
+compiling:  greeting.k
+cola/tamarin
+> (parse-collection greeting "morning")
+"good morning!"
+> (parse-collection greeting "evening tokyo")
+"good evening!"
+
+mkpeg command converts grammar file (greeting.g) to tamacola source
+(greeting.k), a rule "greeting" the result can be read by tamacola
+shell. greeting.k is built on the fly and the command prompt is shown.
+parse-collection's first argument is a parser name (in this case
+"greeting"), and the second is a input collection.  as the name
+implies, it accepts any collection as the input stream.
+the second case shows an interesting property of peg syntax. although
+the second rule matches the beginning part of the input "evening
+tokyo", still the input remains more string " tokyo". peg doesn't care
+if the input is competely consumed or not. if you really want to make
+sure that the entire input is matched, you need to explicitly tell the
+parser the point where end of the file.
+number parser
+the last example only matched a predefined constant, but we make a
+parser for any integer number here.
+
+;; number.g -- a number parser
+
+digit   = [0123456789]
+number  = digit+
+
+we also convert the grammar specification into the tamacola program,
+but in this case, we give -n option to tell the namespace. a namespace
+is useful when you want to use a common name as a rule name like
+"number". because "number" is already used in the system, you can not
+use it without namespace.
+the grammar itself is easy to understand if you have an experience
+with regular expressoins. brackets ([]) matches one of characters
+inside, and postfixed plus (+) repeats previous expression with
+one-or-many times.
+
+$ mkpeg -n number number.g 
+$ tamacola number.k -
+compiling:  number.k
+cola/tamarin
+> (parse-collection number/number "xyz")
+fail
+> (parse-collection number/number "345")
+{token-group:
+(53 52 51)}
+
+because we use the namespace "number", we need specify the
+namespace before slash(/) in the function name.
+as you might notice, this parser correctly rejects a non-number like
+"xyz", and accepts "345". but the result is not so useful. the return
+value of plus is a special object named "token-group", but we would
+want a number represented by the string, instead. so we put a
+conversion function to get the value.
+
+number  = digit+:n      -> (string->number (->string n))
+
+
+$ tamacola number.k -
+compiling:  number.k
+cola/tamarin
+> (parse-collection number/number "345")
+345
+
+now parser returns a number conveniently. perhaps you might think that
+it is somewhat cheating. as the string->number function itself is a
+kind of number parser, we should have write a number parser without
+string->number!  yes we could. but it leads more interesting topic
+about left and right recursion, so i leave it for later.
+s-expression parser
+now we are going to write a parser for almost real s-expression. this
+parser can only handle number and list, but it is useful enough to
+explain the essence of tamacola.
+
+;; sexp.g
+;; lexical parser
+
+spaces  = [ \t\r\n]*
+
+digit   = [0123456789]
+number  = digit+ :n spaces              -> (string->number (->string n))
+
+char    = [+-*/abcdefghijklmnopqrstuvwxyz]
+symbol  = char+ :s spaces               -> (intern (->string s))
+        
+sexp    = symbol
+        | number
+        | "(" sexp*:e ")"               -> (->list e)
+
+in this grammar, only new operator is the postfix star (*) which
+repeats zero-or-many times. rest is straightforward. to test this
+grammar, we use tamacola's simple test framework. writing test case is
+better than the interactive shell, because you don't have to type same
+expression many times.
+
+;; sexp-test.k
+
+(check (parse-collection sexp/spaces "    ")            => 'spaces)
+(check (parse-collection sexp/digit "0")                => 48)
+(check (parse-collection sexp/number "345")             => 345)
+(check (parse-collection sexp/char "a")                 => 97)
+(check (parse-collection sexp/symbol "hello")           => 'hello)
+
+(check (parse-collection sexp/sexp "345")               => 345)
+(check (parse-collection sexp/sexp "hello")             => 'hello)
+(check (parse-collection sexp/sexp "(hello world)")     => '(hello world))
+(check (parse-collection sexp/sexp "(3 4)")             => '(3 4))
+(check (parse-collection sexp/sexp "(print 4)")         => '(print 4))
+
+the check function comes from srfi-78. this function complains only if
+the left hand value and the right hand value differ. otherwise, does
+nothing. i like this unix stile conciseness.
+as a convention, a test program is added a postfix "-test" with the
+main program's name. i borrowed this custom from go language.
+make sure this program do nothing.
+
+$ tamacola sexp.k sexp-test.k 
+
+lisp compiler
+the peg parser can handle any list structure as well as string. it
+allows you to write compiler in peg. in a string parser, the input is
+a string and the output is some object (a list in our case), but in a
+compiler, the input is a lisp program and the output is a assembler
+code.
+
+;; compiler
+
+arity   = .*:x                          -> (length (->list x))
+insts   = inst* :xs                     -> (concatenate (->list xs)) 
+                                        
+inst    = is-number:x                   -> `((pushint ,x))
+        | is-symbol:x                   -> `((getlex ((ns "") ,(symbol->string x))))
+        | '( '+ inst:x inst:y )         -> `(,@x ,@y (add))
+        | '( '- inst:x inst:y )         -> `(,@x ,@y (subtract))
+        | '( '* inst:x inst:y )         -> `(,@x ,@y (multiply))
+        | '( '/ inst:x inst:y )         -> `(,@x ,@y (divide))
+        | '( inst:f &arity:n insts:a )  -> `(,@f (pushnull) ,@a (call ,n))
+
+there are some new elements in the grammar. quoted list '( ) matches a
+list structure, and a quoted symbol matches a symbol.
+a prefix ampersand (&) prevents to consume the stream even if the rule
+matches. for example, &arity rule examine the rest of the list, but
+the contents are matched again by the insts rule later.
+is-number is matched against number, and is-symbol is for a
+symbol. those rule can not be described as peg grammar, but as a lisp
+function.
+
+(define is-number
+  (lambda (*stream* *parser*)
+    (if (number? (peek *stream*))
+        (begin (set-parser-result *parser* (next *stream*))
+               #t)
+        #f)))
+
+(define is-symbol
+  (lambda (*stream* *parser*)
+    (if (symbol? (peek *stream*))
+        (begin (set-parser-result *parser* (next *stream*))
+               #t)
+        #f)))
+
+
+a rule is a function which receives the stream and the parser (an
+object which store the result). the rule function returns #t if it
+matches, and #f if it fails.
+i think it is easier to see the test code than read my explanation.
+
+
+(check (parse-collection sexp/arity '(a b c))   => 3)
+
+(check (parse-collection sexp/insts '(3 4)      => '((pushint 3)
+                                                     (pushint 4)))
+
+(check (parse-collection sexp/inst '(3))        => '((pushint 3)))
+
+(check (parse-collection sexp/inst '((+ 3 4)))  => '((pushint 3)
+                                                     (pushint 4)
+                                                     (add)))
+
+(check (parse-collection sexp/inst '((f 3 4)))  => '((getlex ((ns "") "f"))
+                                                     (pushnull)
+                                                     (pushint 3)
+                                                     (pushint 4)
+                                                     (call 2)))
+
+put it in an envelope
+we still need a little bit to construct a real assembler code. this
+detail topic is out of the context, so i simply show the code.
+
+program = inst:x  -> `(asm
+                       (method (((signature
+                                  ((return_type *) (param_type ()) (name "program")
+                                   (flags 0) (options ()) (param_names ())))
+                                 (code ((getlocal 0)
+                                        (pushscope)
+                                        ,@x
+                                       (returnvalue))))))
+                      (script (((init (method 0)) (trait ())))))
+
+and the test case.
+
+(check (parse-collection sexp/program '((print 42)))
+       => '(asm
+            (method
+             (((signature ((return_type *) (param_type ()) (name "program")
+                           (flags 0) (options ()) (param_names ())))
+               (code ((getlocal 0)
+                      (pushscope)
+                      (getlex ((ns "") "print"))
+                      (pushnull)
+                      (pushint 42)
+                      (call 1)
+                      (returnvalue))))))
+            (script (((init (method 0)) (trait ()))))))
+
+you can read the entire program in example/sexp.g in the tamacola
+distribution. to try the program, please enter:
+
+make -c example test-sexp
+
+left recursion
+we left an interesting topic about left and right recursion. let me show you our number parser again.
+
+digit   = [0123456789]
+number  = digit+:n               -> (string->number (->string n))
+
+if we don't want to use string->number function, i would write the parser as:
+
+;; use fold-left
+digit1   = [0123456789]:d        -> (- d 48)
+number1  = digit1:x digit1*:xs   -> (fold-left
+                                      (lambda (n d) (+ (* n 10) d))
+                                      x
+                                      (->list xs))
+
+digit1 rule converts the ascii value of the the digit character,
+and number1 rule construct a decimal number. as you see, you need to
+use fold-left function to construct a number because a number notation
+is essentially left recursion. for example, a number 34567 actually
+means:
+(((3 * 10 + 4) * 10 + 5) * 10 + 6) * 10 + 7
+however, peg parser doesn't parse left recursion grammar in
+general. so i had to reconstruct the left recursion structure by
+fold-left. this is not hard at all if you familiar with functional
+programming. in functional programming, a list is considered as a
+right recursive data structure and it is even natural that a list is
+parsed by a right recursive way. however, i admit that it looks
+awkward for some people.
+yoshiki ohshima provides a very useful extension to support a direct
+left recursion. to use his extension, the number parser is written as:
+
+;; use left-recursion
+
+digit2   = [0123456789]:d        -> (- d 48)
+number2  = number2:n digit2:d    -> (+ (* n 10) d)
+         | digit2
+number2s = number2
+
+you need to load runtime/peg-memo-macro.k to use this extension.
+
+$ tamacola ../runtime/peg-memo-macro.k number.k -
+cola/tamarin
+> (parse-collection number/number2s "345")
+345
+
+the real parser and compiler are bigger than presented grammars here,
+but i explained all of the essential ideas. i hope it helps you to
+make your own language!
+
+
+
+
+
+posted by
+
+
+
+takashi
+
+
+
+
+at
+
+00:45
+
+
+
+2 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wednesday, september 15, 2010
+
+
+
+
+
+
+
+tamacola (4)
+
+
+
+
+
+tamacola in tamacola
+after i made the tamacola compiler written in cola, next thing to do
+was to implement it in tamacola itself. a language is called
+self-hosting if the language is written in the language itself. this
+implies various advantage.
+first, once self-hosting is done, you don't need to use cola anymore,
+you can improve or modify any language aspects on tamarin vm. if i
+carefully design the environment, it would be possible to do language
+design only on the web browser (it needs server side help for security
+reason, so it hasn't done yet).
+second, self hosting is a benchmark for the language to tell that it
+is good enough. scheme is especially simple language, so there are a
+lot of people who implement toy-scheme. but because my tamacola is now
+self-hosting, i could proudly claim that this is not a toy! well, this
+is rather self satisfaction, though.
+third, it provides a rich library including "eval" function. a
+compiler uses various programming techniques, and those must be useful
+for other programs, too.
+to make it self-hosting, there were two key problem which are macros
+and eval.
+bootstrapping macros
+i heavily used macros in my compiler, for example, the parser written
+in peg was converted a bunch of macro expressions. the problem is,
+expanding macros requires eval function but i wasn't able to make eval
+before the parser was done. it's a deadlock! here is a typical macro
+written in cola:
+
+(define-form begin e (cons 'let (cons '() e)))
+
+
+this is how the macro works. when the compiler find a expression like:
+
+
+(begin
+  (print "hello")
+  (print "world"))
+
+
+expressions inside begin is bound to e, the
+body (cons 'let (cons '() e)) is executed in compile time
+and the expression is expanded to:
+
+
+(let ()
+  (print "hello")
+  (print "world"))
+
+such expansion is impossible without eval function because the
+compiler need to evaluate a list (cons 'let (cons '() e))
+given by user. what i would do when i didn't have eval yet.  but i
+realized that macros only include basic list functions like car, cdr,
+and cons in many cases. and a more complicated macro could be hard
+corded as a special form in the compiler. so i invented a pattern base
+macros.
+
+(define-pattern ((begin . e) (let () . e)))
+
+basically this is a subset of scheme's syntax-rule. if the compiler
+finds an expression starting with begin, rest of the
+expression is bound to e and substituted as a right hand
+side. those expansion requires only limited set of list functions, so
+the compiler doesn't have to provide full eval function. this macro
+syntax made my compiler readable, and i was able to continue happily.
+even after i implemented more dynamic traditional macro with eval
+function, i keep using this pattern base macros mainly.
+eval
+to implement eval function, you need to understand the dynamic code
+loading facility provided by the vm. note that this is not part of
+avm2 specification, and avmshell (a console tamarin shell program) and
+adobe flash have different api.
+avmshell has straightforward api. you give compiled byte code, and the
+function returns the value. because tamacola is now written in
+tamacola, you can invoke the compiler as a library function and get
+byte code you want to execute.
+
+avmplus.domain.loadbytes(bytearray:bytearray)
+
+you can get the domain object by domain.currentdomain() static method.
+those useful functions in avmshell are found shell/
+directory in the tamarin-central repository.
+flash player has somewhat tricky api for dynamic code loading. the
+signature is normal.
+
+flash.display.loader.loadbytes(bytes:bytearray, context:loadercontext = null):void
+
+there are two problems for our purpose. first, this method is not
+designed mainly for dynamic loading, it only accepts swf, jpg, png, or
+gif files, and byte code happen to be accepted inside a swf file. so i
+had to construct swf file to load code. in case if you don't know
+about swf file, swf file is a kind of container format. you can
+embedded vector graphics, mp3 sounds, and actionscript byte
+code. making a swf file is not particularly difficult though, it needs
+nasty bit fiddling.
+second, this is far more problematic, is that this method works as
+asynchronously. in other words, this doesn't return the result
+value. instead, you need to give it a callback function to wait to
+finish the code. additionally, this method doesn't return value at
+all, so if you want the return value, you need to setup some explicit
+return mechanism by yourself.
+practically, this cause a problem if you want to write a traditional
+macro definition and use the macro in a same source code. because a
+traditional macro need to evaluate a lisp expression in a compile
+time, but the eval function doesn't return before the compilation
+thread is done. i could solve the problem by setting up compilation
+queue or something, but it would cost performance penalty which i
+don't want. and now i simply gave up.
+i have explained pretty much all interesting aspect of the self
+hosting compiler. i'll talk about how to make a new language on the
+tamacola environment later.
+
+
+
+
+
+posted by
+
+
+
+takashi
+
+
+
+
+at
+
+22:47
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tuesday, september 14, 2010
+
+
+
+
+
+
+
+tamacola (3)
+
+
+
+
+
+how a lisp program is compiled to tamarin vm
+now i'm going to talk a bit about how a lisp (almost scheme) program
+is compiled into tamarin's byte code. this topic is especially
+interesting if you are curious to make your own language or vm.
+tamarin vm is made for actionscript, so its byte code is also
+specifically designed for actionscript. in other words, it is a
+slightly tricky to implement other language than actionscript.  in
+case if you don't know about actionscript, it is almost identical as
+javascript in the execution model. difference between them is about
+optimization with explicit type notion and static field.
+actionscript and scheme are common for those aspects:
+
+lexical scope.
+function object.
+variable arguments with no curring.
+dynamic typing (a value has type, not variable).
+
+but there are significant difference.
+
+actionscript doesn't have a simple function call. everything is a method call.
+in actionscript, a function has a scope. no scope block or let expression.
+tail call optimization is not supported.
+call stack can not be accessed.
+
+those limitations sound like that tamarin vm is inferior. but no,
+actually those limitations come from tamarin vm's advantage and
+optimization.  if you happen to have a chance to design your vm, please
+learn from the lesson. there ain't no such thing as a free
+optimization. any optimization kills some generality. i'll explain each
+case.
+actionscript doesn't have a simple function call neither tamarin
+vm. this is rather harmless though. when you see a function like
+expression like trace("hello"), this is actually mean
+(the global object).trace("hello"), and eventually, the
+receiver passes to the function as the first argument. in other words,
+if you want to construct a function call with two arguments, you need
+to make three arguments where the first argument is "this" object.  a
+slightly tricky part is primitive operators like + or -, which don't
+have "this" object. those primitives are special case.
+actionscript also has lexical scope, but only a function has a
+scope. so i have to be careful when i compile let expression in
+scheme. most simplest way to implement a let expression is to use a
+function. a let expression can be always translated to a lambda in
+theory though, this is a huge performance disadvantage. so i use
+"with" expression in actionscript. "with" expression is an unpopular
+syntax in actionscript, but you can use any object as a scope
+object. i borrowed this idea from happy-abc project http://github.com/mzp/scheme-abc.
+lack of the tail call optimization in tamarin vm was the most
+disappointed thing to me. it prevents a functional programming
+style. i simply gave up it. tail call optimization is not difficult
+topic at all. if the target were a native code like x86, it would be a
+matter of swapping stack and jump. but tamarin vm doesn't allow direct
+access of stack or jump to other function. i understand that it might
+cause a security issue though, it would be wonderful if vm would provide
+special byte code for tail call.
+finally, you can't access the call stack directly, therefore you can't
+implement call/cc.  the reason why i can't call tamacola as scheme is
+the lack of tail call optimization and call/cc. it prevents many
+experimental language features like generator, process, or so. but
+considering rich libraries provided by the flash api, i would say
+tamacola will be a reasonably useful language eventually.
+i'll tell you convolved self hosting process and macros tomorrow.
+
+
+
+
+
+posted by
+
+
+
+takashi
+
+
+
+
+at
+
+23:03
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tamacola (2)
+
+
+
+
+
+cola
+once the assembler was done, i was able to test verious tamarin vm's
+features, even i wrote a tiny gui application on adobe flash in the
+assembler. then next step is the compiler.
+another goal of the project was to port ian piumarta's cola framework
+to tamarin (the project name came from this). and perhaps this is only
+the real technical contribution of the project. cola is a meta
+language (a programming language to design another language) which
+resembles scheme. cola has a nice sub-language called parser
+expression grammar that makes parser very terse. my plan was to write
+a boot-strappng compiler in peg and cola, then to implement cola
+library, and to write the real compiler in peg and tamacola itself.
+i won't give you the detail of peg. but briefly, it is as simple as a
+regular expression and as powerful as a context free grammar.
+when that time i started writing the compiler, cola has no library at
+all except peg framework, so i needed to write necessary libraries by
+myself from scratch. fortunately cola has quite a powerful external
+function call feature (a kind of ffi), macro sysytem, and a flexible
+object oriented framework. so writing library is not so hard. but i
+tried not to use cola specific features as possible because it would
+be a problem when i rewrite the compiler in tamacola itself later.
+to implement the library, i borrowed function specifications from r6rs
+as well as possible to avoid unnecessary confusion. there were
+exception because cola treat a slash "/" character as special for
+namespaces, i took plt's function names in this case.
+writing lisp libraries is interesting puzzle to me because there were
+some requirements and constrain for the domain. those requiments are:
+
+unit testing framework.
+library framework.
+list manipulations.
+string functions.
+bit operations and streams.
+pretty printer for debugging.
+
+these requirements were carefully chosen. because cola has only modest
+debugging facility, the unit test framework must be there. so my first
+goal was to implement all functions needed by the unit testing. i
+needed a pretty printer for debugging, too.
+another "must have" library was bit operators, and file / in-memory
+streams that is needed to the assembler. interestingly enough, r6rs
+doesn't define enough functions to support those. for example, there
+are no portable way to specify a stream to be binary or text. so i
+needed a bit creativity.
+eventually, i wrote all libraries and the compiler. and i got a pretty
+good sense about a minimun set of functions needed for compiler, which
+are testing framework, pretty printer, bit operators, and streams. in
+other words, if your language has those features, your language can be
+self-hosting.
+the real puzzle part was the order. those requirements must be
+precisely ordered by need. for example, the pretty printer must follow
+stream and string functions because the pretty printer uses those
+functions. although you can write functions in random order as you
+like in lisp, precise order makes testing and debugging is easy.  i
+kept this discipline.  i even implemented the test library twice, the
+first one was concise assert function, and the second one has more
+friendly fail message by the pretty printer.
+it took a few weeks to build a simple compiler, but still there were
+long way up to the point where self-hosting can be done. one thing
+that i had learned from the stage was, even without debugger,
+debugging is not so hard if you have enough test cases and a good
+pretty printer.
+
+
+
+
+
+posted by
+
+
+
+takashi
+
+
+
+
+at
+
+09:43
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+older posts
+
+home
+
+
+
+
+subscribe to:
+posts (atom)
+
+
+
+
+
+
+blog archive
+
+
+
+
+
+
+
+
+        ▼ 
+      
+
+
+
+2011
+
+(4)
+
+
+
+
+
+        ▼ 
+      
+
+
+
+december
+
+(2)
+
+various examples in haskell's frp.reactive
+flapjax vs tangle
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2010
+
+(6)
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2009
+
+(10)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2008
+
+(11)
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(6)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2007
+
+(2)
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2005
+
+(15)
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(2)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2004
+
+(34)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(16)
+
+
+
+
+
+
+
+
+
+about me
+
+
+
+
+takashi
+
+
+
+view my complete profile
+
+
+
+
+
+ 
+
+this work is licensed under a creative commons attribution 3.0 unported license.
+
+
+
+
+

@@ -1,0 +1,304 @@
+
+
+
+aprs database access
+
+
+
+
+
+click here for the latest findu news!
+
+
+
+
+
+
+
+
+
+
+
+
+
+findu is a database archiving weather, position, telemetry, and message data. the primary source of
+data is an amateur radio system called aprs, some weather data
+comes from an internet based system called the 
+citizen weather observer program. 
+this large (58 gb) database is hosted on two servers using data replication techniques. 
+the data is constantly updated (about 20 new reports come in every second),
+and is accessed via a number of dynamic web pages. some examples:
+
+
+weather reports
+      position reports
+      long term vehicle tracking
+      telemetry
+      messages
+
+
+reports are also archived from an amateur radio payload aboard the international space station which 
+relays
+aprs reports from amateur radio operators around the globe.
+
+among findu's most significant uses is the forwarding of over a hundred thousand near-realtime weather 
+observations to the national oceanographic and atmospheric administration daily, where the data is 
+checked for accuracy,
+ and used by noaa and the national weather service in a variety of ways.
+
+
+here is a page that describes all of the cgis which are available on this server.
+this sometimes lags behind the latest developments, but it is the best place to start. check
+the news link at the top of this page, and especially the 
+aprs sig at tapr, for
+the very latest news.
+
+directly creating a url by editing the parameters is not meant for beginners, though by reading
+the documentation and experiementing a bit, anyone should be able to get the results they are
+after.
+other people have written web pages that allow you to enter requests to findu via forms, this is 
+an easier way to build the url you need. i'm sure i've missed some, email me your favorites.
+
+
+urldescription
+http://www.wulfden.org/aprsquery.shtmln1bq's page, the original
+http://www.qsl.net/n9wtm/n9wtm
+http://www.phrozen-neon.com/alarc/aprs.phpn0esc
+http://www.proaviator.com/findu/k4ifr
+
+
+
+
+email questions and comments to steve dimse steve@dimse.com. 
+first, make sure the question isn't answered in the faq below...
+
+
+
+
+findu faqs
+
+can i track my car (or anything else) on findu?
+absolutely. the system is open to all amateur radio operators. a license is required, but it is not difficult
+to obtain. if
+you are in the us, and want information on obtaining a license, see the 
+arrl web site for info. also, there are many commercial sites
+that can do tracking without using amateur radio.
+
+
+i have an amateur radio license, where can i find out how to get started in aprs 
+(or any other aprs question not concerning findu)?
+i'm sorry, but i'm not able to answer these queries due to a lack of time.
+at one time i kept a few links to beginner web sites here, but they come and
+go too fast for me to keep up. use google to find
+some that are available now. tapr's aprssig is a good place to ask these questions,
+you can 
+sign up here.
+
+
+why does my station's information not show up on findu?
+if you are a member of the citizen weather program, the most common problem is an incorrectly
+entered latitude and longitude. some programs do not check the number enetered for validity, but
+the system has a very specific format it requires, so check that the information is entered correctly.
+for other problems, you should get support from the person or company that produces the program
+you are using.
+
+the process of reports getting to findu via amateur radio and aprs is complex. 
+first, your station transmits
+the data, likely it must travel through one or more digipeaters before reaching
+an internet gateway, which forwards it to a hub in the aprs internet system,
+and then finally to findu.com.
+ problems can occur anywhere along this path, though by far the most common
+  are in the early stages...an individual's rf system has a problem, their path
+  is not set correctly to be digipeated by their local rf network, or their local
+  igate is down or misconfigured. from the internet there is
+  absolutely no way i can diagnose these problems. your best bet is to seek out
+  a local aprs user that can listen for you on rf, and try to figure out what
+  is wrong. if you are writting your own software, or manually entered an aprs string
+  into a hardware or software configuration file, you may have misformatted the data.
+  findu tends to follow strict interpretation of the aprs standard, and some errors
+  may be displayable in some client programs but not findu, a typical example is an
+  incorrect number of digits in a lat/lon. you can always check findu's
+  parsing error page to see if findu is detecting an error.
+
+
+on the weather page, it says there is no radar within 150 miles, but there
+  is!
+currently findu only has us radar sites, if you are in the us and this is happening
+to you, let me know.
+
+i have no problems with adding other radars, but the following requirements must
+  be met:
+
+1. the radar image alone must be available in gif or png format with a fixed
+  url and constant scale. i may be able to work with jpeg or other graphic formats,
+  if everything else is possible let me know.
+2. image provided without any copyright restrictions (this is the big gotcha,
+i've not found any outside the us that meet this requirement). here is the us
+national weather services statement: "the information on government servers are in the
+public domain, unless specifically annotated otherwise, and may be used freely
+by the public." if you are submitting another site, either submit the url of a 
+page stating there are no restrictions, or the contact information of the
+person that stated the use was acceptible.
+
+
+some countries allow non-commercial use, and while findu itself is non-commercial,
+ i am unable to guarantee how people use findu, in
+fact i know of several sites that do use findu for commercial purposes. 
+commercial use must be acceptible, or an exception made for findu, i will not
+accept the risk of copyright violation.
+
+3. someone must create a geo file for the image(s). this is detailed on 
+
+http://www.findu.com/geo.html
+
+i do not have time to do all this, so if you want your local radar images, it
+is up to you.
+
+
+why don't you track digipeaters, so i can see who is using my digi (or any other rf propagation related issue)
+
+this is a matter of findu (or more generally the aprs internet system) being
+the wrong tool for the job. my design of the aprs is was based on getting data
+distributed widely, not about characterizing the rf network. therefore, the system
+is designed at each stage to filter out duplicate versions of the  same data
+packet. however, it is precisely the differences between different instances
+of the same packet that would allow you to draw interesting and/or definitive
+conclusions about the rf network and propagation.
+the decision in favor of duplicate filtering was, and still is, the correct one...without it, the aprs is data stream would
+be perhaps ten times its present size, which is already big enough to cause problems. 
+propnet now
+has set up an alternate network which is suitable for propagation studies.
+
+is the source code available? no. commercialization is the primary reason 
+i've not open-sourced my code. i've gotten a surprising number of requests from 
+persons inside the gis industry to either give or sell them my code, or consult 
+for them. after looking at a lot of the commercial systems, the entire aprs system 
+really holds its own, and on many counts including (in-my-not-so-humble-opinion) 
+findu, it is better than anything else out there. winning the earthlink avl 
+competition to me was objective confirmation of this opinion. if my code were 
+gpl'ed, it would probably be used in commercial systems. i get my satisfaction 
+from producing a useful system that does cool things, and letting people use 
+it for free. 
+
+i had expected that the linux lunacy geek cruise i went on october 2001 would 
+convince me once and for all of the benefits of free (as in speech) software. 
+in fact, it had the opposite effect...i spent a lot of time with the infamous 
+rms (richard stallman, president of the free software foundation) since we ate 
+dinner at the same eight person table. let's just say the discussion was as 
+enjoyable as, and far spicier than, the holland america food! after all the 
+arguments and much contemplation, i've come to agree with the equally infamous esr 
+(eric raymond, also on the cruise, talk about storm-at-sea!), that rms and fsf 
+are seeking power (defined as the ability to make decisions that affect others), not freedom 
+(the ability to make decisions that affect yourself). now that i really understand it, i find the 
+fsf vision of the world a scarier place than even a microsoft controlled 
+world. software is a creative work (rms agrees), the disposition of which 
+rightfully belongs in the hands of the creator or their employer (rms turns 
+red and starts screaming, because useful creations like a home improvement 
+tv show, how-to book, or software program, morally belong to the collective). 
+i believe the decision to donate code for the public good is an altruistic act, 
+not a moral imperative, and a choice deserving admiration, not expectation. 
+
+there are other reasons besides commercialization, 
+like the amount of time it would take to document,
+distribute, support, and re-integrate code from an open source project.
+if you want the code, think about the reason for a minute. is it because
+you want to see the magic? nothing magic, this is a simple, though large, database
+driven web application, there are hundreds of examples you can view on the web, and dozens of books that
+you could read on this topic. it is to create your own findu site? how useful would that be, and if you do
+draw users away from the original, how can the public be sure any bugs or improvements will be on your site?
+perhap to change one thing that bothers you and send it back to me? when am i to find time to 
+judge the worthiness of all the modifications? something else? i am always willing to listen to other viewpoints,
+but i need a compelling reason to open the code, and i just haven't found it yet.
+
+my choice for now is to keep control of the code, and provide a service to 
+the community for free (as in beer!). not a purely altruistic decision, but 
+the one i am most comfortable with. in the event i someday lose interest in findu, 
+it will be passed to someone else for development. over the years many have offered donations,
+and i've decided to accept them now, as well as place google adds on the pages. none of this will
+make me rich, but perhaps snough will accumulate to eventually pay for the next server findu
+will run upon.
+why don't you add... 
+if i never came up with another idea, 
+the things i already
+have on my list will keep me busy for a couple of years. in other words, i have
+lots of plans that i haven't implemented, so i may already to be planning to
+do it. however, if you have an idea you'd like to share, please do so, for two
+reasons. first, it may be  something great
+i hadn't thought of, and second, my priorities are to some extent dictated by
+what people want to see, so voting for what you'd like may get it done sooner.
+however, please don't be hurt or surprised if i don't answer your email quickler
+(or sometimes at all). i do my best, but at some point it becomes counter-productive...i'd
+rather code than write email.
+can i publish links to the dynamic pages, or incorporate the dynamic images in my 
+own page?
+in general, yes. keep in mind this system is in heavy development. 
+the cgi interfaces 
+to any of the pages and images may change without prior notice. if you use these links, then 
+it is your responsibility to check them often to assure that they still function! please don't
+email with broken link problems!!! dynamic findu html pages must not be used to extract 
+data which goes into a database...in other words, no screen scrapers. 
+if you have a project that needs
+to do this, you should either use another database as a backend
+or create your own database by parsing the aprs data stream. several open source aprs parsers are available.
+lately there has been a great increase in the number of people attempting screen-scraping, so i must
+clarify my position. a single access generated from a user action (starting a program, pushing a button, etc.)
+is allowed, while any repetetive access by a program is not allowed. this is necessary because a single 
+program can use as much resource as dozens of human users, and i do not have the capacity to support this
+sort of use. i will be monitoring for inappropriate access and blocking ips where i find a problem.
+recent events force me again to clarify this. if you use findu upon some user-generated 
+action, please think hard about the most efficient way to accomplish this. i've had people
+use findu to show unaltered radar images by using an off-the-radar station. findu had to 
+fetch the image, realize there was nothing to draw, then send it out again. all this instead of
+the person getting the image directly from the nws. others grab a list of hundreds of raw reports
+and use one. please act as if you realize that findu is the limited resource it actually is.
+if you have questions about any use please ask.
+can i use findu for special events?
+yes! there are a bunch of examples, from the big ride (3000 mile, 6 week bike
+trek across the us) to balloon races, marathons, road races. the easiest way (from my
+perspective anyway) is for you to write your own web pages and insert findu images
+like plot, breadcrumb, and radar-find using img tags in your html. there are
+other things i can do, like writing a custom web  page, as i did for the 
+largest aprs event, the baker to vegas run or the
+suitsat experiment on the international space station.
+ this sort of thing
+takes time, so i need to limit it to things that will get some main-stream publicity
+(i love to show off what ham radio can do). please, if you want this, contact
+me as soon as possible, as my schedule sometimes gets tight! the more lead time you give me,
+the more likely i am to produce something really cool for you.
+your images don't show on my browser! 
+this site uses png images 
+(portable network graphics) for the dynamic images rather than gifs. 
+this was because unisys held a patent
+on the compression used in gifs, png is an improved format without patent problems.
+ all of the latest browsers accept these graphics, and ones that are a bit older
+can handle them through apple's quicktime plugin. recently these patents have expired.
+the library i use to create these
+images, gd, is now available in a form that will create gif images. had this been the case when i first
+created findu, i certainly would have used gif. at this point, png is close to a universal
+format, and i do not feel converting my code to gif would be worth my effort. if you have a different
+opinion, please feel free to share your reasons with me.
+
+i'm with supermegaweathersite.com, i want to use your data! 
+first, this is not my data, and i do not feel i have the right to allow other people's data
+to be used for commercial purposes.
+technically the data is not copyrighted, it is legal to write a your own aprs parser to extract the
+data from the live aprs internet stream, but because commercial use of 
+findu would increase the load without giving anything back to the aprs community,
+i must insist you not use my server to harvest the data. 
+
+
+
+
+ 
+ 
+ 
+ 
+
+about the findu server
+
+
+aprs is a registered trademark of aprs software and bob bruninga, 
+wb4apr.
+
+
+

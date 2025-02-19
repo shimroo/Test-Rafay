@@ -1,0 +1,1714 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+graphicallyspeaking
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+graphicallyspeaking
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pages
+
+
+
+blog
+
+
+tweets
+
+
+about
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+january 26, 2017
+
+
+
+
+
+medium
+
+
+
+
+
+the times they are'a'changing.  see you there.https://medium.com/@sreekotay
+
+
+
+
+posted by
+sree kotay
+
+
+at
+1:15 pm
+
+
+0
+comments
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+october 7, 2013
+
+
+
+
+
+ios 7. meh.
+
+
+
+
+
+for the record, i am an iphone fan -- since day 1 (and i can prove it :)).
+
+but i'm not loving ios 7.
+
+don't get me wrong: there's a lot to like.  its modern looking, less 'cutesy' (and way less cheesy), uses motion effectively, and generally improves the user interface affordances for a lot of use cases (contacts link in messages, actions in mail, etc.).  and that doesn't even get into the tons of (overdue) under the hood improvements.
+
+but i think, overall, its a cacophony of form over function that hasn't been executed or even thought through very well .  it took me a little while to put my finger on it, but the things i don't like are almost exactly the things people seem excited about:
+
+
+
+the user interface blends with the content.  i agree content should be the focus, and the ui should not be noticeable, but that is not what i (generally) see with ios 7 - instead its a hot mess.  the ui was the star in previous iterations of ios, and while it was obnoxious, it at least delineated interaction boundaries.  in ios 7, the "edges" between the 2 are kinda blurry -- too often marking neither as the hero, to the detriment of both. 
+ios7 looks more modern.  in places, it looks incomplete.  in places, it looks ugly.  in lots of places, it looks great -- but it's hard to argue that it thinks different.  the aesthetic is nice - but ios now looks like a generic (albeit polished) smartphone.
+the ui metaphors are gone - but not really.  skeumorphism is dead (for now), and "authentically digital" is the new king.  while i fully and completely agree and appreciate how much more modern ios looks, it still uses motion metaphors that are incongruent with the look and feel -- parallax, inertia, etc.  it embraces many skeumorphic action patterns that are discordant without the visual cues to anchor it (ios timer, i'm looking at you).
+there is no visual language.  circles used to imply pages/screens.  no skeumorphism -- purely digital.  now circles are everything:  scrolling, signal strength, progress indicator, etc. blue is something clickable -- except when you can't, or sometimes its clickable anyway.  selection visibility is all over the place.  meh.
+its been streamlined (and now too much is hidden).  click, double-click, press-and-hold, flick-in-the-middle, swipe from edge, wat - apple, stahp.  its kinda ok when these are global and/or accelators, but in combination with the increasing context sensitivity of these guestures (*cough* search)... not great.
+
+
+i'm not predicting the end of apple, or saying it's going to impact anything about their business.
+
+
+i'm just a little... disappointed.  a few hero screens look great -- but the effectiveness is only skin deep.  
+
+
+
+look and feel?  
+
+look and fail.
+
+
+
+
+posted by
+sree kotay
+
+
+at
+2:15 pm
+
+
+0
+comments
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+february 20, 2013
+
+
+
+
+
+implementing brainfuck, part 2
+
+
+
+
+
+update: faster binaries posted.  source coming shortly.
+
+in part 1, i presented some benchmarks (see here) for my brainfuck implementation against some of the best.  i'll now lay out the reference interpreter, the optimized interpreter, and source code.
+
+(i'm slower posting all this than i meant to be:  apologies --- dayjob and all...)
+
+
+
+to start, the reference interpreter looks like this:
+
+
+
+the source code is here:  bffsree_ref.c and bfsree.h. [updated: fixed missing header]
+executables for windows and linux.
+
+its pretty basic --- pretty much add/subtract, move left/right, get/put, and then loop begin/end.
+it basically is as basic as you can get, though it include three things that are, only in the loosest sense, "optimizations":
+
+
+although the interpreter will ignore non-valid characters at runtime, they are actually stripped at parse time.
+i accumulate operations into a counter at parse time (e.g. ++++ becomes +4)
+i parse the jump locations for loops at parse time.
+
+
+these are so simple to do inline that it feels like they hardly qualify, and you'll see all 3 in pretty much every implementation (i'd guess).
+
+
+
+and presented below is the optimized implementation that i presented in part 1:
+
+
+note that it is not materially different.
+the main differences are:
+
+
+the collapse of the command and "helper" arrays
+double-instructioning -- whereby it is assumed that to do anything interesting in brainfuck, you always have to move the pointer, so every instruction has a move-the-pointer offset (saves on instruction decodes)
+the inclusion of the "super instructions" that perform the following common tasks:
+
+pointer shifting in a loop
+multiplication of a cell by a constant
+setting a cell to a value
+multiplication of a cell by a constant, then zeroing
+multiplying two cells
+
+
+
+the first 2 are pretty straighforward -- most of the work is in the third item: collapsing the existing instructions into the optimized "super" instructions without breaking any contracts.  the primary optimizations are around loop invariance.
+
+
+
+there are a lot more optimizations i didn't yet finish tackling -- dead code elimination and constant propagation, in particular -- that should yield materially better performance.
+
+
+
+i'll post the details and source to the optimizing implementation in a future post.  
+
+
+
+(oh, btw, forget to mention -- if you use the "-c" option with the optimized implementation from part 1, it will convert your brainfuck program to somewhat performant c code.)
+
+
+
+
+posted by
+sree kotay
+
+
+at
+7:21 pm
+
+
+1 comments
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+february 10, 2013
+
+
+
+
+
+implementing brainfuck
+
+
+
+
+
+updated:  part 2 is now available.
+
+for those not aware, brainfuck is a small programming language whose sole existence is to amuse programmers.  it has certainly been amusing.
+
+in that vein, i got myself a nice x1 carbon touch with windows 8 a few weeks ago, and as always with a new laptop, i play with a few projects to "break it in". i have a fun little image viewer that i upgraded to touch (a few more things to clean up - may post it), and one of the other toys i thought i'd play with was a brainfuck interpreter and debugger.  the debugger part is important, as i've done a few language implementations before, but not all the way through the tool chain, and thought it'd be informative.
+
+sadly, i'm not through the whole tool chain yet -- still have to finish the editor/debugger, but the basic mechanics for the implementation are in place.
+
+because i'm competitive, i wanted to also try some interpreter optimization ideas.  i'd been kicking them around with a javascript interpreter i did over the holidays (*cough* 2011 --- will get back to it at some point).
+
+brainfuck seemed simple enough that it would be a nice testbed.
+
+anyway, i'll post some more details and source code, but thought i'd start with some results and executables to "whet the appetite" as it were.
+
+for those who are unfamiliar, brainfuck has only 8 operators: "<>[]+-,." ... and "hello world" looks like this:
+>+++++++++[<++++++++>-]<.>+++++++[<++++>-]<+.+++++++..+++.[-]
+>++++++++[<++++>-] <.>+++++++++++[<++++++++>-]<-.--------.+++
+.------.--------.[-]>++++++++[<++++>- ]<+.[-]++++++++++.
+i first built a reference interpreter, and then found a few fast online intepreters: alex pankatrov's moderately optimizing implementation (bff) and oleg mazonka's "fastest in class" interpreter (bff4) (according to wikipedia). they both crushed my reference interpreter, which lead to my optimized implementation.
+
+
+
+compiled versions are included here:
+
+
+
+
+
+alex's bff for windows and linux.
+oleg's bff4 for windows and linux.
+my bffsree for windows and linux.
+
+
+some brainfuck sample programs are here.
+update: linux binaries updated; had uploaded in text mode (d'oh!).
+
+
+update 02.27.13: slightly faster binaries updated again.
+
+
+
+
+performance is as follows:
+
+linux:
+
+
+
+program:  mandel.b  hanoi.b  sisihi.b  long.b  
+bff6.0s12.3sn/a14.4s
+bff46.8s0.5s5.9s3.1s
+bffsree2.7s0.05s1.4s0.2s
+
+windows:
+
+
+
+
+
+
+program:  
+mandel.b  
+hanoi.b  
+sisihi.b  
+long.b  
+
+
+bff
+7.6s
+16.2s
+n/a
+17.1s
+
+
+bff4
+6.8s
+1.3s
+4.1s
+3.1s
+
+
+bffsree
+3.4s
+0.8s
+1.2s
+0.16s
+
+
+some notes:
+
+
+
+
+gcc 4.7 for windows and 4.6 for linux were used.
+bffsree and bff can read from a file or stdin.  bff4 reads from stdin.
+"sisihi.b" is a brainfuck self interpreter running itself running "hi123.b" -- basically the executable you pick runs a brainfuck program that is a self intepreter running a self interpreter (itself) that runs a simple brainfuck program.  which is why they call it brainfuck.
+the difference between linux speed and windows speed appears to be gcc version and console speed (windows console is slow).
+both bff and bff4 seem to fail with "bench.b" (or are crazy slow) --- not sure what that's about.
+oleg's bff4 appears to have been the fastest since 2009 -- which is quite impressive.
+
+
+
+i'll discussion implementation notes in a follow-up post shortly.
+continued here.
+
+
+
+
+
+posted by
+sree kotay
+
+
+at
+10:59 pm
+
+
+1 comments
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+october 17, 2011
+
+
+
+
+
+redux: webgl random pixel toy
+
+
+
+
+
+fun: check out webgl sand toy.
+
+john robinson, at his storminthecastle blog, posted a 'cloud' version (i.e. a webpage :p) of a toy app i did 5 years ago.  his version is pretty cool, all the more so because it runs in the browser, using webgl.
+
+two things strike me about this (other than general fun/goodness):
+
+5 years(-ish) feels about right on the moore's law curve, and is probably the target for 'native' smartphones apps making the transition to browser based (if the w3c can get its act together)
+on the other hand, "runs like native" still seems like the highest compliment one can pay a browser based thing... so there's that.
+
+
+by way of example for both points, consider:
+
+
+
+viewpoint media player 3d, in a browser, circa 2002 using 'sreed'
+
+
+
+webgl racer, in a browser, circa 2011 using opengl
+
+
+in any case, enjoy.
+
+
+
+
+posted by
+sree kotay
+
+
+at
+10:45 am
+
+
+0
+comments
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+october 14, 2011
+
+
+
+
+
+kindle fire: return of the desktop?
+
+
+
+
+
+much has been written about the amazon kindle fire (amazon's new android based touchscreen kindle e-reader/media player).
+
+is it a game changer?  maybe.  we'll see.  
+
+i've certainly ordered one, and though many say its no threat to the ipad, given its media capabilities... i dunno --- people might be surprised.  if its reasonably performant (and compatible) for browsing, and given its e-commerce, e-book, and media capabilities... well, we'll see.  
+certainly its going to make it tough for other android tablet vendors;  jeff bezos is right in asserting that devices alone don't sell (and this is old news) -- it's devices+services, as apple has amply demonstrated again and again.
+all that said, there's another interesting thing about the kindle fire that distinguishes its market approach from apple's.  
+it's about content.
+apple sells activities -- a lifestyle; amazon sells content.
+contrast amazon's pitch with apple's:
+disagree if you want, but its a philosophy difference that extends to the very first screen:  amazon hilights the content, not the application(s) -- go watch the amazon video at the top of the post again.
+sure, you can by music, movies, and books with your ios device, and there's no question that's a big part of the appeal -- but apple's metaphor is about the task (books-->'winnie the pooh',  videos-->'inception'), and amazon's is the reverse.
+interesting.
+and here i thought "document-centric" computing, and the desktop metaphor it implies, was dead (i even wrote a eulogy).
+is it going to work?  maybe.  we'll see.
+but, either way, i have to give props to amazon, and bezos, for, well, trying to think different... :p
+
+
+
+
+
+posted by
+sree kotay
+
+
+at
+4:00 am
+
+
+2
+comments
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+labels:
+amazon,
+apple,
+ui
+
+
+
+
+
+
+
+
+
+
+
+
+older posts
+
+home
+
+
+
+
+subscribe to:
+posts (atom)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+search this blog
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+code related
+
+
+fast integer overflow detection
+integer log 2 redux
+flash 9 and the ria landscape
+a look at javascript performance
+fast floating point conversions
+understanding microformats
+memory allocation challenge!
+
+
+
+
+
+
+
+notable posts
+
+
+secrets of cable: ondemand trickplay
+dot-com-umentary: the movie
+web 2.0: money follows trust
+firefox vs. internet explorer
+content engineering examples
+web 2.0: ajax/mashup hype
+
+
+
+
+
+
+
+
+
+blog archive
+
+
+
+
+
+
+
+
+        ▼ 
+      
+
+
+
+2017
+
+(1)
+
+
+
+
+
+        ▼ 
+      
+
+
+
+january
+
+(1)
+
+medium
+
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2013
+
+(3)
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(2)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2011
+
+(2)
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(2)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2009
+
+(9)
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(2)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2008
+
+(18)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(3)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2007
+
+(63)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(9)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2006
+
+(149)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(10)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(16)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(10)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(17)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(25)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(19)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(8)
+
+
+
+
+
+
+
+
+
+blog links
+
+
+nerdblog (herf)
+joe hewitt
+john robinson
+stereopsis
+arpit (comcast)
+john mckinley
+corey lucier
+google justin (gtalk)
+rizzle (boxely)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+powered by blogger.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

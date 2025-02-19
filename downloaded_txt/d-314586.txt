@@ -1,0 +1,4085 @@
+
+
+
+
+
+leakdetection-technology.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sciencecontact
+
+
+
+
+
+
+
+
+ 
+
+
+ 
+
+
+
+
+
+
+introduction to the gas lawsthe flow of gases in leakshelium leak test on heat exchangersleak detection and measuring methodsleak detection with tracer gas methodsleak test with laser beamliteraturesearch
+
+
+
+
+
+^
+
+
+
+
+
+
+welcome to leak detection technology
+
+
+
+
+
+
+					what is pressure?			
+
+
+ 
+
+pressure is defined as force per unit surface area. where does this force originate from in a container filled with gas? gas consists of a large number of particles (atoms, molecules) which are permanently in motion. when they collide with a surface, their recoil produces a force. pressure is the sum of these forces produced by particles on unit surface area. the unit, in which the pressure is measured, is the pascal (pa = n/m2, newton per square meter). another valid unit of pressure is the bar (1 bar = 105 pa). the standard atmospheric pressure (dry air at sea level) is 1.013 bar. this value comes from the older, and no longer used unit the torr (760 torr = 760 mm mercury column).
+
+
+
+
+
+
+
+					what is vacuum?			
+
+
+ 
+
+vacuum is produced by removing gas from a container. it is not possible to remove all the gas from a container by pumping; particles still remain in the container, producing a pressure. zero pressure is therefore not possible in practice. the pressure relative to the absolute vacuum is called the absolute pressure. thus there is still a positive pressure even in a good vacuum. atmospheric pressure is about 1 bar absolute, and manometers which zero at atmospheric pressure and show negative in vacuum, measure a relative pressure against atmospheric pressure. note that the negative values do not represent a negative absolute pressure.
+a gas having a negative pressure relative to the atmosphere is called vacuum. by definition there are four levels of vacuum, depending on the size of the negative relative pressure:
+
+
+
+
+
+
+rough vacuum
+
+
+
+
+fine vacuum
+
+
+
+
+high vacuum
+
+
+
+
+ultra-high vaccum
+
+
+
+
+
+
+1013 - 1 mbar
+
+
+
+
+1 - 10-3 mbar
+
+
+
+
+10-3 - 10-7 mbar
+
+
+
+
+<10-7 mbar
+
+
+
+
+
+
+1.013 x 105 - 100 pa
+
+
+
+
+100 - 0.1 pa
+
+
+
+
+0.1 - 10-5 pa
+
+
+
+
+<10-5 pa
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					composition of air			
+
+
+ 
+
+air is a mixture of different gases. more than 99% of air consist of nitrogen and oxygen.
+the rest are other gases.
+
+
+
+
+
+
+gas
+
+
+
+
+nitrogen
+
+
+
+
+oxygen
+
+
+
+
+argon
+
+
+
+
+carbon dioxide
+
+
+
+
+neon
+
+
+
+
+helium
+
+
+
+
+krypton
+
+
+
+
+hydrogen
+
+
+
+
+xenon
+
+
+
+
+
+
+percent
+
+
+
+
+79,119%
+
+
+
+
+21,224%
+
+
+
+
+0,946%
+
+
+
+
+~0,0334%
+
+
+
+
+0,00184%
+
+
+
+
+0,00053%
+
+
+
+
+0,000116%
+
+
+
+
+0,00005%
+
+
+
+
+0,0000088%
+
+
+
+ 
+
+
+
+table 1
+
+
+
+
+
+
+
+					what is partial pressure?			
+
+
+ 
+
+partial pressure is produced by a single gas in a mixture of gases. the table below shows the percentage composition of air. at a pressure of 1.013 bar the oxygen content is 21.224%, the partial pressure of oxygen in air is = 0.21224 bar or 212.24 mbar. the table can therefore be interpreted for partial pressures of the gas mixture in air
+
+
+
+
+
+
+gas
+
+
+
+
+nitrogen
+
+
+
+
+oxygen
+
+
+
+
+argon
+
+
+
+
+carbon dioxide
+
+
+
+
+neon
+
+
+
+
+helium
+
+
+
+
+krypton
+
+
+
+
+hydrogen
+
+
+
+
+xenon
+
+
+
+
+
+
+partial pressure
+
+
+
+
+791.19 mbar
+
+
+
+
+212.24 mbar
+
+
+
+
+9.46 mbar
+
+
+
+
+3.34 x 10-1 mbar
+
+
+
+
+1.84 x 10-2 mbar
+
+
+
+
+5.3 x 10 -3 mbar
+
+
+
+
+1.16 x 10-3 mbar
+
+
+
+
+5.0 x 10 -4 mbar
+
+
+
+
+8.8 x 10 -5 mbar
+
+
+
+ 
+
+
+
+table 2the table shows the partial pressures of the gases in air in relationto the standard pressure of dry air at sea level = 1013 mbar.
+
+
+
+
+
+
+
+					dalton's law			
+
+
+ 
+
+dalton's law gives the relation between the total pressure of a gas in a container and the partial pressure of its constituents. 
+
+
+
+
+
+
+the sum of all partial pressures in a mixture of gases is equal to the total pressure.
+
+
+
+ 
+
+
+
+
+note that:
+the gas mixture in a closed volume does not separate. in an air-to-helium mixture, the helium does not rise to the top of the container even though it is lighter than the other gases. this is because of the thermal speed of the particles there are inter-particle collisions in the gas as well as with the container walls and therefore always a mixing process, called "diffusion"
+
+
+
+
+
+
+
+					what is gas?			
+
+
+ 
+
+gas is a substance, where the particles (molecules and atoms) can freely move. in thermodynamic equilibrium these particles are uniformly distributed in space, so that the pressure, partial pressures and gas composition are the same at all points of the container.
+ a solid is a substance, the particles are fixed in their positions, they can only vibrate and rotate. a liquid is a substance, where particles can freely slide on each other but cannot separate from each other, hindered by intermolecular forces. 
+
+
+
+
+
+
+
+					what is vapour pressure?			
+
+
+ 
+
+when the pressure above a liquid is reduced at constant temperature, it evaporates and the resulting gas is called a vapour. this vapour, like other gases, has a pressure called vapour pressure. the vapour can become a liquid again. this is called condensation. all vapours have a saturation pressure which is the pressure of the vapour in equilibrium with its liquid. when the pressure in a system is higher than the saturation pressure, the vapour condenses, causing the pressure to return to the saturation value. vice versa, as long as there is still a liquid in the system, the pressure cannot be reduced (by pumping) lower than the saturation pressure, because the liquid continues to evaporate.
+in a container, in which a liquid and its vapour are present and the pressure is equal to the saturation vapour pressure, evaporation and condensation occur simultaneously. water and its vapour pressure in vacuum systems need our special attention, because water is always present as humidity in the air and water is difficult to remove from vacuum systems.
+ we call gases vapour, when they can condense at normal temperatures. strictly speaking all gases can condense, it depends only how much the temperature is reduced.
+vapour pressure of water at different temperatures.
+
+
+
+
+
+
+temp in c
+
+
+
+
+100
+
+
+
+
+50
+
+
+
+
+25
+
+
+
+
+0
+
+
+
+
+-40
+
+
+
+
+-78,5
+
+
+
+
+-196
+
+
+
+
+
+
+pressure in mbar
+
+
+
+
+1010.8
+
+
+
+
+130.3
+
+
+
+
+22.6
+
+
+
+
+7.3
+
+
+
+
+0.13
+
+
+
+
+7.7 x 10-3
+
+
+
+
+1.3 x 10-9
+
+
+
+ 
+
+
+
+table 3
+vapour pressure of some liquids at 20â° c
+
+
+
+
+
+
+liquid
+
+
+
+
+methyl alcohol
+
+
+
+
+ethyl alcohol
+
+
+
+
+acetone
+
+
+
+
+water
+
+
+
+
+tetrachlorcarbon
+
+
+
+
+high vacuum-diffusion pump oil
+
+
+
+
+
+
+pressure in mbar
+
+
+
+
+127.7
+
+
+
+
+58.3
+
+
+
+
+245.8
+
+
+
+
+23.37
+
+
+
+
+121.0
+
+
+
+
+10-7 bis 10-9
+
+
+
+ 
+
+
+
+table 4
+
+
+
+
+
+
+
+					what is mean free path?			
+
+
+ 
+
+the mean free path (mfp) is the average distance which a molecule of a gas- or vapour travels before it collides with another molecule. at high vacuum, these distances become very large, so the particles collide only with the walls of the vacuum chamber.
+
+
+
+
+
+
+pressure
+
+
+
+
+quantity per cm3
+
+
+
+
+mfp
+
+
+
+
+
+
+1013 mbar
+
+
+
+
+3 x 1019
+
+
+
+
+6,8 x 10-5 mm
+
+
+
+
+
+
+1 x 10-3 mbar
+
+
+
+
+3 x 1013
+
+
+
+
+6,8 cm
+
+
+
+
+
+
+1 x 10-9 mbar
+
+
+
+
+3 x 107
+
+
+
+
+6,8 km
+
+
+
+ 
+
+
+
+the mean free path is proportional to the pressure. at atmospheric pressure the particles collide every 10 thausandths of a millimetre, but at a pressure of 109 mbar they collide only after 68 km. the following formula gives the mean free path for air at 200c at pressure p mbar.
+
+
+
+
+
+
+
+
+					the mean free path for some gases at 20â° c and different pressures			
+
+
+ 
+
+
+
+
+
+
+
+pressure (in pa)
+
+
+
+
+pressure(in mbar)
+
+
+
+
+mean free path
+
+
+
+
+air
+
+
+
+
+argon
+
+
+
+
+co2
+
+
+
+
+hydrogen
+
+
+
+
+water vapour
+
+
+
+
+helium
+
+
+
+
+nitrogen
+
+
+
+
+neon
+
+
+
+
+oxygen
+
+
+
+
+
+
+10-6
+
+
+
+
+10-8
+
+
+
+
+km
+
+
+
+
+6,8
+
+
+
+
+7,2
+
+
+
+
+4,5
+
+
+
+
+12,5
+
+
+
+
+4,2
+
+
+
+
+19,6
+
+
+
+
+6,7
+
+
+
+
+14,0
+
+
+
+
+7,2
+
+
+
+
+
+
+10-3
+
+
+
+
+10-5
+
+
+
+
+m
+
+
+
+
+6,8
+
+
+
+
+7,2
+
+
+
+
+4,5
+
+
+
+
+12,5
+
+
+
+
+4,2
+
+
+
+
+19,6
+
+
+
+
+6,7
+
+
+
+
+14,0
+
+
+
+
+7,2
+
+
+
+
+
+
+1
+
+
+
+
+10-2
+
+
+
+
+mm
+
+
+
+
+6,8
+
+
+
+
+7,2
+
+
+
+
+4,5
+
+
+
+
+12,5
+
+
+
+
+4,2
+
+
+
+
+19,6
+
+
+
+
+6,7
+
+
+
+
+14,0
+
+
+
+
+7,2
+
+
+
+
+
+
+103
+
+
+
+
+10
+
+
+
+
+μm
+
+
+
+
+6,8
+
+
+
+
+7,2
+
+
+
+
+4,5
+
+
+
+
+12,5
+
+
+
+
+4,2
+
+
+
+
+19,6
+
+
+
+
+6,7
+
+
+
+
+14,0
+
+
+
+
+7,2
+
+
+
+
+
+
+105
+
+
+
+
+1000
+
+
+
+
+nm
+
+
+
+
+68
+
+
+
+
+72
+
+
+
+
+45
+
+
+
+
+125
+
+
+
+
+42
+
+
+
+
+196
+
+
+
+
+67
+
+
+
+
+140
+
+
+
+
+72
+
+
+
+ 
+
+
+
+table 5 1 nm [nanometer] = 10-9 m
+
+
+
+
+
+
+
+					avogadro's law			
+
+
+ 
+
+
+
+
+
+
+
+equal volumes of gases at the same temperature and pressure contain equal numbers of gas molecules.
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					what is a mole?			
+
+
+ 
+
+a mole (abbreviated to "mol") is a unit of quantity. the definition is:
+the weight of each gas in a volume of 22.415 litres (at 0â°c and 1,013 bar) is equal to the relative mass of one molecule of this gas.
+example: 1 mol helium = 22.415 litre has a weight of 4 gm.
+units of quantity can be expressed in different units:
+
+
+
+
+
+
+volume v
+
+
+
+
+mass m
+
+
+
+
+number of particles n
+
+
+
+
+amount of substance n
+
+
+
+
+if it is a gas: "p·v - value" p·v
+
+
+
+
+
+
+[v]
+
+
+
+
+[m]
+
+
+
+
+[n]
+
+
+
+
+[n]
+
+
+
+
+[p·v]
+
+
+
+
+
+
+m3, l, cm3
+
+
+
+
+kg, g
+
+
+
+
+1
+
+
+
+
+kmol, mol
+
+
+
+
+pa·m3 = n·m, mbar·l
+
+
+
+ 
+
+
+
+the characterisation of an amount of gas as p x v-value is mostly used in vacuum technology.
+
+
+
+
+
+
+
+					what is a leak rate?			
+
+
+ 
+
+a leak rate is an amount of substance, which passes in a certain time through a leak. as we have seen, there are several units for quantity, so the leak rates can also be expressed in different units. the symbol for the leak rate is "q".
+normally used are:
+
+
+
+
+
+
+the volume leak rate q =
+
+
+
+
+the mass leak rate q =
+
+
+
+
+
+
+pa·m3/s, mbar·l/s
+
+
+
+
+g/a (gram per year)
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					avogadroâ´s number			
+
+
+ 
+
+
+
+
+
+
+
+each gas in 1 mol (= 22.415 litre) at 0°c and 1,013 bar (760 torr) has 6.023 x 1023 particles.
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					the relative masses of molecules			
+
+
+ 
+
+in the past these masses have been called "atomic weight or molecular weight", but this was misleading, because these numbers are only ratios between atoms or molecules.
+the relative mass of molecules m (also called molar mass) at si-units is defined in kg/kmol. one hypothetical standard atom has the relative mass of 1/12th of the 12 c atom. the relative mass of a helium atom is then:
+
+
+
+
+
+
+m = 4 kg / kmolorm = 4 g / mol
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					boyle's law			
+
+
+ 
+
+when the volume of a gas is decreased (for example by a piston), the pressure increases in the same ratio, if the temperature does not change. compressing the volume to a half of its size doubles the pressure.
+
+also well known as:
+
+when a vacuum is produced and the pressure is decreased by a large amount, the gases expand to very large volumes. this occurs also with contamination on the inner walls of the vacuum chamber, which evaporates (for example fingerprints).
+with equal numbers of molecules (temperature kept constant)
+for the same number of molecules (constant temperature)
+
+
+
+
+
+
+
+					charles' law			
+
+
+ 
+
+the volume of a gas changes with temperature if the pressure is kept constant. when the gas becomes colder, the volume decreases. as it becomes warmer, the gas expands.
+
+t in kelvin (see scale of absolute temperature below).
+ when the temperature doubles, the volume increases similarily by the factor of 2, provided that the pressure stays constant.
+with equal numbers of molecules and constant pressure
+with a closer look at charles` law, one can find a more detailed relationship between temperature and volume, known as the law of gay-lussac:
+
+
+
+
+
+
+
+					the law of gay-lussac			
+
+
+ 
+
+when the temperature of a gas changes from 0â°c by one degree, the volume changes by 1/273 of the original value:
+
+or
+
+from this law, lord kelvin founded the absolute scale for the temperature, in which 0 kelvin = absolute zero = 273.15 degrees celsius.
+
+
+
+
+
+
+thermodynamic temperature tin kelvin [k]
+
+
+
+
+373.15
+
+
+
+
+273.15
+
+
+
+
+263.15
+
+
+
+
+10
+
+
+
+
+0
+
+
+
+
+
+
+celsius temperature in [0°c]
+
+
+
+
+100
+
+
+
+
+0
+
+
+
+
+-10
+
+
+
+
+-263.15
+
+
+
+
+-273.15
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+boyles' law
+
+
+
+
+describes the relationship between volume and pressure, where temperature and mass (number of particles) must stay constant.
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+charles' gesetz
+
+
+
+
+describes the relationship between volume and temperature, where pressure and mass stay constant.
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+avogadro's law
+
+
+
+
+describes the relationship between volume and mass, where temperature and pressure stay constant.
+
+
+
+ 
+
+
+
+the above three lawâ´s combine to give the universal gas law:
+
+
+
+
+
+
+
+					the universal gas law			
+
+
+ 
+
+
+greek î½(ny) is the symbol for the quantity in mol or kmol.
+the universal gas law is not restricted like charlesâ´, boyleâ´s and avogadroâ´s laws.
+the temperatures in charles law and in the universal gas law are inserted as absolute temperatures in kelvin.
+
+
+
+
+
+
+p =
+
+
+
+
+v =
+
+
+
+
+t =
+
+
+
+
+ν =
+
+
+
+
+r =
+
+
+
+
+
+
+pressure
+
+
+
+
+volume
+
+
+
+
+temperatur
+
+
+
+
+quantity
+
+
+
+
+universal gas constant
+
+
+
+
+
+
+n/m2= pa
+
+
+
+
+m3
+
+
+
+
+k
+
+
+
+
+mol
+
+
+
+
+ 
+
+
+
+
+
+
+1 bar = 105pascal
+
+
+
+
+cubic metre
+
+
+
+
+kelvin
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					the universal gas constant			
+
+
+ 
+
+
+1 j (joule) = 1 nm = 1 ws
+for calculations, the following, equivalent values are often used:
+
+
+
+â 
+
+
+
+
+
+
+
+					individual gas constants for some gases (j/kg x k)			
+
+
+ 
+
+
+
+
+
+
+
+gas
+
+
+
+
+air
+
+
+
+
+argon
+
+
+
+
+helium
+
+
+
+
+hydrogen
+
+
+
+
+nitrogen
+
+
+
+
+oxygen
+
+
+
+
+water vapour
+
+
+
+
+r - 12
+
+
+
+
+r - 22
+
+
+
+
+
+
+ri
+
+
+
+
+287
+
+
+
+
+208
+
+
+
+
+2079
+
+
+
+
+4116
+
+
+
+
+297
+
+
+
+
+260
+
+
+
+
+461
+
+
+
+
+68.7
+
+
+
+
+96.1
+
+
+
+ 
+
+
+
+if many calculations are made for the same gas, it is often easier to use the individual gas constant ri
+
+
+
+
+
+
+
+
+					the greek alphabet			
+
+
+ 
+
+
+
+
+
+
+
+α α
+
+
+
+
+β β
+
+
+
+
+γ γ
+
+
+
+
+δ δ
+
+
+
+
+η η
+
+
+
+
+ζ ζ
+
+
+
+
+η η
+
+
+
+
+θ θ
+
+
+
+
+ι ι
+
+
+
+
+κ κ
+
+
+
+
+λ λ
+
+
+
+
+μ μ
+
+
+
+
+
+
+alpha
+
+
+
+
+beta
+
+
+
+
+gamma
+
+
+
+
+delta
+
+
+
+
+eta
+
+
+
+
+zeta
+
+
+
+
+eta
+
+
+
+
+theta
+
+
+
+
+jota
+
+
+
+
+kappa
+
+
+
+
+lambda
+
+
+
+
+my
+
+
+
+
+
+
+ν ν
+
+
+
+
+ξξ
+
+
+
+
+ο ο
+
+
+
+
+π π
+
+
+
+
+ρ ρ
+
+
+
+
+σ σ
+
+
+
+
+τ τ
+
+
+
+
+υ υ
+
+
+
+
+φ φ
+
+
+
+
+χ χ
+
+
+
+
+ψ ψ
+
+
+
+
+ω ω
+
+
+
+
+
+
+ny
+
+
+
+
+ksi
+
+
+
+
+omikron
+
+
+
+
+pi
+
+
+
+
+rho
+
+
+
+
+sigma
+
+
+
+
+tau
+
+
+
+
+ypsilon
+
+
+
+
+phi
+
+
+
+
+chi
+
+
+
+
+psi
+
+
+
+
+omega
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					the individual gas constant			
+
+
+ 
+
+if the universal gas constant is divided by the relative mass number (m) of the molecule of the gas in question, the result is the individual gas constant ri for this gas.
+
+
+
+
+
+
+
+
+					 viscous flow			
+
+
+ 
+
+at pressures above about 0.01 mbar the gas particles react more or less as fluids. the particles are very close to each other, so they collide more with each other than with the container walls. if they are pumped or if there is a pressure difference, they flow like a fluid.
+there are two different kinds of viscous flow: a.) turbulent flow and b.) laminar flow.
+
+
+
+
+
+
+
+					types of flow			
+
+
+ 
+
+
+
+
+
+
+
+types of flow
+
+
+
+
+turbulent flow
+
+
+
+
+laminar flow
+
+
+
+
+transitional flow
+
+
+
+
+molecular flow
+
+
+
+
+
+
+leak rate (mbar · l/s)
+
+
+
+
+〉 10-2
+
+
+
+
+10-1 - 10-6
+
+
+
+
+10-4 - 10-7
+
+
+
+
+〈 10-7
+
+
+
+ 
+
+
+
+(source: leakage testing handbook, prepared for liquid propulsion section, jet propulsion laboratory, national aeronautics and space administration, pasadena, california)
+in most cases in leak detection technology it is not possible to calculate accurately the kind of flow - it must be estimated. of course there are formulae for calculation of the conductance for different pipes etc. all these formulae contain geometry factors (length, diameter etc.) but with leaks in normal practice, these factors are unknown.
+
+
+
+
+
+
+
+					turbulent flow			
+
+
+ 
+
+turbulent flow, which involves eddy currents, occurs only in larger leaks and at higher pressure differences. with a high speed of gas, only leaks with turbulent flow emit a sound (whistle) and these can be searched with ultrasonic leak detectors.
+the formula for the leakrate at turbulent flow is not given here since leaks with turbulent flow are so large and can be readily located and repaired. there is seldom a need for calculation.
+
+path of a single molecule in turbulent flow.
+
+
+
+
+
+
+
+					laminar flow			
+
+
+ 
+
+laminar flow is defined as a parallel flow of molcules in a pipe, whereby the transverse distribution of the speed of the molecules is parabolic.
+
+path of molecules in laminar flow.
+in the figure, the arrows symbolise the speed of the molecules. in the center of the pipe the speed is a maximum and it decreases towards the walls of the pipe.
+the most wellknown formula for laminar flow is from poisseuille. it describes the laminar flow through a straight tubulation with circular cross-section.
+
+
+
+
+
+
+
+if one assumes that the geometry dimensions of a leak do not change during the period of measurement, the constants of the poiseuille formula can be combined in one constant k:
+
+where k contains the following constants:
+
+we can now see from this formula some properties of laminar flow: when the pressure difference across a leak changes, the leakrate changes with the square of the pressure according to the following formula:
+
+from this we conclude that with increasing pressure in an object under leaktest a drastic increase of sensitivity can be achieved. on large containers which are filled with a search gas (for example helium) to make a sniffer-test, a cost reduction can be achieved by increasing the inner total pressure, but reducing the concentration of the test gas. of course the safety conditions for filling containers with pressurised gas must be followed.
+
+
+
+
+
+
+
+					calculation of an example			
+
+
+ 
+
+an interesting example is calculated below, namely the difference in leakrate at the sniffer test, compared to a vacuum test. the leak geometry and the gas stay unchanged, also the pressure difference is 1 bar in both conditions. the difference is only: at the sniffer test the pressure conditions are 2 bar inner pressure against 1 bar (absolute) outer pressure, and at the vacuum test the outer pressure is 1 bar (atmosphere) and the inner pressure is zero bar (actually it is not zero. but for the calculation a 1/1000th of a bar is nearly zero).
+
+
+
+vacuumtest
+
+
+
+
+
+
+
+sniffertest
+
+
+
+
+
+
+
+
+the leakrate at the sniffer-test is three times larger than at the vacuum-test, even if it looks like the same pressure conditions.
+when the type of gas changes, the leakrate changes in inverse proportion to the dynamic viscosities of the gases.
+
+
+
+
+
+
+
+					viscosity of some gases			
+
+
+ 
+
+
+
+
+
+
+
+type of gas
+
+
+
+
+air
+
+
+
+
+nitrogen
+
+
+
+
+oxygen
+
+
+
+
+argon
+
+
+
+
+hydrogen
+
+
+
+
+helium
+
+
+
+
+carbondioxide
+
+
+
+
+r-12
+
+
+
+
+r-22
+
+
+
+
+r-134a
+
+
+
+
+r-600a
+
+
+
+
+
+
+formular
+
+
+
+
+ 
+
+
+
+
+n2
+
+
+
+
+o2
+
+
+
+
+ar
+
+
+
+
+h2
+
+
+
+
+he
+
+
+
+
+co2
+
+
+
+
+ccl2f2
+
+
+
+
+chclf2
+
+
+
+
+ch2f-cf3
+
+
+
+
+ch(ch3)2-ch3
+
+
+
+
+
+
+viscosity at 15°c in pa·s
+
+
+
+
+18.0 · 10-6
+
+
+
+
+16.3 · 10-6
+
+
+
+
+19.9 · 10-6
+
+
+
+
+22.0 · 10-6
+
+
+
+
+8.7 · 10-6
+
+
+
+
+19.4 · 10-6
+
+
+
+
+14.5 · 10-6
+
+
+
+
+11.6 · 10-6
+
+
+
+
+12.0 · 10-6
+
+
+
+
+11.61 · 10-6
+
+
+
+
+7.4 · 10-6
+
+
+
+ 
+
+
+
+as one can see, the difference of viscosity between gases is not so large, all are in the same order of magnitude.
+
+
+
+
+
+
+
+					conversion of helium leak rate at laminar flow to leak rates of other gases			
+
+
+ 
+
+
+
+
+
+
+
+convert to:
+
+
+
+
+q of argon
+
+
+
+
+q of neon
+
+
+
+
+q of hydrogen
+
+
+
+
+q of nitrogen
+
+
+
+
+q of air
+
+
+
+
+q of water vapour
+
+
+
+
+
+
+multiply helium leak rate by factor:
+
+
+
+
+0.883
+
+
+
+
+0.626
+
+
+
+
+2.23
+
+
+
+
+1.12
+
+
+
+
+1.08
+
+
+
+
+2.09
+
+
+
+ 
+
+
+
+as can be seen from this table, the difference of leak rate of air is only 7.7% than helium, smaller than the accuracy of a helium-leakdetector. if we consider a leaktest with a helium/air mixture under laminar flow conditions, then the measured helium leakrate can be regarded as the same as the air leakrate. for example, in a test carried out with a 10% helium / 90% air mixture, the measured helium leakrate is 10% of the total leakrate, which from the above table is:
+(0.9 x 1.077) + (0.1 x 1) = 1.069
+this shows an error of 6.9% taking the viscosity of air a 1.
+
+
+
+
+
+
+
+					molecular flow			
+
+
+ 
+
+molecular flow exists in small leaks and at low pressures. at molecular flow each molecule travels independently of other molecules. the mean free path is larger than the diameter of the leak capillary. therefore it is possible, that a single molecule travels against the general flow direction, because molecules do not collide with each other, but only with the walls. despite this fact, the general flow is in direction of the lower pressure. at molecular flow the molecules follow the partial pressure down gradient.
+
+the figure shows the flow of a single molecule through a leak at molecular flow.
+the formula of knudsen for the leak rate at molecular flow is:
+
+
+
+
+
+
+
+
+from the knudsenâ´s formula one can see that contrary to the laminar flow, the leakrate follows linear proportion to pressure difference. to calculate a leakrate after a pressure change, the following formula is valid:
+
+the dependency of the leakrate on molecular flow in relation to the type of gas, follows inverse proportion to the square root of the relative mass of molecules. contrary to the laminar flow, a change of gas can make larger differences in leakrate (at constant pressure difference), as shown in the next formula:
+
+
+
+
+
+
+
+
+					conversion of helium leak rate to air leak rate			
+
+
+ 
+
+the above formula with the relative masses of air and helium
+
+
+
+
+
+
+at equal conditions of pressure and temperature
+the air leak rate for molecular flow is a factor of 2.7 smaller than the helium leak rate. data sheets of helium leak detectors often mention the equivalent air leakrate as well as the smallest detectable helium leak rate. this can be misinterpreted since the factor is only valid for molecular flow and not for the total range of measurement. modern helium leak detectors can measure leakrates millions of times larger than in molecular flow. in conclusion, a helium leakdetector cannot measure air leakrates.
+
+
+
+
+
+
+
+					conversion from weight leak rate to volume leak rate			
+
+
+ 
+
+in vacuum technology, the leak rate in general is described as volume leak rate (mbar.l/s). but there are industries which define the leak rates in loss of weight per year (g/a). the following example shows the conversion from loss of weight to volume leak rate (for constant pressure and temperature). change to a different type of gas is also considered.
+in an example from the refrigerator industry, the calculation for molecular flow leak rate becomes clear. let us assume, that a refigerator manufacturer wants to check his products for a leakrate equal to or less than 0.01 g loss of the gas (r-12) per year. the correspondig volume leak rate is calculated via the mol:.
+the relative mass of an r-12 refrigerant molecule is 121.
+121 g of r-12 corresponds to 22.414 litre of gas at 1013 mbar und 00c, so that 0.01 gm r-12 = 1.85.10-3 bar.l that is 1.85 mbar.l r-12 per year.
+1 year has 3.1536 . 107 seconds, then the r-12 volume leak rate is:
+
+but this is not quite correct, because the mol is specified for the conditions of 0â°c and 1.013 bar. the test takes place at room temperature, say 20â°c. so we have to correct this result according to charlesâ´ law (the pressure stays constant at both tests):
+
+at molecular flow, when pressure and temperature stay constant, the corresponding helium leak rate is calculated as follows:
+
+
+
+
+we remember: the dependency of the leak rate at molecular flow in relation to the type of gas, is inversely proportional to the square root of the relative mass of molecules.
+
+this example is rarely used in practice. it was only chosen as a case of molecular flow. it shows that the helium leak rate in this case is factor 5.7 times higher than the r-12 leakrate. in practice, the required leak rates for refrigerators are in the range of 1 to 5 gm per year. these leakrates are already in the range of transition or laminar flow.
+
+
+
+
+
+
+
+					conversion of helium leak rates at molecular flow to other gases			
+
+
+ 
+
+
+
+
+
+
+
+conversion to:
+
+
+
+
+q of argon
+
+
+
+
+q of neon
+
+
+
+
+q of hydrogen
+
+
+
+
+q of nitrogen
+
+
+
+
+q of air
+
+
+
+
+q of water vapour
+
+
+
+
+
+
+multilpy helium leak rate with factor:
+
+
+
+
+0.316
+
+
+
+
+0.446
+
+
+
+
+1.41
+
+
+
+
+0.374
+
+
+
+
+0.374
+
+
+
+
+0.469
+
+
+
+ 
+
+
+
+note that the leak rate in molecular flow varies as the cube of diameter, whereas in laminar flow it varies as the fourth power. the leak rate for molecular flow in relation to the type of gas is inversely proportional to the square root of the relative mass of molecules (see formula of knudsen).
+
+
+
+
+
+
+
+					transition flow			
+
+
+ 
+
+there is a gradual transition from molecular to laminar flow which can be interpreted as both flows are present simultaneously or: at the entrance of the leak the flow is laminar which gradually changes, till at the end of the leak it is molecular flow.
+
+the path of one molecule in transition flow. it shows collitions with the wall and with other molecules.
+the mathematical description of this condition is difficult. there are some formulae available, all of them have some restrictions. the most simple formula is from burrow. he combined the formulae for laminar and molecular flow.
+
+
+
+
+
+
+
+
+
+
+
+this formula can be used for rough calculations, if one takes the geometrical dimensions of an idealized leak capillary with round cross section and length much longer than diameter. one has to estimate, if molecular or laminar flow predominates and use the formula of poisseuille or knudsen, to calculate the dimension of the idealized leak.
+
+
+
+
+
+
+
+					the response time			
+
+
+ 
+
+the response times mentioned on datasheets and specifications of leak detectors are the individual response times of the leak detectors without any test piece connected, or with just the reference leak connected and are valid only for leaktests with test pieces with very small volumes. the response time of a test arrangement is given by the volume divided by the effective pumping speed of the used pumps:
+
+the following formula describes the increase of the leak rate signal:
+
+and the following formula describes the decrease of the signal:
+
+
+
+
+
+
+
+
+					example: integral leak test on a heat-exchanger			
+
+
+ 
+
+
+
+
+
+
+
+heat exchanger
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+volumes around the tube:
+
+
+
+
+volume in the tubes:
+
+
+
+
+effective pumping speed
+
+
+
+
+
+
+3.750 l
+
+
+
+
+3.176 l
+
+
+
+
+17 l/s
+
+
+
+ 
+
+
+
+
+the effective pumping speed is the speed at the flange a of the heat exchanger (total pumping speed of the two pumps, reduced by the flow resistance of the pumping line).
+the response time in this case is:
+
+for the leak rate signal to reach almost its end value, a waiting time of 5 time constants is recommended. (see the following table). therefore, after the volume under the foils is filled with 100% helium, a waiting time of around 18 minutes and 23 seconds is necessary, before the leak rate reading can be taken.
+
+
+
+
+
+
+
+					the size of the leak rate signal after tn time constants in %			
+
+
+ 
+
+
+
+
+
+
+
+τ
+
+
+
+
+1
+
+
+
+
+2
+
+
+
+
+3
+
+
+
+
+4
+
+
+
+
+5
+
+
+
+
+6
+
+
+
+
+
+
+%
+
+
+
+
+63.2
+
+
+
+
+86.46
+
+
+
+
+95.02
+
+
+
+
+98.16
+
+
+
+
+99.3
+
+
+
+
+99.75
+
+
+
+ 
+
+
+
+the calibrated leak at position 2 is positioned before the pumping line divides between the additional pump and the leak detector. this is necessary to have a correct calibration. part of the helium of the calibrated leak is pumped by the additional pump as is also with helium comimg from a leak in the heat exchanger.
+the calibrated leak at position 2 has the following properties:
+
+
+
+advantage:
+the leak detector can be calibrated without helium coming into the heat exchanger, therefore not producing a background signal and calibration can be done in a short time.
+
+
+disadvantage:
+the responsetime can only be calculated.
+
+
+
+the calibrated leak at position 1 has the following properties:
+
+
+
+advantage:
+the time constant can be measured by an extra experiment
+
+
+disadvantage:
+the calibration of the leakdetector takes a long time, because for the increase of the helium signal as well as for the decrease (to pump away the background helium) at least 5 timeconstants are necessary.
+
+
+
+remark:
+long response times, even longer than 18 minutes in this case, do not matter for the correct test result. but to localize a leak, response times of seconds are necessary. so this example shows the importance to watch the time constant during a search gas leak test
+
+
+
+
+
+
+
+					the diffusion of gases			
+
+
+ 
+
+the spread of one gas into another gas is called "diffusion". of course diffusion happens also with fluids, but here we are interested in diffusion of gases. under equal conditions, light gases diffuse faster than heavy gases. the diffusion of gases is inversely proportional to their relative molecular mass.
+
+
+
+
+
+
+
+					 graham's law of diffusion of gases			
+
+
+ 
+
+
+(d = diffusion coefficient, m = relative molecular mass)
+
+
+
+
+
+
+
+					diffusion-coefficients of some gases			
+
+
+ 
+
+at 0â°c and 101.3 kpa
+
+
+
+
+
+
+gas
+
+
+
+
+hydrogen
+
+
+
+
+helium
+
+
+
+
+nitrogen
+
+
+
+
+oxygen
+
+
+
+
+argon
+
+
+
+
+carbon dioxide
+
+
+
+
+r-12
+
+
+
+
+r-22
+
+
+
+
+water vapour
+
+
+
+
+
+
+relative molecular mass
+
+
+
+
+2.02
+
+
+
+
+4
+
+
+
+
+28
+
+
+
+
+32
+
+
+
+
+39.9
+
+
+
+
+44
+
+
+
+
+121
+
+
+
+
+86.5
+
+
+
+
+18
+
+
+
+
+
+
+diffusions-coefficient[mm2/s]
+
+
+
+
+67.1
+
+
+
+
+69.7
+
+
+
+
+17.5
+
+
+
+
+17.5
+
+
+
+
+14.7
+
+
+
+
+13.4
+
+
+
+
+8.3
+
+
+
+
+9.5
+
+
+
+
+21.9
+
+
+
+ 
+
+
+
+note: helium has the largest diffusion coeffcient
+
+
+
+
+
+
+
+					 example: diffusion of search gas in air			
+
+
+ 
+
+the diffusion of one gas into another at atmospheric pressure is relatively slow (and even slower at higher pressures). this requires special attention when test pieces are filled with search gas for a sniffer test. with long tubes with closed ends, the search gas cannot bypass the air which is in the test piece as far as the end of the tube. this air cushion can remain there for some time, before it is mixed with the other gases by diffusion. a leak, which happens to be at this end of the tube, may not be detected by the sensor, which is only sensitive for the search gas.
+to avoid this problem, test objects should be evacuated, prior to filling with searchgas. not a very good vacuum is needed. the diffusion speed increases with decreasing pressure. this can be explained by the expanding mean free path and therefore less collisions. if a filling of 100% search gas is wanted, the evacuation down to a pressure of 1 to 5 mbar is good enough (1/1000 - 5/1000 of atmospheric pressure).
+
+
+
+
+
+
+
+					permeation			
+
+
+ 
+
+permeation is the passage of a fluid into, through and out of a solid barrier having no holes. the process involves diffusion through a solid and may involve many phenomena such as adsorption, dissociation, migration and desorption.
+permeation can have an adverse effect on helium leaktest when the leakrate specification is low and the test time long. one material needing special attention is teflon. helium has a high permeability through teflon and helium leaktests on test pieces with teflon seals are almost impossible.
+permeation does not have to be taken into consideration during routine leaktest, when the measurement occurs in too short a time to permit the influence of permeation.
+it can be seen, that with neoprene it takes about 2 hours to reach saturation, but already after 30 minutes there is a leakrate of 10-9 pa x m3/s. the gasket dimensions used in determining the graph are:
+sealing length = 25 mm
+thickness = 5 mm
+for a larger container with gaskets of a total length of 1 metre, these permeation rates are 2 x 10-7 pa m3/s (2 x 10-6 mbar l/s). with natural rubber or silicon rubber the time to saturation is shorter.
+thus we learn from this that, for a vacuum leaktest helium should be sprayed on these gaskets only for a very short time.
+
+
+
+
+
+
+
+					helium bombing test			
+
+
+ 
+
+the bombing test is a special leak test for small and previously hermetically sealed parts which have an internal cavity like transistors, diodes, microprocessors or small relays. it cannot be used on plastic covered semiconductors (permeation). to get helium into these test pieces which are already tight, a large quantity of parts are placed into a pressure chamber and this chamber (bomb) is filled with helium to a certain pressure.
+on a leaking part, helium penetrates into it but not into leak tight parts. after a certain bombing time, the parts are placed (also in large batch) into a test chamber and this chamber (bell jar, test fixture) is evacuated by a helium leakdetector. if there is a leaking part in the batch (as indicated by the response of the leakdetector), the batch is divided and each division is retested. after several divisions, the leaking part is located.
+the measured leakrate is not the real leakrate. during the bombing time, the part may be not filled to 100%, also, after taking the parts out of the bomb, there is a waiting time, until the part is being tested. during the waiting time helium is escaping already, and if the leak is large, all helium may have escaped before the part could be tested.
+this shows that, with the bombing test only small leaks can be discovered. a second test for larger leaks is necessary. this second test in most cases is a bubble test. the parts are placed into a hot liquid. the air inside a leaking part expands and a bubble escapes.
+the filling process of helium into a leaking part is not linear. as the pressure inside increases (i.e. the lower the differential pressure), the slower is the filling rate. so the filling rate as well as the outflow rate follow an exponential function.
+the formula, which descibes this process is shown below:
+
+
+
+
+
+
+(* the value, which would be measured, if the testobject would be filled with 100% he at atmospheric pressure).
+this formula cannot be solved to l (the real leakrate). l can only be found by trial and error (iteration). therefore leakrate specifications in most cases specify the bombing time, the bombing pressure and the maximun waiting time for the quoted maximum leakrate.
+
+
+
+
+
+
+
+					the bubble test			
+
+
+ 
+
+the bubble test seems to be the oldest leak detection method at all. a container is filled with pressurized air and dipped under water. from a leak there will be some bubble emission, an easy method for leak location. to measure the leak rate is not impossible but needs collection of the bubbles, measure their volume and divide this volume by the measuring time. as easy it sounds, the bubble test needs some precautions when it comes to higher filling pressures. a container with gas at high pressure can burst or explode and injuries are possible. so a safety wall between test and operator and inspection via a mirror may be necessary.
+
+some containers to be tested are too large to be dipped under water. here an alternative bubble test is used. the critical areas of the container (for example the welds) are moistened with a foam developing liquid. the use of liquids manufactured for just this purpose is recommended. they are delivered in spray cans and they develop a very fine and white bubble mushroom. a large leak may blow away any bubbles and therefore the test may be carried out with first a very low overpressure and only second with the specified pressure.
+a variation of the leak test with a foam developing liquid is the leak search on a test object which is not a container and therefore does not have an internal volume (for example the bottom of a large refinery tank) where the welds must be tested for leak tightness. here the welds are wetted generously with the liquid. then a small bell jar with a strong window is placed on top of the wet weld. with a small pump the bell jar becomes evacuated. some rubber gaskets keep the bell jar sealed to the bottom. inspection of the weld through the window (having proper lighting) will show eventually developing bubbles.
+one must be aware that these tests, as all visual leak detection methods, have a weak point. that is the human eye. it is not an exact measurement device and is due to make errors. even an experienced operator, working with high concentration can miss a bubble.
+ the sensitivity limit of the bubble test is difficult to determine. looking at a small area say 10 cm2 with a magnifying glass for the time of a quarter of an hour a bubble developing from a leak of 10-7mbar l/s can be detected. but if an operator has to inspect the welds of 500 tube ends of a heat exchanger, one can expect to see only bubbles coming form a leak of 10-4mbar /ls. also the sensitivity changes with changing pressures.
+ on the seminar about tightness measurements and leak testing methods ( see under products) these methods are described in more details.
+
+
+
+
+
+
+
+					leak test with pressure changing methods			
+
+
+ 
+
+leak tests with pressure changing methods do show the total leak rate of a test object, also called integral test. they do not show the location of the leak. the pressure changing methods can be divided into three different methods: the pressure decrease test, the pressure increase test and the pressure difference test.
+
+
+
+
+
+
+
+					the pressure decrease test			
+
+
+ 
+
+at the pressure decrease test the test object is filled with a gas, in most cases pressurized air, to a pressure higher than atmospheric pressure. if a leak is present, the pressure will decrease over time. from the pressure difference between start and end of the test, multiplied with the volume of the test object and divided by the measuring time the leak rate can be calculated.â 
+at the pressure decrease test the pressure must be measured with high accuracy and the temperature must be kept constant. even a change of temperature of a few centigrade can produce a pressure change larger than that from a leak
+when the gas filling pressure is higher more than several bar above atmospheric pressure, a strength test of the container must be performed. this firmness test is done in most cases with water filling. the container is filled with water until no air is remaining. then the pressure is increased in most cases to factor 1.3 higher pressure than the normal operating pressure of the container. if during this test a crack would happen only some water would be spilled. if the container would have been filled with gas, then the container can explode and make serious damage and injuries or even danger of life to human people.
+such a water pressure test can also work as a rough leak test. a small amount of water coming out of the container will make a distinct pressure change. also during this test a change of temperature produces a change of pressure because the thermal expansion coefficient of water is larger than that of steel. after such a strength test the container must become completely dry before performing the leak test with gas filling. a small leak can block the gas throughput because water sticks inside the capillary because of its surface tension.
+ in general it can be said that this leak test procedure is good for small test objects. objects with large volumes or large geometrical dimensions have easily failures in measurement mostly because of temperature changes it is possible that a large test object does have different temperatures on each end. if someone seriously has to plan such a test, he can contact me for discussion of failure calculations.
+
+
+
+
+
+
+
+					the pressure increase test			
+
+
+ 
+
+at the pressure increase test the test object first is evacuated. then the pressure increase is measured over time. the disadvantage of the pressure decrease test, namely the difficulty to messure very fine pressure changes at a high total pressure is not so present with the pressure increase test, because the amount of gas at begin of the test is much lower and the pressure increase cannot become higher than 1 bar.
+ of course at the begin of the test there is a non linear pressure increase coming from the degassing of the inner walls and this is mostly humidity. when the pressure has increased above the water vapour saturation pressure, the pressure change becomes a linar function. this makes it necessary to have a graphic plot of the measurement. then from the linear part of the curve the leak rate again can be calculated from volume, pressure difference and time.
+
+
+
+
+
+
+
+					pressure difference test			
+
+
+ 
+
+
+the integral leak test with the pressure difference method is the most accurate test but also some more complicated. the pressure in the test object is compared with the pressure in a standard container which is certainly leak tight. the fine pressure gauge has a pressure range of about 100 mbar full scale, while the total test pressure may be 10 bar.
+ both container are filled slowly and simultaneously up to the test pressure. care has to be taken that the fine leak rate meter is not stressed. after some waiting time for stabilisation of the pressure the pressure difference test can start. so it is possible to have a resolution of the fine pressure gauge of 1 mbar during a total pressure of for example 10 bar. there is also a better chance to overcome the temperature problem. if both containers are similar in dimensions they may change the temperature, if ever, in the same degree and in the same direction.. the leak rate is then calculated in the same manner from volume times pressure difference divided by the measuring time.
+
+
+
+
+
+
+
+					short introduction			
+
+
+ 
+
+the test for leak tightness with helium and helium leak detectors becomes more and more important. the practice of leak detection on heat exchangers is described in this article. three possible methods are discussed.
+
+
+
+
+
+
+
+					the integral leaktest with vacuum in the volume around the tubes and helium at atmospheric pressure in the volume of the tubes			
+
+
+ 
+
+the preparations prior to the test, the correct procedure during the test, the pumpdown and the response time are discussed, also problems and suitable gaskets and seals. problem solving for negative test are described.
+
+
+
+
+
+
+
+					the integral leaktest with helium pressure in the volume around the tubes and vacuum in the tubes			
+
+
+ 
+
+this test is sometimes necessary, when the volume around the tubes has had a helium filling in the past, for example for a leaktest with the sniffer probe. the changes in test conditions are decribed. also the calculations of the leakrate according to pressure changes are discussed and the possibility of cost reduction by reducing the helium concentration as a result of pressure increase is pointed out.
+
+
+
+
+
+
+
+					 the integral leaktest with helium pressure in the volume around the tubes and atmospheric pressure in the tubes			
+
+
+ 
+
+this test requires long waiting times and is used only, when other methods are not possible and when the safety conditions allow a higher testgas pressure in the volume around the tubes. the test is carried out by measuring the helium concentration in the volume of the tubes. the value of the leakrate must be calculated. the procedure of this test, the calculation of the waiting time as well as the leakrate are described.
+
+
+
+
+
+
+
+					general			
+
+
+ 
+
+in the past several different tracer gases have been used to find leaks and to measure leak rates, for example ammonia or halogen gases. but since the leak test method with the tracer gas helium and the detection of this gas with a mass spectrometer was developed, all other methods became less significant compared to the superior sensitivity of the helium method. also the measurement with a mass spectrometer ensures, that only helium and no other gases can influence the test.
+
+
+
+
+
+
+
+					some properties of tracer gases			
+
+
+ 
+
+
+
+
+
+
+
+gas
+
+
+
+
+name
+
+
+
+
+hydrogen
+
+
+
+
+helium
+
+
+
+
+air
+
+
+
+
+
+
+molar mass
+
+
+
+
+g/mol
+
+
+
+
+2.016
+
+
+
+
+4.003
+
+
+
+
+28.89
+
+
+
+
+
+
+viskosity
+
+
+
+
+μpa s
+
+
+
+
+8.9
+
+
+
+
+19.8
+
+
+
+
+18.36
+
+
+
+
+
+
+thermalspeed
+
+
+
+
+m/s
+
+
+
+
+1770
+
+
+
+
+1256
+
+
+
+
+467
+
+
+
+
+
+
+mean freepath
+
+
+
+
+μm
+
+
+
+
+198
+
+
+
+
+126
+
+
+
+
+68.5
+
+
+
+
+
+
+thermalconductivity
+
+
+
+
+w/m k
+
+
+
+
+0.149
+
+
+
+
+0.183
+
+
+
+
+0.0275
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+					leak test with helium			
+
+
+ 
+
+leak search and leak rate measurements with the tracer gas helium and sensing of this noble gas with mass spectrometer leak detectors has won such a large significance that this method can be marked as the most important leak detection method nowadays.
+
+
+
+
+
+
+
+					the design principle of helium-leak detectors			
+
+
+ 
+
+the following sketch shows the principle of a helium-leak detector, reduced to the essential components. 
+
+
+
+
+
+
+
+					tracer gas leak location techniques			
+
+
+ 
+
+
+the vacuum method
+the pumps built into the leak detector evacuate the test object. if, by spraying helium to the test object, traces of helium come into the vacuum, a helium partial pressure is produced, which is given by the amount of incoming helium and the amount pumped away by the pump. the spectrometer tube measures this partial pressure. the pumping speed of the involved pump is included as a constant to the measurement and multiplication of the measured partial pressure by the pumping speed gives the leak rate [mbar.l/s]. by calibration of the leak detector, this multiplication is done electronically and the reading of the meter is then calibrated in leak rate.
+ with a gas spay probe a fine helium beam is directed to the critical areas from the outside. if a leak is present helium is pumped to the mass spectrometer of the leak detector and rapidly displayed on the leak rate meter. the response time, which is a function of test object volume divided by the pumping speed, must be in the range of seconds. longer response times make it difficult to locate the leak. with a fine movement of the spray probe is searched for the maximum helium signal. there is the location of the leak. it is recommended to start the leak search at the top of the system, moving slowly to the bottom.
+otherwise some helium could raise to higher positions and if there would be a leak a singal would be displayed, irritating the operator, who is pointing the probe to a much lower position.
+the sniffer method
+the test object is filled with the tracer gas with a pressure higher than atmospheric pressure. from the oustside a sniffer probe which is connected to the leak detector, is moved over the critical areas. if a leak is present, helium comes out and is sucked in to the sniffer probe and through that to the leak detectors mass spectrometer. the leak rate meter will show a display of the signal. when the maximum leak rate display is found, the leak is located. this method has two advantages and two disadvantages compared to the vacuum method. sniffing for the leak location shoud start at the bottom of the test object and slowly move to the top.
+1.) advantages:
+a.) the response time is only given by the lentgh of the sniffer probe, regardless how large the volume of the test object is.
+b.) the sensitivity of the method can be increased by increasing the tracer gas pressure.
+â 
+2.) disadvantages:
+a.) the leak rate cannot be measured exactly, because one never knows, if all the tracer gas escaping from the leak, is completely sucked in by the sniffer probe.
+b.) the sensitivity of the test is limited by the helium content in the air (5 ppm), which produces a background
+
+
+
+
+
+
+
+					integral leak test methods			
+
+
+ 
+
+the integral leak test is the measurement of the total leak rate of the whole test object. it can be carried out with two methods:
+1.) from the inside to the outside
+2.) from the outside to the inside
+this methods do not give informationâ´s about the leak location.
+integral leak test "outside - in"
+the test object is evacuated by the helium leak detector. the outside of the test object is covered by some envelope or bell jar which is filled with 100% helium. with a bell jar the 100% filling can be achieved by evacuating the bell jar prior to the helium filling. at an envelope, which cannot be evacuated because it is weak (for example some plastic foil) the 100 % filling can only be achieved by flushing helium in and measure at an outlet opening the helium concentration.
+if a leak is present, helium will come in and will reach the spectrometer which then displays directly the leak rate. with this kind of measurement the responsetime is insignificant (contrary to the leak location techniques) possible the leak rate signal will increase slowly. the operator has to wait until the leak rate meter shows a stable leak rate.
+integral leak test "inside - out"
+the test object is filled with 100% helium and placed under a belljar. the bell jar becomes evacuated by the helium leak detector. if a leak is present, wherever it is located, helium pures out and will be detected an displayed by the leak detector. the response time is given by the rest volume of the bell jar divided by the pumping effective pumping speed on the bell jar.
+ large test objects, which cannot be placed under a bell jar, can be enbveloped by a plastic foil. with a sniffer probe the increase of the helium concentration under the foil is measured. prior to the test the snifferprobe must be calibrated to measure helium concentration. this test can have long waiting times. the foil should be metalized for avoiding helium loses due to permeation. a detailed description of this procedure, including sample calculations, is given on the seminar on leak detection and leak test methods (see under products)
+
+
+
+
+
+
+
+					leak detection with hydrogen			
+
+
+ 
+
+in the past, leak detection with the search gas hydrogen was of little significance, because of the dangers involved with this gas. in the meantime a semiconductor sensor has been developed which can measure hydrogen concentrations down to 0,5 ppm. the hydrogen content in the atmosphere is also only 0,5 ppm (ten times lower than the background of helium). therefore it becomes interesting to search for leaks with a test gas mixture of 5% hydrogen and 95% nitrogen. this gas mixture is neither inflammable nor explosive.
+the use of hydrogen as a future source of energy has already initiated applications such as fuel cells, hydrogen motors etc. which are filled with & driven by this gas. thus the use of hydrogen as a sensor is an ideal solution for leak testing. mass spectrometer leak detectors can be calibrated for hydrogen, but a simpler solution is to employ the semiconductor sensor, which detects hydrogen without the need for vacuum.
+ for leak location with this method only the sniffer method is possible and for integral leak test only the method inside out is possible, as been described under helium integral test for large test objects.
+
+
+
+
+
+
+
+					leak test with laser beam			
+
+
+ 
+
+there also are methods to check for leakages by means of laser beams. a test object is filled with a tracer gas to a certain overpressure. the outside of the test object is scanned with a co2 laser beam. if the laser beam meets this gas escaping through a leakage, then the electrons of this gas are activated to a higher energy level by the laser beam, i.e. one or more electrons of the gas molecules are transported on a higher trajectory. when falling back on the original trajectory this energy is released again. this takes place by emission of photons (a light lightning with a certain frequency [colour]).
+ these lightningâ´s are detected by a suitable sensor and synchronized with the scanning raster. on a picture of the test object, shown on a monitor, the leak location can be recognized.
+
+
+
+
+
+
+
+					historical literature about vacuum-technology			
+
+
+ 
+
+
+
+authortitlepublished at:
+
+otto v. guericke
+neue magdeburger versuche
+vdi-verlag, düsseldorf 1968
+
+
+h. ebert
+vakuum-chronik
+ptb braunschweig 1977, issn 9341-6682
+
+
+
+
+
+
+
+
+
+
+					historical literature about leak detection technology			
+
+
+ 
+
+
+
+authortitlepublished at:
+
+a.j.dempster
+a new method of positive ray analysis
+phys. rev. 11, 316, 1918
+
+
+a.o. nier
+a mass spectrometer for routine isoptope abundance measurements
+rev. sci. instr., 11,212, july 1940
+
+
+thomas, williams, axd, hipple
+a mass spectrometer type of leak detector
+rev. sci. inst. vol. 17, 10, 1946
+
+
+a.o. nier et al
+mass spectrometer for leak detection
+j.appl.phys. 18, 30, jan 1947
+
+
+nier, stevens, hustrulid, abbott
+mass spectrometer for leak detection
+j. appl. phys. vol. 18. 1947
+
+
+ochert, steckelmacher
+leak detection practice
+vacuum, vol. ii, no. 2, 1952
+
+
+douglass, charpentier
+a simplified mass spectrometer
+net. symp. vac. trans. london, 1956
+
+
+mongodin
+lâ´hã©litest, spectromtrã© de mass dã©tecteur de fuites.
+proc. 1st. cong. vac. tech. namur, 1958
+
+
+h.w. drawin, k.kronenberger
+ein neues, universell einsetzbares lecksuch-massenspektrometer
+vac. tech. 8 h 5, 1959
+
+
+nn, lab basses press. 87 rue a g
+helium leckdetektor: helitest
+zit. in vak. tech 12, h 7,138, 1959
+
+
+cosutta, steckelmacher
+lens mass-spectrometer leak detector
+j. sci. instr. vol. 37, 1960
+
+
+f. kirchner und a. benninghoven
+über ein doppeltfokussierendes massenspektrometer
+vak. tech. 12, h 7, 207, 1963
+
+
+g. reich
+massenspektrometer mit hoher partialdruckempfindlichkeit für lecksucher
+trans 3, int. vac. cong. stuttg. 1965
+
+
+nn
+l`etancheite a pierrelatte..("diatron 18"),
+le vide nr. 108, 11 ff, ca 1965
+
+
+a.h. turnbull
+leak detection and detectors (20th century l.d.)
+vacuum 15 / 1, 3 ff, 1965
+
+
+bültemann
+streuionenunterdrückung beim gasdetektor
+me4, mat, lab.-ber., fr. krupp,
+
+
+w. becker
+anordnung zur lecksuche nach dem massenspektrometer-prinzip
+auslegeschrift 1648648 d.patentamt
+
+
+w. becker
+erhöhung der empfindlichkeit des he-lecksuchers durch verwendung einer turbomolekularpumpe
+vak.-technik 17 h 8, 1968
+
+
+w. becker, w.k. huber et.al.
+a novel helium leak detector with turbomolecular pump
+int.vak. congr. vienna sept. 1977
+
+
+chr. falland
+experiences with helium leak detection
+int.report desy m-79/34 hamburg
+
+
+chr. falland
+ein neuer einfacher universal lecksucher mit luftgekühlter turbopumpe
+vakuumtechnik 29 h, 7.okt. 1980
+
+
+chr. falland
+dichtigkeitesprüfung und lecksuche, methodenübersicht u. entwicklungen
+int. ber. desy m81/26 hamburg sept. 1981
+
+
+
+
+
+
+
+
+
+
+					basic literature vacuum-technology			
+
+
+ 
+
+
+
+authortitlepublished at:
+
+wutz, adam, walcher
+theorie und praxis der vakuumtechnik
+vieweg, braunschweig, 5. aufl. isbn 3-528-34884-4
+
+
+karl jousten, max wutz
+vakuuktechnik, theorie und praxis
+vieweg-verlag isbn-10: 383480133x isbn-13: 978-3834801333
+
+
+kerspe
+vakuumtechnik in der industriellen praxis
+expert verlag, sindelfingen, 1987
+
+
+a. roth
+vacuum technology
+north holland verlag
+
+
+
+
+
+
+
+
+
+
+					magazines			
+
+
+ 
+
+
+
+authortitlepublished at:
+
+deutsche gesellschaft für zerstörungsfreie prüfung
+link zur zeitschrift: http://www.dgzfp.de/
+dgzfp
+
+
+â 
+vakuum praxis
+vch, weinheim
+
+
+the e-journal of nondestructive testing
+link zur zeitschrift: http://www.ndt.net
+expert verlag, sindelfingen, 1987
+
+
+european federation for non-desturctive testing
+link zur zeitschrift: http://www.efndt.org
+efndt
+
+
+
+
+
+
+
+
+
+
+					basic literature leak detection			
+
+
+ 
+
+
+
+authortitlepublished at:
+
+editor: master
+non destructive testing handbook, vol. 1, leak- detection
+asnt, asm / usa 1982, isbn 0-87170-125-1
+
+
+general electric
+leakage testing handbook
+schenectady, new york, 1996
+
+
+hal greenhouse
+hermeticity of electronic packages
+isbn: 0815514352, pub. date: april 2000
+
+
+kernforschungszentrum karlsruhe
+ein neuartiges helium-lecksuchgerät
+kernforschungszentrum karlsruhe: asin
+
+
+klaus kutzke
+dichtheitsprüfung und lecksuche mit dem helium-leckdetektor
+expert-verlag (febr. 1998) isbn-10: 3816908225 isbn-13: 978-3813908227
+
+
+â 
+leckagen (sondereinband)
+isbn-10: 3802727010 isbn-13: 978-3922429852
+
+
+verlag: deutsche kälte und klimatechnik, eckart prandner
+maßnahmen zur verhinderung von ammoniak-leckagen und folgeschäden
+isbn-10: 3922429858 isbn-13: 978-3922429852
+
+
+verlag glückauf, benno ring
+vergleichende untersuchungen zur thermischen und hydraulischen
+isbn-10: 3773913141 isbn-13: 978-3773913142
+
+
+expert-verlag, gerhard wiegleb
+industrielle gas-sensorik
+isbn-10: 3816919561 isbn-13: 978-38166919568
+
+
+shaker-verlag, martin hauser
+silizium-basiertes sensorsystem zur erfassung von spurengasen in luft mittels mikrostruktuierter multielektroden
+isbn-10: 3826530853 isbn-13: 978-3826530852
+
+
+l.hütten
+praxis der dichtheitsprüfung mit helium
+alcatel selbstverlag
+
+
+varian
+introduction to helium mass spectrometer leak detection
+lexington, massachusets, 1995 liberary of congress catalog
+
+
+
+
+
+
+
+
+
+
+					european standards for leak detection			
+
+
+ 
+
+
+
+numbergerman titlecomment
+
+din en 1330-8
+zerstörungsfreie prüfung - terminologie - begriffe für die dichtheitsprüfung
+in the languages
+
+
+din en 1518
+zerstörungsfreie prüfung - dichtheitsprüfung - charakterisierung von massenspektrometrischen leckdetektoren
+aiming to iso 3550
+
+
+din en 1779
+zerstörungsfreie prüfung - dichtheitsprüfung - kriterien zur auswahl von prüfmethoden und verfahren
+harmonized supporting
+
+
+din en 1593
+zerstörungsfreie prüfung - dichtheitsprüfung - blasenprüfverfahren
+harmonized supporting standard
+
+
+din en 13184
+zerstörungsfreie prüfung - dichtheitsprüfung - druckänderungsverfahren
+harmonized supporting standard
+
+
+din en 13185
+zerstörungsfreie prüfung - dichtheitsprüfung - prüfgasverfahren
+harmonized supporting standard
+
+
+din en 13192
+zerstörungsfreie prüfung - dichtheitsprüfung - kalibrierung von referenzlecks für gase
+â 
+
+
+din en 13625
+zerstörungsfreie prüfung - dichtheitsprüfung - anleitung zur wahl von dichtheitsprüfgeräten
+supporting standard
+
+
+
+the supplier for printed issues of din-standards in germany can be reached under.
+http://www2.din.de/
+
+
+
+
+
+
+
+					american standards for leak detection			
+
+
+ 
+
+
+
+
+author
+title
+published at:
+
+
+american society for testing materials
+standard methods of test for leaks using the mass spectrometer leak detector
+astm - e 493-73,1916 race st. philadelphia, pa.,19103
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+impressum
+
+
+

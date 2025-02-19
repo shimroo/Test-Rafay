@@ -1,0 +1,155 @@
+    splefty    splefty  splef-ty \'splef-te̅ \ adj: nifty, novel, cool or clever.         local news there is no news blog by topic top /cars /computers /computers/labview /computers/macosx /computers/macosx/mdd-power-macs /computers/macosx/backups /computers/macosx/panther /computers/macosx/power mpegs /computers/macosx/printing /computers/macosx/server /computers/misc /computers/sql /computers/visualbasic /computers/web /computers/web/blosxom /computers/windoze /diary /failures /failures/rice-cooker /food /historic preservation /historic preservation/suppliers /historic preservation/suppliers/subway-tile /historic preservation/techniques /house /nature /nature/plants /news /politics /politics/election /politics/government /politics/national /science /science/astronomy /technology /technology/samsungi500 /treo /visitors /websurfing /work /zenobia my old web page pictures from the big parade 2003. pictures and stories about my house. a backpacking trip to saguaro n.p. me and my utilikilt. the oberlin turkey. photo galleries installing apple's mdd noise reduction kit. replacing the radiatior and water pump in my 1984 volvo. global friends who blog batman bradley rhodes perlick lightly obscure websites spaceweather.com wunderground.com official us time astronomy picture of the day seriously obscure websites nixie, pixie and dekatron tubes mac dweeb stuff macintouch macnn about © 2003 by rob calhoun send mail to rob at sign calhoun dot net.       
+tue, 17 jan 2006
+
+ getting wav ringtones into your treo 650
+
+despite what palm says about treo 650 ringtones, you can use plain old wav files (in addition to supported midi
+files) as ring tones. 
+
+
+as discussed in this thread just download a wav file to the phone and save as a sound when prompted. the file will be available when you go to options -> sound preferences.
+  			[/treo] 		   
+sun, 15 jan 2006
+
+ sql server timeout errors when using ado
+
+i work with databases of moderate size (a few hundred thousand records in a dozen or so tables, maybe 500 mb on disk.) i’m running against sql server 2000, which is supposedly an enterprise grade database. by the standards of big databases, this is pretty small potatoes, so it’s always a shock when sql server barfs. sporadically, queries will fail with the following error:
+
+ exception occured in microsoft ole db provider for sql server, timeout expired. (8004e31)
+
+(for your googling pleasure i’m leaving “occurred” spelled wrong just like it is in the actual error message. the other thing to clarify here is the error number is actually a normal hex error code (0x80040e31) despite having been formatted to look like some wack-ass form of scientific notation.)
+
+
+so most of the the google hits on this topic yield various sql cognoscenti  telling various sql newbies that their queries are lame, their network connection is bad, they should grow up and add an index to the table etc. sometimes this is even valid advice.
+
+
+but in some cases you just have a query that takes a really long time to execute. (example: adding a new column with a default value to a table that contains 300,000 rows.) queries like this run fine (if slowly) from the sql query analyzer (which uses…odbc!), but tank when called via ado even if you set the connection.timeout property to 0 (= no timeout.)
+
+
+maddeningly more difficult to debug is that sql server occasionally stops answering queries for seconds(?) minutes(?) while it rearranges its sock drawer. i usually hear about this when one of my systems emails me an error log. in this case, it is not the query itself but sql server’s internal maintenance needs that cause the problem. the exact same query done a few minutes earlier or later would execute just fine. since you never know when this is going to happen, you need to prevent the query from timing out after 30 seconds, which is the default.
+
+
+it was thus nice to find
+davidj’s blog entry that reminded me that an ado connection has both a connection.connectiontimeout property (which i’ve been setting to increasingly huge numbers with no useful effect) and a connection.commandtimeout property. you need to set both of these to high values to avoid a timeout. so, in this case, the problem is ado’s fault, not sql server’s fault. that means i can defer my rants about sql server to another day!
+
+
+you can set these timeouts to 0 to indicate no timeout, but that’s bit dangerous since in some cases your timeout is actually is the result of a broken network connection and a timeout is desirable.
+  			[/computers/windoze] 		   
+sat, 14 jan 2006
+
+ syncing a treo 650 with microsoft entourage
+
+well this is pretty lame for a “first blog entry in two years”
+but you gotta start somewhere.
+
+
+i dropped my kyocera 7135 and it landed on the antenna, after which i
+got no signal. taking a look inside it was clear that the rf connector
+had broken off, so i resoldered it.
+
+
+
+unfortunately after repair reception was still poor. presumably the antenna itself was
+damaged (you can see the bend in it above) or the phone had suffered internal injuries.
+
+
+one can buy
+aftermarket antennas on ebay for $10 but since i have total equipment coverage
+i took it to the verizon store to get a new antenna there. it turns out the phone is old
+enough that they don’t support it anymore so they just gave me a new
+treo 650.
+
+
+this is good and bad. in many ways the treo 650 is generally a much 
+better unit than the kyocera 7135. (it’s certainly a vastly more capable 
+wireless pda; for example it is actually possible to surf the web using this phone.)
+it also a camera and all the other spiffy features of today’s gadgets.
+
+
+still, there are a few things i miss from the 7135.
+
+
+* the flip phone! i don’t know what manufacturers have against flip
+  phones; it’s the best way to protect the screen, prevent random
+  calls, and answer a ringing phone.
+
+
+* the 7135’s lcd status panel. this was on all the time. it shows
+  time, battery, signal quality, and caller id when a call comes
+  in. brilliant! the treo’s main screen is beautiful (much, much
+  better than the 7135’s) but it sucks a lot of power so it’s rarely
+  ever on. instead you just get this blinking led that tells you,
+  well, i haven’t figured out what it tells you yet. i miss my secondary
+display.
+
+
+* ruggedness. despite me having busted the 7135, i have to admit i
+  have dropped that sucker a bunch of times. i think it only died
+  because of the peculiarly bad manner in which it fell. it was a solid phone.
+
+
+* the 7135 can recharge while plugged into your computer. for some dorky reason the 
+treo 650 doesn’t seem to recharge when plugged into a computer even though the usb cable
+feeds the power connection. i guess i need to be one of the cool kids and use bluetooth
+to sync the phone.
+
+
+i don’t miss the kyo’s sluggish response, the random delays that made it seem like 
+the keypad was broken, or the totally, completely useless email functionality.
+
+
+anyway, the real reason i am writing this blog entry is that i had trouble 
+syncing my phone with microsoft entourage, and now that i have it working i
+figured i should document it.
+
+
+start with this
+page at treo central. it has some good hints.
+
+
+here’s what i had to do:
+
+
+* i am running os x 10.3.9, entourage 2004 
+version 11.2.1.
+
+
+* start with a clean, empty phone. see mytreo.net for instructions on nuking your phone.
+
+
+* clean up your local palm folder (in ~/documents) by creating an archive (.zip) and deleting the one you have. (if you have any actual palm apps, save them somewhere else and defer loading them until the sync is working.) in my case, the first time i synced the phone i ended up loading the treo 650 with all kinds of kyocera-specific code. not good.
+
+
+* back up your entourage data in case something horrible happens.
+
+
+* the palmone installer seems to be incapable of finding your old palm software, so it installs new palm software in a subtly different location and you end up with two palm desktops, two hotsync managers, etc., all with the same name. to avoid this, backup and nuke your old /applications/palm folder.
+
+
+* install the software provided by plamone with your treo. 
+
+
+* run the handheld sync installer (applications/microsoft office 2004). this will move entourage-incompatible conduits from /library/application support/palm hotsync/conduits/ to /disabled conduits. (note to palm tech writers: i would be nice if you’d mention where the conduits live somewhere in your documentation.) say yes to everything.
+
+
+* run the hotsync manager. edit conduit settings. open entourage conduit. click the mysterious “enable synchronization with these new handhelds” box. i could not make it work without this box.
+
+
+
+* log out and back in again for the hell of it.
+
+
+* press the sync button.
+
+
+once all of your synchronization stuff is working you can start bringing over your palm applications.
+
+ 			[/computers/macosx] 		   
+sun, 11 sep 2005
+
+ reasons why i have not posted any blog entries in 18 months:
+
+my job is mostly to blame.
+kitchen renovation
+new baby!
+  			[/zenobia] 		      

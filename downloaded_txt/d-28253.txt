@@ -1,0 +1,404 @@
+
+
+
+breaking down the walls
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+	breaking down the walls
+	
+  
+an online resource for users of autodesk building solutions products
+
+
+
+
+
+monday, july 19, 2010
+
+
+
+	 
+	 end of the line (sort of)
+	 
+    
+
+
+in case you haven't noticed... i haven't done much with this blog lately. that's been due to a lot of reasons. a) i was kinda busy for awhile. b) by the time i got around to posting something lately, someone else had beat me to it. why just parrot what others have already pointed out or talked about? finally c) we've been planning to start a blog at my place of business for awhile, and now we have.so... i'm putting this one to rest. i may still post here from time to time, but it will be on completely off-topic stuff. so if you want to read about the high adventures of boy scout troop 285 and other esoteric things (we're going on a 6 day sailing trip in a few days...btw), then stay tuned.but for more revit, aca and bim stuff, follow me to our new d|c cadd building solutions blog. you can also follow the rss feed here.sayonara!
+
+
+
+posted by matt dillon at 2:09 pm
+0 comments
+
+
+
+
+
+
+tuesday, march 02, 2010
+
+
+
+	 
+	 the mysterious missing tutorials
+	 
+    
+
+
+i get this call all the time. read on and see if it's happened to you...you click the "tutorials" item on the help menu. the revit help window comes up with a link to go download the tutorials for free from the autodesk web site. (see, autodesk figured out that 99 percent of us don't do the tutorials - even though they're actually quite good for getting a newbie started - so they don't install them by default anymore). you click the link and download the appropriate tutorial and diligently follow the instructions as to where to install them.then you launch revit and go to the tutorials again, only to find "navigation cancelled". huh???relax. it's just microsoft looking out for your safety. isn't that nice of them? (sort of like the guy that decided that turning off file extensions by default is a good idea - is that doofus still employed???).here's how you fix it. bring up windows file explorer and go to the folder that you put the chm file that you downloaded in - most likely c:\program files\autodesk revit architecture 2010\program. find the file "tutorialsarchitectureimpenu.chm" (or "tutorialsarchitecturemetenu.chm" if you downloaded the metric tutorials). right click on the file, click "properties", then click "unblock" on the dialog shown in the figure below.(note: if you've downloaded tutorials in another language, the "enu" part of the file name will be something else...).that's it. relaunch revit afterwards and try the tutorials again...
+
+
+
+posted by matt dillon at 5:16 pm
+1 comments
+
+
+
+
+
+
+friday, january 22, 2010
+
+
+
+	 
+	 revit mep - wtf department...
+	 
+    
+
+
+i don't know why i've never noticed this before, but i recently dealt with this for a revit mep customer.he had a revit architecture model linked into his revit mep model, and any time he placed an air device or light fixture in his model, after moving it to the ceiling elevation, in the ceiling view he couldn't select it except with a window selection and he couldn't align it to the ceiling grid unless the flow arrows were turned on.i verified the same behavior on a test file of my own. wtf??? as long as you're not in a view that shows the ceiling grid, you can do whatever you want with the device - but you need the grid visible to align it!!!here's the workaround - simple really - in the ceiling plan, simply set the model graphics style to wireframe and all will work normally.but one has to wonder - why?wtf???
+
+
+
+posted by matt dillon at 4:09 pm
+1 comments
+
+
+
+
+
+
+monday, august 31, 2009
+
+
+
+	 
+	 recent interview with phil bernstein at aia convention
+	 
+    
+
+
+archdaily's david basulto cornered autodesk's phil bernstein at the recent aia convention and interviewed him for about 15 minutes on a variety of topics centered around bim and revit, including implementation, adoption, future directions, etc. in it he also addresses a lot of attitudes and struggles i see in people who are sitting on the fence when it comes to implementing a bim solution. catch the interview below or you can visit the archdaily page to see this and other interviews with industry professionals.ad interviews: phil bernstein from archdaily on vimeo.
+
+
+
+posted by matt dillon at 2:41 pm
+1 comments
+
+
+
+
+
+
+friday, august 14, 2009
+
+
+
+	 
+	 it's official - texas mandates bim on all state projects
+	 
+    
+
+
+but don't take it from me. here's the official announcement and an accompanying video.
+
+
+
+posted by matt dillon at 10:10 am
+0 comments
+
+
+
+
+
+
+tuesday, may 05, 2009
+
+
+
+	 
+	 take the bim roi survey
+	 
+    
+
+
+a "friend of a friend" is a student at usc involved in a research project on building information modeling. she is conducting a survey on bim's roi. info and the link is below - the survey ends on friday, so don't delay - it should take about 10 minutes, and in return you will be sent a copy of the survey results:--------------------------------------------------as part of a research project at the university of southern california on the quantifiable return on investment (roi) for the use of building information modeling (bim) in aec projects, the survey below has been prepared.  the research team believes that an increase in the availability of fiscal information on bim's roi will be significant because it can guide the entire industry to more efficient and practical solutions.  the results will be published in an academic report, which will also be distributed to the survey participants. please note that any specific respondent information will be kept anonymous.the survey takes about 10 minutes and can be completed by clicking on the link below. the last day you will be able to take the survey is may 8, 2009. please feel free to forward the survey if someone else in your firm is responsible for this topic.thank you for your time and willingness to help with this research project.link to survey
+
+
+
+posted by matt dillon at 8:15 am
+1 comments
+
+
+
+
+
+
+friday, april 03, 2009
+
+
+
+	 
+	 my college buddy is hitting the big time
+	 
+    
+
+
+i got an email from a college buddy today - he's been living in boston for the last 20 or so years, doing well with his own residential renovation business, playing music on the side. his band, santa mamba is going to be opening for los lobos in june. gary plays percussion. check out this video from you tube: from a critic:"for over 10 years, santa mamba has been igniting venues all along the east coast with their spicy blend of latin jazz, hip-shaking salsa, driving rock n' roll guitar, swaggering bass funk and smooth merengue beats. their energy and musicianship guarantee an entranced audience and a packed dance floor, as the band's sizzling world rhythms and fiery passion continue to attract new fans and surprise old ones."if you like the music, you can download their latest album on itunes.
+
+
+
+posted by matt dillon at 6:24 pm
+0 comments
+
+
+
+
+
+
+wednesday, april 01, 2009
+
+
+
+	 
+	 before you freak out...
+	 
+    
+
+
+don't get all worked up over the ribbons in revit when you see it. first, you can't turn them off, so you might as well deal with them. second, i think if you'll give them a chance you'll see that a lot of thought was put into them. they "flow" very well. my first reaction to the ribbon when i saw it was predictable: "oh, great. how do you turn them off?" and then after about an hour of working with them, i decided that i liked them better than the current design bar, pull-down menu, toolbar combination. try it, you'll like it.ve haff vays of makink you cooperate. und if you do not cooperate, punishment vill be svift und severe!
+
+
+
+posted by matt dillon at 3:45 pm
+0 comments
+
+
+
+
+
+
+monday, march 30, 2009
+
+
+
+	 
+	 a new blog in town
+	 
+    
+
+
+my good friend, paul aubin, has started a new blog - in which he promises to relate the process and experiences of writing a book. having collaborated with him on a book a couple of years ago myself, i can tell you that it's nothing like what you might think. it's complex, time consuming, and ... fun...
+
+
+
+posted by matt dillon at 6:10 pm
+4 comments
+
+
+
+
+
+
+thursday, january 29, 2009
+
+
+
+	 
+	 space naming utility for revit mep
+	 
+    
+
+
+some time back i posted an article with a tip for making the space tag reflect the actual room name from the underlying architectural model. several people have commented (correctly) that this does not actually change the space name, which must still be done manually.for subscription users (and if you're on the revit platform, you really should be on subscription) there is a new space naming utility available for download from your autodesk subscription website, as reported by scott brisk in his revit mep blog. this will automatically name the spaces according to the architectural room name.there, better now? :-)
+
+
+
+posted by matt dillon at 6:30 am
+0 comments
+
+
+
+
+
+
+
+
+
+
+
+
+about me
+
+name:  matt dillon 
+location:  san antonio, texas, united states 
+having been a registered architect from 1992 through 2008, i now specialize in consulting with architectural and engineering firms to make the most of their revit and autocad architecture / autocad mep software. i am also a regular speaker at autodesk university.
+view my complete profile
+
+previous posts
+
+end of the line (sort of)
+the mysterious missing tutorials
+revit mep - wtf department...
+recent interview with phil bernstein at aia conven...
+it's official - texas mandates bim on all state pr...
+take the bim roi survey
+my college buddy is hitting the big time
+before you freak out...
+a new blog in town
+space naming utility for revit mep
+
+major past articles
+building information modeling - what is it, why do i care and how do i do it?
+automating project startup in architectural desktop
+adt standards out of the box for us users
+autodesk links
+autodesk main page
+autodesk discussion forums
+adt support knowledgebase
+autodesk bsd webcast archives
+other blogs
+paul aubin's blog
+between the walls
+->subject: architectural desktop
+->host: shaan hurley - autodesk
+between the lines
+->subject: autocad
+->host: shaan hurley - autodesk
+lynn allen's blog
+->host: guess!
+the revit clinic
+->host: harlan brumm
+civil3d - paving the way
+revitalize - revit blog
+revitlution
+revitoped
+robinz blog
+the architect's desktop
+will render for food
+cad shack
+tracy lincoln's autocad blog
+beth's cad blog
+scott durkee's cad management blog
+melanie (stone) perry's "mistress of the dorkness" blog
+jason hickey's "beneath the lines" blog
+roopinder tara's cad insider blog
+slobodan's serbian language blog
+bim/adt - related websites
+paul aubin's site
+archidigm
+the vizdepot
+cad digest adt reading room
+lean construction institute
+the d.c. cadd company, inc
+cadmin - john janzen's site
+the laiserin letter
+newforma
+general resources (cad and non-cad)
+cadopolis blog feeds
+the dilbert blog
+john walker's web site
+ten links
+autodesk user group international
+questia online books and journals
+
+scouting links
+boy scout troop 285 - 50 years of high adventure!
+cub scout pack 656
+the macscouter - scouting resources
+archives
+
+january 2005
+february 2005
+march 2005
+april 2005
+june 2005
+july 2005
+august 2005
+september 2005
+october 2005
+december 2005
+march 2006
+april 2006
+june 2006
+july 2006
+september 2006
+october 2006
+december 2006
+april 2007
+may 2007
+june 2007
+july 2007
+december 2007
+january 2008
+february 2008
+march 2008
+april 2008
+june 2008
+july 2008
+september 2008
+december 2008
+january 2009
+march 2009
+april 2009
+may 2009
+august 2009
+january 2010
+march 2010
+july 2010
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+

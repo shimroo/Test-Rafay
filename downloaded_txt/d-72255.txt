@@ -1,0 +1,186 @@
+
+
+
+inessential: weblog
+
+
+
+
+
+
+
+
+inessential
+by brent simmons
+
+
+
+
+31 oct 2024
+harris for president
+donald trump is a gross villain and a traitor to our country. he’s a convicted felon, adjudicated rapist, and head of a criminal organization; he works with criminals and he pardons criminals; he’s a narcissist and violent insurrectionist, racist and misogynist; he’s the master of lies and corruption and self-serving.
+he plans to rule as a fascist dictator, and this time has the backing to do so, for the benefit of him and his ultra-wealthy friends. not for you.
+for everybody else, the various enemies within — everybody who isn’t a straight white male who goes along with the program — there will be concentration camps, deportation, prison, and rumors and threats of each. there will be more deaths in hospital parking lots.
+i have voted for kamala harris. i ask you to vote for her too.
+i happen to think harris would be very good, possibly even great, as president. but it hardly matters!
+voting for her is how we stop this. and we have to stop this.
+
+
+
+16 oct 2024
+seattle xcoders 20th anniversary meetup
+this thursday, oct. 17, 2024, is the 20th anniversary of the seattle xcoders! we’d love to see you there, at 7 pm at bale breaker and yonder cider taproom in ballard.
+everyone is welcome! it’s not just for people who write code — it’s for designers, testers, support folks, and everyone who helps make apple-ecosystem apps. even if you just like those kinds of apps and like talking about them, come join us!
+we’re usually outside by these propane fire things, but i’m not sure this time — we might have a room or some area or something. we should be easy to find, at any rate.
+it’s not actually a meeting with presentations — it’s just hanging out and talking. which we do every first, third, and fifth thursday (you can subscribe to our calendar). one of these days we’ll get back to presentations — but the social part is valuable, and so we keep it up.
+ps looks like the food truck is impeckable chicken, which i’ve heard good things about. :)
+pps i’m usually easy to spot: quite well into middle age, with nothing like the amount of hair i once had. black jeans, usually a black sweatshirt. glasses. doc martens. not tall.
+
+
+
+03 aug 2024
+netnewswire and conditional get issues
+i had thought that netnewswire’s conditional get support was rock-solid — and so my first reaction was to be very surprised to learn that it’s not!
+my second reaction was to be appreciative — rachel’s work here on setting up a test server and reporting on the results is really great. my goal has always been to make netnewswire a model net citizen, and learning where it’s not is super valuable. so: much respect and thanks to rachel for this.
+the data
+let’s look at some data and try to figure out what’s happening. here’s rachel’s report for netnewswire.
+things to know: these are all requests for a netnewswire-specific feed, and the copy of netnewswire making these requests is on my personal laptop. that laptop is occasionally used for development, which can throw things off, but not often. you can even see in the data a gap lasting just over two weeks where there were no requests (i was on vacation).
+(you can also see some anomalies from when i had it on my dev machine also — ignore every row where ip is v6, since that’s my dev machine.)
+another thing to know: this is testing direct feed-reading, as with the on my mac (or iphone/ipad) and icloud accounts. with systems such as feedly, feedbin, and so on, we get the data from the sync system and not directly from the site.
+ignoring timing issues
+let’s set aside, at least for today, the timing issues. that situation could be improved, but it very much reflects that this is a desktop app with a command that allows you to refresh feeds manually, without having to wait for the next poll.
+conditional get issues
+first, a refresher on how this should work.
+when a server returns a last-modified header, the client should return that exact same string in follow-up requests in an if-modified-since header. the server then looks at the if-modified-since header and decides to either return a 200 plus the feed — if it has been modified since — or return a 304 not modified response and an empty body.
+it’s the same story with the etag header. the client should save it and return it in follow-up requests in an if-none-match header.
+this is great because it can save a ton of bandwidth, which is great for server and app alike. and netnewswire’s been doing this since the early 2000s.
+but clearly there’s a bug! in some cases, netnewswire is not picking up and saving the changed last-modified and etag headers. sometimes it does, and sometimes it keeps using whatever it already had and ignores the new ones.
+what could account for this? let’s look at the logic.
+feed processing logic
+here’s what happens when a feed download completes without errors and the content is non-empty:
+first we check the hash of the raw feed data against the hash of the raw feed data the last time it actually changed. if those hashes match, then the app stops processing, because the feed hasn’t changed: it’s exactly the same as last time.
+this is an optimization that deals with the fact that many servers unfortunately don’t support conditional get. it allows the app to skip feed parsing and updating the database. saves a bunch of work. good for battery life.
+if the hashes don’t match, then processing continues: it parses the feed and then sends the parsed articles to the code that updates the database.
+after that it updates and saves the hash of the raw feed data, and finally it stores the conditional get info — it saves any last-modified and etag header values to send with the next request.
+this isn’t actually the code, but it’s what the logic looks like:
+downloaddidcomplete(httpresponse, feed, feeddata)
+	hash = feeddata.md5
+	if hash == feed.previoushash then return
+	parsedfeed = parse(feeddata)
+	updatedatabase(feed, parsedfeed)
+	feed.previoushash = hash
+	feed.conditionalgetinfo = conditionalgetinfofromresponse(httpresponse)
+
+my theory
+there’s a great chance you’ve already spotted what i think is the issue: it’s that optimization where we check the hash of the raw feed data and return if it matches the previous hash.
+here’s what i think has happened in some of the tests: the raw feed data was unchanged, but one or both of the last-modified and etag header values did change.
+netnewswire never picked up the changes to those headers, because that code didn’t run — it had already bailed when it saw that the raw feed data was unchanged.
+the assumption i made when i wrote this code was that if the raw feed data was unchanged then of course the last-modified and etag header values would be unchanged too, so there was no need to check to see if they were new.
+and i think that in real-world situations this is probably true pretty much all the time, and it’s only in tests like this where my assumption wouldn’t be true.
+but i can’t say that for sure! this is a real bug, and we’ll fix it and add a test or tests to make sure it doesn’t happen again.
+here’s what the new logic should look like:
+downloaddidcomplete(httpresponse, feeddata, feed)
+	hash = feeddata.md5
+	if hash != feed.previoushash {
+		parsedfeed = parse(feeddata)
+		updatedatabase(feed, parsedfeed)
+		feed.previoushash = hash
+	}
+	feed.conditionalgetinfo = conditionalgetinfofromresponse(httpresponse)
+
+with the above logic, conditionalgetinfo gets updated no matter what.
+ps there could be other bugs
+my theory does point to a bug that should get fixed. but is it the only bug? is it even the bug that causes the issues in these tests?
+though i’m pretty confident that this is the bug — seems pretty obvious, right? — more investigation and testing is warranted.
+
+
+
+08 feb 2024
+reruns
+it’s not a bug in your rss reader if recent articles in this feed all suddenly appeared as unread. you may even have seeming duplicates.
+sorry about that! it’s due to my changing settings in my blog generator. pages now have a .html suffix where before they had none. this change impacts permalinks, which also changes the guids in my rss feed — and netnewswire and other rss readers use the guid property to identify articles, which means these will show up as new articles.
+(note: i’ve created redirects so that old links pointing in will still work.)
+
+
+
+04 feb 2024
+why netnewswire isn’t available for vision pro
+i’ve been getting questions about netnewswire’s unavailability on vision pro. why isn’t it there? when might it be there?
+here’s the scoop:
+i consider it risky to support an app running on a device i don’t own. imagine writing a mac or iphone app and not actually running it on one of those machines — you wouldn’t.
+i realize that the app would act as if it were running on an ipad — but the vision pro is not really an ipad. it’s a device with very different interactions from the direct manipulation we’re used to on ipad. and the compatibility mode is a new thing because this device is a new thing — we don’t know how well it works and what the gotchas might be.
+i could test it on the simulator, sure, but the simulator is a convenience for developers. it’s no replacement for running it on a real device.
+and, yes, the app is open source, which could mean that other developers with a vision pro could help support it — but it’s important to remember that i’m the only person who has to support it. the netnewswire team is awesome, but i’m the one on the line for this.
+so i want to be careful and go slowly, because if i made it available it would be extremely difficult to reverse the decision and take it away, even with an excellent reason.
+i’m hoping that a consensus will form among developers that running apps on vision pro as ipad apps is fine, that it’s a cakewalk. if that happens, i’d go ahead and do it too. but it’s too soon for us to know that.
+ps why don’t i have a vision pro? i’m sure it’s an incredible technical achievement and an amazing experience — and pretty damn wonderful in just about every way — but it’s just not my thing. i like reading and writing mostly, plus making apps for reading and writing. my personal future of computing has been here for all these years — the mac.
+pps eventually the price will come down to where i’d consider buying one as a test device and for a little fun — but that may be a few years away. i’m hoping that we’ll find, sooner than that, that running as ipad on vision pro is a-okay.
+
+
+
+17 jan 2024
+corporations are not to be loved
+i started using apple computers — and writing code for them, starting with basic — 43 years ago, before the macintosh, even, and i’ve made this my career. i’ve had all these decades to really, thoroughly delight in these incredible machines and software, and to give a little back with my own apps.
+apple’s positive effect on my life should not be underestimated. my mom once (lovingly, teasingly) said to me that my alternate career, had all this never happened, was “criminal genius.” which might have been fun too, but possibly more stressful than i might have liked. at any rate, apple has saved me from a life of crime, and i should love apple for that.
+but i need to remember, now and again, that apple is a corporation, and corporations aren’t people, and they can’t love you back. you wouldn’t love ge or exxon or comcast — and you shouldn’t love apple. it’s not an exception to the rule: there are no exceptions.
+apple doesn’t care about you personally in the least tiny bit, and if you were in their way somehow, they would do whatever their might — effectively infinite compared to your own — enables them to deal with you.
+luckily, apple has just provided us all with a reminder. just like the sixth finger in an ai-rendered hand, apple’s policies for distributing apps in the u.s. that provide an external purchase link are startlingly graceless and a jarring, but not surprising, reminder that apple is not a real person and not worthy of your love.
+
+
+
+17 dec 2023
+on mastodon support in netnewswire
+tim chambers, admin of the mastodon server indieweb.social, which hosts my personal account and the netnewswire account, asked me if activitypub support is on the roadmap for netnewswire. great question!
+tim was responding to richard macmanus:
+
+are there any rss readers that are trying to integrate activitypub too? pondering the glut of email newsletters in our inboxes these days, and wondering if we are due for an rss reader renaissance, except with a fediverse twist this time…
+
+i hear this. it’s not the first time this has come up, and i’ve spent the past year or so thinking about it.
+since rss is an open web thing that brings you stuff people write, and activitypub is also an open web thing that brings you stuff people write, it’s an obvious good idea to do both in the same app. totally.
+but the question was specifically about netnewswire.
+we will make netnewswire work better with mastodon-generated rss feeds. there are some things we’re not doing yet that will make reading these a better experience.
+but should netnewswire become a mastodon client? that’s where the answer is not so obvious.
+* * *
+let’s compare the netnewswire and mastodon experiences.
+netnewswire is a three-paned rss reader. sidebar (accounts, folders, feeds) on the left. timeline (titles and/or first few lines) in the middle. article on the right. see these screenshots to get the idea.
+each article has a read/unread status. selecting an article marks it as read, and there are commands to mark all as read (and mark all as read above or below the selection).
+this is not the only good model for an rss reader, but it’s how netnewswire works — and it’s a bad fit for a mastodon reading experience.
+whether you use mastodon on the web or in an app you’re used to a single timeline per account (with perhaps side streams for mentions and such). all posts from everyone you follow appear in that single timeline. you don’t deal with read/unread status — instead you have a chronological position.
+the timeline shows the entire post (usually), instead of an optional title and first few lines. there is no third article view, because the entire post is displayed in the timeline.
+this experience isn’t unique to mastodon, of course — that’s how x, threads, micro.blog, bluesky, and other social media apps work.
+but it’s not how netnewswire works, and if we try to mash that experience into the app — but have it on only when a mastodon account is selected — we’d end up with a confusion that feels like two very different apps. because it would be.
+* * *
+a second option: we could not change the experience and just assume that some people would like to use mastodon in a netnewswire way instead of in the usual social media way. i’m extremely skeptical of this idea — i think it would be a pain, and i think most people who try it would drop it.
+the third option, which i think is best, which we already do, is to support mastodon via rss. (mastodon feeds are usually available as rss — you can add .rss to the end of a url to get a feed.)
+there might be some mastodon accounts you want to follow in your rss reader instead of in your mastodon client. think of an account for a website that doesn’t have an rss feed, but that reliably posts links to articles. or a person you want to follow — but you don’t want to show up in their follower list. (sounds a little antisocial, sure, but you can imagine good reasons.)
+we can, and will, do more to make mastodon-over-rss a good experience in netnewswire. right now we’re not picking up avatars or image attachments, which we can fix. there might be more things like that to do. we might add the ability to post to mastodon, since it’s a natural thing to want to share stuff from your rss reader to mastodon.
+but i don’t think we’ll make netnewswire a real mastodon client.
+* * *
+it still seems like rss and mastodon could fit in the same app, though! if i were designing it, i’d start with the social media experience: the single timeline of posts. very simple sidebar. no article view. no read/unread status — just position in the timeline.
+you could add rss feeds, but they’d be treated like mastodon posts. any article short enough would appear in full in the timeline, but most would probably have to be truncated. you’d open articles in your browser, just like you do now with social media apps (there’d be no third article pane).
+such an app could be a nice unified experience. get your mastodon, threads, rss feeds, micro.blog and, hopefully, other services — anything that supports activitypub, rss, or some other open format or api — all in one place, in a way that’s already familiar to everyone.
+sounds pretty great! but it’s not netnewswire.
+
+
+
+27 jun 2023
+seattle xcoders this thursday
+seattle xcoders meetups are at 7 pm on the first, third, and fifth thursdays of each month, lately at the bale breaker x yonder cider taproom in seattle, in ballard.
+we meet outside, usually in the uncovered area that has some benches and small gas fire pits. (not actually pits. more like small coffee tables with rocks and fire on top.)
+there are no presentations or anything like that — we’re not back to doing indoor meetings with slides. we’re just talking. (seattle xcoders has always had a strong social game, so this is no surprise.)
+everybody’s welcome! you don’t have to be a coder. designers, support folks, testers, writers, and anybody interested in apple-land apps are all encouraged to come hang out. even managers.
+if you’re interested, be sure to subscribe to the calendar, so you don’t miss any changes of date, time, or venue.
+i myself don’t make it every time, but i do plan to be there this thursday (june 29). see you there!
+
+
+archive
+
+
+
+netnewswire • apps i’ve made
+rss feed • json
+follow on micro.blog • mastodon • bluesky
+© 1999-2025 brent simmons • made in seattle
+
+
+

@@ -1,0 +1,408 @@
+
+
+
+
+
+
+
+yet another blog – notes from sven latham
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skip to content
+
+
+
+yet another blog
+notes from sven latham
+
+menu
+
+
+home
+about
+ 
+
+
+
+
+
+
+
+
+installing platformio with vs code on chromebook 
+
+getting there with esp development on a chromebook…
+
+make sure you have vs code already installed.
+in a terminal, sudo apt install python-is-python3 python3-venv
+open up vs code, hit shift + ctrl + x and install platformio ide.
+
+for a while, the platformio installer was complaining about python3.6+ interpreter not working. it seems it was actually specifically looking for venv. once i installed that, it worked fine.
+
+
+author  svenposted on december 21, 2024categories uncategorised 
+
+
+
+installing vs code on chromebook 
+
+
+first, enable linux on your chromebook.
+download the latest .deb installation from https://code.visualstudio.com/download
+move this file to the linux shared files (should be visible in the file manager, and is probably empty). this folder is your home directory in linux.
+open a linux terminal and typesudo apt install ./{downloaded file}.deb
+you will likely be prompted to add the microsoft apt repo to your installation. select yes.
+once installed, you should now have vs code in your launcher.
+
+remember that you’re running vs code from inside a linux container, so your other chromebook files won’t be available.
+
+
+author  svenposted on december 21, 2024categories uncategorised 
+
+
+
+dns tunnels for iot 
+
+urban sensor networks often have to deal with a particular challenge: how to get data from the device to a server. depending on your budget and data needs, there are various options, from low-power wide area networks (lp-wans such as lorawan) to cellular modems.
+rain gauge, river, temperature and other sensors might typically send a tiny amount of data periodically, a single measurement every 10 minutes for example. 
+low-power networks are ideal, but require some form of network to get the data from the device to a gateway, and ultimately on to a server. there are lots of efforts to create community networks, such as the things network, but they’re by no means universal.
+building a sensor with a cheap (think $2) esp device1 is relatively easy, and typically come with wi-fi. lora hats and antennae add to the cost – admittedly they seem to have come down since i last looked a few years ago – this one’s about £14.
+given that wi-fi is pretty ubiquitous in urban areas, couldn’t we leverage this to send data? enter dns tunnelling. i first read about this years ago when a proof of concept was developed to tunnel regular traffic over dns – a potential way to gain internet access without signing over your personal details to public wi-fi networks.
+dns tunnelling takes advantage of the fact that – although public wi-fi networks typically intercept web browsing (to block you until you agree to terms), they can’t reliably block dns without breaking a whole bunch of browser functionality in the process.
+so, theoretically, a device could connect to a public wi-fi network, send its data via dns, receive instructions (in the dns reply, if needed) and disconnect again, all without having to navigate login screens and minimising traffic.
+a simple example of a temperature sensor reporting its reading via a public wi-fi network
+i started to look into this during my time working on iot devices, as it would have significant cost benefits versus rolling out low-power networks or subscription cellular services.
+a network of this type requires two key items: a device that can find and connect to public wi-fi networks (relatively easy with arduino, raspberry pi, etc.), and a dns server on the internet capable of translating requests into specific packets of data (various options are ripe for modification).
+however, there are significant implications around using public networks in this way, which i’d never explored fully before i left this particular project. although i do wonder whether network operators would cause a fuss over a few kilobytes of data, in the context of urban city-wide public wi-fi installations. so, while my closed tests appeared to suggest it would work quite well, a rollout of any kind would need to be properly scrutinised and sanctioned by the operators.
+nonetheless, communications remains a major factor – particularly around low-budget sensor networks. although it seems costs are falling, coverage is improving and – if you are building out a low-power network – consider the added benefits of joining one of the various networks to pool resources.
+yes, i know a $2 device isn’t going to have the best antenna, although still potentially good enough for this to work in many locations. ↩︎ 
+
+author  svenposted on february 13, 2024categories uncategorised 
+
+
+
+github codespaces 
+
+many production and supply chains have some form of retooling cost. software is similar. it takes times to set up a development environment, ensure consistency and remind oneself of the work context.
+a few years ago, i spent most days writing code in one form or another for broadly related projected. more recently, it’s become an occasional foray, and quite scattered, so retooling has been more of a concern. the overhead of setting up my workspace, just to get a potentially small change made, is more significant.
+various options, contributions and ways of working have emerged over the years. from synced profiles, config inside projects and easier setups. containerisation lends itself well to the development space, as do virtual environments, virtual machines, and so on.
+github codespaces is an interesting and potent take on this. it effectively bundles the editor, working space, source control and developer testing. of course, as part of github, it also brings closer the wider sphere of testing and deployment.
+i’m now revisiting my ways of working to make the most of github codespaces, pushing myself towards one-click editing, simplified self-test and deployment. crucially, it means that the wider dev environment is fully configurable and cloud-based, so i don’t need to have a desktop set up with all the requisite tools – a browser is enough.
+it’s also giving new life to old kit. i’m using older devices that would ordinarily have been sent for recycling. equally, the pressure is off to invest in something new.
+a quick rattle through some other benefits:
+
+codespaces can be ephemeral, and i’ve specifically reduced their lifespan. this encourages regular commits, and thinking about clean deployments more routinely.
+the entire dev environment is configured inside the repository in github, so i know every contributor has a like-for-like place to work. that reduces errors.
+
+security is a potential winner, in various ways, but as usual there are pros, cons and professional factors to consider that are worth exploring separately.
+ultimately, it means i can pick up a project, make a needed change, and create a commit in a significantly faster way.
+
+
+author  svenposted on january 1, 2024categories uncategorised 
+
+
+
+the perfect website doesn’t exist 
+
+this blog has been going for about 20 years. various iterations of wordpress, a custom cms, back to wordpress again.
+it’s not my first blog. that was running all the way back in the 90s, before blogs were really a thing. i’ve lost most of it but i remember it was based on hand-editing html files in vim. posts were still dated, sorted by latest and contained various updates. just seemed like a natural way to track updates at the time.
+i’ve probably been responsible for the creation of upwards of a hundred websites so far. from personal projects, commercial ones, customer sites, intranets and hobbies. many of the commercial ones still exist, although my work has largely been overwritten.
+i have also created websites that create other websites. building content management systems and blog engines. if i count those, there’s probably a few more hundred. sadly all of those disappeared, along with the companies that i worked for that hosted them.
+along the way i’ve tried to adhere to principles based on well-established concepts. good stable urls, minimal overhead, decent semantics. it’s helped me steer clear of some of the fads over time, like single-page content sites.
+many of those principles have come from managing the back-end. i’ve created websites attracting millions of users, sometimes in a very short time. this firmly focuses the mind on responsiveness: avoid dynamic pages, minimise bytes, cache smart.
+more recently, static website generators have caught my mind. these aren’t new. i build a couple of iterations back in the 90s – desktop apps that produced static html with a template. nowadays this works well with source control and ci/cd, so a site can be edited in github, prepared by actions and deployed to a server.
+static websites are pretty much the fastest kind. no real processing on the client or the server, lots of cache opportunities, robust. for a blog – particularly one like this that isn’t that fussed on user comments – they’re almost a no-brainer. why re-render the page for every user when they each receive the same content? there’s quite a number of static site generators, and i’ve been using jekyll for a while.
+all good in principle, but it’s not enough. it misses some of the interesting – and oft-forgotten – aspects of the web.
+what about redirects? this is a server configuration challenge – apache lets you use .htaccess files but that might be inefficient. nginx needs to be configured. others have in-between implementations.
+what about content negotiation? i’m quite interested in this, because the transfer of knowledge shouldn’t assume html. want this in json? fine. after text? why not. png image? well, that’s a bit strange but yeah let’s give it a go.
+language negotiation? sure, why not. apache kind-of supports this (as well as content) and you end up with various versions of the same file, so intro.en.html and intro.fr.json – the server handles the selection, so this kind of feels like a good outcome even if our generation gets a little more complex.
+as the world wide web is well into its thirties as i write, some aspects keep coming round. maybe that suggests they have a relevance that we shouldn’t let go of; that original intentions and designs were good or – at least – grounded in reasonable premises.
+keen to explore, as always, so watch this space…
+
+
+author  svenposted on november 11, 2023february 13, 2024categories uncategorised 
+
+
+
+recombobulation 
+
+i’ve neglected blogging for a number of years. bit of a shame, as i think i’ve had plenty of contributions to make in that time. blogging, writing, everything is a habit.
+with all the activity around twitter, i’m less minded to post there. i’m not inclined to go to threads, or mastodon, or any of the other social media platforms. hosting my thoughts here has a renewed appeal.
+i don’t mind if 5, 50 or 5000 people read this – or none at all – writing in this way is a means to release ideas brewing and trapped in my head.
+with that in mind, here are some things i want to write about, to describe my journeys. i aim to teach and support. maybe they’ll be useful to you as well:
+
+document my adventures, including new frameworks, practises, lessons learnt.
+convert this blog to some kind of static generated site.
+talk about what i’m learning with 3d printing.
+record my travels.
+
+so, there’s my starter for ten. i’ve promised this before and ran out of steam fairly quickly. let’s see how this goes….
+
+
+author  svenposted on july 17, 2023february 13, 2024categories uncategorised 
+
+
+
+schlenkerla rauchbier 
+
+ 
+
+it seems this one has a bit of fame. the “real schlenkerla smoked beer” certainly doesn’t disappoint. it’s how i’d imagine kissing an ashtray. the smokiness comes through immediately and throughout and – if i dare to say – overpowers much of the remaining beer taste.
+not sure i’ll be back to this one in a hurry. the novelty wore off quickly, and it wasn’t the most pleasant to drink. still, good as a reminder of some of the more extreme flavours out there.
+
+
+author  svenposted on august 13, 2021categories uncategorised 
+
+
+
+hercule stout – brasserie des légendes 
+
+
+named after the belgian detective, hercule poirot, this has been on my to try list for a while.
+it’s a decent stout with a nice, dark flavour. reminds me of chocolate, coffee bitterness which works well. slightly stronger at 9% abv. i’d certainly be happy to add this to the regular rotation when it becomes available.
+
+
+author  svenposted on august 13, 2021categories uncategorised 
+
+
+
+dev switching for nginx reverse proxy with cookies 
+
+i’m a fan of using nginx as a reverse proxy, and i’ve now used it for multiple projects.
+essentially nginx sits in front of multiple other web servers (apache or other nginx instances) and redirects traffic according to a series of simple rules.
+there are numerous benefits, but one particular use case is proving very useful. this is the ability to switch between a production and dev website using cookies.
+here’s a broad example (note other proxy/server config instructions are omitted)…
+server {
+location / {
+# by default, serve from the production server(s):
+        proxy_pass https://production;
+# if the special cookie appears in the request, redirect to the dev server:
+        if ($http_cookie ~* "usedev31246") {
+            proxy_pass https://development;
+        }
+}
+# special convenience urls to enable/disable the cookies we need:
+location /enable-dev {
+    add_header set-cookie "usedev31246;path=/;max-age=9999999";
+    return 302 /;
+}
+location /disable-dev {
+    add_header set-cookie "usedev31246;path=/;max-age=0";
+    return 302 /;
+}
+}
+by default, a proxy connection will be made to the production server for all requests unless a cookie is provided in the request matching the string usedev31246, in which case it’ll be sent via the development server.
+for convenience, any user can set the cookie by visiting /enable-dev (which will redirect back to the home page). they can clear it by visiting /disable-dev.
+this means you can quickly help somebody get to the dev site by directing them to https://example.org/enable-dev
+of course, you probably don’t want anybody finding this so best to password protect and use a suitably secure cookie string, but i leave that as a challenge to the reader 😉
+this is quite nice for things like wordpress instances which tend to put the full url in image and resource requests. by doing this, we don’t need to rewrite those urls and worry about permalinks changing.
+if you’re also using nginx as a cache, beware as a user on the dev site might pollute/poison the cache with development code. ensure the cache is disabled before dev requests are fulfilled (this is good practice anyway for a dev website).
+
+
+
+author  svenposted on september 3, 2020categories uncategorised 
+
+
+
+quarr abbey, goddards 
+
+bit off-piste for my usual hunts, but this is from the isle of wight, so a local brew as well as a former stomping ground, and brewed in a belgian “dubbel” style.
+apparently, they don’t usually sell these in kegs, but the local shop had a supply so a 500ml “crowler” was needed!
+can’t say i’m a huge fan of the beer on presentation. weak, slightly metallic taste – hints of darker belgian beers – creamy and chocolatey to taste. just not quite meeting expectations. however, a bit disclaimer – that might well be down to the way it’s arrived (also worth noting this was near-end of stock). i’d be keen to try it again in bottled form and – being so close – a great opportunity to support local breweries.
+
+
+
+author  svenposted on june 20, 2020categories uncategorised 
+
+
+posts pagination
+page 1
+page 2
+…
+page 70
+next page
+
+
+
+
+
+
+
+search for:
+
+
+search
+
+archives
+
+december 2024 (2)
+february 2024 (1)
+january 2024 (1)
+november 2023 (1)
+july 2023 (1)
+august 2021 (2)
+september 2020 (1)
+june 2020 (1)
+june 2019 (1)
+march 2019 (2)
+october 2017 (1)
+june 2017 (1)
+january 2017 (4)
+december 2016 (2)
+october 2016 (1)
+september 2016 (3)
+february 2016 (1)
+october 2015 (2)
+september 2015 (3)
+august 2015 (1)
+june 2015 (1)
+may 2015 (2)
+november 2014 (5)
+october 2014 (2)
+september 2014 (2)
+august 2014 (1)
+june 2014 (3)
+may 2014 (2)
+april 2014 (3)
+march 2014 (3)
+november 2013 (2)
+september 2013 (6)
+august 2013 (2)
+july 2013 (5)
+may 2013 (6)
+april 2013 (1)
+february 2013 (3)
+january 2013 (3)
+november 2012 (1)
+october 2012 (1)
+august 2012 (2)
+september 2010 (1)
+august 2010 (2)
+july 2010 (1)
+may 2010 (1)
+february 2010 (2)
+december 2009 (1)
+november 2009 (2)
+march 2009 (1)
+february 2009 (1)
+january 2009 (2)
+december 2008 (2)
+november 2008 (1)
+september 2008 (1)
+august 2008 (1)
+july 2008 (3)
+june 2008 (3)
+may 2008 (15)
+april 2008 (10)
+march 2008 (6)
+february 2008 (2)
+january 2008 (1)
+december 2007 (8)
+november 2007 (6)
+october 2007 (4)
+september 2007 (16)
+august 2007 (22)
+july 2007 (10)
+june 2007 (15)
+may 2007 (5)
+april 2007 (13)
+march 2007 (5)
+february 2007 (1)
+january 2007 (4)
+december 2006 (4)
+november 2006 (18)
+october 2006 (11)
+september 2006 (11)
+august 2006 (9)
+july 2006 (15)
+june 2006 (8)
+may 2006 (3)
+april 2006 (2)
+february 2006 (4)
+january 2006 (20)
+december 2005 (10)
+november 2005 (4)
+october 2005 (8)
+september 2005 (3)
+august 2005 (5)
+july 2005 (5)
+june 2005 (9)
+may 2005 (2)
+april 2005 (5)
+march 2005 (3)
+february 2005 (7)
+january 2005 (3)
+december 2004 (11)
+november 2004 (10)
+october 2004 (2)
+september 2004 (3)
+august 2004 (4)
+july 2004 (13)
+june 2004 (12)
+may 2004 (8)
+april 2004 (7)
+march 2004 (10)
+february 2004 (4)
+january 2004 (9)
+december 2003 (7)
+november 2003 (7)
+october 2003 (12)
+september 2003 (12)
+august 2003 (6)
+july 2003 (13)
+june 2003 (11)
+may 2003 (6)
+april 2003 (7)
+march 2003 (12)
+february 2003 (9)
+january 2003 (11)
+december 2002 (15)
+november 2002 (25)
+october 2002 (22)
+september 2002 (1)
+
+ 
+
+
+
+home
+about
+ 
+
+yet another blog
+
+					proudly powered by wordpress				
+
+
+
+
+
+
+
+
+

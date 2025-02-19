@@ -1,0 +1,435 @@
+
+
+
+
+martinfowler.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+refactoring
+agile
+architecture
+about
+thoughtworks
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+topics
+architecture
+refactoring
+agile
+delivery
+microservices
+data
+testing
+dsl
+
+
+about me
+about
+books
+faq
+
+
+content
+videos
+content index
+board games
+photography
+
+
+thoughtworks
+insights
+careers
+radar
+
+
+follow
+rss
+mastodon
+linkedin
+x (twitter)
+bgg
+
+
+
+
+
+
+
+software development is a young profession, and we are still learning the
+      techniques and building the tools to do it effectively. i've been involved
+      in this activity for over three decades and in the last two i've been
+      writing on this website about patterns and practices that make it easier to build useful
+      software. the site began as a place to put my own writing, but
+      i also use it to publish articles by my colleagues.
+in 2000, i joined thoughtworks, where my role
+      is to learn about the techniques that we've learned to deliver software
+      for our clients, and pass these techniques on to the wider software
+      industry. as this site has developed into a respected platform on software
+      development, i've edited and published articles by my colleagues, both thoughtworkers
+      and others, to help useful writing reach a wider audience.
+
+
+
+photo: christopher ferguson
+martin fowler
+
+
+
+
+
+a website on building software effectively
+if there's a theme that runs through my work and writing on this site,
+        it's the interplay between the shift towards agile thinking and the
+        technical patterns and practices that make agile software development
+        practical. while specifics of technology change rapidly in our
+        profession, fundamental practices and patterns are more stable. so
+        writing about these allows me to have articles on this site that are
+        several years old but still as relevant as when they were written.
+as software becomes more critical to modern business, software needs to
+        be able to react quickly to changes, allowing new features to be
+        conceived, developed and put into production rapidly. the techniques of
+        agile software development began in the 1990s
+        and became steadily more popular in the last decade. they focus on a
+        flexible approach to planning, which allows software products to change
+        direction as the users' needs change and as product managers learn more
+        about how to make their users effective. while widely accepted now, agile
+        approaches are not easy, requiring significant skills for a team, but more
+        importantly a culture of open collaboration both within the team and with a
+        team's partners.
+this need to respond fluently to changes has an important impact upon
+        the architecture of a software system. the
+        software needs to be built in such a way that it is able to adapt to
+        unexpected changes in features. one of the most important ways to do this
+        is to write clear code, making it easy to understand what the program
+        is supposed to do. this code should be divided into modules which allow
+        developers to understand only the parts of the system they need to make a
+        change. this production code should be supported with automated tests that
+        can detect any errors made when making a change while providing examples
+        of how internal structures are used. large and complex software efforts
+        may find the microservices architectural style
+        helps teams deploy software with less entangling dependencies.
+creating software that has a good architecture isn't something that can
+        be done first time. like good prose, it needs regular revisions as
+        programmers learn more about what the product needs to do and how best to
+        design the product to achieve its goals. refactoring is an essential technique to allow a
+        program to be changed safely. it consists of making small changes that
+        don't alter the observable behavior of the software. by combining lots of
+        small changes, developers can revise the software's structure supporting
+        significant modifications that weren't planned when the system was first
+        conceived.
+software that runs only on a developer's machine isn't providing
+        value to the customers of the software. traditionally releasing software
+        has been a long and complicated process, one that hinders the need to
+        evolve software quickly. continuous delivery uses
+        automation and collaborative workflows to remove this bottleneck,
+        allowing teams to release software as often as the customers demand. 
+        for continuous delivery to be possible, we need to build in a solid
+        foundation of testing, with a range of
+        automated tests that can give us confidence that our changes haven't
+        introduced any bugs. this leads us to integrate testing into
+        programming, which can act to improve our architecture.
+
+
+
+photostream
+
+san francisco
+
+
+
+data management
+there are many kinds of software out there, the kind i'm primarily
+          engaged is enterprise applications. one of the enduring problems we
+          need to tackle in this world is data management. the aspects of data
+          managment i've focused on here are how to migrate data stores as their
+          applications respond to changing needs, coping with different contexts
+          across a large enterprise, the role of nosql databases, and the
+          broader issues of coping with data that is both big and messy.
+
+
+domain-specific languages
+a common problem in complex software systems is how to capture
+          complicated domain logic in a way that programmers can both easily
+          manipulate and also easily communicate to domain experts. domain-specific languages (dsls) create a custom language
+          for a particular problem, either with custom parsers or by conventions
+          within a host language.
+
+
+books
+i've written seven books on software development, including
+          refactoring, patterns of enterprise application architecture, and uml
+          distilled. i'm also the editor of a signature series for
+          addison-wesley that includes five jolt award winners.
+my books page...
+
+
+conference talks
+
+
+
+
+
+i'm often asked to give talks at conferences, from which i've
+          inferred that i'm a pretty good speaker - which is ironic since i
+          really hate giving talks. you can form your own opinion of my talks by
+          watching videos of some my conference talks.
+my videos page...
+
+
+board games
+
+
+
+
+
+i've long been a fan of board games, i enjoy a
+           game that fully occupies my mind, clearing out all the serious
+          thoughts for a bit, while enjoying the company of good friends. modern
+          board games saw dramatic improvement in the 1990's with the rise of
+          eurogames, and i expect many people would be surprised if they haven't
+          tried any of this new generation. i also appear regularly on heavy cardboard.
+my board games page...
+
+
+
+tags
+api design · agile · agile adoption · analysis patterns · application architecture · application integration · bad things · board games · build scripting · certification · collaboration · computer history · conference panels · conferences · continuous delivery · covid-19 · data analytics · data mesh · database · design · dictionary · distributed computing magazine · diversions · diversity · documentation · domain driven design · domain specific language · domestic · encapsulation · enterprise architecture · estimation · event architectures · evolutionary design · experience reports · expositional architectures · extreme programming · front-end · gadgets · generative ai · ieeesoftware · infodecks · internet culture · interviews · language feature · language workbench · lean · legacy modernization · legal · metrics · microservices · mobile · nosql · object collaboration design · parser generators · photography · platforms · podcast · popular · presentation technique · privacy · process theory · productivity · programming environments · programming style · project planning · recruiting · refactoring · refactoring boundary · requirements analysis · ruby · security · talk videos · team environment · team organization · technical debt · technical leadership · test categories · testing · thoughtworks · tools · travel · uml · version control · web development · web services · website · writing
+2025 · 2024 · 2023 · 2022 · 2021 · 2020 · 2019 · 2018 · 2017 · 2016 · 2015 · 2014 · 2013 · 2012 · 2011 · 2010 · 2009 · 2008 · 2007 · 2006 · 2005 · 2004 · 2003 · 2002 · 2001 · 2000 · 1999 · 1998 · 1997 · 1996
+all content
+
+
+
+
+recent changes
+if you'd
+        like to be notified when i post new material, subscribe to my
+        rss feed. i also post announcements of new
+        material to fediverse (mastodon),
+bluesky,
+linkedin, and
+x (twitter)
+. i also have a page dedicated to recent changes.
+
+
+
+
+the deepseek series: a technical overview
+thu 06 feb 2025 09:17 
+the appearance of deepseek large-language models has caused a lot of
+      discussion and angst since their latest versions appeared at the beginning
+      of 2025. but much of the value of deepseek's work comes from the papers
+      they have published over the last year. shayan mohanty
+      provides an overview of these papers, highlighting three main arcs in this
+      research: a focus on improving cost and memory efficiency, the use of hpc
+      co-design to train large models on limited hardware, and the development
+      of emergent reasoning from large-scale reinforcement learning
+moreâ¦
+
+
+panel at goto copenhagen: âwhere is sw development going
+tue 04 feb 2025 10:23 
+
+ was on a panel at goto copenhagen last september with holly cummings,
+      trisha gee, dave farley, and daniel terhorst-north. we discussed the
+      current state of software development and where it was heading. given the
+      timing, there was much discussion about the role ai would play in our
+      profession's future.
+moreâ¦
+
+
+bliki: forest and desert
+thu 30 jan 2025 00:00 aedt
+
+the forest and the desert is a metaphor for thinking about software
+  development processes, developed by beth andres-beck and hir father kent beck.
+  it posits that two communities of software developers have great difficulty
+  communicating to each other because they live in very different contexts, so
+  advice that applies to one sounds like nonsense to the other.
+more ...
+
+
+
+emerging patterns in building genai products
+tue 28 jan 2025 07:43 
+
+everyone is fascinated about using generative ai these days, and my
+      colleagues are no exception. some of them have had the opportunity to put
+      these system into practice, both as proof-of-concept, and more importantly
+      as production system. i've known bharani subramaniam for
+      many years as a technology leader in india, he's been assembling the
+      lessons we've learned and i've worked with him to describe them as
+      patterns.
+in this first installment, we look the limits of the base case of
+      direct prompting, and how we might assess the capability of a system using
+      evals.
+moreâ¦
+
+
+podcast with luca rossi
+fri 24 jan 2025 13:01 
+
+luca rossi hosts a podcast (and newsletter) called refactoring, so it's
+      obvious that we have some interests in common. the tile comes from me
+      leaning heavily on beth anders-beck and kent beck's metaphor of the forest and the desert. we talk
+      about the impact of ai on software development, the metaphor of technical
+      debt, and the current state of agile software development.
+moreâ¦
+
+
+my favorite musical discoveries of 2024
+thu 09 jan 2025 09:49 
+
+i've got into the habit of starting the new year by sharing six
+      favorite albums i discovered during the last year. this years set includes
+      celtic jazz, trip-hop neo-fado, jazz-fusion for the 2020's, playful
+      harmonies, and a vibrant collaboration between  indian classical musicians and a
+      string quartet. (i was also unable to limit myself to six.)
+moreâ¦
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+topics
+architecture
+refactoring
+agile
+delivery
+microservices
+data
+testing
+dsl
+
+
+about me
+about
+books
+faq
+
+
+content
+videos
+content index
+board games
+photography
+
+
+thoughtworks
+insights
+careers
+radar
+
+
+follow
+rss
+mastodon
+linkedin
+x (twitter)
+bgg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+â© martin fowler | privacy policy | disclosures
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

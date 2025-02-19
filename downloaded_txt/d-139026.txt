@@ -1,0 +1,291 @@
+
+
+
+
+
+nlreg -- nonlinear regression analysis program
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+news
+
+
+
+
+
+
+                          nlreg has been selected as the "editor"s pick" by
+            softseek.
+
+
+
+
+
+
+
+                          nlreg is in use at hundreds of universities, laboratories, and government agencies around the world (over 20 countries). for a list of a few organizations using nlreg click here.
+
+
+
+
+
+
+
+                          if you have categorical variables, you may want to use a decision tree to model your data. check out the dtreg decision tree builder.
+           
+
+
+
+
+
+ 
+                          you also should check out the news rover program that automatically scans usenet newsgroups, downloads messages of interest to you, decodes binary file attachments, reconstructs files split across multiple messages, and eliminates spam and duplicate files.
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nlreg -- nonlinear regression and curve fitting
+
+nlreg is a powerful statistical analysis program that performs linear and
+nonlinear regression analysis, surface and curve fitting.
+nlreg determines the values of parameters
+for an equation, whose form you specify, that cause the equation to best
+fit a set of data values.  nlreg can handle linear, polynomial, exponential,
+logistic, periodic, and general nonlinear functions. unlike many "nonlinear"
+regression programs that can only handle a limited set of function forms,
+nlreg can handle essentially any function whose form you can specify
+algebraically.
+
+ 
+nlreg features a full programming language with
+a syntax similar to c for specifying the function that is to be fitted to
+the data. this allows you to compute intermediate work variables, use
+conditionals, and even iterate in loops.  with nlreg it is easy to
+construct piecewise functions that change form
+over different domains.
+since the nlreg language includes arrays,
+you can even use tabular look-up methods to define the function.
+
+
+here is an example of an nlreg program for fitting a damped sine wave
+to some data:
+
+title "damped pendulum motion";
+variables time,x;
+parameter a,alpha,w,offset,phase;
+function x = a*exp(-alpha*time)*sin(w*(time-phase))+offset;
+plot;
+data;
+[ data goes here ]
+
+
+nlreg performs true nonlinear regression analysis and curve
+fitting, it does not transform the function into a linear form. as a
+result, it can handle functions that are impossible to linearize such as:
+
+
+y = amplitude*sin(freq*x+phase) + growth*exp(x) + offset;
+
+where "amplitude", "freq", "phase", "growth", and "offset" are parameters
+whose values are to be determined by nlreg.
+
+another advantage of handing the function in true nonlinear form is that
+the minimization of the sum of
+squared residual values (i.e., "least squares") is based on the true
+nonlinear value rather than some linearized transformation.
+
+in addition to computing the optimal values of the parameters to best
+fit the function to the data, nlreg
+can generate plots of the data points and the
+fitted equation. in addition,
+it can plot the distribution of residual values and produce a normal
+probability plot.
+
+nlreg also computes auxiliary statistics such as student"s t,
+prob(t), f, prob(f), durbin-watson, and, optionally, correlation and covariance
+matrices.
+
+the standard version of nlreg
+can fit up to 5 variables and parameters to the
+data observations.
+the advanced version can handle up to
+2000 variables and parameters.
+in addition, the advanced version can generate
+3d surface plots
+such as shown here:
+
+
+
+
+
+
+in addition to performing classic nonlinear regression, nlreg can be used
+to find the root or minimum value of a
+general multivariate, nonlinear function. it can
+also be used in a special form where the independent variable is omitted;
+an interesting application of this is "circular
+regression" where a circle is fitted to a set of data points.
+
+
+dll (dynamic link library) and
+com object versions of nlreg are available
+for applications that want to call nlreg as an "engine" to perform
+regressions. click here to see an example
+visual basic program that calls the nlreg com library.
+
+
+nlreg has been validated using the
+statistical reference datasets developed by the
+national institute of standards and technology.
+
+download demonstration copy of nlreg.
+
+download manuals for nlreg.
+
+order nlreg.
+
+published research papers citing nlreg.
+
+check out the dtreg predictive modeling program by the author of nlreg.
+dtreg generates neural nets, decision trees, svm and many other types of models.
+
+the author of nlreg is available for consulting on data modeling and
+nonlinear regression projects.
+
+contact via e-mail for information.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

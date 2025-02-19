@@ -1,0 +1,224 @@
+
+
+
+
+techbookreport - developer book reviews : programming, software methodologies, linux, software
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				|new reviews|
+                |software methodologies|
+                |popular science|
+                |ai/machine learning|
+                |programming|
+                |java|
+                |linux/open source|
+				|xml|
+                |software tools|
+				|web|
+                |other|
+                |tutorials|
+                |all by date|
+                |all by title|
+                |resources|
+            
+
+
+
+
+
+
+
+
+
+independent developer book reviews by and for practitioners
+
+tutorials
+introduction to sql
+excel vba
+file system object
+agile in 30 seconds
+apache derby/java db
+standard deviation in 30 seconds
+jdbc-odbc - quick introduction
+groovy and xml
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+                             the man from the future
+                           
+
+john von neumann was one of the intellectual giants of the 20th century — a giant among giants, but yet he remains little known to the general public. compare and contrast to alan turing for example, who has carved out a place in popular culture. even john nash had a hollywood biopic. yet von neumann was a key figure in maths, physics, economics and computer science. the machine you're reading this on has a von neumann architecture, and is a descendant of the first programmable computers that he helped develop. so it's more than welcome that there's finally a pop science biography of this instrumental figure.
+ananyo bhattacharya's the man from the future is definitely in the pop science mould rather than a more detailed and scholarly work. it's an easy read for the general reader, charting von neumann's short life (he died at 53, still in his prime) and work, from birth in budapest in 1903 to early death in washington dc in 1957. born into an upper middle—class secular jewish hungarian family, he was an archetypal child prodigy, mastering ancient greek and latin, able to accomplish feats of mental arithmetic that astounded adults and devouring volumes of history. he was one of a generation of hungarian scientists who went on to make major contributions to science and mathematics: michael polanyi, leo szilard, eugene winger, edward teller and others.
+
+the book describes von neumann's numerous contributions to mathematics and science starting with his work, while still a teenager, on set theory and the fundamentals of mathematics. the author always make sure to contextualise von neumann's work, placing it in the bigger picture to make plain just how central and important much of von neumann's work was. along the way one is reminded of the intellectual ferment that marked the first decades of the 20th century. [continued]
+
+
+
+
+                             racket programming the fun way 
+                           
+
+i have to admit that i've never really taken a shine to programming languages along the lisp line of descent. there's a long and distinguished history of course, and numerous variants such as scheme, clojure, hy and more. it's not that i'm only comfortable using one programming paradigm — in my time i've professionally used assembler, c, apl, visual basic, java, powershell and half a dozen others. but for one reason or another nothing lisp-like has ever appealed. paul graham did a good job expounding on the virtues of lisp, but even that wasn't enough. until now — and until this book.
+this is a book for hobbyists — it's not a manual to teach you to program or help you get a job writing code. and beware that the word fun in the title is a specific kind of fun, the kind that appeals to people who like recreational mathematics or exploring abstract ideas with code. if that's your idea of fun, and i have to admit some tendencies in that direction myself, then this is the sort of book that might appeal to you.
+
+to start at the beginning, racket is a lisp-like programming language with a large and active user community and ecosystem. drracket is an integrated development environment that is known for being beginner friendly while have extensive support for real development tasks such as refactoring, package management and so on. [continued]
+
+
+
+
+                             murach's javascript and jquery, 4th edition
+                           
+
+murach's books are big in every sense of the word. physically this is a hefty volume that weighs in at almost a kilo and a half across 753 pages. it's a big book when it comes to the content too — this is a book that is light on filler, digression and irrelevance. now into a fourth edition, it's a book that takes the beginning javascript programmer all the way from this is how you code a variable to the basics of installing node.js for server side programming. it's what you'd expect from a book that promises to take you from beginner to pro right there on the front cover.
+the book is organised into four sections — each of which leads very naturally to the next. there's a clear progression in which lessons learned previously are applied almost immediately to the next section or topic. the authors, mary delamater and zak ruvalcaba, do a great job in getting to the nitty gritty with clear explanations and very concise code. for those interested in just getting to the point, or else want to use the book as a quick reference, it's a format that works really well.
+
+the first section opens with the basics of javascript. now obviously this also involves html and css, and the reader is not assumed to know all of that background already. however, the examples are well chosen so the reader is guided through these topics as well as the javascript code. [continued]
+
+
+
+
+                             data science from scratch
+                           
+
+back in the day, when i was doing my phd, i would try and explain what it was i was researching. it was sort of weird mix of programming, machine learning, data mining and statistics, sort of. the nearest to a catchy phrase to encapsulate this was 'intelligent data analysis', which never really too the world by storm. these days of course i'd only have to say 'data science' and people would get it, even if they only have the vaguest idea of what it entails. even better, for those who are really interested in learning what it means, there are plenty of books which bring all of the elements that make up data science together in a single volume — like this one.
+python is probably the programming language most often associated with data science, but of course lots of other languages and tools are used in practice. in my own case i use a lot of java, with r and even excel vba coming in handy at times. however, it's strictly python in this book, although the author doesn't assume any existing python knowledge or experience.  so, after a quick outline about what data science is, and isn't, and the setting out of a series of hypothetical problems to solve there is a crash course in python. it feels rushed of course, but when you consider that there are huge tomes devoted to learning python, cramming it all into one chapter is no mean feat. it helps if you already have a programming language under your belt — just as it helps if you follow along and actually pay close attention.
+
+python isn't the only crash course on offer — there are single chapter intros to data visualisation, linear algebra, statistics, probability, inference and gradient descent. [continued]
+
+
+
+
+                             excel vba cell comments
+                           
+
+whether you are working on a spreadsheet alone or with a group of colleagues, cell comments are a useful mechanism for flagging items to come back to later, or to ask questions or even just to draw someone else's attention. however, when you have large numbers of comments distributed across multiple sheets it can sometimes be difficult to keep track of things. sometimes it would be useful to be able to see all the comments in one place — particularly if you have a mixture of comments which are hidden and shown. luckily we can easily use vba to write some code to list the cells, values and comments on a separate sheet. as an added bonus we'll add hyperlinks to make it easy to get back to the original cells for editing.
+as an example here are two sheets with some comments on them, note that cell d11 on the data sheet contains a comment which isn't displayed.
+
+to make our example a bit more useful we're going to ignore all comments which aren't tagged with 'review:' — so we want to ignore the comment in cell b13 on the data sheet.
+the starting place for our vba code is the comments collection — this contains the set of comments for a given range. this has the advantage that we don't have to check each cell to see if it contains a comment — we can check the entire sheet to see if there's a comment on it.
+in this code we're going to delete the content of the comments sheet each time the code runs, and we're assuming that a sheet called comments already exists. the format we want is simple:
+
+[continued]
+
+
+
+									   excel/vba tutorials
+									   
+									   excel high school offers accredited online high school courses for students nationwide.
+
+
+excel vba tutorial: an introduction to programming microsoft excel using visual basic for applications (vba)
+debugging excel vba: an introduction to debugging vba code in excel's visual basic environment
+file system object tutorial: a tutorial on using the file system object with vba
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+web
+
+
+
+techbookreport
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+meet joe bloggs
+
+other recent reviews
+
+
+
+alchemy by rory sutherland
+infinite powers by steven strogatz
+murach's mysql, 3rd edition by joel murach
+the art of statistics: learning from data by david spiegelhalter
+the manga guide to relativity by hideo nitta, masafumi yamamoto, keita takatsu and trend-pro co, ltd
+java by comparison by simon harrer, jörg lenhard, linus dietz
+the problem with software by adam barr
+statistical analysis : microsoft excel 2016 by conrad carlberg
+modern java recipes by ken kousen
+programming: a primer by tom bell
+modern php by josh lockhart
+learn python the hard way by zed a. shaw
+doing data science by rachel schutt and cathy o'neil
+sql success: database programming proficiency by stephane faroult
+clojure made simple by john stevenson
+
+
+
+
+
+
+
+
+
+
+
+
+ rss feed
+about
+faq
+mailto:techbookreport
+
+site design by viper69 productions-all contents copyright of authors. no copying for commercial use allowed. site © 1999 - 2022.
+
+
+

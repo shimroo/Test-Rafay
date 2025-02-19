@@ -1,0 +1,610 @@
+
+
+
+
+twisted
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+twisted
+
+
+
+
+
+
+
+
+
+                    faq
+                  
+
+
+
+                    docs
+                  
+
+
+
+                    download
+                  
+
+
+
+                    about
+                  
+
+
+
+                    donate
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+              an event-driven networking engine
+            
+
+              written in python
+            
+licensed under the open source mit license
+
+
+
+view github
+
+
+                view documentation
+              
+
+
+              check pypi download page
+              
+
+
+
+
+
+
+
+              
+                $ virtualenv try-twisted
+                $ . try-twisted/bin/activate
+                $ pip install twisted[tls]
+                $ twist --help
+              
+            
+
+
+
+
+
+
+
+
+
+
+premium sponsors
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  echo server
+                
+
+                  web server
+                
+
+                  publish/subscribe
+                
+
+                  mail client
+                
+
+                  ssh client
+                
+
+
+
+
+
+                  twisted makes it easy to implement custom network applications.
+                  here's a tcp server that echoes back everything that's written to it:
+                
+
+                  
+from twisted.internet import protocol, reactor, endpoints
+
+class echo(protocol.protocol):
+    def datareceived(self, data):
+        self.transport.write(data)
+
+class echofactory(protocol.factory):
+    def buildprotocol(self, addr):
+        return echo()
+
+endpoints.serverfromstring(reactor, "tcp:1234").listen(echofactory())
+reactor.run()
+                  
+                
+
+                  learn more about
+                  
+                    writing servers,
+                  
+                    writing clients and the
+                  
+                    core networking libraries, including support for
+                    ssl, udp, scheduled events, unit testing infrastructure, and much more.
+                
+
+
+
+                  twisted includes an event-driven web server. here's a sample web application;
+                  notice how the resource object persists in memory, rather than being recreated on each request:
+                
+
+                  
+from twisted.web import server, resource
+from twisted.internet import reactor, endpoints
+
+class counter(resource.resource):
+    isleaf = true
+    numberrequests = 0
+
+    def render_get(self, request):
+        self.numberrequests += 1
+        request.setheader(b"content-type", b"text/plain")
+        content = u"i am request #{}\n".format(self.numberrequests)
+        return content.encode("ascii")
+
+endpoints.serverfromstring(reactor, "tcp:8080").listen(server.site(counter()))
+reactor.run()
+                
+                
+
+                  learn more about
+                  
+                    web application development,
+                  
+                    templates and twisted'
+                  
+                    http client.
+                
+
+
+
+                  here's a simple publish/subscribe server, where clients see all messages posted by other clients:
+                
+
+                  
+from twisted.internet import reactor, protocol, endpoints
+from twisted.protocols import basic
+
+class pubprotocol(basic.linereceiver):
+    def __init__(self, factory):
+        self.factory = factory
+
+    def connectionmade(self):
+        self.factory.clients.add(self)
+
+    def connectionlost(self, reason):
+        self.factory.clients.remove(self)
+
+    def linereceived(self, line):
+        for c in self.factory.clients:
+            source = u"<{}> ".format(self.transport.gethost()).encode("ascii")
+            c.sendline(source + line)
+
+class pubfactory(protocol.factory):
+    def __init__(self):
+        self.clients = set()
+
+    def buildprotocol(self, addr):
+        return pubprotocol(self)
+
+endpoints.serverfromstring(reactor, "tcp:1025").listen(pubfactory())
+reactor.run()
+                  
+                
+
+                  you can test this out by opening two terminals and doing telnet localhost 1025 in each, then typing things.
+                
+
+
+
+                  twisted includes a sophisticated imap4 client library.
+                
+
+                  
+import sys
+
+from twisted.internet import protocol, defer, endpoints, task
+from twisted.mail import imap4
+from twisted.python import failure
+
+
+async def main(
+    reactor, username="alice", password="secret", strport="tls:example.com:993"
+):
+    endpoint = endpoints.clientfromstring(reactor, strport)
+    factory = protocol.factory.forprotocol(imap4.imap4client)
+    try:
+        client = await endpoint.connect(factory)
+        await client.login(username.encode("utf-8"),
+                           password.encode("utf-8"))
+        await client.select("inbox")
+        info = await client.fetchenvelope(imap4.messageset(1))
+        print("first message subject:", info[1]["envelope"][1])
+    except:
+        print("imap4 client interaction failed")
+        print(failure.failure().gettraceback())
+
+
+task.react(lambda *a, **k: defer.ensuredeferred(main(*a, **k)), sys.argv[1:])
+                  
+                
+
+                  give this a try, supplying your imap4 username, app password
+                  (generate one for gmail,
+                  generate one for fastmail), and
+                  
+                    client endpoint description
+                  
+                    for your imap4 server.  you'll see the subject of the first message in your mailbox printed.
+                
+
+                  see the
+                  
+                    twistedmail
+                  
+                  documentation for more information.
+                
+
+
+
+                 twisted includes an ssh client & server, "conch" (i.e.: the twisted shell).
+                
+
+                  
+import sys, os
+
+from twisted.internet import protocol, defer, endpoints, task
+from twisted.conch.endpoints import sshcommandclientendpoint
+
+async def main(reactor, username="alice", sshhost="example.com", portno="22"):
+    envagent = endpoints.unixclientendpoint(reactor, os.environ["ssh_auth_sock"])
+    endpoint = sshcommandclientendpoint.newconnection(
+        reactor, "echo 'hello world'", username, sshhost,
+        int(portno), agentendpoint=envagent,
+    )
+
+    class showoutput(protocol.protocol):
+        received = b""
+        def datareceived(self, data):
+            self.received += data
+        def connectionlost(self, reason):
+            finished.callback(self.received)
+
+    finished = defer.deferred()
+    factory = protocol.factory.forprotocol(showoutput)
+    await endpoint.connect(factory)
+    print("ssh response:", await finished)
+
+task.react(lambda *a, **k: defer.ensuredeferred(main(*a, **k)), sys.argv[1:])
+                  
+                
+
+                  you can use this client to run "hello world" on any ssh server
+                  that your local ssh agent can authenticate to,
+                  if you pass your username, host name, and optionally port number on the command line.
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+about twisted
+
+
+
+
+
+
+more protocols
+
+                twisted also supports many common network protocols,
+                including smtp, pop3, imap, sshv2, and dns.
+                
+for more information see our
+                
+                  documentation
+                
+                and
+                
+                  api reference.
+              
+
+
+
+
+
+community
+
+                get in touch with the
+                
+                  twisted community
+                
+                through
+                
+                  email,
+                
+                  stack overflow
+                
+                or
+                
+                  gitter / irc.
+              
+
+
+
+
+
+contribute
+
+                learn about the twisted
+                
+                  development process
+                  and how to
+                  
+                    contribute.
+              
+
+                help improve twisted on
+                
+                  windows!
+              
+
+
+
+
+
+wiki
+
+                read about
+                
+                  software using
+                
+                twisted and their
+                
+                  success stories.
+              
+
+
+
+
+
+sponsors
+
+                learn about the
+                
+                  individuals and organisations
+                
+                that sponsor twisted development.
+              
+
+
+
+
+
+twisted matrix laboratories
+
+                find out what
+                
+                  twisted matrix laboratories
+                is.
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+see our code on github
+see the code
+                    
+for twisted
+                    
+                    (and more)
+                    on github.
+                  
+
+
+
+
+
+
+
+supported python
+it supports cpython 3.7+ and pypy3.
+
+
+                      twisted 20.3.0
+                     was the last version with python 2.7 and pypy2 support.
+                  
+
+
+
+
+
+
+
+join the
+                    
+                      discussion list
+                    
+
+
+
+
+
+
+
+
+report a
+                    
+                      security issue
+                    
+
+
+
+
+
+
+
+
+ask on
+                    
+                      stack overflow
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+twisted sponsors
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              financial support can be provided for the twisted project via
+              
+                the python software foundation or via 
+                github sponsors !
+            
+
+              for donations greater than $400 per month, we will display your logo at the top of the page.
+              for donations greater than $200 per month, we will display your logo on this page.
+              check 
+                github sponsors for more information about sponsoring perks.
+            
+
+
+
+
+
+
+
+
+
+
+
+donate to twisted
+
+                    donations are tax-deductible in usa
+
+                      via the python software foundation.
+                  
+
+
+
+                    donate (via psf)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,324 @@
+
+
+
+snh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+toggle navigation
+
+
+
+
+
+
+home
+about
+resume
+admin
+
+
+top
+bottom
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+greetings from my cell phone!
+
+
+sam hart
+2015-06-09 18:41:42.027104
+
+
+so part off what makes my new site so cool is i can now post from my phone. typing sucks, which is to be expected, but it's cool nonetheless. 
+more...
+
+
+
+
+new and improved site, now with 100% more particle effects
+
+
+sam hart
+2014-10-01 18:01:52.166641
+
+
+my neglect for this website has led to many sleepless nights as my outdated drupal continuously threatened to take down my site. thus, i began a re-write of my noink project in 2011 to eventually replace drupal with a site which can generate static pages, yet still provides a similar enough interface to drupal to make the migration easier. well, while my little noink project is still fairly rudimentary and crude, it's evolved enough that i feel comfortable replacing my aging drupal install with it and running my main website on it. so what you see here is my new and improved website, powered by noink and with the bootstrap enriched snh-theme. i make no guarantees that i will update my site with any more regularity, i've simply not had much motivation to do so lately. however, at least the site wont continue to be a festering pit of out-of-date software.
+more...
+
+
+
+
+music players in general, and random musings...
+
+
+sam hart
+2011-03-03 17:59:53
+
+
+if you couldn't tell from my last entry (a month ago, wee! i'm a frequent blogger! ... aaand sarcasm off...) i've been mussing about with music a good deal lately.this largely has to do with the fact that i've been stuck in a very very very grey cubicle and in desperate need of musical escape.from portland 2010well, i've come to the realization lately that i really do not like the current state of music players under linux, or the direction of music players in general.
+more...
+
+
+
+
+whither last.fm
+
+
+sam hart
+2011-02-08 19:18:41
+
+
+some of you might know i've been a long-time supporter of last.fm. you can see on my profile (that i just linked) that i've been a member since november 2006 and i've scrobbled some 26k songs. looking at the current state of this site, you'll see i even have some blocks dedicated to various feeds from my last.fm profile including the top artists i've listened to and the most recent music i've played.what i've always liked about last.fm was their data collection and statistical analysis tools. as a massive nerd, i find data mining fascinating and enjoy collecting mountains of data on my listening habits (26k+ songs over almost five years). it's been fun to find out things about myself i never would have predicted. for example, i never would have expected that my top most listened to artist was akira yamaoka, especially considering i only have two cds of his music. nor would i have expected that goldfrapp, a group i only discovered last summer, would over the course of six months rise to number 10 in my most played artists. additionally, tiny tim's "livin' in the sunlight, lovin' in the moonlight" was my number 1 most listened to song for years until it was usurped by gnarls barkley's "run (i'm a natural disaster)" and manish's "series of tubes". the data-mining of my tastes has been most fascinating as i've discovered a) my musical tastes are actually pretty crazy diverse and b) i tend to get stuck in musical ruts for long periods of time (likely an asperger's thing).
+more...
+
+
+
+
+linux, gnu, fragmentation and... progeny?
+
+
+sam hart
+2010-07-05 05:30:10
+
+
+in this first entry in the "android and dreams undreamt" rambling, i'll briefly go through the linux history to date, touch on fragmentation, and mention some of the work we did at progeny (the reasons will become apparent soon :-)
+more...
+
+
+
+
+android and dreams undreamt
+
+
+sam hart
+2010-07-05 01:03:42
+
+
+the linux community and its associated industries has been a very interesting thing to observe lately. it's gone from an underground hit to an extremely mainstream staple in the 15 or so years i've been working with it, and we have linux-based devices and platforms which are truly bizarre and unique even in the diverse landscape that is the linux-verse.it's no secret that i've spent the last two years in a self-imposed windows development environment, but it was never my intention to abandon my free software love completely. at funavision, we've spent two years building some high-quality, first class, gaming technology in the form of an engine we call "mimicware". this engine is currently closed source and proprietary, however we are seriously considering the pros and cons of releasing it under a free or open software license (since, honestly, our intended business was not centered on this bit of technology).mimicware currently is mostly written in c#. this was a practical decision to bootstrap our technology against microsoft's xna, but our intention was never to stick with c# ad nauseum. our intention was to eventually rewrite the core of mimicware in something more portable and then provide bindings for it in several high level languages (including c#, and using our existing mimicware engine code).in fall 2009 we began the work of rewriting our core in a more cross-platform way. admittedly we haven't completely finished this rewrite, and we have a way to go before we can utilize it in our games, but what we have so far is already fairly impressive as it technically allows us to develop applications which can run on a diverse range of platforms including the xbox 360 and google android (in fact, to my knowledge, we're the first to actually be able to do that :-) if we do ultimately release the source to this engine, i think we'll likely be the first free/open-source multimedia game api to target such a wide range of platforms.well, as we've been working on this cross-platform core, i've been learning more and more about google's android platform. what i've learned is completely and utterly fascinating, so i thought i'd share...
+more...
+
+
+
+
+curb stomping code readability
+
+
+sam hart
+2010-05-06 14:57:12
+
+
+i have many reasons for loving python, but i think my favorite aspect of it is the inherent readability of the language. i mean, you really have to work hard to make your python code unreadable (though, people mis-using decorators can make otherwise readable python code extraordinarily unreadable...)the thing about python is how hard it can make working with other languages once you've fully ingested the python kool-aid. the many aspects that make python such a wonderful language to work with really amplify related weaknesses in other languages. for example, i always had complaints about java, but i couldn't completely articulate my biggest complaint (how hard it is to make readable java code) until i worked with python for a few years.well, for the last two years i've been working the majority of my time in c# (doing games for funavision). i have to say, i really don't mind c# as much as i expected i would- while it is obviously c/c++ and java inspired in many ways, it has a good deal of sanity to it that reduces my frustration when working with it. it also helps that visual studio has handy features that make working in the language even easier.however, it still has the big problems associated with making readable code. inconsistent syntactic sugar (see c# switch/case), ability to hide entire code segments in property get/sets (grrrr), "interface" objects that are supposed to be method free but which can still contain method-like code (see get/set previously), etcetera are all examples of language hurdles to readable code.well, a while ago i came up with what is probably the least readable c# code i've ever done. i'm not proud of it... but i've decided to share it anyway...
+more...
+
+
+
+
+thomas mitchell: artifact of a bygone era
+
+
+sam hart
+2010-04-19 21:00:57
+
+
+i just read something that i couldn't quite believe. in an editorial "blog" posting, las vegas review-journal editor thomas mitchell wrote some of the most idiotic things i think i've ever attempted to read. what i can't quite believe about it is that he meant what he wrote to be serious....in his post, mr. mitchell says it's time to repeal the 19th amendment (you know, the one that gives women the right to vote) because he claims that women are "fickle and biased". to back up his claim, he points to some poll results in his newspaper and draws some very bizarre conclusions based upon these results.in all honesty, i can't completely grok the nonsensical bullshit he's trying to say. somehow, he is trying to claim that because women in one poll preferred one candidate higher than they did in another poll, and because women tend to be democratic nationally, that means they are biased and fickle... or something... his post makes about as much sense as the ramblings of a schizophrenic homeless person claiming that the nba is trying to steal his brain....since his argument is so confusing and bizarre, i've attempted to summarize it more succinctly in this image:
+more...
+
+
+
+
+the truth about taxes....
+
+
+sam hart
+2010-04-16 00:50:52
+
+
+i really should be writing about my game which i released second footage of today, but i'm not going to.i'm not going to write about my game because i am mad as hell. i'm absolutely livid. i sit here, and all i see being tweeted, blogged, broadcast and shat out around me is a torrent of idiotic anti-tax bullshit. all of it incorrect and uninformed. it's not the torrent of anti-tax bullshit that's pissing me off, either, it's the fact that so many people blindly allow themselves to continue to be so rabidly ignorant about the facts.so, in my own feeble way, i am going to write something on this. i am going to vainly try to insert some modicum of sanity and reason into this white-knuckled scream-fest of right-wing idiocy, libertarian fantasy, and plain-old-fashioned fact manipulation by the wealthy.read on for more...
+more...
+
+
+
+
+vis maior: 2004-2010
+
+
+sam hart
+2010-03-02 15:26:38
+
+
+i mentioned before that i was quitting ffxi, and i did, in fact, quit in february, however it took me until now to actually get the final screenshots and stories up detailing my character's end.vis maior: 2004-2010you can read about my last month in the game here as well as see my final entry here.i really did enjoy this game for the last 6 years, and if ffxiv is half as much fun i see myself easily spending another 6 years in it :-)
+more...
+
+
+
+
+overload
+
+
+sam hart
+2010-03-01 19:12:35
+
+
+wow... information overload..... where do i begin?
+more...
+
+
+
+
+these are not the droids you're looking for...
+
+
+sam hart
+2010-02-03 20:32:22
+
+
+approximately 4 or 5 years ago i made what i considered a pretty major phone purchase. i replaced my existing cheap whatever this was with a shiny, new t-mobile mda. the htc built mda was an absolute monster of a phone compared to what i had before. it was windows mobile based, which meant i could install applications, browse the web, use ssh on it, even edit code and use blender. i know functionality like this wasn't new to many people at the time, but it sure as hell was new to me. even though i wasn't a huge fan of windows mobile, compared to the alternatives at the time (blackberry, palm, and other custom "bleh") it was pretty damned rocking.well, 4-5 years have passed, i've gone through two jobs, started my own business, and my faithful little phone has quickly aged and lost much of its usefulness. i long ago lost the desire to use it for anything other than phone calls. its camera sucks compared to other digital cameras we have. no one supports my ancient tech any more, so new applications are few and far between. and the windows mobile environment seems to have somehow degraded over time such that it's always sluggish and often glitchy. i've had other friends who have had similar complaints about windows mobile in the past, but i really didn't start getting bothered by my phone until late in 2009.so we decided to get a new phone, but, as i tend to do with everything, i really didn't want to get some stopgap solution that would hold me for a few months and then lose its usefulness due to it being obsoleted before i even get it. thus, the question became, what do i want next?
+more...
+
+
+
+
+barack obama, harry potter, and sonic the hedgehog slashfic
+
+
+sam hart
+2010-02-02 18:47:38
+
+
+so someone on reddit posted this picture of a completely bizarre backpack today. general laughs were had at the strange juxtaposition of three seemingly diverse and different things: barack obama, harry potter, and sonic the hedgehog.somewhere, down in the comments, kasim42784 made the following comment:i am trying to tie harry potter, obama and sonic together but my brain is starting to hurt.this was followed by user peroke saying:i pray your post doesn't fall in the hands of slashfic writers.well, that sounded like a challenge to me, so i wrote the following (totally nsfw) tale:barry, harry, and the speedy hog: a story of pashion and eroticai guess some people found it funny, so i share it here...anyway... i just got my new google nexus one and am currently in the process of setting it up. i'll post pictures and commentary on it a bit later on (after it charges and i can actually start using it).
+more...
+
+
+
+
+itampon
+
+
+sam hart
+2010-01-28 18:16:31
+
+
+okay, so i've never been a fan of apple. i always have disliked the mac computers, even when they crammed unix inside. i've never liked the interface, and have always found their devices cumbersome to use. i realize there are many out there who love apple's products with the sort of rabid zeal generally reserved for fanboys, and, although i tend to generalize and say that all apple users are mouth-breathing simpletons, i will admit that there are probably one or two apple junkies who aren't.at any rate, in the time leading up to this announcement about some sort of apple tablet computer, it was the last thing on my mine. i didn't care about this news; partly because of my general ambivalence and malaise with regard to all things apple, and partly because i pretty busy working on my own things.but the announcement came, and went, and apparently a lot of people who were actually anticipating this latest apple iturd were pretty disappointed with it. apparently people didn't want a jumbo-sized iphone without a camera, any external connectors, or an actual phone in it.personally, looking at the pictures of jobs standing there with this new monstrosity i find the entire thing very comical. to me, it looks like he's holding one of those novelty giant remote controls:i just can't quite take him seriously with that thing in his hands. it's just entirely too ridiculous.well, someone made a hitler rant about it, and it's pretty damned funny. enjoy...
+more...
+
+
+
+
+it's like someone crapped in my coffee...
+
+
+sam hart
+2010-01-13 06:33:34
+
+
+okay, a few posts ago i mentioned that i really am enjoying dragon age: origins. i posted many loving words about it calling it a "frighteningly rich and deep rpg with a tremendous amount of replay value". i also suggested it may very well "[usurp] oblivion as my #2 most played rpg". well... i may be ready to retract some of that praise and enthusiasm after what happened to me tonight....
+more...
+
+
+
+
+not sure i get "coco", but...
+
+
+sam hart
+2010-01-13 02:52:45
+
+
+
+more...
+
+
+
+
+conan: world class hair
+
+
+sam hart
+2010-01-12 22:49:57
+
+
+this may be the most frivolous meaningful post i'll ever make...when i was a kid, i fondly remember watching johnny carson's the tonight show with my dad. carson's antics would always crack my dad up, and when my dad laughed everyone laughed. carson's "tonight show" was one of a handful of "must watch" shows for me and my father which included mutual of omaha's wild kingdom, where my father would always make funny and inappropriate comments about whatever animal that was the subject of the episode, and the carol burnett show. i can honestly say watching these shows with my father are some of my fondest memories of my early childhood.as a teenager and later an adult i also grew to love late night with david letterman, and it became a semi-nightly ritual to watch carson followed by letterman. when it came time for carson to retire, i was anxious for letterman to man the helm and subsequently pissed off when leno took over. i'll admit that i stopped watching or caring about the tonight show at that point as i never really liked leno's brand of humor and found him too often playing it safe, which i felt was a disservice to the legacy that carson built up.when conan o'brien took over late night, i'll admit i had an irrational prejudice against him because of the entire leno/letterman controversy. however, as the years went by, i found i was more and more interested in conan's shtick than i had expected and eventually became a fan.
+more...
+
+
+
+
+random ramblings
+
+
+sam hart
+2009-12-15 00:25:19
+
+
+insert obligatory apology about lack of updates here...i have been rather busy, honestly. we have a patch done for duologue that adds a saved game feature to it. this patch has been done for a couple of months now, but the xna peer review process has issues. so, expect this patch soon-ish. you know, sometime in the next year or so depending on how many of these peer review cycles we need to go through :-)i could rant about the problems with the xblig peer review process and xna stuff in general, but i'm tired and entirely too busy to drum up enough outrage to write something on it.... how times have changed...instead, i'll just put some random ramblings about things that have been on my mind lately.
+more...
+
+
+
+
+a closing plug
+
+
+sam hart
+2009-09-03 00:34:05
+
+
+so that's how we handled distributed team base development over at funavision. i hope this has been informational and that other people inside of the xna community might find some of the information presented here useful in their distributed team based development.one final thing i wanted to share was that finding a place where you can host all of this stuff may be kind of difficult. if you're comfortable running it all yourself, then there's a large number of places where you can get a virtual linux install cheaply enough, however, if you're part of the intended audience i've been trying to help out then you probably aren't comfortable rolling this yourself.in that case, i'd highly recommend the place that we get our hosting from, amellus. if you mention me and that you've heard about them from the xna community, i'm sure they'll treat you right :-)
+more...
+
+
+
+
+redmine and jabber
+
+
+sam hart
+2009-09-03 00:27:36
+
+
+project management: redminefor our next bit of software, we want something to handle this nebulous thing called "project management". project management can mean sooooo many things, however, for our purposes we needed the following:issue tracking (bugs, defects, etc.)task tracking (things that needed to get done, and who is doing what)integration with our dvcs (hg)we found all of these features and more inside of redmine. this is a server application, and its installation is well beyond this document. however, you can find plenty of information on redmine's site.communication: jabber, jabber, jabber!the final bit in our distributed team was our communication tool. we used jabber (and, honestly, i forget the exact jabber server we used) over an ssl connection. this let us have things like live one-on-one chat, chat rooms, and simple messaging in an encrypted way (you know, so all of our "secret sauce" discussions can't easily be intercepted :-)
+more...
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+

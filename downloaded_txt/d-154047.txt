@@ -1,0 +1,957 @@
+
+
+
+
+
+
+
+
+
+
+
+        
+    dave's wibblinks
+        
+
+    
+
+
+
+
+
+
+
+
+
+dave's wibblinks
+mainly links to stuff i find interesting.  not too much editorial these days.
+
+
+
+
+
+
+
+
+
+it's been a while...
+
+
+
+        by dave on march  3, 2024  2:44 pm
+
+    
+| permalink
+
+
+
+
+it's been a while since there was anything here...
+
+
+
+
+
+
+
+
+
+
+covid19 aka sars-cov2 aka 2019-ncorv
+
+
+
+        by dave on march 15, 2020 10:57 am
+
+    
+| permalink
+
+
+
+
+here we go again...
+in early january 2020 in hong kong, we started getting an indication of something spreading in wuhan, hubei province, china. 
+within a few weeks, hk schools were on hiatus starting from the chinese new year holiday, and are still closed. this 
+is a global pandemic now, and there are far better resources to track it than there were back during sars.
+during the early phases of this everyone referred to it as the 'wuhan coronavirus' because of the likely origins of it.
+eventually the who gave it an official name: the virus is sar2-ncov, and the resulting disease is coronavirus disease 2019, or covid 19.
+ some external visualisations:
+
+university of washington (best and most up to date, i think)
+johns hopkins university.
+who map
+world o'meters
+hk chp
+
+here are some of my visualisations, made from the sources listed above. they're updated automatically, 
+usually around once per day, as the new data comes in. (note that i'm not forecasting here. this is the observed data, 
+not a prediction. this is scary enough as it is without extrapolating.  i'll leave the forecasting to actual epidemiologists)
+in the style of the @jburnmurdoch plots, you've probably seen before...
+confirmed cases since reporting started.  big shoutout to macau here - they shut down hard right at the start.
+confirmed deaths since reporting started.
+
+
+            continue reading covid19 aka sars-cov2 aka 2019-ncorv.
+        
+
+
+
+
+
+
+
+
+
+now served by https
+
+
+
+        by dave on march  5, 2020  9:20 pm
+
+    
+| permalink
+
+
+
+
+*tap* *tap* *tap*
+is this thing still on?
+apparently?  anyway, now served over https thanks to let's encrypt and certbot.
+(this website is now nearly 20 years old, and the blogs been going (for certain values of going) since 1996 or so.
+
+
+
+
+
+
+
+
+
+
+hkid card
+
+
+
+        by dave on july 18, 2019  3:08 pm
+
+    
+| permalink
+
+
+
+
+this is the family of nfc chips in the new hkid cards.
+https://www.nxp.com/products/identification-security/rfid/mifare-hf/mifare-plus:mc_57609
+not sure if this is useful info yet - have to read the data sheet.
+
+
+
+
+
+
+
+
+
+
+fixing movable type open source
+
+
+
+        by dave on june 22, 2018 12:13 am
+
+    
+| permalink
+
+
+
+
+the problem: my mt blog was refusing to load the cms because of software bit-rot.
+more detail: if i try to go to the cms page i get this (obviously, as is proud tradition here, all system output happens on striped fanfold paper):
+"got an error: unescaped left brace in regex is illegal 
+here in regex; marked by <-- here in m/{{ <-- here theme_static
+}}/?/"
+what's causing this? in perl 5.22, unescaped left braces are flagged as a warning, however in 5.26 (the current version as of writing), these are flagged as errors.  as moveable type open source (mtos)is no longer updated, there is no hope that this will ever be fixed.
+to solve this problem in the short term, i could just fix the regexes that are causing the issues and not share the fixes. this would solve the problem for me, and at least allow me to post to the site, etc. this is a good short term fix, but obviously there would be no further upgrades or new plugins, etc. this is what i've done for the short term.
+the changes are fairly straightforward. all that's needed is to escape the left braces in the file lib/mt/app/cms.pm on line 4978. it's probably best to escape all the braces.  escaping the braces just means that the line goes from:
+$css =~ s#{{theme_static}}/?#$theme->static_file_url#ie;
+to 
+$css =~ s#\{\{theme_static\}\}/?#$theme->static_file_url#ie;
+in addition, a version of perl::yaml::syck installed clashed with the system install. (this generally happens when a cpan install conflicts with a packag-manager install.) this looks like this in the /var/log/httpd/error_log:
+syck.c: loadable library and perl binaries are mismatched 
+(got handshake key 0xdb80080, needed 0xde00080)
+
+that was fixed in the following way:
+
+$ sudo dnf remove perl-yaml-syck
+$ sudo updatedb
+$ locate syck
+# now delete it from anywhere it is remaining in the system
+$ sudo rm -rf /usr/local/lib64/perl5/auto/yaml/syck
+$ sudo rm -rf /usr/local/lib64/perl5/yaml
+$ sudo rm -rf /usr/local/lib64/perl5/json
+$ sudo rm -rf /usr/local/share/man/man3/json\:\:syck.3pm 
+$ sudo rm -rf /usr/local/share/man/man3/yaml\:\:syck.3pm 
+
+mt comes with it's own version of yaml::syck, packaged as mt::util::yaml::syck, so there was no need to reinstall the perl-yaml-syck system package.
+longer term solution probably involve migrating to wordpress from movabletype. wordpress is actively developed as an open source solution, so that's a better option for the future.
+
+
+
+
+
+
+
+
+
+
+bluetooth issues with macbookpro 6,2 (mid 2010)
+
+
+
+        by dave on july 25, 2016 10:56 am
+
+    
+| permalink
+
+
+
+
+i recently replaced my elderly macbookpro (late 2008: 5,1) with a slightly more up to date version (late 2010: 6,2).  while using it, i noticed a very odd problem: audio over bluetooth headphones started out clear, but would degrade over time to a very low bandwidth quality.  (speech would sound robotic and unpleasant).
+audio over wired headphones or the macbook speakers was fine, so it wasn't a problem with the inbuilt dac or the audio sources. my bluetooth headphones (jabra move) can also be used wired, so the problem was not with them either. (and also, playing audio over bluetooth from a phone didn't exhibit this problem, so the headphones were not the issue.)
+i tried the following procedures before find the correct solution:
+
+unpairing and re-pairing the headphones. problem persisted;
+restarting the mac. problem persisted
+restarting the mac and clearing the pram/nvram (cmd-opt-p-r on boot). problem persisted;
+reset the smc: (power off, ctrl-opt-shift-power button, power on) problem solved!
+
+i don't know why the smc reset worked, but my theory is that the bluetooth module was replaced at some point, and the smc reset forced some re-reading of the low level devices in the system.
+i didn't find any useful info when searching for a solution, so i've written it up here to help anyone with the same problem.
+
+
+
+
+
+
+
+
+
+
+changing dynamic dns hosts
+
+
+
+        by dave on may  8, 2016  8:46 pm
+
+    
+| permalink
+
+
+
+
+i host a number of websites from home, and i don't have a fixed ip address, so i need to have a service which updates a dns entry with my current ip address whenever it changes.
+fadã³, fadã³, in the early stage of the internet, there were free services that did this, but a whole bunch of them went away about 2009 or so, and dyndns.net eliminated their free tier.  back then, that service went from free to usd 25 per year, which i dutifully paid up at the time.
+now, it looks as though they're going to start charging usd 60 per year per domain for the service of having a dns record that gets updated once a month or so.  this is just unconscionable gouging as far as i am concerned, so i'm going to have to investigate the alternatives and see if there are any free options available (or free with some work on my part), or if i can settle for some service which is more affordable for me, while providing the same service.
+methodology
+
+identify alternative services 
+review the service that they actually provide
+identify the cost of the service they provide
+determine if 2. and 3. make financial sense
+determine the scope of work required to switch to another service
+switch (if good alternative found)
+monitor the performance of the new service
+after a period of time, review the performance of the chosen service and decide what, if any, action needs to be taken.
+
+so what do i need to be provided?
+my core requirements are as follows:
+
+provide dns services for at least two (2) domains that i own and host from home;
+allow me to update the dns for those domains using (preferrably) ddclient (no particular reason for that, that's just how i'm setup at the moment and it would require the fewest changes.);
+cost less than dyn.com;
+be reliable.
+
+what else?
+
+allow for additional domains to be added if i need to, (i.e., not have a per domain cost);
+cope with possibly shifting the hosting side of things to a linode instance at some point.
+
+alternative services
+so, what alternatives are there?  i did some basic searches and came up with the following:
+
+dyndns
+entrydns.net
+hurricane electric
+zonomi
+freedns
+nsupdate
+noip
+ydns
+
+yes, i included dyndns in there. they still provide the service, and there is a chance that there would be no competitive services available, or that any decent alternative would require vast amounts of input on my part.
+dyndns is what i'm using now.  it has the lowest transition cost (free: yay!), but will cost usd 60 per domain to renew (boo!). this is almost twice what it was last year (usd 35 each), and is a thoroughly ridiculous amount of money for hosting a few zone files.
+it has been very reliable, though: i've been using dyndns since 2009, and i think i've had to make a change once in all that time. this is good, as i travel a lot and i'm not always available to solve dns problems.
+so there's the baseline: the replacement service has cost less than usd 120 per year, and not cause headaches, or need constant attention.  that seems like a pretty low bar...
+entrydns.net requires a usd10 registration fee before letting me see what services are available. while i recognise that free internet services still cost money to run, this is a little off putting.  
+searching around for reviews of their service finds very little, and a few indications that they nearly went out of business last year, and relaunched this year.  sounds like a little bit too much drama for what i want!
+i think i'll give this company a skip, unless i have no alternative.
+freedns enforces sharing of domain names, unless you go premium, and this is usd 60 / year. not really what i want.
+zonomi charges usd10 per year for two domains. this looks promising, so i set up a free account, and i'll go down my list looking through the others.
+hurricane electric: good old reliable he (i've been using them for ipv6 for years)! they have a free service that appears to be a bit cryptic to setup and requires a bit of dns knowledge. but if you don't understand a records, cnames, mx records, etc you have no business doing any of this setup in the first place, and should go look at a hosted service.
+time to test: register a domain (diaspoir.tech, only $4.99 at hover) and setup the delegation and the updater client: 
+
+vim /etc/ddclient.conf
+
+protocol=dyndns2, server=dyn.dns.he.net,
+        login=diaspoir.tech, password=[redacted]
+        diaspoir.tech
+
+musical interlude with some noodling around at dne.he.net... (why can you only see the setup instructions when you're logged out?)
+
+$ dig diaspoir.tech
+;; question section:
+;diaspoir.tech.         in  any
+
+;; answer section:
+diaspoir.tech.      86400   in  soa ns1.he.net. hostmaster.he.net. 2016050812 10800 1800 604800 86400
+diaspoir.tech.      86400   in  mx  10 diaspoir.tech.
+diaspoir.tech.      296 in  a   119.237.156.5
+diaspoir.tech.      707 in  ns  ns3.he.net.
+diaspoir.tech.      707 in  ns  ns1.he.net.
+diaspoir.tech.      707 in  ns  ns2.he.net.
+diaspoir.tech.      707 in  ns  ns5.he.net.
+diaspoir.tech.      707 in  ns  ns4.he.net
+
+this seems to be working, so i think i'll turn off the auto-renew on the dyndns account, delete my credit card details from there, and start setting up the other domains.
+i stopped going down the list at this point, so i didn't try out any of the other services.
+
+
+
+
+
+
+
+
+
+
+hk smart id cards, three stars and right of abode
+
+
+
+        by dave on august 24, 2015 12:52 pm
+
+    
+| permalink
+
+
+
+
+because nobody seems to understand it, and most hong kong people insist on the wrong thing:
+
+symboldescription
+***the holder is aged 18 or over and is eligible for a hksar re-entry permit
+athe holder has the right of abode in the hksar
+
+*** is not the same as right of abode or permanent residency, and it doesn't signify anything apart from your re-entry status.
+source: http://www.immd.gov.hk/eng/services/hkid/smartid.html
+
+
+
+
+
+
+
+
+
+
+repairing a non booting linux box
+
+
+
+        by dave on may 21, 2015 11:57 am
+
+    
+| permalink
+
+
+
+
+the other day my primary mail server was rebooted after some routine package 
+upgrades and it refused to boot! technically, the bios failed to handover to grub2,
+so i had to reinstall grub2 on the mbr of the boot disk. 
+i thought i'd document it here, for posterity, and because i didn't see it 
+explicitly called out elsewhere.
+first thing to do is get a live linux usb stick: i use unetbootin, 
+a handy tool which will download and install a live linux distro (or freedos, bsd, etc)
+ to a usb stick. you'll probably need a 4gb stick or larger, which is no big deal these days.
+once you've got your usb stick, go ahead and boot the linux box using it to your distro of choice.  i normally 
+use a recent version of fedora, because i've been a redhat user since 1999, but any recent version of linux
+should have the tools below available.
+once you're running your live linux, you'll need to open a terminal, and become root, then re-install 
+the grub boot code to the mbr. the following assumes that your boot partition is /dev/sda1, and 
+the boot device is /dev/sda. (you mount the partition, but you install the mbr on the device.)
+
+
+$ sudo su -
+# mkdir /mnt/sda
+# mount /dev/sda1 /mnt/sda
+# grub2-install --boot-directory /mnt/sda/boot /dev/sda
+installing for i386-pc platform.
+installation finished. no error reported.
+
+
+that should be it. reboot, and remember to remove your usb stick!
+aside: i have had problems with recent live installs where the uuid of the boot volume is reported wrongly, 
+so that the usb stick won't boot, but instead fails to the dracut emergency root console. you need to run
+blkid and write down the uuid of the boot media and then manually edit the ubninit code to get
+ the right uuid.
+
+
+
+
+
+
+
+
+
+
+my history with ultimate ears earbuds
+
+
+
+        by dave on may 19, 2015  8:28 pm
+
+    
+| permalink
+
+
+
+
+when i replaced a set of ue 200vi which had failed many times, i went with a relatively high end pair of ue 600vi earbuds, in the hope that they'd exhibit a higher build quality than the previous ue 200vi's i'd had.
+the fault: audio fails because of some cable problems, possibly associated with the junction of the plug end of the cable. this happened at varying intervals, but every single set i have received has failed, in some cases within a month or so! here's my history with the ue 600vi:
+
+purchase date: 2013 12 09
+replaced: 2014 04 07: 119 days
+replaced: 2014 06 19: 73 days
+replaced: 2014 07 30: 41 days
+replaced: 2014 09 20: 52 days
+finally failed and refunded: 2015 04 27: 209 days
+
+thats a total of 494 days, or an average of 98 days per unit!
+after the september 2014 replace, my contact details were taken with (i think) the intention of logitech contacting me. i presume they'd like to know some usage patterns to determine if i am using the product in a way which violates the warranty, as replace units on average every three months indicate a pretty severe problem for a device meant to last two years.
+every single time, it has been a no questions asked replacement. whether this is due to logitech policy, or inability to communicate, i don't know. if there was any pushback from the manufacturer, i would have expected more resistance to warranty replacements. therefore, i think logitech are aware that there are significant issues with their design, and the margins are such that high levels of warranty replacements are acceptable to them.
+i stress that i got a new set each time: this is not a single bad device, this is a sample of 5 randomly chosen devices. there exists the small opportunity that the devices i get at warranty are refurbs, but i see them taken out of a new box, so i don't think that's the case.
+2015 04 17 - left ear stopped working again, very quickly - going from intermittent, to no audio. once again, the cause seems to be the cable at the plug end, as wiggling it can sometimes get audio back to the left ear.
+oh, and no one from logitech contacted me at all.
+2015 04 20: i've contacted the warranty people (changed to a different provider), and they are unable to provide a new model as the ue600vi are discontinued. they will instead provide a refund. (full amount? unclear.)
+2015 04 26: finally resolved: the new warranty providers gave me a no questions asked refund of the full amount that i paid. i would have settled for less, honestly, as i got an amount of use value from the product, but i'm very happy with the solution. they kept the product, so i was unable to attempt repairs. instead i bought a pair of rha ma750i, for almost the same price, but vastly better build quality, thicker cabling, and most importantly, much better strain relief of the cables at the junctions.
+
+
+
+
+
+
+
+
+
+
+fzf - fuzzy finder
+
+
+
+        by dave on october  4, 2014  4:56 pm
+
+    
+| permalink
+
+
+
+
+fzf is a useful fuzzy finder that can replace/augment the history command.  works in vim too.
+
+
+
+
+
+
+
+
+
+
+apple store pricing in hong kong
+
+
+
+        by dave on november 13, 2013  6:46 pm
+
+    
+| permalink
+
+
+
+
+
+i was noodling around in the apple store recently and i noticed something interesting. traditionally, apple has followed a fairly simple formula for pricing in the hk apple store, which is to do assume a hkd:usd rate of around 7.80, round to the nearest hundred and take away 12. sounds complicated? not really, as what they really want is to have prices ending in 88, which is very auspicious in chinese culture.
+the first table below shows the pricing for some common products. the rate below refers to the hk price divided by the us price to determine the exchange rate. the second hkd price uses the formula: 
+roundup((us price) * 7.80 to nearest 100) -12
+the difference and markup are bases on the difference between this price and the price in the hk store. the apple tv price fits the patterns closest, but all the products follow the pattern very closely:
+
+
+producthkdusdratehkddiff (hkd)markup
+
+
+macbook air 11$7,688$999$7.70$7,788-$100-1.3%
+macbook air 13$8,488$1,099$7.72$8,588-$100-1.2%
+macbookpro 13$9,188$1,199$7.66$9,388-$200-2.1%
+ret. macbookpro 13$9,988$1,299$7.69$10,188-$200-2.0%
+ret. macbookpro 15$15,288$1,999$7.65$15,588-$300-1.9%
+imac 21.5"$9,888$1,299$7.61$10,188-$300-2.9%
+imac 27"$13,888$1,799$7.72$14,088-$200-1.4%
+apple tv$788$99$7.96$788$00.0%
+
+
+(us apple store prices do not normally include sales taxes, and there are also no sales taxes in hong kong. all prices are for the base model in each range.)
+as you can see, you generally save a small percentage buying the product in hk when compared to the us price. but when you look at some third party products, the price differential between the us prices and hk prices is all over the place.  here's the prices for fitbit products:
+
+
+producthkdusdratehkddiff (hkd)markup
+
+
+fitbit zip$498$60$8.31$488$102.0%
+fitbit aria$1,098$130$8.45$1,088$100.9%
+fitbit flex$898$100$8.98$788$11014.0%
+fitbit one$898$100$8.98$788$11014.0%
+
+
+why are the last two fitbit products so expensive?  an additional 14%? seems a bit excessive!
+here's an interesting thing: the latest iphone models also have this price increase in a way which is out of step with the existing price ios device price points:
+
+
+producthkdusdratehkddiff (hkd)markup
+
+
+ipad 2$3,088$399$7.74$3,188-$100-3.1%
+ipad mini$2,288$299$7.65$2,388-$100-4.2%
+ipad mini retina$3,088$399$7.74$3,188-$100-3.1%
+ipad air$3,888$499$7.79$3,888$00.0%
+iphone 4s$3,488$450$7.75$3,588-$100-2.8%
+iphone 5c$4,688$549$8.54$4,288$4009.3%
+iphone 5s$5,588$649$8.61$5,088$5009.8%
+
+
+
+
+
+
+
+
+
+
+
+
+finder crashing every minute
+
+
+
+        by dave on november  5, 2013 11:08 pm
+
+    
+| permalink
+
+
+
+
+today i was using my macbook pro for work as per normal, when i noticed the finder windows crashing every minute or so.  i tried many things, including:
+
+deleting misc plists from my ~/library/preferences directory;
+rebooting in safe mode (hold shift while rebooting);
+restoring the system fonts while in safe mode;
+validating the fonts within fontbook (found one corrupt one);
+deleting every single .ds_store file on the mac;
+trying to diagnose the issue from the crash report in the console.
+
+all to no avail, although i did discover something interesting, of which more anon.
+finally, i waded into the apple support forums, searching on some of the terms i found in the crash reports and i finally found a solution to finder crashing every minute: basically, turn off "show file status icons and right click menu" in the google drive preferences.  this instantly stopped the problems.
+the interesting thing i found?  my ~/library/preferences directory was full of locked files, and once i deleted all the *.lockfile files, quite a few apps were much faster to open, and several websites dramatically changed their fonts.  perhaps i had overwritten the default font for some of them, as they went from being a nice helvetica to verdana.
+
+
+
+
+
+
+
+
+
+
+domain registration scam
+
+
+
+        by dave on october 15, 2013  5:19 pm
+
+    
+| permalink
+
+
+
+
+i get scam attempts:
+
+(letter to head of brand business or ceo, thanks)
+dear sir or madam,
+this is a formal email. we are the department of asian domain registration service in china. here i have something to confirm with you. we formally received an application on october 15, 2013 that a company claimed hora tech, ltd were applying to register "diaspoir" as their brand name and some diaspoir asian countries top-level domain names through our firm.
+now we are handling this registration, and after our initial checking, we found the name were similar to your company's, so we need to check with you whether your company has authorized that company to register these names. if you authorized this, we would finish the registration at once. if you did not authorize, please let us know within 7 workdays, so that we could handle this issue better. after the deadline we will unconditionally finish the registration for hora tech, ltd. looking forward to your prompt reply.
+best regards
+derek lau
+senior consultant
+tel:+86-551-6349 5334
+fax:+86-551-6349 5344
+address:huizhou ave. 856, hefei, anhui, cn
+
+a quick google of the first sentence of the second paragraph reveals a hoax-slayer page about this scam, along with plenty of examples of its use.  nothing to worry about.
+
+
+
+
+
+
+
+
+
+
+inquiry of guest posting
+
+
+
+        by dave on october 12, 2013  4:30 pm
+
+    
+| permalink
+
+
+
+
+first seo spam in a while:
+
+hello,
+i came across your site (http://www.diaspoir.net/) and would like to discuss the possibility of having a guest post on your site.
+i’m working on behalf of my client who is able to create articles including travel, shopping and entertainment amongst many other things.
+i hope this would be something of interest and would very much like to hear back from someone regarding this guest post opportunity. 
+hope to hear back from you soon.
+kind regards,
+[name redacted]
+[company name redacted]
+
+you know, right down on the page here, just about where the email address is, are three little paragraphs of text which say:
+
+
+unsolicited bulk email (spam), commercial solicitations, seo related items, link exchange requests, and abuse are not welcome here and will result in complaints to your isp.
+email the webmaster
+any email to the above address may be made public at the sole discretion of the recipient.
+
+
+i don't think i'd pay for services from a company which apparently can't read the paragraph above and below the contact email address...
+i've redacted the responsible company for a few reasons. the main reason is that i don't wish to invite assholes into my life, and seo spammers whinging about how i am "defaming their personal braaands" by reporting accurately on things they have actually done match that description pretty well.
+also, it's not that obvious from the email, but the company is an seo consulting company that boasts of using meta-tags and keywords to attract google attention, which makes them borderline scammers in my book. real seo is good content and appropriate semantic markup, not keyword and meta-tag spamming.
+
+
+
+
+
+
+
+
+
+
+
+archives
+
+
+
+
+
+about me
+
+odaiwai on twitter
+odaiwai on youtube
+odaiwai on flickr
+
+
+contact
+
+unsolicited bulk email (spam), commercial solicitations, seo related items, link exchange requests, and abuse are not welcome here and will result in complaints to your isp.
+owing to stupid amounts of spam, you'll have to figure out an appropriate email address, but preferably don't try to contact me.
+any email to any address at this site may be made public at the sole discretion of the recipient.
+
+other stuff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+powered by linux
+(fedora linux)
+
+
+
+subscribe to this blog's feed
+      [what is this?]
+   
+
+
+categories
+
+
+extended_entry
+        
+        
+            
+full_entry (37)
+
+links (412)
+
+short_entry (2)
+
+
+
+
+
+monthly archives
+
+
+march 2024 (1)
+march 2020 (2)
+july 2019 (1)
+june 2018 (1)
+july 2016 (1)
+may 2016 (1)
+august 2015 (1)
+may 2015 (2)
+october 2014 (1)
+november 2013 (2)
+october 2013 (2)
+september 2013 (2)
+july 2013 (1)
+march 2013 (2)
+november 2012 (1)
+october 2012 (1)
+september 2012 (1)
+july 2012 (2)
+june 2012 (2)
+may 2012 (2)
+april 2012 (1)
+march 2012 (5)
+february 2012 (2)
+january 2012 (2)
+december 2011 (3)
+november 2011 (2)
+october 2011 (5)
+september 2011 (1)
+august 2011 (2)
+july 2011 (2)
+june 2011 (8)
+march 2011 (8)
+february 2011 (7)
+january 2011 (6)
+december 2010 (4)
+november 2010 (7)
+october 2010 (6)
+september 2010 (18)
+august 2010 (11)
+july 2010 (16)
+june 2010 (9)
+may 2010 (16)
+april 2010 (7)
+march 2010 (11)
+february 2010 (15)
+january 2010 (16)
+december 2009 (7)
+november 2009 (2)
+june 2009 (5)
+may 2009 (9)
+april 2009 (6)
+march 2009 (18)
+february 2009 (12)
+january 2009 (10)
+december 2008 (5)
+november 2008 (4)
+october 2008 (11)
+august 2008 (7)
+may 2008 (4)
+april 2008 (6)
+march 2008 (14)
+february 2008 (28)
+january 2008 (19)
+december 2007 (18)
+november 2007 (14)
+october 2007 (27)
+september 2007 (24)
+august 2007 (22)
+july 2007 (33)
+june 2007 (15)
+may 2007 (21)
+april 2007 (7)
+march 2007 (5)
+february 2007 (6)
+january 2007 (9)
+december 2006 (20)
+november 2006 (21)
+october 2006 (16)
+september 2006 (20)
+august 2006 (14)
+july 2006 (15)
+june 2006 (12)
+may 2006 (15)
+april 2006 (35)
+march 2006 (31)
+february 2006 (33)
+january 2006 (26)
+december 2005 (10)
+november 2005 (4)
+october 2005 (9)
+september 2005 (8)
+august 2005 (11)
+july 2005 (11)
+june 2005 (12)
+may 2005 (16)
+april 2005 (12)
+march 2005 (5)
+february 2005 (4)
+january 2005 (7)
+december 2004 (6)
+november 2004 (6)
+october 2004 (11)
+september 2004 (6)
+august 2004 (5)
+july 2004 (4)
+june 2004 (10)
+may 2004 (14)
+april 2004 (12)
+march 2004 (8)
+february 2004 (2)
+january 2004 (18)
+december 2003 (18)
+november 2003 (30)
+october 2003 (24)
+september 2003 (30)
+august 2003 (26)
+july 2003 (22)
+june 2003 (16)
+may 2003 (17)
+april 2003 (23)
+march 2003 (13)
+february 2003 (8)
+january 2003 (2)
+december 2002 (2)
+november 2002 (6)
+october 2002 (4)
+september 2002 (7)
+august 2002 (4)
+july 2002 (3)
+june 2002 (10)
+may 2002 (6)
+april 2002 (1)
+march 2002 (1)
+february 2002 (1)
+january 2002 (1)
+december 2001 (1)
+november 2001 (2)
+october 2001 (4)
+september 2001 (1)
+august 2001 (4)
+july 2001 (2)
+june 2001 (1)
+may 2001 (1)
+april 2001 (3)
+february 2001 (3)
+january 2001 (3)
+november 2000 (1)
+october 2000 (3)
+september 2000 (2)
+june 2000 (1)
+may 2000 (1)
+march 2000 (4)
+january 2000 (1)
+december 1999 (1)
+november 1999 (1)
+august 1999 (1)
+june 1999 (1)
+
+
+
+
+search
+
+
+
+
+
+
+
+
+
+tag cloud
+
+
+current_affairs
+hong_kong
+links
+site_news
+geekery
+reviews
+travel
+mac
+rants
+photography
+silly_stuff
+humour
+music
+family
+spam
+linux
+personal
+china
+movies
+scmp_letters
+
+
+
+
+
+
+ subscribe to this blog's feed
+
+
+
+
+
+
+
+
+
+
+
+
+                                powered by movable type
+
+
+
+
+
+
+
+
+

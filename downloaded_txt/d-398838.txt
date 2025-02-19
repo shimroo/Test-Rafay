@@ -1,0 +1,229 @@
+
+
+strategic baseball simulator by david schmidt. baseball simulation.
+
+
+
+
+
+updated: april 15, 2015
+
+
+
+
+strategic baseball simulator
+baseball simulation program - d.b. schmidt
+
+
+
+sbs version 4.9.3 or 4.9.2 for windows full package
+update to 4.9.2 (from 4.9.x) (05/08/2010)
+team and season data
+logbeck's team generator
+utilities
+links
+
+what this country needs is a good,  free baseball simulation - t.r. marshall
+i simulate,  therefore i am - descartes
+simple,  free baseball simulation game superior to expensive,  complicated one - confucius
+
+
+
+
+sbs board, news, reviews, leagues and general info
+
+here's a link to grasso's forum on delphi forums.
+forums.delphiforums.com/sbsbaseball
+
+general information and propaganda sheet:
+general info about strategic baseball simulator
+theory.txt - details on the sbs baseball simulation design...
+sbs491.pdf - pdf documentation for sbs 4.9.1
+
+reviews:
+tabletop baseball games
+download.com
+11 best baseball game and season simulators
+
+
+email me at:  d  b  s  c  h  m  i  d  t  1  @  y  a  h  o  o  .  c  o  m  (remove the spaces)
+
+
+program download
+full package for new users:
+
+these setup files include recent past seasons, but to get the 2010 and 2011 seasons you need to download them separately under the team library section below.
+
+version 4.9.2 has been modified to work under windows 7. version 4.9.1 and older versions do not work well on windows 7.
+sbs493-setup.exe - sbs 4.9.3 for windows (self-installing .exe 09/21/2012).
+sbs492-setup.exe - sbs 4.9.2 for windows (self-installing .exe 05/08/2010).
+sbs491-setup.exe - sbs 4.9.1 for windows (self-installing .exe 03/27/2009).
+
+
+ 
+
+if you want to update sbs from a version older than 4.9.x, it is recommended that you download the full version. you
+
+may wish to save your old baseball.cfg file for reference before your download.
+
+
+if you want to update sbs from version 4.9.x, choose one of the options below:
+1. if you want to include the 2009 teams along with the 2009 schedule:
+upg-492-2009dat.exe - (05/08/2010)
+
+2. if you do not want the 2009 season data included:
+upg-492-no-dat.exe - (05/08/2010)
+
+
+the upgrades above do not include a "stadium.txt" or a "baseball.cfg" because you may have done some
+
+customizations on your existing files and we don't want to overwrite them. the included whatsnew.txt file contains
+
+the updates to the stadium.txt and baseball.cfg that you may copy and paste into your current files.
+
+
+see whatsnew.txt changes in version 4.9.2 etc.
+
+
+
+other files that may be of interest:
+sbsim36.zip - version 3.6 for dos (.zip version 3/19/2001).
+vuangle.zip - (9/28/2002) crude utility to determine observer's location for background images
+vuangle.txt - source code for vuangle
+
+new text-to-speech feature
+
+this is already included in the full download of 4.9.3. 
+
+if you have 4.9.2 and want to upgrade for the audio,
+
+download these two files and and stick them in your regular sbs folder:
+sbs493.exe - sbs 4.9.3 text-to-speech
+announcer.exe - program that "talks"
+
+now make a shortcut to "sbs493.exe" and you're in business. (you want to run that instead of sbs492.exe).
+
+you'll probably want to change the delay factor to "2" if you're running xp, which seems to work quite well.
+
+on windows 7 you'll probably want to leave the delay factor at "3". it's not as smooth as xp. tweak as needed.
+
+also, if your computer is under a heavy load, like from a busy virus scanner, results may not be good.
+
+source code
+
+some folks have expressed an interest in looking at my source code. 
+
+i started writing this in fortran back in the early 1980's and then in quickbasic, microsoft basic and finally powerbasic.
+
+stylistically, the code is a mess. however, it could be used in structured programming classes
+
+as a good example of how not to construct a program. it also makes heavy use of "global" variables
+
+which i will not bother to document. examine the code if you like, but i do not have time to answer any "how does this work" questions.
+sbs491-public.txt - source code for sbs 4.9.1. powerbasic console compiler, console tools and graphics tools required.
+sbs493-public.txt - source code for sbs 4.9.3. powerbasic console compiler, console tools and graphics tools required.
+announcer-public.txt - source code for "announcer". powerbasic 9 for windows
+
+
+
+
+team library - download season and team data
+
+recent seasons:
+2014 season data files with schedule: 2014mlb.zip   pat senechal's 2014 season (right-click and "save target as")
+2013 season data files with schedule: 2013mlb.zip   pat senechal's 2013 season (right-click and "save target as")
+2012 season data files with schedule: 2012mlb.zip   pat senechal's 2012 season (right-click and "save target as")
+2011 season data files with schedule: 2011mlb.zip   pat senechal's 2011 season (right-click and "save target as")
+2010 season data files with schedule: 2010mlb.zip   pat senechal's 2010 season (right-click and "save target as")
+2009 season data files with schedule: 2009mlb.zip   pat senechal's 2009 season (right-click and "save target as")
+2008 season data files with schedule: 2008mlb.zip   pat senechal's 2008 season (right-click and "save target as")
+pat's old library
+
+submit your work to pat at: patsen@sunclan.org
+
+bryan bollman's old compilation of leagues and teams from several sources is available as one large download at: 
+oldteamlibrary.zip
+
+mischa gelman has personally built a large collection of minor league and japanese teams here:
+
+mischa gelman's library  (links on right side)
+
+
+
+utilities and other postings
+
+utility programs by bryan bollman  - runsbs 3.0
+runsbs, is a windows "front-end" for sbs by bryan bollman.
+
+with runsbs you can use a modern windows interface to select your pitchers and teams. 
+
+for details:  runsbs.tripod.com
+
+also check out the encyclopedia at  runsbs.tripod.com/sbse.html
+
+
+other miscellaneous files/utilities
+"search and replace" utility for schedule files: sbssar.zip
+
+designed for those of you who would like to copy an existing .sch file and do
+
+global "search and replace" type operations to create new .sch files. not fancy.
+
+just does one string at a time.
+"schedule builder" schbldr.exe
+
+another utility to build schedule files from simple text files.
+
+
+
+links/resources
+www.baseball-reference.com - world's greatest source of baseball stats
+baseball1.com
+www.retrosheet.org
+www.sabr.org
+baseballprospectus.com
+
+misc. links
+tabletop baseball games
+science of baseball
+john skilton's baseball links - all kinds of baseball links
+
+other web sites of our sbs community
+www.youtube.com/dbschmidt1 - my talented kids performing
+www.youtube.com/broderrodents - my kids weird homemade videos
+hockeysimulation.com - joe gucciardo's quest hockey simulation
+sportsreplays.net/baseball.htm - john gardiner 
+www.city-net.com/~mgelman - mischa gelman
+www.bobnewell.net - bob newell
+home.epix.net/~maywrite/game.htm - mary and eric
+
+
+if you play sbs and would like your home page listed here, drop me an email.
+
+
+
+
+
+
+
+
+
+sbs is not licensed by anyone, therefore the
+
+following trademarks or service marks of major league
+
+baseball entities are not used by the strategic baseball simulator (sbs).
+
+major league, major league baseball, mlb, the silhouetted batter logo, world series,
+
+national league, american league, division series, league championship
+
+series, all-star game and the names, nicknames, logos, designs and
+
+slogans designating the major league baseball clubs and entities,
+
+and their respective mascots, events and exhibitions.
+
+
+
+

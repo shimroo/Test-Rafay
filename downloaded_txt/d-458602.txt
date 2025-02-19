@@ -1,0 +1,311 @@
+
+
+
+about - nemerle programming language official site
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                       
+                  
+
+
+
+
+
+
+programming language for "special forces" of developers.
+
+
+
+
+general information
+key features
+
+type inference
+metaprogramming
+object-oriented programming 
+functional programming 
+
+ide support
+macro libraries
+
+nemerle.peg 
+nemerle.xml (xml-literals)
+computation expressions
+nemerle on rails
+as well as…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nemerle is a general-purpose, multi-paradigm programming language for the .net platform. it is as easy to learn and use as c# or vb.net but nemerle is by far more powerful. one may start using it as an advanced c# and then, as learning goes on, employ a range of cool features enabling metaprogramming and functional programming. the metaprogramming is based on macros bearing some similarity to lisp.
+general information
+
+supported paradigms: object-oriented programming (oop), functional programming (fp), metaprogramming (mp), component-oriented programming (cop), dsl-oriented programming (dop) or language oriented programming (lop).
+
+type system: static typing, strong typing, inferred, nominal.
+
+influenced by: c# (oop & imperative support), ml (fp support), lisp (macros support).
+
+supported platforms: cli (.net & mono).
+key features
+type inference
+nemerle can infer type from initialization and from usage:
+
+
+def dict = dictionary(); // dude, where are my type params?
+dict.add("key", 42);     // the type params infered from usage!
+    
+def thetype = dict.gettype();
+writeline(thetype);
+    
+def expected = typeof(dictionary[string, int]);
+trace.assert(thetype.equals(expected));
+        
+
+metaprogramming
+flexible and very powerful metaprogramming subsystem using the nemerle macros:
+
+
+def title = "programming language authors";
+def authors = ["anders hejlsberg", "simon peyton-jones"];
+    
+// 'xml' - macro from nemerle.xml.macro library which alows to inline xml literals into the nemerle-code
+def html = xml <#
+  <html>
+    <head>
+      <title>$title</title>
+    </head>
+    <body>
+      <ul $when(authors.any())>
+        <li $foreach(author in authors)>$author</li>
+      </ul>
+    </body>
+  </html>
+#>
+trace.assert(html.gettype().equals(typeof(xelement)));
+writeline(html.gettype());
+        
+
+object-oriented programming 
+full support for oop that will be familiar to c# / java / c++ programmers:
+
+
+module program
+{
+  class initializer
+  {
+    public name : string { get; set; }
+    public event hellohandler : action[string];
+    
+    public sayhello() : void 
+    {
+      hellohandler?.invoke($"hello, $name!");
+    }
+    
+    public static test() : void
+    {
+      def hellower = initializer() <- 
+        {
+          name = "david hilbert";
+          hellohandler += console.writeline;
+        };
+
+      hellower.sayhello();
+    }
+  }
+
+  main() : void
+  {
+    initializer.test();
+  }
+}
+functional programming 
+full support for functional programming inherited from the ml family of languages (ml, ocaml, f#, haskell) and can solve problems not only quick and easy but also very beautiful.
+
+higher-order functions;
+local functions;
+lambdas;
+tail-call elimination optimization;
+pattern matching;
+algebraic types;
+tuples and anonymous types;
+partial application of functions.
+
+
+
+def factorial(n, acc)
+{
+  | (0, _)
+  | (1, _) => acc
+  | _      => factorial(n - 1, n * acc)
+}
+def partedfactorial = factorial(_, 1);
+console.writeline(partedfactorial(5));
+    
+
+ide support
+
+the presence of integration with visual studio allows reducing the threshold of entry. current nemerle studio ide integration supports all language features including information about derived types and macro expansion.  [screenshot]
+
+macro libraries
+macros allow you to raise the level of the program to unprecedented heights without sacrificing the richness of the language’s syntax as in lisp. you can develop macros which simplify a solution of your every day tasks. one of the nemerle paradigms is the language-oriented programming (lop). it’s a new approach of software development. the lop allows you to create your own domain specific language (dsl) to solve the problem by describing it in completely declarative manner. macros allow you to implement and maintain dsl. macros allow getting automatic support for ide much faster and easier. using macros you get high speed of the generated code, etc.
+the standard distribution of nemerle’s compiler includes a lot of ready-to-use macros which can be easily extended by third-party developers. the following outstanding solutions were implemented with the help of nemerle’s macros:
+nemerle.peg 
+implements a generator of parsers based on the peg notation. it has notable advantages: 
+
+ease of use (using of nemerle.peg is as easy as using of regular expressions);
+an incredibly high speed of work of produced parser — ~ 4 mb / sec. on the grammar of c # 4.0 (with the construction of ast);
+dynamic extensibility (rules of grammar may be included on the fly);
+support for left recursion and associativity (through intellectual memoization and integration of pratt’s algorithm);
+support for syntactic predicates (allows you to easily parse c#\c++ style languages);
+“scope” support (allows you to parse a number of context-sensitive languages like c\c++\nemerle);
+separation of grammar and semantic actions;
+intellisense (ide) support (real-time error reporting, navigation).
+
+nemerle 2.0 macros system will be based on nemerle.peg.
+nemerle.xml (xml-literals)
+allows using of xml quasi-quotes inside nemerle-code (xml-literals allow active areas and control structures). this feature is analogous to that in languages like scala and vb.net but is available as a separate module (macro) or source code. xml-literals support inline operators: foreach, when and unless.
+computation expressions
+gives similar possibility of f# language (computation expressions). such beautiful syntactic sugar (on monads) greatly simplifies the creation of features like “comp async” (parallelization of code execution ) or “comp enumerable” (generating a sequence inside a expression).
+nemerle on rails
+library of nemerle’s macros on rails (nor) is analog of ruby on rails but in a statically typed language. the world of statically typed languages has the same framework (scala’s lift). but the implementation for nemerle is based on macros and recognized standards such as linq.
+as well as…
+…many small macros that make the code shorter and clearer: late (late binding), lazy (deferred execution), logging, profiling, record (automatic creation of constructors which initialize the fields), surroundwith (fast creation of operators similar to "using") as well as:
+
+splice-strings. ruby style "active" strings that were implemented using macros.
+linq support - this feature is also implemented using macros.
+extended operators: groovy's “safe navigation operator” – “?.”, swap operator – “<->”, ....
+macro that allows you to walk through a complex data structures. it’s similar to using a visitor pattern but without the manual work.
+macros which automate the implementation of oop design patterns: abstract factory pattern, aggregation (composite), proxy, singleton.
+dependencyproperty – easily helps to implement wpf’s properties.
+aop – the support of aspect-oriented programming.
+
+
+
+
+                   
+              
+
+
+
+
+
+
+
+
+
+                        © 2013 nemerle project team  this site is hosted and maintained by russian software development network team
+                  
+
+legal statements  
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

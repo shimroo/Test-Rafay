@@ -1,0 +1,658 @@
+
+
+
+
+
+
+momentary fascinations
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+best practices for programming, part 1
+
+permalink
+        
+categories: programming
+
+        
+originally posted: 2024-09-18 15:23:00
+
+
+
+
+over my decades of programming i've invented a couple of best practices
+recommendations.  i'll describe two of them in this post.
+
+i haven't seen either
+of these independently invented by anybody, much less discovering that
+they were long-standing wisdom.  i've given lightning talks on the first
+one at python conventions once or twice; the best feedback i got was
+from raymond hettinger,
+who if i recall correctly said "i think you're
+wrong but i don't have any counter-examples."  he's never followed up
+and provided counter-examples—which is because there
+aren't any.
+
+eschew the extraneous else
+
+this best practice is applicable to any structured programming
+language with rudimentary flow control structures—in other words,
+any language used for new projects in the last forty years.
+i'll show it to you using c syntax and python syntax
+but it's applicable in any modern language.
+
+
+consider the following pseudo-code:
+
+
+
+
+/* in c */
+if (something) {
+    do_something();
+    return value;
+} else {
+    do_something_else();
+}
+
+
+
+
+# in python
+if something:
+    do_something()
+    return value
+else:
+    do_something_else()
+
+
+
+
+
+we have an if statement, with
+a then clause and an else
+clause.  the then clause ends
+with an unconditional return
+statement.
+
+
+i assert the following rule:
+
+   if you have an if-statement with a then
+   clause, and the then clause ends with an
+   unconditional return statement,
+   you don't need an else.  if you have one,
+   remove it, and transform the code in the else
+   clause into code simply following the if
+   statement.  the code will always be improved.
+
+
+
+here's our pseudo-code with this transformation
+applied:
+
+
+
+
+/* in c */
+if (something) {
+    do_something();
+    return value;
+do_something_else();
+
+
+
+
+# in python
+if something:
+    do_something()
+    return value
+do_something_else()
+
+
+
+
+i assert this is an improvement.  it helps the return
+statement stand out a little more, and makes it clear to the
+user that the "else" code is the default behavior rather than
+exception-handling behavior.
+
+
+also i assert: it's better simply because it's simpler.
+an else statement is unnecessary here, and using it
+doesn't enhance readability.  there's no reason to have it.
+and why have unnecessary stuff in your programs?
+
+
+there's a corollary to this transformation: if you have
+an if statement with an unconditional return
+in its else clause, and the then clause does
+not end with an unconditional return statment,
+you should negate the conditional for the if statement,
+swap the then and else clauses, and apply this
+transformation.
+
+
+here's an example.  first, the before:
+
+
+
+
+/* in c */
+if (something) {
+    do_something();
+} else {
+    do_something_else();
+    return value;
+}
+
+
+
+
+# in python
+if something:
+    do_something()
+else:
+    do_something_else()
+    return value
+
+
+
+
+
+now we apply the transformation.  here's the after:
+
+
+
+
+/* in c */
+if (not something) {
+    do_something_else();
+    return value;
+}
+do_something();
+
+
+
+
+# in python
+if not something:
+    do_something_else()
+    return value
+
+do_something()
+
+
+
+
+again i assert this is clearly better.  i think having
+an unconditional return in the else clause
+but not in the then clause is misleading and
+hard to follow.  if statements handle exceptional
+behavior; if you return from the function if the booelan
+conditional has one value but not the other, that return
+statement should be in the then clause and you should
+definitely apply this transformation.
+
+
+what if both the then and else clauses end
+with unconditional return statements?  i still
+perform this transformation, but i might also swap the
+then and else clauses (and negate the
+expression).  generally i want
+the "exception to the rule" code inside the if
+statement, and the "general case" code outside.  if neither
+is clearly the "exception to the rule"—if both
+clauses are equally likely—i'll make the then
+clause be the shorter of the two.
+
+
+note that in any modern language, all the before and
+after examples in the above will compile into the same
+runtime code.  these transformations won't have any
+runtime effect—they won't make your
+code any faster or slower.  they're just transformations
+for readability.
+
+realtime input validation for python generator functions
+
+this best-practice recommendation is more involved,
+and it only applies to python.
+
+
+consider the following pseudo-code:
+
+    def fn(a, b, c):
+        if not a:
+            raise valueerror('a must be true')
+        if not isinstance(b, str):
+            raise valueerror('b must be a str')
+
+        x = a * b
+        for value in c:
+            yield (x, value)
+
+the first thing we can say about this function
+is that it's a generator.  any function
+containing yield or yield from
+is a generator.  when you call fn, the
+value returned to you will be an iterator, which
+you can use anywhere you could use any other iterator.
+
+
+generator functions behave in some surprising ways.
+one wrinkle many folks aren't aware of: when
+you execute a generator, the code in the function
+isn't run yet.  if i call
+
+    i = fn(x, y, z)
+
+python creates the iterator, and keeps references
+to the arguments, but does not call fn yet.
+fn won't be called until the first time you
+iterate over that iterator, via either a for
+statement or by calling next on the iterator.
+
+
+now consider: the first paragraph of code in fn
+is data validation.  we check that the values for
+a and b are valid before we proceed
+with processing.  but again—this code isn't run
+until you iterate.  when you execute
+
+    i = fn(x, y, z)
+
+fn hasn't been run, which means the inputs
+haven't been validated yet.
+
+
+this can be a problem when you create iterators for
+later use.  let's say you call fn fifty times,
+and stick all fifty resulting iterators into a list.
+then you go to sleep.  you wake up two weeks later
+because now it's time to process those fifty iterators.
+you start iterating over them, and, oops!  the seventeenth
+iterator blows up because its inputs were wrong.
+you get a stack trace, but the stack trace shows you where
+you iterated over the iterator, not where the inputs
+were passed in.  this makes debugging a royal pain.
+who called fn with those bad inputs?  it can be
+hard to match up the creation call site with the bad iterator.
+
+
+i propose you make the following transformation to your code.
+first, i'll show you the transformed version of the above
+code sample, then i'll walk you through the changes step-by-step.
+
+
+the transformed code:
+
+    def fn(x, c):
+        for value in c:
+            yield (x, value)
+
+    _fn = fn
+
+    def fn(a, b, c):
+        if not a:
+            raise valueerror('a must be true')
+        if not isinstance(b, str):
+            raise valueerror('b must be a str')
+
+        x = a * b
+        return _fn(x, c)
+
+this code behaves nearly identically to the original.
+when you call fn you get back an iterator.
+but we've transformed the code a little; now there
+are two functions with the same name, though only the
+top one is a generator. there's also an alias in the
+middle.
+
+
+this version is way better because
+the data validation is now run immediately
+when you call fn.  if you execute:
+
+    i = fn(x, y, z)
+
+if one of the inputs is bad, you'll get a traceback
+immediately, at the time the iterator is
+constructed!  (instead of later, at the time
+of first iteration.)
+this makes debugging so much easier!
+
+
+here's the list of steps involved, along with explanations
+for why you should do it specifically this way.
+
+
+
+ensure that your function has two distinct phases of
+operation: first a "data validation" block, followed at
+some point by a "code executing yield" block.
+
+the "data validation" block shouldn't contain any
+yield or yield from statements
+(or expressions).  the "code executing yield"
+block shouldn't perform any data validation.
+
+
+create a new function above your generator
+with the same name.
+
+it should have the
+same name so that, when users see it in a traceback,
+they recognize it by name.  and it has to be above
+the original entry point because the second instance will,
+by design, overwrite the first instance in the relevant
+symbol table.
+
+i'll refer to these two functions as the
+upper and lower functions respectively.
+
+
+add a statement between the two functions, creating
+an alias for the upper function.
+
+the alias can be named anything you want, but it should
+start with an underscore (_).
+symbols starting with underscores are a
+convention in python suggesting they're implementation
+details and shouldn't be interacted with directly.
+(python also has 
+some support for name mangling identifiers in classes,
+but that's only applied to identifiers with two
+or more leading underscores.)
+
+i recommend using the original function name
+prepended with a single underscore as the name
+for the alias, as i've done above.
+
+
+move the "code executing yield" code from the
+lower function to the upper function.
+the "data validation" code must stay in the lower function.
+
+this changes the two functions; now the upper
+function is a generator, and the lower function
+is not a generator.
+
+
+add a return statement to the end of the lower
+function, calling the upper function using the alias
+and returning the result.
+
+again, you have to use
+the alias here because the definition of the lower
+function overwrote the symbol table for the upper
+function.
+
+as needed, define parameters to the upper function,
+and pass in matching values as arguments in the call
+to the alias.  the signature of the upper function
+is a private detail that won't affect the user;
+it doesn't need to match the original function,
+and you can modify it at any time as your need require.
+if it's easy, go ahead and make the signature of the
+upper function match the signature of the lower function;
+this will make debugging even easier on the user.
+but this isn't necessary, only a nice-to-have, and
+if it's inconvenient don't worry about it.
+
+
+
+notes on this approach:
+
+
+
+this approach also means you can use fn
+as a data validator.  simply call it and
+pass in the values you want validated.  it'll
+check them over, and if they're okay it'll return
+an iterator—which you can just throw away!
+
+
+what about code that's neither "data validation"
+nor "code executing yield"?
+you may have code between the two blocks transforming
+the inputs and preparing data you'll use during
+iteration, but without actually calling yield
+yet.  should that go in the upper or lower function?
+
+
+
+i'd say there's no hard-and-fast rule here.
+code that might throw an exception should probably
+go in the lower function, so you can early-detect
+the problem to make debugging easier.  (though if it
+can throw an exception... that sounds like data
+validation code to me.)  if the code isn't likely
+to throw an exception, it might make sense to move
+it to the upper function, as that makes it
+"lazily evaluated".  and if you use your function
+as a data validator as i suggested above,
+you don't care about these transformations; delaying
+them until the upper function is run means "you don't
+pay for what you don't use", which is always a good
+policy.
+
+
+if your function calls other generator functions,
+make sure you call those other generator functions
+from the lower function.  when those other generator
+functions use this transformation to perform their
+data validation early, all data validation
+will be performed early!  if you wait to call those
+other generator functions until the upper function,
+they won't get to perform their data validation until
+then, and we're back to hard-to-debug data validation
+problems.
+
+
+since the transformed version of the
+generator function behaves essentially
+identically to the original, you can safely
+perform this transformation on
+existing code.  if the inputs are
+valid, the code behaves identically, and no
+user call sites will need to change.  the
+behavior only changes when the inputs are
+wrong and you need to throw an exception;
+obviously, the exception will be thrown
+a lot earlier.  it's up to you, but i think
+your users may thank you for making this
+change!
+
+
+
+previous essays
+
+a eulogy for chester morris
+
+
+originally posted: 2017-09-11 23:00:00
+
+
+
+
+
+chester morris was an actor on stage, film, and radio.  he died
+forty-seven years ago today.  he's mostly forgotten now, but i
+still enjoy his work, particularly his most famous movie and
+radio role: boston blackie.
+
+early success
+john chester brooks morris
+was born february 16, 1901 in new york city.  his parents were stage
+actors, and at 15 he dropped out of school and began his lifelong
+career on the stage, on...
+
+
+continue reading a eulogy for chester morris
+
+
+a eulogy for bob bailey
+
+
+originally posted: 2017-08-13 15:51:45
+
+
+
+
+
+bob bailey died 34 years ago today.  and while our story ends there, it doesn't start there.  instead, we start with—
+
+the strangely specific end of the golden age of radio
+technologies, particularly entertainment-delivery technologies, have a finite lifetime.  they're invented, they become obsolete, and if they're lucky they get some use in between.  the most...
+
+
+continue reading a eulogy for bob bailey
+
+
+a quick 2017 survey of rolling linux distributions
+
+
+originally posted: 2017-03-14 02:14:20
+
+
+
+
+
+tl;dr: i tried a bunch of rolling linux distributions.  then i gave up.  then i won!
+
+what i'm using right now, and why
+when i switched from windows to linux in 2007, i had to choose which "distribution" to use.  what's that mean?  well, linux isn't like windows or os x—there isn't just "one" linux you go and get.  technically linux is just the kernel,...
+
+
+continue reading a quick 2017 survey of rolling linux distributions
+
+
+an adventure in buying home audio speakers
+
+
+originally posted: 2014-12-19 23:43:22
+
+
+
+
+
+true story: up until five years ago all i ever had were cheap all-in-one stereos that came bundled with speakers.  it was all i could afford.  oh, how i dreamed of owning an expensive "component stereo"!  that's where you have a separate receiver, turntable, tape deck, eight track, and speakersâgosh, maybe even a subwoofer!
+finally in september 2009 i took the plunge and bought a component stereo.  but by then you didn't need all those...
+
+
+continue reading an adventure in buying home audio speakers
+
+
+older essays... 
+
+
+
+
+
+about momentary fascinations
+
+ rss
+
+
+
+
+recent fascinations
+a eulogy for chester morris
+
+a eulogy for bob bailey
+
+a quick 2017 survey of rolling linux distributions
+
+an adventure in buying home audio speakers
+
+all essays
+
+
+
+
+years
+2024
+
+2017
+
+2014
+
+2013
+
+2011
+
+2010
+
+2007
+
+2006
+
+2005
+
+
+
+
+tags
+books
+
+entertainment
+
+eulogies
+
+game jones
+
+general
+
+meta
+
+music
+
+politics
+
+programming
+
+repeat-1 song of the day
+
+tales of the self-indulgent
+
+technology
+
+trampled liberties
+
+video games
+
+
+
+
+
+
+
+
+
+
+
+momentary fascinations is copyright 2005-2024 larry hastings.
+
+
+
+
+
+

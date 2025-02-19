@@ -1,0 +1,3316 @@
+
+
+
+
+
+ronan collobert
+
+
+
+
+ronan collobert
+
+
+
+
+	    research scientist at apple, machine learning research.
+	  
+
+	    before that i was a research scientist at
+	    facebook ai research,
+	    idiap
+	      research institute and nec laboratories of america.
+	  
+collobert [at] apple [dot] com 
+
+
+
+
+
+
+research interests
+
+
+machine learning on structured data (nlp, image, speech).
+semi-supervised, weakly, structured or compositional learning techniques.
+large scale learning.
+software for machine learning, with a particular interest in enabling unconventional approaches.
+in general, both my research and software follow the kiss philosophy.
+
+
+software
+
+
+	see also my github page.
+      
+
+
+
+flashlight
+
+
+an efficient modern c++ machine learning framework.
+
+
+		flashlight is written entirely in modern c++, with flexibility and
+		efficiency in mind. it integrates a modern autograd, and supports
+		most deep-learning models. it is lightweight, fully customizable,
+		and extensible to go beyond classical models. a research framework
+		for research in machine learning frameworks!
+	    
+
+more
+flashlight
+blog post
+
+
+
+
+wav2letter
+
+
+a toolbox for end-to-end speech recognition.
+
+
+		wav2letter is written in c++, and provides a number of
+		recipes to train and evaluate various end-to-end
+		speech recognition models. it originally advocated
+		fully convolution-based models for efficiency, and
+		then evolved in a flexible toolbox.
+	    
+    it embarks a very efficient standalone decoder.
+	    
+     wav2letter is now part of flashlight. the wav2letter repository only contains recipes.
+	    
+
+more
+wav2letter
+
+
+
+
+torch
+
+
+a machine learning library which aims at including state-of-the-art algorithms.
+
+
+torch7
+		is the last version of torch. it provides a matlab-like
+		environment for state-of-the-art machine learning algorithms. it
+		is easy to use and provides a very efficient
+		implementation, thanks to an easy and
+		  fast scripting language (lua) and a underlying c
+		implementation. it is distributed under
+		a bsd
+		  license.
+	    
+
+more
+torch 7
+torch 7 git
+torch 7 overview
+lua
+torch 5
+torch 4
+torch 3
+
+
+
+
+senna
+
+
+a natural language processing (nlp) tagger. now version 3.0 (august 2011).
+
+
+		senna is a software distributed under a non-commercial license, which
+		outputs a host of natural language processing (nlp) predictions:
+		part-of-speech (pos) tags, chunking (chk), name entity recognition
+		(ner) and semantic role labeling (srl).
+	    
+		senna is fast because it uses a simple architecture, self-contained
+		because it does not rely on the output of existing nlp system, and
+		accurate because it offers state-of-the-art or near state-of-the-art
+		performance.
+	    
+		senna is written in ansi c, with about 2500 lines of code. it requires
+		about 150mb of ram and should run on any ieee floating point computer.
+	    
+
+more
+senna
+
+
+
+
+svmtorch
+
+
+a support vector machine library.
+	    
+
+		  written while i was a phd student, it was efficient at the time. i
+		  would recommend using
+		  now libsvm,
+		  as svmtorch has not been updated since a long while.
+	      
+
+more
+svmtorch
+
+
+
+publications
+
+
+	see also my google scholar page.
+      
+
+2021
+
+
+v. pratap, q. xu, t. likhomanenko, g. synnaeve and r. collobert. word order does not matter for speech recognition. arxiv, volume abs/2110.05994, 2021.
+
+
+in this paper, we study training of automatic speech recognition system in
+a weakly supervised setting where the order of words in transcript labels
+of the audio training data is not known. we train a word-level acoustic
+model which aggregates the distribution of all output frames using
+logsumexp operation and uses a cross-entropy loss to match with the
+ground-truth words distribution. using the pseudo-labels generated from
+this model on the training set, we then train a letter-based acoustic model
+using connectionist temporal classification loss. our system achieves
+2.3%/4.6% on test-clean/test-other subsets of librispeech, which closely
+matches with the supervised baseline's performance.
+
+
+
+@article{pratap:2021,
+  title = {word order does not matter for speech recognition},
+  author = {v. pratap and q. xu and t. likhomanenko and g. synnaeve and r. collobert},
+  journal = {arxiv},
+  volume = {abs/2110.05994},
+  year = {2021}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+t. likhomanenko, q. xu, j. kahn, g. synnaeve and r. collobert. slimipl: language-model-free iterative pseudo-labeling. in interspeech, 2021.
+
+
+recent results in end-to-end automatic speech recognition have demonstrated
+the efficacy of pseudo- labeling for semi-supervised models trained both
+with connectionist temporal classification (ctc) and sequence-to-sequence
+(seq2seq) losses. iterative pseudo-labeling (ipl), which continuously
+trains a single model using pseudo-labels iteratively re-generated as the
+model learns, has been shown to further improve performance in asr. we
+improve upon the ipl algorithm: as the model learns, we propose to
+iteratively re-generate transcriptions with hard labels (the most probable
+tokens), that is, without a language model. we call this approach
+language-model-free ipl (slimipl) and give a resultant training setup for
+low-resource settings with ctc-based models. slimipl features a dynamic
+cache for pseudo-labels which reduces sensitivity to changes in relabeling
+hyperparameters and results in improved training stability. slimipl is also
+highly-efficient and requires 3.5-4x fewer computational resources to
+converge than other state-of-the-art semi/self-supervised approaches. with
+only 10 hours of labeled audio, slimipl is competitive with self-supervised
+approaches, and is state-of-the-art with 100 hours of labeled audio without
+the use of a language model both at test time and during pseudo-label
+generation.
+
+
+
+@inproceedings{likhomanenko:2021b,
+  title = {slim{ipl}: language-model-free iterative pseudo-labeling},
+  author = {t. likhomanenko and q. xu and j. kahn and g. synnaeve and r. collobert},
+  booktitle = {interspeech},
+  year = {2021}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+w.-n. hsu, a. sriram, a. baevski, t. likhomanenko, q. xu, v. pratap, j. kahn, a. lee, r. collobert, g. synnaeve and m. auli. robust wav2vec 2.0: analyzing domain shift in self-supervised pre-training. in ieee international conference on acoustic, speech, and signal processing, icassp, 2021.
+
+
+self-training and unsupervised pre-training have emerged as effective
+approaches to improve speech recognition systems using unlabeled
+data. however, it is not clear whether they learn similar patterns or if
+they can be effectively combined. in this paper, we show that
+pseudo-labeling and pre-training with wav2vec 2.0 are complementary in a
+variety of labeled data setups. using just 10 minutes of labeled data from
+libri-light as well as 53k hours of unlabeled data from librivox achieves
+wers of 3.0%/5.2% on the clean and other test sets of librispeech â
+rivaling the best published systems trained on 960 hours of labeled data
+only a year ago. training on all labeled data of librispeech achieves wers
+of 1.5%/3.1%.
+
+
+
+@inproceedings{hsu:2021,
+  title = {robust wav2vec 2.0: analyzing domain shift in self-supervised pre-training},
+  author = {w.-n. hsu and a. sriram and a. baevski and t. likhomanenko and q. xu and v. pratap and j. kahn and a. lee and r. collobert and g. synnaeve and m. auli},
+  booktitle = {{ieee} international conference on acoustic, speech, and signal processing, {icassp}},
+  year = {2021}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+t. likhomanenko, q. xu, v. pratap, p. tomasello, j. kahn, g. avidov, r. collobert and g. synnaeve. rethinking evaluation in asr: are our models robust enough?. in interspeech, 2021.
+
+
+is pushing numbers on a single benchmark valuable in automatic speech
+recognition? research results in acoustic modeling are typically evaluated
+based on performance on a single dataset. while the research community has
+coalesced around various benchmarks, we set out to understand
+generalization performance in acoustic modeling across datasets â in
+particular, if models trained on a single dataset transfer to other
+(possibly out-of-domain) datasets. we show that, in general, reverberative
+and additive noise augmentation improves generalization performance across
+domains. further, we demonstrate that when a large enough set of benchmarks
+is used, average word error rate (wer) performance over them provides a
+good proxy for performance on real-world noisy data. finally, we show that
+training a single acoustic model on the most widely-used datasets â
+combined â reaches competitive performance on both research and real-world
+benchmarks.
+
+
+
+@inproceedings{likhomanenko:2021a,
+  title = {rethinking evaluation in {asr}: are our models robust enough?},
+  author = {t. likhomanenko and q. xu and v. pratap and p. tomasello and j. kahn and g. avidov and r. collobert and g. synnaeve},
+  booktitle = {interspeech},
+  year = {2021}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+a. conneau, a. baevski, r. collobert, a. mohamed and m. auli. unsupervised cross-lingual representation learning for speech recognition. in interspeech, 2021.
+
+
+this paper presents xlsr which learns cross-lingual speech representations
+by pretraining a single model from the raw waveform of speech in multiple
+languages. we build on wav2vec 2.0 which is trained by solving a
+contrastive task over masked latent speech representations and jointly
+learns a quantization of the latents shared across languages. the resulting
+model is fine-tuned on labeled data and experiments show that cross-lingual
+pretraining significantly outperforms monolingual pretraining. on the
+commonvoice benchmark, xlsr shows a relative phoneme error rate reduction
+of 72% compared to the best known results. on babel, our approach improves
+word error rate by 16% relative compared to a comparable system. our
+approach enables a single multilingual speech recognition model which is
+competitive to strong individual models. analysis shows that the latent
+discrete speech representations are shared across languages with increased
+sharing for related languages. we hope to catalyze research in low-resource
+speech understanding by releasing xlsr-53, a large model pretrained in 53
+languages.
+
+
+
+@inproceedings{conneau:2021,
+  title = {unsupervised cross-lingual representation learning for speech recognition},
+  author = {a. conneau and a. baevski and r. collobert and a. mohamed and m. auli},
+  booktitle = {interspeech},
+  year = {2021}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+v. manohar, t. likhomanenko, q. xu, w.-n. hsu, r. collobert, y. saraf, g. zweig and a. mohamed. kaizen: continuously improving teacher using exponential moving average for semi-supervised speech recognition. in automatic speech recognition and understanding workshop, asru, 2021.
+
+
+in this paper, we introduce the kaizen framework that uses a continuously
+improving teacher to generate pseudo-labels for semi-supervised
+training. the proposed approach uses a teacher model which is updated as
+the exponential moving average of the student model parameters. this can be
+seen as a continuous version of the iterative pseudo-labeling approach for
+semi-supervised training. it is applicable for different training criteria,
+and in this paper we demonstrate it for frame-level hybrid hidden markov
+model - deep neural network (hmm-dnn) models and sequence-level
+connectionist temporal classification (ctc) based models. the proposed
+approach shows more than 10% word error rate (wer) reduction over standard
+teacher-student training and more than 50% relative wer reduction over 10
+hour supervised baseline when using large scale realistic unsupervised
+public videos in uk english and italian languages.
+
+
+
+@inproceedings{manohar:2021,
+  title = {kaizen: continuously improving teacher using exponential moving average for semi-supervised speech recognition},
+  author = {v. manohar and t. likhomanenko and q. xu and w.-n. hsu and r. collobert and y. saraf and g. zweig and a. mohamed},
+  booktitle = {automatic speech recognition and understanding workshop, {asru}},
+  year = {2021}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+c. talnikar, t. likhomanenko, r. collobert and g. synnaeve. joint masked cpc and ctc training for asr. in ieee international conference on acoustic, speech, and signal processing, icassp, 2021.
+
+
+self-supervised learning (ssl) has shown promise in learning
+representations of audio that are useful for automatic speech recognition
+(asr). but, training ssl models like wav2vec 2.0 requires a two-stage
+pipeline. in this paper we demonstrate a single-stage training of asr
+models that can utilize both unlabeled and labeled data. during training,
+we alternately minimize two losses: an unsupervised masked contrastive
+predictive coding (cpc) loss and the supervised audio-to-text alignment
+loss connectionist temporal classification (ctc). we show that this joint
+training method directly optimizes performance for the downstream asr task
+using unsupervised data while achieving similar word error rates to wav2vec
+2.0 on the librispeech 100-hours dataset. finally, we postulate that
+solving the contrastive task is a regularization for the supervised ctc
+loss.
+
+
+
+@inproceedings{talnikar:2021,
+  title = {joint masked {cpc} and {ctc} training for {asr}},
+  author = {c. talnikar and t. likhomanenko and r. collobert and g. synnaeve},
+  booktitle = {{ieee} international conference on acoustic, speech, and signal processing, {icassp}},
+  year = {2021}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+t. likhomanenko, q. xu, r. collobert, g. synnaeve and a. rogozhnikov. cape: encoding relative positions with continuous augmented positional embeddings. in advances in neural information processing systems, (neurips), 2021.
+
+
+without positional information, attention-based transformer neural networks
+are permutation-invariant. absolute or relative positional embeddings are
+the most popular ways to feed transformer models positional
+information. absolute positional embeddings are simple to implement, but
+suffer from generalization issues when evaluating on sequences of different
+length than those seen at training time. relative positions are more robust
+to length change, but are more complex to implement and yield inferior
+model throughput. in this paper, we propose an augmentation-based approach
+(cape) for absolute positional embeddings, which keeps the advantages of
+both absolute (simplicity and speed) and relative position embeddings
+(better generalization). in addition, our empirical evaluation on
+state-of-the-art models in machine translation, image and speech
+recognition demonstrates that cape leads to better generalization
+performance as well as increased stability with respect to training
+hyper-parameters.
+
+
+
+@inproceedings{likhomanenko:2021,
+  title = {{cape}: encoding relative positions with continuous augmented positional embeddings},
+  author = {t. likhomanenko and q. xu and r. collobert and g. synnaeve and a. rogozhnikov},
+  booktitle = {advances in neural information processing systems, ({neurips})},
+  year = {2021}
+}
+
+pdf
+abstract
+bibtex
+
+
+2020
+
+
+r. collobert, a. hannun and g. synnaeve. word-level speech recognition with a letter to word encoder. in international conference on machine learning, icml, 2020.
+
+
+we propose a direct-to-word sequence model which uses a word network to
+learn word embeddings from letters. the word network can be integrated
+seamlessly with arbitrary sequence models including connectionist temporal
+classification and encoder-decoder models with attention. we show our
+direct-to-word model can achieve word error rate gains over sub-word level
+models for speech recognition. we also show that our direct-to-word
+approach retains the ability to predict words not seen at training time
+without any retraining. finally, we demonstrate that a word-level model can
+use a larger stride than a sub-word level model while maintaining
+accuracy. this makes the model more efficient both for training and
+inference.
+
+
+
+@inproceedings{collobert:2020,
+  title = {word-level speech recognition with a letter to word encoder},
+  author = {r. collobert and a. hannun and g. synnaeve},
+  booktitle = {international conference on machine learning, {icml}},
+  year = {2020}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+v. pratap, q. xu, j. kahn, g. avidov, t. likhomanenko, a. hannun, v. liptchinsky, g. synnaeve and r. collobert. scaling up online speech recognition using convnets. in interspeech, 2020.
+
+
+we design an online end-to-end speech recognition system based on
+time-depth separable (tds) convolutions and connectionist temporal
+classification (ctc). we improve the core tds architecture in order to
+limit the future context and hence reduce latency while maintaining
+accuracy. the system has almost three times the throughput of a well tuned
+hybrid asr baseline while also having lower latency and a better word error
+rate. also important to the efficiency of the recognizer is our highly
+optimized beam search decoder. to show the impact of our design choices, we
+analyze throughput, latency, accuracy, and discuss how these metrics can be
+tuned based on the user requirements.
+
+
+
+@inproceedings{pratap:2020b,
+  title = {scaling up online speech recognition using convnets},
+  author = {v. pratap and q. xu and j. kahn and g. avidov and t. likhomanenko and a. hannun and v. liptchinsky and g. synnaeve and r. collobert},
+  booktitle = {interspeech},
+  year = {2020}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+s. subramanian, r. collobert, m.'a. ranzato and y.-l. boureau. multi-scale transformer language models. arxiv, volume abs/2005.00581, 2020.
+
+
+we investigate multi-scale transformer language models that learn
+representations of text at multiple scales, and present three different
+architectures that have an inductive bias to handle the hierarchical nature
+of language. experiments on large-scale language modeling benchmarks
+empirically demonstrate favorable likelihood vs memory footprint
+trade-offs, e.g. we show that it is possible to train a hierarchical
+variant with 30 layers that has 23% smaller memory footprint and better
+perplexity, compared to a vanilla transformer with less than half the
+number of layers, on the toronto bookcorpus. we analyze the advantages of
+learned representations at multiple scales in terms of memory footprint,
+compute time, and perplexity, which are particularly appealing given the
+quadratic scaling of transformersâ run time and memory usage with respect
+to sequence length.
+
+
+
+@article{subramanian:2020,
+  title = {multi-scale transformer language models},
+  author = {s. subramanian and r. collobert and m.'a. ranzato and y.-l. boureau},
+  journal = {arxiv},
+  volume = {abs/2005.00581},
+  year = {2020}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+v. pratap, q. xu, a. sriram, g. synnaeve and r. collobert. mls: a large-scale multilingual dataset for speech research. in interspeech, 2020.
+
+
+this paper introduces multilingual librispeech (mls) dataset, a large
+multilingual corpus suitable for speech research. the dataset is derived
+from read audiobooks from librivox and consists of 8 languages, including
+about 44.5k hours of english and a total of about 6k hours for other
+languages. additionally, we provide language models (lm) and baseline
+automatic speech recognition (asr) models and for all the languages in our
+dataset. we believe such a large transcribed dataset will open new avenues
+in asr and text-to-speech (tts) research. the dataset will be made freely
+available for anyone at http://www.openslr.org.
+
+
+
+@inproceedings{pratap:2020a,
+  title = {{mls}: a large-scale multilingual dataset for speech research},
+  author = {v. pratap and q. xu and a. sriram and g. synnaeve and r. collobert},
+  booktitle = {interspeech},
+  year = {2020}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+v. pratap, a. sriram, p. tomasello, a. hannun, v. liptchinsky, g. synnaeve and r. collobert. massively multilingual asr: 50 languages, 1 model, 1 billion parameters. in interspeech, 2020.
+
+
+we study training a single acoustic model for multiple languages with the
+aim of improving automatic speech recognition (asr) performance on
+low-resource languages, and overall simplifying deployment of asr systems
+that support diverse languages. we perform an extensive benchmark on 51
+languages, with varying amount of training data by language (from 100 hours
+to 1100 hours). we compare three variants of multilingual training from a
+single joint model without knowing the input language, to using this
+information, to multiple heads (one per language âclusterâ). we show that
+multilingual training of asr models on several languages can improve
+recognition performance, in particular, on low resource languages. we see
+20.9%, 23% and 28.8% average wer relative reduction compared to monolingual
+baselines on joint model, joint model with language input and multi head
+model respectively. to our knowledge, this is the first work studying
+multi-lingual asr at massive scale, with more than 50 languages and more
+than 16,000 hours of audio across them.
+
+
+
+@inproceedings{pratap:2020,
+  title = {massively multilingual asr: 50 languages, 1 model, 1 billion parameters},
+  author = {v. pratap and a. sriram and p. tomasello and a. hannun and v. liptchinsky and g. synnaeve and r. collobert},
+  booktitle = {interspeech},
+  year = {2020}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+j. kahn, m. rivière, w. zheng, e. kharitonov, q. xu, p.-e. mazaré, j. karadayi, v. liptchinsky, r. collobert, c. fuegen, t. likhomanenko, g. synnaeve, a. joulin, a.-r. mohamed and e. dupoux. libri-light: a benchmark for asr with limited or no supervision. in ieee international conference on acoustic, speech, and signal processing, icassp, 2020.
+
+
+we introduce a new collection of spoken english audio suitable for training
+speech recognition systems under limited or no supervision. it is derived
+from open-source audio books from the librivox project. it contains over
+60k hours of audio, which is, to our knowledge, the largest
+freely-available corpus of speech. the audio has been segmented using voice
+activity detection and is tagged with snr, speaker id and genre
+descriptions. additionally, we provide baseline systems and evaluation
+metrics working under three settings: (1) the zero resource/unsupervised
+setting (abx), (2) the semi-supervised setting (per, cer) and (3) the
+distant supervision setting (wer). settings (2) and (3) use limited textual
+resources (10 minutes to 10 hours) aligned with the speech. setting (3)
+uses large amounts of unaligned text. they are evaluated on the standard
+librispeech dev and test sets for comparison with the supervised
+state-of-the-art.
+
+
+
+@inproceedings{kahn:2020,
+  title = {libri-light: a benchmark for {asr} with limited or no supervision},
+  author = {j. kahn and m. rivi{\`e}re and w. zheng and e. kharitonov and q. xu and p.-e. mazar\'e and j. karadayi and v. liptchinsky and r. collobert and c. fuegen and t. likhomanenko and g. synnaeve and a. joulin and a.-r. mohamed and e. dupoux},
+  booktitle = {{ieee} international conference on acoustic, speech, and signal processing, {icassp}},
+  year = {2020}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+q. xu, t. likhomanenko, j. kahn, a. hannun, g. synnaeve and r. collobert. iterative pseudo-labeling for speech recognition. in interspeech, 2020.
+
+
+pseudo-labeling has recently shown promise in end-to-end automatic speech
+recognition (asr). we study iterative pseudo-labeling (ipl), a
+semi-supervised algorithm which efficiently performs multiple iterations of
+pseudo-labeling on unlabeled data as the acoustic model evolves. in
+particular, ipl fine tunes an existing model at each iteration using both
+labeled data and a subset of unlabeled data. we study the main components
+of ipl: decoding with a language model and data augmentation. we then
+demonstrate the effectiveness of ipl by achieving state-of-the-art
+word-error rate on the librispeech test sets in both standard and
+low-resource setting. we also study the effect of language models trained
+on different corpora to show ipl can effectively utilize additional
+text. finally, we release a new large in-domain text corpus which does not
+overlap with the librispeech training transcriptions to foster research in
+low-resource, semi-supervised asr.
+
+
+
+@inproceedings{xu:2020,
+  title = {iterative pseudo-labeling for speech recognition},
+  author = {q. xu and t. likhomanenko and j. kahn and a. hannun and g. synnaeve and r. collobert},
+  booktitle = {interspeech},
+  year = {2020}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+g. synnaeve, q. xu, j. kahn, t. likhomanenko, e. grave, v. pratap, a. sriram, v. liptchinsky and r. collobert. end-to-end asr: from supervised to semi-supervised learning with modern architectures. in workshop on self-supervision in audio and speech, international conference on machine learning, icml, 2020.
+
+
+we study pseudo-labeling for the semi-supervised training of resnet,
+time-depth separable convnets, and transformers for speech recognition,
+with either ctc or seq2seq loss functions.  we perform experiments on the
+standard librispeech dataset, and leverage additional unlabeled data from
+librivox through pseudo-labeling. we show that while transformer-based
+acoustic models have superior performance with the supervised dataset
+alone, semi-supervision improves all models across architectures and loss
+functions and bridges much of the performance gaps between them. in doing
+so, we reach a new state-of-the-art for end-to-end acoustic models decoded
+with an external language model in the standard supervised learning
+setting, and a new absolute state-of-the-art with semi-supervised
+training. finally, we study the effect of leveraging different amounts of
+unlabeled audio, propose several ways of evaluating the characteristics of
+unlabeled audio which improve acoustic modeling, and show that acoustic
+models trained with more audio rely less on external language models.
+
+
+
+@inproceedings{synnaeve:2020,
+  title = {end-to-end {asr}: from supervised to semi-supervised learning with modern architectures},
+  author = {g. synnaeve and q. xu and j. kahn and t. likhomanenko and e. grave and v. pratap and a. sriram and v. liptchinsky and r. collobert},
+  booktitle = {workshop on self-supervision in audio and speech, international conference on machine learning, {icml}},
+  year = {2020}
+}
+
+pdf
+abstract
+bibtex
+
+
+2019
+
+
+s. schneider, a. baevski, r. collobert and m. auli. wav2vec: unsupervised pre-training for speech recognition. in interspeech, 2019.
+
+
+we explore unsupervised pre-training for speech recognition by learning
+representations of raw audio. wav2vec is trained on large amounts of
+unlabeled audio data and the resulting representations are then used to
+improve acoustic model training. we pre-train a simple multi-layer
+convolutional neural network optimized via a noise contrastive binary
+classification task. our experiments on wsj reduce wer of a strong
+character-based log-mel filterbank baseline by up to 36 % when only a few
+hours of transcribed data is available. our approach achieves 2.43 % wer on
+the nov92 test set. this outperforms deep speech 2, the best reported
+character-based system in the literature while using two orders of
+magnitude less labeled training data.
+
+
+
+@inproceedings{schneider:2019,
+  title = {wav2vec: unsupervised pre-training for speech recognition},
+  author = {s. schneider and a. baevski and r. collobert and m. auli},
+  booktitle = {interspeech},
+  year = {2019}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+v. pratap, a. hannun, q. xu, j. cai, j. kahn, g. synnaeve, v. liptchinsky and r. collobert. wav2letter++: the fastest open-source speech recognition system. in ieee international conference on acoustic, speech, and signal processing, icassp, 2019.
+
+
+this paper introduces wav2letter++, the fastest open-source deep learning
+speech recognition framework. wav2letter++ is written entirely in c++, and
+uses the arrayfire tensor library for maximum efficiency. here we explain
+the architecture and design of the wav2letter++ system and compare it to
+other major open-source speech recognition systems. in some cases
+wav2letter++ is more than 2ã faster than other optimized frameworks for
+training end-to-end neural networks for speech recognition. we also show
+that wav2letter++âs training times scale linearly to 64 gpus, the highest
+we tested, for models with 100 million parameters. high-performance
+frameworks enable fast iteration, which is often a crucial factor in
+successful research and model tuning on new datasets and tasks.
+
+
+
+@inproceedings{pratap:2019,
+  title = {wav2letter++: the fastest open-source speech recognition system},
+  author = {v. pratap and a. hannun and q. xu and j. cai and j. kahn and g. synnaeve and v. liptchinsky and r. collobert},
+  booktitle = {{ieee} international conference on acoustic, speech, and signal processing, {icassp}},
+  year = {2019}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+a. hannun, a. lee, q. xu and r. collobert. sequence-to-sequence speech recognition with time-depth separable convolutions. in interspeech, 2019.
+
+
+we propose a fully convolutional sequence-to-sequence encoder
+architecture with a simple and efficient decoder. our model improves wer on
+librispeech while being an order of magnitude more efficient than a strong
+rnn baseline. key to our approach is a time-depth separable convolution
+block which dramatically reduces the number of parameters in the model
+while keeping the receptive field large. we also give a stable and
+efficient beam search inference procedure which allows us to effectively
+integrate a language model. coupled with a convolutional language model,
+our time-depth separable convolution architecture improves by more than
+22% relative wer over the best previously reported sequence-to-sequence
+results on the noisy librispeech test set.
+
+
+
+@inproceedings{hannun:2019,
+  title = {sequence-to-sequence speech recognition with time-depth separable convolutions},
+  author = {a. hannun and a. lee and q. xu and r. collobert},
+  booktitle = {interspeech},
+  year = {2019}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+y. adi, n. zeghidour, r. collobert, n. usunier, v. liptchinsky and g. synnaeve. to reverse the gradient or not: an empirical comparison of adversarial and multi-task learning in speech recognition. in ieee international conference on acoustic, speech, and signal processing, icassp, 2019.
+
+
+transcribed datasets typically contain speaker identity for each instance
+in the data. we investigate two ways to incorporate this information during
+training: multi-task learning and adversarial learning. in multi-task
+learning, the goal is speaker prediction; we expect a performance
+improvement with this joint training if the two tasks of speech recognition
+and speaker recognition share a common set of underlying features. in
+contrast, adversarial learning is a means to learn representations
+invariant to the speaker. we then expect better performance if this learnt
+invariance helps generalizing to new speakers. while the two approaches
+seem natural in the context of speech recognition, they are incompatible
+because they correspond to opposite gradients back-propagated to the
+model. in order to better understand the effect of these approaches in
+terms of error rates, we compare both strategies in controlled
+settings. moreover, we explore the use of additional un-transcribed data in
+a semi-supervised, adversarial learning manner to improve error rates. our
+results show that deep models trained on big datasets already develop
+invariant representations to speakers without any auxiliary loss. when
+considering adversarial learning and multi-task learning, the impact on the
+acoustic model seems minor. however, models trained in a semi-supervised
+manner can improve error-rates.
+
+
+
+@inproceedings{adi:2019,
+  title = {to reverse the gradient or not: an empirical comparison of adversarial and multi-task learning in speech recognition},
+  author = {y. adi and n. zeghidour and r. collobert and n. usunier and v. liptchinsky and g. synnaeve},
+  booktitle = {{ieee} international conference on acoustic, speech, and signal processing, {icassp}},
+  year = {2019}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+t. likhomanenko, g. synnaeve and r. collobert. who needs words? lexicon-free speech recognition. in interspeech, 2019.
+
+
+lexicon-free speech recognition naturally deals with the problem of
+out-of-vocabulary (oov) words. in this paper, we show that character-based
+language models (lm) can perform as well as word-based lms for speech
+recognition, in word error rates (wer), even without restricting the
+decoding to a lexicon. we study character-based lms and show that
+convolutional lms can effectively leverage large (character) contexts,
+which is key for good speech recognition performance downstream. we
+specifically show that the lexicon-free decoding performance (wer) on
+utterances with oov words using character-based lms is better than
+lexicon-based decoding, both with character or word-based lms.
+
+
+
+@inproceedings{likhomanenko:2019,
+  title = {who needs words? lexicon-free speech recognition},
+  author = {t. likhomanenko and g. synnaeve and r. collobert},
+  booktitle = {interspeech},
+  year = {2019}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+r. collobert, a. hannun and g. synnaeve. a fully differentiable beam search decoder. in international conference on machine learning, icml, 2019.
+
+
+we introduce a new beam search decoder that is fully differentiable, making
+it possible to optimize at training time through the inference
+procedure. our decoder allows us to combine models which operate at
+different granularities (e.g. acoustic and language models). it can be used
+when target sequences are not aligned to input sequences by considering all
+possible alignments between the two. we demonstrate our approach scales by
+applying it to speech recognition, jointly training acoustic and word-level
+language models. the system is end-to-end, with gradients flowing through
+the whole architecture from the word-level transcriptions. recent research
+efforts have shown that deep neural networks with attention-based
+mechanisms can successfully train an acoustic model from the final
+transcription, while implicitly learning a language model. instead, we show
+that it is possible to discriminatively train an acoustic model jointly
+with an explicit and possibly pretrained language model.
+
+
+
+@inproceedings{collobert:2019,
+  title = {a fully differentiable beam search decoder},
+  author = {r. collobert and a. hannun and g. synnaeve},
+  booktitle = {international conference on machine learning, {icml}},
+  year = {2019}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+d. palaz, m. magimai-doss and r. collobert. end-to-end acoustic modeling using convolutional neural networks for hmm-based automatic speech recognition. speech communication, 2019.
+
+
+in hidden markov model (hmm) based automatic speech recognition (asr)
+system, modeling the statistical relationship between the acoustic speech
+signal and the hmm states that represent linguistically motivated subword
+units such as phonemes is a crucial step. this is typically achieved by
+first extracting acoustic features from the speech signal based on prior
+knowledge such as, speech perception or/and speech production knowledge,
+and, then training a classifier such as artificial neural networks (ann),
+gaussian mixture model that estimates the emission probabilities of the hmm
+states. this paper investigates an end-to-end acoustic modeling approach
+using convolutional neural networks (cnns), where the cnn takes as input
+raw speech signal and estimates the hmm states class conditional
+probabilities at the output. alternately, as opposed to a divide and
+conquer strategy (i.e., separating feature extraction and statistical
+modeling steps), in the proposed acoustic modeling approach the relevant
+features and the classifier are jointly learned from the raw speech
+signal. through asr studies and analyses on multiple languages and multiple
+tasks, we show that: (a) the proposed approach yields consistently a better
+system with fewer parameters when compared to the conventional approach of
+cepstral feature extraction followed by ann training, (b) unlike
+conventional method of speech processing, in the proposed approach the
+relevant feature representations are learned by first processing the input
+raw speech at the sub-segmental level (â 2 ms). specifically, through an
+analysis we show that the filters in the first convolution layer
+automatically learn âin-partsâ formant-like information present in the
+sub-segmental speech, and (c) the intermediate feature representations
+obtained by subsequent filtering of the first convolution layer output are
+more discriminative compared to standard cepstral features and could be
+transferred across languages and domains.
+
+
+
+@article{palaz:2019,
+  title = {end-to-end acoustic modeling using convolutional neural networks for {hmm}-based automatic speech recognition},
+  author = {d. palaz and m. magimai-doss and r. collobert},
+  journal = {speech communication},
+  year = {2019}
+}
+
+pdf
+abstract
+bibtex
+
+
+2018
+
+
+n. zeghidour, n. usunier, g. synnaeve, r. collobert and e. dupoux. end-to-end speech recognition from the raw waveform. in interspeech, 2018.
+
+
+state-of-the-art speech recognition systems rely on fixed, hand-crafted
+features such as mel-filterbanks to preprocess the waveform before the
+training pipeline. in this paper, we study end-to-end systems trained
+directly from the raw waveform, building on two alternatives for trainable
+replacements of mel-filterbanks that use a convolutional architecture. the
+first one is inspired by gammatone filterbanks, and the second one by the
+scattering transform. we propose two modifications to these architectures
+and systematically compare them to mel-filterbanks, on the wall street
+journal dataset. the first modification is the addition of an instance
+normalization layer, which greatly improves on the gammatone-based
+trainable filterbanks and speeds up the training of the scattering-based
+filterbanks. the second one relates to the low-pass filter used in these
+approaches. these modifications consistently improve performances for both
+approaches, and remove the need for a careful initialization in
+scattering-based trainable filterbanks. in particular, we show a consistent
+improvement in word error rate of the trainable filterbanks relatively to
+comparable mel-filterbanks. it is the first time end-to-end models trained
+from the raw signal significantly outperform mel-filterbanks on a large
+vocabulary task under clean recording conditions.
+
+
+
+@inproceedings{zeghidour:2018a,
+  title = {end-to-end speech recognition from the raw waveform},
+  author = {n. zeghidour and n. usunier and g. synnaeve and r. collobert and e. dupoux},
+  booktitle = {interspeech},
+  year = {2018}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+n. zeghidour, q. xu, v. liptchinsky, n. usunier, g. synnaeve and r. collobert. fully convolutional speech recognition. arxiv, volume abs/1812.06864, 2018.
+
+
+current state-of-the-art speech recognition systems build on recurrent
+neural networks for acoustic and/or language modeling, and rely on feature
+extraction pipelines to extract mel-filterbanks or cepstral
+coefficients. in this paper we present an alternative approach based solely
+on convolutional neural networks, leveraging recent advances in acoustic
+models from the raw waveform and language modeling. this fully
+convolutional approach is trained end-to-end to predict characters from the
+raw waveform, removing the feature extraction step altogether. an external
+convolutional language model is used to decode words. on wall street
+journal, our model matches the current state-of-the-art. on librispeech, we
+report state-of-the-art performance among end-to-end models, including deep
+speech 2, that was trained with 12 times more acoustic data and
+significantly more linguistic data.
+
+
+
+@article{zeghidour:2018,
+  title = {fully convolutional speech recognition},
+  author = {n. zeghidour and q. xu and v. liptchinsky and n. usunier and g. synnaeve and r. collobert},
+  journal = {arxiv},
+  volume = {abs/1812.06864},
+  year = {2018}
+}
+
+pdf
+abstract
+bibtex
+
+
+2017
+
+
+v. liptchinsky, g. synnaeve and r. collobert. letter-based speech recognition with gated convnets. arxiv, volume abs/1712.09444, 2017.
+
+
+in the recent literature, "end-to-end" speech systems often refer to
+letter-based acoustic models trained in a sequence-to-sequence manner,
+either via a recurrent model or via a structured output learning approach
+(such as ctc). in contrast to traditional phone (or senone)-based
+approaches, these "end-to-end" approaches alleviate the need of word
+pronunciation modeling, and do not require a "forced alignment" step at
+training time. phone-based approaches remain however state of the art on
+classical benchmarks. in this paper, we propose a letter-based speech
+recognition system, leveraging a convnet acoustic model. key ingredients of
+the convnet are gated linear units and high dropout. the convnet is trained
+to map audio sequences to their corresponding letter transcriptions, either
+via a classical ctc approach, or via a recent variant called asg. coupled
+with a simple decoder at inference time, our system matches the best
+existing letter-based systems on wsj (in word error rate), and shows near
+state of the art performance on librispeech.
+
+
+
+@article{liptchinsky:2017,
+  title = {letter-based speech recognition with gated convnets},
+  author = {v. liptchinsky and g. synnaeve and r. collobert},
+  journal = {arxiv},
+  volume = {abs/1712.09444},
+  year = {2017}
+}
+
+pdf
+abstract
+bibtex
+
+
+2016
+
+
+r. collobert, c. puhrsch and g. synnaeve. wav2letter: an end-to-end convnet-based speech recognition system. arxiv, volume abs/1609.03193, 2016.
+
+
+this paper presents a simple end-to-end model for speech recognition,
+combining a convolutional network based acoustic model and a graph
+decoding. it is trained to output letters, with transcribed speech, without
+the need for force alignment of phonemes. we introduce an automatic
+segmentation criterion for training from sequence annotation without
+alignment that is on par with ctc [6] while being simpler. we show
+competitive results in word error rate on the librispeech corpus [18] with
+mfcc features, and promising results from raw waveform.
+
+
+
+@article{collobert:2016a,
+  title = {wav2letter: an end-to-end convnet-based speech recognition system},
+  author = {r. collobert and c. puhrsch and g. synnaeve},
+  journal = {arxiv},
+  volume = {abs/1609.03193},
+  year = {2016}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+d. palaz, g. synnaeve and r. collobert. jointly learning to locate and classify words using convolutional networks. in interspeech, 2016.
+
+
+in this paper, we propose a novel approach for weakly-supervised word
+recognition. most state of the art automatic speech recognition systems are
+based on frame-level labels obtained through forced alignments or through a
+sequential loss.  recently, weakly-supervised trained models have been
+proposed in vision, that can learn which part of the input is relevant for
+classifying a given pattern. our system is composed of a convolutional
+neural network and a temporal score aggregation mechanism. for each
+sentence, it is trained using as supervision only some of the words (most
+frequent) that are present in a given sentence, without knowing their order
+nor quantity.  we show that our proposed system is able to jointly classify
+and localise words. we also evaluate the system on a keyword spotting task,
+and show that it can yield similar performance to strong supervised hmm/gmm
+baseline.
+
+
+
+@inproceedings{palaz:2016,
+  title = {jointly learning to locate and classify words using convolutional networks},
+  author = {d. palaz and g. synnaeve and r. collobert},
+  booktitle = {interspeech},
+  year = {2016}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+c. sun, m. paluri, r. collobert, r. nevatia and l. bourdev. pronet: learning to propose object-specific boxes for cascaded neural networks. in conference on computer vision and pattern recognition (cvpr), 2016.
+
+
+this paper aims to classify and locate objects accurately and efficiently,
+without using bounding box annotations. it is challenging as objects in the
+wild could appear at arbitrary locations and in different scales. in this
+paper, we propose a novel classification architecture pronet based on
+convolutional neural networks. it uses computationally efficient neural
+networks to propose image regions that are likely to contain objects, and
+applies more powerful but slower networks on the proposed regions. the
+basic building block is a multi-scale fully-convolutional network which
+assigns object confidence scores to boxes at different locations and
+scales. we show that such networks can be trained effectively using
+image-level annotations, and can be connected into cascades or trees for
+efficient object classification. pronet outperforms previous
+state-of-the-art significantly on pascal voc 2012 and ms coco datasets for
+object classification and point-based localization.
+
+
+
+@inproceedings{chen:2016,
+  title = {pronet: learning to propose object-specific boxes for cascaded neural networks},
+  author = {c. sun and m. paluri and r. collobert and r. nevatia and l. bourdev},
+  booktitle = {conference on computer vision and pattern recognition (cvpr)},
+  year = {2016}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+r. collobert, l. van der maaten and a. joulin. torchnet: an open-source platform for (deep) learning research. in icml machine learning systems workshop, 2016.
+
+
+torch 7 is a scientific computing platform that supports both cpu and gpu
+computation, has a lightweight wrapper in a simple scripting language, and
+provides fast implementations of common algebraic operations. it has become
+one of the main frameworks for research in (deep) machine learning. torch
+does, however, not provide abstractions and boilerplate code for
+machine-learning experiments. as a result, researchers repeatedly
+re-implement experimentation logics that are not interoperable. we
+introduce torchnet: an open-source framework that provides abstractions and
+boilerplate logic for machine learning. it encourages modular programming
+and code re-use, which reduces the chance of bugs, and it makes it
+straightforward to use asynchronous data loading and efficient multi-gpu
+computations. torchnet is written in pure lua, which makes it easy to
+install on any architecture with a torch installation. we envision torchnet
+to become a platform to which the community contributes via plugins.
+
+
+
+@inproceedings{collobert:2016,
+  title = {torchnet: an open-source platform for (deep) learning research},
+  author = {r. collobert and l. van der maaten and a. joulin},
+  booktitle = {icml machine learning systems workshop},
+  year = {2016}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+j. legrand and r. collobert. phrase representations for multiword expressions. in workshop on multiword expressions (mwe), 2016.
+
+
+recent works in natural language processing (nlp) using neural networks
+have focused on learning dense word representations to perform
+classification tasks.  when dealing with phrase prediction problems, is is
+common practice to use special tagging schemes to identify segments
+boundaries. this allows these tasks to be expressed as common word tagging
+problems. in this paper, we propose to learn fixed-size representations for
+arbitrarily sized chunks. we introduce a model that takes advantage of such
+representations to perform phrase tagging by directly identifying and
+classifying phrases.  we evaluate our approach on the task of multiword
+expression (mwe) tagging and show that our model outperforms the
+stateof-the-art model for this task.
+
+
+
+@inproceedings{legrand:2016c,
+  title = {phrase representations for multiword expressions},
+  author = {j. legrand and r. collobert},
+  booktitle = {workshop on multiword expressions (mwe)},
+  year = {2016}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+j. legrand and r. collobert. deep neural networks for syntactic parsing of morphologically rich languages. in association for computational linguistics (acl), 2016.
+
+
+morphologically rich languages (mrl) are languages in which much of the
+structural information is contained at the wordlevel, leading to high level
+word-form variation. historically, syntactic parsing has been mainly
+tackled using generative models. these models assume input features to be
+conditionally independent, making difficult to incorporate arbitrary
+features. in this paper, we investigate the greedy discriminative parser
+described in (legrand and collobert, 2015), which relies on word
+embeddings, in the context of mrl. we propose to learn morphological
+embeddings and propagate morphological information through the tree using a
+recursive composition procedure. experiments show that such embeddings can
+dramatically improve the average performance on different
+languages. moreover, it yields state-of-the art performance for a majority
+of languages.
+
+
+
+@inproceedings{legrand:2016b,
+  title = {deep neural networks for syntactic parsing of morphologically rich languages},
+  author = {j. legrand and r. collobert},
+  booktitle = {association for computational linguistics (acl)},
+  year = {2016}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+j. legrand, m. auli and r. collobert. neural network-based word alignment through score aggregation. in workshop on machine translation (wmt), 2016.
+
+
+we present a simple neural network for word alignment that builds source
+and target word window representations to compute alignment scores for
+sentence pairs. to enable unsupervised training, we use an aggregation
+operation that summarizes the alignment scores for a given target word. a
+soft-margin objective increases scores for true target words while
+decreasing scores for target words that are not present. compared to the
+popular fast align model, our approach improves alignment accuracy by 7 aer
+on english-czech, by 6 aer on romanian-english and by 1.7 aer on
+english-french alignment.
+
+
+
+@inproceedings{legrand:2016a,
+  title = {neural network-based word alignment through score aggregation},
+  author = {j. legrand and m. auli and r. collobert},
+  booktitle = {workshop on machine translation {(wmt)}},
+  year = {2016}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+p. h. o. pinheiro, t. y. lin, r. collobert and p. dollar. learning to refine object segments. in european conference on computer vision (eccv), 2016.
+
+
+in this work we propose to augment feedforward nets for object segmentation
+with a novel top-down refinement approach. the resulting bottom-up/top-down
+architecture is capable of efficiently generating high-fidelity object
+masks. similarly to skip connections, our approach leverages features at
+all layers of the net. unlike them, our approach does not attempt to output
+independent predictions at each layer. instead, we first output a coarse
+âmask encodingâ in a feedforward pass, then refine this mask encoding in a
+top-down pass utilizing features at successively lower layers.
+
+
+
+@inproceedings{pinheiro:2016,
+  title = {learning to refine object segments},
+  author = {p. h. o. pinheiro and t. y. lin and r. collobert and p. dollar},
+  booktitle = {european conference on computer vision {(eccv)}},
+  year = {2016}
+}
+
+pdf
+abstract
+bibtex
+
+
+2015
+
+
+p. h. o. pinheiro, r. collobert and p. dollar. learning to segment object candidates. in advances in neural information processing systems (nips), 2015.
+
+
+in this paper, we propose a new way to generate object proposals,
+introducing an approach based on a discriminative convolutional
+network. our model is trained jointly with two objectives: given an image
+patch, the first part of the system outputs a class-agnostic segmentation
+mask, while the second part of the system outputs the likelihood of the
+patch being centered on a full object. at test time, the model is
+efficiently applied on the whole test image and generates a set of
+segmentation masks, each of them being assigned with a corresponding object
+likelihood score.
+
+
+
+@inproceedings{pinheiro:2015b,
+  title = {learning to segment object candidates},
+  author = {p. h. o. pinheiro and r. collobert and p. dollar},
+  booktitle = {advances in neural information processing systems {(nips)}},
+  year = {2015}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+p. h. o. pinheiro and r. collobert. from image-level to pixel-level labeling with convolutional networks. in conference on computer vision and pattern recognition (cvpr), 2015.
+
+
+we are interested in inferring object segmentation by leveraging only
+object class information, and by considering only minimal priors on the
+object segmentation task.  this problem could be viewed as a kind of weakly
+supervised segmentation task, and naturally fits the multiple instance
+learning (mil) framework: every training image is known to have (or not) at
+least one pixel corresponding to the image class label, and the
+segmentation task can be rewritten as inferring the pixels belonging to the
+class of the object (given one image, and its object class). we propose a
+convolutional neural network-based model, which is constrained during
+training to put more weight on pixels which are important for classifying
+the image. we show that at test time, the model has learned to discriminate
+the right pixels well enough, such that it performs very well on an
+existing segmentation benchmark, by adding only few smoothing priors. our
+system is trained using a subset of the imagenet dataset and the
+segmentation experiments are performed on the challenging pascal voc
+dataset (with no fine-tuning of the model on pascal voc). our model beats
+the state of the art results in weakly supervised object segmentation task
+by a large margin. we also compare the performance of our model with state
+of the art fully-supervised segmentation approaches.
+
+
+
+@inproceedings{pinheiro:2015a,
+  title = {from image-level to pixel-level labeling with convolutional networks},
+  author = {p. h. o. pinheiro and r. collobert},
+  booktitle = {conference on computer vision and pattern recognition (cvpr)},
+  year = {2015}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+r. lebret and r. collobert. n-gram-based low-dimensional representation for document classification. in international conference on learning representations (iclr), 2015.
+
+
+the bag-of-words (bow) model is the common approach for classifying documents,
+where words are used as feature for training a classifier. this generally
+involves a huge number of features. some techniques, such as latent semantic
+analysis (lsa) or latent dirichlet allocation (lda), have been designed to summarize
+documents in a lower dimension with the least semantic information loss.
+some semantic information is nevertheless always lost, since only words are considered.
+instead, we aim at using information coming from n-grams to overcome
+this limitation, while remaining in a low-dimension space. many approaches, such
+as the skip-gram model, provide good word vector representations very quickly.
+we propose to average these representations to obtain representations of n-grams.
+all n-grams are thus embedded in a same semantic space. a k-means clustering
+can then group them into semantic concepts. the number of features is therefore
+dramatically reduced and documents can be represented as bag of semantic
+concepts. we show that this model outperforms lsa and lda on a sentiment
+classification task, and yields similar results than a traditional bow-model with
+far less features.
+
+
+
+@inproceedings{lebret:2015c,
+  title = {n-gram-based low-dimensional representation for document classification},
+  author = {r. lebret and r. collobert},
+  booktitle = {international conference on learning representations (iclr)},
+  year = {2015}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+r. lebret and r. collobert. phrase-based image captioning. in international conference on machine learning (icml), 2015.
+
+
+generating a novel textual description of an image is an interesting
+problem that connects computer vision and natural language processing. in
+this paper, we present a simple model that is able to generate descriptive
+sentences given a sample image. this model has a strong focus on the syntax
+of the descriptions. we train a purely bilinear model that learns a metric
+between an image representation (generated from a previously trained
+convolutional neural network) and phrases that are used to described
+them. the system is then able to infer phrases from a given image sample.
+based on caption syntax statistics, we propose a simple language model that
+can produce relevant descriptions for a given test image using the phrases
+inferred. our approach, which is considerably simpler than state-of-the-art
+models, achieves comparable results in two popular datasets for the task:
+flickr30k and the recently proposed microsoft coco.
+
+
+
+@inproceedings{lebret:2015b,
+  title = {phrase-based image captioning},
+  author = {r. lebret and r. collobert},
+  booktitle = {international conference on machine learning (icml)},
+  year = {2015}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+d. palaz, m. magimai-doss and r. collobert. analysis of cnn-based speech recognition system using raw speech as input. in 16th annual conference of the international speech communication association (interspeech), 2015.
+
+
+automatic speech recognition systems typically model the relationship
+between the acoustic speech signal and the phones in two separate steps:
+feature extraction and classifier training. in our recent works, we have
+shown that, in the framework of convolutional neural networks (cnn), the
+relationship between the raw speech signal and the phones can be directly
+modeled and asr systems competitive to standard approach can be built. in
+this paper, we first analyze and show that, between the first two
+convolutional layers, the cnn learns (in parts) and models the
+phone-specific spectral envelope information of 24 ms speech. given that
+we show that the cnn-based approach yields asr trends similar to standard
+short-term spectral based asr system under mismatched (noisy) conditions,
+with the cnn-based approach being more robust.
+
+
+
+@inproceedings{palaz:2015b,
+  title = {analysis of cnn-based speech recognition system using raw speech as input},
+  author = {d. palaz and m. magimai-doss and r. collobert},
+  booktitle = {16th annual conference of the international speech communication association (interspeech)},
+  year = {2015}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+j. legrand and r. collobert. joint rnn-based greedy parsing and word composition. in international conference on learning representations (iclr), 2015.
+
+
+this paper introduces a greedy parser based on neural networks, which leverages
+a new compositional sub-tree representation. the greedy parser and the compositional
+procedure are jointly trained, and tightly depends on each-other. the
+composition procedure outputs a vector representation which summarizes syntactically
+(parsing tags) and semantically (words) sub-trees. composition and tagging
+is achieved over continuous (word or tag) representations, and recurrent neural
+networks. we reach f1 performance on par with well-known existing parsers,
+while having the advantage of speed, thanks to the greedy nature of the parser. we
+provide a fully functional implementation of the method described in this paper.
+
+
+
+@inproceedings{legrand:2015,
+  title = {joint rnn-based greedy parsing and word composition},
+  author = {j. legrand and r. collobert},
+  booktitle = {international conference on learning representations (iclr)},
+  year = {2015}
+}
+
+pdf
+abstract
+bibtex
+deepparse
+
+
+
+
+d. palaz, m. magimai-doss and r. collobert. convolutional neural networks-based continuous speech recognition using raw speech signal. in 40th international conference on acoustics, speech and signal processing (icassp), 2015.
+
+
+state-of-the-art automatic speech recognition systems model the
+relationship between acoustic speech signal and phone classes in two
+stages, namely, extraction of spectral-based features based on prior
+knowledge followed by training of acoustic model, typically an artificial
+neural network (ann). in our recent work, it was shown that convolutional
+neural networks (cnns) can model phone classes from raw acoustic speech
+signal, reaching performance on par with other existing feature-based
+approaches. this paper extends the cnn-based approach to large vocabulary
+speech recognition task. more precisely, we compare the cnn-based approach
+against the conventional ann-based approach on wall street journal
+corpus. our studies show that the cnn-based approach achieves better
+performance than the conventional ann-based approach with as many
+parameters. we also show that the features learned from raw speech by the
+cnn-based approach could generalize across different databases.
+
+
+
+@inproceedings{palaz:2015a,
+  title = {convolutional neural networks-based continuous speech recognition using raw speech signal},
+  author = {d. palaz and m. magimai-doss and r. collobert},
+  booktitle = {40th international conference on acoustics, speech and signal processing (icassp)},
+  year = {2015}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+r. lebret and r. collobert. rehabilitation of count-based models for word vector representations. in conference on intelligent text processing and computational linguistics (cicling), 2015.
+
+
+recent works on word representations mostly rely on predictive
+models. distributed word representations (aka word embeddings) are trained
+to optimally predict the contexts in which the corresponding words tend to
+appear.  such models have succeeded in capturing word similarities as well
+as semantic and syntactic regularities. instead, we aim at reviving
+interest in a model based on counts.  we present a systematic study of the
+use of the hellinger distance to extract semantic representations from the
+word co-occurrence statistics of large text corpora. we show that this
+distance gives good performance on word similarity and analogy tasks, with
+a proper type and size of context, and a dimensionality reduction based on
+a stochastic low-rank approximation. besides being both simple and
+intuitive, this method also provides an encoding function which can be used
+to infer unseen words or phrases. this becomes a clear advantage compared
+to predictive models which must train these new words.
+
+
+
+@inproceedings{lebret:2015a,
+  title = {rehabilitation of count-based models for word vector representations},
+  author = {r. lebret and r. collobert},
+  booktitle = {conference on intelligent text processing and computational linguistics (cicling)},
+  year = {2015}
+}
+
+pdf
+abstract
+bibtex
+
+
+2014
+
+
+d. palaz, m. magimai-doss and r. collobert. joint phoneme segmentation inference and classification using crfs. in 2nd global conference on signal and information processing (globalsip), 2014.
+
+
+state-of-the-art phoneme sequence recognition systems are based on hybrid
+hidden markov model/artificial neural networks (hmm/ann) framework. in this
+framework, the local classifier, ann, is typically trained using viterbi
+expectation-maximization algorithm, which involves two separate steps:
+phoneme sequence segmentation and training of ann. in this paper, we
+propose a crf based phoneme sequence recognition approach that
+simultaneously infers the phoneme segmentation and classifies the phoneme
+sequence. more specifically, the phoneme sequence recognition system
+consists of a local classifier ann followed by a conditional random field
+(crf) whose parameters are trained jointly, using a cost function that
+discriminates the true phoneme sequence against all competing sequences. in
+order to efficiently train such a system we introduce a novel crf based
+segmentation using acyclic graph. we study the viability of the proposed
+approach on timit phoneme recognition task. our studies show that the
+proposed approach is capable of achieving performance similar to standard
+hybrid hmm/ann and ann/crf systems where the ann is trained with manual
+segmentation.
+
+
+
+@inproceedings{palaz:2014,
+  title = {joint phoneme segmentation inference and classification using crfs},
+  author = {d. palaz and m. magimai-doss and r. collobert},
+  booktitle = {2nd global conference on signal and information processing (globalsip)},
+  year = {2014}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+p. h. o. pinheiro and r. collobert. recurrent convolutional neural networks for scene labeling. in proceedings of the 31st international conference on machine learning (icml), 2014.
+
+
+the goal of the scene labeling task is to assign a class label to each
+pixel in an image. to ensure a good visual coherence and a high class
+accuracy, it is essential for a model to capture long range (pixel) label
+dependencies in images. in a feed-forward architecture, this can be
+achieved simply by considering a sufficiently large input context patch,
+around each pixel to be labeled. we propose an approach that consists of a
+recurrent convolutional neural network which allows us to consider a large
+input context while limiting the capacity of the model. contrary to most
+standard approaches, our method does not rely on any segmentation technique
+nor any task-specific features. the system is trained in an end-to-end
+manner over raw pixels, and models complex spatial dependencies with low
+inference cost. as the context size increases with the built-in recurrence,
+the system identifies and corrects its own errors. our approach yields
+state-of-the-art performance on both the stanford background dataset and
+the sift flow dataset, while remaining very fast at test time.
+
+
+
+@inproceedings{pinheiro:2014,
+  title = {recurrent convolutional neural networks for scene labeling},
+  author = {p. h. o. pinheiro and r. collobert},
+  booktitle = {proceedings of the 31st international conference on machine learning (icml)},
+  year = {2014}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+j. legrand and r. collobert. recurrent greedy parsing with neural networks. in proceedings of the european conference on machine learning, principles and practice of knowledge discovery in databases (ecml-pkdd), 2014.
+
+
+in this paper, we propose a bottom-up greedy and purely discriminative
+syntactic parsing approach that relies only on a few simple features. the
+core of the architecture is a simple neural network architecture, trained
+with an objective function similar to a conditional random field. this
+parser leverages continuous word vector representations to model the
+conditional distributions of context-aware syntactic rules. the learned
+distribution rules are naturally smoothed, thanks to the continuous nature
+of the input features and the model. generalization accuracy compares very
+well with the existing generative or discriminative (non-reranking) parsers
+(despite the greedy nature of our approach), and prediction speed is very
+fast.
+
+
+
+@inproceedings{legrand:2014,
+  title = {recurrent greedy parsing with neural networks},
+  author = {j. legrand and r. collobert},
+  booktitle = {proceedings of the european conference on machine learning and principles and practice of knowledge discovery in databases (ecml-pkdd)},
+  year = {2014}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+r. lebret and r. collobert. word embeddings through hellinger pca. in proceedings of the 14th conference of the european chapter of the association for computational linguistics (eacl), pages 482-490, association for computational linguistics, 2014.
+
+
+word embeddings resulting from neural language models have been shown to be
+a great asset for a large variety of nlp tasks. however, such architecture
+might be difficult and time-consuming to train. instead, we propose to
+drastically simplify the word embeddings computation through a hellinger
+pca of the word co-occurence matrix. we compare those new word embeddings
+with some well-known embeddings on named entity recognition and movie
+review tasks and show that we can reach similar or even better
+performance. although deep learning is not really necessary for generating
+good word embeddings, we show that it can provide an easy way to adapt
+embeddings to specific tasks.
+
+
+
+@inproceedings{lebret:2014,
+  title = {word embeddings through hellinger pca},
+  author = {r. lebret and r. collobert},
+  booktitle = {proceedings of the 14th conference of the european chapter of the association for computational linguistics (eacl)},
+  publisher = {association for computational linguistics},
+  pages = {482--490},
+  year = {2014}
+}
+
+pdf
+abstract
+bibtex
+word embeddings
+
+
+2013
+
+
+d. palaz, r. collobert and m. magimai-doss. estimating phoneme class conditional probabilities from raw speech signal using convolutional neural networks. in interspeech, 2013.
+
+
+in hybrid hidden markov model/artificial neural networks (hmm/ann)
+automatic speech recognition (asr) system, the phoneme class conditional
+probabilities are estimated by first extracting acoustic features from the
+speech signal based on prior knowledge such as, speech perception or/and
+speech production knowledge, and, then modeling the acoustic features
+with an ann. recent advances in machine learning techniques, more
+specifically in the field of image processing and text processing, have
+shown that such divide and conquer strategy (i.e., separating feature
+extraction and modeling steps) may not be necessary. motivated from these
+studies, in the framework of convolutional neural networks (cnns), this
+paper investigates a novel approach, where the input to the ann is raw
+speech signal and the output is phoneme class conditional probability
+estimates. on timit phoneme recognition task, we study different ann
+architectures to show the benefit of cnns and compare the proposed approach
+against conventional approach where, spectral-based feature mfcc is
+extracted and modeled by a multilayer perceptron. our studies show that the
+proposed approach can yield comparable or better phoneme recognition
+performance when compared to the conventional approach. it indicates that
+cnns can learn features relevant for phoneme classification automatically
+from the raw speech signal.
+
+
+
+@inproceedings{palaz:2013,
+  title = {estimating phoneme class conditional probabilities from raw speech signal using convolutional neural networks},
+  author = {d. palaz and r. collobert and m. magimai-doss},
+  booktitle = {interspeech},
+  year = {2013}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+a. bordes, l. bottou, r. collobert, d. roth, j. weston and l. zettlemoyer. introduction to the special issue on learning semantics. machine learning, 94:127-131, 2013.
+
+@article{bordes:2013,
+  title = {introduction to the special issue on learning semantics},
+  author = {a. bordes and l. bottou and r. collobert and d. roth and j. weston and l. zettlemoyer},
+  journal = {machine learning},
+  volume = {94},
+  publisher = {springer},
+  pages = {127--131},
+  year = {2013}
+}
+
+pdf
+bibtex
+springer
+
+
+
+
+m. yazdani, r. collobert and a. popescu-belis. learning to rank on network data. in eleventh workshop on mining and learning with graphs, acm, 2013.
+
+
+this paper proposes a method for learning to rank over network data. the
+ranking is performed with respect to a query object which can be part of
+the network or out- side it. the ranking method makes use of the features
+of the nodes as well as the existing links between them. first, a
+neighbors-aware ranker is trained using a large margin pairwise loss
+function. neighbors-aware ranker uses target neighbors scores in addition
+to objects' content and therefore, the scoring is consistent in every
+neighborhood. then, collective inference is performed using an iterative
+ranking algorithm, which propagates the results of rankers over the
+network. by formulating link prediction as a ranking problem, the method
+is tested on several networks, with pa- pers/citations and
+webpages/hyperlinks. the results show that the proposed algorithm, which
+uses both the attributes of the nodes and the structure of the links,
+outperforms several other methods: a content-only ranker, a link-only
+one, a random walk method, a relational topic model, and a method based
+on the weighted number of common neighbors. in addition, the propagation
+algorithm improves results even when the query object is not part of the
+network, and scales efficiently to large networks.
+
+
+
+@inproceedings{collobert:2013,
+  title = {learning to rank on network data},
+  author = {m. yazdani and r. collobert and a. popescu-belis},
+  booktitle = {eleventh workshop on mining and learning with graphs},
+  publisher = {acm},
+  year = {2013}
+}
+
+pdf
+abstract
+bibtex
+
+
+2012
+
+
+r. collobert, k. kavukcuoglu and c. farabet. implementing neural networks efficiently. in neural networks: tricks of the trade, g. montavon, g. orr and k-r. muller (ed), springer, 2012.
+
+
+neural networks and machine learning algorithms in general require a
+flexible environment where new algorithm prototypes and experiments
+can be set up as quickly as possible with best possible computational
+performance. to that end, we provide a new framework called torch7,
+that is especially suited to achieve both of these competing
+goals. torch7 is a versatile numeric computing framework and machine
+learning library that extends a very lightweight and powerful
+programming language lua. its goal is to provide a flexible
+environment to design, train and deploy learning machines. flexibility
+is obtained via lua, an extremely lightweight scripting language. high
+performance is obtained via efficient openmp/sse and cuda
+implementations of low-level numeric routines. torch7 can also easily
+be interfaced to third-party software thanks to luaâs light c
+interface.
+
+
+
+@incollection{collobert:2012,
+  title = {implementing neural networks efficiently},
+  author = {r. collobert and k. kavukcuoglu and c. farabet},
+  booktitle = {neural networks: tricks of the trade},
+  publisher = {springer},
+  editor = {g. montavon and g. orr and k-r. muller},
+  year = {2012}
+}
+
+pdf
+abstract
+bibtex
+torch 7
+torch 7 git
+
+
+
+
+j. weston, f. ratle, h. mobahi and r. collobert. deep learning via semi-supervised embedding. in neural networks: tricks of the trade, g. montavon, g. orr and k-r. muller (ed), springer, 2012.
+
+
+we show how nonlinear embedding algorithms popular for use with
+"shallow" semi-supervised learning techniques such as kernel methods
+can be easily applied to deep multi-layer architectures, either as a
+regularizer at the output layer, or on each layer of the
+architecture. this trick provides a simple alternative to existing
+approaches to deep learning whilst yielding competitive error rates
+compared to those methods, and existing shallow semi-supervised
+techniques.
+
+
+
+@incollection{weston:2012,
+  title = {deep learning via semi-supervised embedding},
+  author = {j. weston and f. ratle and h. mobahi and r. collobert},
+  booktitle = {neural networks: tricks of the trade},
+  publisher = {springer},
+  editor = {g. montavon and g. orr and k-r. muller},
+  year = {2012}
+}
+
+pdf
+abstract
+bibtex
+
+
+2011
+
+
+r. collobert, k. kavukcuoglu and c. farabet. torch7: a matlab-like environment for machine learning. in biglearn, nips workshop, 2011.
+
+
+torch7 is a versatile numeric computing framework and machine
+      learning library that extends lua. its goal is to provide a
+      flexible environment to design and train learning
+      machines. flexibility is obtained via lua, an extremely
+      lightweight scripting language. high performance is obtained via
+      efficient openmp/sse and cuda implementations of low-level
+      numeric routines. torch7 can easily be in- terfaced to
+      third-party software thanks to luaâs light interface.
+
+
+
+@inproceedings{collobert:2011c,
+  title = {torch7: a matlab-like environment for machine learning},
+  author = {r. collobert and k. kavukcuoglu and c. farabet},
+  booktitle = {biglearn, nips workshop},
+  year = {2011}
+}
+
+pdf
+abstract
+bibtex
+torch 7
+torch 7 git
+
+
+
+
+r. collobert, j. weston, l. bottou, m. karlen, k. kavukcuoglu and p. kuksa. natural language processing (almost) from scratch. journal of machine learning research, 12:2493-2537, 2011.
+
+
+we propose a unified neural network architecture and learning
+        algorithm that can be applied to various natural language
+        processing tasks including part-of-speech tagging, chunking,
+        named entity recognition, and semantic role labeling. this
+        versatility is achieved by trying to avoid task-specific
+        engineering and therefore disregarding a lot of prior
+        knowledge. instead of exploiting man-made input features
+        carefully optimized for each task, our system learns internal
+        representations on the basis of vast amounts of mostly
+        unlabeled training data. this work is then used as a basis for
+        building a freely available tagging system with good
+        performance and minimal computational requirements.
+
+
+
+@article{collobert:2011b,
+  title = {natural language processing (almost) from scratch},
+  author = {r. collobert and j. weston and l. bottou and m. karlen and k. kavukcuoglu and p. kuksa},
+  journal = {journal of machine learning research},
+  volume = {12},
+  pages = {2493--2537},
+  year = {2011}
+}
+
+pdf
+abstract
+bibtex
+senna
+
+
+
+
+r. collobert. deep learning for efficient discriminative parsing. in aistats, 2011.
+
+
+we propose a new fast purely discriminative algorithm for
+          natural language parsing, based on a âdeepâ recurrent
+          convolutional graph transformer network (gtn). assuming a
+          decomposition of a parse tree into a stack of âlevelsâ, the
+          network predicts a level of the tree taking into account
+          predictions of previous levels. using only few basic text
+          features which leverage word representations from collobert
+          and weston (2008), we show similar performance (in f1 score)
+          to existing pure discriminative parsers and existing
+          âbenchmarkâ parsers (like collins parser, probabilistic
+          context-free grammars based), with a huge speed advantage.
+
+
+
+
+i apologize for the incorrect f1 score i first reported for
+      carreras et al' parser (90.5% inttead of 91.1%). i confused wsj
+      sections 23 and 24 performance. thanks to michael collins who
+      reported the bug.
+
+
+
+@inproceedings{collobert:2011,
+  title = {deep learning for efficient discriminative parsing},
+  author = {r. collobert},
+  booktitle = {aistats},
+  year = {2011}
+}
+
+pdf
+abstract
+notes
+bibtex
+senna
+
+
+
+
+a. bordes, j. weston, r. collobert and y. bengio. learning structured embeddings of knowledge bases. in aaai, 2011.
+
+
+many knowledge bases (kbs) are now readily available and
+         encompass colossal quantities of information thanks to either
+         a long-term funding effort (e.g. wordnet, opencyc) or a
+         collaborative process (e.g. freebase, dbpedia). however, each
+         of them is based on a different rigorous symbolic framework
+         which makes it hard to use their data in other systems. it is
+         unfortunate because such rich structured knowledge might lead
+         to a huge leap forward in many other areas of ai like nat-
+         ural language processing (word-sense disambiguation, natu-
+         ral language understanding, ...), vision (scene
+         classification, image semantic annotation, ...) or
+         collaborative filtering. in this paper, we present a learning
+         process based on an innovative neural network architecture
+         designed to embed any of these symbolic representations into
+         a more flexible continuous vector space in which the original
+         knowledge is kept and enhanced. these learnt embeddings would
+         allow data from any kb to be easily used in recent machine
+         learning methods for prediction and information retrieval. we
+         illustrate our method on wordnet and freebase and also
+         present a way to adapt it to knowledge extraction from raw
+         text.
+
+
+
+@inproceedings{bordes:2011,
+  title = {learning structured embeddings of knowledge bases},
+  author = {a. bordes and j. weston and r. collobert and y. bengio},
+  booktitle = {aaai},
+  year = {2011}
+}
+
+pdf
+abstract
+bibtex
+
+
+2010
+
+
+p. kuksa, y. qi, b. bai, r. collobert, j.weston, v. pavlovic and x. ning. semi-supervised abstraction-augmented string kernel for multi-level bio-relation extraction. in ecml pkdd, 2010.
+
+
+bio-relation extraction (bre), an important goal in bio-text
+         mining, involves subtasks identifying relationships between
+         bio-entities in text at multiple levels, e.g., at the article,
+         sentence or relation level. a key limitation of current bre
+         systems is that they are restricted by the availability of
+         annotated corpora. in this work we introduce a semi-supervised
+         approach that can tackle multi-level bre via string comparisons
+         with mismatches in the string kernel framework. our string kernel
+         implements an abstraction step, which groups similar words to
+         generate more abstract entities, which can be learnt with
+         unlabeled data. specifically, two unsupervised models are proposed
+         to capture contextual (local or global) semantic similarities
+         between words from a large unannotated corpus. this
+         abstraction-augmented string kernel (ask) allows for better
+         generalization of patterns learned from annotated data and
+         provides a unified framework for solving bre with multiple degrees
+         of detail. ask shows effective improvements over classic string
+         kernels on four datasets and achieves state-of-the-art bre
+         performance without the need for complex linguistic features.
+
+
+
+@inproceedings{qi:2010,
+  title = {semi-supervised abstraction-augmented string kernel for multi-level bio-relation extraction},
+  author = {p. kuksa and y. qi and b. bai and r. collobert and j.weston and v. pavlovic and x. ning},
+  booktitle = {ecml pkdd},
+  year = {2010}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+a. bordes, n. usunier, r. collobert and j. weston. towards understanding situated natural language. in aistats, 2010.
+
+
+we present a general framework and learning algorithm for the task
+         of concept labeling: each word in a given sentence has to be
+         tagged with the unique physical entity (e.g. person, object or
+         location) or abstract con- cept it refers to. our method allows
+         both world knowledge and linguistic information to be used during
+         learning and prediction. we show experimentally that we can learn
+         to use world knowledge to resolve ambiguities in language, such as
+         word senses or ref- erence resolution, without the use of
+         handcrafted rules or features.
+
+
+
+@inproceedings{bordes:2010,
+  title = {towards understanding situated natural language},
+  author = {a. bordes and n. usunier and r. collobert and j. weston},
+  booktitle = {aistats},
+  year = {2010}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+b. bai, j. weston, d. grangier, r. collobert, c. cortes and m. mohri. half transductive ranking. in artificial intelligence and statistics (aistats), 2010.
+
+
+we study the standard retrieval task of ranking a fixed set of
+         items given a previously unseen query and pose it as the
+         half-transductive ranking problem. transductive representations
+         (where the vector representation of each example is learned) allow
+         the generation of highly nonlinear embeddings that capture the
+         characteristics of object relationships without relying on a
+         specific choice of features, and require only relatively simple
+         optimization. unfortunately, they have no direct out-of-sample
+         extension. inductive approaches on the other hand allow for the
+         representation of unknown queries. we describe algorithms for this
+         setting which have the advantages of both transductive and
+         inductive approaches, and can be applied in unsupervised (either
+         reconstruction-based or graph-based) and supervised ranking
+         setups. we show empirically that our methods give strong
+         performance on all three tasks.
+
+
+
+@inproceedings{bai:2010,
+  title = {half transductive ranking},
+  author = {b. bai and j. weston and d. grangier and r. collobert and c. cortes and m. mohri},
+  booktitle = {artificial intelligence and statistics (aistats)},
+  year = {2010}
+}
+
+pdf
+abstract
+bibtex
+
+
+2009
+
+
+a. bordes, n. usunier, j. weston and r. collobert. learning to disambiguate natural language using world knowledge. in nips workshop on grammar induction, representation of language and language learning, 2009.
+
+
+we present a general framework and learning algorithm for the task
+         of concept labeling: each word in a given sentence has to be
+         tagged with the unique physical entity (e.g. person, object or
+         location) or abstract concept it refers to. our method allows both
+         world knowledge and linguistic information to be used during
+         learning and prediction. we show experimentally that we can handle
+         natural language and learn to use world knowledge to resolve
+         ambiguities in language, such as word senses or coreference,
+         without the use of hand-crafted rules or features.
+
+
+
+@inproceedings{bordes:2009,
+  title = {learning to disambiguate natural language using world knowledge},
+  author = {a. bordes and n. usunier and j. weston and r. collobert},
+  booktitle = {nips workshop on grammar induction, representation of language and language learning},
+  year = {2009}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+b. bai, j. weston, d. grangier, r. collobert, c. cortes and m. mohri. ranking with half transductive models. in nips workshop on advances in ranking, 2009.
+
+
+we study the standard retrieval task of ranking a fixed set of
+         documents given a previously unseen query and pose it as the
+         half-transductive ranking problem. the task is partly transductive
+         as the document set is fixed. existing transductive approaches are
+         natural non-linear methods for this set, but have no direct
+         out-of-sample extension. functional approaches, on the other hand,
+         can be applied to the unseen queries, but fail to exploit the
+         availability of the document set in its full extent. this work
+         introduces a half-transductive approach to benefit from the
+         advantages of both transductive and functional approaches and show
+         its empirical advantage in supervised ranking setups.
+
+
+
+@inproceedings{bai:2009d,
+  title = {ranking with half transductive models},
+  author = {b. bai and j. weston and d. grangier and r. collobert and c. cortes and m. mohri},
+  booktitle = {nips workshop on advances in ranking},
+  year = {2009}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+b. bai, j. weston, d. grangier, r. collobert, k. sadamasa, y. qi, c. cortes and m. mohri. polynomial semantic indexing. in advances in neural information processing systems (nips), 2009.
+
+
+we present a class of nonlinear (polynomial) models that are
+         discriminatively trained to directly map from the word content in
+         a query-document or document-document pair to a ranking
+         score. dealing with polynomial models on word features is
+         computationally challenging. we propose a low-rank (but diagonal
+         preserving) representation of our polynomial models to induce
+         feasible memory and computation requirements. we provide an
+         empirical study on retrieval tasks based on wikipedia documents,
+         where we obtain state-of-the-art performance while providing
+         realistically scalable methods.
+
+
+
+@inproceedings{bai:2009c,
+  title = {polynomial semantic indexing},
+  author = {b. bai and j. weston and d. grangier and r. collobert and k. sadamasa and y. qi and c. cortes and m. mohri},
+  booktitle = {advances in neural information processing systems {(nips)}},
+  year = {2009}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+r. collobert and j. weston. deep learning in natural language processing. tutorial at nips, 2009.
+
+
+this tutorial will describe recent advances in deep learning
+         techniques for natural language processing (nlp). traditional nlp
+         approaches favour shallow systems, possibly cascaded, with
+         adequate hand-crafted features. in constrast, we are interested in
+         end-to-end architectures: these systems include several feature
+         layers, with increasing abstraction at each layer. compared to
+         shallow systems, these feature layers are learnt for the task of
+         interest, and do not require any engineering. we will show how
+         neural networks are naturally well suited for end-to-end learning
+         in nlp tasks. we will study multi-tasking different tasks, new
+         semi-supervised learning techniques adapted to these deep
+         architectures, and review end-to-end structured output
+         learning. finally, we will highlight how some of these advances
+         can be applied to other fields of research, like computer vision,
+         as well.
+
+
+
+@misc{collobert:2009,
+  title = {deep learning in natural language processing},
+  author = {r. collobert and j. weston},
+  howpublished = {tutorial at nips},
+  year = {2009}
+}
+
+pdf
+abstract
+bibtex
+nips tutorials
+
+
+
+
+y. qi, p. kuksa, r. collobert, k. sadamasa, k. kavukcuoglu and j. weston. semi-supervised sequence labeling with self-learned features. in ieee international conference on data mining (icdm), 2009.
+
+
+typical information extraction (ie) systems can be seen as tasks
+         assigning labels to words in a natural language sequence. the
+         performance is restricted by the availability of labeled words. to
+         tackle this issue, we propose a semi-supervised approach to
+         improve the sequence labeling procedure in ie through a class of
+         algorithms with self-learned features (slf). a supervised
+         classifier can be trained with annotated text sequences and used
+         to classify each word in a large set of unannotated sentences. by
+         averaging predicted labels over all cases in the unlabeled corpus,
+         slf training builds class label distribution patterns for each
+         word (or word attribute) in the dictionary and re-trains the
+         current model iteratively adding these distributions as extra word
+         features. basic slf models how likely a word could be assigned to
+         target class types. several extensions are proposed, such as
+         learning words’ class boundary distributions. slf exhibits robust
+         and scalable behaviour and is easy to tune. we applied this
+         approach on four classical ie tasks: named entity recognition
+         (german and english), part-of-speech tagging (english) and one
+         gene name recognition corpus. experimental results show effective
+         improvements over the supervised baselines on all tasks. in
+         addition, when compared with the closely related self-training
+         idea, this approach shows favorable advantages.
+
+
+
+@inproceedings{qi:2009a,
+  title = {semi-supervised sequence labeling with self-learned features},
+  author = {y. qi and p. kuksa and r. collobert and k. sadamasa and k. kavukcuoglu and j. weston},
+  booktitle = {ieee international conference on data mining ({icdm})},
+  year = {2009}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+b. bai, j. weston, d. grangier, r. collobert, k. sadamasa, y. qi, o. chapelle and k. weinberger. learning to rank with (a lot of) word features. journal of information retrieval, volume special issue on learning to rank for information retrieval, 2009.
+
+
+in this article we present supervised semantic indexing (ssi)
+         which defines a class of nonlinear (quadratic) models that are
+         discriminatively trained to directly map from the word content in
+         a query-document or document-document pair to a ranking
+         score. like latent semantic indexing (lsi), our models take
+         account of correlations between words (synonymy,
+         polysemy). however, unlike lsi our models are trained from a
+         supervised signal directly on the ranking task of interest, which
+         we argue is the reason for our superior results. as the query and
+         target texts are modeled separately, our approach is easily
+         generalized to different retrieval tasks, such as cross-language
+         retrieval or online advertising placement. dealing with models on
+         all pairs of words features is computationally challenging. we
+         propose several improvements to our basic model for addressing
+         this issue, including low rank (but diagonal preserving)
+         representations, correlated feature hashing (cfh) and
+         sparsification. we provide an empirical study of all these methods
+         on retrieval tasks based on wikipedia documents as well as an
+         internet advertisement task. we obtain state-of-the-art
+         performance while providing realistically scalable methods.
+
+
+
+@article{bai:2009b,
+  title = {learning to rank with (a lot of) word features},
+  author = {b. bai and j. weston and d. grangier and r. collobert and k. sadamasa and y. qi and o. chapelle and k. weinberger},
+  journal = {journal of information retrieval},
+  volume = {special issue on learning to rank for information retrieval},
+  year = {2009}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+t. barnickel, j. weston, r. collobert, h-w. mewes and v. stümpflen. large scale application of neural network based semantic role labeling for automated relation extraction from biomedical texts. plos one, 4(7), july 2009.
+
+
+to reduce the increasing amount of time spent on literature search
+         in the life sciences, several methods for automated knowledge
+         extraction have been developed. co-occurrence based approaches can
+         deal with large text corpora like medline in an acceptable time
+         but are not able to extract any specific type of semantic
+         relation. semantic relation extraction methods based on syntax
+         trees, on the other hand, are computationally expensive and the
+         interpretation of the generated trees is difficult. several
+         natural language processing (nlp) approaches for the biomedical
+         domain exist focusing specifically on the detection of a limited
+         set of relation types. for systems biology, generic approaches for
+         the detection of a multitude of relation types which in addition
+         are able to process large text corpora are needed but the number
+         of systems meeting both requirements is very limited. we introduce
+         the use of senna (‘semantic extraction using a neural network
+         architecture’), a fast and accurate neural network based semantic
+         role labeling (srl) program, for the large scale extraction of
+         semantic relations from the biomedical literature. a comparison of
+         processing times of senna and other srl systems or syntactical
+         parsers used in the biomedical domain revealed that senna is the
+         fastest proposition bank (propbank) conforming srl program
+         currently available. 89 million biomedical sentences were tagged
+         with senna on a 100 node cluster within three days. the accuracy
+         of the presented relation extraction approach was evaluated on two
+         test sets of annotated sentences resulting in precision/recall
+         values of 0.71/0.43. we show that the accuracy as well as
+         processing speed of the proposed semantic relation extraction
+         approach is sufficient for its large scale application on
+         biomedical text. the proposed approach is highly generalizable
+         regarding the supported relation types and appears to be
+         especially suited for general-purpose, broad-scale text mining
+         systems. the presented approach bridges the gap between fast,
+         cooccurrence-based approaches lacking semantic relations and
+         highly specialized and computationally demanding nlp approaches.
+
+
+
+@article{barnickel:2009,
+  title = {large scale application of neural network based semantic role labeling for automated relation extraction from biomedical texts},
+  author = {t. barnickel and j. weston and r. collobert and h-w. mewes and v. st\"umpflen},
+  journal = {plos one},
+  volume = {4},
+  number = {7},
+  month = {july},
+  year = {2009}
+}
+
+pdf
+abstract
+bibtex
+plos one
+
+
+
+
+y. qi, r. collobert, p. kuksa, k. kavukcuoglu and j. weston. combining labeled and unlabeled data with word-class distribution learning. in the 18th acm conference on information and knowledge management (cikm), 2009.
+
+
+we describe a novel simple and highly scalable semi-supervised
+         method called word-class distribution learning (wcdl), and apply
+         it the task of information extraction (ie) by utilizing unlabeled
+         sentences to improve supervised classification methods. wcdl
+         iteratively builds class label distributions for each word in the
+         dictionary by averaging predicted labels over all cases in the
+         unlabeled corpus, and re-training a base classifier adding these
+         distributions as word features. in contrast, traditional
+         self-training or co-training methods add self-labeled examples
+         (rather than features) which can degrade performance due to
+         incestuous learning bias. wcdl exhibits robust behavior, and has
+         no difficult parameters to tune. we applied our method on german
+         and english name en- tity recognition (ner) tasks. wcdl shows
+         improvements over self-training, multi-task semi-supervision or
+         supervision alone, in particular yielding a state-of-the art 75.72
+         f1 score on the german ner task.
+
+
+
+@inproceedings{qi:2009,
+  title = {combining labeled and unlabeled data with word-class distribution learning},
+  author = {y. qi and r. collobert and p. kuksa and k. kavukcuoglu and j. weston},
+  booktitle = {the 18th acm conference on information and knowledge management ({cikm})},
+  year = {2009}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+b. bai, j. weston, d. grangier, r. collobert, o. chapelle and k. weinberger. supervised semantic indexing. in the 18th acm conference on information and knowledge management (cikm), 2009.
+
+
+in this article we propose supervised semantic indexing (ssi) an
+         algorithm that is trained on (query, document) pairs of text
+         documents to predict the quality of their match. like latent
+         semantic indexing (lsi), our models take account of correlations
+         between words (synonymy, polysemy). however, unlike lsi our models
+         are trained with a supervised signal directly on the ranking task
+         of interest, which we argue is the reason for our superior
+         results. as the query and target texts are modeled separately, our
+         approach is easily generalized to different retrieval tasks, such
+         as online advertising placement. dealing with models on all pairs
+         of words features is computationally challenging. we propose
+         several improvements to our basic model for addressing this issue,
+         including low rank (but diagonal preserving) representations, and
+         correlated feature hashing (cfh). we provide an empirical study of
+         all these methods on retrieval tasks based on wikipedia documents
+         as well as an internet advertisement task. we obtain
+         state-of-the-art performance while providing realistically
+         scalable methods.
+
+
+
+@inproceedings{bai:2009a,
+  title = {supervised semantic indexing},
+  author = {b. bai and j. weston and d. grangier and r. collobert and o. chapelle and k. weinberger},
+  booktitle = {the 18th acm conference on information and knowledge management ({cikm})},
+  year = {2009}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+h. mobahi, r. collobert and j. weston. deep learning from temporal coherence in video. in international conference on machine learning, icml, 2009.
+
+
+this work proposes a learning method for deep architectures that
+         takes advantage of sequential data, in particular from the
+         temporal coherence that naturally exists in unlabeled video
+         recordings. that is, two successive frames are likely to contain
+         the same object or objects. this coherence is used as a
+         supervisory signal over the unlabeled data, and is used to improve
+         the performance on a supervised task of interest. we demonstrate
+         the effectiveness of this method on some pose invariant object and
+         face recognition tasks.
+
+
+
+@inproceedings{mobahi:2009,
+  title = {deep learning from temporal coherence in video},
+  author = {h. mobahi and r. collobert and j. weston},
+  booktitle = {international conference on machine learning, {icml}},
+  year = {2009}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+y. bengio, j. louradour, r. collobert and j. weston. curriculum learning. in international conference on machine learning, icml, 2009.
+
+
+humans and animals learn much better when the examples are not
+         randomly presented but organized in a meaningful order which
+         illustrates gradually more concepts, and more complex ones. here,
+         we formalize such training strategies in the context of machine
+         learning, and call them curriculum learning. in the context of
+         recent research studying the difficulty of training in the
+         presence of non-convex training criteria (for deep deterministic
+         and stochastic neural networks), we explore curriculum learning in
+         various set-ups. the experiments show that significant
+         improvements in generalization can be achieved by using a
+         particular curriculum, i.e., the selection and order of training
+         examples. we hypothesize that curriculum learning has both an
+         effect on the speed of convergence of the training process to a
+         minimum and, in the case of non-convex criteria, on the quality of
+         the local minima obtained: curriculum learning can be seen as a
+         particular form of continuation method (a general strategy for
+         global optimization of non-convex functions).
+
+
+
+
+our large-scale language model in our unified nlp paper has been trained
+         using the curriculum idea.
+
+
+
+@inproceedings{bengio:2009,
+  title = {curriculum learning},
+  author = {y. bengio and j. louradour and r. collobert and j. weston},
+  booktitle = {international conference on machine learning, {icml}},
+  year = {2009}
+}
+
+pdf
+abstract
+notes
+bibtex
+
+
+
+
+b. bai, j. weston, r. collobert and d. grangier. supervised semantic indexing. in 31st european conference on information retrieval, 2009.
+
+
+we present a class of models that are discriminatively trained to
+         directly map from the word content in a query-document or
+         document- document pair to a ranking score. like latent semantic
+         indexing (lsi), our models take account of correlations between
+         words (synonymy, pol- ysemy). however, unlike lsi our models are
+         trained with a supervised signal directly on the task of interest,
+         which we argue is the reason for our superior results. we provide
+         an empirical study on wikipedia documents, using the links to
+         define document-document or query-document pairs, where we obtain
+         state-of-the-art performance using our method.
+
+
+
+@inproceedings{bbai:2009,
+  title = {supervised semantic indexing},
+  author = {b. bai and j. weston and r. collobert and d. grangier},
+  booktitle = {31st european conference on information retrieval},
+  year = {2009}
+}
+
+pdf
+abstract
+bibtex
+
+
+2008
+
+
+r. collobert. torch. nips workshop on machine learning open source software, 2008.
+
+
+torch provides a matlab-like environment for state-of-the-art machine
+learning algorithms. it is easy to use and very efficient, thanks to a
+simple-yet-powerful fast scripting language (lua), and a underlying c/c++
+implementation. torch is easily extensible and has been shown to scale to
+very large applications.
+
+
+
+
+the slides have been made in torch!
+
+
+
+@misc{collobert:2008a,
+  title = {torch},
+  author = {r. collobert},
+  howpublished = {nips workshop on machine learning open source software},
+  year = {2008}
+}
+
+mov
+abstract
+notes
+bibtex
+torch 5
+torch 3
+
+
+
+
+m. karlen, j. weston, a. erkan and r. collobert. large scale manifold transduction. in international conference on machine learning, icml, 2008.
+
+
+we show how the regularizer of transductive support vector machines (tsvm)
+can be trained by stochastic gradient descent for linear models and
+multi-layer architectures.  the resulting methods can be trained
+online, have vastly superior training and testing speed to existing tsvm
+algorithms, can encode prior knowledge in the network architecture, and
+obtain competitive error rates.  we then go on to propose a natural
+generalization of the tsvm loss function that takes into account
+neighborhood and manifold information directly, unifying the two-stage low
+density separation method into a single criterion, and leading to
+state-of-the-art results.
+
+
+
+@inproceedings{karlen:2008,
+  title = {large scale manifold transduction},
+  author = {m. karlen and j. weston and a. erkan and r. collobert},
+  booktitle = {international conference on machine learning, {icml}},
+  year = {2008}
+}
+
+pdf
+abstract
+bibtex
+
+
+
+
+r. collobert and j. weston. a unified architecture for natural language processing: deep neural networks with multitask learning. in international conference on machine learning, icml, 2008.
+
+
+we describe a single convolutional neural network architecture that, given
+a sentence, outputs a host of language processing predictions:
+part-of-speech tags, chunks, named entity tags, semantic roles,
+semantically similar words and the likelihood that the sentence makes sense
+(grammatically and semantically) using a language model.  the entire
+network is trained jointly on all these tasks using weight-sharing, an
+instance of multitask learning.  all the tasks use labeled data except
+the language model which is learnt from unlabeled text and represents a
+novel form of semi-supervised learning for the shared tasks.  we show how
+both multitask learning and semi-supervised learning improve the
+generalization of the shared tasks, resulting in state-of-the-art
+performance.
+
+
+
+@inproceedings{collobert:2008,
+  title = {a unified architecture for natural language processing: deep neural networks with multitask learning},
+  author = {r. collobert and j. weston},
+  booktitle = {international conference on machine learning, {icml}},
+  year = {2008}
+}
+
+pdf
+abstract
+bibtex
+senna
+
+
+
+
+j. weston, f. rattle and r. collobert. deep learning via semi-supervised embedding. in international conference on machine learning, icml, 2008.
+
+
+we show how nonlinear embedding algorithms popular for use with shallow
+semi-supervised learning techniques such as kernel methods can be applied
+to deep multi-layer architectures, either as a regularizer at the output
+layer, or on each layer of the architecture.  this provides a simple
+alternative to existing approaches to deep learning whilst yielding
+competitive error rates compared to those methods, and existing shallow
+semi-supervised techniques.
+
+
+
+@inproceedings{weston:2008,
+  title = {deep learning via semi-supervised embedding},
+  author = {j. weston and f. rattle and r. collobert},
+  booktitle = {international conference on machine learning, {icml}},
+  year = {2008}
+}
+
+pdf
+abstract
+bibtex
+
+
+2007
+
+
+r. collobert  and  j. weston. fast semantic extraction using a novel neural network architecture. in proceedings of the 45th annual meeting of the association of computational linguistics, pages 560-567, june 2007.
+
+
+we describe a novel neural network architecture for the problem of semantic
+role labeling.  many current solutions are complicated, consist of several
+stages and handbuilt features, and are too slow to be applied as part of
+real applications that require such semantic labels, partly because of
+their use of a syntactic parser (pradhan et al., 2004; gildea and jurafsky,
+2002). our method instead learns a direct mapping from source sentence to
+semantic tags for a given predicate without the aid of a parser or a
+chunker.  our resulting system obtains accuracies comparable to the current
+state-of-the-art at a fraction of the computational cost.
+
+
+
+@inproceedings{collobert:2007,
+  title = {fast semantic extraction using a novel neural network architecture},
+  author = {r. collobert  and  j. weston},
+  booktitle = {proceedings of the 45th annual meeting of the association of computational linguistics},
+  pages = {560--567},
+  month = {june},
+  year = {2007}
+}
+
+pdf
+abstract
+bibtex
+senna
+
+
+2006
+
+
+j. weston, r. collobert, f. sinz, l. bottou and v. vapnik. inference with the universum. in proceedings of the twenty-third international conference on machine learning (icml 2006), pages 1009-1016, acm press, 2006.
+
+
+in this paper we study a new framework introduced by vapnik (1998; 2006)
+that is an alternative capacity concept to the large margin approach. in
+the particular case of binary classification, we are given a set of labeled
+examples, and a collection of rage the universum by maximizing the number
+of observed contradictions, and show experimentally that this approach
+delivers accuracy improvements over using labeled data alone.
+
+
+
+@inproceedings{weston:2006,
+  title = {inference with the universum},
+  author = {j. weston and r. collobert and f. sinz  and l. bottou and v. vapnik},
+  booktitle = {proceedings of the twenty-third international conference on machine learning (icml 2006)},
+  publisher = {acm press},
+  pages = {1009--1016},
+  location = {pittsburgh, pennsylvania},
+  year = {2006}
+}
+
+pdf
+abstract
+bibtex
+universvm
+svqp2
+dc algorithms
+abcdetc
+
+
+
+
+r. collobert, f. sinz, j. weston and l. bottou. large scale transductive svms. journal of machine learning research, 7:1687-1712, september 2006.
+
+
+we show how the concave-convex procedure can be applied to transductive svms, which
+traditionally require solving a combinatorial search problem. this provides for the rst
+time a highly scalable algorithm in the nonlinear case. detailed experiments verify the
+utility of our approach. software is available at
+http://www.kyb.tuebingen.mpg.de/bs/people/fabee/transduction.html.
+
+
+
+
+this is a derivative of the original paper trading convexity for scalability.
+
+
+
+@article{collobert:2006a,
+  title = {large scale transductive svms},
+  author = {r. collobert and f. sinz and j. weston and l. bottou},
+  journal = {journal of machine learning research},
+  volume = {7},
+  pages = {1687-1712},
+  month = {september},
+  year = {2006}
+}
+
+pdf
+abstract
+notes
+bibtex
+universvm
+svqp2
+dc algorithms
+
+
+
+
+r. collobert, f. sinz, j. weston and l. bottou. trading convexity for scalability. in proceedings of the twenty-third international conference on machine learning (icml 2006), pages 201-208, acm press, 2006.
+
+
+convex learning algorithms, such as support vector machines (svms), are
+often seen as highly desirable because they offer strong practical
+properties and are amenable to theoretical analysis. however, in this work
+we show how non-convexity can provide scalability advantages over
+convexity. we show how concave-convex programming can be applied to produce
+(i) faster svms where training errors are no longer support vectors, and
+(ii) much faster transductive svms.
+
+
+
+
+this paper received the best paper award at icml 2006 conference.
+
+
+
+@inproceedings{collobert:2006,
+  title = {trading convexity for scalability},
+  author = {r. collobert and f. sinz and j. weston and l. bottou},
+  booktitle = {proceedings of the twenty-third international conference on machine learning (icml 2006)},
+  publisher = {acm press},
+  pages = {201--208},
+  location = {pittsburgh, pennsylvania},
+  year = {2006}
+}
+
+pdf
+abstract
+notes
+bibtex
+universvm
+svqp2
+dc algorithms
+
+
+2004
+
+
+r. collobert. large scale machine learning. université paris vi, 2004.
+
+
+this thesis aims to address machine learning in general, with a particular
+focus on large models and large databases. after introducing the learning
+problem in a formal way, we first review several important machine learning
+algorithms, particularly multi layer perceptrons, mixture of experts and
+support vector machines. we then present a training method for support
+vector machines, adapted to reasonably large datasets. however the training
+of such a model is still intractable on very large databases. we thus
+propose a divide and conquer approach based on a kind of mixture of experts
+in order to break up the training problem into small pieces, while keeping
+good generalization performance. this mixture model can be applied to any
+kind of existing machine learning algorithm. even though it performs well
+in practice the major drawback of this algorithm is the number of
+hyper-parameters to tune, which makes it difficult to use. we thus prefer
+afterward to focus on training improvements for multi layer perceptrons,
+which are easier to tune, and more suitable than support vector machines
+for large databases. we finally show that the margin idea introduced with
+support vector machines can be applied to a certain class of multi layer
+perceptrons, which leads to a fast algorithm with powerful generalization
+performance.
+
+
+
+
+this is my phd thesis. i did my phd both at idiap and
+université de montréal.
+i defended at université de paris vi,
+in the lip6 lab.
+
+
+
+@phdthesis{collobert:2004b,
+  title = {large scale machine learning},
+  author = {r. collobert},
+  school = {universit\'e paris {vi}},
+  year = {2004}
+}
+
+pdf
+abstract
+notes
+bibtex
+
+
+
+
+r. collobert and s. bengio. links between perceptrons, mlps and svms. in international conference on machine learning, icml, 2004.
+
+
+we propose to study links between three important classification
+algorithms: perceptrons, multi-layer perceptrons (mlps) and support vector
+machines (svms). we first study ways to control the capacity of perceptrons
+(mainly regularization parameters and early stopping), using the margin
+idea introduced with svms. after showing that under simple conditions a
+perceptron is equivalent to an svm, we show it can be computationally
+expensive in time to train an svm (and thus a perceptron) with stochastic
+gradient descent, mainly because of the margin maximization term in the
+cost function. we then show that if we remove this margin maximization
+term, the learning rate or the use of early stopping can still control the
+margin. these ideas are extended afterward to the case of mlps. moreover,
+under some assumptions it also appears that mlps are a kind of mixture of
+svms, maximizing the margin in the hidden layer space. finally, we present
+a very simple mlp based on the previous findings, which yields better
+performances in generalization and speed than the other models.
+
+
+
+
+neural networks with the right criterion (like an hinge loss) work well,
+with better scaling properties than svms...
+
+also, each neuron in the hidden layer of a neural network acts
+interestingly as a kind of svm, on a subset of the training set.
+
+
+
+@inproceedings{collobert:2004a,
+  title = {links between perceptrons, {mlps} and {svms}},
+  author = {r. collobert and s. bengio},
+  booktitle = {international conference on machine learning, {icml}},
+  year = {2004}
+}
+
+pdf
+abstract
+notes
+bibtex
+
+
+
+
+r. collobert and s. bengio. a gentle hessian for efficient gradient descent. in ieee international conference on acoustic, speech, and signal processing, icassp, 2004.
+
+
+several second-order optimization methods for gradient descent algorithms
+have been proposed over the years, but they usually need to compute the
+inverse of the hessian of the cost function (or an approximation of this
+inverse) during training.  in most cases, this leads to an o(n^2) cost in
+time and space per iteration, where n is the number of parameters, which
+is prohibitive for large n. we propose instead a study of the hessian
+before training. based on a second order analysis, we show that a
+block-diagonal hessian yields an easier optimization problem than a full
+hessian. we also show that the condition of block-diagonality in common
+machine learning models can be achieved by simply selecting an appropriate
+training criterion.  finally, we propose a version of the svm criterion
+applied to mlps, which verifies the aspects highlighted in this second
+order analysis, but also yields very good generalization performance in
+practice, taking advantage of the margin effect. several empirical
+comparisons on two benchmark datasets are given to illustrate this
+approach.
+
+
+
+
+probably because in the past neural network were studied on very small
+databases, many people believe neural networks overfit easily. i would
+correct by: if not well tuned (like a svm having a gaussian kernel with a
+small variance!) neural networks do overfit. but in fact, in many cases,
+they are hard to train.
+
+we show here that the choice of the architecture itself has an impact on
+the optimization.
+
+in particular we show that the margin criterion used in svms is well suited
+for neural network optimization: with the hinge loss, the hessian is better
+conditioned than classical loss like mean squared error.
+
+
+
+@inproceedings{collobert:2004,
+  title = {a gentle hessian for efficient gradient descent},
+  author = {r. collobert and s. bengio},
+  booktitle = {{ieee} international conference on acoustic, speech, and signal processing, {icassp}},
+  year = {2004}
+}
+
+pdf
+abstract
+notes
+bibtex
+
+
+2003
+
+
+r. collobert, y. bengio and s. bengio. scaling large learning problems with hard parallel mixtures. international journal on pattern recognition and artificial intelligence (ijprai), 17(3):349-365, 2003.
+
+
+a challenge for statistical learning is to deal with large data sets,
+e.g.  in data mining. the training time of ordinary support vector
+machines is at least quadratic, which raises a serious research challenge
+if we want to deal with data sets of millions of examples.  we propose a
+``hard parallelizable mixture'' methodology which yields significantly
+reduced training time through modularization and parallelization: the
+training data is iteratively partitioned by a ``gater'' model in such a way
+that it becomes easy to learn an ``expert'' model separately in each region
+of the partition.  a probabilistic extension and the use of a set of
+generative models allows representing the gater so that all pieces of the
+model are locally trained.  for svms, time complexity appears empirically
+to locally grow linearly with the number of examples, while
+generalization performance can be enhanced. for the probabilistic version
+of the algorithm, the iterative algorithm provably goes down in a cost
+function that is an upper bound on the negative log-likelihood.
+
+
+
+
+the aim was to use a divide-and-conquer method to break up the svm
+complexity and solve large scale classification tasks. while these mixtures
+do work, they are unfortunately quite difficult to tune, because of the
+additional hyper-parameters involved in the architecture.
+
+this paper has been originally presented at the
+international workshop on pattern recognition with support vector machines (svm'2002).
+
+the original paper, with less experiments and
+without probabilistic mixtures, has been published in nips.
+
+a variant, including more experiments than the nips version
+has been published in neural computation.
+
+
+
+@article{collobert:2003,
+  title = {scaling large learning problems with hard parallel mixtures},
+  author = {r. collobert and y. bengio and s. bengio},
+  journal = {international journal on pattern recognition and artificial intelligence ({ijprai})},
+  volume = {17},
+  number = {3},
+  pages = {349--365},
+  year = {2003}
+}
+
+pdf
+abstract
+notes
+bibtex
+
+
+
+
+c. sanderson, s. bengio, h. bourlard, j. mariéthoz, r. collobert, m.f. benzeghiba, f. cardinaux and s. marcel. speech & face based biometric authentication at idiap. in international conference on multimedia and expo, icme, volume 3, pages 1-4, 2003.
+
+
+we present an overview of recent research at idiap on speech & face based
+biometric authentication.  this paper covers user-customised passwords,
+adaptation techniques, confidence measures (for use in fusion of audio &
+visual scores), face verification in difficult image conditions, as well as
+other related research issues.  we also overview the open source torch
+library, which has aided in the implementation of the above mentioned
+techniques.
+
+
+
+@inproceedings{collobert:2003a,
+  title = {speech \& face based biometric authentication at {idiap}},
+  author = {c. sanderson and s. bengio and h. bourlard and j. mari\'ethoz and r. collobert and m.f. benzeghiba and f. cardinaux and s. marcel},
+  booktitle = {international conference on multimedia and expo, {icme}},
+  volume = {3},
+  pages = {1--4},
+  year = {2003}
+}
+
+pdf
+abstract
+bibtex
+
+
+2002
+
+
+r. collobert, s. bengio and j. mariéthoz. torch: a modular machine learning software library. technical report idiap-rr 02-46, idiap, 2002.
+
+
+many scientific communities have expressed a growing interest in machine
+learning algorithms recently, mainly due to the generally good results they
+provide, compared to traditional statistical or ai approaches.  however,
+these machine learning algorithms are often complex to implement and to use
+properly and efficiently. we thus present in this paper a new machine
+learning software library in which most state-of-the-art algorithms have
+already been implemented and are available in a unified framework, in order
+for scientists to be able to use them, compare them, and even extend them
+for their own purposes.  more interestingly, this library is freely
+available under a bsd license and can be retrieved from the web by
+everyone.
+
+
+
+
+this presented the first version of the torch machine learning library. several versions
+have been developped since then, culminating with torch5,
+the official last version.
+
+
+
+@techreport{collobert:2002,
+  title = {{t}orch: a modular machine learning software library},
+  author = {r. collobert and s. bengio and j. mari\'ethoz},
+  institution = {idiap},
+  type = {technical report idiap-rr},
+  number = {02-46},
+  year = {2002}
+}
+
+pdf
+abstract
+notes
+bibtex
+torch 5
+torch 3
+
+
+
+
+r. collobert, s. bengio and y. bengio. a parallel mixture of svms for very large scale problems. in t.g. dietterich, s. becker and z. ghahramani, editors, advances in neural information processing systems, nips 14, pages 633-640, mit press, 2002.
+
+
+support vector machines (svms) are currently the state-of-the-art models
+for many classification problems but they suffer from the complexity of
+their training algorithm which is at least quadratic with respect to the
+number of examples.  hence, it is hopeless to try to solve real-life
+problems having more than a few hundreds of thousands examples with
+svms. the present paper proposes a new mixture of svms that can be easily
+implemented in parallel and where each svm is trained on a small subset of
+the whole dataset. experiments on a large benchmark dataset (forest) as
+well as a difficult speech database, yielded significant time improvement
+(time complexity appears empirically to locally grow linearly with the
+number of examples). in addition, and that is a surprise, a significant
+improvement in generalization was observed on forest.
+
+
+
+
+this is our first paper on mixture of svms. the aim was to use a
+divide-and-conquer method to break up the svm complexity and solve large
+scale classification tasks. while these mixtures do work, they are
+unfortunately quite difficult to tune, because of the additional
+hyper-parameters involved in the architecture.
+
+a variant of this paper, with more experiments,
+has been published in neural computation.
+
+   an extended version, including more experiments
+and probabilistic mixtures has been published in ijprai and presented at svm'2002.
+
+
+
+@inproceedings{collobert:2002a,
+  title = {a parallel mixture of {svms} for very large scale problems},
+  author = {r. collobert and s. bengio and y. bengio},
+  booktitle = {advances in neural information processing systems, {nips} 14},
+  publisher = {mit press},
+  editor = {dietterich, t.g. and becker, s. and ghahramani, z.},
+  pages = {633--640},
+  year = {2002}
+}
+
+pdf
+abstract
+notes
+bibtex
+
+
+
+
+r. collobert, s. bengio and y. bengio. a parallel mixture of svms for very large scale problems. neural computation, 14(5):1105-1114, 2002.
+
+
+support vector machines (svms) are currently the state-of-the-art models
+for many classification problems but they suffer from the complexity of
+their training algorithm which is at least quadratic with respect to the
+number of examples.  hence, it is hopeless to try to solve real-life
+problems having more than a few hundreds of thousands examples with
+svms. the present paper proposes a new mixture of svms that can be easily
+implemented in parallel and where each svm is trained on a small subset of
+the whole dataset. experiments on a large benchmark dataset (forest)
+yielded significant time improvement (time complexity appears empirically
+to locally grow linearly with the number of examples). in addition, and
+that is a surprise, a significant improvement in generalization was
+observed.
+
+
+
+
+the aim was to use a divide-and-conquer method to break up the svm
+complexity and solve large scale classification tasks. while these mixtures
+do work, they are unfortunately quite difficult to tune, because of the
+additional hyper-parameters involved in the architecture.
+
+the original paper, with less experiments, has
+been published in nips.
+
+an extended version, including more experiments
+and probabilistic mixtures has been published in ijprai and presented at svm'2002.
+
+
+
+@article{collobert:2002b,
+  title = {a parallel mixture of {svms} for very large scale problems},
+  author = {r. collobert and s. bengio and y. bengio},
+  journal = {neural computation},
+  volume = {14},
+  number = {5},
+  pages = {1105--1114},
+  year = {2002}
+}
+
+pdf
+abstract
+notes
+bibtex
+
+
+2001
+
+
+r. collobert and s. bengio. svmtorch: support vector machines for large-scale regression problems. journal of machine learning research, 1:143-160, 2001.
+
+
+support vector machines (svms) for regression problems are trained by
+solving a quadratic optimization problem which needs on the order of l
+square memory and time resources to solve, where l is the number of
+training examples. in this paper, we propose a decomposition algorithm,
+svmtorch (available at
+https://ronan.collobert.com/svmtorch),
+which is similar to svm-light proposed by joachims (1999) for
+classification problems, but adapted to regression problems.  with this
+algorithm, one can now efficiently solve large-scale regression problems
+(more than 20000 examples).  comparisons with nodelib, another publicly
+available svm algorithm for large-scale regression problems from flake and
+lawrence (2000) yielded significant time improvements.  finally, based on a
+recent paper from lin (2000), we show that a convergence proof exists for
+our algorithm.
+
+
+
+
+our contribution extends joachims ideas to the regression svm
+problem. though nowadays it may seems obvious, curiously it was not the
+technique used to train regression svms at the time we proposed this
+extension.
+
+
+
+@article{collobert:2001,
+  title = {{svmt}orch: support vector machines for large-scale regression problems},
+  author = {r. collobert and s. bengio},
+  journal = {journal of machine learning research},
+  volume = {1},
+  pages = {143--160},
+  year = {2001}
+}
+
+pdf
+abstract
+notes
+bibtex
+svmtorch
+
+
+2000
+
+
+r. collobert. support vector machines: théorie et applications. université de rennes i, 2000.
+
+
+this is my master thesis (called dea, in french) from
+université de rennes i.  i did an
+internship at idiap for that purpose.
+
+
+
+@mastersthesis{collobert:2000,
+  title = {support vector machines: th\'eorie et applications},
+  author = {r. collobert},
+  school = {universit\'e de rennes {i}},
+  year = {2000}
+}
+
+pdf
+notes
+bibtex
+svmtorch
+
+
+
+
+former phd students or postdocs
+
+
+dimitri palaz, phd 2016
+rémi lebret, phd 2016
+joël legrand, phd 2016
+pedro oliveira pinheiro, phd 2017
+tatiana likhomanenko, postdoc 2021
+
+
+
+
+

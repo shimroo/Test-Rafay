@@ -1,0 +1,491 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dtrh.net - down the rabbit hole
+
+
+
+
+
+
+
+
+dtrh.net - down the rabbit hole
+
+
+
+
+
+
+home
+archives
+categories
+tags
+about
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mastering the art of prompting: nuances that change everything
+
+
+
+2025-02-01 19:00:00
+
+
+
+
+mastering the art of prompting: the devilâs in the detailsif youâre still unaware of ai, youâve either been living under a rockâor somehow resisting one of the most revolutionary shifts of our time. and honestly? thereâs a part of me that envies that ignorance. but for the rest of us, reality is clear: ai is evolving at an absolutely relentless pace.  
+i once dated someone who hated aiârejected it outright, refused to engage. people like that? theyâre in for a harsh wake-up call. whether you embrace it or not, ai isnât some passing trend; itâs the next paradigm shift. and if you donât jump on board now, the world will move forward without you. thatâs not a threatâitâs a fact.  
+i genuinely hope anyone reading this takes a moment to reflect, because thereâs no alternate timeline where this technology doesnât shape the future.  
+
+
+
+ai
+prompt engineering
+nlp
+machine learning
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fuzzy finder (fzf) is an absolute command-line powerhouse
+
+
+
+2025-01-31 09:42:06
+
+|
+
+programming
+
+
+
+
+introduction
+over the past year, iâve dedicated countless hours to developing a unified system which seamlessly integrates tmux and reptyr with various terminal user interface librariesâranging from rich/textual and pytermgui to curses.  
+why? because i recognize the power of the command line. at the same time, i understand that for many, command-line interfaces can be a significant barrierâoften due to a lack of understanding, the sheer complexity, or an overwhelming sense of intimidation. too often, these challenges lead to neglect, whether from a belief that itâs too much effort or simply feeling out of depth. 
+i believe there exists a kind of great divideâa barrier between those deeply immersed in coding, development, and hacking, and those who might have the potential to contribute but feel locked out. as someone who values the core principles of open sourceâcollaboration, accessibility, and the free exchange of ideasâbreaking down that barrier, even just a little, feels like a worthwhile pursuit. anyone who shares the ideals of open source likely sees the importance of community-driven innovation and making knowledge available to those who seek it.  
+the unfortunate reality is that countless brilliant minds, capable of making meaningful contributions to the vast ecosystem of open-source projectsâpast, present, and futureâare often excluded, not by lack of interest, but by the sheer difficulty of entry. this isnât just a hypothetical issue; itâs a missed opportunity. if there were a way to make these tools, workflows, and concepts more approachable, we wouldnât just be opening doors for new contributorsâweâd be unlocking new possibilities for everyone willing to step through.
+thatâs why iâve devoted so much of my free time to bridging this gapâcreating a system that prioritizes usability without sacrificing the depth and flexibility that power users demand.
+discovery
+i disclosed a broken access control bug to ultimate-guitar on january 14, 2025. as part of the disclosure, i wrote a shell script, cleverly named echoheist, to automate the bug exploitation process which i coined âregex -> replay -> redirectâ. corny i know.. but the three ârâs provide a simple description of the vulnerability at its core.
+
+
+
+
+
+
+my implemenetation of fzf to aid in selecting dymanic scraped data in 'echoheist' - a broken access control bug  i discovered on ultimate-guitar dot com.
+
+iâd be lying in saying my initial focus wasnât to leverage this bug farther via web scraping and automation. in fact, that is exactly what the second version pictured above did. however its design was to also be user friendly via a simplistic terminal based user interface. this implementation would enable just about anyone to navigate it.
+ultimately, i decided this did not align with the path iâd like to take moving forward. releasing a tool like this would enable anyone the ability to abuse it in a very efficient and automated way. and while i donât agree with how ug handles registration pushing, i decided not to publicly release it. it came to me as an epiphany the night i finished writing it. as a result, i disclosed the bug to the website administration and my github.
+in the end, whatâs important is i found out about fzf by researching (yet again) how i could extend the initial script into something more user-friendly from a user interface perspective. and i have to say, i wish i had stumbled upon fzf sooner
+that summarizes what has led me to writing this. itâs why the topics iâll be discussing involve tmux, reptyr, and fzf. they are all core aspects of my initial goal.this post discsses some of my experiences while working with tmux, reptyr, and fzf - with a heavy focus on their implementation from a scripted or programmed environment.
+
+
+
+fzf
+tmux
+cli
+python
+shell
+workflow
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+lets talk about fractals
+
+
+
+2025-01-26 05:29:26
+
+|
+
+personal projects
+
+
+
+
+
+
+
+
+
+
+
+
+ fractalauth: nonlinear approach to ssh authentication (part 1)
+
+
+iâve been struggling for the past week in how i would present my current passion project, fractalauth. i mustâve written at least 3 long format posts while continuously updating the project in my private github repository. regardless, i know this is something i want to share, and when i make the code public, which will happen under apache 2.0 license when the first major release drops with respect to semantic versioning specification. 
+fractalauth
+in fractalauth, i use the mandelbrot set to create a unique connection between two keys, ensuring they are linked without relying on traditional authentication methods. the system incorporates segments of pre-encrypted, sha-256 hashed keys into the fractal generation process, increasing entropy. the result is a pair of keysâone original and one "clone"âthat are mathematically and visually distinct, yet inseparably linked.
+
+the mandelbrot setâs recursive and deterministic nature forms the backbone of this approach, ensuring that the keys, although visually complex, are intrinsically related. in addition to this, the fractal key generation given an ssh key will always result in the same image. this method allows fractalauth to establish a form of âproofâ of the relationship between the two keys, including but not limited to the deterministic expectation in the key generation algorithm.- it also opens the door to creative verification techniques, such as proving a key via a mobile phone camera app.
+furthermore, the fractal structure introduces a level of error resilience. in the event that the key or its clone becomes corrupted or damaged, the iterative properties of the mandelbrot set make it possible to recover or reconstruct the key, maintaining integrity throughout the process.
+
+>[ click here ] -> rabbit hole depth = 2;  20 years ago..hide
+
+i failed my grade 11 math class.. 
+it was one of those situations, where the teacher had all the pull in the world to pass you if they had seen you applying yourself. of course, in this case, i hadnât been trying at all.
+
+>[ rabbit-hole ] -> highschool computer class mischiefhide
+
+
+
+
+class number
+class name
+
+
+
+1
+physical education
+
+
+2
+spare
+
+
+3
+lunch
+
+
+4
+computers
+
+
+5
+academic math
+
+
+reflections on a ridiculous time 
+as i reminisce, i canât help but go back to a time in my life that, in many ways, was absolutely ridiculous. stories fire off in my mindâthough, unfortunately, most of them will likely never hear the murmur of truth. they remain an incredible set of memories i share with only a select few people. but i digress.  
+my physed teacher also doubled as my math teacher, and they werenât naã¯ve to the fact that i wasnât applying myself. many days, iâd skip period one altogether, which meant my day didnât start until after lunch. my friends and i frequently indulged in activities that, at the time, were far from legal. it wasnât unusual for me and a good friend to arrive at computer class giggling and a little nervous about how well the visine had worked.  
+despite our questionable pre-class rituals, we shared a genuine interest in computer security and programming. this lined up perfectly with a class focused on teaching visual basic. and though our habits might have painted us as slackers, we always showed upâand not only that, we excelled. my mark? a solid 96%. and i wasnât even trying.  
+we had fun. this was around the time i started noticing how, with a little effort, people seemed either completely unaware or astonishingly naã¯ve about security. and, honestly, some things never change.  
+example one: the credential stealer 
+i wrote a very basic credential stealer in visual basic. the process was simple:  
+
+run the program from my logged-in account.  
+display a fake login screen mimicking our novell netware system.  
+when the next student sat down and attempted to log in, the program stole their credentials, logged them to a file on my account, and threw a fake memory error before rebooting the computer.  
+upon reboot, the actual login screen appeared, and the unsuspecting user logged in without thinking twice about the error.
+
+the list of stolen accounts grew by the day. but to be clear, i never used these accounts for anything malicious.  
+mr. colemanâs discovery 
+mr. coleman, our teacher, was sharp. somehow, he caught on. unbeknownst to us, he had a rat (remote access tool) installed and could monitor any studentâs activity at any time. one day, when i logged in to check my ever-growing account list, i found it erased. in its place was a message:  
+âiâve caught on to what youâre doing.â 
+i never got in trouble for it, though. mr. coleman asserted his authority, nipped my antics in the bud, and perhaps was even a little impressed. he didnât escalate the matter or ruin my life over it. so, mr. coleman, if you happen to read thisâthank you for your restraint. and i apologize in advance for what youâre about to read next.  
+example two: crashing the network 
+our schoolâs network included a rudimentary messaging service that no one seemed to know about. my buddy figured out how to send a message to every logged-in computer. early 2000s mischief ensued as we weaponized this into a denial-of-service attack that crashed the entire network.  
+for us, it was exhilaratingâa feeling of being clever enough to outsmart the adults. we werenât just âstupid skater kidsâ anymore. after each crash, the network tech would storm into the computer lab to have a stern discussion with mr. coleman. meanwhile, the two of us, eyes glazed and laughing, would shrug and and play dumb. 
+i also plomise we did not use any of the harvested accounts to cover tracks when taking down our highschool network.
+how is any of this relevant?
+yeah, i was really tripping down the rabbit hole that is my highschool experience. if you review my schedule, youâll likely  gather that since computers was an easy class for me, my entire semester schedule was a joke aside from math - the last class of the day.
+iâm not going to make excuses - by this time of the day, not only was i burning out from previous actions iâd taken regarding âextra-curricularsâ, but i just wasnât at all interested. nothing drew me to the class. it seemed, at the time, pointless. 
+and damn, i realize how disrespectful it was in hindsight, but iâd be that kid who just slept through the class. so while i was full of rage when i failed it, because a young idiot teen with crazy hormones, i do fully understand why i failed, and why my teacher was not willing to let me make it up by rewriting a test or handing something in. that was for my own good, and i knew deep down that i desserved the fail. 
+a final reflection 
+looking back, high school was an insane time, and these antics are only the tip of the iceberg. iâll have to write more about those yearsâcarefully considering what wonât catch me up in trouble..
+but even in the chaos, i learned something valuable: the power of curiosity and how the right kind of teaching can ignite it. 
+
+
+
+by grade 12, i was retaking grade 11 math - so yeah, i was that guy in a grade 11 class as a grade 12.for me to be at least intriqued, i needed to be challenged, but i also needed to see a relevant, functual reason for the work. ineeded that piece of the puzzle. i couldnât really give a shit for finding a point on a curve, unless there was some reasoning behind finding the point in the first place. i donât think iâm alone in this one either. 
+for instance, iâd have taken a much more serious interest in trigonometry if i had known at the time it was paramount in the dessign of vector based aimbots for games such as counter-strike..
+
+>[ rabbit-hole ] -> game hackinghide
+
+counter-strike was the jam, and it also served as a way to get comfortable with game modification, scripting, and in my case, programming.
+the method used back in those days was dll injection, engine and client function hooking, and either directx/opengl hooking. we were of course blessed with the half-life sdk, and this made it a lot easier to reverse engineer the game in the context of client and engine functions. when the game would update, a variable would need to be updated in the hack to properly reference the beginning position of both the data structures describing the client and engine. otherwise, unless some massive change was made to the game engine, they would just work - utilizing the native game functions to draw custom menus, hooking functions and injecting custom code, then returning the original function so the game was none the wiser.
+aimbots however, that is some serious math. trigonometry is uesed in almost every aspect, from angle calculation, distance calculation, field of view checking, and projectial trajectory compensation. 
+now i get that its asking a lot for a teacher to just make this connection - but i think my main point is, there wasnt a lot relatable with regards to word problems. 
+if my teacher could have explained how trigonometry would be paramount in designing an aimbot for counter-strike - iâd have been the start of the class
+i want to also note that counter-strike was a great platform to learn a wide variety of skills that could translate into the real world. 
+
+scripting with client-side variables in the console
+game hacking -> programming in c++, many programming methods, libraries such as opengl
+running servers -> maintenance, administration,
+mapping -> building 3d maps to play in with industry standard software (3dsmax)
+web design -> most clans had a website and or forum, so if you were an active or lead role, you were involved in this
+
+
+
+
+summer school - not really my thing, so i took grade 11 math in grade 12. this time, i had a different teacher - mr. allen, who had different methods, and was able to kindle a drive in me to participate.
+
+>[ rabbit-hole ] -> mind altering substanceshide
+
+
+exploring consciousness and psychedelics 
+wait, what?  
+itâs probably no surprise that during this ageâat least in my generationâthere was a significant interest in mind-altering substances. as mentioned before, weed was fairly common despite its legal status, but psilocybin mushrooms were right up there too. of course, weâre not even factoring in the usual suspects like alcohol and cocaine.  
+i went full-on hippie during those daysânot so much in appearance, but in the way i approached consciousness  and drugs. every night, i attempted to astral project, striving to induce out-of-body experiences. i spent countless hours diving into any material i could get my hands on about mind-altering substances. sites like erowid, bluelight forums, and shroomery were my go-to sources of information.  
+in grade 9, we had to read brave new worldâand no, i did not read it*. but when i found out it was written by aldous huxley, the same guy who wrote a series of essays about his experiences with mescaline (probably via peyote), my interest was piqued. and, for the record, brave new world is actually a great read. i recommend it.
+it wouldnât have been unusual to find me deep into researching hallucinogens, blasting infected mushroom, listening to terence mckenna ramble about out-of-this-world hippie shit, or combing through the chemical synthesis bibles on tryptamines and phenethylamines by none other than alexander âsashaâ shulgin.  
+
+the psychedelic experience 
+anyone who has even a sub to mid-level psychedelic experience is familiar with the constantly breathing, patterning visuals that manifest behind closed eyes, in the dark, or even on solid surfaces.  
+itâs an incredibly unique phenomenonâdistinct from chemical to chemicalâyet so similar in its overarching action. 
+each compound family offers its own distinct flavor of the experience. the two titans, of course, are:  
+
+ergolines (lysergamides): 
+
+lsd-25  
+ald-52  
+eth-lad  
+al-lad
+
+
+tryptamines: 
+
+psilocin (4-ho-dmt)  
+5-meo-malt  
+5-meo-amt  
+dmt  
+dpt
+
+
+
+but the list extends well beyond these categories into other realms of psychedelic exploration:  
+
+psychedelic amphetamines: 
+
+dom  
+doc  
+2c family (phenethylamines)
+
+
+arylcyclohexylamines (dissociatives): 
+
+ketamine  
+dxm  
+mxe  
+3-meo-pcp  
+2-oxo-pcm
+
+
+kappa-opioids: 
+
+salvinorin a (salvia divinorum, anyone?)
+
+
+
+regardless of the chemical family, and without diving into the visual madness brought on by deliriants, thereâs an undeniable common thread among classical psychedelics:  
+they all share an affinity for activating the 5-ht2a receptor, the gateway to those profound, mind-expanding experiences.  
+
+itâs fascinating how each of these substances brings its own fingerprint to the psychedelic experience, yet they all seem to pull from the same cosmic thread, bending perception in ways that are impossible to describe to the uninitiated. perhaps iâll expand one day on my extremely long list of experiences regarding psychedelics.
+
+
+
+
+
+
+so what is a fractal?a fractal is a geometric shape that exhibits self-similarity, meaning that small parts of the shape resemble the larger whole. fractals are often used to model natural phenomena, such as the branching patterns of trees or the intricate structures of seashells. there are a wide variety of fractal types - all of which are derived from known mathematical functions. this means, we can expect to see deterministic results from these functions, no matter how complex they may seem, mathematically, visually or otherwise.
+
+
+
+
+mandelbrot fractal and various deterministic, repeatable positions
+
+
+plotting deterministic locations on the mandelbrot set123456789101112131415161718192021222324252627282930313233343536373839404142def optimized_mandelbrot(c, max_iter):    z = 0    for n in range(max_iter):        if abs(z) > 2:            return n        z = z * z + c    return max_iterdef generate_optimized_fractal(xmin, xmax, ymin, ymax, width, height, max_iter):    x = np.linspace(xmin, xmax, width)    y = np.linspace(ymin, ymax, height)    fractal = np.zeros((height, width))    for i in range(width):        for j in range(height):            fractal[j, i] = optimized_mandelbrot(complex(x[i], y[j]), max_iter)    return fractal# reduced parameters for faster visualizationoptimized_params = {    "seahorse valley": (-0.75, -0.725, 0.1, 0.125),    "elephant valley": (0.25, 0.275, -0.01, 0.01),    "spiral arms": (-0.75, -0.725, 0.0, 0.025),    "valley of double spirals": (-1.31, -1.28, 0.05, 0.08),    "mini mandelbrots": (-0.6, -0.55, 0.55, 0.6),    "the needle": (-0.1015, -0.1005, 0.956, 0.957),    "the tuning fork": (0.282, 0.285, 0.01, 0.02),}fig, axes = plt.subplots(3, 3, figsize=(12, 12))for ax, (name, bounds) in zip(axes.flat, optimized_params.items()):    xmin, xmax, ymin, ymax = bounds    fractal = generate_optimized_fractal(xmin, xmax, ymin, ymax, 400, 400, 100)    ax.imshow(fractal.t, extent=[xmin, xmax, ymin, ymax], cmap='magma')    ax.set_title(name)    ax.axis('off')plt.tight_layout()plt.show()
+how do fractals work?fractals are created using a recursive process. the basic idea is to start with a simple shape, such as a line segment, and then repeatedly apply a transformation to it. the transformation is typically a function that scales the shape in some way, such as stretching it or rotating it. i would hazard a guess at the most notable example of this being the fibonacci sequence
+
+
+
+fibonacci sequence, a deterministic logarithmic spiral.
+this is a vague explanation but it summarizes the important aspects to keep in mind when definining a fractal - recursive process in the form of a function which scales infinitely in a deterministic way.
+but why mandelbrot?the mandelbrot set is a fractal defined by a simple mathematical equation, but its complexity unfolds as you zoom into any of its points. what makes the mandelbrot set special is its infinite natureâevery point on its boundary, no matter how much you magnify, reveals new patterns that echo the structure of the whole.
+this self-similarity, recursive, fractal-like behavior, is key to how it can be used in error correction for instance. in fact, i would go as far as to say, it is so incredibly evident that this should be a thing, i expect i am missing something and entirely wrong. and if im not, maybe i just stumbled into something great.
+mandelbrot in error correctionerror correction often revolves around ensuring that the data being transmitted or stored is free of errors and can be restored if something goes wrong. the mandelbrot set, with its infinite recursive structure, offers a creative and powerful way to approach this problem.
+
+recursive redundancy:
+
+one of the core principles behind error correction is redundancyâadding extra information that can be used to recover from errors. the recursive nature of the mandelbrot set mirrors this redundancy, where each part of the set contains a miniature replica of the whole. if an error occurs in one portion of the data, the system could reference this self-similarity to reconstruct the lost or corrupted data.
+if data is encoded in a fractal pattern resembling the mandelbrot set, any portion of the data could be reconstructed by referencing another portion. just like zooming into the fractal where the same structure reappears, corrupted data could be regenerated by referencing a similar pattern within the fractal.
+
+pattern recognition for error detection:
+
+because of the inherent self-similarity of the mandelbrot set, it could serve as an ideal framework for error detection. the setâs boundary, as itâs zoomed into, maintains a consistency in its shape and structure, meaning that any deviation from the expected fractal pattern could signal an error.
+in a system using mandelbrot-based error detection, data could be mapped to regions of the mandelbrot set. if the data begins to deviate from the expected fractal pattern, an error would be flagged. the error correction system could then âzoom intoâ the data at the level of the fractal where the error occurred, using the surrounding self-similar structure to regenerate the missing data.
+
+fault tolerance via fractal recovery:
+
+fractal recovery techniques, inspired by the mandelbrot set, could ensure that when data is corrupted, the system doesnât lose it completely. the fault tolerance mechanism would tap into the infinite depth of the mandelbrot setâs structure, using higher or lower levels of recursion to recover lost data.
+
+
+
+fractals
+security
+authentication
+ssh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+kbs
+
+
+
+archives
+3
+
+
+categories
+2
+
+
+tags
+14
+
+
+
+rss
+
+
+
+
+
+social links
+
+e-mail
+github
+linkdin
+
+
+
+
+blogroll
+
+github
+mdn
+nunjucks
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+kbs2025
+
+
+
+
+          
+          dtrhnetgithub.com
+
+
+
+
+
+
+
+
+

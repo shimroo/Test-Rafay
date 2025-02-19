@@ -1,0 +1,504 @@
+
+
+
+
+
+
+
+trog's haus – a web page about software development, startups, open source, and other things.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			skip to content		
+
+
+
+trog's haus
+a web page about software development, startups, open source, and other things.
+
+menu
+
+
+about
+contact
+my pgp key
+ 
+
+
+
+
+
+
+
+
+logrotate causing logs to only log to .log.1 after upgrade to debian 10 
+
+had an issue recently on a relatively old ubuntu server that had had a distribution upgrade between lts versions. 
+months after the upgrade, i realised that at least some of the rsyslog log files were logging new lines to the .log.1 file, not to the .log file – for example, any new ssh logging was written to /var/log/auth.log.1, not /var/log/auth.log as i expected. 
+this broke a few things – fail2ban stopped blocking ssh attempts, because it was monitoring auth.log and not auth.log.1, and a grafana visualisation showing ssh login attempts broken because it was parsing a file that never changed. 
+the problem appears to be in logrotate. the config file /etc/logrotate.d/rsyslog looks something like this: 
+...
+/var/log/messages
+{
+        rotate 4
+        monthly
+        missingok
+        notifempty
+        compress
+        delaycompress
+        sharedscripts
+        postrotate
+                invoke-rc.d rsyslog rotate > /dev/null
+        endscript
+}
+
+i finally noticed there was a rsyslog.dpkg-dist file in there which looks like this: 
+...
+/var/log/messages
+{
+        rotate 4
+        monthly
+        missingok
+        notifempty
+        compress
+        delaycompress
+        sharedscripts
+        postrotate
+                /usr/lib/rsyslog/rsyslog-rotate
+        endscript
+}
+
+changing the postrotate line seems to have fixed the issue. looking at the script it seems to check some systemd directory, so i guess some core config changed at some point between whatever ancient distribution this was running (debian 8, i think) and the current one (debian 10). 
+
+
+author trogposted on october 17, 2024categories randoleave a comment on logrotate causing logs to only log to .log.1 after upgrade to debian 10 
+
+
+
+downloading a google takeout file with curl 
+
+i had to download a large (~60gb) google takeout file today; asking google to split the file into chunks of 10gb resulted in this: 
+
+
+i tried to download the file twice in the browser; both times it completed and then vanished from my disk drive. then i was told i couldn’t download it again. so i had to create an entirely new takeout. 
+needless to say, this was frustrating. copying the url and pasting it into wget or curl doesn’t work. there are a bunch of now seemingly useless blog posts and stack overflow posts that imply it should work, but i couldn’t get any of them to work. 
+after some mucking around, what did work for me, as of today’s date, was (in chrome): 
+
+prepare the takeout & go through it until you get to the ‘download data’ image shown above. 
+start the download. 
+go to the downloads tab and copy the url there. 
+stop the download.
+go back to the takeout page, open devtools, and refresh it. 
+find the first url to load (the base page). it looked something like this for me: https://takeout.google.com/manage?user=xxxxxx&rapt=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+right click that url and ‘copy curl’ for your appropriate os
+paste that into a notepad or whatever and add a new line (don’t forget to add a new line marker at the end of the previous line – \ on linux or ^ in windows. -o all mail including spam and trash-002.mbox
+paste that into your terminal/cmd/shell & run the curl command. 
+
+
+
+
+author trogposted on october 1, 2024october 1, 2024categories softwareleave a comment on downloading a google takeout file with curl 
+
+
+
+the mysteries of remote desktop 
+
+
+looking at some aspects of remote desktop & trying to create a more current general reference of several issues, including:
+
+can you get google credential provider for windows (gcpw) working on with windows server 2022 and remote desktop?
+how does guacamole work with remote desktop? 
+what happens if network layer authentication (nla) is on or off?
+how does the remote desktop app for android/chromebook work in different scenarios?
+
+
+i am currently trying to resolve a small issue where some of our users need to work with a particular type of adobe acrobat form, built with an old form system called xfa. 
+xfa allows users to create forms that can be submitted directly from within acrobat reader. you can send these forms out, have your users fill out some information, and hit submit, all from within the comfort of their own reader, and it will shoot the information to you electronically. 
+this sounds like a very handy feature, but it comes with one caveat – it only works in copies of reader on windows and mac os.  any other version of reader won’t work. so you can’t complete xfa forms on linux, android, chromebooks, or ios. 
+firefox have made some effort to support xfa forms, but the particular forms we are working with – which come from a shipping line – don’t work. some of the form interface elements simply won’t load (e.g., a select dropdown populated with some items) and then ultimately it can’t submit. i don’t blame firefox for this – it looks like supporting xfa would be a pretty major project, and given the last update to it was in 2012, it feels like something of a technological dead end. 
+unfortunately, at my workplace, about 50% of our staff are using chromebooks. fortunately, only a few people need to deal with the xfa forms. we’d rather not move them to windows – chromebooks suffice for literally everything else they need to do, and we’re not really set up to be a windows org. trying to get a multi-billion dollar shipping line with established workflows built around decades-old technology has not proven to be an easy thing to do, so we’re left with solving this problem ourselves. 
+so i set about trying to find some alternatives to moving everyone to windows for an edge case. the first thing that came to mind – we can just have a shared windows machine that everyone can jump into to fill out these forms? easy! dust off hands, problems solved. 
+it turns out it’s not that easy. here is why: 
+
+first of all the remote desktop application on chromebooks -which is the android version from the play store – seems to be a bit garbage. it works, to some degree, but it has a long list of complaints raised about it continually disconnected and generally not working properly. this makes me a bit nervous about deploying it and having people rely on it for mission-critical stuff. 
+there’s no really easy way to put a file on a remote desktop server if you’re not connecting in from windows – if you’re a windows client, you can just copy/paste the file directly from one desktop to another. chromebook users can’t do that, & we don’t want to have to worry about users logging into their various accounts on the windows server just to put a single pdf on there, as they’d have to remember to logout. (just leaving a whole separate windows machine in the office has these difficulties, compounded by the fact that people work from home so it’s not always available). 
+the main activity they need to do is filling out these forms, which is mainly done by copying and pasting data from a web site into the pdf. copy/pasting seems a bit suspect in rdp from the chromebook – sometimes it seems to not work. it would simply not be viable to present this as an option and tell our users they can’t copy and paste with 100% reliability. 
+
+to try to work around some of these problems i looked at a few different things and had many adventures. i have summarised these below: 
+remote desktop with gcpw on windows server 2022
+i had hoped remote desktop on a windows server with the google credential provider for windows installed might fix things. this should mean that users can log in with their google workspace accounts and have access to their usual profile stuff, including their files. this would make the file sharing stuff a lot easier, and ensure they have access to their browser profile as well, which might help move things around. 
+but this has a few problems. for one, gcpw is not even supported on windows server. however, a bit of websearching shows that it does work, but not without some headaches. 
+the main headache has to do with the security and encryption used by modern windows server rdp. it uses this thing called nla (network level authentication), which is the thing in the rdp client that prompts for your user credentials before you’ve connected to the server. without nla, you first connect to the desktop of the remote machine, and then log in as usual. 
+with nla, gcpw doesn’t work, because the server doesn’t have the opportunity to start the google authentication login dialog flow. 
+but! you can disable nla. that should fix it, right?!
+kind of. disabling nla is a two-sided thing – you need to disable it on the server, and on the client. to disable nla on the server, you go to settings -> remote desktop -> advanced settings, and uncheck the nla checkbox: 
+
+that will fix the server side. but you also need to set the client to not use nla. 
+but this is not something you can do in mstsc.exe (the windows rdp client)!there is no option you can check to disable nla, so even with nla disabled, the client will still prompt you when you start the connection. 
+fortunately i stumbled across this random gist which explains the solution – you need to save a .rdp file, and edit it to add the following line: 
+enablecredsspsupport:i:0
+(it turns out microsoft do have this documented, but i could only find it once i already new the above magic setting.)
+with that option set in my .rdp file, i was able to connect to the desktop of the server and see the gcpw login. 
+logging in will take you through the normal google login flow, but after authenticating, you might get an error – gcpw will create the user account after auth, but (unless you’ve already configured your windows server to allow everyone rdp access) that user will probably not be in the rdp user group. fixing this requires manually adding that user into the remote desktop users group, which is easy: 
+
+open the users/groups control panel: start -> run -> lusrmgr.msc
+click on the users and look for the newly created gcpw user. their username will be something like %firstname%_%email_domain_bit% – e.g. if your email address is david@example.com, the username will be something like david_example
+double click/open that user, select “member of” tab, and add to “remote desktop users” group. 
+
+once that is done you should be able to log in with your google account as normal. 
+(note: i re-imaged this machine and installed it again from scratch to make sure it worked the same way a second time. it didn’t. on the second time, when i tried to log in with the gcpw setup, i got the message “your administrator doesn’t allow you to sign in with this account”. fortunately google are all over this message and have a faq addressing it – the fix is to simply add the registry key hkey_local_machine\software\google\domains_allowed_to_login with a string value of your google workspace domain. i don’t know why the gcpw installer did this correctly the first time, but not the second time?!)
+once this was working i thought i was pretty much done – now, to just get this going from a chromebook! (like an idiot, i didn’t think about the chromebook aspect of this before i started.)
+it turns out the remote desktop app available for chromebook (at the time of writing, it is v10.0.19.1290) does not support connecting without nla. there is no client option to disable the nla authentication flow. you can copy over a .rdp file and open it, but it still prompts as if nla is enabled, so my guess is the current version of rd for android simply requires nla for all connections. 
+(there was a version of the remote desktop app (version 8) which, just because it was older, may have worked for nla-less connections. based on the comments in the current rd app on the play store, version 8 was superior in a lot of respects, so who knows. unfortunately it is no longer available from the play store, but a lot of people seem to be downloading it from random places as a .apk to keep using it -which says a lot.)
+so – connecting from chromebooks directly using gcpw doesn’t seem like an option. what else can we try? 
+windows server 2022 remote desktop web client
+i vaguely remembered that windows users could remote desktop from a web interface, so maybe i could set that up? 
+this was a wild adventure. it’s not just a checkbox you can click to turn on the web client. first of all, you need to install the remote desktop services feature. 
+this is a huge process and comes with its own lengthy instructions. i won’t go into all the problems and hassles because they’re kind of out of scope, but i’ll mention a few of the main things that popped up. 
+
+you can’t install the remote desktop services – as far as i can tell – unless your windows server is part of a domain. this can be an old school domain or a newfangled azure active directory thing. i set it up as a normal domain so i didn’t have to muck around with azure. 
+to do this you need to add the active directory domain feature – server manager -> role based or feature based -> add active directory domain services. 
+this failed for me with a random error, “windows server 2016: one or several parent features are disabled so current feature can not be enabled. error: 0xc004000d”. i found this random blog post from 2018 which had some arcane powershell solution, which i’ll reproduce here for posterity: 
+
+open an elevated powershell prompt and enter the following to check if the .net framework feature is installed:
+get-windowsfeature net-framework-features
+then enter:
+get-windowsfeature net-framework-features | remove-windowsfeature
+finally repeat the first command to check the feature has been removed:
+get-windowsfeature net-framework-features
+restart the server.
+restart-computer
+
+
+i have no idea what this does, but it fixed the problem for me, and i was able to install active directory domain services. 
+once the server was now in a domain, i was able to blather my way through the install process for remote desktop services. i used this guide as a basis. 
+once that is done, you need to do another completely insane manual powershell process, but this one is part of the official microsoft documentation: set up the remote desktop web client for your users. this also had some problems:
+
+you’ll need to update to the latest powershell version first. the article doesn’t mention it but it doesn’t work with the default powershell installed on windows server 2022 at least. 
+step one is “on the rd connection broker server, obtain the certificate used for remote desktop connections”. i wasn’t quite sure what this meant, but figured out it means just open “manage user certificates” tool, look for the remote desktop category, and export the certificate in there. there was only one for me; i picked the first export option and saved it as a .cer file. 
+step 6 is importing that certificate via. the instructions say: “next, run this cmdlet with the bracketed value replaced with the path of the .cer file that you copied from the rd broker”. it should say “… replaced with the full absolute path” – i kept getting random powershell errors ('exception calling ".ctor" with "1" argument' kind of thing). you can also run it with no parameter, and it will prompt you for the path
+
+
+
+a brief segue – remoteapps!
+after all that, i kind of forgot what i was doing because i discovered these things called “remoteapps” – basically, a way to let people remote desktop into a specific app! i started playing around with them as i thought this might be a neat compromise – people could just rd directly into acrobat reader and wouldn’t even need to deal with all of the rest of the experience!
+unfortunately this seemed a bit painful as it meant i still needed to figure out a way to get these pdfs onto the server in a place where the acrobat process could access them. 
+anyway, remoteapps looked cool and worked perfectly once they were set up, ignoring the other problems, so that is something i’ll be coming back to. 
+guacamole – an open source apache project supporting remote desktop
+i had recently heard about guacamole, which looked interesting as a piece in this puzzle – perhaps it would solve one or more of the problems. 
+it was a real chore to get running. the documentation is great in some parts but confusing and contradictory in others. i started with the recommended docker process in the hope that it would avoid compiling from source and mucking around with linux too much, but i ran into a ton of problems with the docker setup: 
+
+the docker version seems to have a hard requirement of one of the authentication modules, like mysql. some of the older documentation refers to a “noauth” solution (and llms will uselessly suggest this is an option) but lots of trial and error and reading docs and support tickets finally led me to the conclusion that with the docker version there is no way to do this without an auth layer. 
+setting up mysql is something i’ve done a million times, but not with docker. my first experience sucked because the docker instructions for mysql seem wrong – the official image instructions say you can connect to the mysql cli tool, but that flat out didn’t work for me, so i had to muck around trying to get that working. (i imagine docker pros won’t have this issue but it was annoying that the most basic default instructions failed.)
+the rdp server i want to connect to is on our tailscale tailnet. the docker container can’t access the tailnet without setting up the tailscale sidecar. this looks like a decent solution but i am not familiar or confident enough with docker to bother mucking around with it. 
+
+so, deep sigh, let’s try compiling from source. 
+this turned out to be utterly painless and very fast. the biggest issue i had was deploying the .war file for the client – i set up a new debian box, which installs tomcat 10 by default. everything looked like it was working, but i would just get random errors trying to load the guacamole client. 
+i eventually discovered that this is just a basic compatibility issue with tomcat 10. it’s frustrating that this info isn’t front and centre in the guacamole documentation (or maybe it is and i just missed it). 
+i downgraded the box to debian 11 and tried again with tomcat 9 and it worked perfectly first go. 
+i ran into a few small issues that could be documented a bit better. i’ll summarise some things if you don’t want to read all the docs: 
+
+first and most importantly, you do not need to set up a mysql server for authentication, or any of the other authentication types. it will work fine out of the box with the basic authentication provided by the user-mapping.xml file
+you need to create a /etc/guacamole directory. download the example user- mapping.xml file from their github repo. 
+modify the xml file as required to test it out. i’d recommend testing with the default built in accounts (e.g., username2 / password) to start with just to make sure you can log in to the guacamole interface and the rdp connections are working as expected. 
+define your own connection(s). note that the hashed passwords need to be generated with echo -n [password]  | sha256sum, not just echo. 
+i struggled to get nla-less connections going. the guacamole documentation references nla and no nla repeatedly so i was sure it was possible but i couldn’t find the right combination of parameters. eventually i figured it out through trial and error, so here it is: <connection name="acrobatbox"> <protocol>rdp</protocol> <param name="hostname">8.8.8.8</param> <param name="port">3389</param> <param name="security">tls</param> <param name="disable-auth">true</param> <param name="ignore-cert">true</param> <param name="resize-method">display-update</param> <param name="normalize-clipboard">windows</param> </connection>
+the key bits in the above are setting security to tls and disable-auth to true – this is the magic combination to disable nla on the client side. 
+
+once that was done, i finally had an rdp connection working via guacamole which respected the need for no nla, so i could log into the desktop with gcpw – success, right?!
+well, no. it turns out that guacamole is a great piece of software which works amazingly well and covers a lot of ground, but unfortunately kind of sucks to use if one of your main requirements is using the clipboard a lot. 
+the way the clipboard in guacamole works is… weird. the details are in the documentation, which, had i read before embarking on this journey, i might have not bothered. 
+the basic gist of it is you have a menu available when you’re connected to the server via guacamole. in that menu is a text area. you can use that text area to move information back and forth between the two systems. 
+this is obviously not a great user experience. it must come up a lot, because it’s mentioned in their faq under a question that is approximately “why don’t you just make the clipboard work?” 
+the answer there implies though that it does work, at least as long as you’re using a modern browser that supports clipboard api. i was testing with latest chrome so figured i’d be ok, but it still wasn’t working. 
+some more investigation revealed the problem: chrome will only allow access to the clipboard if you’re accessing it via https. i set up an nginx proxy in front of it and tried again in a new browser – this time it actually prompted with with a browser notification to allow access to the clipboard, and it worked as expected, with the usual bi-directional clipboard flow working pretty much perfectly. the one exception to this is the login screen, where you can’t copy/paste the password, which is a small frustration, but probably manageable for most users. 
+
+
+
+
+
+author trogposted on september 11, 2024september 12, 2024categories randoleave a comment on the mysteries of remote desktop 
+
+
+
+resurrecting old pgp virtual disks with pgp desktop v8 
+
+i recently needed to recover some information from a pgp virtual disk (a .pgd file) that i created back in about 2012. this drive was created with pgp desktop v8. 
+after a long adventure, it turned out that the information i wanted wasn’t even stored in this disk, but it was such a hassle to figure this out i thought i’d write up a bit of it in case it’s useful to others. 
+pgp desktop was, back at that time, software sold by pgp corporation. this company was later purchased by symantec, and the application was then changed to symantec encryption desktop. in 2019 it was bought by broadcom.  
+at some point along this journey, it became seemingly basically impossible to buy this software as a single user. as far as i can tell, you can only buy the software from broadcom (or more accurately, from a broadcom distribution) as part of a volume licensing arrangement, starting at something like 50 seats. 
+this is obviously ludicrous if you just want a single license to muck around with. this fits with what little i know about broadcom – that they are a company only interested in working with enterprise clients, and everyone else can more or less get lost. 
+i finally found the installer for pgp on an old backup drive. hoping this is useful to someone else looking to resurrect old data, the details are: 
+filename: pgp8.exesha1sum: 38c43ef41b9c15996bdaeb1711d2ca0afe99ada5
+i am unwilling to post the file due to copyright concerns, but from a quick look it seems to be available online, and as long as the sha1 matches, you should be ok. (not a guarantee. use with caution.)
+unfortunately this would not install on windows 10 – it started the install process and seemed to complete, prompting for a reboot, but it wouldn’t install any shortcuts or map any files, and it wouldn’t start the activation process. i suspect whatever kernel-level magic it needs is simply not compatible with windows 10. 
+i figured windows xp would work, but then it was a struggle of finding a windows xp machine. i ended up using the following iso which i found on archive.org: 
+filename: en_windows_xp_professional_with_service_pack_3_x86_cd_vl_x14-73974.isosha1sum: 66ac289ae27724c5ae17139227cbe78c01eefe40
+i was hugely reluctant to use this iso, like i am with any random executables on the internet, but that sha1sum shows up in searches in documents well over 10 years old, and seems relatively reliable. of course, approach with extreme caution, and limit your exposure as much as possible. 
+the pgp desktop installer worked perfectly on a virtualbox vm spun up with this iso – until i got to the activation stage. i tried my original license details, but of course the activation servers are long since gone, so short of reverse engineering the activation process and faking a valid response (which sounds fun but who has the time), this is a no go. 
+fortunately, pgp desktop was created in an era where the internet was still considered to be not always present, and the creators built in a manual, offline activation process. 
+a quick search and i found a random manual license authorisation that worked perfectly. i am reluctant to post the details here but here are some clues to help you find one – there are many references to them online. a websearch for the following string, with quotes, should give you some options: 
+"begin pgp license authorization" "pgp desktop" "pgp enterprise"
+once i had this done, i was able to mount my old .pgd file and access the information (to discover at this point the information i wanted wasn’t even in there). 
+
+
+
+author trogposted on august 17, 2024categories randoleave a comment on resurrecting old pgp virtual disks with pgp desktop v8 
+
+
+
+understanding aws cost explorer usage records 
+
+aws has a tool called cost explorer allows you to dive into your aws services to understand what you’re paying and where. 
+being aws, if you want more detail than what you get by default, you can also pay more for a mildly upgraded version of cost explorer, which gives you hourly granularity – so if you’re testing a new service and want to really make sure the costs aren’t going to blow out, you can do so a little more safely by monitoring it on an hourly basis. 
+the documentation is a little vague about this though – there is a page called “estimating cost for cost explorer hourly granularity” which explains cost explorer will start billing you for ‘usage records’ once you move into hourly granularity – but there’s no clear mention of what these are or how to track them. 
+when you turn this feature on you’re more or less forced to rely on their estimates of how many usage records will be used. i personally always find this completely daunting, given there is no way to cap  your spend, so i was very keen to understand exactly how to at least measure my ‘usage records’ once i’d enabled hourly reporting, because i couldn’t really find any metrics for it anywhere obvious. 
+while i haven’t been able to answer that question, i can report that once you have enabled this feature, it does add cost explorer to the list of services available to filter in cost explorer itself: 
+
+
+this means you can at least track your overall spend on usage records, if not the actual number consumed. 
+as far as i could tell, even this information – that cost explorer would appear in cost explorer once you enabled hourly granularity – is not in the documentation anywhere. amazon q, their ai robot chat agent thing, thus is not able to provide useful answers on the topic, just referring you to how it’s estimated and priced. 
+
+
+author trogposted on june 14, 2024categories randoleave a comment on understanding aws cost explorer usage records 
+
+
+
+url click interceptors for windows 
+
+a quick list of open source url interceptors – bits of software that, when you click on a url, will prompt you for which browser you want to handle the url – for windows: 
+
+hurl – c#/.net
+browserpicker – c#/.net
+browserselector – c#/.net
+browserselect – c#/.net
+browsers – rust
+browserbarrier – autohotkey
+
+
+
+author trogposted on june 6, 2023june 6, 2023categories randoleave a comment on url click interceptors for windows 
+
+
+
+a random solution to 100% cpu usage in windows 
+
+like a zillion people on the internet, my laptop (a dell xps 7590) occasionally starts going nuts with the fans, because a cpu core is pegged at 100% for no obvious reason. 
+task manager/resource monitor all uselessly show it’s system, and trying to debug further in process explorer just leads you down a rabbit hole of potential windows problems. 
+after picking a few of these at complete random i luckily eventually stumbled across something that fixed it – changing the power options related to usb settings. specifically, disabling usb selective suspend setting when the system was plugged in. 
+
+this immediately made the 100% cpu pegging go away, solving a problem that had plagued me for over a year. no idea if it was related to usb devices i had plugged in – i had the same problem at work and in the office, where i have completely different equipment. 
+no idea what the potential impact to this is but i find it hard to believe it’s worse than my cpu spinning randomly. 
+
+
+author trogposted on may 23, 2023may 8, 2024categories randoleave a comment on a random solution to 100% cpu usage in windows 
+
+
+
+aws transfer family sftp directories are a bit weird 
+
+there are still a lot of people out there with sftp (and even ftp!) based workflows. amazon know this and have a dedicated product called aws transfer family, which is basically an amazingly expensive sftp wrapper that lives on top of s3. 
+if you don’t want the hassle of running sftp on a $5/mo virtual server, then paying aws on the order of usd$200/mo might be a good option. 
+there is some slightly weird behaviour compared to standard sftp that caught me by surprise relating to directories. 
+(note: i am doing this on a client’s sftp setup, so i don’t know what it actually looks like on the s3 side.) 
+
+if you try to rename a file into a directory that does not exist, you will not get an error – it will actually work, and create some sort of “virtual subdirectory” in the s3 bucket. e.g., if you do rename example.txt backup/example.txt, without the backup/ directory existing, and then do a directory listing, you’ll see there is a new backup/ directory that was created by that rename operation. 
+if you then move the file back – rename backup/example.txt ./example.txt – the backup/ directory will disappear. 
+if you create the backup/ directory first, and repeat the move in and out, the directory will persist. 
+if the backup/ directory was created by the rename command, and you then try to do an ls * on the parent directory, it will return the files in backup/ as well – i.e., it will act like a recursive ls.
+
+if you are trying to get closer to standard sftp-based behaviour with directories, i suspect it’s safer to manually make the directories first (as you would normally) instead of relying on this weird automatic directory creation you get from the rename. 
+
+
+author trogposted on may 16, 2023may 16, 2023categories randoleave a comment on aws transfer family sftp directories are a bit weird 
+
+
+
+\d vs [0-9] in javascript/node.js regex 
+
+i was trying to debug while a seemingly very simple regular expression in javascript was failing. 
+the goal was to catch expressions going to an api endpoint that looked like: 
+/endpoint/145,14,93
+the regex i had was working fine in regex101.com’s simulator: 
+^/endpoint/\d+,\d+(?:,\d+)*$
+but running under node.js, it wouldn’t work – it would catch a single digit, but not any subsequent digits. 
+spent a while trying different things – mostly assuming i was doing something boneheaded due to my lack of familiarity with node.js. a colleague verified the same thing and also wasn’t sure. 
+i then realised it worked fine if i replaced the \d with [0-9]. i thought this was weird – the mdn documentation says: 
+matches any digit (arabic numeral). equivalent to [0-9]. for example, /\d/ or /[0-9]/ matches “2” in “b2 is the suite number”.
+… which made me assume they were the same thing. 
+after much websearching & the usual difficulty in finding meaningful results with search terms like “\d”, in desperation, i thought i’d ask chatgpt, and got the following result: 
+
+the fourth point seems to be the case – the \d is also matching the comma. 
+i’m sure this is documented somewhere (otherwise how else would chatgpt know about it?!) but i couldn’t find it referenced in any of the stuff that came up through common search terms. 
+
+
+author trogposted on march 18, 2023may 8, 2024categories randoleave a comment on \d vs [0-9] in javascript/node.js regex 
+
+
+
+seo? more like se-no! 
+
+[hilarious alternate title: dealing with seo: how to go from se-no to se-oh yeh.]
+i wrote this article back in 2014 for our agency’s blog. it was never published – i suspect our sales & comms people didn’t like it as it conflicted with some of our service offerings. 
+while it reads a bit dated, i think the core tenets are still more or less correct, and i just thought the title was very funny, so here we are. 
+seo? more like se-no!
+until social networking came along, search engine optimisation (seo) was the undisputed king of web buzzwords. if you weren’t doing seo, then you were crazy and your website – and by extension, your business – was going nowhere. 
+seo now has to vie for mindshare against a social media strategy, but it has a long legacy and thus is still heavily entrenched in the minds of anyone who is trying to do anything in the online space. 
+if you’re running a website for your business, and you’re not a technical person familiar with the intricacies of seo, you might have been concerned about this – how do you make your website stand out? how do you set things up so that when someone types in the name of your business or your industry, you show up on the first page? 
+in short – do you need seo?
+well, vast hordes of seo specialists, agencies, companies and consultants have sprung up over the preceding years to help answer these questions. sounds promising, right? in an increasingly knowledge-based economy, it’s obviously helpful to have a bunch of people who have devoted themselves to becoming experts on a topic, so you can leverage their abilities. great!
+unfortunately, things aren’t great in the world of seo. things are messy. let’s have a look at why. 
+what is seo?
+first up – what the heck is seo, anyway? “search engine optimisation” sounds pretty clear-cut – everyone needs to be on search engines!. but what actually is it? when someone “does seo”, what exactly are they doing?
+the short answer is: it could be anything. “seo” is not the sort of hard, technical term that is favoured by computer nerds like us. there’s no specification, there’s no regulations, there’s no protocols – there’s not even an fm to r. 
+in a nutshell, seo means making changes to a website to improve how search engines react to it. it can be as simple as making sure you have a title on your page – for example, if your business is a coffee shop, you might want to make sure you have the words “coffee shop” somewhere in the title. it can be complicated, too – like running analyses on the text content on your site to measure keyword density. 
+changes can also be external. one of the biggest things that impacts a site’s rankings in search results is how many other people on the internet are linking to you. so one seo strategy is to run around the internet and make a bunch of links back to your site. (we’ll talk about this a bit more later.)
+other technical things might influence seo as well. google recently announced that whether or not a site used https (the secure padlock dealie that means your website is secure for credit card transactions) would start having some impact on rankings. 
+as we can see here, there’s a bunch of different things that can affect your seo – and i’ve only listed a handful of them. there are more – and they all are interrelated. 
+as if that wasn’t complicated enough, there’s something else that affects where you end up in search results – the person who is searching. where you are will change things – if i’m searching for coffee shops, i’m more likely to get results that are geographically closer to me. if i’ve done a lot of searches for certain terms, i’m more likely to to see results based on those terms. 
+if you have your own website and regularly visit it, it is possible that will affect the rankings as you see them. if you search for yourself you might see your ranking up higher than someone else doing the exact same search located in the next street – or the next town, state, or country. 
+what’s the practical upshot?
+in short: seo is complicated. there are lots of variables, and they are hard to control. 
+that’s not even the really bad part: the only people who know exactly how the search ranking system works are the search engines themselves. no matter what you do, the outcome is still 100% determined by whatever is going on with the search engines on any particular day. 
+no matter what you’re told, anything anyone knows about how to “do seo” comes from one of two sources: information made publicly available by search engines, and from reverse engineering search engine behaviour by experimentation. 
+you might invest large amounts of time and effort (and money) in trying to execute a particular seo strategy, only to have google come along the next day and announce they’ve changed everything, and your investment is largely wasted. 
+seo is a moving target. things are constantly in flux, in no small part due to the huge number of people attempting to game the system by any means possible – in a world where a top ranking in a competitive search result can mean a huge increase in sales in a very short time, getting an edge is a big deal. and many slightly more nefarious techniques – usually dubbed “black hat seo” – have emerged, which in many cases can do massive damage to your rankings. 
+as if all that wasn’t traumatic enough… your ranking is something that evolves over time. a new website won’t appear in search results immediately at all; it might take a few days to show up, and in most circumstances will be low in rankings. if you’re in a competitive space, it might take you months to even register on the first few pages of results. 
+this means it is very, very hard to do any sort of significant or reliable experiments with seo in a short timeframe. you can’t change a few words and the instantly check how they affect your rankings. you have to wait – a long time – to see if it has any effect. during that time, there will be any number of other changes that have occurred, making it hard to confirm if your experiment worked. 
+doing seo scientifically is hard. measuring cause and effect is hard enough in small experiments when there are few variables and they can be tightly controlled. in seo there are many variables, constantly in flux, known only to the clever engineers that write and evolve the ranking algorithms – the secret sauce that drives how every search engine works. 
+i said what’s the practical upshot!
+oh, right. well, the practical upshot is that the world of seo providers is full of people over-promising and under-delivering. 
+this is the big risk of paying for seo services. because it’s such a vague, hand-waving term that encompasses so many different areas, there are, sadly, a number of operators in the space that use it as an opportunity to provide services that are not quantified or qualified in any meaningful way. 
+because of the complexity of the systems involved, it is practically impossible to deliver a promise of results in the seo world. you might get promised a first page search result, but it is extremely difficult to deliver this, especially in competitive spaces – if you’re trying to get your coffee shop on the first page of google results for the term ‘coffee shop’, you’ve got a long road ahead of you. 
+worse, there are black hat operators that will do things that look like a great idea in the short term, but may end up having huge negative ramifications. “negative seo” is one of the more recent examples. 
+as a result, there are plenty of witch doctors offering seo snake oil. promises of high rankings and lack of delivery abound – followed by “oh, we need more money” or “you need to sign up for six months to see results”. 
+one only needs to look at the seo sub-forum on whirlpool –  one of the most popular communities in australia for those seeking technical advice – to see what a train wreck the current seo market is. at the time of writing there’s a 96 page thread at the top with unsatisfied customers of one particular agency. there are stacks of warnings about other agencies. scroll through and have a look. 
+customers of many seo agencies are not happy, and it’s because they’re paying for something they don’t really understand without getting crystal clear deliverables. 
+the situation is so bad that the second sentence on google’s own “do you need an seo?” page states: 
+deciding to hire an seo is a big decision that can potentially improve your site and save time, but you can also risk damage to your site and reputation.
+some other interesting terms used on that page: “unethical seos”, “overly aggressive marketing efforts”, “common scam”, “illicit practice”… indeed, the bulk of the document explains all the terrible things you need to watch out for when engaging an seo. 
+(i should stress that this is not a general statement that encompasses all those who perform seo. there are many smart and dedicated people out there that live on the cutting edge of search engine technology, doing only white hat work, delivering great things for their clients. the hard part is finding them in the sea of noise.)
+cool story. what does this mean for me?
+back to the original question – do you need seo? 
+there’s no right answer. it’s a big question that encompasses a wide range of stuff. without looking at your specific situation it’s hard to tell how much effort you should put into seo at any given point in time. 
+remember: there’s no clear-cut magic seo bullet that will do exactly what you want. but one thing is for sure – someone will happily take your money. 
+if you decide to engage someone to help optimise your website for search, here’s a quick list of things to pay attention to:
+
+carefully read google’s “do you need an seo?” document, paying particular attention to the dot points at the bottom. 
+establish clear deliverables that you understand – you need to make sure that you know what you’re paying for, otherwise what you get will be indistinguishable from nothing. 
+tie any payments (especially ones involving large amounts) to performance metrics – but don’t be surprised if they’re not interested in doing this. (what does that tell you?)
+remember that anything that is not a simple content update that you can do yourself might have other costs – for example, changing page layout or adding new tags might require you to get web developers on board. 
+if you’re building a new site from scratch, make sure your developers are factoring in seo right from the outset. almost any decent developer will be using a framework or software that takes seo into consideration, and as long as they – and you – are paying some attention to google’s seo starter guide (edit: 2018 version is here: https://support.google.com/webmasters/answer/7451184?hl=en ) you’ll end up in a much better position. 
+strongly consider search engine marketing (sem) instead. sem is the thing where you pay companies like google money to have your website appear in search results as ads, based on specific terms. the google programme – adwords – gives you incredible control over when your ads appear, and you also get excellent data back from any campaigns. with adwords you can actually effectively measure the results of your work – so you can scientifically manage your campaigns, carefully tracking how every one of your marketing dollars is performing. 
+
+
+
+author trogposted on february 16, 2023categories randoleave a comment on seo? more like se-no! 
+
+
+posts pagination
+page 1
+page 2
+…
+page 29
+next page
+
+
+
+
+abouthi! i'm dave (or trog).
+
+i work and play mostly in the internet software world. projectscurrent professional projects:
+
+explorate, reinventing freight forwarding and logistics for the modern world
+
+
+previous professional projects:
+
+transaction loan cover, a world-first api providing trade credit insurance for loans
+single invoice cover, a world-first api providing trade credit insurance for invoices
+
+
+personal projects:
+words from tomorrow, a sci-fi art-ish project
+cpaste, a simple windows tool that allows you to copy files from the clipboard into the console's current working directory
+wpupcheck, a windows tool to remotely check wordpress sites for updates
+wpgpg, a proof-of-concept tool to pgp encrypt wordpress sites
+some photos i took
+search
+
+
+
+			search for:		
+
+
+
+		search	
+
+categories
+
+games
+
+general
+
+rando
+
+software
+
+startups
+
+telstra/bigpond
+
+travel
+
+web development
+
+
+ 
+
+
+
+about
+contact
+my pgp key
+ 
+
+trog's haus
+
+					proudly powered by wordpress				
+
+
+
+
+
+

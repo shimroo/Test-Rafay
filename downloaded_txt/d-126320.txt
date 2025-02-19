@@ -1,0 +1,207 @@
+
+
+sproutworks software design
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+joinblogsproutsearchforumswhat is sproutworks?contact us
+
+
+
+social networks
+
+
+
+
+
+
+
+
+
+
+enter your email
+
+
+powered by feedblitz
+
+
+rss feed
+
+links
+
+blogshares links
+	
+	the blogshares fantasy blog stock market.
+	
+	
+blogshares price tracker
+	i wrote this program to archive information from the blogshares fantasy stock market. you can view graphs of any industry, and analyze your portfolio.
+
+
+
+
+sproutworks projects
+digg archive
+a new experimental digg page.
+
+ajax pixel editor
+a collaborative pixel editor currently in development.
+
+web promotion links
+these tools help you get visitors on your website.
+
+sproutpics
+my photography site
+sproutsearch
+i designed this blog indexing tool, and it has accumulated over 6 million blogs so far.
+products
+some of the programs i've written.
+
+sprouttree demo
+a demo of a tree-drawing php script.
+my gallery
+
+sign inusername: password: remember me 
+
+
+
+
+
+
+
+
+
+
+
+what is sproutworks?
+
+hi, i am brandon smith, the creator of sproutworks. welcome to my core website. what you see here is a showcase of computer related work that i have done over the years. i have been writing software for about the last 17 years, since i got my first computer at the age of 10. this site contains galleries, a search engines, forums, a chat room, a code viewer, and other programs i have created.
+
+
+this website operates with about 25,000 lines of code that i've written in php. i use mysql for my database backend.
+
+
+the sproutworks forums are being designed to facilitate blogging and integration of multimedia.
+create an account and write in a sproutworks blog today!
+
+
+palmos users can download sproutpaint, a color and greyscale painting application.
+ sproutpaint was designed for performance and graphic diversity.
+
+
+sproutworks is powered by the sproutworks content management system, which is written in php.
+the code is organized in modular pieces which are frequently updated.
+
+
+
+pieces of sproutworks
+
+many programs (roughly 300) work together to create the sproutworks website. each program is a php script which processes a small section on the site.
+
+
+blog directory
+
+this directory and search engine contains an index of over 3 million blogs created at blogger.com
+
+template manager
+
+the template manger takes a template file, which is written in html, and inserts the dynamic contents of that page.
+the contents are generated from the other programs the template requires.
+
+top level page manager
+
+this program organizes information that must appear on every page, such as headers and meta tag information. it acts as
+a wrapper around the whole website.
+
+timer
+performs timing operations for benchmarking or statistics.
+javascript
+
+some new javascript programs have been written to provide more fluid downloads from the server. under the php clock script, a box display the number of seconds you have been viewing the current page, and the total time spent on sproutworks. it uses a relatively new object called xmlhttprequest. xmlhttprequest represents a growing trend of websites that perform more efficient loading of resources. google's gmail uses this extensively to speed up the user interface.
+
+gradient generator
+
+the gradient generator can generate gradients randomly, or from a list of colors. it makes one or two dimensional gradients by interpolating a color value for each pixel in the image.
+
+256 sample gradients
+php source code viewer
+
+selected sproutworks source code is viewable online through the source code viewer.
+
+sproutworks source code viewer
+gallery
+
+sproutworks gallery displays images in directories, auto thumbnails images, and makes a catalog image for each directory.
+
+chat
+
+sproutworks chat is a fast and efficient web chat system. it is being designed to avoid slow refreshing pages, common in web based chat systems. the client is programmed in javascript, which can load quickly and has minimal overhead. the relatively new xmlhttprequest object (created by microsoft of all people), allows javascript to request information as it needs it. this results in sigificantly less bandwidth used, and a faster response time.
+the back-end is programmed in php/mysql. it sends data the javascript client requests, and manages chat archival. the server keeps track of the state of each client, so it only sends data that needs to be updated.
+forums
+
+the sproutworks forums feature a custom design that displays messages in a threaded format. a picture can be attached to each message.
+
+links
+
+the sproutworks links system displays a list of links with thumbnails for some sites.
+
+web forms
+
+a form class handles the rendering of forms as html, and also processes input from the form. errors in the form input are displayed. a validation class determines if an input is a valid match for it's datatype.
+
+foundphotos
+
+foundphotos is an automated image archiving program that collects pictures from foundphotos (click). it uses the sproutworks html parser program to find the images. the program downloads the images and thumbnails them. another program creates a contact sheet of each gallery.
+
+
+
+graphical programs
+sproutworks uses some programs which analyze or generate graphical data.
+sprouttree
+
+
+this is a live demonstation of sprouttree, a php tree generation program.
+if you reload this page, this program will draw a brand new set of trees for you.
+this program is written with a simple recursive branch drawing algorithm
+with random branching probabilites and branch length. if you would like to use
+sprouttree on your site, please enquire via the contact form on this site.
+
+gradient generator
+
+this is a sample of gradients generated with the sproutworks gradient generator.
+this program can generate a virtually limitless collection of gradients.
+
+
+
+
+
+
+
+
+    powered by sproutworks cms0.002 seconds
+
+

@@ -1,0 +1,659 @@
+
+
+
+
+
+e80 course start
+
+
+
+
+
+
+e80  spring 2016 – the ultimate adventure
+
+course info | the labs and lectures | the field experience | prev. gen. rockets | history and purpose | cool stuff 
+
+
+
+
+
+
+welcome to  e80 the next generation 
+
+
+
+ 
+what is e80
+
+    e80, experimental engineering, is a sophomore-level, semester-long required course, involving multiple experiments covering a number of engineering disciplines.  experimental engineering is an essential part of the engineering curriculum at harvey mudd college, and has been offered as a course for fifteen years. its predecessor, e54, with more experiments, but without a field experience, was offered for more than 20 years.the primary purpose of the course is to teach basic instrumentation and measurement techniques; good lab report practice; technical report writing; analysis and presentation of data; the usage of experimental results for engineering design purposes; and the beginnings of professional practice. in 2008 the course was revamped to change the field experience to flying fully-instrumented model rockets.
+this website has information primarily for students taking the course or planning on taking the course. they will find most of the information of interest to them in the first four tabs: course info, the labs and lectures, the field experience, and prev. gen. rockets. examples of the final presentations are available on the flight report page. however, those intersted in the history and design philisopy of the course, or in replicating e80 elsewhere will also be interested in  history and purpose. those primarily interested in rocketry and cool videos and pictures should look in  prev. gen. rockets and  cool stuff, particularly photos and flight videos. if you have comments or questions about e80 or the website, feel free to contact prof. erik spjut.
+
+
+it's been a good run
+e80 the next generation was first conceived at a series of lunches in 2005 & 2006 by professors mary cardenas and erik spjut. the first offering started january 2008. this season (2016) is e80 –tng's last. as a result, there are a number of ultimate or final events. the photos from the penultimate and ultimate final launches are in the photos page. there are three videos from the final launches on the flight videos page. the photos from the final set of gravel pit launches are also in the photos page. the final static motor test videos are in the static test videos page. as we gear up and plan for the exciting sequel, take a moment and reflect on where we've come from and what we've done. the sequel has a number, e80, but no name yet (although i favor e80 – dsv). 
+
+
+faculty
+
+lori bassman –  parsons 2371, x-71250
+chris clark – parsons 2376, x-78856
+albert dato –   parsons 2360, x-73302
+nancy lape – parsons 2367, x-73886
+angie lee – parsons 2367, x-73886
+matt spencer – parsons 2358, x-78537
+erik spjut – parsons 2384, x-73890
+
+meeting times
+
+lectures – tuesdays & thursdays from 9:35 am to 10:50 am in shanahan b480 (recital hall)
+lab sec 1 – monday from 6:30 pm to 9:30 pm (prof lee) & tuesday from 1:15 pm to 4:15 pm (profs lee & lape) in parsons basement*
+lab sec 2 – tuesday from 6:30 pm to 9:30 pm (profs dato & bassman) & wednesday from 1:15 pm to 4:15 pm (prof dato) in parsons basement*
+lab sec 3 – wednesday from 6:30 pm to 9:30 pm (prof clark) & thursday from 1:15 pm to 4:15 pm (profs clark & lape) in parsons basement*
+lab sec 4 – thursday from 6:30 pm to 9:30 pm (prof spencer) & friday from 1:15 pm to 4:15 pm (profs spencer & bassman) in parsons basement*
+
+*the lab sessions will be principally in the e80 lab room (p b171) and the electronics lab (p b181), but will also use the machine shops, the wind tunnel room, the ecf, the stockroom, and any other room or location that occurs to us, including the gravel pit and linde field.
+kit
+every e80 student is required to pay a lab fee of $75 in the engineering office, parsons 2372 (claremont cash only), to help offset the enormous expense per student of e80. once the fee has been paid,  a kit consisting of a rocket, parachute, solderless breadboard, wire cutter/strippers, and screwdriver may be picked up from the engineering stockroom. the assembly instructions for the rocket are different from what is in the kit, so please don't attempt to assemble the rocket until you have read the first lab and the instructions contained therein. 
+labview and mydaq
+
+for most of the labs with electronics in them we will be using the mydaq for data acquisition. we are not requiring students to purchas a mydaq, but we   strongly recommend that you buy your own mydaq (with labview, multisim, & ultiboard).  the biggest advantage is that you can work on your data collection vis as part of prelab, which isn't allowed for the college-owned daqs. you might as well be ahead on the curve and install labview on your own machine. if you choose not to buy the mydaq with labview license, we still recommend you purchase a student version of labview  and install it on your personal machine. there is also a 30-day trial complete version of labview available here. we use labview extensively in e80 and you have 7 labview assignments to complete. while labview will run on windows, linux, or os x (although not currently on el capitan, 10.11.x), the mydaq and most other ni hardware only has drivers for the windows version. for mac users both boot camp and parallels or vmware work reasonably well.
+labview text
+we recommend you watch the self-paced video training instead of buying a text. there are also e80-specific training videos on the labview assignments web page.
+ if you want a  text, we recommend you get: bishop, robert h., learning wth labview, prentice hall    2015, isbn-10: 0134022122, isbn-13: 9780134022123
+we don't recommend the current or previous student edition texts that comes with the software because  the texts all have older versions of labview.the software is upwardly, but not downwardly compatible. you will want the same version on all of your machines. 
+ 
+
+
+course objectives 
+by the end of the course students will:
+    
+demonstrate hardware and equipment skills:
+  
+demonstrate the safe and proper use of basic laboratory equipment: e.g., digital multimeter (dmm), signal generator, oscilloscope, breadboard, and analog transducers.
+demonstrate the safe and proper use of computer-based and embedded-processor-based data acquisition systems.
+demonstrate proper techniques for debugging/troubleshooting an experimental setup.
+design, build, and fly a custom set of transducers to make engineering and/or scientific measurements.
+
+
+demonstrate experimental and analytical skills:
+
+demonstrate the design/planning and completion of safe experiments to answer open-ended questions.
+demonstrate manipulation and presentation of experimentally-obtained data to answer open-ended questions.
+analyze and compare the results of mathematical and computer modeling of an experiment with actual experimental results.
+demonstrate the beginnings of professional practice:
+effectively communicate in written form the design, completion, and analysis of experiments to answer open-ended questions.
+effectively communicate by oral presentation and q-and-a session the design, completion, and analysis of experiments to answer open-ended questions.
+
+
+
+the lecture schedule
+
+
+        the lecture schedule
+      
+
+date
+tuesday
+date
+thursday
+
+
+19 jan 2016
+flight data basics
+21 jan 2016
+data fitting and analysis
+
+
+26 jan 2016
+labview & matlab
+28 jan 2016
+basic electrical measurements
+
+
+2 feb 2016
+op-amps & signal conditioning
+4 feb 2016
+temperature measurements
+
+
+9 feb 2016
+wind tunnel & fluid measurements
+11 feb 2016
+thrust measurements & flight modeling
+
+
+16 feb 2016
+inertial measurement
+18 feb 2016
+vibration & system id
+
+
+23 feb 2016
+atmospheric science
+25 feb 2016
+sensors & transducers
+
+
+8 mar 2016
+flight hardware
+ 
+ 
+
+
+5 apr 2016
+field operations & safety
+ 
+ 
+
+
+ 
+
+
+the lab schedule
+
+
+        the lab schedule
+      
+
+week of
+section 1
+section 2
+section 3
+section 4
+
+
+18 jan 2016
+ 
+ 
+ 
+first flight
+
+
+25 jan 2016
+first flight
+first flight
+first flight
+bem
+
+
+1 feb 2016
+bem
+bem
+bem
+rotation 1
+
+
+8 feb 2016
+rotation 1
+rotation 1
+rotation 1
+rotation 2
+
+
+15 feb 2016
+rotation 2
+rotation 2
+rotation 2
+rotation 3
+
+
+22 feb 2016
+rotation 3
+rotation 3
+rotation 3
+rotation 4
+
+
+29 feb 2016
+rotation 4
+rotation 4
+rotation 4
+rotation 5
+
+
+7 mar 2016
+rotation 5
+rotation 5
+rotation 5
+propose & design
+
+
+14 mar 2016
+spring break
+spring break
+spring break
+spring break
+
+
+21 mar 2016
+propose & design
+propose & design
+propose & design
+no lab
+
+
+28 mar 2016
+breadboard & test
+breadboard & test
+breadboard & test
+breadboard & test
+
+
+4 apr 2016
+pc board & test
+pc board& test
+pc board& test
+pc board& test
+
+
+11 apr 2016
+build, test & launch
+build, test & launch
+build, test & launch
+build, test & launch
+
+
+18 apr 2016
+rebuild, retest & relaunch
+rebuild, retest & relaunch
+rebuild, retest & relaunch
+rebuild, retest & relaunch
+
+
+25 apr 2016
+write up
+write up
+write up
+write up
+
+
+2 may 2016
+present
+present
+present
+present
+
+
+
+
+        the rotation schedule
+      
+
+ 
+team 1
+team 2
+team 3
+team 4
+team 5
+
+
+rotation 1
+op-amps & sig. cond.
+static test & flight model
+wind tunnel
+accel & gyros
+temperature
+
+
+rotation 2
+temperature
+op-amps & sig. cond.
+static test & flight model
+wind tunnel
+accel & gyros
+
+
+rotation 3
+accel & gyros
+temperature
+op-amps & sig. cond.
+static test & flight model
+wind tunnel
+
+
+rotation 4
+wind tunnel
+accel & gyros
+temperature
+op-amps & sig. cond.
+static test & flight model
+
+
+rotation 5
+static test & flight model
+wind tunnel
+accel & gyros
+temperature
+op-amps & sig. cond.
+
+
+ 
+
+
+the labview assignment schedule
+
+
+        the labview programming assignment due dates
+    
+
+due date
+number
+name
+
+
+29 jan 2016
+1
+read in data file
+
+
+5 feb 2016
+2
+write out data file
+
+
+12 feb 2016
+3
+create sub-vis
+
+
+19 feb 2016
+4
+use a for loop
+
+
+26 feb 2016
+5
+use a while loop and shift register
+
+
+4 mar 2016
+6
+control execution timing
+
+
+11 mar 2016
+7
+frequency response function
+
+
+ 
+
+
+motor testing schedule (subject to change)
+
+
+date team motors
+
+
+4 feb 2016 s4t2 g79w-m, f62t-m
+
+
+8 feb 2016 s1t2 g77r-m*, f37w-m
+
+
+9 feb 2016 s2t2
+g79w-m, f62t-m
+
+
+10 feb 2016 s3t2
+g77r-m*, f37w-m
+
+
+11 feb 2016 s4t3 g79w-m, f62t-m
+
+
+15 feb 2016 s1t3 g77r-m, f37w-m
+
+
+16 feb 2016 s2t3 g79w-m, f62t-m
+
+
+17 feb 2016 s3t3 g77r-m, f37w-m
+
+
+18 feb 2016 s4t4 g79w-m, f62t-m
+
+
+22 feb 2016 s1t4 g77r-m, f37w-m
+
+
+23 feb 2016
+s2t4
+g79w-m, f62t-m
+
+
+24 feb 2016
+s3t4
+g77r-m, f37w-m
+
+
+25 feb 2016 s4t5 g79w-m, f62t-m
+
+
+29 feb 2016 s1t5 g77r-m, f37w-m
+
+
+2 mar 2016
+s3t5
+g77r-m, f37w-m
+
+
+3 mar 2016 s4t1 g79w-m, f62t-m
+
+
+7 mar 2016 s1t1 g77r-m, f37w-m
+
+
+8 mar 2016 s2t1 g79w-m, f62t-m
+
+
+9 mar 2016 s3t1 g77r-m, f37w-m
+
+
+ thrust curves and data for the motors can be found in the rocket motor package,  on aerotech's website in the products pdf, or at thrustcurve.org.
+*motors marked with an asterisk are pre-loaded leftovers from last year. you'll have to switch the forward closure to a plugged forward closure.
+
+
+flight schedule for april 2016
+
+
+16-apr-2016
+
+23-apr-2016
+
+sec 1 team 1
+g79w-m, g79w-m
+ sec 1 team 1
+i205w-14a**, g79w-m
+
+sec 1 team 2
+i205w-14a**, h115dm-14a*
+ sec 1 team 2
+g80nt-14a, g80nt-14a
+
+sec 1 team 3
+h135w-14a*, g125t-14a
+ sec 1 team 3
+g79w-m, g79w-m
+
+
+sec 1 team 4
+g75j-m, g125t-14a
+ sec 1 team 4
+h195nt-14a*, g125t-14a
+
+
+sec 1 team 5
+g80nt-14a, g125t-14a
+ sec 1 team 5
+h135w-14a*, g80nt-14a
+
+
+sec 2 team 1
+h238t-m, g79w-m
+ sec 2 team 1
+h165r-m, g79w-m
+
+
+sec 2 team 2
+h165r-m, g79w-m
+ 
+sec 2 team 2
+h128w-m, g79w-m
+
+
+sec 2 team 3
+h182r-14a*, g79w-m
+ sec 2 team 3
+i205w-14a**, h115dm-14a*
+
+
+sec 2 team 4
+h238t-m, g79w-m
+ 
+sec 2 team 4
+h238t-m, g125t-14a
+
+
+sec 3 team 1
+h195nt-14a*, g80nt-14a
+ 
+sec 3 team 1
+h182r-14a*, g125t-14a
+
+
+sec 3 team 2
+i205w-14a**, g79w-m
+ 
+sec 3 team 2
+g79w-m, g77r-m
+
+
+sec 3 team 3
+h128w-m, g77r-m
+ 
+sec 3 team 3
+h238t-m, g79w-m
+
+
+sec 3 team 4
+h195nt-14a*, g75j-m
+ 
+sec 3 team 4
+h182r-14a*, g75j-m
+
+
+sec 3 team 5
+h135w-14a*, g80nt-14a
+ 
+sec 3 team 5
+h135w-14a*, g125t-14a
+
+sec 4 team 1
+h182r-14a*, g75j-m
+ sec 4 team 1
+h115dm-14a*, g80nt-14a
+
+sec 4 team 2
+h115dm-14a*, g80nt-14a
+ sec 4 team 2
+h195nt-14a*, g75j-m
+
+sec 4 team 3
+h165r-m, g79w-m
+ sec 4 team 3
+h165r-m, g79w-m
+
+sec 4 team 4
+h128w-m, g80nt-14a
+ sec 4 team 4
+h238t-m, g80nt-14a
+
+sec 4 team 5
+h238t-m, g125t-14a
+ sec 4 team 5
+h128w-m, g75j-m
+
+
+*rockets flying with these motors require an extra-long motor mount.
+**rockets flying with these motors require an extra-extra-long motor mount and an extra-long body tube.
+the list of available motors is here. if your motors are not already pre-assembled, we'll want you to assemble and label your two motors for a given week in the lab session preceeding the flight day.
+important: you need to check the flight characteristics of your finished rocket in rocksim or open rocket with the motors you will fly. the "m" delay is approximately 10 seconds.we will have a limited number of "l" delays, which burn for approximately 14 seconds. we can't modify the delays to burn longer, but we can modify them to burn shorter.  you may want to shorten the delay so that the 'chute pops out at apogee and not back on the ground. it's easiest to modify the delay time before you assemble the motor.
+ 
+
+
+
+
+
+home
+course info
+
+auntie spark's guides
+
+labview assignments 
+lab vi folder
+labview solutions 
+ the labs 
+first flight
+voltage dividers 
+op-amps & sig. cond. 
+temperature
+wind tunnel
+static test & flight model
+accel & gyros
+final project
+flight report
+
+the lectures 
+flight data basics
+data fitting
+labview & matlab
+basic elec meas
+op-amps
+temperature
+fluid measurements
+thrust & flight modeling
+inertial measurement
+vibration & system id
+sensors & transducers
+atmospheric science
+flight hardware
+field & safety
+
+prev. gen. rockets
+history and purpose
+cool stuff
+
+
+
+we gratefully acknowledge the financial and/or in-kind support of analog devices, apogee components,
+   and the boeing corporation for this project.
+
+
+
+
+
+if you are interested in sponsoring the new e80 laboratory
+  please contact prof. erik spjut.
+
+
+we gratefully acknowledge d. r. moore
+  who provided the background photo and the photographs 
+  in the 
+  high res stills
+  and the 
+  med res stills.
+
+
+
+
+
+
+
+ 
+  | ©2016
+  harvey mudd college 
+
+
+

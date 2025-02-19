@@ -1,0 +1,247 @@
+
+
+
+
+news - stepmania
+
+
+
+
+
+
+
+
+
+
+news
+download
+wiki
+forums
+faq
+
+
+
+
+
+
+
+stepmania 5.0
+stepmania is a free dance and rhythm game for windows, mac, and linux. it features 3d graphics, keyboard and "dance pad" support, and an editor for creating your own steps.
+download
+
+
+
+
+
+
+login
+			 |
+			
+			register
+
+
+
+
+
+
+
+agdq 2023
+
+
+
+
+						hi gdq viewers! you can download the game from github, here. i'm not entirely certain this server can handle all of you, so please be gentle. edit: regular site functionality is back now that traffic is lower, so the rest of this post has been removed.
+
+last edited: 14 january 2023  1:34am
+
+
+
+#68959 posted 13/01/2023, 4:24pm by shakesoda
+
+reply
+
+
+
+
+
+stepmania 5.1 beta 2 released!
+
+
+
+
+						the stepmania project is proud to announce the release of stepmania 5.1 beta 2; this is the second publicly-released beta build based on the "5_1-new" branch (see roadmap update for details). stepmania 5.1 focuses primarily on internal enhancements, especially for content creators (including but not limited to controller support improvements, support for custom songs in profiles on usb drives, fullscreen improvements on x11, a large number of new modifier effects, and a new image caching system), while preserving compatibility with stepmania 5.0.x content such as themes and noteskins. speaking of themes, by far the most significant, user-visible change on 5.1 is a new default theme known as lambda, which features a brighter appearance and a cleaner interface. over the previous release, beta 2 features bug fixes and other minor improvements, as well as some visual refreshes (including a new color scheme and a flatter, more consistent appearance) and other bug fixes for the new default theme.     source code and a windows installer are available now, with macos to come shortly. if you encounter any issues with this release, please do not hesitate to report them on our github issue tracker. please note that stepmania 5.1 uses a separate folder for user files and profile data than stepmania 5.0, so you may have to migrate content to the new location, or configure alternate locations separate from your user data directory. for more information, including a detailed changelog and downloads, visit its release page on github.
+
+last edited: 23 july 2018  9:36pm
+
+
+
+#68872 posted 23/07/2018, 9:27pm by lirodon
+
+reply
+
+
+
+
+
+autostepper: new & complete tool for automatic step generation
+
+
+
+
+						unhappy with current generation tools, i set out to make my own that had these important features: * generate all difficulty levels* generate holds & jumps* obtain banner & background art* run locally without interaction* process multiple music files at once* multiple beat detection methods* cross-platform support so, here it is -- autostepper by phr00t's software: https://github.com/phr00t/autostepper  it works on a common line with arguments, which are all optional. if you just run the java program, it will scan & process all mp3s (and wavs) in the current directory, and spit out folders for each song in the same directory (90 seconds worth of steps by default). the arguments are: input=<file or dir> output=<songs dir> duration=<seconds to process> synctime=<offset start time in seconds> tap=<true/false> if you set tap=true, autostepper won't try and automatically calculate the bpm or offset, and will instead prompt you to hit enter along with 30 consecutive beats. autostepper will then do the rest. it is best to let autostepper run through a whole bunch of music, and ones that it might not get exactly right -- to then pull out & use tap=true on them. you can also use the output as a base to further edit & perfect songs, with autostepper doing most of the dirty work. enjoy, it is free! designed for pad use, i should add. - phr00t
+					
+last edited: 20 march 2018  6:53pm
+
+
+
+#68850 posted 20/03/2018, 6:52pm by phr00t
+
+reply
+
+
+
+
+
+stepmania 5.1 beta 1 released
+
+
+
+
+						the stepmania project is proud to announce the release of stepmania 5.1 beta 1; this is the first publicly-released beta build based on the "5_1-new" branch (see roadmap update for details), so it is significantly different from the previous alpha builds named "5.1" that were released in 2016. stepmania 5.1 focuses primarily on internal enhancements, especially for content creators (including but not limited to controller support improvements, support for custom songs in profiles on usb drives, fullscreen improvements on x11, a large number of new modifier effects, and a new image caching system), while preserving compatibility with stepmania 5.0.x content such as themes and noteskins. speaking of themes, by far the most significant, user-visible change on 5.1 is a new default theme known as lambda, which features a brighter appearance and a cleaner interface.   source code, a windows installer, and a macos binary build are available now. if you encounter any issues with this release, please do not hesitate to report them on our github issue tracker. please note that stepmania 5.1 uses a separate folder for user files and profile data than stepmania 5.0, so you may have to migrate content to the new location, or configure alternate locations separate from your user data directory. for more information, including a detailed changelog and downloads, visit its release page on github.  edit: there were some issues with the windows installer originally uploaded (particularly, it did not identify itself correctly or use "stepmania 5.1" as the installation path). this has now been fixed. additionally, a macos version is now available.
+					
+last edited: 25 january 2018  9:51am
+
+
+
+#68787 posted 24/01/2018, 10:18pm by lirodon
+
+reply
+
+
+
+
+
+stepmaniax sdk now available!
+
+
+
+
+						the smx team has released an sdk for integration of all the smx stage features! any devs with smx stages might be interested. :)  we are pleased to release the official stepmaniax sdk as a special gift to the stepmania community. this provides theme developers with direct access to all of the stepmaniax stage features found in our configuration tool. (panel lighting, calibration, sensitivity settings, etc) we look forward to seeing what you do with it! https://github.com/steprevolution/stepmaniax-sdk  also, we're preparing a release for the new year. i had intended to release it today, but some final changes still need to be made. happy 2018 everyone!
+					
+last edited: 1 january 2018  1:27pm
+
+
+
+#68781 posted 01/01/2018, 1:25pm by shakesoda
+
+reply
+
+
+
+
+
+registration enabled again, site update
+
+
+
+
+						thanks to fenrir we've got a new captcha and i've turned registration back on again. hopefully it helps! i've also started building a new backend for the site. there should be a lot of new features to go along with future game updates, improvement to basic stuff like the download page and some visual updates, but it won't be ready this year. all current accounts and posts will be carried over to the new system when it's ready. update: registration is disabled again, the relief from spam was short lived and came back worse than ever. i apologize to anyone who can't register because of this, i intend to fix it when i overhaul the site in 2018
+
+last edited: 1 january 2018  1:33pm
+
+
+
+#17441 posted 09/12/2016, 4:47am by shakesoda
+
+reply
+
+
+
+
+
+stepmania 5.1, 5.2 roadmap update
+
+
+
+
+						due to the amount of remaining work needed, the scope of changes, and in response to feedback about difficulty with new systems: stepmania 5.1 is now going to be postponed to 5.2, and to bring some of 5.2's less invasive and more demanded features to people we're going to be backporting things onto 5.0 for version 5.1. features planned for 5.1 include: * loading songs from profiles on usb drives* pacdrive support* updated default theme* profile improvements (including switching stats xml to an sqlite database)* mouse support for all platforms (may not be used in the default theme - but available for others)* stencil-based masking by default instead of zbuffer masking, so masking 3d objects behaves better without resorting to render to texture. further, to address compatibility concerns, this release should be almost entirely compatible with 5.0 content, so long as it doesn't depend on an already-deprecated api or the default theme (fallback will be fine). small updates may be needed due to changing behavior of things like masking, but we don't intend to break anything major for this one. edit: also, help wanted with maintaining the website. it's php/silverstripe, and the source is on github. if anyone is interested in working on anti-spam measures or being a forum moderator so i can re-enable the registration form, please contact me via #stepmania-devs irc or twitter (@shakesoda).
+					
+last edited: 22 november 2016  2:22pm
+
+
+
+#17419 posted 22/11/2016, 2:02pm by shakesoda
+
+reply
+
+
+
+
+
+stepmania 5.1.-3 released
+
+
+
+
+latest stepmania 5.1 release is 5.1.-3. read the release notes for info on updating themes and noteskins. notable changes:* default noteskin is now similar to 5.0 default* when picking songs for edit mode, they are displayed in a menu, instead of one at a time.  also, you can use page up and page down in the menu.* menu of recently edited charts for quick navigation when returning to editing.* loading autosaves temporarily disabled.* more control over the notefield in edit mode, allowing you to adjust the noteskin, zoom, and other fields.  (zoom 0.2, y offset 0.  smaller notes, and receptors are in the center.  http://i.imgur.com/kwalijt.png)* practice and edit courses temporarily inaccessible.
+
+last edited: 5 september 2016  6:58am
+
+
+
+#17335 posted 05/09/2016, 6:50am by kyzentun
+
+reply
+
+
+
+
+
+stepmania 5.0.12 & forum status update
+
+
+
+
+stepmania 5.0.12 is out!  this post is a bit late, but the fixes in this build are pretty minor. includes some crash fixes and should not break compatibility with any existing content, so all users are encouraged to update. note that the pause menu is enabled in this build to fix accidental backing out on soft pad. to access the menu, press back twice.  as for the forum: registration is temporarily disabled until... 1) we get some new anti-spam measures on reg/posting2) password reset emails are fixed3) i've enabled ssl on the server (this is a longstanding todo, i feel like it's rather irresponsible to still not be using it in 2016)  sorry for the inconvenience, i'll try to get it all sorted out soon.
+
+last edited: 22 november 2016  3:53pm
+
+
+
+#17327 posted 30/08/2016, 12:10am by shakesoda
+
+reply
+
+
+
+
+
+master branch moving to 5.1
+
+
+
+
+						in a couple weeks, the 5_1_0 branch on the stepmania repository will be merged into the master branch.anybody that maintains a forked project based off of stepmania's master branch should switch to using the 5_0 branch instead of master.no more releases are planned in the 5.0.x line, and there probably won't be any further commits made to the 5_0 branch.the 5_0 branch exists only to allow backporting of fixes if someone other than the main stepmania team wishes to do so.
+					
+last edited: 20 april 2016  6:47pm
+
+
+
+#11688 posted 20/04/2016, 6:40pm by kyzentun
+
+reply
+
+
+
+
+the news forum is over here if you need it!
+
+
+
+stepmania and its website are open source software released under the mit license. github. privacy policy
+
+
+
+
+
+

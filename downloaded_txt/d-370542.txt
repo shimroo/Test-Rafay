@@ -1,0 +1,2542 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fermat's last theorem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fermat's last theorem
+
+
+
+the purpose of this blog is to present the story behind fermat's last theorem and wiles' proof in a way accessible to the mathematical amateur.
+
+
+
+
+
+
+
+
+
+
+tuesday, may 05, 2020
+
+
+
+
+
+
+
+
+
+
+hi everyone,
+
+it's been almost 11 years since i worked on this blog!  wow.
+
+i have recently started a new blog called all about primes.  if you are interested, come check it out.  i will try to posts new content there at least once a week.
+
+cheers,
+
+-larry
+
+
+
+
+
+posted by
+
+
+
+larry freeman
+
+
+
+
+at
+
+1:58 am
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+monday, october 12, 2009
+
+
+
+
+
+
+
+
+galois' memoir: corollaries to proposition i
+
+
+
+
+
+although evariste galois does not state it directly, there are important implications to his proposition i which i will present.the content that follows is taken from jean-pierre tignol's galois' theory of algebraic equation.here is the statement of proposition i from galois' memoir without proof.  for a proof, see here.proposition i:let f(x1, ..., xn) be a rational fraction in n indeterminates x1, ..., xn with coefficients in a field f.for σ ∈ gal(p/f):f(σ(r1), ..., σ(rn)) is defined whenever f(r1, ..., rn) is defined.andf(r1, ..., rn) ∈ f if and only if f(σ(r1),..., σ(rn)) = f(r1, ..., rn) for all σ ∈ gal(p/f).following from this proposition are the following corollaries.definition 1: automorphisman automorphism is a bijective homomorphism from a group to itself.for details on the meaning of this definition (including the definition of bijective and the definition of a homomorphism, see here.)corollary 1.1:each permutation σ ∈ gal(p/f) can be extended to an automorphism of f(r1, ..., rn) which leaves every element in f invariant by settingσ(f(r1, ..., rn)) = f(σ(r1), ..., σ(rn)) for any rational fraction f(x1, ..., xn) for whichf(r1, ..., rn) is defined.proof:(1)  assume that f(r1, ..., rn) is defined.(2)  using proposition i (see here), we know that:f(σ(r1), ..., σ(rn)) ∈ f(r1, ..., rn) is defined.(3) let σ(f(r1,..., rn)) = f(σ(r1), ..., σ(rn))(4) first, we need to show that σ(f(r1, ..., rn)) leaves every element in f invariant.(5)  assume that f(r1, ...., rn) = g(r1, ..., rn) for two rational fractions f,g ∈ f(x1, ..., xn)(6)  let us define a function h such that h(x1, ..., xn) = f(x1, ..., xn) - g(x1, ..., xn)(7)  by step #5 above, we know that h(r1, ..., rn) = 0(8)  so it follows that h(r1, ..., rn) ∈ f since 0 ∈ f.(9)  using proposition i (see here), we have:h(r1, ..., rn) = h(σ(r1), ..., σ(rn))(10)  so:f(σ(r1), ... σ(rn) ) - g(σ(r1), ..., σ(rn)) = 0and further:f(σ(r1),  ..., σ(rn)) = g(σ(r1), ..., σ(rn))(11) this proves that σ(f)=σ(g) = f(σ(r1), ..., σ(rn)) = g(σ(r1), ..., σ(rn)) if and only iff(r1, ..., rn) = g(r1, ..., rn)(12)  to complete the proof, we show that σ is an automorphism [see definition 1 above].(13)  we know it is bijective because σ is bijective.(14)  we know that it is a homomorphism since:σ(f + g) = f(σ(r1), ..., σ(rn)) + g(σ(r1), ..., σ(rn)) = σ(f) + σ(g)σ(fg) = f(σ(r1), ..., σ(rn))*g(σ(r1), ..., σ(rn))  = σ(f)*σ(g)qedcorollary 1.2:the set gal(p/f) does not depend on the choice of the galois resolvent v.proof:(1)  let v' ∈ f(r1, ..., rn) be another galois resolvent (see definition 2, here) for p(x)=0,(2)  let π' be its minimum polynomial over f.(3)  let fi' ∈ f(x)  for i=1,...,n be a rational fraction such that:ri = fi'(v') for i = 1, ..., n(4)  using corollary 1.1 above and using step #3 above, we have:σ(ri) = fi'(σ(v'))since σ leaves every element in f invariant and since it maps each ri to a unique value.(5)  likewise, we can apply σ to both sides of:π'(v') = 0to get:σ(π(v')) = π'(σ(v')) = σ(0) = 0which gives us that:π(σ(v')) = 0(6)  this shows that σ(v') is a root of π'.(7)  thus we have shown that every element of gal(p/f) as defined earlier with v is also an element of gal(p/g) as defined with v'.(8)  we can also use the same argument to show the reverse which demonstrates that gal(p/f) for v = gal(p/f) for v'.qedcorollary 1.3:gal(p/f) is a subgroup of the group of all permutations of r1, ..., rnproof:(1) gal(p/f) is by definition a subset of all the permutations of r1, ..., rn.  [see  definition 1, here, for definition of gal(p/f)](2)  so, to complete this proof (see definition 6, here and definition 2, here), i need to show that gal(p/f) has closure, associativity, inversion, and identity on the operation of permutations.(3)  it has closure since for any element τ ∈ gal(p/f), the composition τ * σ ∈ gal(p/f) since:(a)  let τ be the map:  fi(vj) → fi(vk) for some k=1,..., m(b)  let σ be the map:  ri → fi(vj)(b)  it follows that τ * σ : ri → fi(vk)(c)  therefore, τ * σ ∈ gal(p/f)(4)  it has identity since the identity map is in gal(p/f) is clear since the map is σ1 in the definition of the galois group since r1 = f1(v1), r2 = f2(v1), ..., and so on.(5)  it has inversion since:(a)  let σ ∈ gal(p/f)(b)  by definition of gal(p/f), σ(ri) = fi(vj)(c)  we know that vj is also a resolvent of p(x)=0.  [see lemma 4, here](d)  so, we can define gal(p/f) according to vj and it will be the same.  [see corollary 1.2 above](e)  so, it follows that the map:fi(vj) → fi(v1)is an element of gal(p/f)(6)  it has associativity since:(a)  let's assume that we have three elements of gal(p/f) so that we have:σ, τ, φ(b)  let's define the following maps:φ: fi(vk) → fi(vl)τ: fi(vj) → fi(vk)σ: ri → fi(vj)(c)  (φ * τ ) : fi(vj) → fi(vl)(d)  (φ * τ ) * σ: ri → fi(vl)(e)  (τ * σ) : ri → fi(vk)(f)  φ*(τ * σ): ri → fi(vl)qedreferencesjean-pierre tignol, galois' theory of algebraic equations, world scientific, 2001
+
+
+
+
+
+posted by
+
+
+
+larry freeman
+
+
+
+
+at
+
+1:28 am
+
+
+
+2 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tuesday, october 06, 2009
+
+
+
+
+
+
+
+
+galois' memoir:  proposition 1  (galois group)
+
+
+
+
+
+the following is taken from the translation of galois' memoir by harold m. edwards found in his book galois theory. the proof itself is taken from jean-pierre tignol's galois' theory of algebraic equations.definition 1:  galois group   gal(p/f)let ri, ..., rn be the roots of a polynomial p with coefficients in flet v1, ..., vm be the roots of the minimum polynomial for a given galois resolvent where the galois resolvent v = v1let σj be a map:  σj: ri → fi(vj) for i=1, ..., nthe set of all possible permutations { σ1, ..., σm } is called the galois group of p(x)=0 over f and is denoted gal(p/f).theorem:  galois' proposition ilet an equation be given whose m roots are a, b, c, ...these will always be a group of permutations of the letters a,b,c,... which will have the following property:1.  that each function invariant under the substitution of this group will be known rationally2.  conversely, that every function of the roots which can be determined rationally will be invariant under these substitutionsin other words:let f(x1, ..., xn) be a rational fraction in n indeterminates x1, ..., xn with coefficients in f.then:f(r1, ..., rn) ∈ f if and only if for all σ  ∈ gal(p/f),f(r1, ..., rn) = f(σ(r1), ..., σ(rn))proof:(1) let f = φ/ψ where φ, ψ ∈ f[x1, ..., xn](2) first, we need to prove that f is a rational function which comes down to showing that:ψ(x1, ..., xn) ≠ 0 → ψ(σ(x1), ..., σ(xn)) ≠ 0 where σ ∈ gal(p/f)(3) we can show this since:(a) using lemma 3 before (see lemma 3, here), we know that there exists functions f1, ..., fn such that:ψ(r1, ..., rn) = ψ(f1(v), ..., fn(v))where v is the galois resolvent (see definition 1, here) and fi ∈ f[x](b) but since each fi ∈ f[x] and ψ ∈ f[x], it follows that there exists a function g ∈ f[x] such that:g(v) = ψ(f1(v), ..., fn(v))(c) let σ be a permutation in gal(p/f)(d)  from lemma 4 before (see lemma 4, here), we know that each permutation corresponds to a root of the minimal irreducible polynomial of the galois resolvent so that there exists v' such that:v' is a root of the minimal irreducible polynomial of the galois resolventandσ: ri → fi(v')(e) so that we have:ψ(σ(r1), ..., σ(rn)) = ψ(f1(v'), ..., fn(v')) = g(v')(f)  it is clear that if ψ(σ(r1), ..., σ(rn)) = 0, then g(v')= 0(g)  so that when ψ is 0, v' is a root.(h)  using theorem 1, here, it clear that:g(v') =0 if and only if g(v) is 0.(i)  so further, ψ(σ(r1), ..., σ(rn)) = 0 if and only if ψ(r1, ..., rn) = 0. [from step #3a above](4)  this shows that f(σ(r1), ..., σ(rn)) is defined when f(r1, ..., rn) is defined.(5)  assume that f(r1, ..., rn) ∈ f(6) from step #3a above, we have:f(r1, ..., rn)  = f(f1(v), ..., fn(v))(7)  but since each fi ∈ f[x] and f ∈ f[x], it follows that there exists a function h ∈ f[x] such that:h(x) = f(f1(x), ..., fn(x))(8)  so that:h(v) =  f(f1(v), ..., fn(v))and:h(x) - f(f1(x), ..., fn(x)) = 0(9)  if we define a function h such that:h(x) = h(x) - f(f1(x), ..., fn(x))it is clear that h(v)=0(10)  using theorem 1, here, it follows that all m roots of the minimal irreducible polynomial of the galois resolvent are also roots of h so that it's roots include:  v1, ...., vm(11)  so it follows for all j = 1, ..., m that:h(vj) = f(f1(vj), ..., fn(vj))(12)  now since f(r1, ..., rn) ∈ f  [by our assumption in step #5], it follows that we can define a function g such that:g(x) = h(x) - f(r1, ..., rn)(13)  from step #6 above, we note that v is a root of g(x) and by the same logic as step #10, we conclude that all v1, ..., vm are also roots of g(x).(14)  so that we have for all j= 1, ..., m:h(vj) = f(r1, ..., rn)(15)  but if this is true for all vj, then it follows that it is true for all σ ∈ gal(f/g)  [by lemma 4, here] so that we have:f(σj(r1, ..., σj(rn)) = f(r1, ..., rn) for j = 1, ..., m(16)  assume that f(σj(r1, ..., σj(rn)) = f(r1, ..., rn) for j = 1, ..., m(17)  from step #3a above, we know that:f(r1, ..., rn) = f(f1(v), f2(v), ..., fn(v)) where f, fi ∈ f[x](18)  so, we can define a function g(x) such that:g(x) = f(f1(x),f2(x), ..., fn(x))so that we have:g(v) = f(r1, ..., rn)(19)  since for all j, we have   f(σj(r1, ..., σj(rn)) = f(r1, ..., rn), it follows that:for all j = 1..m,  g(vj) = f(r1, ..., rn)(20)  further we note that:m*f(r1, ..., rn) = g(v1) + g(v2) + ... + g(vm)so that we have:f(r1, ..., rn) = (1/m)*(g(v1) + ... + g(vm))(21)  we can define the following function h such that:h(x1, ..., xm) = (1/m)*g(x1) + ... + g(xm)(22)  h is clearly a symmetric function so it can be expressed as a rational fraction in the elementary symmetric polynomials s1, ..., sm  [see theorem 6, here](23)  now the elementary symmetric polynomials correspond to the coefficients of a polynomial.  [see theorem 1, here](24)  this shows that if we substitute v1, ..., vm for x1, ..., xm the elementary symmetric polynomial will correspond to the coefficients of the minimal irreducible polynomial for the galois resolvent whose coefficients are in f.(25)  therefore h(v1, ..., vm) ∈ f(26)  but h(v1, ..., vm) = (1/m)*[g(v1) + g(v2) +... + g(vm)] = f(r1, ..., rn)(26)  so we have shown that f(r1, ..., rn) ∈ fqedreferencesharold m. edwards, galois theory, springer, 1984jean-pierre tignol, galois' theory of algebraic equations, world scientific, 2001
+
+
+
+
+
+posted by
+
+
+
+larry freeman
+
+
+
+
+at
+
+11:45 pm
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+monday, october 05, 2009
+
+
+
+
+
+
+
+
+galois' memoir: lemma 4
+
+
+
+
+
+the following is taken from the translation of galois' memoir by harold m. edwards found in his book galois theory. the proof itself is taken from jean-pierre tignol's galois' theory of algebraic equations.lemma 4:suppose one has formed the equation for v and that one has taken one of its irreducible factors so that v is the root of an irreducible equation.let v, v', v'', ... be the roots of this irreducible equation .if a = f(v) is one of the roots of the given equation, f(v') will also be a root of the given equation.in fact, we can show that:r1 = f1(v), r2 = f2(v), ..., rn = fn(v)then it follows that for any root v' or v'' or ...   the complete set of distinct roots is:f1(v'), f2(v'), ..., fn(v')proof:(1)  let v be a galois resolvent of p(x) = 0.  [see lemma 2, here](2)  let r1, ..., rn be the roots of p(x).(3)  we know that for each ri, there exists fi [see lemma 3, here] such that:ri = fi(v)with fi(x) ∈ f(x)(4)  let v1 = v, v2, ..., vm be the roots of the minimum polynomial of v over f [see theorem 1, here] which are in f(r1, ..., rn)  [see corollary 1.1, here](5) since ri = fi(v), we have p(fi(v)) = 0.(6)  if we view p(fi(x)) as a polynomial, then, we have p(fi(vj)) = 0 for j = 1, ..., m since p(fi(x)) and the minimal polynomial of v over f share at least one root v.  [see theorem, here](7)  this shows that each fi(vj) must correspond to a root ri since p(x)=0 if and only if x is a root.(8)  now, i will end this proof by showing that for any root vi, that the n roots are:f1(vi), f2(vi), ..., fn(vi)(9)  now we know that for v1, f1(v1) ≠ f2(v1) ≠ ... ≠ fn(v1)  [from step #3 above](10)  assume that fu(vi) = fv(vi)where i ≠ 1(11)  then vj is a root of the polynomial fu - fv.(12)  but then all v1, ..., vm must likewise be roots of fu - fv.  [see see theorem, here](13)  but this also means that v1 is a root of fu - fv(14)  so it follows that fu(v1) = fv(v1)(15)  but from step #9 above this is only possible if u = v.(16)  hence, we have shown that for any vi,f1(vi), ..., fn(vi) must be the n distinct roots [since they cannot be equal and each one is equal to a root.]qedreferencesharold m. edwards, galois theory, springer, 1984jean-pierre tignol, galois' theory of algebraic equations, world scientific, 2001
+
+
+
+
+
+posted by
+
+
+
+larry freeman
+
+
+
+
+at
+
+2:05 am
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sunday, october 04, 2009
+
+
+
+
+
+
+
+
+galois' memoir: lemma 4:  preliminary results (existence of minimum polynomial)
+
+
+
+
+
+before jumping into lemma 4 by evariste galois, i will prove the existence of minimum polynomials.the theorem in today's blog comes from jean-pierre tignol's galois' theory of algebraic equations.definition 1:  minimum polynomial of u over ffor a nonzero polynomials in f[x] which have u as a root, the minimum polynomial is the polynomial of least degree that divides all other nonzero polynomials and is unique, monic, and irreducible.theorem 1:  existence of minimum polynomials(a)  every element u ∈ f(r1, ..., rn) has a polynomial expression in r1, ..., rn such that:u = φ(r1, ..., rn)for some polynomial φ ∈ f[x1, ..., xn](b)  for every element u ∈ f(r1, ..., rn), there is a unique monic irreducible polynomial π ∈ f[x] such that π(u) = 0.this polynomial π splits into a product of linear factors over f(r1, ..., rn)proof:(1)  let u ∈ f(r1, ..., rn) be such that:u = φ(r1, ..., rn)for some polynomial φ ∈ f[x1, ..., xn](2)  let θ(x,x1, ..., xn) = ∏(σ)  [x - φ(σ(x1), ..., σ(xn))]where σ  runs over the set of permutations of x1, ..., xn(3)  since θ is symmetric in x1, ..., xn, we can write θ as a polynomial in x and the elementary symmetric polynomials s1, ..., sn in x1, ..., xn [see theorem 4, here](4)  let θ(x,x1, ..., xn) = ψ(x,s1, ..., sn)for some polynomial ψ with coefficients in f.(5)  substituting r1, ..., rn into θ, we get:θ(x,r1, ..., rn)= ψ(x,a1, ..., an) ∈ f[x]where ai are the coefficients of the polynomial where r1, ..., rn are the roots.  [see theorem 1, here](6)  from the definition of θ in step #2 above, we have:θ(u,r1, ..., rn) = 0since in the permutation σ that leaves xi unchanged, the result will be 0.(7)  it follows that ψ(x,a1, ..., an) is a polynomial in f[x] which has u as a root. [see step #5 above](8)  we also note that θ(x,r1, ..., rn) is a product of linear factors.  [see step #2 above](9)  thus, we have shown that ψ(x,a1,...,an) splits into a product of linear factors over f(r1, ..., rn)  [see step #4 above](10)  we know that we can break down ψ(x,a1, ..., an) into a product of monic irreducible factors of ψ [see theorem 3, here] so that:ψ = cp1*...*pr(11)  since u is a root, it follows that u must be the root of one of these monic irreducible factors.(12)  so that there exists i such that:pi is a monic, irreducible polynomial over f[x] and u is a root of pi and pi divides ψ.(13)  since ψ splits into a product of linear factors over f(r1, ..., rn), it follows that pi must also split into a product of linear factors over f(r1, ..., rn).(14)  finally, we note that there is only one monic irreducible polynomial pi which has u as a root since:(a)  assume that q ∈ f[x] is another polynomial with the same properties.(b)  first, we note that p must divide q.  [see lemma 2, here](c)  but, by the same argument q must divide p.(d)  so, then it follows that p=q.(15)  this completes part(b) of the proof.(16)  let v be the galois resolvent (see definition 1, here) such that:v ∈ f(r1, ..., rn)(17)  we know that r1, ..., rn are rational fractions in v.  [see lemma 3, here](18)  since u is a rational fraction of f(r1, ..., rn), it follows that u is also rational fraction in v and further u ∈ f(v).(19)  so, u can be expressed as a polynomial in v and:u = q(v)for some polynomial q ∈ f[x].(20) substituting f(r1, ..., rn) for v, we obtain:u = q(f(r1, ..., rn))(21)  this is a polynomial expression in r1, ..., rn since  q and f are polynomials.(22)  this completes part(a) of the proof.qedcorollary 1.1:let v be any galois resolvent of p(x) = 0 over f and let v1, ..., vm be the roots of its minimum polynomial over f (among which v lies)then:f(r1, ..., rn) = f(v) = f(v1, ..., vm)proof:(1)  r1, ..., rn are rational fractions in v [see lemma 3, here](2)  so, we have:f(r1, ..., rn) ⊂ f(v)(3)  we know that the roots v1, ..., vm of the minimum polynomial of v are in f(r1, ..., rn) since:(a)  v is a polynomial g(x1, ..., xn)  ∈ f[x] [see definition 1, here](b)  applying part(b) of theorem 1 above, we note that each vi has g(vi)=0 and can be expressed over linear factors of f(r1, ..., rn)(4)  so, we have:f(v1, ..., vm) ⊂ f(r1, ..., rn)(5)  since v1, ..., vm are roots of v, it follows that:f(v) ⊂ f(v1, ..., vm)(6)  therefore we have:f(r1, ..., rn) = f(v) = f(v1, ..., vm)qedreferencesjean-pierre tignol, galois' theory of algebraic equations, world scientific, 2001
+
+
+
+
+
+posted by
+
+
+
+larry freeman
+
+
+
+
+at
+
+12:30 pm
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+friday, october 02, 2009
+
+
+
+
+
+
+
+
+galois' memoir: lemma 3
+
+
+
+
+
+the following is taken from the translation of galois' memoir by harold m. edwards found in his book galois theory. the proof itself is taken from jean-pierre tignol's galois' theory of algebraic equations.lemma 3:when a function v is chosen as satisfies lemma 2 (see here), it will have the property that all the roots of the given equation can be expressed as rational functions of v.that is:let p be a function of degree n with the roots: r1, ..., rn where each root is distinct.let v(r1, ..., rn) be the galois resolvent where each distinct permutation has a distinct value.then for all roots ri ∈ f(v).proof:(1)  let v be a galois resolvent [see definition 2, here](2)  let r1 be any root of an equation p since r1 is any root, the proof is done if we can show that ri ∈ f(v).(3)  let:g(x1, ..., xn) = ∏ (for each permutation σ) [v - f(x1, σ(x2), ..., σ(xn)) ] ∈ f(v)[x1, ..., xn]where σ runs over all permutations of x2, ..., xn(4) since g is symmetric in x2, ..., xn, g can be written as a polynomial in x1 and the elementary polynomials s1, ..., sn-1. (see lemma, here)(5)  let:g(x1, x2, ..., xn) = h(x1, ..., sn-1)for some polynomial h with coefficients in f(v).(6)  substituting in various ways the roots r1, ..., rn of p for the indeterminates x1, ..., xn which has the effect of substituting a1, ..., an-1 ∈ f for s1, ..., sn-1 [see theorem 1, here, for details on the mapping between elementary symmetric polynomials and the coefficents of a polynomial], we obtain:g(r1, r2, ..., rn) = h(r1, a1, ..., an-1)and generalizing this, we get:g(ri, r1, ...., ri-1, ri+1, ..., rn) = h(ri, a1, ..., an-1)(7) since v is a galois resolvent for a function f such that v = f(r1, ..., rn), we have:v ≠ f(ri, σ(r1), σ(r2), ..., σ(ri-1), σ(ri+1), ..., σ(rn))for i ≠ 1 and for any permutation σ of { r1, ..., ri-1, ri+1, ..., rn }.  [see lemma 2, here](8)  therefore:g(ri, r1, r2, ..., ri-1, ri+1, ...., rn) ≠ 0 for i ≠ 1.(9)  on the other hand, the definition of g and v show that [see definition of g in step #3 above]:g(r1, ..., rn) = 0(10)  from step #9 above and step #6 above, we know that:h(x,a1, ..., an-1) ∈ f(v)[x]vanishes for x = r1 but not for x = ri with i ≠ 1.(11)  therefore, it is divisible by x - r1 but not by x - ri for i ≠ 1. [this follows from girard's theorem, see here](12) we then consider the monic greatest common divisor d(x) of p(x) and h(x,a1, ..., an-1) in f(v)[x].  [see theorem 1, here for proof of the existence of a greatest common divisor for polynomials](13)  since p(x) = (x - r1)*...*(x - rn), we know that x - r1 divides p(x).(14)  from step #11 above, we know that x - r1 divides h.(15) since x - r1 divides both p(x) and h(x,a1, ..., an-1), it divides d.(15)  on the other hand, h(x,a1, ..., an-1) is not divisible by x - ri for i ≠ 1.  [see step #10 above](16)  hence, d has no other factor than x - r1.(17)  thus, d = x - r1 whence r1 ∈ f(v) since d ∈ f(v)[x].qedreferencesharold m. edwards, galois theory, springer, 1984jean-pierre tignol, galois' theory of algebraic equations, world scientific, 2001
+
+
+
+
+
+posted by
+
+
+
+larry freeman
+
+
+
+
+at
+
+8:54 am
+
+
+
+1 comment:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+monday, september 28, 2009
+
+
+
+
+
+
+
+
+galois' memoir: lemma 2 (galois resolvent)
+
+
+
+
+
+the following is taken from the translation of galois' memoir by harold m. edwards found in his book galois theory. the proof itself is taken from jean-pierre tignol's galois' theory of algebraic equations.definition 1:  galois resolvent functionfor any equation f(x) with distinct roots, the galois resolvent function is a function g(x1, ..., xn) of the roots that no matter how the roots are permuted on the function, no two of the values are equal.definition 2:  galois resolventthe galois resolvent is a value of the galois resolvent function where the roots of the equation f(x) are passed in as parameters.lemma 2: galois resolvent function existsgiven any equation f(x) with distinct roots a,b,c,... one can always form a function v of the roots such that no two of the values one obtains by permuting the roots in this function are equal.for example, one can take:v = aa + bb + cc + ...a, b, c, ... being suitably chosen whole numbers.proof:(1)  let the n distinct roots of f(x) be denoted a,b,c, ...(2)  since these roots are distinct, the discriminant (a - b)2(a - c)2(b - c)2*... = d is not zero [for review of the discriminant, see here].(3)  what needs to be shown is that n integers a,b,c, ... can be chosen so that the n! numbers as(a) + bs(b) + cs(c) + ... + are distinct where s ranges over all n! permutations of the roots a,b,c,...[for details on why count(n permutations) = n!, see corollary 1.1, here](4)  let p be the product of the squares of the differences of these n! numbers that is:p = ∏ (s,t) [ a(s(a) - t(a)) + b(s(b) - t(b)) + ... ]2where the product is all over n!(n! - 1)/2 pairs (unordered) of permutations s and t in which s≠ t.note:  the purpose of this equation is to verify that all  n! numbers are distinct.   p is the product of all possible differences between any two permutations.we know that there are n! possible permutations (see step #3 above).we pick one of these permutations (1 out of n!) and call it s.  then, we pick a second one (1 out of n! - 1) and call it t.  since ordering doesn't matter and there are two ways to pick the same combination, we only need to deal with n!*(n!-1)/2 comparisons between s and t.(5)  to complete the proof, we only need to show that we can pick a,b,c, ... etc. such that p is nonzero.if any of the permutations are not distinct, then the difference between s and t will be 0.  if any of the differences are 0, then p = 0.  so if p ≠ 0, it follows that we have found values for a,b,c,... such that all permutations are distinct.(6)  let a, b, c, ..., be regarded at first as variables.(7)  then p is a polynomial in variables a, b, c,... whose coefficients are polynomials in the roots a,b,c,...(8) p is symmetric in the roots (this follows directly from the definition of p and the definition of symmetric polynomials, see definition 1, here).(9)  since p is symmetric, the coefficients are symmetric in the roots so using waring's method (see theorem 4, here), p is  a polynomial in a, b, c, ... with the coefficients symmetric in roots.(10)  so, we can determine the coefficients of p based on the elementary symmetric polynomials using the roots  [see theorem 1, here].(11) we can therefore assume that the coefficients are known since we are assuming that the roots are known.(12)  since p is a product of nonzero polynomials, it is nonzero.  [see theorem, here](13)  therefore once can assign integer values to a,b,c,... in such a way as to make p ≠ 0 [see theorem, here].qedreferencesharold m. edwards, galois theory, springer, 1984
+
+
+
+
+
+posted by
+
+
+
+larry freeman
+
+
+
+
+at
+
+11:16 pm
+
+
+
+9 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+older posts
+
+home
+
+
+
+
+subscribe to:
+posts (atom)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fermatslasttheorem.blogspot.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+topic index
+
+the story so far
+biographies (indexed)
+
+
+completed proofs
+
+x2 + y2 = z2 (rational integers)
+x2 - dy2 = 1 (periodic continued fractions)
+x2 - dy2 = 4 (reduced quadratic equations)
+x3 + y3 = z3 (rational integers)
+x3 + y3 = z3 (eisenstein integers)
+x4 + y4 = z4 (rational integers)
+x4 + y4 = z4 (gaussian integers)
+x4 - y4 = z2 (fermat's proof)
+x5 + y5 = z5 (dirichlet's proof)
+x7 + y7 = z7 (rational integers)
+quadratic reciprocity (rational integers)
+eiπ + 1 = 0
+eix = cos(x) + isin(x)
+fundamental theorem of algebra (complex numbers)
+xn + yn = zn (regular primes)
+∑n-s = ∏ (1 - p-s)-1abel's proof on the quintic
+
+recommended books
+
+yearning for the impossible(a k peters, 2006)
+fermat's enigma (anchor, 1998)
+100 great problems of elementary mathematics (dover, 1965)
+an introduction to number theory (mit press, 1978)
+elements of number theory (springer, 2002)
+problems in algebraic number theory (springer, 2004)
+elementary number theory (springer, 1998)
+contemporary abstract algebra (houghton mifflin company, 2001)
+abel's proof (mit press, 2003)
+galois' theory of algebraic equations (world scientific, 2001)
+
+required reading for experts
+
+fermat's last theorem for amateurs (springer, 2000)
+13 lectures on fermat's last theorem (springer, 1979)
+fermat's last theorem: a genetic introduction (springer, 2000)
+the mathematical career of pierre de fermat 1601-1665 (princeton university press, 1994)
+fearless symmetry: exposing the hidden patterns of numbers (princeton university press, 2006)
+
+
+
+
+
+
+
+
+
+about me
+
+
+
+
+
+larry freeman
+
+
+
+view my complete profile
+
+
+
+blog archive
+
+
+
+
+
+
+
+
+        ▼ 
+      
+
+
+
+2020
+
+(1)
+
+
+
+
+
+        ▼ 
+      
+
+
+
+05/03 - 05/10
+
+(1)
+
+hi everyone,
+
+it's been almost 11 years since i wo...
+
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2009
+
+(21)
+
+
+
+
+
+        ► 
+      
+
+
+
+10/11 - 10/18
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+10/04 - 10/11
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+09/27 - 10/04
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+09/20 - 09/27
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+09/13 - 09/20
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+09/06 - 09/13
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+08/30 - 09/06
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+08/23 - 08/30
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+07/26 - 08/02
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+02/01 - 02/08
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+01/11 - 01/18
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2008
+
+(39)
+
+
+
+
+
+        ► 
+      
+
+
+
+10/26 - 11/02
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+10/19 - 10/26
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+09/28 - 10/05
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+09/21 - 09/28
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+09/07 - 09/14
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+08/31 - 09/07
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+08/24 - 08/31
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+07/27 - 08/03
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+07/20 - 07/27
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+07/13 - 07/20
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+06/01 - 06/08
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+04/06 - 04/13
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+03/30 - 04/06
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+03/09 - 03/16
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+03/02 - 03/09
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+02/24 - 03/02
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+02/17 - 02/24
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+02/03 - 02/10
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+01/27 - 02/03
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+01/20 - 01/27
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+01/13 - 01/20
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+01/06 - 01/13
+
+(5)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2007
+
+(30)
+
+
+
+
+
+        ► 
+      
+
+
+
+12/30 - 01/06
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+12/23 - 12/30
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+12/16 - 12/23
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+12/09 - 12/16
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+11/25 - 12/02
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+11/11 - 11/18
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+10/21 - 10/28
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+08/12 - 08/19
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+08/05 - 08/12
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+07/22 - 07/29
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+07/15 - 07/22
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+07/08 - 07/15
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+02/18 - 02/25
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+02/11 - 02/18
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+02/04 - 02/11
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+01/28 - 02/04
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+01/21 - 01/28
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+01/14 - 01/21
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+01/07 - 01/14
+
+(3)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2006
+
+(119)
+
+
+
+
+
+        ► 
+      
+
+
+
+12/24 - 12/31
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+12/10 - 12/17
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+12/03 - 12/10
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+11/26 - 12/03
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+11/19 - 11/26
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+11/12 - 11/19
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+11/05 - 11/12
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+10/29 - 11/05
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+10/22 - 10/29
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+10/15 - 10/22
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+09/03 - 09/10
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+08/27 - 09/03
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+08/20 - 08/27
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+08/13 - 08/20
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+08/06 - 08/13
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+07/30 - 08/06
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+07/23 - 07/30
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+06/18 - 06/25
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+06/11 - 06/18
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+06/04 - 06/11
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+05/28 - 06/04
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+05/21 - 05/28
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+05/14 - 05/21
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+05/07 - 05/14
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+04/30 - 05/07
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+04/16 - 04/23
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+04/02 - 04/09
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+03/26 - 04/02
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+03/19 - 03/26
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+03/05 - 03/12
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+02/19 - 02/26
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+02/12 - 02/19
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+02/05 - 02/12
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+01/29 - 02/05
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+01/22 - 01/29
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+01/15 - 01/22
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+01/08 - 01/15
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+01/01 - 01/08
+
+(2)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2005
+
+(68)
+
+
+
+
+
+        ► 
+      
+
+
+
+12/25 - 01/01
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+12/18 - 12/25
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+11/27 - 12/04
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+10/30 - 11/06
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+10/23 - 10/30
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+10/02 - 10/09
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+09/18 - 09/25
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+09/11 - 09/18
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+09/04 - 09/11
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+08/28 - 09/04
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+08/21 - 08/28
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+08/14 - 08/21
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+07/24 - 07/31
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+07/17 - 07/24
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+07/10 - 07/17
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+07/03 - 07/10
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+06/26 - 07/03
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+06/19 - 06/26
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+06/12 - 06/19
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+06/05 - 06/12
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+05/29 - 06/05
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+05/22 - 05/29
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+05/15 - 05/22
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+05/08 - 05/15
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+05/01 - 05/08
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+04/24 - 05/01
+
+(2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,497 @@
+
+
+
+
+
+
+
+
+
+virtual.mvp | information technology cliffsnotes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+virtual.mvp
+information technology cliffsnotes
+
+
+menu
+skip to content
+
+home
+
+
+
+
+
+
+
+
+empty cache hard reload on chrome
+
+
+leave a reply 
+
+
+if you ever need to clear the cache for a specific website, you’ll just need to enact the “empty cache hard reload” function in chrome.
+on a website you want to clear the cache from, click f12 to bring up the developer tools which will appear on the right side of the page.
+next, right-click on the refresh icon and you’ll have additional refresh options. select empty cache and hard reload.
+
+
+emptying your browser’s cache and performing a hard reload forces the browser to download every resource for a page, including new scripts, styles, and features. this can help if a web page isn’t loading correctly
+
+
+			this entry was posted in uncategorized on october 30, 2024 by admin.								
+
+
+
+
+sophos active directory authentication with ssl/tls failure
+
+
+leave a reply 
+
+
+attempted to setup ad authentication to sophos firewall, and kept getting the following error:  test connection failed as server is down or unreachable
+
+the connection would work successfully when using plaintext, but fail when using ssl/tls or starttls.
+the root issue was that the domain controller i was trying to connect to, did not have an ssl certificate associated with it. you could go out and purchase an ssl cert that matched the fqdn, or setup an internal ca service, but if you need a quick and dirty solution, you can just generate a self-signed cert and add it as a trusted ca.
+
+open powershell as administrator
+type in the following command to create a self-signed cert: new-selfsignedcertificate -certstorelocation cert:\localmachine\my -dnsname “fqdn-of-server” -friendlyname “server cert” -notafter (get-date).addyears(10)
+next, copy the generated cert which will reside under the personal\certificates store to the trusted root certification authorities\certificates store
+
+
+
+
+now you should be able to test using any of the other connection security methods successfully.
+
+
+
+			this entry was posted in uncategorized and tagged sophos on august 1, 2024 by admin.								
+
+
+
+
+manually remove i/o filters from vsphere vm
+
+
+leave a reply 
+
+
+i was attempting to move a vm from one host to another, and received the fallowing error: “host does not support the virtual hardware configuration of virtual machine. the io filters(s) xxxx configured on the vm’s disk are not installed on the destination host.“
+at one point, i was using a vm accelerator solution that was not cleanly removed. it took me awhile to figure out how to remove the io filter from the vm, so hopefully this guide will save you some time. 
+part 1 – remove setting from the vm
+after searching the config files of the vm, i came across the vm’s vmdk descriptor file. this is not the storage vmdk file itself, but the 1kb sized descriptor file which i had to edit. 
+
+there are two lines that contain configurations for the io filter, and both need to be removed. these are the ddb.iofilters and ddb.sidecars settings. both lines can just be removed and the file saved.
+
+upon trying to migrate the vm after removing these lines, i received the same error as before. i needed to make the host aware of these changes somehow. this was achieved by right-clicking the vm –> vm policies –> edit vm storage policies..
+
+
+i didn’t have to change anything, but just needed to click ok.
+
+
+after doing those tasks, i was able to successfully migrate the vm!
+part 2 – remove setting from the host
+although i probably could have done this first, i was in a hurry and didn’t want to impact production vms. the process to remove the io filter from the host is fairly quick and easy, but will require the host to be in maintenance mode, and a reboot is probably useful afterwards. 
+put the host into maintenance mode.ssh into the host.run “esxcli software vib list” to view a list of all installed filters.run “esxcli software vib remove -n filtername” (replacing filter name) to remove the filter.while a reboot isnt required, it is suggested. 
+
+
+			this entry was posted in vmware and tagged esxi, vmware, vsphere on november 8, 2023 by admin.								
+
+
+
+
+manage bitlocker with powershell / command prompt
+
+
+leave a reply 
+
+
+when attempting to enable bitlocker on computers remotely, using an rmm tool, here are some ps commands that will assist in this process.
+
+view the current status of bitlocker on a machine. manage-bde c: -statusadd a key protector so the machine can be encrypted. this is useful on some oem machines that come with bitlocker enabled, but no key can be retrieved from the machine. manage-bde c: -protectors -add -rpbackup the bitlocker keys to active directorymanage-bde -protectors -adbackup c: -id “{3500023e-381e-449b-878b-0cd1067dcd79}”notice, the id will be the unique id shown from the manage-bde c: -protectors -add -rp command. you will need to add parenthesis before and after the brackets. lastly, if you need to require a user to login to the machine with a pin, you can use the following command, in addition to those above:manage-bde -protectors -add c: -tpmandpin
+from there, you will enter the desired pin and test by rebooting the machine. 
+powershell script
+$pin = convertto-securestring “205020” -asplaintext -force
+enable-bitlocker -mountpoint “c:” -encryptionmethod aes256 -pin $pin -tpmandpinprotector -usedspaceonly
+
+
+
+			this entry was posted in uncategorized and tagged bitlocker on october 31, 2023 by admin.								
+
+
+
+
+automatically move archived event logs to another location
+
+
+leave a reply 
+
+
+i have a client who requires security event logs be kept. they enabled archive log retention on the security event logs, but it kept filling up their c: drive.
+
+
+to remedy this, i created a powershell script that moves these files when they are 7 days old to another location, and then used task schedule to automate the process. here are the steps to do that.
+the source folder where these logs are stored: c:\windows\system32\winevt\logsthe destination folder where they want the logs moved to: e:\windows-system32-winevt-logs
+created a powershell script for this process:get-childitem -path “c:\windows\system32\winevt\logs” archive-security*.evtx | where-object {$_.lastwritetime -lt (get-date).adddays(-7)} | move-item -destination “e:\windows-system32-winevt-logs” -verbose
+created a new task scheduler task called automove security logs its actions are set to run powershell and execute the following: -executionpolicy bypass c:\support\automove_securitylogs.ps1
+
+
+
+			this entry was posted in uncategorized and tagged microsoft, powershell on august 3, 2023 by admin.								
+
+
+
+
+get ios device in supervised mode
+
+
+leave a reply 
+
+
+when using sophos mobile or any other mdm solutions, putting a device is supervised mode unlocks additional management capabilities. 
+requirements for putting a device in supervised mode:– apple mac computer running the apple configurator app– ios or ipad os device will need to connect to that computer via usb cable– this process will require the device to be wiped. all settings and content will be erased. 
+step by step process
+on the mac computer, download and install the apple configurator app
+
+2. in the configurator app, select account and login with the apple business manager account. select the appropriate location:  this is the business that the ios device will be deployed to.
+3. connect your device to the computer using a usb cable and select trust when prompted on your ipad. turn off find my ipad by tapping settings, apple id, then icloud.
+4. in the configurator app, right-click the device and select prepare.
+
+5. prepare with manual configuration and select both supervise devices and allow devices to pair with other computers.
+
+6. in the next section, select do not enroll in mdm.
+
+7. select the appropriate location
+
+8. leave all steps selected and click prepare. it will ask to erase the device to continue, which you will agree to.
+9. if you got into settings app, you should see that the device is now in supervised mode
+
+
+
+			this entry was posted in uncategorized and tagged apple, mdm, supervised mode on may 18, 2023 by admin.								
+
+
+
+
+upgrade to sql 2019 express for veeam backup
+
+
+leave a reply 
+
+
+veeam has been shipping with sql 2012 which is end of life, and newer patches of veeam does not upgrade sql during the patching process. it is on the end-user to upgrade their instance of sql, which is pretty easy to do.
+before you upgrade
+you will want to do a few things before you start the upgrade process:– disabled all veeam jobs in veeam– stop and disable all veeam services on windows, making sure you notate the original startup state (automatic vs automatic delayed start).– if veeam is running on a vm, please snapshot the vm– backup the databases manually using sql studio
+on to the upgrade process
+download sql 2019 express from microsoft. the download links always seem to change, so you will need to snag a copy yourself.run the executable and select custom as the installation type. choose a location to save the files that will be downloaded for the install. the default path is fine.when the installation center window appears, choose upgrade from a previous version of sql server.
+
+5. choose the sql instance you would like to upgrade. for a reference of which build numbers equal which version of sql, see this microsoft doc here: 
+
+6. the installation will then start. 
+
+i ran into an issue where sql upgrade was looking for a microsoft ole db driver from source installation. i tried to download this driver from microsoft and point the installer there, but that did not work.
+
+
+
+
+
+
+to remedy this, i uninstalled this driver, rebooted the server, and restarted the installation, and it upgraded the database engine services which failed the first time, but was successful now. 
+
+
+
+
+verify upgrade success
+you can view the upgrade build status by opening the database in sql studio manager and going to properties of the instance. refer to the version build numbers link i posted earlier in this post.
+
+you can also view this info by going to properties of the sql service, and reference the path to the executable.
+
+
+post upgrade
+now that the upgrade is complete, enable the veeam services and veeam jobs.
+veeam one issue
+after the upgrade, veeam backup worked great, but i noticed i could not get into veeam one, and would receive the following error: “veeam one monitoring service cannot access its database“
+this was resolved by opening the veeam one settings application (c:\program files\common files\veeam\veeam one settings\veeamonesettings.exe) and testing the connection. all the settings looked good, but it would fail the connection test. i clicked browse by server name and selected the server again, and this time it tested successfully and i could use veeam one again. 
+
+
+
+			this entry was posted in uncategorized and tagged sql, upgrade, veeam on october 20, 2022 by admin.								
+
+
+
+
+remove duplicate emails/calendar events from public folders on exchange online
+
+
+leave a reply 
+
+
+files required can be downloaded from github: https://github.com/michelderooij/remove-duplicateitems
+details on the syntax can be found here: https://eightwone.com/2013/06/21/removing-duplicate-items-from-a-mailbox/
+$cred = get-credential; #here i put in your o365 email and password as the credentials.\remove-duplicateitems.ps1 -publicfolders -identity <user_email> -server outlook.office365.com -credentials $cred -pfstart “\”;
+#the above connects to eo, cleans the public folders starting at the root.
+system indexing mail based off query
+confirmation to remove found results
+process of deleting duplicate results
+
+
+			this entry was posted in microsoft and tagged o365 on april 26, 2022 by admin.								
+
+
+
+
+pi-hole on ubuntu vm with truenas
+
+
+
+having a dozen raspberry pi’s around the house is nice for random projects, but i would like to consolidate as much as i can into jails on freenas/truenas. unfortunately, running pi-hole on a jail isn’t really supported at this point, with previous attempts being abandoned by the community. deploying it as a vm is the next best thing.
+requirements
+ubuntu server 21.xvm with a minimum 1 vcpu, 512mb vram, and 10gb drive
+deployment steps
+download ubuntu server iso
+create a new vm in truenas, using whatever values you prefer.guest operating system should be linuxboot method should be uefibind should be the primary ip of your truenas
+operating system
+configure desired system requirementsthe minimum requirements were listed above, but i would add another vcpu core and some additional ram
+vm cpu and memory
+configure vm diskscreate new disk image and make sure to select ahci as disk type.select a zvol location on your nasi used a 12 gb drive, which is probably overkill for this
+disks
+network interfaces and installation mediayou can take the defaults on network interfaceson installation media, upload the ubuntu iso you downloaded earlier, or select it from your truenas if you have already copied it to a share. 
+installation media
+install ubuntu osafter saving the vm settings, power on and run through a default setup of ubuntu.make sure to set the ip address of this vm with a static ip on your network, as this will be your new pihole dns server.also, install openssh during the install if you wish to ssh to pi-hole.after installing ubuntu, update the ubuntu ossudo apt updatesudo apt upgrade
+install pi-holerun the following command in an ssh or console session on the ubuntu vmsudo curl -ssl https://install.pi-hole.net | bash
+follow the pi-hole wizard to configure additional settingschoose your dns provider (i used opendns)take the defaults on the rest of the items unless you have specific reasons otherwise.
+pi-hole wizard
+
+
+
+
+
+
+
+			this entry was posted in freenas and tagged freenas, pi-hole, truenas on april 14, 2022 by admin.								
+
+
+
+
+surface dock won’t display second monitor
+
+
+leave a reply 
+
+
+i have been using dual displays with my surface dock and surface dock 2 for awhile now, but recently the second external display would just go to sleep and not display anything no matter what i tried. the solution was found in a microsoft forum.
+clear your display cache.
+undock your surface from the surface dock.download the surface dock registry file. choose to open the file.select and run surface dock registry.reg.select yes to allow changes to your surface, select yes to confirm, and then select ok to close.restart your surface, reconnect it to the surface dock, and try your external display again.
+
+
+			this entry was posted in microsoft and tagged dock, external monitor, surface on august 30, 2021 by admin.								
+
+
+post navigation
+← older posts
+
+
+
+
+
+search site
+
+search for:
+
+
+
+
+
+recent posts
+
+
+empty cache hard reload on chrome
+
+
+sophos active directory authentication with ssl/tls failure
+
+
+manually remove i/o filters from vsphere vm
+
+
+manage bitlocker with powershell / command prompt
+
+
+automatically move archived event logs to another location
+
+
+archives archives
+
+select month
+ october 2024 
+ august 2024 
+ november 2023 
+ october 2023 
+ august 2023 
+ may 2023 
+ october 2022 
+ april 2022 
+ august 2021 
+ june 2020 
+ may 2020 
+ march 2020 
+ february 2020 
+ june 2019 
+ march 2019 
+ february 2019 
+ september 2018 
+ july 2018 
+ june 2018 
+ may 2018 
+ february 2018 
+ january 2018 
+ december 2017 
+ october 2017 
+ august 2017 
+ july 2017 
+ june 2017 
+ may 2017 
+ march 2017 
+ february 2017 
+ october 2016 
+ august 2016 
+ july 2016 
+ june 2016 
+ may 2016 
+ april 2016 
+ march 2016 
+ february 2016 
+ january 2016 
+ december 2015 
+ september 2015 
+ july 2015 
+ june 2015 
+ may 2015 
+ december 2014 
+ october 2014 
+ july 2014 
+ june 2014 
+ may 2014 
+ april 2014 
+ march 2014 
+ october 2013 
+ september 2013 
+ march 2013 
+ february 2013 
+ january 2013 
+
+
+categories
+
+freenas
+
+hyper-v
+
+microsoft
+
+networking
+
+servers
+
+storage
+
+uncategorized
+
+vmware
+
+wireless
+
+
+ 
+
+
+
+
+				proudly powered by wordpress			
+
+
+
+
+
+
+
+
+						virtual.mvp					
+
+
+proudly powered by wordpress theme: twenty twelve.				
+
+
+
+
+
+
+
+
+
+

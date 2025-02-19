@@ -1,0 +1,717 @@
+
+
+bill stearns' web site
+
+
+bill stearns' web site
+thanks for showing up!  this is one of the mirror sites holding
+my software.  the packages here are either ones i've written or 
+ones i package for someone else ("rpms" in the description).
+please note that these are not all complete packages.  some of
+them are simple scripts that i use, with little in the way of 
+documentation or installation routines.
+software packages
+for a complete list of all files, see
+filelist.html.
+if you'd only like the most current rpms of the software i
+write, see neweststable.
+
+projectdescription
+
+
+apply-quilt-patches
+applies all the patches in a quilt collection to a source tree.
+
+apptrace
+this straces any app, however it's called.  useful for daemons,
+startup scripts and any tools you don't call directly.  see
+doc/apptrace.v0.1.html for an article
+on its use.
+
+
+askfirst
+shell function to ask the user if they want to run a particular
+command.  handles sudo.
+
+
+blockrules
+create iptables, ipchains, ipfwadm, ios, ipfilter, and snort block
+rules for specified traffic.  can be run as a cgi script; see
+http://www.incidents.org/cgi-bin/blockrules
+for a demo.
+
+
+buildkernel
+this builds a linux kernel from scratch.
+
+
+checkformail / mail
+mail handling scripts and info.
+
+
+defragfile
+(untested) script for defragmenting files on a linux system.
+
+
+detectlib
+this library and associated frontends detect and remove worms from a
+linux system.  adorefind, ramenfind, xcfind and lionfind are here.
+
+
+dibs
+perl script that sends a second copy of all icmp unreachables to a collector machine.  designed for the dibs project, a project that detects worm activity from the unreachables caused by worms probing for non-existant machines.
+
+
+diffsplit
+breaks up diffs/patches into their component files.
+
+
+dns-check
+a script that compares dns records to stored copies.  allows you to
+verify that your dns servers are not handing out incorrect data.
+
+
+doc
+here are the (generally security related) papers i've written over
+the last few years.
+
+
+fanout
+this tool will run commands on multiple machines at the same time via ssh.
+
+
+forduml-coop
+documents and scripts about the uml coop project (see also slartibartfast, the existing coop.
+
+
+firebricks
+(now called modwall, please update any bookmarks) a set of independent firewall modules that can be inserted into an existing firewall.
+
+
+fist
+stackable filesystem templates, currently just logeventfs.  see the
+fist home
+page for more info on fist.
+
+
+filldisk
+fills a disk with a repeating string to overwrite deleted files and
+exercise the drives block checking ability.
+
+
+freedups
+this frees up space on linux filesystems by hardlinking identical files.
+
+
+freeze
+this halts all the running applications on a linux system, while
+leaving the current console running so the analyst can continue to
+perform forensic analysis of an attacked system.
+
+
+hack
+a wrapper around your favourite editor that saves dated backups of
+the file, among other things.
+
+
+html2sgml
+a simple converter from html to sgml.
+
+
+htmlfilelist
+create an html format file listing for a directory.  used on this site - see
+filelist.html for sample output.
+
+
+hostlookup
+looks up the hostnames of ips given on the command line or on stdin.
+
+
+i2i
+the firewall conversion routines, ipfwadm2ipchains and ipchains2iptables.
+
+
+icons
+a collection of icons.
+
+
+indebug
+debugging tool for the intermezzo project.
+
+
+ipchains2iptables
+converts an ipchains (2.2 kernel) firewall into an iptables (2.4
+kernel) firewall.  because of the structural differences between the two
+types of firewalls, this program will do as much as it can, but only
+provides a starting point.
+
+
+ipfwadm2ipchains
+this converts an ipfwadm (2.0 kernel) firewall into an ipchains (2.2
+kernel) firewall.
+
+
+ipt_dsize
+an iptables match module to allow one to match the length of the data portion of the packet without the ip and protocol header.
+
+
+livedrives
+just lists the physical ide and scsi drives on a system.
+
+
+mason
+the mason automatic firewall builder for linux.
+
+
+mirror
+tools for managing a software repository mirror.
+
+
+mkrootfs
+makes root filesystems
+for user mode linux.
+
+
+modwall
+a set of independent firewall modules that can be inserted into an existing firewall.
+
+
+moveuser
+moves a user to a new uid (and optionally gid).  use with caution.
+
+
+netreply
+perl script that sends back an echo reply for echo requests.  useful for letting your attackers think that non-existant machines exist.  :-)
+
+
+neweststable
+all of the rpms for software i write.
+
+
+noads
+block ads with the jesred squid redirector.
+
+
+openmail
+opens up a mail folder with pine.
+
+
+padip
+pads out an ip address to nnn.nnn.nnn.nnn format
+
+
+passer
+a passive service sniffer written in python.
+
+
+patches
+miscellaneous patches i wrote or modified and sent off to linux developers
+
+
+pcap
+bpf / pcap packet capture files.
+
+
+pom26convert
+converts the netfilter patch-o-matic 2.4 config.in and .configure.help files over to the 2.6 kernel's kconfig format.
+
+
+pomlist
+creates a hypertext listing of all the netfilter patch-o-matic modules.
+
+
+portstatus
+checks to see if specified ports on a system are responding.
+
+
+randomsig
+create a random signature with different quotes, some included.
+
+
+razor-caching-proxy
+a caching proxy for the razor spam filtering system.
+
+
+redhat
+spec file template.
+
+
+routeprobe
+checks for rogue routers - masquerading or straight routing - on a lan.
+
+
+rsync-backup
+this tool allows for secure backups via rsync, ssh and chroot.
+
+
+rsync-mirror
+a simple wrapper script for mirroring directories between machines.
+
+
+sa-blacklist
+a blacklist of sender addresses for spamassassin.
+
+
+samlib(formerly sam)
+a library of shell functions used by some of the other tools.
+
+
+shun
+program that blocks all communication with given ip's on an iptables
+or ipchains capable host.
+
+
+snort2iptables
+converts rules in the snort rulebase over to iptables firewall rules.
+
+
+socketwatch
+listen for incoming connections on a given port and immediately
+block the person scanning it.
+
+
+ssh-keyinstall
+automates the creation and installation of ssh keys.
+
+
+slartibartfast/zaphod/uml-coop
+documents and scripts about the uml coop project (see also ford, the upcoming 64 bit coop.
+
+
+staticiso
+an iso image of statically linked binaries, good for forensics and system recovery.
+
+
+syncapture
+script to capture syn packets for later analysis.  useful for p0f.
+
+
+tcpsed
+perl app to replace fields in a pcap file.
+
+
+tf2 maps
+about 900 team fortress 2 maps (approx 11gb) in compressed and uncompressed format.
+
+
+tunnel
+scripts to help set up ip tunneling.
+
+
+uml
+patches and files for the user-mode linux project.
+
+
+uml-root
+root filesystems for the user-mode linux project.  note these are only at www.stearns.org.
+
+
+vmod
+virtual machine on demand - a script that will eventually automatically start and stop user-mode linux virtual machines based on load.  in progress, not much yet.
+
+
+rpms i package of other peoples software
+
+projectdescriptionreference url
+
+xvbogus
+rpms.
+http://www.anvil.org/
+
+
+aide
+static rpms.
+http://www.cs.tut.fi/~rammer/aide.html
+
+
+bladeenc
+rpms.
+http://bladeenc.mp3.no
+
+
+dnstop
+rpms.
+http://dnstop.measurement-factory.com/
+and http://www.caida.org/tools/utilities/dnstop/
+
+
+
+dxpc
+rpms.
+http://www.vigor.nu/dxpc/
+
+
+e2fsprogs
+rpms.
+http://e2fsprogs.sourceforge.net/
+
+
+fltk
+rpms.
+http://www.fltk.org/
+
+
+gkrellm
+rpms.
+http://web.wt.net/~billw/gkrellm and http://freshrpms.net/
+
+
+gnapster
+rpms.
+http://www.gotlinux.org/~jasta/gnapster.html
+
+
+gnubile
+rpms.
+http://gnutella.wego.com
+
+
+grepmail
+rpms.
+http://grepmail.sourceforge.net
+
+
+gtk--
+rpms.
+http://lazy.ton.tut.fi/gtk--/gtk--.html
+
+
+htmldoc
+rpms.
+http://www.easysw.com/htmldoc
+
+
+hydra
+rpms.
+http://www.thc.org/thc-hydra/
+
+
+id3lib
+rpms.
+http://id3lib.sourceforge.net
+
+
+iip
+rpms.
+http://www.invisiblenet.net/iip/
+
+
+iftop
+rpms.
+http://www.ex-parrot.com/~pdw/iftop/
+
+
+ike-scan
+rpms.
+http://www.nta-monitor.com/ike-scan/
+
+
+imgseek
+rpms.
+ http://imgseek.sourceforge.net
+
+
+interdiff
+rpms.
+ http://people.redhat.com/twaugh/interdiff/
+
+
+intermezzo
+rpms.
+http://www.inter-mezzo.org/
+
+
+iptables
+rpms.
+http://www.netfilter.org/
+
+
+kautoconfigure
+rpms.
+http://sourceforge.net/projects/kautoconfigure/
+
+
+labrea
+rpms.
+http://www.hackbusters.net
+
+
+libcss
+rpms.
+
+
+libid3lib13
+rpms.
+http://id3lib.sourceforge.net/
+
+
+libnet
+rpms.
+http://www.packetfactory.net/libnet/
+
+
+libsafe
+rpms.
+http://www.research.avayalabs.com/project/libsafe/
+
+
+libsigc++
+rpms.
+http://libsigc.sourceforge.net/
+
+
+loggrep
+rpms.
+http://loggrep.sourceforge.net
+
+
+lsof
+rpms.
+ftp://vic.cc.purdue.edu/pub/tools/unix/lsof/
+
+
+lvm-viewer
+rpms.
+http://ds9a.nl/lvm-viewer/
+
+
+lzip
+rpms.
+http://lzip.sourceforge.net
+
+
+mess822
+rpms.
+http://cr.yp.to/mess822.html
+
+
+mhash
+rpms.
+http://mhash.sourceforge.net/
+
+
+mkisofs
+rpms.
+http://www.fokus.gmd.de/research/cc/glone/employees/joerg.schilling/private/cdrecord.html
+
+
+mutella
+rpms.
+http://mutella.sourceforge.net
+
+
+nc
+statically compiled rpms - please read the readme first.
+
+
+nessus
+rpms
+http://www.nessus.org/
+
+
+ngrep
+rpms.
+http://ngrep.sourceforge.net/
+
+
+omi
+rpms.
+
+
+openssh
+rpms.
+http://www.openssh.org/
+
+
+packit
+rpms.
+http://packit.sourceforge.net/
+
+
+p0f
+rpms.
+http://lcamtuf.hack.pl/
+
+
+pdumpq
+rpms.  accepts packets from netfilter and outputs them in libpcap format
+http://rouxdoo.freeshell.org/dmn/pdumpq/
+
+
+perl
+rpms for some perl modules
+
+
+pktstat
+rpms.
+http://www.itee.uq.edu.au/~leonard/personal/software/#pktstat
+
+
+rain
+packet creation tool rpms.
+http://www.tenebrous.com/rain/
+
+
+razor-agents
+rpms of the razor spam filtering agents.
+http://razor.sourceforge.net
+
+
+rc5des
+
+
+rnl
+file sharing tool rpms.
+http://rootnode.org
+
+
+rsync
+rpms.
+http://rsync.samba.org/
+
+
+rsync-static
+a statically linked version of the rsync package.
+http://rsync.samba.org/
+
+
+sgml-tools
+rpms
+http://www.sgmltools.org/
+
+
+spak
+rpms.
+http://www.xenos.net/software/spak/
+
+
+spamassassin
+rpms.
+http://www.spamassassin.org/
+
+
+spinner-wiki
+rpms.
+http://spinner-wiki.sourceforge.net/
+
+
+subterfugue
+rpms.
+https://sourceforge.net/projects/subterfugue
+
+
+tnef
+rpms.
+http://world.std.com/~damned/software.html
+
+
+ucl
+rpms.
+http://wildsau.idv.uni-linz.ac.at/mfx/ucl.html
+
+
+ulogd
+rpms.
+http://gnumonks.org/projects/ulogd
+
+
+upx
+rpms.
+http://wildsau.idv.uni-linz.ac.at/mfx/upx.html
+
+
+xclip
+rpms.
+http://people.debian.org/~kims/xclip/
+
+
+i have some additional old / unmaintained projects and rpms as well.
+
+
+full mirrors of this site
+
+ftp - ftp.stearns.org
+http - www.stearns.org
+ftp - uml.ists.dartmouth.edu  thanks, bob g!
+http - www.linuxgrill.org  thanks, matt m!
+the site is also available via rsync:
+
+rsync rsync.stearns.org::wstearns/
+
+
+many thanks to bascom, who were kind enough to host a mirror
+for many years.
+partial mirrors of this site
+
+http - www.pobox.com
+(newest files only, only some packages)
+http - users.dhp.com
+(newest files only, only some packages)
+http - ists
+(detection tools and documents only)  thanks, alex!
+http - wiretapped, australia
+(mason only, updated nightly) thanks grant!
+ftp - wiretapped, australia
+(mason only, updated nightly) thanks grant!
+
+other related sites.
+
+ists works on all kinds
+of national security issues, including internet and linux security.
+sans.  i teach for this world-class
+security training organization and manage their networks.
+
+presentations
+i gave a webcast on
+ssh in september 2003 (follow that link to hear it anytime).  many
+thanks to sans and vandyke software for sponsoring it.
+i also gave a webcast on
+spam in february 2004 (again, available for listening anytime). 
+many thanks to sans and mailfrontier for sponsoring it.
+here's an 
+interview about internet security that showed up on new hampshire public tv's
+outlook program.  jump 6
+minutes, 40 seconds in.
+julie bresnick of newsforge wrote an article
+about my work on open source programs.  thanks, julie.
+
+
+
+personal
+if you need to get a hold of me, try:
+
+email: wstearns@pobox.com
+i'll have this address forever.
+
+i have a diary running.  i
+expect to update irregularly, when something interesting happens.
+here's my pgp key.  i'd
+strongly suggest that you download this from more than one of the
+mirror sites and compare the two (so you can't be fooled if
+one of the mirror sites gets hacked).  this key has not changed since 1998.
+it can also be found on the public key servers, such as the one at
+
+mit.
+this key is used to sign any rpms i build.
+here are some funny images and files.
+
+
+
+here's the cruise my wife and 
+i took in august, 2001.
+finally, a few shots of me waterskiing on lake sunapee in new
+hampshire, usa.
+
+
+
+
+
+
+
+last edited: 3/19/2008
+best viewed with something that can show web pages... <grin>
+please don't email the following address - it's part of a
+study:
+spleet@portsladescientific.com
+
+

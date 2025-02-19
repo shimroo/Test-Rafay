@@ -1,0 +1,5570 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+robert's stochastic thoughts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+robert's stochastic thoughts
+
+
+
+asymptotically we'll all be dead
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wednesday, february 12, 2025
+
+
+
+
+
+
+
+
+
+
+car vii 
+
+here i return to the possibility of devloiping off the shelf killer t-cells with chimeric antigen receptors (cars). off the shelf means that the car cell does not have to be custom made for each patient using the patient's killer t-cells. i presenting my (nonexpert) thoughts on how to make them here.  now i note an article which explains how off the shelf car t-cells were made matsuzaki et al (2024) blood volume 144 supplement 1 page 4811. 
+
+recall the problem is that the immune system (mainly the host' killert-cells) reacts violently to foreing hla a hla b and hla c and while natural killer (nk) cells kill cells which don't display hla proteins.  my thought was to delete the genes for hla a,b and c and also insert an hla e gene with a strong promoter. hla e is a don't kil me signal which prevents nk cell killing by bindiong to the receptors nkg2a and nkg2b. 
+
+from matsuzaki et al, i infer that this doesn't work, and that hla e is not enough to stop nk cells. matsuzaki et al take another approach, they delete the bene for beta 2 microglobulin preventing the expression of hla a, b, c and e (this is actually an idea i heard from my late father who was a very emminent immunologist and pioneer of the immunotherapy of cancer).  the hla proteins have 3 subunits which form a shape like a capital gamma (or a gallows). beta 2 microglobulin is a separate protein about the size of one of the subunits which nests in they place of a man hanged by the gallows.  it is required for expression of the hla on the cell surface. but it is not key to the functioning of hla a b and c.  instead beta 2 microglobulin size pieces of all the proteins in the cell replace the beta 2 microglogulin and are displayed where killer t-cell receptors can bind to them and recognize the hla antigen bit of another protein complex. if presented by a properuy activated antigen presenting cell (usually a dendritic cell which has spikes maximizing surface area and looks like a sea urchin) the killer cells goes off and kills all cells which display the hla bit of another protein antigen.  this is very useful if the other protein is a part of a virus and also if the other protein is strrange because it is mutated because the cell making it is cancerous (cancerous cells usually make such "neoantigens" especially if they have a defect in a system which detects missmatched dna strands are replaces the abnormal dna with normal dna from the homologous chromasome gotten from the other parent (this is not just a digression is is very important below). 
+
+matsuzaki et al them make the cells display hla e and hla a by making chimeric proteins with normal hla e and then the protein sequenc continuing with beta 2 microglobulin all attached as one protein and by making chimeric proteins with normal hla a then the continuing with beta2 microgolbulin.  i understand that the hla a is needed in addition to the hla e to convince the nk cells not refrain from killing. 
+
+this seemed very odd to me.  in the end the cells display hla a and e but not hla b  and c.  it seemed much simpler to delete hla b and c rather than deleting beta 2 microglobulin (so the cells don't display a,b,c or e) then engineer a modified hla a and hla e which don't need beta 2 microglobulin as they have their own attached. 
+
+then i understood.  the beta 2 microglobulin covalently attached to the hla a will not be replaced by the bits of other proteins. normal hla a would desplay all of the donor's proteins and the recipients immune system would react (not as ferouciously as to foreign hla but still react).  this is why the immune system must be suppressed with transplants even from hla matched donors. 
+ 
+the modified hla a which just won't let go of the beta 2 microglobulin does not display bits of other proteins.   ah yes. brilliant. 
+
+there still are, in principle 2 problems.  hla a from different people is different and hla e from different people is different. in fact there are about 7000 alleles of the hla e gene (that is 700 kinds of hla e in different people). this is not a terrible problme because killer t-cells receptors do not deal with hla e. it remains true that the donor and recipient must have the same hla a. a problem but not  a huge one. the problem of hla matching is that (the number of hla a alleles)(the number of hla b alleles)(the number of hla c alleles) is very large.  just the number of hla a alleles is not so huge. 
+
+consider the analogy implied by "off the shelf" not all off the shelf pants are identical - they come in different sizes,  whjat matters is that the number of sizes (or hla a alleles) is not too huge. 
+
+matsuzaki et al discuss their off the shelf car t-cells in a very specific context (which i don't really understand) reactivating exhausted killer t-cells. that is very exciting too, but the off the shelf technology seems to me to have very general applications. 
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+1:20 am
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+sunday, february 09, 2025
+
+
+
+
+
+
+
+
+
+
+car vi
+i am again tying to figure out how to make car t-cells which can overcome reactive oxygen species (ros) and immune checkpoints, and how to make them cheaply enough that they can be custom made for each patient (as they are).  the earlier posts in this series (including one entirely pulled back from a comment  by someone who knows a lot more about car t-cells than i do) are here , here  , here     , and
+
+ here .
+
+
+always remember that i don’t know much about cart-cells so don’t take anything i write too seriously.  the problem is that killer t-cells with chimeric antigen receptors (car t-cells) are an effective treatment of leukemia and lymphoma but do not work well against solid tumors.  the problems include the high levels  of reactive oxygen  species (ros think hydrogen peroxide) in solid tumors and immune checkpoints or “don’t kill me” signals which are very useful, but also abused and displayed by cancer cells. 
+
+actual scientists might be able to make car t-cells which overcome these problems in two ways: adding genes or deleting genes. the first is used to make a car t-cell. a human designed t-cell receptor which is partly made of a part of a monoclonal antibody which sticks to a tumor specific antigen is added to the t-cell.  it then activates the t-cell when the tumor antigen binds to the part of the monoclonal antibody. 
+
+on the other hand, i (belatedly) noted that at least one gene should really be deleted. car t-cells still have their original receptor.  furthermore car t-cells are made starting with a large number of unmodified killer t-cells which have different receptors. this isn’t a problem with current car t-cells but would be a problem with car t-cells modified to ignore checkpoints, which evolved to prevent our killer t-cells from attacking us (one of many aspects of the immune system meant to prevent such autoimmunity all of whlch together don’t always work).  this means at least one deletion is needed.  that would be of the alpha chain of the t-cell receptor (the alpha and beta chains are the variable parts which stick to the antigen and the beta chain is the one modified in the car so it is hard to delete the unmodified beta chain without deleting the chimeric antigen receptor.  this was done (for another reason) in research described in the paper cited here. 
+the other goals of defending against ros and inhibiting checkpoints can be managed by adding genes, but the potentially costly need for two different cell modification techniques remains.
+
+that was a long introduction.  for those who are still reading, i now think that the ge
+ne destruction crispr-cas technology can be used to add the chimeric receptor (this has been done) and to delete undesired genes. the amazing technology makes it possible to cut dna at a very specific site. the cutting anzyme (cas) is derected to the site by a guide rna which binds to the dna sequence where the cut is desired. this can be used to knock out genes.  it can also be used to insert a bit of dna. basically the dna to be inserted includes some sequence from before the cut, then the desired insert, then some from after the cut. the normal dna repair process then pastes in the dna to be inserted.
+in this article  the use of crispr/cas technology to insert a chineric antigen receptor is described.  importantly the same procedure eliminates the natural unmodified t cell receptor, because the cut and insertion are made there.  the problem is partly solved. in fact in the case described it is entirely solved as the car t-cell penetrates a solid tumor.  this does not happen with all solid tumors (that is natural non car t=cells which react with tumor cells do not always penetrate the tumor. 
+so i think there is still a case for the further use of crispe/cas described in car iii  and in car v 
+the idea presented in car iii is to delete or inactivate the genes for keap1, pdl1, ctla-4, tigit, and the tgf beta receptor,  keap1 suppresses the cells natural antioxidant system. pdl1, ctla-4, tigit, and the tgf beta receptor,  are receptors for don’t kill me signals (that is checkpoints). it is necessary to add the chimeric receptor, and seems necessary to me to add the gene for herpes tk.  cells with no checkpoints are dangerous.  cells producing herpes tk can be kill with ganciclovir.  so two additions and 5 deletions.  a lot of work with two systems 
+the idea in car v is to do it all with additions. in particular inhibiting checkpoins by having the car produce the sticky part of antibodies (fab) which then stick the checkpoint receptor on the car t-cells and nearby t-cells (but which have a short half life in the blood so they don’t build up to high and potentially dangerous levels systemically. 
+the combined inactivate a gene and insert a new gene technology (really pretty classic crispr/cas) makes it possible to do this in 4 steps. 
+1.	insert the car receptoir and inactivate the normal t cell receptor (this has been done in the cited article) 
+2.	inactivate the tgf beta receptor and insert herpes tk 
+3.	inactivate pd1 and insert the anti tigit fab 
+4.	inactivate ctla-4 and inserte herpes tk to be sure. 
+
+i think only 3 steps are really needed. the fda has agreed that it is ok to infuse two checkpoint inhibiting antibodies so the local not systemic inhibition is needed only for 2 more.
+one (of many) things which i don’t know is whether the 4 or 3 modifications can be made at the same time.  it seems to me that it should be possible to get 4 different guide rnas and 4 different pieces of dna with inserts and the sequences before and after the site of cutting. it seems to me this should make all 4 (or 3) modifications at once.  if so, the production of the super car would be almost as cheap as production of an ordinary car. 
+even if the process has to  be repeated 3 or 4 times, it still seems to me much cheaper than having the equipment (and both crispr/cas and modified retrovirus) to do two different procedures. 
+again i don’t know much. if you have read so far, i thank you and  hope you enjoyed the read
+
+
+
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+1:16 am
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+wednesday, february 05, 2025
+
+
+
+
+
+
+
+
+
+
+car v 
+this post criticizes and presents and alternative to the approach presented in car iii. 
+update: i am no longer convinced that the approach described here is an improvement, or even as good  as the approach presented in car iii end update
+
+in car iii i proposed further genetic manipulation of a car t-cell, that is a killer t-cell to which a chimeric  antigen receptor which targets cancer cells but not normal cells has been added. the proposed modifications consisted of deleting5 genes. one logistic problem is that the procedure for deleting a gene is different from the procedure for adding a gene.  since the car  t-cell or further modified car t-cell is custom made for each patient, this could be a serious problem.  
+in any case, this post discussing modifying a car t-cell to make it able to function in a tumor micro-environment by adding various genes, one for the car receptor, one to make the car prepared for reactive oxygen species (ros think hydrogen peroxide) and 4 to make the cell ignore checkpoints – signals to not kill which have a normal function in healthy people but which can be used by cancer cells to avoid the reaction of the immune system to neo-antigens (new strange proteins basically) which they display.
+our cells handle ros with various proteins the production of which is stimulated  by the transcription facor nrf2.  nrf2 is bound and inactivated by keap1.  i proposed deleting the kkeap1 gene. amther approach is to add a gene (with a potent promoter and enhancer) which makes lots of nrf2 so that the normal keap1 can’t bind all of it. one issue is that one of the genes stimulated by nrf2 is the keap1 gene (a bit of homeostasis) so the added gene would have to be transcribed more than the normal nrf2 gene is.
+i am not sure that this is easy to manage or strictly necessary.  stimulation of nrf2 activity in vitro might be enough to give the car t-cell a head start.  once the cell is exposed to ros the natural mechanism (hydrogen peroxide changes the shape of the keap-1 protein so it no longer binds nrf2) might be enough if the car t-cell is not quicky killed or inactivated.
+now consider checkpoint inhibitors. many have been developed and they have been used with dramatic but not wholly satisfying results. they cure a minority of patients (a fact recognized with a nobel prize) but other patients are not cured. the checkpoints involve receptors on t-cells which tell the cell not to kill (except in one case to kill itself).  the receptors are called pd1 ctla-4 tigit and the tgf-beta receptor. the checkpoint inhibitors are monoclonal antibodies which bind to and block the receptor or which bind to and block the molecule which binds to and activates a receptor.  as far as i know from my efforts to survey the literature, in clinical trials no more than 2 ckeckpoints are inhibited in any single patient.  i assume this is because doctors know that the checkpoints evolved for a reason and fear that blocking too many would lead to autoimmunity (the immune system attacking the normal cells of the patient).  
+i have a crazy idea for inhibition of the checkpoint near the car t-cell but not systemically (everywhere in the patient).  the idea is for the car t-cell to produce blocking antibodies with a short half life, because they are fairly qyuckly removed from the blood and digested by the liver. most proteins have a short half life for this reason. a key exception is igg antibodies which have a very long half life because part of the constant region of theantibody signals to the liver to recycle them.  the constant region is a tail of the antibody which does not bind the target and which is not highly variable (to make things complicated there are 4 different constant regions of igg antibodies but nothing like the immense number of variable regions which stick to specific antigens (targets)).
+a reduced size molecule called an fab can bind to and block a receptor even without the constant region.  it consists of two proteins stuck together (in genetic engineering they are often one protein which a highly flexible link made of the tiny amino acid glycine which does not get in the way of the two non-glycine parts of the protein aligning and sticking together).  these fab molecules could block receptors of the car t-cell which made them and of nearby t-cells without building up to high levels in the blood steam (and lymph) of the patient and making trouble.
+an advantage is that nearby t-cells include the patient’s killer t-cells which infiltrate the tumor. this often happens. also these cells often do not kill the cancer cells because of checkpoints and/or reactive oxygen species. update: this is an advantage of adding genes for anti checkpint fabs even if some genes, such as part of the normal t-cell receptor have to be deleted. end update. this could be an important added benefit as the tumor would be targeted by different t-cell receptors reacting to different neo antigens, so the cancer cells can’t evade immune surveillance by mutating to lose a specific antigen.
+also the fab stuck to the receptor on the car t-cell or other nearby t-cells will not send the signals that full antibodies send to other immune cells which include “kill this cell” sent to natural killer cells, swallow and kill this cell sent to macrophages and will not fix complement which kills cells.  
+i think this should be an approach which works as well as the checkpoint inhibitors which are currently being used.
+update: it is possible that the car itself will attack normal cells – car t-cells have the added chimeric antigen receptor but they also have the original t-cell receptors. self reacting killer t-cells should be eliminated in the fetal thymus, but killer t-cells do sometimes cause autoimmune problems (hence the use of short half live fab’s) update: this makes it necessary to delete a gene for part of the normal t-cell receptor to prevent attack on patient. that elimiates the original logic of this approach vs that presented in car iii and explains the update that i am no longer convinced that the approach preseented here is a better appraoch end update. also one of the cells or all of the cells might become a leukemia (this can and has happened with addition of genes with a retrovirus). for both reasons it would be wise to add the gene for herpes thymidine kinase which makes cells vulnerable to ganciclovir. end update.
+in any case it is an idea which i find interesting.
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+12:10 am
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+saturday, october 05, 2024
+
+
+
+
+
+
+
+treatment of autoimmune diseases
+
+
+
+
+
+i have a thought so blindingly obvious that i don’t know why i haven’t read about it. first the thought then wondering why i haven’t found it written.
+the idea is to treat with a chimera of an antibody to a tissue specific antigen and pdl1
+(note how quickly it can be stated).
+pdl1 (programmed death ligand 1) interacts with pd1 (programed death 1) on kiler t cells and natural killer cells.  the acronyms suggest that these cells then die.  however, it is now known that they live on without killing the cell which displays pdl1.  blocking this “checkpoint” is a very major dramatic nobel prize winning step towards effective immunotherapy of cancer. 
+killing by lymphocytes is often a problem: type 1 diabetes, multiple sclerosis, celiac disease, ulcerative colitis and other less common disorders. it seems obvious that the 
+pdl1/pd1interaction could be very useful.  a problem with immunosuppressants is that they leave the patient vulnerable to infections.  they are still used, however it clearly would be useful to focus the immunosuppression on the tissue where the immune response is causing trouble.
+this should be easy if there is a monoclonal antibody which binds to that tissue.  for example pancreatic islet cells  (beta cells) display a characteristic antigen zinc transporter-8 (znt8) cells   there is a monoclonal antibody to  this antigen .  it seems to me that a chimera of that antibody and pdl1 is worth exploring.  
+it is possible that by the time diabetes is diagnosed it is too late (there are beta cells in the pancreases of people with type 1 diabetes but they may have survived by becoming irreversibly dormant).  
+also islet cells for transplant might usefully be decorated with the chimera.
+
+for multiple sclerosis and related diseases a myelin specific might be useful.  such antibodies exist and create trouble when not attached  with pdl1.
+
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+12:48 am
+
+
+
+4 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+directing lymphokines to the desired cells. 
+
+
+
+
+
+i was looking for an earlier article when i found this hot off of the presses engineered cytokine/antibody fusion proteins improve il-2 delivery to pro-inflammatory cells and promote antitumor activity
+
+
+the earlier article discusses an antibody which binds to il-2, does not block its action and, for some reason, causes it to bind more to inflammatory cells and less to tregs
+
+i am interested in other ways to direct il-2 and il-15 to cd8 killer cells and nk cells. i propose starting with bifunctional antibodies – a 1960s technology which yields an gamma globulin with 2 different fab components by breaking and remaking the disulfide bonds between fc components.
+here one fab could be from the leonard and bind to il-2. another possibility is a non blocking antibody to the sushi domain of il-15 r alpha with il-15 irreversibly bound to that or a non blocking antibody to il-15 itself.
+in each case the fab binds to an interleukin and does not block its action
+the other fab (in the very preliminary 60s tech experiment) is either anti cd8, anti cd56, or anti nkg2a. 
+the logic of anti-cd8 is clear. it would direct that il-2 or il15 to cd8 killer cells as opposed to the (most common) cd4 tregs. also importantly it would direct them to lymphocytes and not the walls of capillaries reducing the dose limiting capillary leak toxicity for a given level of stimulation of the lymphocytes.
+similarly cd56 is characteristic of nk cells (and il15 has a very dramatic effect on nk cell proliferation).  
+the case for anti nkg2a is a bit more complicated and interesting. nkg2a is found on nk cells and some cd8 cells.  it is an inhibitory receptor which responds to hla-e. 
+monalizumab is an fda approved monoclonal which blocks nkg2a . 
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+12:44 am
+
+
+
+3 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+wednesday, september 18, 2024
+
+
+
+
+
+
+
+a song of ice and fire
+
+
+
+
+
+
+just wasting time. i refer to the series of books and not to the tv series*.
+
+1)	now public – after the first book, i was convinced that jon snow was the son of lyana stark and rhaegar targaryen
+
+2)	it is very clear that the knight of the laughing tree is lyana stark.  for one thing rhaegar rode after that knight after that knight embarrassed the knights at the tournament.  the travelling cranogman is, i think, a diversion.
+
+3)	balerion the dread ii: i am sure that the black cat with one ear is the targaryen pet cat knicknamed balerion the dread. the cat appears chased by arya stark then attacks tommen baratheon. arya escapes, finds the skulls including that of balarion the dread i and finds varys plotting with the rich cheese guy (in tunnel later used by eddard stark and peter baelish. cat reported to have stolen chicken from tywin stark when he was at dinner with the crazy king.  reported outside of a window scaring tommen later.
+
+4)	the horn of joramun. in the mysterious bundle containing obsidian blades there is a horn which makes no sound.  i am sure it is the horn which wakes giants.
+
+5)	it is fairly clear that ice-hands is the eddard stark’s younger brother and that he left the bundle to be found as well as rescuing samwise tarley etc.
+
+6)	it is reasonably clear that the pork he brought for brandon, hodor and the crannog-siblings is long pork (human flesh).
+
+7)	in the house of the immortals danerys sees a massacre of people with wolve’s faces. clearly the red wedding. she also sees a newborn baby.  parents say he will be a great conqueror and they will name him aegon.. they are rhaegar and lyanna.  she sees someone with blue eyes in a boat. clearly a wight coming from hardholm
+
+8)	the person born between salt and fire is danerys. she is also the younger and more beautiful queen about whom circe lannister was warned.
+
+9)	the younger brother iwho is to strangle her is jaime – minutes not years younger.
+
+10)	danerys must go east to go west. also, she must pass through the shadow beyond ashai. a sword tempered in the blood of a beloved’s heart is alarming.
+
+11)	the dragon has 3 heads – danerys, jon, and one more. either faegon is not fake, or tyrion lannister is, as rumored, a bastard of the crazy king.
+
+12)	of course sandor clegane is the tall man digging graves on the isle of repentance and the hound not he is the angry man who died (why did i not realize this ?).
+
+13)	i am pretty sue that mance is not, in fact dead 
+
+odd how i remember details but not names
+
+
+*i think the parts of the series i watched was excellent – very different from but not inferior to the books – i did not watch the 7th season.
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+10:28 am
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+wednesday, august 14, 2024
+
+
+
+
+
+
+
+does autophagy slow aging and slow the progression of neuro-degenerative diseases ?
+
+
+
+
+
+warning: this is a reflection of my theoretical interest.  a foolish person might mistake it for advice on how to delay aging. do not take medical advice from me.  i am an economist.
+autophagy means self eating. it refers to the process through which cells send things in the cell to lysosomes to be broken down to their components.  i will mainly type about macro-autophagy which refers to a fairly large volume surrounded by a double membrane called and autophagosome which fuses with the lysosome.  autophagosomes are large enough to engulf entire mitochondria (the organelle which produces atp using glucose and oxygen).  this is important because defective mitochondria can produce reactive oxygen species (ros) (think hydrogen peroxide) which damage cells. 
+autophagy also removes aggregates of proteins stuck to each other. this may be very important as such aggregates have a role in alzheimer’s disease and probably also parkinson’s disease and huntington’s disease 
+it is often argued that autophagy slows aging. this argument is largely based on the effect of molecules which promote autophagy slowing aging of rats and mice.
+there is also very strong evidence that autophagy prevents (or delays) neurodegenerative diseases.  here the evidence is quite strong.  (homozygous) genetic defects ni proteins involved in autophagy cause increased risk of parkinson’s disease and (different defects) amyotrophic lateral sclerosis.
+this makes chemical which stimulate autophage extremely interesting.  unfortunately the best known (don’t eat this at home kids) is rapamycin which promotes autophagy by inactivating the mammalian target of rapamycin complex 1 (mtorc1).  unfortunately this also rapamycin  an potent immunosuppressant, so it is very dangerous to eat it just because it does indeed slow rodent aging.
+one approach to seek a safer promoter of autophagy is to develop molecules similar to rapamycin (rapalogs) and check if they suppress the immune system, hoping they don’t of course they do.
+update: how could i have forgotten to mention this in an earlier draft. simvastatin is a pharmaceuitical which promotes autophagy. satins are used to control high blooed cholesterol.  they have a low chance of causing rhabdomyolosis (overall a one in a million risk of causing death). i guessed that they reduc the risk of alzheimer's disease. i just googled and found "specifically, statin use demonstrated a 28% risk reduction in alzheimer's disease, 18% risk reduction in vascular dementia, and 20% risk reduction in unspecified dementia." end update
+there are definitely safe molecules which are alleged to promote autophagy. one is resveratrol.  long ago it was observed that large doses of resveratrol appeared to cause slower aging in rats. there is a fairly large literature on this topic in peer reviewed journals. as a result (somewhat embarrassingly) resveratrol is included in many unregulated dietary supplements (also you can buy it on amazon.com).  it is a natural compound (found in red grapes) with no known serious side effects, so it is basically not regulated.
+there are two definite problems with resveratrol.  most of it is not absorbed by the intesting and most which is absorbed is rapidly metabolized by the liver. for it to be effective (for whole mammals such as ourselves) it must be very potent.
+an very similar alternative molecule  more of which is absorbed and which has a longer half life is pterostilbene (found in blueberries).  there are many fewer articles in the  peer literature on pterostilbene than on resveratrol. 
+spermadine is a poly amine which promotes autophagy there is evidence that oral spermadine slows aging in mice.
+as an aside – the peer reviewed biomedical literature is huge. obscure journals are indexed on pubmed.ncbi.nlm.nih.gov . finding something there does not mean it has cleared a high bar.
+there are various articles which assert that relatively potent (and well absorbed) autophagy inducing pharmaceuticals have been found using high throughput screening.  this is part of the effort to repurpose pharmacuticals – to find new uses for fda approved pharmaceuticals. the point is that the fda does not regulate doctors who can prescribe pharmaceuticals off label.
+they do not list the same molecules.  many cause lower blood pressure.  some are used to prevent migraines. they do not suppress the immune system.
+the pharmaceutical on at least one of the lists include
+clonidine
+minoxidil (yes the stuff bald guys use to make hair grow – it also causes lower blood pressure if taken internally in higher doses)
+rilmenidine
+and
+rizatriptan. (used for migrains does not lower blood pressure)
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+4:44 am
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+sunday, june 16, 2024
+
+
+
+
+
+
+
+a natalist, nativist, nationalist case for the child tax credit
+
+
+
+
+
+one of the policies with the greatest effect on poverty is the ild tax credit  (expanded and made fully refundable by the american reesue plan).  it caused a 44% reduction of child poverty. unfortunately it was a tempory one year program (approptiate for stimulus bu not for an always needed prgram).  it was not renewed and there was a huge increase in poverty
+
+this is a hugely important policy issue (currently totally impossible with gop control of the house).  there was not overwhelming support for the program -- fully refundable sounds like welfare. to be blunt, some of the money went to african americans. i think there is a rhetiral trick which might maybe even work.  i think the history of generoud child credits suggests that fighting poverty was not the only objective.  there was also the goal of increasing natality, often frankly aimed at producing footsoldiers for the next war. the aim was to create incentives to make babies.the concern was low fertility not (just) high child poverty. 
+
+i think a case for an expanded child tax credit can be made which might convince some natalist natavist nationalist americans who are alarmed that imigration will be necessary to have people to pay the payrol tax to support boomers.  the arbument is that native born americans are dying off with fertility below the replacement rate. in 2022 it was1.67 well below the replacement rate of 2.1   in this the usa has joined other rich countries (which are notably more generous with children that the usa).
+
+logically this should terrify the numerouse xenophabic nationalists who now oppose the expanded child tax credit. logically they should support inceni type,tives for us citizen adullts to make babies.  "logically" hah, they do not use this "logic" of which i type. but hey it's worth a try
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+12:23 am
+
+
+
+5 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+thursday, march 07, 2024
+
+
+
+
+
+
+
+avatars of the tortoise iii
+
+
+
+
+
+in "avatars of the tortoise" jorge luis borges wrote "there is a concept which corrupts and upsets all others. i refer not to evil, whose limited realm is that of ethics; i refer to the infinite."
+he concluded ""we (the indivisible divinity that works in us) have dreamed the world. we have dreamed it resistant, mysterious, visible, ubiquitous in space and firm in time, but we have allowed slight, and eternal, bits of the irrational to form part of its architecture so as to know that it is false."
+  
+i think i might have something interesting to say about that and i tried to write it here.  if you must waste your time reading this blog, read that one not this one. but going from the sublime to the ridiculous i have been a twit (but honestly not a troll) on twitter.  i said i thought we don't need the concept of a derivative (in the simple case of a scalar function of a scalar the limit as delta x goes to zero of ther ratio delta y over delta x - i insult you with the definition just to be able to write that my tweet got very very ratiod).
+  
+in avatars of the tortoise ii i argued that we can consider space time to be a finite set of points with each point in space the same little distance from its nearest neighbors and each unit of time the same discrete jump littlet from the most recent past.  if i am right we don't need derivatives to analyse functions of space, there are just slopes, or time, or position as a function of time (velocity and acceleration and such).  in such a model, there are only slopes as any series which goes to zero, gets to zero after a finite number of steps and the formula for a derivative must include 0/0.
+  
+i will make more arguments against derivatives.  first i will say that we learn nothing useful if we know the first, second, ... nth ... derivative of a function at x.  second i will argue that we can do what we do with derivatives using slopes.  third i will argue that current actual applied math consists almost entirely of numerical simulations on computers which are finite state autometa and which do not, in fact, handle continuums when doing the simulating. they take tiny little steps (just as i propose).
+  
+i am going to make things simple (because i don't type so good and plane ascii formulas are a pain).  i will consider scalar functions of scalars (so the derivative will be ab ap calculus).  i will also consider only derivatives at zero.
+  
+f'(0) = limit as x goes to zero of (f(x)-f(0))/x 
+  
+that is, for any positive epsilon there is a positive delta so small that if |x|
+
+this is useful if we know we are interested in x with absolute value less than delta, but we can't know that because the definition of a derivative gives us no hint as to how small delta must be.
+                                                                               
+to go back to avatars of the tortoise i, another equally valid definition of a derivative at zero is, consider the infinite series x_t = (-0.5)^t.  
+  
+f'(0) = the limit as t goes to infinity of (f(x_t)-f(0))/x_t that is, for any positive epsilon there is a positive n so big that, if t>n then 
+  |f'(0) - (f(x_t)-f(0))/x_t|< epsilon. 
+  
+so we have again the limit as t goes to infinity and the large enough n with know way of knowing if the n which interests us (say 10^1000) is large enough. knowing the limit tells us nothing about the billionth element.  the exact same number is the billionth element of a large infinity of series some of which converge to a for any real number a, so any number is as valid an asymptotic approximation as any other, so none is valid.
+  
+now very often the second to last step of the derivation of a derivative includes an explicit formula for f'(0) - (f(x)-f(0))/x and then the last step consists of proving it goes to zero by finding a small enough delta as a function of epsilon.  that formula right near the end is useful.  te derivative is not.  knowing that there is a delta is not useful if we have no idea how small it must be.
+  
+in general for any delta no matter how small for any epsilon no matter how small, there is a function f such that |f'(0) - (f(delta)-f(0))/delta|>1/epsilon (i will give an example soon).  for any function there is a delta does not imply that there is a delta which works for any function. the second would be useful.  the first is not always useful.
+  
+one might consider the first, second, ... nth derivatives and an nth order taylor series approximation which i will call taylorn(x)
+  
+  for any n no matter how big, for any delta no matter how small for any epsilon no matter how small, there is a function f such that |taylorn(delta) - f(delta)|>1/epsilon 
+  
+for example consider the function f such that
+f(0) = 0, if x is not zero f(x) = (2e/epsilon)e^(-(delta^2/x^2))
+  
+  
+f(delta) = 2/epsilon > 1/epsilon.
+  
+f'(0) is the limit as x goes to zero of 
+  
+  -(2e/epsilon)(2delta^2/x^3)e^(-(delta^2/x^2)) = 0.
+  
+  the nth derivative the limit as x goes to zero of an n+2 order polynomial times e^(-(delta^2/x^2))  and so equals zero.
+  
+the nth order taylor series approximation of f(x) equals zero for every x.
+for x = delta it is off by 2/epsilon > 1/epsilon.
+  
+there is no distance from zero so small and no error so big that there is no example in which the nth order taylor series approximation is definitely not off by a larger error at that distance.
+  
+knowing all the derivatives at zero, we know nothing about f at any particular x other than zero. again for any function, for any epsilon, there is a delta, but there isn't a delta for any function. knowing all the derivatives tells us nothing about how small that delta must be, so nothing we can use.
+  
+  
+
+so if things are so bad, why does ordinary caluclus work so well ?  it works for a (large) subset of problems. people have learned about them and how to recognise them either numerically or with actual experiments or empirical observtions.  but that succesful effort involved numerical calculations (that is arithmetic not calculus) or experiments or observations.  it is definitely not a mathematical result that the math we use works. indeed there are counterexamples (of which i presented just one).
+  
+part 2 of 3 (not infinite even if it seems that way but 3.  if the world is observationally equivalent to a word with a finite set of times and places, then everything in physics is a slope.  more generally, we can do what we do with derivatives and such stuff with discrete steps and slopes. we know this because that is what we do when faced with hard problems without closed form solutions. we hand them over to computers which consider a finite set of numbers with a smallest step.
+  
+  
+and that quickly gets me to part 3 of 3 (finally).  one person on twitter says we need to use derivatives etc to figure out how to write the numerical programs we actually use in applications. this is an odd claim. i can read (some) source code (ok barely source code literate as i am old but some). i can write (some) higher higher language source code.  i can force myself to think in some (simple higher higher language) source code (although in practice i use derivatives and such like). unpleasant but not impossible.
+  
+someone else says we use derivatives to know if the simulation converges or, say, if a dynamical system has a steady state which is a sink or stuff like that. we do, but tehre is no theorem that this is a valid approach and there are counterexamples (basically based on the super simple one i presented). all that about dynamics is about *local* dynamics and is valid if you start out close enough and there is no general way to know how close is close enough.  in practice people have found cases where linear and taylor series (and numerical) approximations work and other cases where they don't (consider chaotic dynamical systems with positive lyaponoff exponents and no i will not define any of those terms).
+  
+always the invalid pretend pure math is tested with numerical simulations or experiments or observations.  people learn when it works and tell other people about the (many) cases where it works and those other people forget the history and pour contempt on me on twitter.
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+6:02 am
+
+
+
+23 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+avatars of the tortoise ii
+
+
+
+
+
+in "avatars of the tortoise" jorge luis borges wrote "there is a concept which corrupts and upsets all others. i refer not to evil, whose limited realm is that of ethics; i refer to the infinite."
+  
+he concluded ""we (the indivisible divinity that works in us) have dreamed the world. we have dreamed it resistant, mysterious, visible, ubiquitous in space and firm in time, but we have allowed slight, and eternal, bits of the irrational to form part of its architecture so as to know that it is false."
+  
+i think rather that we have dreamed of infinity which has no necessary role in describing the objective universe which is "resistant, mysterious, visible, ubiquitous in space and firm in time*".
+  
+first the currently favored theory is that space is not, at the moment, infinite but rather is a finite hypersphere.  there was a possibility that time might end in a singularity as it began, but the current view is that the universe will expand forever.  bummer. i note however that the 2nd law of thermodynamics implies that life will not last forever (asymptotically we will "all" be dead, "we" referring to living things not currently living people).  so i claim that there is a t so large that predictions of what happens after t can never be tested (as there will be nothing left that can test predictions.
+  
+however it is still arguable (by blake) that we can find infinity in a grain of sand and eternity in an hour.  indeed when blake wrote, that was the general view of phyicists (philosophy makes the oddest bedfellows) as time was assumed to be a continuum with infinitely many distinct instants in an hour.
+  
+since then physicists have changed their mind -- the key word above was "distinct" which i will also call "distinguishable" (and i dare the most pedantice pedant (who knows who he is) to challenge my interchanging the two words which consist of different letters). 
+  
+the current view is that (delta t)(delta e) = h/(4 pi) where delta t is the uncertainty in time of an event, delta e is the uncertainty in energy involved, h is planck's constant, pi is the ratio of the circumpherance of a circle to it's diameter and damnit you know what 4 means.
+  
+delta e must be less that mc^2 where m is the (believed to be finite) mass of the observable universe. so there is a minimum delta t which i will call littlet. a universe in which time is continuous (and an hour contains an infinity of instants) is observationally equivalent to a universe in which time (from the big bang) is a natural number times littlet.  the time from the big bang to t can be modeled as a finite number of discrete steps just as well as it can be modeled as a continuum of real numbers. this means that the question of which if these hypothetical possibilities time really is is a metaphysical question not a scientific question.
+  
+now about that grain of sand.  there is another formula
+(delta x)(delta p) = h/(4 pi)
+  
+x is the location of something, p is its momentum.  |p| and therefore delta p is less than or equal to mc/2 where m is the mass of the observable universe. the 2 appears because total momentum is zero.  this means that there is a minimum delta x and a model in which space is a latice consisting of a dimension zero, countable set of separated points is observationally equivalent to the standard model in which space is a 3 dimensional real manifold.  again the question of what space really is is metaphysical not scientific.
+  
+recall that space is generally believed to be finite (currently a finite hypersphere).  it is expanding.  at t it will be really really big, but still finite.  that means the countable subset of the 3 dimensional manifold model implies a finite number of different places.  no infinity in the observablee universe let alone in a grain of sand
+  
+there are other things than energy, time, space and momentum.  i am pretty sure they can be modeled as finite sets too (boy am i leading with my chin there).
+  
+i think there is a model with a finite set of times and of places which is observationally equivalent to the standard model and, therefore, just as scientifically valid.  except for metaphysics and theology, i think we have no need for infinity.  i think it is not avatars of the tortoise all the way down.
+  
+  
+*note not ubiquitous in time as there wass a singularity some time ago.
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+4:33 am
+
+
+
+27 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+wednesday, march 06, 2024
+
+
+
+
+
+
+
+asymtotically we'll all be dead ii
+
+
+
+
+
+alternative title "avatars of the tortoise i" 
+asymptotically we'll all be dead didn't get much of a response, so i am writing a simpler post about infinite series (which is the second in a series of posts which will not be infinite.
+
+first some literature "avatars of the tortoise" is a brilliant essay by jorge luis borges on paradoxes and infinity.  looking at an idea, or metaphor (i dare not type meme) over centuries was one of his favorite activities. in this case, it was alleged paradoxess based on infinity. he wrote "there is a concept which corrupts and upsets all others. i refer not to evil, whose limited realm is that of ethics; i refer to the infinite."
+  
+when i first read "aavatars of the tortoise" i was shocked that the brilliant borges took zeno's non paradox seriously.  the alleged paradox is based on the incorrect assumpton that a sum of an infitite numbr of intervals of time adds up to forever.  in fact, infite sums can be finite numbers, but zeno didn't understand that.
+  
+zeno's story is (roughly translated and with updated units of measurement) 
+
+consider the fleet footed achilles on the start line and a slow tortoise 100 meters ahead of him.  achilles can run 100 meters in 10 seconds. the tortoise crawls forward one tenth as fast.  the start gun goes off. in 10 seconds achilles reaches the point where the tortoise started by the tortoise has crawled 10 meters (this would only happen if the tortoise were a male chasing a female or a female testing the male's fitness by running away - they can go pretty fast when they are horny).
+  
+so the race continues to step 2. achilles reaches the point where the tortoise was after 10 seconds in one more second, but the tortoise has crawled a meter. 
+  
+step 3, achilles runs another meter in 0.1 seconds, but the tortoise has crawled 10 cm.
+
+the time until achilles passes the tortoise is an infinite sum.  silly zeno decided that this means that achilles never passes the tortoise, that the time until he passes him is infinite.  in fact a sum of infinitely many numbers can be finite -- in theis case 10/(1-0.1) = 100/9 < infinity. 
+
+now infinite sums can play nasty tricks.  consider a series x_t t going from 1 to infinity.  if the series converges to x, but does not converge absolutely (so sum |x_t| goes to infinity) then one can make the series converge to any number at all by changing the order in which the terms are added.  how can this be given the axiom that addition is commutative. now that's a bit of a paradox.
+  
+the proof is simple, let's make it converget to a. dirst note that the positive terms must add to infinity and the negative terms add to - infinity (so that they cancel enough for the series to converge).
+  
+now add positive terms until sumsofar >a (if a is negative this requires 0 terms).  now add negative terms until sumsofar 
+  
+the partial sums will cross a again and again.  the distance from the partial sum to a is less than the last term as it just crossed a. the last term must go to zero as we get t going to infinity (so the original series can converge) so the new series of partial sums converged to a.
+  
+that's one of the weird things infinity does.  i think that everything which is strongly counterintuitive in math has infinity hiding somewhere (no counterexamples have come to my mind and i have looked for one for decades).
+  
+now i say that the limit of a series (original series of sum t = 1 1 to t) as t goes to infinity is not, in general, of any practical use, because in the long run we will all be dead. i quote from "asymptotically we'll all be dead"
+  
+consider a simple "problem of a series of numbers x_t (not stochastic just determistic numbers). let's say we are interested in x_1000. what does knowing that the limit of x_t as t goes to infinity is 0 tell us about x_1000 ? obvioiusly nothing. i can take a series and replace x_1000 with any number at all without changing the limit as t goes to infinity.
+
+also not only does the advice "use an asymptotic approximation" often lead one astray, it also doesn't actually lead one. the approach is to imaging a series of numbers such that x_1000 is the desired number and then look at the limit as t goes to infinity. the problem is that the same number x_1000 is the 1000th element of a of an uh large infinity of different series. one can make up a series such that the limit is 0 or 10 or pi or anything. the advice "think of the limit as t goes to infinity of an imaginary series with a limit that you just made up" is as valid an argument that x_1000 is approximately zero as it is that x_1000 is pi, that is it is an obviously totally invalid argument.
+  
+an example is a series whose first google (10^100) elements aree one google so x_1000000 = 10^100, and the laters elements are zero. the series converges to zero.  if one usees the limit as t goes to infinity as an approximation when thinking of x_999 then one concludes that 10^100 is approximately zero.
+  
+the point is that the claim that a series goes to x s the claim that (for that particular series) for any positive epsilon, there is an n so large that 
+if t>n then |x_t-x}
+  
+this tells us nothing about how large that n is and whether it is much larget than any t which interests us.  importantly it is just not true that there is a n so large that (for any series and the same n) if t > n then |x_t- the limit| < 10^10^(100)
+  
+knowing only the limit as t goes to infinity, we have no idea how large an n is needed for any epsilon, so we have no idea if the limit is a useful approximation to anything we will see if we read the series for a billion years.
+  
+now often the proof of the limit contains a useful assertion towards the end of the proof.  for example one might prove that |x_t-x| < a/t for some a.  the next step is to note that the limit as to goes to infinity of x_t is x. this last step is a step in a very bad direction going from something useful to a useless implication of the useful statement.
+  
+knowing a we know that n = floor(a/epsilon).  that's a result we can use. it isn't as elegant as saying something about limits (because it includes the messy a and often includes a formula much messier than a/t).  however, unlike knowing the limit as t goes to infinity it might be useful some time in the next trillion years.
+  
+in practice limits are used when it seems clear from a (finite) lot of calculations that they are good approximations.  but that means one can just do the many but finite number of calculations and not bother with limits or infinity at all.
+  
+in this non-infinite series of posts, i will argue that the concept of infinity causes all sorts of fun puzzles,but is not actually needed to describe the universe in which we find ourselves.
+  
+
+  
+
+  
+  
+                                                                                                                              
+                                                                                                                        
+                                                                                                                              
+                                                                                                                             
+  
+
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+9:28 pm
+
+
+
+9 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+monday, february 19, 2024
+
+
+
+
+
+
+
+asymptotically we'll all be dead
+
+
+
+
+
+this will be a long boring post amplifying on my slogan.
+
+i assert that asymptotic theory and asymptotic approximations have nothing useful to contribute to the study of statistics. i therefore reject that vast bul of mathematical statistics as absolutely worthless.
+
+to stress the positive, i think useful work is done with numerical simulations -- monte carlos in which pseudo data are generated with psudo random number generators and extremely specific assumptions about data generating processes, statistics are calculated, then the process is repeated at least 10,000 times and the pseudo experimental distribution is examined.  a problem is that computers only understand simple precise instructions. this means that the monte carlo results hold only for very specific (clearly false) assumptions about the data generating process. the approach used to deal with this is to make a variety of extremely specific assumptions and consider the set of distributions of the statistic which result. 
+
+i think this approach is useful and i think that mathematical statisticians all agree.  they all do this. often there is a long (often difficult) analysis of asymptotics, then the question of whether the results are at all relevant to the data sets which are actually used, then an answer to that question based on monte carlo simulations.  this is the approach of the top experts on asymptotics (eg hal white and pcb phillips).
+
+i see no point for the section of asymptotic analysis which no one trusts and note that the simulations often show that the asymptotic approximations are not useful at all.  i think they are there for show. simulating is easy (many many people can program a computer to do a simulation). asymptotic theory is hard.  one shows one is smart by doing asymptotic theory which one does not trust and which is not trustworthy.  this reminds me of economic theory (most of which i consider totally pointless).
+
+ok so now against asymptotics.  i will attempt to explain what is done -- i will use the two simplest examples.  in each case, there is an assumed data generating process and a sample size of data (hence n) which one imagines is generated. then a statistic is estimated (often this is a function of the sample size and an estimate of a parameter of a parametric class of possible data generating processes).  the statistic is modified by a function of the sample size (n).  the result is a series of random variables (or one could say a series of distributions of random variables).  the function of the sample size n is chosen so that the series of random variables converges in distribution to a random variable (convergence in distribution is convergence of the cumulative distribution function at all points where there are no atoms so it is continuous).
+
+one set of examples (usually described differently) are laws of large numbers. a very simple law of large numbers assumes that the data generating process is a series of independent random numbers with identical distributions (iid). it is assumed (in the simplest case) that this distribution has a finite mean and a finite variance.  the statisitc is the sample average. as n goes to invinity it converges to a degenerate distribution with all weight on the population average.  it is also tru that the sample average converges to a distrubiton whith mean equal to the population mean and variance going to zero - that is for any positive epsilon there is an n1 so large that the variance of the sample mean is less than epsilon (conergence in quadratic rule).  also for any positive epsilon there is an n1 so large that if the sample size n>n1 then the probability that the sample mean is more than epsilon from the population mean is itself less than epsilon (convergence in probability).  the problem is that there is no way to know what n! is.  in particular, it depends on the underlying distribution. the population variance can be estimated using the sample variance. this is a consistent estimate so that the difference is less than epsilon if n>n2. the problem is that there is no way of knowing what n2 is.
+
+another very commonly used asymptotic approximation is the central limit theorem. again i consider a very simple case of an iid random variable with a mean m and a finite variance v.
+
+in that case (sample mean -m)n^0.5 will converge in distribution to a normal with mean zero and variance v.  again there is no way to know what the required n1 is.  for some iid sitributions (say binary 1 or zero with probability 0.5 each or uniform from 0 to 1) n1 is quite low and the distribution looks just like a normal distribution for a sample size around 30.  for others the distribution is not approximately normal for a sample size of 1,000,000,000.
+
+i have criticisms of asymptotic analysis as such. the main one is that n has not gone to infinity. also we are not imortal and my not live long enough to collect n1 observations.
+
+consider an even simpler problem of a series of numbers x_t (not stochastic just determistic numbers).  let's say we are interested in x_1000. what does knowing that the limit of x_t as t goes to infinity is 0 tell us about x_1000 ? obvioiusly nothing.  i can take a series and replace x_1000 with any number at all without changing the limit as t goes to infinity. 
+
+also not only does the advice "use an asymptotic approximation" often lead one astray, it also doesn't actually lead one. the approach is to imaging a series of numbers such that x_1000 is the desired number and then look at the limit as t goes to infinity. the problem is that the same number x_1000 is the 1000th element of a of an uh large infinity of different series.  one can make up a series such that the limit is 0 or 10 or pi or anything. the advice "think of the limit as t goes to infinity of an imaginary series with a limit that you just made up" is as valid an argument that x_1000 is approximately zero as it is that x_1000 is pi, that is it is an obviously totally invalide argument.
+
+this is a very simple example, however there is the exact same problem with actual published asymptotic approximations.  the distribution of the statistic for the actual sample size is one element of a very large infinity of possible series of distributions.  equally valid asymptotic analysis can imply completely different assertions about the distribution of the statistic for the actual sample size. as they can't both be valid and they are equally valid, they both have zero validity.
+
+an example. consider a random walk where x_t = (rho)x_(t-1) + epsilon_t where epsilon is n iid random variable with mean zero and finite variance.  there is a standard result that if rho is less than 1 then (rhohat-rho)n^0.5 has a normal distribution.  there is a not so standard result that if rho = 1 then (rhohat-rho)n^0.5 goes to a degenerate distribution equal to zero with probability one and (rhohat-rho)n goes to a strange distribution called a unit root distribution (with the expected value of (rhohat-rho)n less than 0. 
+
+once i came late to a lecture on this and casually wrote converges in distribution to a normal with mean zero and variance before noticing that the usual answer was not correct in this case.  the professor was the very brilliant chris vavanaugh who was one of the first two people to prove the result described below (and was not the first to publish). 
+
+doeg elmendorf who wasn't even in the class and is very very smart (and later head of the cbo) asked how there can be such a discontinuity at rho +1 when, for a sample of a thousand observations, there is almost no difference in the joint probability distribution or any possible statistic between rho = 1 and rho = 1 - 10^(-100). prof cavanaugh said that was his next topic.
+
+the problem is misuse of asymptotics (or according to me use of asymptotics).  note that the question explicity referred to a sample size of 1000 not a sample size going to infinity.
+
+so if rho =  0.999999 = 1 - 1/(a million) then rho^1000 is about 1 but rho^10000000000 iis about zero. taking n to infinity implies that, for a rho very slightly less than one, almost all of the regression coefficients of x_t2 on x_t1 (with t1.
+
+now the same distribution of rhohat for rho = 0.999999 and n = 1000 is the thousandth element of many many series of random variables.
+
+one of them is a series where rho varies with the sample size n so rho_n = 1-0.001/n
+for n = 1000 rho = 0.999999 so the distribution of rhohat for the sample of 1000 is just the same as before.  however the series of random variables (rhohat-rho)n^0.5 does not converge to a normal distribution -- it converges to a degenerate distribution which is 0 with probability 1.
+
+in contrast (rho-rhohat)n converges to a unit root distribution for this completely different series of random variables which has the exact same distribution for the sample size of 1000.
+
+there are two completely different equally valid asymptotic approximations.
+
+so cavanough decided which to trust by running simulations and said his new asymptotic aproximation worked well for large finite samples and the standard one was totally wrong.
+
+see what happened ? asymptotic theory did not answer the question at all. the conclusion (which is universally accepted) was based on simulations.
+
+this is standard practice. i promise that mathematical statisticians will go on and on about asymptotics then check whether the approximation is valid using a simulation.
+
+i see no reason not to cut out the asymptotic middle man.
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+10:25 pm
+
+
+
+5 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+wednesday, october 25, 2023
+
+
+
+
+
+
+
+ex vivo culturing of nk cells and infusion
+
+
+
+
+
+i guess this is a transition from my recent car obsession.  nk (natural killer) cells are the other killer lymphocytes than killer t-cells.  they don't have an antigen specific receptor.  instead they have antigen non specific activation receptors (including nkg2c and nkg2d) and, importantly, fc receptors which bind antibodies then kill the cell to which the antibody sticks (antibody specific cellular toxicity). this means that there is a flexible antigen specific response to any antigen which induces an antibody.
+
+that means that they are like natural car t-cells too in a way, but with no genetic modification.  it is almost odd that growing nk cells outside the patient and infusing them is a fairly small effort reported in a fairly small literature which (as always) i will not responsibly cite (feininger, mortier, felicias, miller sp???). 
+
+one issue is that the nk cells do not multiply when activated.  i think this is not a big problem as they can be stimulated with il-15 (this requires continuous infusion which is not such a huge hassle).
+
+another problem is that grown for a long time ex vivo with lots of il15 and also il12 (too inflamatory to put in patients) and (i think) il20, they become hyporesponsive, anergic, inactive. 
+
+(tl:dr version -- i think that it should be checked whether this problem is prevented if the nk cells are grown along with activated macrophages -- the post is definitely tl).
+
+there is an article on this (no cite) which says the problem can be solved by one week stimulate with interluekins, then one week pause, then etc.  the article also asserts that the problem is that prolonged mtor activation causes cells to turn off the system for fatty acid oxidation which means that they literally don't have the energy (as in calories) to do their job.
+
+i have to mention this, because i want to present a competing hypothesis.  i think that nk cells become hyporeactive if they have been too long since touching an activated macrophage.  here i really should cite (all articles include as an author ta (thomas) waldmann, my late father).
+
+this includes "preconditioning ..." sato, banfield tagaya, waldmann) which notes that naive cells do not respond to il15 until they have touched a macrophage.
+
+"fc iv" zhang, anton, waldmann, al et ravetch on how nk cells exposed to il15 and macrophages express an fc receptor which irreversibly binds antibodies.
+
+trans endocytosis anton waldmann and others
+
+the story is that when lymphocytes are in contact with activated macrophages, they engulf little bits of the macrophage forming vescicles with 2 layers with il15 on the outside of the inner membrane and il15 beta-gamma receptor on the inside of the outer membrane, so they constantly have il15 stimulation.
+
+this is mainly mtor not jak-stat stimulation (won't define but i think important). 
+
+if the nk cells divide in pure nk cell culture, they dilute the vescicles which don't divide. i think this may be the problem.
+
+in any case (in case anyone has read this far) i think the solution is to add activated macrophages to the solution.  culture a mixture of nk cells and macrophages with il15, il12 (and i think il20).  
+
+one thing is that, like nk cells, macrophages are adcc (antibody dependent cellular toxicity) effectors.
+
+last thing (this is due to dad) is that it is important to activate the macrophages with anti-cd40 or toll like receptor agonists such as lipopolysaccaride (endotoxin) rna, poly gc dna (with unmethylated c) c-reactive protein or well there are lots of otpions and a large literature.
+
+this is a very simple experiment.  i think it is worth doing.
+
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+10:28 am
+
+
+
+6 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+thursday, october 19, 2023
+
+
+
+
+
+
+
+car t-cell iii
+
+
+
+
+
+unlike my first 2 posts here and here on car t-cells this is an almost serious proposal.  it involves more work and expense than current therapy, but does not, as far as i can see add even purely hypothetical risks.  the idea is that the problem with car t-cell therapy of solid tumors has to do with the original antigen presentation and conversion of the t-cells from the naive to the memory state.  the solution would be to use patient macrophages and incubate the new car t-cells with them and lost of added antigen. the macrophages would have to be activated. i think a general toll like receptor agonist (pattern recognition agonist, inate immunity agonist) such as lipopolysaccharide or rna or poly gc would do. 
+  it would be best to induce central memory t-cells rather than effector memory t-cells, but i think memory phenotype of either type might do.  
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+5:14 pm
+
+
+
+3 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+convertible cars
+
+
+
+
+
+this my second post on car t-cells. the first discussed modifying them so that don't have checkpoints and are prepared for nitic oxide. the aim is to make a super car t-cell which functions in the solid tumor micro-environment.
+  this second post is a semi-crazy idea about making off the shelf car t-cells rather than modifying cells from the patient. the cost of the patient specific therapy is not prohibitive even now and should go down the learning curve.  however, my proposal of multiple modifications would add to the cost and why do them again and again ?
+    so the idea is to make a car t-cell line which will not be rejected by the patient even though the car t-cells are made with someone else's t-cells with different surface antigents especially different hla antigens. long ago my late father thought of deleting the beta 2 microglobulin gene so that hla a b and c would not be expressed on the surface. here i make a much more radical proposal (which will never be allowed so it is just for a blog post)
+      the off the shelf car can be designed to express the do not kill me signal pdl1.  as i already proposed that the receptor pd1 be deleted, these cells will not tell each other not to kill.  i think that these cells could be infused into anyone and would function. they would also be dangerous - if some became leukemic dealing with them would have to include anti pdl1.  recall that i propose inserting herpes tk into the super car t-cells so that they can be killed, if necessary, with gangcyclovir.  that would be even more clearly needed with the pdl1 expressing super car t-cells.
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+5:11 pm
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+wednesday, october 18, 2023
+
+
+
+
+
+
+
+hot rod cars
+
+
+
+
+
+cars being chimeric antigen receptors.  they are a key contribution to immunotherapy of cancer.  the technology is based on genetic modification of the t cell receptor of a cd8 killer t-cell replacing it's variable region with the variable region of a tumor specific monoclonal antibody.  remarkably this creates a cell which specifically kills the cancer cells. a link to a wikipedia article. 
+  
+  this approach has been very successful in treating leukemia, but not so successful in treating solid tumors -- the tumor micro environment is not hospitable to  killer t-cells.  there are a large number of known aspects of the tumor micro-environment which tend to protect tumors from activated killer t-cells
+  1) perhaps the most important is myeloid derived suppressor cells -- these are immature granualicytes and macrophages which are attracted to the tumor.  among other things, they produce anti-inflamatory il-10, and also produce the free radical nitric oxide (no). 
+  2) tumor inflitrating t-regs which produce and display anti inflammatory tgf beta.
+  3) cancer cells display checkpoint "don't kill me signals" including pdl1 and ctla4 ligand.
+  4) there are generally low oxygen, low glucose, low ph, and high lactic acid levels.
+    
+    many of the issues involve specific interaction with specific receptors on the t-cells (eg pd1, ctla4, il10 receptor, tgf beta receptor).  i think that, since one is already genetically modifying the t-cells, one can also delete those receptors so they do not respond to the anti-inflamatory signals.  the no issue is different -- it is a non specific oxidizing agent.  i think here one can make cells which always produce the antioxidant response by deletign keap1 which inactivates nrf2 which triggers the anti oxidant response.
+      
+      so i think it is possible to produce souped up cars which invade solid tumors.
+        
+        there is a potential risk of putting killer t-cells which can't be regulated into a patient, so i would also insert the gene for herpes tk so they can be specifically killed by gancyclovir.  
+          
+          this approach makes sense to me. it involves a whole lot of work aiming at a possible future approval of a clinical trial.  i can see why it hasn't been done (and will have another post about reducing the cost and effort involved) but i think it makes sense to try.
+      
+   
+    
+  
+
+  
+  
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+8:34 am
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+monday, october 02, 2023
+
+
+
+
+
+
+
+mmlf founding manifesto
+
+
+
+
+
+with this manifesto i found the 
+modified mosquito liberation front.
+our aim is to liberate mosquitoes which either are resistant to malaria (and imprisoned on sao tome & principe) or which produce only male spermatazoa (and are imprisoned in burkino faso).
+
+the liberation of such mosquitoes is one way to fight malaria. they (and similarly modified members of other species of anopheles mosquitoes) can eliminate malaria.
+
+however they can't do that imprisoned in lab cages.  they are not released because of who ? who. it is agreed that the important and allegedly for some reason risky decision must be made after careful thorough consideration and that release occur only when all affected countries (which are numerous as mosquitoes don't respect international boundaries) agree.
+
+that is probably roughly never and certainly not until there have been millions more un-necessary deaths.
+
+i quote "'we have got to get going,' dr. lanzaro said. 'we can’t just keep saying 10 more years, 10 more years. six million people have died while we’ve been fiddling around.'" 
+
+i think the modified mosquitoes should be liberated using any means necessary.
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+9:29 pm
+
+
+
+4 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+saturday, march 19, 2022
+
+
+
+
+
+
+
+elisabeth, essex, and liberty valence in lammermoor 
+
+
+
+
+
+bet you thought there would be a post to go along with that title. you've been rob rolled 
+
+(not to be confused with rob roy)
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+8:44 pm
+
+
+
+5 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+thursday, march 04, 2021
+
+
+
+
+
+
+
+dr seuss & brain washing
+
+
+
+
+
+i see dr seuss is tge latest fox news hero. they denounce the decision to stop publishing 6 books as cancel culture.  next they will talk about brain washing justified as anti racism. what would dr seuss think of that ? 
+
+https://images.app.goo.gl/bs5ebudfyhkbxjpu8
+
+honestly, the guy was so far left he sometimes makes me uncomfortabl. they *really* don't want to go there. they should stick to claiming that martin luther king jr was conservative.
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+2:38 am
+
+
+
+3 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+sunday, february 28, 2021
+
+
+
+
+
+
+
+who to be mad at
+
+
+
+
+
+i am going to try to blog with an iphone. also i messed up the template and have to put hard returns  by hand 
+
+
+
+
+posted by
+
+
+
+robert
+
+
+
+
+at
+
+8:22 pm
+
+
+
+3 comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+email thisblogthis!share to xshare to facebookshare to pinterest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+older posts
+
+home
+
+
+
+
+subscribe to:
+posts (atom)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+blogroll
+
+
+paul krugman
+brad delong
+my dad's photos
+
+
+
+
+
+blog archive
+
+
+
+
+
+
+
+
+        ▼ 
+      
+
+
+
+2025
+
+(3)
+
+
+
+
+
+        ▼ 
+      
+
+
+
+february
+
+(3)
+
+car vii 
+
+here i return to the possibility of devl...
+car vi
+i am again tying to figure out how to make ...
+car v 
+this post criticizes and presents and alter...
+
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2024
+
+(9)
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2023
+
+(5)
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(5)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2022
+
+(1)
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2021
+
+(2)
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2020
+
+(5)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2019
+
+(38)
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(11)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2018
+
+(29)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(2)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2017
+
+(29)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2016
+
+(81)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(16)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(14)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(3)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2015
+
+(107)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(19)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(10)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(14)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(13)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2014
+
+(141)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(17)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(16)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(18)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(16)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(20)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(15)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2013
+
+(156)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(10)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(39)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(20)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(20)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(16)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2012
+
+(334)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(34)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(30)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(48)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(67)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(19)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(19)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(23)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(27)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(29)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(14)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(16)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2011
+
+(202)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(13)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(17)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(7)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(24)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(48)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(26)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(18)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(11)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2010
+
+(260)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(31)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(35)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(10)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(22)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(21)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(34)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(45)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(29)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(7)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2009
+
+(301)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(13)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(34)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(40)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(25)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(17)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(21)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(25)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(36)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(62)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(12)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2008
+
+(502)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(19)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(36)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(25)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(58)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(39)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(37)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(48)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(71)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(35)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(68)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(33)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(33)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2007
+
+(593)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(53)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(68)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(64)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(60)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(24)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(57)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(42)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(66)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(75)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(57)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(14)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(13)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2006
+
+(359)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(19)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(43)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(13)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(25)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(18)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(44)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(57)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(58)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(56)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2005
+
+(482)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(47)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(55)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(51)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(32)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(18)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(27)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(37)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(43)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(95)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(58)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(13)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(6)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2004
+
+(546)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(10)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(20)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(80)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(47)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(63)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(35)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(41)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(55)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(71)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(65)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(37)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(22)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2003
+
+(95)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(28)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(21)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(17)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(9)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(2)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2002
+
+(8)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(5)
+
+
+
+
+
+
+
+
+
+about me
+
+
+
+
+
+robert
+
+
+
+view my complete profile
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+awesome inc. theme. powered by blogger.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

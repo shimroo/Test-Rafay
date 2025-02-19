@@ -1,0 +1,379 @@
+
+
+
+
+
+
+creating web pages in your account – computer action team
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skip to content
+
+
+
+
+
+
+
+
+
+twitteryoutube 
+
+503-725-5420 | fab 82|support@cat.pdx.edu 
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+search for:
+
+
+
+
+
+
+
+
+homeusersfor new userscomputer accountsfacilitieslab reservation calendarsguidelinescs tutorsplatformswindowslinuxmacmobileservicesprintingnetworksoftwarestoragescanning solutionsweb servicesemail services in mcecsaboutcontact 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+creating web pages in your account
+
+
+home/services/web services in mcecs/creating web pages in your account 
+
+
+
+
+
+
+
+
+creating web pages in your accountadmin2024-01-01t01:03:24-08:00
+
+
+creating web pages in your account
+
+your mcecs account comes with the capability to display web pages, though it does require a baseline knowledge of the mcecs web infrastructure and some fundamental web development concepts. this guide provides the necessary information required for all mcecs users to engage in user account-based web development.
+ 
+
+
+
+
+
+table of contents
+
+
+
+
+
+
+hosted directories – public_html vs dev_html
+
+publicly visible web pages – public_html
+
+mcecs security protocols and logview
+
+
+internally visible web pages – dev_html
+
+
+
+
+required directory and file permissions
+
+
+password protecting a web page
+
+
+alternate ways to access your hosted directories
+
+
+web server infrastructure
+
+
+
+
+
+
+
+ 
+note: web pages created with your mcecs account should be related to coursework and projects.
+for users unfamiliar with how web servers work, file permissions in linux and how to change them, or how to navigate a file system from a web browser, read the following guide:
+https://cat.pdx.edu/platforms/linux/how-to/web-servers-file-permissions/
+
+ 
+hosted directories – public_html vs dev_html 
+we provide two distinct directories that allow users to host their own personal sites depending on their needs: public_html and dev_html. both of these directories are located in the linux home directory of your mcecs account (i.e. the directory you begin in when logging into a linux terminal), and in the directory /home/username/web.
+the files and directories you place inside of public_html are reachable from a web browser at this url:
+https://web.cecs.pdx.edu/~username
+the files and directories you place inside of dev_html are reachable from a web browser at this url:
+https://devweb.cecs.pdx.edu/~username
+although the names and urls of these two directories are similar, the way the web server interacts with them is very different.
+
+ 
+publicly visible web pages – public_html (https://web.cecs.pdx.edu/~username)
+the contents of your public_html directory have a public address, which means that anyone on the internet can view files in this directory from a web browser as long as they are retrievable (i.e. they have the correct permissions) by the web server.
+caution: before making files retrievable in public_html, security considerations must be taken into account. this includes ensuring your code is securely written and that any third-party web applications have been patched for security vulnerabilities.
+
+ 
+mcecs security protocols and logview
+to assist in guaranteeing the security of our public web environment in mcecs, the cat employs a set of protocols, called mod_security, that detect vulnerabilities in the public_html files of every user. if mod_security detects a potential vulnerability in a file, the web server will produce an error when that file is requested by a web browser.
+this means that encountering an error while requesting a file from your public_html directory may be caused by either incorrect permissions or mod_security. you can monitor traffic throughout your website and troubleshoot errors using our logview tool in intranet:
+https://intranet.cecs.pdx.edu/logview/
+using logview, you can learn information about each access request, including the ip address of the individual who made the request and whether or not the request was successful, indicated by the status code.
+
+ 
+a status code of 403, such as in the first row above, indicates that the request was unsuccessful due to either incorrect permissions or a detected security vulnerability. a status code of 200, such as in the second row above, indicates that the request was successful.
+note: mod_security may detect vulnerabilities in certain web apps because of the nature of their code, even though they may not necessarily pose a security risk. if you believe this to be the case, you can contact the cat to resolve this issue after confirming that the web app is securely patched and the permissions are correct.
+https://cat.pdx.edu/contact-us/
+although mod_security helps negate risks involved in public web development, it is not infallible. it is still necessary for you to maintain secure coding habits before making files publicly visible. to that end, we will introduce the dev_html directory.
+
+ 
+internally visible web pages – dev_html (https://devweb.cecs.pdx.edu/~username)
+if you’re interested in developing your site without the security concerns involved in being publicly accessible, the dev_html directory is provided. pages hosted here are only retrievable from within the psu-internal network.
+since these pages are not accessible to the outside world, mod_security is disabled. this means that you will not have to be concerned with security measures in dev_html files as you would with files in public_html.
+to access web pages placed in your dev_html directory from a web browser, you must either be connected to the internet while on campus, or connected to a vpn if you wish to access it off campus. for more information about how to connect to a vpn, go to:
+https://cat.pdx.edu/services/network/vpn-services/
+
+ 
+required directory and file permissions
+to enable the apache web server to successfully retrieve a directory, it’s permissions must be set to at least 711. this is enabled using the following chmod command:
+chmod 711 <directory name>
+a file, on the other hand, must have its permissions set to at least 600 for the apache web server to retrieve it. this is enabled using the following chmod command:
+chmod 600 <file name>
+you can enable more permissions than the above designations to a given file or directory if necessary. enabling fewer permissions will produce a 403 error if attempting to view the file or directory on a web browser.
+note: although you can change the permissions of the dev_html and public_html directories from your home directory, you must navigate to /home/username/web to view their current permissions.
+this is because the public_html and dev_html directories located in your home directory are symbolic links to their true location in /home/username/web. symbolic links always have permissions set to 777.
+
+ 
+password protecting a web page
+the apache web servers used in mcecs allow for password protection on web pages. this is a great way to practice user authentication and introduce an added layer of security to the files in your public_html directory. to learn how, read the following guide:
+https://cat.pdx.edu/services/web/webpage-password/
+
+ 
+alternate ways to access your hosted directories
+in addition to reaching dev_html and public_html from your linux home directory, you can also ssh into an mcecs server dedicated to accessing these directories: websftp.cecs.pdx.edu.
+from an mcecs windows computer, you can access your hosted directories by typing the following address into the file explorer or this pc address bar:
+\\unix\web
+however, you cannot change the permissions of files in these directories in a windows environment. this can only be done using the linux chmod command, as explained above.
+
+ 
+web server infrastructure
+with the information provided in this guide, you are now ready to begin building your own website using your mcecs computing account. at a minimum, creating web pages requires knowledge of html to create static pages of plain text. you can also incorporate scripting languages like php and javascript to make your web pages interactive.
+the current web servers used by mcecs run apache 2.4. to view a list of modules and configurations provided by the mcecs apache web servers, go to:
+https://cat.pdx.edu/services/web/web-infra/
+ 
+
+
+
+
+
+web services in mcecs
+
+mcecs web server infrastructure
+creating web pages in your account
+password protecting a web page
+tilde-free urls
+database services >
+web apps with python + virtualenv + flask
+rstudio
+
+
+ 
+
+ 
+ 
+
+
+
+
+
+contact the cat front desk: open 8am-6pm m-f, noon-5pm sat
+for online support
+onsite support based on staff availability only.
+email: support@cat.pdx.edu
+phone: 503.725.5420 (voicemail monitored)
+web chat: https://support.cat.pdx.edu/
+
+ 
+
+account helpforgot password?
+activate mcecs account
+change password
+ 
+
+computer labslocations
+lab reservation calendars
+fab/eb card access
+lab status
+lab use policy
+cat lost & found
+ 
+
+join the catwho are we?
+how to join?
+learn about the braindump
+ 
+
+ 
+ 
+ 
+
+
+
+
+
+		copyright 1993-2022 | computer action team | portland state university	
+
+
+twitteryoutube
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+go to top
+
+
+
+

@@ -1,0 +1,585 @@
+
+
+
+
+
+
+
+
+
+geeky ramblings | random ramblings of a neo-post-modern geek (i have no idea what that means)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+geeky ramblings
+random ramblings of a neo-post-modern geek (i have no idea what that means)
+
+
+menu
+skip to content
+home
+about
+
+development projects
+quotes
+david in the news
+contact
+privacy policy
+
+
+tour de cure
+ 
+
+
+
+
+
+
+
+macbook pro + hp thunderbolt g4 dock = multiple displays
+
+
+leave a reply 
+
+
+ha!  i’ll bet you thought this blog was dead.  well, it was almost dead, but isn’t anymore (hopefully).
+today i’m going to talk about how to use a hp thunderbolt g4 dock with a m4 pro macbook pro laptop to get multiple displays to work.
+continue reading → 
+
+			this entry was posted in computers, macos and tagged hardware, macos, monitors, thunderbolt, video on 9-november-2024 by david.								
+
+
+
+
+psa: this is why we wear helmets
+
+
+leave a reply 
+
+
+so sunday, september 10th started out like most years at the evanston bike club’s north shore century ride.
+the weather was perfect, a bit chilly, but nothing arm & knee warmers couldn’t handle.  i had a great group of people to ride with.  it was shaping up to be a fantastic day for riding.
+everything was fine until about mile 41.
+a group of cyclists there were ahead of me had suddenly stopped for no apparent reason.  i tried to stop, but couldn’t.
+the last thing i remember was yelling out woah!
+about 15 minutes later, i was standing next to my bike.
+i don’t remember anything between those two points.
+
+
+police were called, ambulance was called, statements were taken, etc.  the person who i collided with had taken off, which was disappointing.
+the paramedics checked me out and said it was my choice as to go to the er or not … however, in the case of a crash (especially considering the helmet damage), they recommended i go to the er.  i deferred to their expertise.
+i went to the lake forest hospital er and was checked out … they did a ct scan and took x-rays.  luckily, everything was where it was supposed to be and they saw no problems.
+after getting discharged, and being picked up by ginny, we went back to the starting point to pick up my bike.
+it was a mess … handle bar scraped up, bar wrapping torn up, derailleur hanger bent, etc.  the next day i took the bike over to crank revolution. nothing damaged beyond repair. i’m sure i’ll have my trusty steed back in a few days.
+as for me … i’m still feeling some aches & pains from the crash, but they are fading.
+i’m not going to let this crash dissuade me from riding … i’ll just be more careful when approaching another group of riders.
+based on the condition of my helmet, i doubt i would have walked away from the crash if i hadn’t been wearing it.
+moral of the story: please wear a helmet when riding a bike (pedal or motor). they work.
+
+
+			this entry was posted in cycling, riding and tagged cycling on 13-september-2023 by david.								
+
+
+
+
+application performance
+
+
+leave a reply 
+
+
+recently i’ve been seeing a lot of posts on linkedin about application modernization and the performance gains that are being realized by using sql and modern programming techniques.
+this reminded me of an experience i had waaayyyy back when i was a programmer for a system/36 consulting firm.
+continue reading → 
+
+			this entry was posted in ibm, software and tagged programming, rpg on 27-december-2021 by david.								
+
+
+
+
+udf on macos and linux
+
+
+leave a reply 
+
+
+recently i wanted to have the ability to use ssh to log in to my amazon lightsail instances from my work laptop.  for privacy reasons, i didn’t want to put my ssh private key permanently on the laptop and i didn’t want to put the public key for my laptop on the lightsail instances.
+since i’m very comfortable with the unix command line, i decided to put a new (password protected) private key on a flash drive so i could use that key to log in to the linux instances.
+the problem is permissions.
+ssh won’t let you use a private key file with open permissions. if the key file is world readable, it will display an error and refuse to use it. there isn’t a workaround that i’ve been able to find (other than recompiling ssh from source with modifications).
+this mean that the most common flash drive file systems (fat, fat32, & exfat) can’t be used.  none of those file system formats support permissions.
+i could have formatted the flash drive using the macos hfs format, and installed the necessary packages on my ubuntu laptop to support that, but i wanted to go for something more generic.
+after some research, i decided to give the user defined file system (udf) a try.
+i did have to install udf support on the ubuntu system, but that wasn’t a big deal.
+sudo apt-get install udftools
+to format the flash drive on my mac, i used this command:
+sudo newfs_udf -m blk -v <label> /dev/disk<n>
+important to note, the device file (/dev/disk<n>) must be the device itself, not a partition of the device (on mac systems a partition will be denoted with ‘s9’ after the device name where 9 is the partition number, for example /dev/disk4s1).  
+after the udf file system is created on the flash drive, you must … eject the drive, physically remove the device, and re-insert it. the device will now show up on the system as “/volumes/<label>”.
+interestingly, the owner of the mounted device is the currently logged in user.
+macbook-pro:newkey david$ ls -l /volumes/flashdrive/
+total 3
+-rw-------@ 1 david  staff  1073 jul 11 10:11 aws-key
+i copied the new ssh private key file to the flash drive, made sure the permissions were correct, and ejected the drive.
+i then inserted the drive into my ubuntu system. it mounted correctly right away.
+i was then able to log in to my lightsail instances using the command
+slogin -i /media/<my linux user id>/<flash drive label>/<private key file> ec2-user@<aws hostname>
+interestingly, when the udf formatted flash drive is mounted, the owner is the logged in user, but had the correct permissions.
+user@linux:~#: ls -l /media/user/flashdrive/
+total 2
+-rw-------- 1 user  user  1073 jul 11 10:11 aws-key
+so far it’s been working well.  i’m pleased with this little project.
+
+
+			this entry was posted in linux, macos, security and tagged macos, ssh, ubuntu on 11-july-2021 by david.								
+
+
+
+
+the box
+
+
+leave a reply 
+
+
+
+this story comes by way of my brother mitch…
+my brother specializes in database analysis for non-profits.  as such, he’s usually very involved in the organizations’ data centers.
+one such organization he worked for many years ago had received a grant that included the ability to do a major upgrade to their data center.  as part of the upgrade, they had to increase the cooling capacity of the hvac system in their computer room.
+they selected a contractor and had the upgrade installed. they then proceeded with the upgrade their computer systems.  everything was working fine. until the next day.
+they came into the computer room and found that it was over 80℉!  
+the obvious cause was that the hvac system hadn’t been sized correctly or was malfunctioning.
+the organizations policies required that they had to get 3 quotes before selecting a contractor do any repair work.
+so they found 3 contractors. one of the contractors quoted $20,000 to completely replace the existing hvac system. another contractor quoted around $10,000 to upgrade the existing hvac system.
+the third contractor came in, looked around the room, picked up a box that was lying on the floor, placed it over the thermostat that was controlling the existing hvac system, taped it to the wall, and said “no charge”.
+apparently the new hvac system that had been installed was blowing cold air directly on the thermostat.  so, when the system detected that the room was getting warm, it would turn the a/c on. it would immediately detect that the room was cool enough, and turn off the a/c.  clearly the a/c wasn’t running long enough to cool the room at all.
+the moral of this story…
+sometimes the solution requires thinking outside the box…sometimes the solution requires thinking inside the box…sometimes the solution is the box.
+
+
+
+			this entry was posted in hardware, technology and tagged hardware, hvac, solutions, thinking on 20-june-2021 by david.								
+
+
+
+
+cardboard analyst
+
+
+leave a reply 
+
+
+have you ever had a problem that has you absolutely stumped … and you ask a co-worker for assistance or post a message to an online forum (like a midrange.com mailing list) for assistance.
+then, quite soon after you ask for assistance, you finally discover the answer yourself?
+this is what i call the ‘cardboard analyst’ phenomenon (i’ve also heard it referred to as “rubber ducking”) … where the person (or people) you are asking for assistance don’t necessarily provide direct assistance, but force you to look at the problem from a different perspective.
+it’s my theory (which may or may not be backed up by research) that forcing your brain to break the problem down into terms that you can describe to someone else, gives you a new perspective on the problem and new insight into what the problem actually is.
+personally, i’ve found that if i just try to explain what the problem is to someone (even my wife, who’s not super technical), i’m able to find the solution i want. occasionally, i’ll be explaining a problem to someone in my office when my voice will trail off and i’ll start thinking about another avenue of exploration. often i’ll thank the person i was talking to for their assistance … to which they will respond “glad i could be of no help”.
+oddly enough, the person i am talking to has to be able to respond … often asking me questions that make me think about it. i once tried using our cat as a cardboard analyst … but it didn’t work 🙂 .
+so next time you’ve got a problem that’s got you particularly stumped … try explaining it it someone. you’ll be surprised how much help someone can be even if they don’t have a clue what you’re talking about.categories
+this is a repost of an article that appeared on the imho blog.
+
+
+			this entry was posted in general, life and tagged analysis, problems on 19-march-2021 by david.								
+
+
+
+
+job search observations
+
+
+1 reply 
+
+
+as some of you may know, last year i started searching for a new job.  due to the pandemic, it wasn’t the best time to start such a search, but ultimately i was able to find a new position that i’m really happy with.
+while most of my experiences with potential employers were positive, some were distinctly negative.  this post is going to outline some of those negative experiences (without being specific) in hopes that companies may learn from them.
+continue reading → 
+
+			this entry was posted in jobs, pet peeves, rants and raves and tagged employment, job search on 7-march-2021 by david.								
+
+
+
+
+speed up time machine
+
+
+leave a reply 
+
+
+if you’re using an apple mac computer, you may have observed that the fantastic backup system time machine, may run slowly.  this is especially noticeable when you are doing the very first backup (when it has to backup the entire system).
+i was frustrated by this a while ago when i purchased a new hard drive to do my backup’s on.
+after a bit of digging, i found that time machine’s performance is throttled so as not to impact system performance.
+there is a way to remove performance throttling using a system control statement.
+debug.lowpri_throttle_enabled
+if you use the sysctl command to set this to 0 (zero) then time machine will not be throttled. if it’s set to 1 (one), it will be throttled.
+i created a little script called ‘speedup-timemachine’ that lets me turn the option on and off.
+‘speedup-timemachine on’ will remove the throttling.
+‘speedup-timemachine off’ will return the throttling.
+ below is the script.  just copy the script, paste it into a text editor, save the script to a location on the path, and make it executable (chmod a+x scriptfile).
+continue reading → 
+
+			this entry was posted in macos and tagged apple, backup, macos, time machine on 14-february-2021 by david.								
+
+
+
+
+check for zoom update in ubuntu
+
+
+leave a reply 
+
+
+at work we use zoom extensively for meetings. we also use ubuntu linux on our laptops.
+unfortunately, zoom doesn’t have a very good update mechanism for its client in linux.
+because of this, i created a script that would check for a new version of the zoom client and, when there is, download it and notify me.
+continue reading → 
+
+			this entry was posted in linux, software and tagged linux, ubuntu, zoom on 23-december-2020 by david.								
+
+
+
+
+amazon linux 2 & firewalld
+
+
+6 replies 
+
+
+another one for the things to remember category … after creating a new amazon linux 2 instance, it’s important to update firewalld to allow http & https traffic.
+continue reading → 
+
+			this entry was posted in lightsail, linux, security, things to remember... and tagged amazon linux, firewalld, linux on 9-december-2020 by david.								
+
+
+post navigation
+← older posts
+
+
+
+
+
+
+i'm riding in the american diabetes association tour de cure to raise money for diabetes research, education, and advocacy.  sponsor me by visiting diabetes sucks!. any amount is appreciated.
+you can see where i get my donations from ... visit my interactive map (it's a geeky thing).social media
+
+recent posts
+
+
+macbook pro + hp thunderbolt g4 dock = multiple displays
+
+
+psa: this is why we wear helmets
+
+
+application performance
+
+
+udf on macos and linux
+
+
+the box
+
+
+categoriescategories
+select category
+animals
+blogs
+books
+branding
+build
+cool
+customer service
+cycling
+   senors
+cycling reviews
+diabetes sucks
+don’t try this at home
+family
+foney baloney
+fun
+general
+give me a break!
+health
+   diabetes
+home
+jobs
+legal
+life
+midrange.com
+open source
+pet peeves
+politics
+rants and raves
+recipies
+reviews
+riding
+shutterbug
+social
+technical tidbits
+technology
+   android
+   computers
+   dsl
+   eclipse
+   email
+   hardware
+   ibm
+   ibm i
+   internet
+   iphone
+   iseries
+   java
+   javascript
+   letsencrypt
+   lightsail
+   linux
+   macos
+   microsoft
+   security
+   smart home
+   software
+   spam
+   techniques
+   virtualization
+   voip
+   wifi
+   windows
+   www
+things to remember…
+tivo-nation
+tour de cure
+transportation
+travels and adventures
+uncategorized
+upgrade hell
+virtualization
+weird stuff
+wordpress
+work
+wp plug-ins
+
+
+archives archives
+
+select month
+ november 2024 
+ september 2023 
+ december 2021 
+ july 2021 
+ june 2021 
+ march 2021 
+ february 2021 
+ december 2020 
+ november 2020 
+ may 2020 
+ april 2020 
+ february 2020 
+ october 2019 
+ september 2019 
+ august 2019 
+ july 2019 
+ june 2019 
+ april 2019 
+ march 2019 
+ february 2019 
+ january 2019 
+ december 2018 
+ february 2018 
+ june 2015 
+ december 2014 
+ october 2014 
+ march 2014 
+ january 2014 
+ december 2013 
+ september 2013 
+ august 2013 
+ july 2013 
+ june 2013 
+ may 2013 
+ april 2013 
+ march 2013 
+ january 2013 
+ december 2012 
+ november 2012 
+ october 2012 
+ september 2012 
+ june 2012 
+ march 2012 
+ february 2012 
+ january 2012 
+ december 2011 
+ november 2011 
+ october 2011 
+ august 2011 
+ july 2011 
+ june 2011 
+ may 2011 
+ april 2011 
+ march 2011 
+ february 2011 
+ january 2011 
+ december 2010 
+ october 2010 
+ july 2010 
+ june 2010 
+ may 2010 
+ april 2010 
+ march 2010 
+ february 2010 
+ january 2010 
+ december 2009 
+ november 2009 
+ october 2009 
+ september 2009 
+ august 2009 
+ july 2009 
+ june 2009 
+ may 2009 
+ april 2009 
+ march 2009 
+ february 2009 
+ january 2009 
+ december 2008 
+ november 2008 
+ october 2008 
+ september 2008 
+ august 2008 
+ july 2008 
+ june 2008 
+ may 2008 
+ april 2008 
+ march 2008 
+ february 2008 
+ january 2008 
+ december 2007 
+ november 2007 
+ october 2007 
+ september 2007 
+ august 2007 
+ july 2007 
+ june 2007 
+ may 2007 
+ april 2007 
+ march 2007 
+ february 2007 
+ january 2007 
+ december 2006 
+ november 2006 
+ october 2006 
+ september 2006 
+ august 2006 
+ july 2006 
+ june 2006 
+ may 2006 
+ april 2006 
+ march 2006 
+ february 2006 
+ january 2006 
+ december 2005 
+ november 2005 
+ october 2005 
+ september 2005 
+ august 2005 
+ july 2005 
+ june 2005 
+ may 2005 
+ april 2005 
+ march 2005 
+ february 2005 
+ january 2005 
+ december 2004 
+ november 2004 
+ october 2004 
+ september 2004 
+ august 2004 
+ july 2004 
+ june 2004 
+ may 2004 
+ february 2004 
+ january 2004 
+ december 2003 
+ november 2003 
+ march 2002 
+
+
+recent commentsdavid on cioppinojonathan r pool on http/2, apache, & lightsaildavid on letsencrypt, certbot, and lightsaildavid on amazon lightsaildavid on amazon linux 2 & firewalld
+
+search for:
+
+
+
+strava 
+
+
+
+privacy policy 
+				proudly powered by wordpress			
+
+
+
+
+
+
+
+
+
+

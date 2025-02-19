@@ -1,0 +1,228 @@
+
+
+
+
+
+
+
+    www.joetalbot.com
+    joe talbot voip telephony and asterisk
+www.joetalbot.com
+
+
+
+                updated 12
+        march 2021
+
+
+
+        for joe talbot's personal page please click here yes, i know. it's
+        probably not a bad idea to update my personal
+        page a bit more often? i am working on it. most of my stuff has
+        been on facebook
+        for the past dozen years.
+ 
+i specialize in telephones. i'm building
+          forums right now so that we can easily discuss problems and
+          answer questions about telephony.
+          i'm trying to move away from facebook for my personal
+          communications because it's gotten a little toxic over the
+          past few months and i don't
+          enjoy the never ending conflicts and nonsense. so i'm setting
+          up my own forums and a convenient place for friends and
+          colleagues to learn about
+          telephones and broadcasting. i'll also link to other pages
+          that are similar. there will be a lot of changes here as i
+          bumble around and get the page
+          running on my own servers. it's been a while since i "made a
+          web page". you get spoiled with the big guys "content
+          management systems" and...
+          i still have phones to fix and friends to help out. this will
+          get better. i promise!
+
+
+sip phone service for podcasters, radio and tv stations
+
+we're now
+      offering sip service and did's for broadcasters and podcasters.
+      it's inexpensive, great quality and available immediately.
+      we can port existing numbers to it (takes about 10 business days
+      usually). local numbers are available for almost every city or
+      rate center, we
+      can even supply international and toll-free numbers. if you need
+      numbers for a temporary use, like a telethon or fund raiser, we
+      can save you a ton
+      of money and make it much easier. we've been doing this for years
+      for "friends and family", and since you're in that category too,
+      drop me a note and
+      let me know how we can hep you. try it before you buy it. we
+      include domestic long distance at a flat rate (if you can keep the
+      usage reasonable).
+
+      you should have solid internet (low jitter) to use the service.
+      that seems to be easier to find these days than in the recent
+      past. since we're broadcasters
+      ourselves, we know what you need and can provide the expertise
+      that you want without going through some off-shore call center.
+      common uses include
+      request lines, talk lines, transmitter and coupler phones, g.722
+      equipped lines for remote broadcasts and even entire office pbx's.
+      
+
+      please ring announcement technologies at 702 553-4100 and let's
+      discuss your hopes, plans and challenges. just ask for me. joe
+      talbot. please remember
+      that we're on the west coast, right outside of "fabulous las
+      vegas". let me know if you're coming to town and are up for a
+      visit. 
+      words of wisdom from a local : avoid the strip!
+
+      right now, setup is free and each did (outside public switched network) number is
+      $5 monthly. extensions are $2 monthly.  we make it simple and
+      inexpensive.
+
+
+asterisk and freepbx news and issues
+
+being a
+      broadcaster, i like reliable, predictable, stable things. i don't
+      like surprises at all. i don't like things that make my cell phone
+      ring like, outages or failures.
+      so, one of the things that i do is provide rock solid asterisk
+      pbx's for broadcasters. you can go to a website and download a
+      "distro" (that's industry lingo for a
+      "distribution" or pre-packaged system load, usually including
+      asterisk, freepbx and the linux that it all runs on. historically,
+      that's been the way to go. over the past
+      few years though, commercialization and changes in the base
+      operating systems have made this all much more challenging. i
+      started by just disabling or removing
+      unstable software, which wasn't all that hard. but as time went
+      on, some of the players in the business changed and appeared to
+      become more interested in "features" 
+      and the ability to charge for them. i don't begrudge them the
+      right to benefit from their own, excellent work. but things got
+      sloppier. i can just hear the business meetings
+      in my head "it has to do x for y now! they're a huge customer!
+      drop everything!" i've been in those kinds of meetings and... they
+      never produce anything good.
+
+      since you and i have to sleep at night, i took it upon my self to
+      do extensive testing and find the fixes that would keep asterisk
+      stability where it needed to be. i have systems running
+      out there that have never been rebooted since installation (one
+      has an "uptime" of more than 7 years!). that's what i expect in a
+      phone system of any type. so this might mean
+      that we won't be running the most recent or typical os or
+      asterisk. it just has to work (and work, and work...). i stay on
+      top of security issues and our systems aren't
+      exposed to the public internet unprotected. 
+
+      we also have to support "legacy network interfaces" that support
+      things like t1 and pri cards, pots fxo and fxs cards or gateways.
+      there are tradeoffs that we are familiar
+      with and some gear is better than others. some is very (overly)
+      complex to configure with little benefit and some is easy and
+      inexpensive. we can share all of that experience with 
+      you. there are some easy ways to deal with firewall issues and
+      security. do a "port scan" on your outside ip. if there are
+      services visible to the scanner, it's not really correct and
+      you're risking a great deal.
+
+      my personal goal if for you to be comfortable configuring and
+      troubleshooting your own system to the extent that you wish to.
+      i'll help to get you to that point. on the other hand, you
+      may want somebody else to do that stuff as you have a few hundred
+      other systems that you are responsible for. i don't see my work as
+      a pathway to eternal "job security.
+
+      at the moment, i can't recommend a "distro" that you should use
+      out of the box, without at least turning off a whole bunch of
+      un-needed stuff. if you want to try one "to play with" try
+"incredible pbx",
+      you can even run it on a raspberry pi ($35). for "production" or
+      critical systems,  then of course, there is "the
+
+
+
+        centos problem". which i expect to be solved 
+      shortly, due to very popular demand. i am watching for things like
+      "rocky linux" or others to
+      supplant it, if red hat doesn't come to their senses. i do have
+      some systems under test right
+      now, including the system that i use "in production" here at my
+      home office and lab. usually, i am able to improve these with a
+      combination of stripping out or disabling the un-necessary
+      stuff and patching the o/s. and of course the selection of the
+      most stable hardware is a part of this. i've found that using
+      supermicro motherboards exclusively is a great way to avoid
+      the failures of workstation class machines. we've used rotary
+      drives (western digital "black" is preferred) for years. in fact i
+      just replaced a drive after eleven years of continuous 
+      service (you lose track of time, sometimes). we've had ssd's under
+      test for the past couple of years with good results (samsung has
+      the nod right now). we've had very good luck
+      with cards from openvox, and
+      excellent and responsive support from them as well. like when we
+      needed to "listen for the disconnect tone" used in the public
+      network in singapore,
+      because there is no dc disconnect pulse.
+       
+useful telephony links
+
+download pbx
+        manuals   
+
+
+
+      wedophones is a really helpful site and is pretty complete. find
+      manuals on legacy gear and keep it going if you like.
+find rate centers and central office
+        switch types   telcodata.us has an amazing
+      collection of free tools to learn about the switched network and
+      various manufacturers gear!
+
+      sites for phone history:
+
+      asterisk and jim dixon: a recorded
+
+
+        interview with jim dixon (father of zaptel and ultimately
+      dahdi), what made asterisk viable and brought down the telephony
+      giants, recorded 
+      shortly before we lost him.
+
+      in southern california, before frontier, before verizon, before
+      gte was california
+        water and telephone - we've collected their fantastic
+      employee magazine and present it here
+      there was also associated telephone
+
+      the ati phone museum:
+      we're basically phone nuts... it becomes quite clear here
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

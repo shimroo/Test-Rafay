@@ -1,0 +1,280 @@
+
+
+
+
+
+jim weller - archengdevops
+
+
+
+
+
+jim weller
+portfolio samples|linkedin|github 
+i have been in tech for over 20 years. i am all about enabling
+        architects, developers, engineers, and their stakeholders to succeed
+        through collaboration, communication, and strategic thinking. i have
+        lately focused on platform engineering, integration platforms, developer
+        platforms, developer experience and public cloud because i think they can
+        have a big impact. i have done helpdesk, desktop, infrastructure, system
+        administration, web design, software engineering, and architecture. i have
+        been a people leader and an individual contributor in all those roles. i
+        have worked in higher education, retail, finance, consulting, and
+        software.
+i have seen enough failures and hype cycles to know that technology
+        success is a socio-technical art, not an algorithm, playbook or a project
+        plan. programs, processes, paperwork, forms, templates, meetings, they are
+        all proxies for culture, communication and outcomes.
+i have learned that to be a good architect i need to remain a good
+        engineer and strive to be a good leader. that is also my happy balance. i
+        do not want to be a powerpoint engineer. i do not want to be a code-bot
+        either. i want hands on keyboard and head in strategy.
+i read books. the ones on design. the ones on code. the ones on
+        neuroscience. the ones on business. the ones on leadership. the ones on
+        teams. the ones on architecture. my guilty pleasure are the ones on space
+        battles and the ones on magic dragons.
+as a kid, i liked programming as a puzzle. as i got older, i realized i
+        liked the feedback. then, as i matured, i realized i liked solving the big
+        puzzles with smart people with feedback from other smart people. i am
+        happy to sit at the back of the room and see everybody winning. i live for
+        that moment when you clap your hands together in excitement because the
+        spark of an idea taught you something. my favorite thing in the world, in
+        all my activities, is that tipping point where discovery opens a whole
+        horizon of learning, where you can see the multiverse of knowledge
+        possibilities.
+i identify most with backend and as a generalist. i jokingly refer to
+        myself as a plumber. i have been loving linux since slackware in 1993. i
+        have used dos, os/2, linux, windows, macos, solaris, aix, and vax vms. i
+        was there for macos to osx. i lived through the advent of active
+        directory, the rise of virtualization, containers, and public cloud. i
+        have done source control with cvs, svn, bitkeeper and git. i speak xml,
+        json, yaml, hcl and probably some languages you have not heard of. i have
+        written sql, ppl, bash, cmd, powershell, html, css, java, javascript,
+        basic, vbscript, c, c++, c#, perl, python, php, lisp, tcl/tk, and other
+        languages of recent antiquity. i have done itil, togaf, pmbok, agile,
+        scrum, kanban, and devops. i have built programs, projects, initiatives,
+        epics, requirements, budgets, estimates, forecasts, financial analysis,
+        rfcs, adrs, rfis, rfps, csfs, okrs, and kpis. i have a lot of
+        certifications. i wear a lot of hats.
+as an architect i deal with risks and trade-offs. that is the job. if
+        there is no risk, you do not need architecture. and every choice has
+        trade-offs that need to be weighed. as a cloud architect, i design
+        multi-account aws organizations, cloud native applications, hybrid saas
+        models, and help optimize cloud environments. i enjoy post-modern it. i
+        love clouds, containers, vms, apis, messaging, new-fangled databases,
+        ci/cd/cm, observability and developer platforms. give me a a browser, a
+        terminal, a diagramming tool, an editor, source control, and a cloud and i
+        am a happy camper. i have an interest in ai/ml delivery and tooling. i am
+        not a fanatic ai fanboy, but i see ai's utility and i want to plumb
+        it.
+colleagues have described me as someone who brings clarity, drives
+        change, and makes tech approachable by blending broad knowledge with a
+        collaborative, forward-thinking approach. i am also kind of fun in
+        meetings. 
+outside of work, you can find me hiking, camping,
+        making/breaking/fixing in my workshop, baking, cooking, reading or just
+        learning something new.
+fun fact: i grew up off-grid on a homestead. when i wanted to use my
+        commodore 64, i had to go outside and start the generator.
+recent work
+
+
+
+
+
+
+            this ai project won my company's hackathon in the category
+            "most likely to be adopted" among 130 competitors. it
+            showcases two different ways to use natural language to interact
+            with large datasets. it helped me find a couple $100,000/yr in aws
+            savings which is probably why it was "likely to be
+            adopted." (video
+              demo)
+          
+
+
+
+
+
+
+            managing 100's of cloud accounts has challenges. this solution
+            provides a centralized service for doing sql queries of aws
+            infrastructure data against the entire fleet of aws accounts in
+            aggregate. it is useful for ad-hoc analysis and data pipelining. it
+            is all immutable with aft/cfct and terraform.
+          
+
+
+
+
+
+
+            this project used terraform in a github pipeline to stand up an
+            ephemeral windows server and deploy the repositorie's binaries. each
+            branch gets its own server for developer testing. the vm is destroyed
+            on merge to main. there's also a version that round robins binaries
+            to a farm of already running instances.
+          
+
+
+
+
+
+
+            the project is to demonstrate data streaming to a team working on a
+            "saas anywhere" project with agents running at customer sites.
+            one hundred cloudwatch alarms emit event data to a simulator lambda that applies a health status
+            with a 15% error error rate. it is streamed through api gateway ->
+            lambda -> kinesis ->
+            openesearch to be visualized in grafana.
+          
+
+
+older work
+
+
+
+
+
+customer engagement via sms text has become standard. marketing,
+            security, crm all want to use it. but no department can justify the
+            bootstrap alone. the solution was a centralized platform where the
+            message flow, availability, and compliance are baked in.
+
+
+
+
+
+architecture 101 is "start with a list." the rest is
+            attributes. whether it is a portfolio, a saas app registry, a
+            migration plan or an api catalog, it starts with a list. here i built
+            a list of developer tools and categorized them according to the cncf
+            landscape for planning purposes. later, we added other measures to the
+            list items.
+
+
+
+
+
+the retail company used a lot of saas federation, mobile apps, and
+            ecommerce site to provide services and engage with tens of millions of
+            customers. each integration was a bespoke batch job or api+dmz proxy.
+            it was chaotic. this api gw solution unified them under one openapi
+            spec while providing all the knobs and levers you would expect. this
+            is comparable to about half way through the netflix api evolution
+
+
+
+
+
+
+me and my budding architecture team adopted a tool to manage
+            architecture data. we did a lot of custom coding and data modeling. we
+            called it the enterprise architecture management system (eams). it
+            could give you a picture of business processees, application
+            architecture, and information architecture in a few clicks. it made
+            federal audits a dream. we kept the overhead as light as possible by
+            integrating the governance into existing programs. 
+
+
+much older work
+
+
+
+
+
+i built an it knowledge base (pre-confluence) that used a high
+            availability sharepoint farm. kerberos sso, mssql cluster, searching,
+            custom stylesheets. it was immutable and scripted long before that was
+            a thing. it saw a lot of use.
+
+
+
+
+
+we were migrating to a new active directory. each computer and user
+            needed to be migrated. this was a php web app for field techs to
+            migrate a user while they migrating the computer. it migrated ad sid
+            history, another ldap directory, and tens of apps.
+          
+
+
+
+
+
+a small business needed a low cost statewide network. this project
+            used a small linux server in their central office and a tiny linux
+            server in each remote branch. the sites were connected with ipsec
+            tunnels. and the mobile sales people could use a pptp vpn to connect
+            into the office. each server was also the nat gateway and
+            forward/reverse proxy.
+          
+
+
+
+
+
+i ran a content
+          management engineering team that supported 1,000+ federated authors
+          and 30,000+ pages. each author was responsible for their own
+          departmentor or topic site. we held different types of trainings,
+          consultations, and conducted continous site reviews for performance,
+          style book alignment, technical quality, and accessibility. it was a
+          successful program and community.
+          
+
+
+much much older work
+
+
+
+
+
+
+linux firewall on a flopppy was a project back in
+            the day to build a micro linux distribution that used ipchains (pre
+            iptables!) to build a nat gateway that could be used on older
+            hardware.
+          
+
+
+
+
+
+
+            moose habitat survey was a project for field biologists in alaska to
+            measure moose forage biomass as a way to estimate populations. i
+            built a backpack for a bluethooth 3d modeler (polhemus) and wrote a
+            c# application to record the data collected.
+          
+
+
+
+
+
+
+docbook sgml and docbook
+              xml quickstarts were projects to use docbook, an xml
+            vocabulary to create documents in a presentation-neutral form that
+            captures the logical structure of content. it harks back to gml from
+            the 1960s. it is important for documents that outlive technology
+            trends, like for government or academia. this is the beginnings of
+            ideas like markdown.
+          
+
+
+
+
+
+
+java process scheduler was a java
+            application and applet (ha!) that simulated and visualized the short
+            term scheduler of an operating system. it generated data about
+            response, wait, and turnaround time to understand the tradeoffs of
+            various algorithms.
+          
+
+
+
+"you're still here? go home. it's over."  - ferris bueller - 
+

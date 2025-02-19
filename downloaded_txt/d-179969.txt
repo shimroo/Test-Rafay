@@ -1,0 +1,468 @@
+
+
+
+
+ makeitplay games
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+makeitplay games a wee scottish game studio
+
+
+
+
+ 
+
+adjusting the ir signal
+
+work has been getting in the way of hacking for the last week or... read more...
+
+
+
+
+
+making it tick
+
+just a quick post. the weather has continued to be miserable, so i’ve not... read more...
+
+
+
+
+
+time lapses
+
+today i’d hoped to go out and create a time lapse video with my... read more...
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+pagesabout
+
+archives
+
+october 2011
+
+
+categories arduino (3)
+
+general rambling (1)
+
+
+blogroll
+
+documentation
+plugins
+suggest ideas
+support forum
+themes
+wordpress blog
+wordpress planet
+
+
+meta
+
+log in
+valid xhtml
+xfn
+wordpress
+
+
+
+
+
+
+
+
+
+
+
+
+
+adjusting the ir signal
+ work has been getting in the way of hacking for the last week or so and i’ve still not had chance to get out with the camera. hopefully this weekend.
+the main programming challenge for the intervalometer was getting a simple menu working with just 2 buttons and a 16×2 character lcd. i’ve already said that with hindsight i’d go for a 3-button interface, so i’m not going to go into great detail about how this works.
+the next problem came when i had built the circuit into a box and tried using it with the camera. while testing it had been a bit unreliable, but i put that down to odd angles, clutter on the desk, wishful thinking, whatever… however, once in the box i soon discovered that it was just unreliable. i suspected that the ir signal was inaccurate but how to tell. by this time i’d bought a second arduino, this time a mega adk (android fun coming soon). so i added an ir detector and using the code from the tutorial  on www.ladyada.net i could see the on off times of the nikon remote control and my intervalometer. there were a few discrepancies and some fiddling with values got my signal much closer. if you compare my code from the previous post to that in the tutorial you can see the changes.
+there isn’t an error in the original code, and its values should work in theory. however in practice it looks tolerances in the clock speed of the arduino means that the arduino delay() ad milli() functions are not accurate. so if you follow this design you will also need to adjust  the timings to get reliable firing of the shutter. so you may also need 2 arduinos to get this working.
+my next project is underway. it will be a robot arm using 7 servos. at this point i’m cutting parts from 4mm acrylic using a cnc mill, unfortunately my attempt t prepare files for the cnc machine with open source softare has failed and i have reverted to using a well known cad program and a commercial cam program i have been using for a couple of years.
+i’m also think about other uses for the intervalometer. for example attaching a motion detector, or sound detector could allow me to set up to do some wildlife photography, or just caputure people entering and leaving a building. i’d love to hear other suggestions of what could be done with a camera and an automated ir remote control shutter.
+on the plus side my ubunto machine upgraded to 11.10 oneiric ocelot this week without a hitch and just one restart. that’s not something i’ve ever been able to say about upgrading windows!
+
+
+posted by mike with no comments
+read the rest...
+
+
+
+making it tick
+ just a quick post. the weather has continued to be miserable, so i’ve not had chance to use the intervalometer. so onto the source code:
+/*
+nikon d5000 controller
+
+ */
+
+// include the library code:
+#include <liquidcrystal.h> 
+
+// initialize the library with the numbers of the interface pins
+liquidcrystal lcd(12, 11, 5, 4, 3, 2);
+
+int irledpin = 9;                // assign the infrared emitter/ diode
+                                 //  to pin 13
+int exposureinterval = 2000;       // default exposure interval
+int exposurelength = 10000;       // default exposure length
+int btn1 = 7;                      // up button
+int btn2 = 6;                      // down button
+int menuoption = 1;                // start of menu system
+int runoption = 0;                 // 0 stopped, 1 time lapse, 2 ...
+int exitmenu = 0;                  // ready to exit the menu and start
+                                   //  running
+int btn1state;                    // the up button 1 reading
+int lastbtn1state = low;          // the previous button 1 reading
+int btn2state;                    // the down button 2 reading
+int lastbtn2state = low;          // the previous button 2 reading
+
+int days, hours, mins, secs;      // for formatting times
+int fractime;                     // fractions of a second
+
+void setup() {
+  pinmode(irledpin, output);    // infra red remote control led
+  pinmode(btn1, input);      // ui button
+  pinmode(btn2, input);   // ui button 2
+
+  serial.begin(9600); //debug only remove from final
+
+  lcd.begin(16, 2);             // set up the lcd's number of rows and
+                                //columns:
+  splashscreen();
+}
+
+void splashscreen() {
+  lcd.clear();
+  lcd.print("nikon control"); // print a message to the lcd.
+  lcd.setcursor(0, 1);        // next line
+  lcd.print("press both btns");    
+
+}
+
+// argument is time in milliseconds
+void print_time(int t_milli)
+{
+  char buffer[16];                  //buffer for printing interval
+  int inttime;
+
+  inttime = t_milli / 1000;     // inttime is the total number of
+                                // number of seconds
+  fractime = t_milli % 1000;     // fractimeis the number of
+                                 //thousandths of a second
+
+  // number of days is total number of seconds divided by 24 divided
+  // by 3600
+  days = inttime / (24 * 3600);
+  inttime = inttime % (24 * 3600);
+
+  // now, inttime is the remainder after subtracting the number of
+  // seconds in the number of days
+  hours = inttime / 3600;
+  inttime = inttime % 3600;
+
+  // now, inttime is the remainder after subtracting the number of
+  // seconds in the number of days and hours
+  mins = inttime / 60;
+  inttime = inttime % 60;
+
+  // now inttime is the number of seconds left after subtracting the
+  // number in the number of days, hours and minutes. in other words,
+  // it is the number of seconds.
+  secs = inttime;
+
+  // don't bother to print days and hours
+  sprintf(buffer, "%02d:%02d.%03d", mins, secs, fractime);
+  lcd.print(buffer);
+}
+
+// this procedure sends a 38khz pulse to the irledpin
+// for a certain # of microseconds. we'll use this whenever we need to
+// send codes
+void pulseir(long microsecs) {
+  // count down from the number of microseconds we are told to wait
+
+  cli();  // this turns off any background interrupts
+
+  while (microsecs > 0) {
+    // 38 khz is about 13 microseconds high and 13 microseconds low
+    digitalwrite(irledpin, high);  // takes about 3 microseconds
+    delaymicroseconds(10);         // hang out for 10 microseconds
+    digitalwrite(irledpin, low);   // also takes about 3 microseconds
+    delaymicroseconds(10);         // hang out for 10 microseconds
+
+    // so 26 microseconds altogether
+    microsecs -= 26;
+  }
+
+  sei();  // this turns them back on
+}
+
+void sendnikoncode() {
+  // this is the code for nikon d5000 etc
+
+ pulseir(1650);
+  delay(27);
+  pulseir(362);
+  delaymicroseconds(1500);
+  pulseir(362);
+  delaymicroseconds(3440);
+  pulseir(362);
+  delay(63); // wait 65 milliseconds before sending it again
+
+  pulseir(1650);
+  delay(27);
+  pulseir(362);
+  delaymicroseconds(1500);
+  pulseir(362);
+  delaymicroseconds(3440);
+  pulseir(362);
+
+}
+
+boolean debounce(int button, boolean last)
+{
+  boolean current = digitalread(button);
+  if (last != current)
+  {
+    delay(5);
+    current = digitalread(button);
+  }
+  return current;
+}
+
+void setexposureinterval() {
+  lcd.clear();
+  lcd.setcursor(0, 0);
+  lcd.print("set period"); // print a message to the lcd.
+
+  while (debounce(btn1, lastbtn1state) == high && debounce(btn2,
+                                            lastbtn2state) == high) {
+  } //wait for let go
+
+  while (exitmenu == 0) {
+    if (debounce(btn1, lastbtn1state) == high && debounce(btn2,
+                       lastbtn2state) == high) { //exit menu and start
+      exitmenu = 1;
+    }
+    lcd.setcursor(0, 1);
+    print_time(exposureinterval);
+    while (debounce(btn1, lastbtn1state) == high && debounce(btn2,
+                                           lastbtn2state) == high) {
+    } //wait for let go
+    delay(200);
+    if (debounce(btn1, lastbtn1state)) {
+      exposureinterval = exposureinterval + 250;
+    }
+    if (debounce(btn2, lastbtn2state) == high &&
+                                            exposureinterval > 250) {
+      exposureinterval = exposureinterval - 250;
+    }    
+  }
+  exitmenu = 0;
+  lcd.clear();
+  lcd.print("time lapse: up  ");    
+  lcd.setcursor(0, 1);        // next line
+  lcd.print("long exp:   down");    
+
+  while (exitmenu == 0) {
+    if (debounce(btn1, lastbtn1state) == high) {  //time lapse    
+      runoption = 1;
+      exitmenu = 1;
+    }
+    if (debounce(btn2, lastbtn2state) == high) {  //long exposure     
+      runoption = 2;
+      exitmenu = 1;
+    }
+  }
+}
+
+void runtimelapse() {          //make the exposure at the set interval
+  serial.println("exposure");
+  sendnikoncode();                 // take the picture
+  unsigned long currentmillis = millis();
+  unsigned long endmillis = currentmillis + exposureinterval;
+  while (currentmillis < endmillis) {   // delay in milliseconds which
+                                        // allows us to do timelapse
+    if (debounce(btn2, lastbtn2state) == high) { //stop the time lapse
+      runoption = 0;
+      exitmenu = 0;
+      splashscreen();
+    }
+    currentmillis = millis();          // getting closer
+  }
+}
+
+void longexposure() {
+  sendnikoncode();                 // take the picture
+  delay(exposureinterval);         // no need to 'interrupt', so delay
+                                   // ok
+  sendnikoncode();                 // take the picture
+}
+
+void showmenu() {
+  if (debounce(btn1, lastbtn1state) == high && debounce(btn2,
+                                       lastbtn2state) == high) {
+    setexposureinterval();
+  }    
+}
+
+void loop() {
+  char buffer[16];  //buffer for building display string
+  showmenu();       // back to set interval
+
+  // option 1 is for time lapse
+  if (runoption == 1) {
+    lcd.clear();
+    sprintf(buffer, "int: %02d:%02d.%03d", mins, secs, fractime);
+    lcd.print(buffer);
+    lcd.setcursor(0, 1);         // next line             
+    lcd.print("down to stop    ");    
+  }
+
+  while (runoption == 1) {
+    runtimelapse();
+  }
+
+  // option 2 is for long exposure on bulb setting
+  if (runoption == 2 ) {
+    lcd.clear();               
+    sprintf(buffer, "exp: %02d:%02d.%03d", mins, secs, fractime);
+    lcd.print(buffer);
+    lcd.setcursor(0, 1);         // next line               
+    sprintf(buffer, "up to start     ");
+    lcd.print(buffer);
+  }
+
+  while (runoption == 2) {
+
+    if (debounce(btn1, lastbtn1state) == high) { //make the exposure
+      lcd.setcursor(0, 1);
+      lcd.print("running...      ");
+      longexposure();
+      runoption = 0;    // done so back to waiting for two buttons
+      exitmenu = 0;
+      splashscreen();
+    }
+  }
+}
+now this is not all my own code. i found help for the infrared control from the excellent tutorial here on www.ladyada.net. i’ll go into this code in more detail in a future post, as it didn’t quite work out of the box. the print_time function came from a digital clock project, which for the moment i can’t find. when i do, i’ll post the details.
+there are quite a few examples of using an arduino to control nikon ir, but none i found went as far as making it a useful tool. they would allow you to set one interval when you programmed the device, then you’d have to reprogram to get a different interval. so a large part of my code is driving a display to provide a menu and set the interval. i decided to go for a two-button interface, with hindsight three buttons would have been much easier. i also discovered that the same control could be used to start and stop a long exposure in bulb mode so i incorporated that.
+next time i’ll  go through the code and explain what it’s doing.
+
+
+posted by mike with 2 comments
+read the rest...
+
+
+
+time lapses
+ today i’d hoped to go out and create a time lapse video with my intervalometer, but this being scotland it’s raining and the sky is a uniform grey. so a good opportunity to go over the intervalometer design.
+the circuit is very simple, most of the details can be cobbled together using the examples on the arduino website. so this morning i’ve been playing with an open source drafting tool to draw a circuit diagram. fritzing is provided by the interaction design lab of the university of applied sciences potsdam. i just set about drawing my circuit and learning fritzing along the way. the result is not pretty, but it will do. that is no fault of fritzing! for my next project i’ll spend some time learning how to use it properly.
+intervalometer circuit diagram
+now this is far from perfect, but that’s what happens when you don’t rtfm. to get the circuit diagram into the post i used gimp for the first time, the open source graphics tool. the ui is very unfamiliar, but i managed to crop the export from fritzing. when it comes to processing the images from the camera i’ll need to get a lot more familiar with gimp. it looks very different to photoshop!
+for this project i source my components from ebay. a bag of 5 ir leds for about £1.00, the 16×2 lcd panel for £2.95, two panel momentary pushbuttons for £2.95, a bag of 5 trimmer potentiometers for about £1,  and a clone arduino nano board for £11.00. all prices including postage.
+i built the circuit first on a breadboard then, once i had the code working, moved it to a piece of veroboard and mounted the whole lot in a small plastic box i got from farnell.
+next time i’ll post and explain the code i’m using now and how i got there.
+just spotted a small error in the circuit diagram, r6 should be 10k ohm the same as the pull down on the other switch.
+
+
+posted by mike with 1 comment
+read the rest...
+
+
+
+what’s it all about
+ recently while trying to find bits of the internet that i’d missed i found arduino. a simple to program micro-controller with some great community contributions. it’s open source hardware. i soon got an idea for a project and set to. i’d make an intervalometer for my nikon d5000 dslr camera. the d5000 in common with a few nikon dslrs has an infra-red remote control to fire the shutter. i’d build an infrared remote control and a timer to fire it at preset intervals so i could do time lapse photography. this project is now complete and i hope to create a video very soon to upload here.
+but that was just the start. i decided to give myself a further challenge. i may pay for a few electronic components, but all the software i’ll use with my projects will be free, open source. so far i’ve changed from windows 7 to the ubunto 11.04 linux distribution and i’m developing arduino code on using the open source arduino ide. but the challenge is about to begin. no more photoshop, or windows tools to process photographs and create the video.
+
+
+posted by mike with 1 comment
+read the rest...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+makeitplay games
+follow our news via our rss channel
+
+
+
+ design by thewpninja.com
+
+
+
+
+
+
+
+
+

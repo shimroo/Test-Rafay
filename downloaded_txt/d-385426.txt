@@ -1,0 +1,108 @@
+
+dmitry markov coins & medals
+
+
+
+
+
+
+
+
+\n");
+	imgwin.document.write("\n");
+	imgwin.document.write("\n");
+	imgwin.document.write("\n");
+	imgwin.document.write("\n");
+	imgwin.document.write("\n");
+	imgwin.document.close();
+}
+
+//function view_pic ( pic_name ) {
+//	picwin = window.open ( "","picwin","toolbars=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,top=0,left=0,height=360,width=560");
+//	picwin.location.href=pic_name;
+//	if ( picwin != null ) {
+//		if ( picwin.opener == null ) {
+//			picwin.opener = self;
+//		}
+//	}
+//	picwin.focus ();
+//}
+
+function view_pic ( pic_name ) {
+	imgwin = window.open ( "","imgwin1","toolbars=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,copyhistory=no,top=20,left=40,height=420,width=580");
+	var l1 = (pic_name.length);
+	var last1 = (pic_name.charat(l1-3));
+	var last2 = (pic_name.charat(l1-2));
+	var last3 = (pic_name.charat(l1-1));
+	if (last1 == "h" ||  last1 == "h") {
+		if ((last2 == "t" ||  last2 == "t") && (last3 == "m" ||  last3 == "m")) {
+			imgwin.location.href=pic_name;
+			if ( imgwin != null ) {
+				if ( imgwin.opener == null ) {
+					imgwin.opener = self;
+				}
+			}
+			imgwin.focus ();
+		}
+	} else if (last1 == "t" ||  last1 == "t") {
+		if ((last2 == "x" ||  last2 == "x") && (last3 == "t" ||  last3 == "t")) {
+			imgwin.location.href=pic_name;
+			if ( imgwin != null ) {
+				if ( imgwin.opener == null ) {
+					imgwin.opener = self;
+				}
+			}
+			imgwin.focus ();
+		}
+	} else {
+		write2window1 ( pic_name );
+	}
+}
+
+function popup_msg () {
+	msgwin = window.open ( "","msgwin","toolbars=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,copyhistory=no,top=20,left=40,height=400,width=640");
+	msgwin.location.href="message.htm";
+//	msgwin.location.href="http://www3.digitrade.com/alexdev/pics/markov/message.cgi?site=coins";
+	if ( msgwin != null ) {
+		if ( msgwin.opener == null ) {
+			msgwin.opener = self;
+		}
+	}
+	msgwin.focus ();
+}
+
+var message="right click is disabled, sorry...";
+
+function clickns(e) {
+	if (document.layers||(document.getelementbyid&&!document.all)) {
+		if (e.which==2||e.which==3) {
+			alert(message);return false;
+		}
+	}
+}
+
+function clickie4() {
+	if (event.button==2) {
+		alert(message);return false;
+	}
+}
+
+if (document.layers) {
+	document.captureevents(event.mousedown);
+	document.onmousedown=clickns;
+} else if (document.all&&!document.getelementbyid) {
+	document.onmousedown=clickie4;
+}
+document.oncontextmenu=new function("alert(message);return false");
+// end -->
+
+
+
+
+
+
+
+
+
+
+

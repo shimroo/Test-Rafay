@@ -1,0 +1,183 @@
+
+
+yahm - yet another hack manager
+
+yahm - yet another hack managerwritten by igor nesterov (c) 2002-2003
+the latest yahm: http://yahm.palmoid.com/yahm_2_5_113.prc
+yahm with zodiac support early beta: http://yahm.palmoid.com/yahm_239.prc
+download latest yahm from http://yahm.palmoid.com/yahm.zipnews
+2.3.6 (april 3, 2004)  clear resource translation cache after calling hack about and config panels.bugfix: support for hacks with 20+ traps
+index1. about yahm2. palmos5 support3. requirements4. about hacks5. yet another hack manager? why?6. yahm installation7. yahm usage8. os5 ready hacks9. arm hack development10. user reviews11. disclaimer12. developers license13. version history14. author information15. my other palm software1. about yahm
+yahm - yet another hack manager. it is a control utility for so called 'hacks' management: activating, deactivating, beaming and deleting. yahm presents my favorite feature set for hack manager.
+features:
+
+
+hack activation/deactivation
+
+
+viewing hack 'about page'
+
+
+hack configuring
+
+
+viewing detailed information about hack: name, version and patched syscalls
+
+
+hack beaming
+
+
+hack deletion. all other hack bases, preferences and features deleted too.
+
+
+soft reset from program
+
+
+option for all hack deactivation
+
+
+active patch list
+
+
+five profiles
+
+
+increased protection in interference with hidden hacks
+
+
+software protection from delete for active hacks
+
+
+native arm support
+
+
+2. palmos5 support
+yahm can't run old style hack under palmos5. one can read about hacks and palmos5 in excellent article "hacks on palmos 5" by daniel seifert at http://www.79bmedia.com/hacks/hack5.html.
+only new hacks, written for arm processor can be run under this os version. this approach has its own have pro and contra
+pros:
+no performance loss. there are no switches between the arm execution and the m68k emulation layer. tealmaster-like old style hack emulation requires frequent switches. 
+hack development very similar to writing classic hacks.
+patches influence both m68k and arm applications.
+all benefits of hack manager behind direct patches.
+
+
+cons:
+no direct support for old hacks.
+not very documented native api usage.
+
+3. requirements
+yahm requires palmos 3.1-4.1 for running classic hacks and works on any device from palm, sony, handspring and handera. palmos5 devices can run only native arm hacks.
+4. about hacks
+each operating system has api - application program interface. this is a function set, provided by os for applications. palmos isn't an exception to  this rule. significant parts of applications just use this api for achieving their production purposes. some other applications were written for extending palmos functionality, like extended find or hard button redirection. those programs should intercept api function calls (also known as system calls, syscalls) and extend their behavior. 
+increased numbers of such programs cause conflicts, leading to system crashes. what is the roots of these conflicts? 
+
+simultaneous patching of one syscall.
+wrong order of patch activation/deactivation.
+
+although, palmos offers functions for syscall patching, but it has no way to control all patches.
+in 1996 edward keyes offered hackmaster: program for patch management. this program introduced a new kind of program for palmos: hacks. the hack author now had no responsibility for patch activation and deactivation; the primary goal of hack code was palmos functionality improvement. hackmaster did all hack management. hacks became popular.
+at the same time there were exists programs with their own patch management. one could discover them by using buttons or menu items named 'enable program'. they were known as hidden hacks. keyboard drivers and national language support were samples of such kind of programs. one can now find most of the hidden hacks with my 
+trapcatcher tool for hidden hack search.
+5. yet another hack manager? why?
+why was yahm written? the answer is simple: no one of the existing hack managers offers me:
+
+all the features i want in one manager.
+stable interference with hidden hacks
+
+after one month of testing, when i was satisfied with program stability, yahm was released.
+6. yahm installation
+download yahm from http://yahm.palmoid.com/yahm.zip. unzip it and install yahm.prc on your device. run it.
+7. yahm usage
+install any hacks you want. run yahm. you can see classic hack manager interface. all hacks are listed on the screen.
+first column with checkbox show you hack activity. if checkbox checked, hack is active.
+second column show hack name.
+click on third column with question icon show 'about' dialog from hack.
+click on fourth column with plus icon lead you to hack configuration screen.below is the row of buttons. select hack with clicking on its name and press button. 'config' and 'about' show the same dialogs form hack, 'details' show information about hack. 'beam' can beam hack to another device. 'delete' button can delete hack with its bases, preferences and features.
+menu items:
+
+soft reset - reset device.
+deactivate all - for all hack deactivation.
+active patches - show list of active patches.
+check programs - analyzes all programs on device and report about programs that can cause possible conflicts with yahm. this option has no meaning under os5.
+clear profile - help with sticking on profile with buggy hack. allow clearing profile without its activation.
+make lite - saves 20kb of memory by removing unneed syscall names list. if listbox "patched traps" have no meaning for you, you can safely remove this info.
+
+8. os5 ready hacks
+feel free to send your own hacks to support@palmoid.com.
+
+http://www.palmgear.com/?xyz=42295 - alert hack - sets intuitive colors to system alerts depending on their type.
+
+http://www.palmgear.com/?xyz=49857 - smooth scroll hack - enables a visual effect of smooth scrolling for lists and text fields.
+
+http://www.palmgear.com/?xyz=51487 - tips hack - adds a scrollbar and menu to every "tips" window.
+
+http://handysolution.com/pshack.htm - paranoid security hack, lock current application before giving your palm to somebody. 
+
+http://www.zlthemes.com/productdetaillisting.php?pid=79 - fontsmoother, anti-aliased font in every application!.
+
+http://www.palmgear.com/index.cfm?fuseaction=software.showsoftware&partnerref=&siteid=1&prodid=43160 - keyclickhack. hack turns off key clicks
+
+http://www.geocities.jp/tinklestar2002/ljpa/ - ljp assister for clie. allows to use keyboard in ljp snes emulator.
+
+http://discuss.treocentral.com/showthread.php?t=79336 - time bug fix for treo 650.
+
+http://discuss.treocentral.com/showthread.php?t=80151 - enable bt dun for treo 650
+
+http://yahm.palmoid.com/brokenjog.prc - change clie jog dial behavior 
+to page up and page down
+
+http://yahm.palmoid.com/rec2dn.prc - redirect tungsten t[1-3]'s 'recorder' button to 'page down'. 
+http://yahm.palmoid.com/a5agendahack.prc - support application for a5 
+freeware utility
+
+http://www.palmoid.com/laycoder - dead char support for os5 was written as dual hack, it has both m68k and arm parts
+
+http://www.geocities.com/b_palm_ug/yomeru5.html - japanese support for english devices
+http://yahm.palmoid.com/nodot.zip - remove underlined dots from edit boxes
+http://www.palmgear.com/?xyz=53318 - fonthackv for os5 devices. similar to old good fonthack for os4.
+http://www.micropraxis.com/cxapelanto/ - esperanto support for palmos5
+http://cgi.www5f.biglobe.ne.jp/~t-pilot/bbs/patio.cgi?mode=view&no=25&p=2 - hack to set event time in datebook with minute precision
+9. arm hack development
+coming soon. you can read yahm/v for palmos5 page. yahm/v now was merged with yahm. look for samples in yahoo group: palmnest.
+
+10. user reviews
+tanker bob: yet another hack manager! igor was dissatisfied with all offerings, especially because of their less-than-stellar support of hidden traps. igor wrote yahm for himself to get the features that he wanted and offered it to the public. there are some features, like naming profiles, in x-master that i still like, but yahm solved every hack conflict on my device. i emailed igor about support for disabling hacks during hotsync, and he promptly emailed me a link to the latest beta with that feature. great program with great support.
+
+ruben santos:
+i just had to give yahm an excellent review. i've been using it for a couple weeks now and it is just as stable x-master. excellent feature choices and has become my hack manager of choice. i'm always delighted to see an excellent freeware applications released. 
+11. disclaimer
+yahm provided as is, and not guaranteed to be free of bugs. the author assumes no liability for any problems resulting from the use of this product.
+if you find a bug, please report about it to support@palmoid.com, along with the following info: 
+
+device model.
+palmos version.
+active hacks list.
+application, where crash happens.
+
+this application is free.
+12. developers license
+yahm is freeware. hack programs for yahm can be distributed under any license: freeware, shareware or commercial. you can thank the author, having sent it a registered copy of your program, but it is not necessary ;-) .
+yahm can be freely distributed with hack programs. yahm.zip file should be unchanged in distribution.
+publishing yahm on freeware/shareware cd's require author's permission at support@palmoid.com.13. version history
+
+2.3.6 (april 3, 2004)  clear resource translation cache after calling hack about and config panels.bugfix: support for hacks with 20+ traps
+2.2.2 (january 18, 2004) making lite version (20kb less). activates from menu->options->make lite.disable "check programs" for os5: no incompatible programs for now ;-)option "clear profile" was added. helpful for buggy profile clearing without activationzero timeout warning.new safe arm trap patching codetungsten c compatibility
+2.0.113 (november 8, 2003) native arm hacks support.qvga scroll buttons was fixedtrap list was added to details windowsome incompatibility bugs were fixednumerous enhancements in hack api. hack development became simpler.
+2.0 (october 11, 2003) native arm hacks support!
+0.99 (june 9, 2003) disable at hotsync option added (palmos 3.5+ only)configurable startup timeoutdiscussion group 'palmnest' opened
+0.98 (february 11, 2003) bugfix: "delete hack" option fixedbugfix: show database name if name resource absent
+0.91 (october 28, 2002) initial releasehttp://yahm.palmoid.com/yahm_091.zip
+14. author information
+	feel free to send bugreports and suggestions to me.
+	web page: http://yahm.palmoid.com
+	email: support@palmoid.com
+	yahoo group: palmnest15. my other palm software
+
+trapcatcher tool for hidden hack search
+laycoder ppk keyboard editor
+silk manager for handera 330
+powernet utility for auto off prevention while networking
+list all active alarms on device
+remote4joy - use sony audio remote as hard buttons
+
+

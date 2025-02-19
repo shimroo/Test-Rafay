@@ -1,0 +1,752 @@
+
+
+
+
+
+
+
+spanner software – ruby on rails development
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+skip to content
+
+homeskills
+terms of service
+disclaimer
+about
+
+
+
+
+
+
+search for:
+
+
+
+
+
+recent posts
+
+
+best iphone case?
+
+
+the benefits of website monitoring
+
+
+lesser spotted sql for rails 7 (and mysql)
+
+
+resuming file transfers in rsync
+
+
+rails 5 + puma + nginx + actioncable
+
+
+recent commentsadmin on nested attributes not setting child idsguido on nested attributes not setting child ids 
+
+archives
+
+october 2023
+september 2023
+may 2022
+november 2016
+october 2016
+october 2013
+september 2013
+february 2013
+january 2013
+
+categories
+
+accessories
+
+actioncable
+
+adobe acrobat
+
+android
+
+google chrome
+
+hardware
+
+internet explorer
+
+iphone
+
+linux
+
+maintenance
+
+mobile apps
+
+mozilla firefox
+
+mysql
+
+nginx
+
+puma
+
+rails 5
+
+rails 7
+
+rsync
+
+ruby on rails
+
+servers
+
+sql
+
+ssh
+
+windows 7
+
+xerox
+
+
+meta
+
+log in
+entries feed
+comments feed
+wordpress.org
+
+ 
+ 
+
+
+
+spanner software
+ruby on rails development
+
+
+
+
+
+
+
+
+
+
+
+
+best iphone case?
+
+
+
+ok this is very subjective but i’ve used this for my iphone 14 and this case for an iphone 13 mini in the last 2 years. they are considerably cheaper than the apple equivalent and both worked fine with my belkin iphone magsafe charger (i actually have the non-watch version which you can’t get anymore it seems).
+apple certainly make great products but they are not cheap and neither are the accessories.
+featured products:
+spigen iphone 14 magsafe case
+spigen iphone 13 mini magsafe case
+belkin iphone magsafe charger
+
+
+posted on october 13, 2023october 13, 2023 by admin
+
+				posted in accessories, hardware, iphone 
+leave a comment
+
+
+
+
+
+
+
+
+
+the benefits of website monitoring
+
+
+
+there are many tools out there to help with various aspects of running a website. one which, until recently, i had neglected is an external website monitor (i used my own polling scripts, which was time consuming and fiddly). even with regular server maintenance and updates problems can still occur:
+
+memory leakage
+disk space running out
+network outages
+malicious activity
+
+i’m sure there are lots of options out there but i’m currently using uptimerobot as they provide an excellent free service to get you going. this provides basic http monitoring and page keyword monitoring for up to 50 websites.
+the paid options seem reasonable compared to similar services from other companies and add features like ssl certificate monitoring and domain expiry monitoring. they also provide apple and android apps. i have the apple one and it seems to work well.
+
+
+posted on september 27, 2023august 6, 2024 by admin
+
+				posted in maintenance, servers 
+leave a comment
+
+
+
+
+
+
+
+
+
+lesser spotted sql for rails 7 (and mysql)
+
+
+
+i recently migrated a rails 4 application to rails 7. on the whole it wasn’t too bad but today i was trying to add a child table to the data schema – a simple create_table… when i attempted to “db:migrate” i got an error:
+$ rails db:migrate
+== 20220520112518 createarticletexts: migrating ===============================
+-- create_table(:article_texts)
+rails aborted!
+standarderror: an error has occurred, all later migrations canceled:
+
+column `article_id` on table `article_texts` does not match column `id` on `articles`, which has type `int(11)`. to resolve this issue, change the type of the `article_id` column on `article_texts` to be :integer. (for example `t.integer :article_id`).
+original message: mysql2::error: cannot add foreign key constraint
+/home/myproject/db/migrate/20220520112518_create_article_texts.rb:3:in `change'
+
+caused by:
+activerecord::mismatchedforeignkey: column `article_id` on table `article_texts` does not match column `id` on `articles`, which has type `int(11)`. to resolve this issue, change the type of the `article_id` column on `article_texts` to be :integer. (for example `t.integer :article_id`).
+original message: mysql2::error: cannot add foreign key constraint
+/home/myproject/db/migrate/20220520112518_create_article_texts.rb:3:in `change'
+
+caused by:
+mysql2::error: cannot add foreign key constraint
+/home/myproject/db/migrate/20220520112518_create_article_texts.rb:3:in `change'
+tasks: top => db:migrate
+(see full trace by running task with --trace)
+my old schema (from rails 4 remember) used :int for the primary key data type. rails 7 (and rails 6 – i tested it) uses :bigint for the primary key data type.
+in order to create a new child table i first need to upgrade the primary key on the parent table. after much trial and error the migration below is what i came up with for mysql. in this example i also had 2 other legacy child tables which needed updating also so that foreign keys and primary keys had matching data types:
+class articleupdateid < activerecord::migration[7.0]
+  #
+  # for rails 6+ we need legacy tables to have primary keys updated from :int to :bigint
+  # before we can add any new child tables. the migrations below are for mysql.
+  #
+
+  def up
+    # drop primary key index and foreign key constraints otherwise we cannot make changes
+    execute('alter table article_filters drop foreign key fk_rails_303034c0ef')
+    execute('alter table article_keywords drop foreign key fk_rails_251b14e14a')
+    execute('alter table articles change id id int') # first remove auto_increment
+    execute('alter table articles drop primary key')
+
+    # old article_id child fields did not use bigint
+    execute('alter table article_filters change article_id article_id bigint not null')
+    execute('alter table article_keywords change article_id article_id bigint not null')
+
+    # old id fields did not use bigint
+    execute('alter table articles change id id bigint primary key auto_increment')
+
+    # recreate foreign key constraints
+    execute 'alter table article_filters add constraint fk_rails_303034c0ef foreign key (article_id) references articles (id)'
+    execute 'alter table article_keywords add constraint fk_rails_251b14e14a foreign key (article_id) references articles (id)'
+  end
+
+  def down
+    # drop primary key index and foreign key constraints otherwise we cannot make changes
+    execute('alter table article_filters drop foreign key fk_rails_303034c0ef')
+    execute('alter table article_keywords drop foreign key fk_rails_251b14e14a')
+    execute('alter table articles change id id bigint') # first remove auto_increment
+    execute('alter table articles drop primary key')
+
+    # back to int on child table references
+    execute('alter table article_filters change article_id article_id int not null')
+    execute('alter table article_keywords change article_id article_id int not null')
+
+    # back to int on parent table
+    execute('alter table articles change id id int primary key auto_increment')
+
+    # recreate foreign key constraints
+    execute 'alter table article_filters add constraint fk_rails_303034c0ef foreign key (article_id) references articles (id)'
+    execute 'alter table article_keywords add constraint fk_rails_251b14e14a foreign key (article_id) references articles (id)'
+  end
+end
+
+this seems to work well so far. neither id nor auto_increment values were affected by the migration and my parent id and child article_id columns are now bigint.
+
+
+posted on may 20, 2022may 20, 2022 by admin
+
+				posted in mysql, rails 7, ruby on rails, sql 
+leave a comment
+
+
+
+
+
+
+
+
+
+resuming file transfers in rsync
+
+
+
+rsync is a great tool for archiving and backup. but how do you get it to cope with connection problems? for example, you are trying to backup a large archive file but you have a poor connection which keeps dropping and so your transfer has to start all over again. well here’s what i use:
+rsync -avz --progress --partial -e ssh /home/mybackup/* <email address>@<rsync host>:<remote folder name>
+note that the email address does not require quote marks around it. notice i do not use –append or –append-verify. if i did it would assume that the start of the file has remained the same (which might be the case for a log file or similar). this isn’t the case for me. i also don’t use the –delete option because this would simply delete the temporary file left by –partial.
+it works a treat but i would recommend a break of 15 minutes when attempting to resume the transfer (the time will vary depending upon how the remote server deals with temporary files).
+for more on this and a very useful bash script, have a look here:
+http://superuser.com/questions/302842/resume-rsync…
+
+
+posted on november 24, 2016november 24, 2016 by admin
+
+				posted in linux, rsync 
+leave a comment
+
+
+
+
+
+
+
+
+
+rails 5 + puma + nginx + actioncable
+
+
+
+in development mode things seemed to take care of themselves. production mode was a different matter. let’s just say it was a sensitive and delicate configuration. so in documenting this i’ve tried to condense things to the bare minimum and using the simplest configuration: hosting the “cable” within the host application (i.e. in the same virtual host). for full actioncable documentation please visit: rails guides
+make sure you have a cable.js file (app/assets/javascripts/cable.js)
+the “rails new” command should have created this for you.
+create a handler (app/assets/javascripts/channels/chat_channel.coffee)
+app.chat = app.cable.subscriptions.create "chatchannel",
+  connected: ->
+    alert 'connected'
+
+  disconnected: ->
+    alert 'disconnected'
+
+  received: (data) ->
+    # do you screen update stuff here
+i’ve included popup alerts. these are quite useful when you’re doing this for the first time so you know your basic connection is working.
+make sure you have your channel and connection actioncable files
+check for app/channels/application_cable/channel.rb and app/channels/application_cable/connection.rb. these should have been created for you. if you’re running actioncable within your application (rather than on a separate server/vhost) you can add authentication for the connection thus:
+module applicationcable
+  class connection < actioncable::connection::base
+    identified_by :current_user
+
+    def connect
+      self.current_user = find_verified_user
+    end
+
+    protected
+    def find_verified_user
+      if current_user = user.find_by(id: cookies.signed[:user_id])
+        current_user
+      else
+        reject_unauthorized_connection
+      end
+    end
+  end
+end
+create your own channel file (app/channels/chat_channel.rb)
+here’s where you subscribe to your own broadcast.
+class chatchannel < applicationcable::channel
+  def subscribed
+    stream_from 'chat_channel'
+  end
+
+  def unsubscribed
+    # any cleanup needed when channel is unsubscribed
+  end
+end
+set your configuration parameters
+there are 2 files to change. first we must update config/environments/production.rb and set the config.action_cable constants:
+config.action_cable.url = 'ws://myapp.spannersoftware.com/cable' # ws:// is non-secure, wss:// is secure
+config.action_cable.allowed_request_origins = [ 'http://myapp.spannersoftware.com' ]
+important: do not add a trailing slash to either of these!
+next update config/cable.yml and set the host and port for the redis server:
+development:
+  adapter: async
+
+test:
+  adapter: async
+
+production:
+  adapter: redis
+  url: redis://localhost:6379/1
+you may not need to change this.
+add the actioncable metatag
+in app/views/layouts/application.html.erb add the following line in the <head> section:
+<%= action_cable_meta_tag %>
+install and fire up the redis server
+redis is a cool bit of kit for providing efficient messaging, for more information go here: redis.io.
+apt-get install redis-server
+service redis-server start
+edit /etc/redis/redis.conf to set the port to 6379 and bind to 127.0.0.1.
+configure nginx and puma
+here is my nginx virtual host example:
+upstream my_app {
+ server unix:/home/myapp/tmp/myapp.sock;
+}
+server {
+ listen 10.10.10.10:80;
+ server_name myapp.spannersoftware.com;
+
+ access_log /home/myapp/log/access.log;
+ error_log /home/myapp/log/error.log;
+ root /home/myapp/public;
+
+ location / {
+ try_files /maint.html $uri @ruby;
+ }
+
+ location @ruby {
+ proxy_pass http://my_app;
+ proxy_set_header x-real-ip $remote_addr;
+ proxy_set_header x-forwarded-for $proxy_add_x_forwarded_for;
+ proxy_set_header host $http_host;
+ proxy_redirect off;
+ }
+
+ location /cable {
+ proxy_pass http://my_app;
+ proxy_http_version 1.1;
+ proxy_set_header upgrade $http_upgrade;
+ proxy_set_header connection "upgrade";
+ }
+}
+here is my puma config (config/puma.rb):
+threads_count = env.fetch("rails_max_threads") { 5 }.to_i
+threads threads_count, threads_count
+bind "unix:/home/myapp/tmp/bluebird2.sock"
+environment env.fetch("rails_env") { "production" }
+workers env.fetch("web_concurrency") { 2 }
+daemonize true
+pidfile '/home/myapp/tmp/pids/puma.pid'
+i'm using a unix socket here, the default environment is production, the process is daemonized and i've specified a pidfile location. the rest of the settings are default.
+set your app running
+assuming you have the puma gem installed correctly you should be able to run your application complete with working actioncable.
+cd /home/myapp
+puma -c config/puma.rb -e production
+you should see the message “connected” pop up in your browser when you first load the page. hopefully you’ve found this helpful but please let me know if i’ve missed anything.
+ 
+
+
+posted on october 13, 2016october 13, 2016 by admin
+
+				posted in actioncable, linux, nginx, puma, rails 5, ruby on rails 
+leave a comment
+
+
+
+
+
+
+
+
+
+nested attributes not setting child ids
+
+
+
+developing in rails 5 recently i was struggling to think of why my child record ids were not being set automatically on create. i thought this happened automatically. then i discovered that setting inverse_of in the model is vital for accessing parent models from the child without relying on a pre-existing physical record (e.g. when you are creating new records). it turns out it’s been like this since rails 2. how blind was i!
+here’s how it works:
+class publisher < applicationrecord
+  has_many :articles, index_errors: true, dependent: :destroy, inverse_of: :publisher
+  accepts_nested_attributes_for :articles, allow_destroy: true
+
+class article < applicationrecord
+  belongs_to :publisher, inverse_of: :articles
+  has_many :comments, index_errors: true, dependent: :destroy, inverse_of: :article
+  accepts_nested_attributes_for :comments, allow_destroy: true, reject_if: proc { |item| item[:message].blank? }
+
+class comment < applicationrecord
+  belongs_to :article, inverse_of: :comments
+
+so using inverse_of allows me to access self.article from the comment model even when the physical record has yet to be created.
+
+
+posted on october 11, 2016july 28, 2017 by admin
+
+				posted in rails 5, ruby on rails 
+2 comments
+
+
+
+
+
+
+
+
+
+automated rsync over ssh
+
+
+
+the mission
+let’s say we want to set-up rsync over ssh to securely backup a folder from one server to another. our aim is to run a daily backup in cron with a command like this:
+rsync -avz -e ssh /home/somefolder/important_files remoteuser@target_host:/home/mybackup/important_files_copy
+on the target machine
+the following steps work well for me but change as you wish (you may wish to create a folder under an existing user for example):
+
+create a folder for the backup user:
+cd /home
+mkdir mybackupuser
+
+next create the user, update the folder permissions and set the user password (make a note of this password):
+useradd -d /home/mybackupuser mybackupuser
+chown mybackupuser.root mybackupuser
+chmod 750 mybackupuser
+passwd mybackupuser
+
+update the sshd_config file to allow this user to be used for ssh logins:
+vi /etc/ssh/sshd_config
+add or amend the “allowusers” directive:
+allowusers mybackupuser
+
+create the hidden folder for authorized keys:
+cd /home/mybackupuser
+mkdir .ssh
+chown mybackupuser.root .ssh
+chmod 700 .ssh
+
+create the security script (attempt to filter any ssh command except rsync –server):
+cd /home/mybackupuser
+vi valid-rsync
+copy and paste the following lines and then save the file:
+#!/bin/sh
+
+case "$ssh_original_command" in
+*\&*)
+echo "rejected"
+;;
+*\(*)
+echo "rejected"
+;;
+*\{*)
+echo "rejected"
+;;
+*\;*)
+echo "rejected"
+;;
+*\<*)
+echo "rejected"
+;;
+*\`*)
+echo "rejected"
+;;
+*\|*)
+echo "rejected"
+;;
+rsync\ --server*)
+$ssh_original_command
+;;
+*)
+echo "rejected"
+;;
+esac
+i cannot claim credit for writing the above script but unfortunately i can’t remember where i got it from originally. suffice to say it seems to be quite widely distributed on the web. to whoever wrote it: thank you!
+set privileges for this file:
+chown mybackupuser.root valid-rsync
+chmod 700 valid-rsync
+
+
+on the source machine (mostly!)
+now, in case you were getting bored, we move to the source machine to create an ssh key. the public part of this key will then be copied to the target machine.
+
+log in as the user that your backups will run under. for example, if your backup script will run under the root user (usual) log in as root (or sudo su).
+generate an ssh key pair:
+ssh-keygen -t rsa -b 2048
+or, if it’s not your own server then you might want to specify a path for the key generation (rather than the default which is ~/.ssh/id_rsa):
+ssh-keygen -t rsa -b 2048 -f /home/someuser/rsync-key
+
+important: accept all defaults and just press [enter] when asked for the passphrase
+upload the file from the source machine to the target machine using secure copy:
+scp ~/.ssh/id_rsa.pub mybackupuser@target_host:.ssh/authorized_keys
+if you specified a path (the -f option) then use the following command:
+scp /home/someuser/rsync-key.pub mybackupuser@target_host:/home/mybackupuser
+now append the contents of rsync-key.pub to /home/mybackupuser/.ssh/authorized_keys on the target machine.
+on the target machine, prefix the key with additional security measures including the ip address and valid-rsync command file that you created earlier:
+from="xx.xx.xx.xx",command="/home/jjbb/valid-rsync" ssh-rsa ashakjsdhhaisudhfaksjfhhaisudhiauegfkjahsdkjhdjkh.....
+“xx.xx.xx.xx” is the ip address of the source machine.
+now you are ready to rsync:
+rsync -avz -e ssh /home/somefolder/important_files remoteuser@target_host:/home/mybackup/important_files_copy
+if you are using your own file (see -f option earlier) you must add “-i /home/someuser/rsync-key” to the ssh options thus:
+rsync -avz -e "ssh -i /home/someuser/rsync-key" /home/somefolder/important_files remoteuser@target_host:/home/mybackup/important_files_copy
+
+
+
+
+posted on october 2, 2013october 11, 2016 by admin
+
+				posted in linux, rsync, ssh 
+leave a comment
+
+
+
+
+
+
+
+
+
+disable private browsing / incognito mode
+
+
+
+private browsing may be handy if you want to cover your tracks; naturally you are not looking at anything you shouldn’t but merely planning a nice surprise for a loved one and don’t want them to find out. however, if you are a parent seeking to protect their children or an employer who doesn’t want their employees wasting time then disabling private browsing is a helpful step in reducing temptation: if they know they can’t browse privately then they may be less inclined to look at stuff they shouldn’t.
+internet explorer
+ie requires a windows registry edit. simply paste the required settings from the lines below into a text file (e.g. “ie.reg”) and then “run” it to merge these settings into the windows registry.
+windows registry editor version 5.00
+
+[hkey_local_machine\software\policies\microsoft\internet explorer\control panel]
+"disabledeletebrowsinghistory"=dword:00000001
+
+[hkey_local_machine\software\policies\microsoft\internet explorer\privacy]
+"enableinprivatebrowsing"=dword:00000000
+
+[hkey_current_user\software\policies\microsoft\internet explorer\control panel]
+"disabledeletebrowsinghistory"=dword:00000001
+
+[hkey_current_user\software\policies\microsoft\internet explorer\privacy]
+"enableinprivatebrowsing"=dword:00000000
+i believe this works on versions 8, 9 and 10. please let me know if not. i have included settings for both the whole machine and current user, you don’t actually need both.
+i have also included the “disabledeletebrowsinghistory” setting as this is useful.
+firefox
+firefox is the easiest. you simply have to install the “disable private browsing plus” add-on and then you can do what many marketers do like buying youtube views for example. once added it cannot be easily removed once added. you can find it here:
+https://addons.mozilla.org/en-us/firefox/addon/disable-private-browsing-pl/?src=api
+google chrome
+chrome used to accept registry settings similar to ie but that is no longer the case. you now need to download and install group policy templates from here:
+http://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip
+then follow this procedure:
+
+unzip the policy_templates.zip file.
+from the windows start button enter “gpedit.msc” in the search box and press [enter]. this will open the local group policy editor.
+either under computer configuration or user configuration (as you wish), right-click on “administrative templates” and click “add/remove templates”.
+click “add” and open the file “policy_templates\windows\adm\en-gb\chrome.adm” (replace the “en-gb” with your own country).
+once installed, open up the “administrative templates” and you will see either a new folder “google” or a new folder “classic administrative templates (adm)”. the latter on windows 7/8.
+open up “google” and then click on “google chrome” and you will see a whole raft of settings (for more info: http://www.chromium.org/administrators/policy-list-3).
+double-click “incognito mode availability” and a dialog will open.
+now the confusing bit: select “enabled” and then in the drop-down list underneath select “incognito mode disabled”.
+you can check which policies are active by going to “chrome://policy/” in chrome.
+
+for more information please see this article:
+https://support.google.com/chrome/a/answer/187202?hl=en
+
+
+posted on september 25, 2013march 2, 2016 by admin
+
+				posted in google chrome, internet explorer, mozilla firefox, windows 7 
+leave a comment
+
+
+
+
+
+
+
+
+
+speeding up the android emulator (intel)
+
+
+
+if you have installed the android sdk but find the emulator hopelessly slow (even on a fast pc) then this might just make your day. it did mine; in my adult nerdhood i am easily pleased.
+install the intel x86 emulator accelerator (haxm):
+
+start the android sdk manager by right-clicking and seleting run as administrator (you’ll only need to run as administrator if you installed the sdk in a restricted location such as /program files, like i did – doh!).
+tick intel x86 emulator accelerator (haxm) under extras and install.
+make sure your chosen platform has intel x86 atom system image installed.
+
+check your configuration in the avd manager:
+
+set your cpu/abi to intel atom (x86).
+tick use host gpu for faster graphics (display problems can occur so i have un-ticked this for now).
+
+if you try running the emulator now you will get the following error:
+emulator: failed to open the hax device!
+
+emulator: open hax device failed
+
+hax is not working and emulator runs in emulation mode
+to fix this you simply need to run the installation program for haxm:
+
+goto ..android-sdk/extras/intel/hardware_accelerated_execution_manager.
+run the program haxm-windows_r02.exe.
+
+you should now find that your android emulator runs a lot faster!
+see you soon…on www.workbootsnerd.com
+
+
+posted on february 28, 2013march 30, 2016 by admin
+
+				posted in android, mobile apps 
+leave a comment
+
+
+
+
+
+
+
+
+
+windows 7 + acrobat + xerox – half-page reduction problem
+
+
+
+does your adobe acrobat/reader always print on your xerox phaser 8550 (or other xerox) with half-size output locked into landscape even when you force orientation to portrait? an illustration will explain the problem better:
+
+it appears that this is a legacy driver problem. here is the fix i used:
+
+goto devices and printers → remove the offending xerox printer!
+goto the xerox website → download the xerox global print driver (dated 9-nov-2012 at the time of writing). make sure it is whql certified.
+select install from web.
+delete the old drivers → highlight another printer → click printer server properties at the top of the control panel window
+click drivers → highlight your xerox driver(s) → click remove → select remove driver and driver package.
+reboot.
+run the set-up program (in my case setup.5.273.23.2.exe).
+the set-up program should detect your printer which you should then select and click next.
+select your required option(s) and click install (i chose postscript).
+
+thank you to those who took the trouble to post their solution in the adobe community.
+
+
+posted on february 14, 2013february 28, 2013 by admin
+
+				posted in adobe acrobat, windows 7, xerox 
+leave a comment
+
+
+
+posts navigation
+
+← older posts
+
+
+
+
+
+
+
+proudly powered by wordpress
+ | 
+			theme: tonal by wordpress.com.		
+
+
+
+
+

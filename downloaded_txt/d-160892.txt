@@ -1,0 +1,479 @@
+
+
+
+
+mixminion: a type iii anonymous remailer
+
+
+
+
+
+
+mixminion: a type iii anonymous remailer
+
+mixminion is the reference implementation of the type iii anonymous
+remailer protocol.
+
+
+note: mixminion is not under active development,
+and probably will not work if you try to use it.  i'd love for somebody
+to resurrect mixnet remailer r&d, and have some thoughts on the topic which
+i'd be more than happy to share.  mixminion might serve as a good basis for
+such an effort.  but for practical use, it is not currently recommended.
+it may not build on your system of choice; if it builds, it may not work.
+it is not currently supported.  probably only developers, researchers,
+and anonymity enthusiasts should be trying it out.  good luck!  —nick mathewson, august 2013.
+
+documentation
+the design document gives our justifications
+and security analysis for the mixminion design:
+
+postscript version
+pdf version
+latex source
+bibtex file
+roger's design overview slides (pdf)
+
+the specification aims to give
+developers enough information to build a compatible version of mixminion:
+
+part 1: mix protocol specification
+part 2: end-to-end encoding and delivery 
+part 3: mix directory specifications
+addendum: unresolved specification
+    issues
+
+
+draft nymserver specification
+  (preliminary version)
+draft c client api specification
+  (preliminary version)
+
+the manual pages describe how to use the
+mixminion command-line interface to run and configure mixminion.  they're
+included with the standard unix distribution, and you can also view them
+here:
+
+mixminion(1)command-line client
+text
+pdf
+gzipped postscript
+ugly html
+
+mixminiond(8)mixminion server
+text
+pdf
+gzipped postscript
+ugly html
+
+mixminionrc(5)client configuration
+text
+pdf
+gzipped postscript
+ugly html
+
+mixminiond.conf(5)server configuration
+text
+pdf
+gzipped postscript
+ugly html
+
+
+read these
+papers (especially the ones in boxes) to get up to speed on remailer
+design and anonymous communication in general.
+resources
+the mixminion-dev mailing list is where
+a lot of the discussion
+happens. please look
+at its archives and consider subscribing. there's also a list for
+cvs commits.
+i've migrated the code to github
+  recently, since cvs is moribund.  have a look
+  at the mixminion organization page.
+  development is
+  still pretty stalled.
+
+
+you can see current network
+  reliability/uptime stats
+here and
+  here.
+we've got quite a few nodes already!
+
+
+news
+2 sep 2011, 16:18 est
+
+  some folks seem interested in hacking on mixminion again.  i've migrated
+  the source to git, and stuck it on github.  you can
+  get it here.
+  the documentation repository is also on github.
+
+15 sep 2007, 15:17 est
+
+  mixminion 0.0.8alpha3 is now available; a few server-crashing bugs are 
+  fixed.
+  you can download
+  the code
+  ,
+  read
+  the announcement,
+  or read the release notes.
+  {signature}.
+  (no windows binaries yet; let me know if you want to build them. see
+  announcement fore more info.)
+ 
+
+
+  mixminion 0.0.8alpha2 is now available; numerous bugs are fixed, and new
+  features are added.  this is alpha code, so please report any bugs you
+  find.
+  you can download
+  the code
+  ,
+  read
+  the announcement,
+  or read the release notes.
+  {signature}.
+  (no windows binaries yet; let me know if you want to build them. see
+  announcement fore more info.)
+ 
+
+may 10, 13:50 est
+
+  mixminion 0.0.7.1 is now available; a few minor bugs are fixed.  everybody
+  running a server should upgrade at your convenience, to prevent
+  crashing.  clients may want to upgrade too.
+  you can download
+  the code
+  
+  or read the release notes.
+  {signature}.
+  if you want to try it on win32, read the release notes, then download
+  the version for users
+  with python 2.3 installed
+{signature},
+  or the
+  standalone version
+{signature}.
+
+april 4, 13:50 est
+
+  the final mixminion 0.0.7 release is now available.  (no changes have been
+  made since 0.0.7rc2.) if you are running any version earlier than 0.0.7rc2,
+  you should upgrade.
+  you can download the code
+  
+  or read the release notes.
+  {signature}.
+  if you want to try it on win32, read the release notes, then download
+  the version for users
+  with python 2.3 installed
+{signature},
+  or the
+  standalone version
+{signature}.
+
+april 1, 11:20 est
+
+  the second release candidate for mixminion 0.0.7 is now available.  there
+  numerous bugfixes and improvements over the previous release candidate.
+  if no significant bugs are found, i'll release 0.0.7final very soon.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+
+  if you want to try it on win32, read the release notes, then download
+  the version for users
+  with python 2.3 installed
+{signature},
+  or the
+  standalone version
+{signature}.
+
+march 8, 01:10 est
+
+  the first release candidate for mixminion 0.0.7 is now available.  there
+  are significant changes to the network layer, numerous bugfixes, and
+  several new features, including configurable bandwidth caps, client-side
+  large-message reassembly, and configurable server blocking.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+
+  if you want to try it on win32, read the release notes, then download
+  the version for users
+  with python 2.3 installed
+{signature},
+  or the
+  standalone version
+{signature}.
+
+december 23, 18:18 est
+
+  mixminion 0.0.6.2 is now available.  two significant client-side bugs in
+  0.0.6.1 are fixed.  everybody running a client should upgrade.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+
+  if you want to try it on win32, read the release notes, then download
+  the version for users
+  with python 2.3 installed
+{signature},
+  or the
+  standalone version
+{signature}.
+
+december 19, 00:46 est
+
+  mixminion 0.0.6.1 is now available.  a few minor bugs in
+  0.0.6 are fixed.  everybody running a client or server should upgrade.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+
+  if you want to try it on win32, read the release notes, then download
+  the version for users
+  with python 2.3 installed
+{signature},
+  or the
+  standalone version
+{signature}.
+
+december 14, 00:03 est
+
+  the final mixminion 0.0.6 is now available.  a few minor bugs in
+  0.0.6rc2 are fixed.  everybody running a client or server should upgrade.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+
+  if you want to try it on win32, read the release notes, then download
+  the version for users
+  with python 2.3 installed
+{signature},
+  or the
+  standalone version
+{signature}.
+
+december 12, 23:59 est
+
+  mixminion 0.0.6rc2 is now available for testing.  a few minor bugs in
+  0.0.6rc1 are fixed.  the final 0.0.6 release will follow within a couple
+  of days if no critical bugs are found.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+
+  if you want to try it on win32, read the release notes, then download
+  the version for users
+  with python 2.3 installed
+{signature},
+  or the
+  standalone version
+{signature}.
+
+december 8, 07:21 est
+
+  mixminion 0.0.6rc1 is now available for testing.  servers are located
+  by hostname, and windows 98 and after are supported.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+
+  if you want to try it on win32, read the release notes, then download
+  the version for users
+  with python 2.3 installed
+{signature},
+  or the
+  standalone version
+{signature}.
+
+
+note: due to a bug in this release candidate, it doesn't
+  work with python versions earlier than python 2.2.  if you are running 2.0
+  or 2.1, you should either try the code in cvs, or wait for 0.0.6rc2.
+
+october 30, 2003 20:50 est
+
+  the bugfixed version 0.0.5.3 is now available.  everyone running a server
+  sound upgrade: there is a showstopper in 0.0.5.2 that prevents it from
+  relaying messages to older servers.  for more information on changes,
+  check out the release notes.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+october 27, 2003 08:27 est
+
+  the bugfixed version 0.0.5.2 is now available.  if you are running
+  a server, you will probably want to upgrade: this release should be
+  a major stability improvement.  for more information on changes,
+  check out the release notes.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+september 16, 2003 11:06 est
+
+  the bugfixed version 0.0.5.1 is now available.  if you are running
+  an exit node, you will probably want to upgrade; otherwise, nothing
+  has changed.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+september 6, 2003 17:29 est
+
+  the final mixminion 0.0.5 release is now complete.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+september 3, 2003 12:50 est
+
+  mixminion 0.0.5rc2 is now available for testing.  this release
+  corrects a bug when upgrading servers that support exit messages.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+september 2, 2003 16:25 est
+
+  mixminion 0.0.5rc1 is now available for testing.  long messages and
+  email headers are supported, and everything is more stable.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+july 23, 2003 23:12 est
+
+  back in february, nick gave a presentation on mixminion at
+  codecon 2003.  the
+  audio
+  is now back online; you can again download
+  an
+  mp3 of nick's presentation.
+  
+june 12, 2003 00:43 est
+
+  mixminion 0.0.4 is, at last, available.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+june 10, 2003 10:41 est
+
+  mixminion 0.0.4rc4 is available for testing!
+  in this release are numerous critical bugfixes and cosmetic improvements
+  identified over the last week of testing.
+
+  there are no more pending
+  items for the 0.0.4 release.  unless somebody finds a showstopper bug by
+  thursday, i'll just update the version number and call this release 0.0.4.
+  as ever, you can download the code
+  
+  or read the release notes.
+  {signature}
+june 6, 2003 04:48 est
+
+  mixminion 0.0.4rc3 is available for testing!
+  in this release are numerous critical bugfixes and cosmetic improvements
+  identified over the last week of testing.
+
+  there are no more pending
+  items for the 0.0.4 release.  unless somebody finds a showstopper bug by
+  monday, i'll just update the version number and call this release 0.0.4.
+  as ever, you can download the code
+  
+  or read the release notes.
+  {signature}
+may 30, 2003 03:37 est
+
+  mixminion 0.0.4rc2 is available for testing!
+  thanks to three hours experience of testing mixminion 0.0.4rc1, we
+  finally tracked down a critical bug that's been crashing people's servers
+  since 0.0.3.  it's better now.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+may 30, 2003 00:04 est
+
+  mixminion 0.0.4rc1 is avaialable for testing!  directories are more
+  automated, servers are more stable, key rotation is in, keys are longer,
+  mmtp is better, key generation is automatic, server statistics are
+  started, and the code is generally cleaner.
+  this release breaks backward compatibility; everyone should upgrade
+  and look for bugs before the real release is out.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+february 20, 2003 13:32 est
+
+  mixminion 0.0.3 is finally out!
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+february 17, 2003 11:31 est
+
+  the second release candidate for mixminion 0.0.3 is available.
+  everyone should upgrade
+  and look for bugs before the real release is out.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+february 13, 2003 06:47 est
+
+  the first release candidate for mixminion 0.0.3 is available.
+  reply blocks and client side pooling are implemented.
+  this release breaks backward compatibility; everyone should upgrade
+  and look for bugs before the real release is out.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+january 10, 2003 17:02 est
+
+  there's another bugfix release in the 0.0.2 series: mixminion
+  0.0.2.2.  if you are running a server, you'll want to upgrade.  if
+  not, this version changes nothing for you.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+january 7, 2003 23:18 est
+
+  released a bugfix patch as mixminion version 0.0.2.1.
+  if you are running a server, you will want to upgrade.
+  you can download the code
+  
+  or read the release notes.
+  {signature}
+january 7, 2003 00:43 est
+
+  mixminion version 0.0.2 is available for bigger
+  fun and tougher
+  testing!  you can download the code
+  
+  or read the release notes.
+  {signature}
+december 16, 2002
+
+  mixminion version 0.0.1 is available for fun and
+  testing!  you can download the code
+  , or read the release notes.
+
+

@@ -1,0 +1,297 @@
+
+
+
+
+nci/cadd group chemoinformatics tools and user services
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+home |
+about | contact |
+disclaimer | privacy | notes
+
+
+
+ 
+nci/cadd group
+
+
+
+
+if you notice any problems with the server please send email to marc nicklaus at mn1@mail.nih.gov 
+ 
+ 
+ 
+cadd group chemoinformatics tools and user services
+
+
+online services | tools & software | 
+		downloads | links & data | 
+		blog
+
+
+
+
+
+general information
+
+
+the nci/cadd group is a research unit within the 
+		chemical biology laboratory
+		at the national cancer institute. 		
+		read more about the cadd group's chemoinformatics tools and user services. or, visit 
+		our blog.
+happy 25th anniversary, cactus!
+
+
+online services
+
+
+to search and display chemical structures here, you will need java/javascript to be enabled on your browser.
+accessibility (section 508): we want to hear from users with disabilities, especially visually impaired users, 
+		where they have experienced particular difficulties in using our site.  if you are a visually impaired user, 
+		please e-mail m.c. nicklaus and team with your experiences and suggestions.
+
+
+chemical activity predictor
+
+			this service is the first one of our new apps. it provides the prediction of a (growing) number
+			of small molecule properties calculated by qsar models created with the gusar software. beta version.
+			--- due to ever stricter security mandates, this service unfortunately had to be turned off.
+			as an alternative, you can try out the nih/ncats predictor service,
+			which contains many more models than the chemical activity predictor.
+		
+
+
+chemical identifier resolver
+
+			this service works as a resolver for different chemical structure identifiers and allows 
+			the conversion of a given structure identifier into another representation or structure identifier. 
+			it can be used via a web form or a simple url api.
+		
+
+
+enhanced nci database browser release 2.2
+
+			a web service to the open nci database compounds (>250,000 structures) with different kinds of output
+			features and links to other services for continued processing (version
+			2.2 is a 2013 technical overhaul).
+		
+
+
+tautomerizer
+
+			allows you to test a set of 86 different tautomeric transforms with your own molecules. in addition
+			to the standard rules of the chemoinformatics toolkit cactvs,
+			 there are 60+ additional rules compiled in the context of the iupac project of 
+			
+			redesign of the handling of tautomerism in inchi v2.
+
+
+
+chemical structure lookup service (csls)
+
+			look up whether a structure occurs in many different databases, both public and commercial.
+			currently loaded pointers to: over 74 million entries from more than 100 databases, representing more than
+			46 million unique chemical structures.
+		
+
+
+prosit: online pseudorotation tool version 2
+
+			pseudo-rotational online service and interactive tool (prosit).  calculates, and displays in tabular
+			format, the pseudorotation parameters (p, chi, nu_max) and other useful information for
+			3d structures of nucleosides, nucleotides and analogs thereof, as well as for dna and rna single and
+			double strands, whether by themselves or complexed with a protein.  you can request a visual output of the 
+			found nucleoside (analog) or (oligo-)nucleotide in 2d or 3d.
+		
+
+pseudorotation visualization: ancillary tool to modify the pseudorotation parameters p and nu_max interactively,
+			and observe the resulting conformational changes in a 3d model of a five-membered ring.
+		
+
+
+online smiles translator
+
+			web-based smiles translation service. converts smiles strings, sdf, pdb, mol and other
+			formats into usmiles, and sdf, pdb and mol file formats. 
+		
+
+
+gif creator for chemical structures
+
+			computer-generated gif and png images of chemical structures for www pages etc. from your 2d or
+			3d input files. forms-based interface, automatic generation of 2d display coordinates for structures
+			without them. 
+		
+
+
+vrml creator for chemical structures
+
+			generation of vrml scenes from your 2d or 3d data files. automatic generation of 3d coordinates
+			if not contained in the input structure. many display options to control the visual appearance.
+		
+
+
+tools and software
+
+
+optical structure recognition (osra)
+
+			converts graphical representations of chemical structures in journal articles, 
+			patent documents, textbooks, trade magazines etc., into smiles. osra can read 
+			over 90 graphical formats including gif, jpeg, png, tiff, pdf, ps etc.
+		
+
+osra web interface: an online demonstration of the capabilities of osra.
+		
+
+
+sdf toolkit
+
+			toolkit (programmed in perl 5) providing functions to read and parse structure files in mdl's 
+			sdf format, such as filter and add/remove properties, select individual records out of large sd
+			files etc. a windows version is also available.
+		
+
+
+subset
+
+			a fast clustering program for computation of a representative subset of a large dataset.
+			applicable, but not limited, to chemical databases.
+		
+
+
+reactioncode
+
+                        reactioncode is a versatile format for searching, analysis, classification, transform, and encoding/decoding of reactions" as a description.
+                
+
+
+downloads
+
+
+pubchem structure + assay download page
+
+			download sd files of structures from pubchem with assay data included as properties, 
+			suitable for building qsar or other types of models. 
+		
+
+
+nci database download page
+
+			download the "raw" data in bulk format that were used in building the enhanced nci database browser. 
+		
+
+
+fda spl download page
+
+                  download a mapping file to, or (older) sd file versions of, structured product labeling (spl) index files of substances indexed by fda.
+                
+
+
+hiv-1 integrase inhibitor download page
+
+                  download structures and annotations of hiv-1 integrase inhibitors collected from literature.
+                
+
+
+savi products download page
+
+		  download products and other associated data of our synthetically accessible virtual inventory (savi) project: computational generation of a very large database of reliably and inexpensively synthesizable novel compounds with desirable properties for drug development.
+                
+
+
+tautomerism database download page
+
+                   download a spreadsheet with 5,977 structures extracted from experimental literature containing 2,819 cases of tautomeric tuples, annotated with experimental conditions, structure identifiers, bibliographic references, and preliminary analysis of the tautomerism involved in each case. (release 3) 
+
+
+
+multi-species acute toxicity database download page
+
+                download a spreadsheet with toxicity measurements for 80,081 unique compounds (compounds that also went into the rtecs® database)
+                
+
+
+irl-based screening sample download page
+
+                   download an nci/cadd group curated set of over 140 million compounds based on iresearch™ library (irl) commercial screening samples (http://www.chemnavigator.com/nih.asp). 
+
+
+
+claimed small-molecule structures in nci/nih patents
+
+                   download a database of about 12,700 structures extracted from patents filed by nci/nih, granted through september 2019. 
+
+
+
+links and data
+
+
+chemistry search services on the web
+
+			a table of searchable small molecule databases available on the web, listing urls
+			and an (incomplete) survey of the services' features and capabilities.  contains u.s. government,
+			academic, and commercial web sites. 
+		
+
+
+meeting presentations & other documents
+
+			presentations from various meetings, conferences and other associated documents. 
+		
+
+
+webdepict
+
+			webdepict. 
+		
+
+
+historical page:  other public chemical data
+
+                        an early list of urls that point to other public chemical (or chemistry-related) information. currently limited
+                        to u.s. government web sites. these sites may contain search capabilities and/or other public datasets.  note: many of these sites and links do not work any more as of 2023.
+
+
+ 
+
+m.c. nicklaus and team
+last update: 2024-05-13
+
+
+
+
+
+
+ 
+            nih…turning discovery into health®
+u.s. department of health and human services     |     national institutes of health     |     national cancer institute     |     usa.gov
+home  |  contact  |  policies  |  accessibility  |  viewing files  |  foia  |  hhs vulnerability disclosure
+ 
+ 
+
+
+
+
+
+
+

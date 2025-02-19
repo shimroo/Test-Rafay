@@ -1,0 +1,874 @@
+
+
+
+haskell language
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+get started
+downloads
+playground
+community
+documentation
+security
+donate
+blog
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+an advanced, purely functional programming language
+
+
+
+
+
+
+declarative, statically typed code.
+
+primes = filterprime [2..] where
+  filterprime (p:xs) =
+    p : filterprime [x | x <- xs, x `mod` p /= 0]
+
+
+
+
+
+
+
+get started
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+try it!
+
+
+try haskell requires javascript to be enabled.
+
+
+
+try haskell requires cookies to be enabled.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+videos
+
+
+
+
+
+
+
+
+escape from the ivory tower: the haskell journey, by simon peyton-jones
+
+
+
+
+
+
+
+functional programming & haskell, by computerphile / john hughes
+
+
+
+
+
+
+
+past and present of haskell – interview with simon peyton jones
+
+
+
+
+
+
+
+functional programming in haskell, by graham hutton
+
+
+
+
+
+
+
+what is a monad? by computerphile / graham hutton
+
+
+
+
+
+
+
+the haskell unfolder: dijkstra's shortest paths, by andres löh and edsko de vries
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+testimonials
+
+
+
+
+
+
+
+
+
+
+
+
+bellroy
+
+we've found the stability, maintainability and performance of
+haskell to be exceptional and we look forward to more of that in the
+years to come.
+
+
+
+
+
+
+
+
+
+
+
+
+bitnomial
+
+haskell gives us huge leverage over our complex business domain
+while allowing us to stay nimble and innovate. the type system
+allows us to integrate new knowledge quickly and refactor our
+sizeable code base with relative ease.
+
+
+
+
+
+
+
+
+
+
+
+
+calabrio
+
+at calabrio we use haskell to build our customer intelligence and
+analytics platform (calabrio advanced reporting). haskell's robust
+typing and semantics offer us important guarantees for our data
+operations and processes.
+
+
+
+
+
+
+
+
+
+
+
+
+centralapp
+
+we use haskell... because solving complex problems well requires the
+best tools in the business.
+
+
+
+
+
+
+
+
+
+
+
+
+e-bot7
+
+haskell allows us to create powerful, reliable software with
+confidence. it allows us to detect unwanted behavior before it shows
+up in our production environment.
+
+
+
+
+
+
+
+
+
+
+
+
+finn.no
+
+finn.no is an online classified ad site, and we use haskell in
+production. it allows us to express business logic with focus on
+correctness and we benefit greatly from the safe and joyful
+refactoring haskell brings.
+
+
+
+
+
+
+
+
+
+
+
+
+fission
+
+haskell enables fission to build rock solid, maintainable, and performant services and tools.
+
+
+
+
+
+
+
+
+
+
+
+
+foxhound systems
+
+at foxhound systems, we build custom software for a variety of
+clients. haskell is our first choice for building production
+systems because it is unrivaled in the combination of developer
+productivity, maintainability, reliability, and performance
+that it offers.
+
+
+
+
+
+
+
+
+
+
+
+
+hasura
+
+haskell is an ideal prototyping tool, when we want to build an mvp
+and get a prototype out as quickly as possible...haskell lets us be
+precise when we need to be, and fast when we want to be.
+
+
+
+
+
+
+
+
+
+
+
+
+imagine ai
+
+imagineai is a smart code generator written in haskell that
+instantly turns your app spec into clean django and node source
+code.
+
+
+
+
+
+
+
+
+
+
+
+
+iohk
+
+smart contract systems are largely about programming languages, 
+and when it comes to programming languages work there 
+is no competitor to haskell. 
+
+
+
+
+
+
+
+
+
+
+
+
+mercury
+
+mercury offers banking for startups â at any size or stage. we use
+haskell to meet our customers' high standards for correctness and
+security.
+
+
+
+
+
+
+
+
+
+
+
+
+noredink
+
+the highest-traffic features of noredink.com are now served via
+haskell. we've seen a huge performance improvement compared to what
+was previously doing that work as well as a massive
+reduction in production error rates.
+
+
+
+
+
+
+
+
+
+
+
+
+scarf
+
+haskell powers scarf's backend, helping us move fast and not break
+things. it offers unparalleled maintainability, so we can quickly
+and safely adapt our system to the moving target of customer
+demands.
+
+
+
+
+
+
+
+
+
+
+
+
+scrive
+
+scrive uses haskell to build secure and scalable e-signing, programmable document workflows and customer onboarding solutions.
+the haskell language comes with a developer community that is a pleasure to work in (and with).
+
+
+
+
+
+
+
+
+
+
+
+
+serokell
+
+haskell enables us to build reliable, performant, and maintainable
+applications for our clients in biotech, fintech, and blockchain.
+
+
+
+
+
+
+
+
+
+
+
+
+stack builders
+
+haskell makes it possible to maintain an edtech platform in 23
+languages for more than 70k users from one of the largest
+multinational financial services corporations.
+
+
+
+
+
+
+â«
+â»
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+features
+
+
+statically typed
+every expression in haskell has a type which is determined at compile time. all the types composed together by function application have to match up. if they don't, the program will be rejected by the compiler. types become not only a form of guarantee, but a language for expressing the construction of programs.
+click to expand
+
+all haskell values have a type:
+char = 'a'    :: char
+int = 123     :: int
+fun = isdigit :: char -> bool
+
+you have to pass the right type of values to functions, or the compiler will reject the program:
+
+type error
+isdigit 1
+
+you can decode bytes into text:
+bytes = crypto.hash.sha1.hash "hello" :: bytestring
+text = decodeutf8 bytes               :: text
+
+but you cannot decode text, which is already a vector of unicode points:
+
+type error
+doubledecode = decodeutf8 (decodeutf8 bytes)
+
+
+
+
+purely functional
+every function in haskell is a function in the mathematical sense (i.e., "pure"). even side-effecting io operations are but a description of what to do, produced by pure code. there are no statements or instructions, only expressions which cannot mutate variables (local or global) nor access state like time or random numbers.
+click to expand
+
+the following function takes an integer and returns an integer. by the type it cannot do any side-effects whatsoever, it cannot mutate any of its arguments.
+square :: int -> int
+square x = x * x
+the following string concatenation is okay:
+"hello: " ++ "world!" 
+the following string concatenation is a type error:
+
+type error
+"name: " ++ getline
+
+because getline has type io string and not string, like "name: " is. so by the type system you cannot mix and match purity with impurity.
+
+
+
+
+
+type inference
+you don't have to explicitly write out every type in a haskell program. types will be inferred by unifying every type bidirectionally. however, you can write out types if you choose, or ask the compiler to write them for you for handy documentation.
+click to expand
+
+this example has a type signature for every binding:
+main :: io ()
+main = do line :: string <- getline
+          print (parsedigit line)
+  where parsedigit :: string -> maybe int
+        parsedigit ((c :: char) : _) =
+          if isdigit c
+             then just (ord c - ord '0')
+             else nothing
+but you can just write:
+main = do line <- getline
+          print (parsedigit line)
+  where parsedigit (c : _) =
+          if isdigit c
+             then just (ord c - ord '0')
+             else nothing
+you can also use inference to avoid wasting time explaining what you want:
+do ss <- decode "[\"hello!\",\"world!\"]"
+   is <- decode "[1,2,3]"
+   return (zipwith (\s i -> s ++ " " ++ show (i + 5)) ss is)
+ => just ["hello! 6","world! 7"]
+types give a parser specification for free, the following input is not accepted:
+do ss <- decode "[1,2,3]"
+   is <- decode "[null,null,null]"
+   return (zipwith (\s i -> s ++ " " ++ show (i + 5)) ss is)
+ => nothing
+
+
+
+concurrent
+haskell lends itself well to concurrent programming due to its explicit handling of effects. its flagship compiler, ghc, comes with a high-performance parallel garbage collector and light-weight concurrency library containing a number of useful concurrency primitives and abstractions.
+click to expand
+
+easily launch threads and communicate with the standard library:
+main = do
+  done <- newemptymvar
+  forkio (do putstrln "i'm one thread!"
+             putmvar done "done!")
+  second <- forkio (do threaddelay 100000
+                       putstrln "i'm another thread!")
+  killthread second
+  msg <- takemvar done
+  putstrln msg
+use an asynchronous api for threads:
+do a1 <- async (geturl url1)
+  a2 <- async (geturl url2)
+  page1 <- wait a1
+  page2 <- wait a2
+  ...
+atomic threading with software transactional memory:
+transfer :: account -> account -> int -> io ()
+transfer from to amount =
+  atomically (do deposit to amount
+                 withdraw from amount)
+atomic transactions must be repeatable, so arbitrary io is disabled in the type system:
+
+type error
+main = atomically (putstrln "hello!")
+
+
+
+
+
+
+lazy
+functions don't evaluate their arguments. this means that programs can compose together very well, with the ability to write control constructs (such as if/else) just by writing normal functions. the purity of haskell code makes it easy to fuse chains of functions together, allowing for performance benefits.
+click to expand
+
+define control structures easily:
+when p m = if p then m else return ()
+main = do args <- getargs
+          when (null args)
+               (putstrln "no args specified!") 
+if you notice a repeated expression pattern, like 
+if c then t else false
+you can give this a name, like 
+and c t = if c then t else false
+and then use it with the same effect as the original expression.
+get code re-use by composing lazy functions. it's quite natural to express the any function by reusing the map and or functions:
+any :: (a -> bool) -> [a] -> bool
+any p = or . map p
+reuse the recursion patterns in map, filter, foldr, etc.
+
+
+
+packages
+open source contribution to haskell is very active with a wide range of packages available on the public package servers.
+click to expand
+
+there are 6,954 packages freely available. here is a sample of the most common ones:
+
+
+bytestring
+binary data
+base
+prelude, io, threads
+
+
+network
+networking
+text
+unicode text
+
+
+parsec
+parser library
+directory
+file/directory
+
+
+hspec
+rspec-like tests
+attoparsec
+fast parser
+
+
+monad-logger
+logging
+persistent
+database orm
+
+
+template-haskell
+meta-programming
+tar
+tar archives
+
+
+snap
+web framework
+time
+date, time, etc.
+
+
+happstack
+web framework
+yesod
+web framework
+
+
+containers
+maps, graphs, sets
+fsnotify
+watch filesystem
+
+
+hint
+interpret haskell
+unix
+unix bindings
+
+
+sdl
+sdl binding
+opengl
+opengl graphics system
+
+
+criterion
+benchmarking
+pango
+text rendering
+
+
+cairo
+cairo graphics
+statistics
+statistical analysis
+
+
+gtk
+gtk+ library
+glib
+glib library
+
+
+test-framework
+testing framework
+resource-pool
+resource pooling
+
+
+conduit
+streaming i/o
+mwc-random
+high-quality randoms
+
+
+quickcheck
+property testing
+stm
+atomic threading
+
+
+blaze-html
+markup generation
+cereal
+binary parsing/printing
+
+
+xml
+xml parser/printer
+http-client
+http client engine
+
+
+zlib
+zlib/gzip/raw
+yaml
+yaml parser/printer
+
+
+pandoc
+markup conversion
+binary
+serialization
+
+
+tls
+tls/ssl
+zip-archive
+zip compression
+
+
+warp
+web server
+text-icu
+text encodings
+
+
+vector
+vectors
+async
+async concurrency
+
+
+pipes
+streaming io
+scientific
+arbitrary-prec. nums
+
+
+process
+launch processes
+aeson
+json parser/printer
+
+
+dlist
+difflists
+syb
+generic prog.
+
+
+
+
+
+
+
+
+
+
+
+
+sponsors
+
+
+
+
+fastly's next generation cdn provides low latency access for all of haskell.org's downloads and highest traffic services, including the primary hackage server, haskell platform downloads, and more.
+
+
+status.io powers https://status.haskell.org, and lets us easily tell you when we broke something.
+
+
+
+
+equinix metal provides compute, storage, and networking resources, powering almost all of haskell.org in several regions around the world.
+
+
+dreamhost has teamed up to provide haskell.org with redundant, scalable object-storage through their dream objects service.
+
+
+
+
+galois provides infrastructure, funds, administrative resources and has historically hosted critical haskell.org infrastructure, as well as helping the haskell community at large with their work.
+
+
+scarf provides data and insights on the adoption of haskell in order to support efforts to grow the haskell ecosystem and facilitate industry support for the language.
+
+
+
+
+
+
+
+
+haskell.org
+            hosted and managed by haskell.org, a 501(c)(3) non-profit.
+
+            psst! looking for the wiki?
+this is the new haskell home page! the wiki has moved to wiki.haskell.org.
+
+
+
+
+
+
+
+
+
+
+â© 2014â2025 haskell.org
+
+got changes to contribute to the site? fork or comment on github
+
+hosted on 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

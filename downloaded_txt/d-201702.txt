@@ -1,0 +1,197 @@
+
+
+
+
+
+badsegue.org
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ badsegue.org
+ • • • • •
+
+ 
+      something you might want to know 
+    
+
+
+
+
+some information that might be of use to someone, at discount prices.
+
+pagesnetflix queue manager
+thumbnail image grabber
+ categories				
+all gps
+
+software
+
+netflix
+
+photo
+
+movies
+
+
+
+
+
+
+archives				
+2009
+2007
+2006
+2005
+
+
+meta				
+log in
+valid xhtml
+xfn
+
+
+
+
+
+
+
+july 15, 2009
+
+ 
+        netflix ratings grabber 
+        
+ 
+        category: 
+        netflix,software — badsegue @ 11:10 pm 
+         
+      
+
+update!
+this script should work again.  netflix had changed their urls and page layouts, but you should now be able to download you and your friend’s ratings.
+download your entire netflix movies you’ve rated list!
+netflix provides the capability to browse your entire ratings history.  but unlike your rental history they don’t provide a way to easily get your whole ratings history.   this script will do the work for you, browsing to each page of your ratings, extracting the raw data, and collecting the results.  the results are in a format suitable for importing into a spreadsheet, where you can do whatever it is you want to do with them.
+installation
+the script is a bookmarklet, which is just javascript that is invoked when you select a bookmark (or favorite) in your browser.   simply drag the link below to  your toolbar or right-click to add to your favorites:
+netflix ratings grabber [bookmark me!]. 
+usage
+to use the script just go to any netflix page logged into the account profile for which you want the ratings history, and select the netflix ratings grabber bookmark.
+the script will create an overlay on the current page and start fetching your ratings in a hidden frame when you press start:
+
+it will probably take a long time to download all your ratings.  as each page is fetched in the background the status count is updated so you can track the progress.   the results are placed into a textbox in, delimited with tildes (“~”).
+you can use the links in the upper right to stop after completing the current page of results.  use the same link to resume.   you can also reveal the hidden frame used to load the ratings pages; this will likely slow the process, so it is not shown by default.
+when the fetching is completed or stopped by the user the results will automatically be selected, so simply copy the results to your clipboard (ctrl-c) and paste it into a text file.  it’s easy to get this data into excel or another spreadsheet package; just import it as a csv file, and specify “~” as the delimiter. 
+here are my top 300 rated movies.
+update!
+now you can also download the ratings of your friends.  when loaded, the script will try to gather all the netflix friends you have, and populate a drop-down list.   the friends listing doesn’t have the same details as your personal listing, so you won’t have the genre, mpaa, and year info.
+
+
+comments (0)
+
+
+
+• • •
+april 18, 2009
+
+ 
+        imeem login bypass greasemonkey script 
+        
+ 
+        category: 
+        software — badsegue @ 11:12 pm 
+         
+      
+
+use imeem without a login!
+this simple script makes it possible to use imeem without an account.   once installed, you’ll be able to use imeem without seeing that login box that pops up every so often.
+install this as you would any greasemonkey script:
+imeem login bypass
+
+
+comments (0)
+
+
+
+• • •
+june 29, 2007
+
+ 
+        netflix implements their own drag and drop 
+        
+ 
+        category: 
+        netflix,software — badsegue @ 10:16 pm 
+         
+      
+
+netflix has finally provided their own drag-and-drop capability on their queue page.  if you have this enabled, it will interfere with the queue manager.  greasemonkey users of the netflix queue manager script should disable the greasemonkey script if they prefer the new netflix page.  if you wish to continue using the queue manager script you can disable the new netflix feature.  simply access your account options page and make sure the “enable drag and drop in the queue” option is unchecked.  
+the standard netflix queue still lacks any sorting or randomizing capabilities.
+
+
+comments off on netflix implements their own drag and drop
+
+
+
+• • •
+march 26, 2006
+
+ 
+        netflix tools update 
+        
+ 
+        category: 
+        netflix,software — badsegue @ 12:41 pm 
+         
+      
+
+updates
+netflix recently updated the visual appearance of their site, which caused some problems for the netflix queue manager and the netflix ratings grabber.  if you notice that either of these are not working as before, clear your browser’s cache to force the latest versions to load.
+the changes netflix made really seem to slow down page loads, especially on the queue page.  they also reorganized some of the page elements, so now the dvds awaiting release form is now inside the same form that contains the dvds currently in your queue.  this threw off the manager code that extracts the page elements.  that outer form is hidden when the manager loads, so now the unreleased dvd list is also hidden.
+the ratings grabber was updated to handle changes in the class names used on the ratings history page.
+
+
+comments off on netflix tools update
+
+
+
+• • •
+next page »
+
+
+
+
+
+
+
+
+
+

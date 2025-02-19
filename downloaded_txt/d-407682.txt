@@ -1,0 +1,199 @@
+
+
+obd diagnostics
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+products:
+
+
+obd2 scan tools
+gm obd1 cables
+mefi scan & tune
+mefi scan 1-4
+mefi 5 tune
+mefi 5/6 scan
+555 scan
+slingshot scan
+slingshot tune
+marine ecms
+merc 555 ecms
+ecm repair
+ramjet tuning
+custom mefi tuning
+vehicle connectors
+j1939 solutions
+injectimer
+extender cables
+adapters
+custom cables
+
+
+
+
+
+
+
+
+
+
+
+
+
+shipping info
+diagnostic software
+instruction sheets
+how to use video
+elm327 data  sheet
+warranty / returns
+contact us
+obd2 links & info
+internet forums
+our competitors
+beyond scanning
+parts & accessories
+testimonials
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+gm obd1 cables
+
+low cost aldl obd1 cables - $69.95
+
+
+
+
+12-pin version
+
+
+16-pin version
+
+
+
+
+3 things neededthere are basically 3 things you need to record diagnostic data from a gm based on board diagnostic 1 ( obd1 ) system on your 1982 - 1995 era car. 1 - a pc computer, preferably a laptop, to collect, log, and analyze the obd data.2 - an aldl cable to interface your pc computer to the aldl obdi diagnostic port on your car.3 - a software program running on your pc to capture the obd data. 
+why this setup?what is the reason for having the above setup for yourself? mainly, you now have a powerful tool to analyze your cars obd data yourself, better even than the specialized scanning tools only dealerships and big shops had in the distant past. with your own setup, if your service engine soon ( ses ) light comes on you can look at detailed obd data for yourself to see what trouble codes have been set and the conditions they were set under, possibly saving you money in repair costs by knowing what is or isn't wrong with your car. for many, it is quite interesting to be able to see your car's sensor systems working in real time, and even having the potential to upgrade performance through prom reprogramming of your cars ecm/pcm (not for the beginner). 
+the aldl cablelet's look at the aldl (assembly line diagnostic link) obd1 interface cable first, since we sell low cost aldl obd1 interface cables. it may possibly be the only thing you will need to buy to do your own diagnostics. you can make your own cable, but it is much quicker and less headache to buy one already assembled and tested. 
+under your cars dash you will most likely see this style connector: 
+
+
+
+there are other styles of connectors, but the 12 pin obd1 connector shown above is the most common. some 1994-95 cars have the 16 pin obd2 connector (shown below), corvette's, camaro's, and lt1 cars among them, as well as newer australian holden and commodore. even though it is an obd2 connector, it has an obd1 system behind it on these 94-95 cars. if you have a 94 or 95 car with the 16 pin connector, we sell 16 pin usb aldl connector cables for it here. you can also program the instrument cluster on the 2004, 2005 and 2006 pontiac gto with our 16 pin usb aldl cable as shown with the instrument cluster programming software here.  other newer cars and trucks may work the same.
+
+
+make sure you buy the correct aldl cable setup for your car or cars. you can buy an aldl cable with an obd1 12 pin connector shell, or obd2 style 16 pin connector shell, or a cable with just a bare male pin, to plug into your cars female connector serial data pin location (pin m or e or 9 on the diagrams above). the aldl cable with the male obd1 connector shell will allow you to just feel under the dash and plug the cable in. the cable with just the bare pin requires you to look under the dash and plug into the correct pin on the car side of the connector. if you have both 12 pin and 16 pin cars to diagnose and data log, you can buy just the bare pin usb cable, but is less convenient to use. 
+ 
+the quick paper clip testsince we are looking at the connector pins, it should be mentioned here that a quick method to see which trouble code or codes are being set in your cars ecm is to jumper the a and b pins of the 12 pin aldl obd1 connector with a paper clip. while the car is off, sitting still, turn the ignition key forward while this jumper is in place. do not start the car. the service engine soon ( ses ) light will flash in a repeating sequence, telling which trouble codes have been set in the ecm. a service manual for your year car will have a chart outlining what each trouble code stands for, or this trouble code website can be of help. this paper clip method will tell you the trouble code or codes set in your ecm, but it will not tell you what conditions the trouble code is being set under, or let you clear the trouble codes on the fly, as the aldl cable and pc setup will. 
+what pc's workyou will need a pc to run your scanning or diagnostic software, preferably a laptop pc. the hardware requirements for the pc are largely dictated by what scanning or diagnostic software you plan on running. some of the scanning programs are very simple dos based programs, others are more graphically intensive. look at the software links we have posted and read the hardware requirements for the program you are thinking of using. for the most part, the simple dos programs can be run on very old, 486 based laptops with very little memory ( <16mb ). the more advanced graphical scanning programs, such as tts datamaster and efilive, still have very modest hardware requirements, requiring windows 95 or newer, a 90mhz or greater pentium cpu, and 32mb of ram or greater. if you do not already have a laptop, these are approximately 1996 era laptops and can be had for very little money off of ebay, many times for less than $50.
+ 
+whatever pc you end up using, it must be equipped with a usb interface or a serial (rs-232) interface. all newer laptop computers only have a usb interface, as seen here: 
+
+
+almost all older laptops and pc's come with the serial interface built into the computer itself. it will be a 9 pin male connector that looks like the connector on left. the connector on the right is a 15-pin video connector, not a serial port. 
+
+
+if you have an ancient laptop that does not have a usb interface, buy our serial aldl cable.
+the diagnostic softwarethe last item needed is the diagnostic software that will run on your laptop to collect and record the data from your obd1 system. there are a number of excellent software packages available, with some of them being free and others giving you a trial period of fully functional use. screen shots and links to each website are provided below for each of the software packages i have found and loaded up for myself. i'm not endorsing one scanning package over another, as they all have their place and will provide critical data. i can say i've used tunerpro rt the most, and it is an excellent package in the way it's laid out and the data it provides. i've also used tts datamaster, and it is also an excellent package in the way it's laid out and the data it provides. you can use it 20 times on data recording runs before purchasing a key, and you can view previously recorded data any number of times while on trial, before purchasing a key. for the 160 baud cars, winaldl seems to be the most widely used package and jonas bylund has done a great job with it. 
+below are some screen shots of some of the software packages. there are many more screens to all of these packages, i've just included a few for viewing here. you can click on the image to get a larger view, and the title link below the picture will take you to the packages website. 
+tts datamaster 
+winaldl 
+efilive v4 
+freescan 
+moates free gmecm 
+carbytes and aldl_log 
+for each of these packages, the proper version or data file for your car's ecm/pcm must be used when you are doing your data collection. some of these programs have different data files that must be loaded for your car, others have drop down menus for you to chose your ecm/pcm. read the documentation for the particular software package you are using. to determine which ecm/pcm your particular car has, this ecm/pcm cross reference page may be of use. 
+
+in car operationin car operation is fairly straight forward. ideally it takes just a few steps: plug the aldl cable connector into your obd port under the dash and into your pc (see the instructions here). fire up your laptop and start whatever data collection or tuning program software you use, and turn the car key forward to start the data stream flowing. click the record button in the software package, and start logging data. view data later on to see and review results.
+if you have the bare pin cable, you will have to look under your dash to plug the male pin from the aldl cable into the correct female pin in the cars connector. on the standard 12 pin obdi connector, this will usually be pin m on the 8192 baud rate cars, or pin e on 160 baud rate us domestic cars.  if you have a old mid 1980's carbureted car with the 12 pin aldl, you have a 12v aldl system that works off pin d and you will need to build your own cable, see this winaldl page. various other makes have slightly different pin assignments and connector shapes, so find the correct connector pin location on your car for the serial data pin. this page on connector layouts should help. for example, lotus owners who have different shaped connectors will plug into their pin g - see http://turboesprit.tripod.com/aldl_cable/
+older 160 baud aldl cars (such as early tpi's like gm 1227165 ecm, 1986-89 5.0 and 5.7 v8's) will require a 10kohm resistor to be plugged in between pins a and b on the 12 pin aldl connector in order to put the car into "aldl mode" and have the serial data start flowing. the 10kohm resistor is built into our cable and is enabled with a simple jumper setting. 
+we have found in car operation to be more reliable by using a dc to ac inverter to power our laptop while doing data collection runs. we purchased a small coleman 400 watt inverter at a costco or sam's club type store for $20 and it worked great. we didn't have to worry about the battery on the laptop discharging, and we could leave the laptop running for hours, even with the car turned off while we were taking a break. a good thing is you can just pause your data recording session during this time and start it again when you are ready.
+
+
+
+
+beyond scanning - ecm upgrades, prom burningonce you have seen how your car's data looks, some people will want to upgrade or change their ecm/pcm parameters by either buying an upgraded prom or pcm calibration, or by burning their own custom prom calibrations.
+the simpler route, by far, is to buy a custom chip or calibration that is already programmed for your car, whether modified or stock. we can highly recommend these very experienced sources:
+http://www.tbichips.com/ http://www.pcmforless.com/ http://www.madtuner.com/
+burning your own prom takes more hardware and software, and a lot more knowledge. good sites to get smart on prom chip burning are at: 
+http://www.thirdgen.org/promintro http://www.tunerpro.net/http://www.tunercat.com/http://www.carputing.com/
+be aware the you can seriously damage your car by burning or loading the wrong parameters into your prom. study up on chip burning very carefully before even beginning to consider doing it for yourself.
+other setups and useful linksthe amount of information available about obd systems and their operation is quite large, and much reading can be found on the internet. we build simple, low cost aldl cables and do not have a fleet of cars and trucks we test every scenario on. for support, the various internet forums and manufactures sites can be great places to find information about your particular car or setup. included below are some links to various material we have found to be useful. 
+scanning and tuning software:
+tunerpro - http://www.tunerpro.net/winaldl - http://winaldl.joby.se/tts datamaster - http://www.ttspowersystems.com/datamaster_downloads2.htmlfreescan - http://www.andywhittaker.com/en-gb/ecu/freescan.aspxefilive - http://www.efilive.com/additional-downloads tunercat - http://www.tunercat.com/carbytes - http://www.efilive.com/additional-downloads moates free gmecm - http://www.moates.net/gmecm/software.htmlaldl_log - http://www.techedge.com.au/vehicle/aldl160/aldl_sw.htm pontiac-interface.de - http://www.pontiac-interface.de/ aldmon for 1227727 and 1227730 - pweb.de.uu.net/pr-meyer.h/aldl.htmdiacom plus - http://www.rinda.com/auto/auto.htmpcmcomm 16188051 - http://carputing.tripod.com/9495lt1edit.htmelanscan - http://www.alanmcnicol.dsl.pipex.com/m100_aldl.htmllt1-edit - http://www.carputing.com/gm 6.5 turbo diesel scan - http://www.enghmotors.com/basic/default.aspx
+other cable setups and interesting links:
+ecm/pcm cross reference - http://www.exatorq.com/ludis_obd1/lt1 pcm tuning - http://www.lt1pcmtuning.com/great gm efi resource - http://www.gearhead-efi.com gm trouble code chart - http://www.troublecodes.net/gm/ gm 8192/160 aldl - http://www.techedge.com.au/vehicle/aldl8192/8192hw.htm custom tbi/tpi chips - http://www.tbichips.com/custom pcm/ecm chips - http://www.pcmforless.com/custom pcm/ecm programming - http://www.madtuner.com/gm ecm, diy_efi - http://www.diy-efi.org/gm efi tuning tutorial - http://home.comcast.net/~khiester200035/obd connector styles - http://www.makinterface.de/aldl_e.php3aldl obd1 pinout diagram - http://www.gmtips.com/3rd-degree/dox/tips/ecm/aldl.htm dan's aldl information - http://www.ws6transam.org/aldl.htmlmoates hardware - http://www.moates.net/gmecm/hworder.htmlwot cables - http://www.wotelectronics.com/cables.htmlakm interface cables - http://www.akmcables.comromulator - http://www.hondata.com/romulator.htmlleroy diesel - http://www.leroydiesel.comobd2 scan tool and obd ii tuning - http://www.obd2allinone.com/
+experiences from the field and what others have faced: 
+http://www.thirdgen.org/techboard/ http://www.camaroz28.com/forums/ http://forums.corvetteforum.com/c4-scan-and-tune-82/http://cable.invisibill.net/
+
+
+
+
+
+
+
+
+
+
+
+call toll free (usa only) 888-469-3274
+obd2 |
+gm obd1 |
+marine ecms |
+mefiburn |
+j1939 |
+ramjet
+
+
+
+obd diagnostics, inc., redondo beach, ca 90278
+tel: 310-793-2410    
+email: sales@obd2allinone.com
+terms and conditions     privacy policy
+
+
+
+
+
+
+

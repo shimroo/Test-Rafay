@@ -1,0 +1,268 @@
+
+
+radified: aspi layer drivers updated with force aspi [forceaspi v1.7]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+posted: 
+          13june2001
+p
+          a
+          g
+          e
+
+o
+          n
+          e
+
+          o
+          f
+
+          t
+          w
+        o
+
+
+  
+            •  
+              
+            
+   
+            • 
+
+
+
+
+
+
+the term 'aspi' is an acronym 
+          that stands for: advanced scsi programming interface. 
+          all the following terms are synonymous: aspi layer, aspi drivers, 
+          aspi interface. the term 'scsi' [scuzzy] is an acronym 
+        that stands for small computer systems interface.
+
+
+
+
+
+
+an aspi layer consists of four files [see gray boxes below] that 
+            'lie between' various programs [software] and certain devices, such 
+            as cd/dvd-rom drives and cd/dvd burners/writers [hardware].
+
+          software 
+          programs such as cd digital audio extractors [commonly 
+            known as 'rippers'] 
+        and cd-writing utilities such as cdrwin use/require aspi drivers to 'communicate with' scsi devices.
+many people don't realize however, that the files contained in an aspi 
+          layer are also used in systems that *don't* contain a scsi adapter, 
+          or scsi devices .. for things such as ripping 
+          cd audio and burning cd/dvds.
+
+        this is why you'll find aspi-related files and info posted at sites such as cdrwin, nero, feurio, doom9, fireburner, plextor & the coaster factory.
+it's not vital you know this, but aspi drivers consist of the 
+          following four files (with directory locations):
+
+windows 98 / me:
+  windows\system\iosubsys\apix.vxd
+  windows\system\aspienum.vxd
+  windows\system\winaspi.dll
+  windows\system\wnaspi32.dll
+
+
+windows 2000:
+  winnt\system32\drivers\aspi32.sys
+  winnt\system\wowpost.exe
+  winnt\system\winaspi.dll
+  winnt\system32\wnaspi32.dll 
+
+
+windows xp:
+  windows\system32\drivers\aspi32.sys
+  windows\system\wowpost.exe
+  windows\system\winaspi.dll
+  windows\system32\wnaspi32.dll
+
+the latest adaptec aspi layer [for windows 
+            xp] looks like this:
+
+
+
+
+
+updated: 
+            16july2008
+p
+            a
+            g
+            e
+
+o
+            n
+            e
+
+            o
+            f
+
+            t
+            w
+            o
+
+
+
+ version info for windows 
+          2000 should show the middle two files listed as v4.60 
+          [like this], or at 
+          least that's what the 
+          aspiinst.pdf file says that comes with the latest aspi layer drivers 
+          [v4.71.2]. 
+
+          if your aspi-installation info doesn't look like this, it 
+          doesn't mean there is anything necessarily wrong with your system configuration. 
+          but if you're having trouble ripping or burning, i might be able to 
+          help.
+
+
+
+
+
+
+
+note: in order to get wowpost.exe and winaspi.dll updated to the latest version, i had to rename the 
+            two files in the 'adaptec' folder: wowpost.ex_ becomes wowpost.exe, 
+            and winaspi.dl_ becomes winaspi.dll. 
+
+          then i manually copied these two 
+          files to my \system folder. but first i renamed the current ones to 
+          wowpost_old.exe and winaspi_old.dll, so i could go back if i had any 
+          problems. i got this tip from hendrick. steve ryan writes to say: 
+
+adaptec compressed wowpost.exe & 
+            winaspi.dll in their download - calling them wowpost.ex_ 
+            and winaspi.dl_. although aspi_check notes them as v4.71.2 when compressed, 
+            they are really v4.60 when uncompressed using the expand utility. 
+            i confirmed this using the nero infotool program.
+
+if you experience problems with this aspi configuration, 
+          you have several options to consider. first: if you can't see your cd-rom 
+          or burner [in windows xp], you might want to try double clicking on 
+          the reg_xp.exe file that comes with the latest drivers 
+          from adaptec. 
+
+          this will tell your system that you have a burner and 
+          cd-rom and where they are located [logically]. i would expect these 
+          types of problems to be more common with brand-new systems [no previous 
+          aspi layer installed].
+you might also want to try manually deleting wowpost.exe 
+          and winaspi.dll in winxp, as some people claim that winxp doesn't 
+          need these two files. but try beginning with all 4 
+          files first. read the posts 
+          by hendrik here for more info along these lines. or you can try 
+          reverting back to the old, stable v4.60 using forceaspi 
+          [see below].
+
+update 29oct2002 - adaptec released v4.71.2 
+            of its aspi drivers (thx tarrant). see here. 
+            anyone having problems 
+            with these new drivers? 
+
+you can download two different copies of adaptec's 
+          aspi checker from my 
+          downloads page. this utility will scan your computer and report 
+          what version of aspi drivers are currently installed in your 
+          system.
+if you are having trouble ripping and/or burning with 
+          winxp, v4.71 [or later], you might want to check out 
+          this file. it contains 
+          a registry fix that might help. it didn't help me. i found it while 
+          searching the cdex 
+          faqs.
+update 02apr2003 - i have gone back to v4.60 
+          in winxp because neither of my two favorite cd audio rippers [eac 
+          & cdex] work with v4.71.2. 
+          they both lock up (not responding). i'm not sure why. soon as i installed 
+          v4.60 however [via 
+          forceaspi], they both worked flawlessly again.
+first i backed-up my current aspi layer [via dumpaspi]. 
+          then i removed my old aspi layer [via killaspi, because windows will 
+          not let you replace system files with older versions]. finally i re-installed 
+          v4.60 [via instaspi] and then rebooted. voila! both 
+          rippers work again. it's magic.
+
+
+
+force aspi
+forceaspi 
+          is a popular utility that will install version 4.60 (1021) of adaptec's 
+          aspi drivers, *without* an adaptec card or software in your system 
+          [hence: force]. force aspi v1.7 is the latest version. many 
+          folks, such as those at sony 
+          and adobe 
+          find these drivers work best. if the latest version is giving you headaches, 
+          definitely give these a try.
+force aspi will 
+          also *back-up* your current aspi configuration. so, if you encounter 
+          problems, you can easily restore your original aspi drivers. 
+          the command *dumpaspi* creates a backup of your existing aspi layer. 
+          
+
+          you can also back-up your current aspi configuration by copying files 
+          [individually] listed above to a back-up directory of your choosing 
+        [such as aspi_old].
+[while we're on the subject of back-ups, i want to mention 
+          <shameless plug> my user's 
+          guide for norton ghost. ghost is perhaps the ultimate back-up utility 
+          for the home user. </plug> back to force aspi...]
+the command *instaspi* will install version 4.60 (1021) of adaptec's 
+          aspi drivers to your system. forceaspi works with windows 98, windowsme, 
+          windows nt, and windows 2000 .. regardless of your particular system 
+          configuration. it also works fine with windows 
+          xp, as reported by many happy winxp users.
+your existing aspi layer will be *overwritten* and you'll need 
+          to reboot before changes take effect. the file named index.html 
+          that comes with forceaspi contains all the instructions you'll need. 
+          it looks like this.
+you can download force aspi here,  or from doom9 
+          (listed under support utils, near the bottom), or a million other 
+          places. wimpy was the original author of forceaspi, but his site is no longer operating. [i want to give credit 
+          where credit is due.]
+a complete solution for your e-business. quality web host company providing quick online payments  facility and best dedicated servers to give you a boost.
+
+
+
+
+
+
+
+ [radified 
+            guide to aspi layer drivers - page 2]
+
+            return to:
+[rip 
+            & encode cd audio] 
+[boot 
+            from a scsi hard drive]
+[radified 
+            home]
+ 
+
+
+
+
+

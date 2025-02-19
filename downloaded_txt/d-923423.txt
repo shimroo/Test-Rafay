@@ -1,0 +1,396 @@
+
+
+
+
+
+
+tj singleton
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tj singleton
+software engineer, baptist preacher
+
+
+
+rss
+
+
+
+
+
+
+
+
+home
+programming
+preaching
+cooking
+
+
+
+
+
+
+
+how deep is your love?
+
+feb 1st, 2014
+
+
+he that loveth not knoweth not god; for god is love.
+1 john 4:8
+have you ever taken (or been forced to participate) in a “love quiz” or “relationship quiz.” i can’t recall ever have, and i probably wouldn’t admit it either if i had. i have seen them portrayed on tv. i did a little research to make sure i knew what i was talking about. i did a quick search on the ol’ google and was not surprised at the popular publication that was the 2nd result. i clicked in to find they many different quizzes. 20 alone that were considered love and relationship.
+john has presented us with a little relationship quiz. it’s not a very long quiz at all. just a single question you have to answer. do you love one another?
+the thermometer for you relationship with god is your relationship with the brethren. in verse 7, john states, “beloved, let us love one another: for love is of god; and every one that loveth is born of god, and knoweth god.” john argues that if love is of god and god is love, then you demonstrate your relationship with god when you share that love with one another.
+in verse 9-11, john reminds us of the wonderful proof of god’s love in that he “sent his son to be the propitiation for our sins.” he did so when we did not love him. that is the kind of love that we should have one for each other; unconditional, sacrificial love.
+john challenged us to love each other and to allow that to be the gauge on our relationship to god. how’d you score?
+
+
+
+
+the right order
+
+jan 1st, 2014
+
+
+glory to god in the highest, and on earth peace, good will toward men.
+luke 2:14
+this christmas season, i have spent some time meditating on this verse. i must admit, i have never given it much
+consideration. maybe i passed it over because of it’s familiarity. maybe i missed it because it seems like a common,
+quaint saying such as tiny tim’s “god bless us, every one!” i realized this year though that this was the birth
+announcement god sent the world of the birth of his son, jesus christ and as such a precious verse.
+i am ashamed to admit that i’d reckon if we were penning this chorus we might have left out the first part, or at least
+put it last. we often act as if god’s primary concern is serving us. i think the angels got it right when they put the
+glory of god first. sure, god showed his good will towards mankind in giving us the prince of peace who would die for
+our sins, deliver us from the justice we deserved, and grant us peace with god. but, o’ how glorious is god for doing
+so. in the ages to come we will still be worshiping our father for his kindness towards us in christ jesus. (eph 2:7)
+just as the angels started right by putting god’s glory first. we should start this year right by doing the same. after
+all, if the  angels have praised him for his mercy to us, should we be found wanting in our praise to him?
+
+
+
+
+the hope of christmas
+
+dec 1st, 2013
+
+
+for unto us a child is born, unto us a son is given: and the government shall be upon his shoulder: and his name shall be called wonderful, counsellor, the mighty god,  the everlasting father, the prince of peace. of the increase of his government and peace there shall be no end, upon the throne of david, and upon his kingdom, to order it, and to establish it with judgment and with justice from henceforth even for ever. the zeal of the lord of hosts will perform this.
+isaiah 9:6-7
+if we are not careful at christmas we will only look back towards the past. it’s seems natural to do so. we have just come out of        thanksgiving where we examined the blessings of god on us in the last year. we’re quickly approaching the end of the year and the      media begins recapping the most memorable events. as christians, we know that christmas is a time to celebrate the birth of christ, an event which took place over two-thousand years ago. why wouldn’t we focus on the past?
+however, as we read the prophecy of the birth of jesus, it points past just the events surrounding a manger. it points past today. it points to our blessed hope in the future.
+the christmas story doesn’t end at the temple with simeon and anna. it doesn’t end with christ on the cross. it doesn’t even end with his resurrection. it ends with his revelation!
+yes! jesus was born of a virgin. yes! christ died for our sins. yes! his sacrifice was accepted and he rose that glorious third day. and yes! he will be revealed as the king of kings and lord of lords. he will rule and reign in righteousness. every knee will bow and every tongue will confess that jesus christ is lord!
+remember to look forward to the hope of christmas. even so, come, lord jesus.
+
+
+
+
+evan light - building a recommendation engine with ruby and redis
+
+nov 13th, 2013
+
+
+context: social soccer network.
+
+wanted a live feed of soccer data.
+display popular and relevant posts in near real time
+
+approximation
+
+popular: easy, measurable
+relevant: relative, subjective
+
+why didn’t we use better statistical methods? clients just wanted to build it and trusted me. i pushed for it.
+why ruby? i thought java might be a better fit. java is fast. client’s dev knew ruby.
+case study
+nouns: user, post, comment, team, player
+verbs: submit, comment, like
+popular based on comments, likes, and “taste makers”. taste makers were influential people.
+relevance based on likes, comments, and if the term was mentioned in the past.
+algorithm was o(n2), but we were able to limit n to 3 days.
+lessons learned
+
+use strings instead of hash when need to put a time to live on the hash value
+minimize chattiness with pipelining or lua scripting
+prune old data by adding a timestamp and remove on insert
+more functional programming. already stateless. increase referential transparency.
+us a runtime faster than ruby
+
+
+notes from rubyconf 2013
+evan light
+
+
+
+
+casey rosenthal - fault tolerant data: surviving the zombie apocalypse
+
+nov 12th, 2013
+
+
+we are talking about distributed key-value databases.
+there is sql or other. this is why i find the other category so exciting. new databases are coming out that change how we model and what is possible.
+when you search google, you expect it to return results. you don’t expect it to return the same results 5 minutes later or even in a different location. you don’t expect that it has all the latest information instantly available. we realize it takes some time for the newly indexed data to show up.
+when you open your email, you expect it to be available. it may not be consistent. you may have messages in one client that haven’t been synced to another. you may have queued messages for delivery.
+the expectation of the web is not one of a “high consistency” system. it is a the expectation of “high availability”. sql has a strong idea of consistency.
+in sql, we have a use case, then model our data the best we can, and present it to a client.
+in key-value, we have a use case, then figure out what we want to present to a client, then model the data.
+the more complicated your query planner the harder it is to scale. key-value is the simplest query planner.
+example application: enter zombies.
+the cdc has 2 data centers on the east coast, 2 data centers on the west coast and one near texas. zombies take out the east coast data centers. because the east coast never goes down.
+fault tolerance is a optimistic view that bad things will happen. in a fault tolerant system, that’s ok.
+data is stored like:
+1
+2
+3
+4
+5
+6
+7
+{
+key: "patient_0",
+data: {
+    dna: "dnadnadnadna",
+    zip: 30019
+  }
+}
+
+how do you find all the zombies in a zip code? create an inverted index.
+1
+2
+3
+4
+{
+key: "zip_30019",
+data: ["patient_0", "patient_1", ...]
+}
+
+where to store the index?
+
+document based: partition index w\ document. good for write, bad for read.
+term based: index outside document. good for read, bad for write.
+
+use case should determine the paradigm.
+how to deal w\ conflict in distributed system? the network between the west coast and texas goes down. someone runs a new wire between. patient_0 was updated in both the west coast and texas data centers while the network was down.
+how do you reconcile?
+
+you don’t. offer both records on read and let the client deal with them. “sibling” records.
+you use data types that can self resolve. simple case is an array that only grows. you just union the list. theses are called crdt (conflict-free replicated data types).
+
+the only way to ensure uniqueness is to use immutable data.
+
+notes from rubyconf 2013
+casey rosenthal
+
+
+
+
+gravy gestapo
+
+nov 9th, 2013
+
+
+and lest i should be exalted above measure through the abundance of the           revelations, there was given to me a thorn in the flesh, the messenger of satan to buffet me, lest i should be exalted above measure. for this thing i besought the lord thrice, that it might depart from me. and he said unto me, my grace is      sufficient for thee: for my strength is made perfect in weakness. most gladly therefore will i rather glory in my infirmities, that the power of christ may rest upon me. therefore i take pleasure in infirmities, in reproaches, in necessities, in persecutions, in distresses for christ’s sake: for when i am weak, then am i strong.
+2 corinthians 12:7-10
+the leaves are changing colors. sweaters are being brought out of storage. stores are stocking up for all sorts of frenzied sales. it is turkey time once again and you are guaranteed to be interrogated by family and friends.
+“what are you thankful for this year?”, they will ask with a piercing stare. you will hear others start to rattle off their list of good things that have  occurred to them recently. uncle joe will spout out the same list he has since 1995 when the braves won the world series. however, i can’t ever recall sickness, heartache, trial, cancer, or death ever offered in response.
+paul alleged that he gloried in his infirmities. he claimed that he was thankful that god had given him this thorn in the flesh. he contends that he can find pleasure in it. how could this be?
+paul had realized that this trial that he was facing was ordained by god for his benefit. we don’t have the same understanding or perspective as god. our troubles may seem designed to break us, but they are purposed to build us. paul understood that god was molding him into the image of christ.
+this incident cause paul to seek god for strength. paul learned more about trusting the lord, resting in god’s abilities, and enjoying the father’s grace. this trouble demonstrated the power of god in paul’s life. it was an       advertisement for god’s glory. paul could look at what he was learning. he could look at what he was teaching others. he could look at the comfort god was giving him. he could look at all this and say, “thank you, lord, for this thorn.”
+so i ask you, “what are you thankful for this year?”
+
+
+
+
+jason clark - extending gems
+
+nov 8th, 2013
+
+
+pass it in
+
+loggers: let them hand you an object. dependency injection is easy in ruby because of duck typing. still has risks. provide a spec to communicate contract.
+instrumentors: example excon. only one instrumentor allowed. can’t use without stomping on someone else’s instrumentor.
+backends: example delayedjob with activerecord.
+gem specific: example resque’s hooks. has great docs.
+
+events
+notify external code important things have happened. example simple events (on github).
+surfacing: you should front load. make it easy to access. example: nr::instance.events.subscribe { ... } or resque.after_fork { ... }.
+be wary of things that are accept only one thing. older versions of resque only allowed one hook. things would get stomped over.
+event ordering is iffy. if important, maybe do something different.
+middleware
+example is rack. have to be careful with the env. everyone can modify. can have a problem of seeing the whole chain. sidekiq does a good job of seeing the whole chain.
+lifecycle
+forking: provide before & after hooks. not everything carries over in a fork. forks, threads and locks combined can be trouble.
+loading gems: unicorn has two models for loading up. preload: true or false. in one the hooks are called before the gems are loaded. gems can’t take part in the hooks.
+names and paths
+paths: sequel.plugin :newrelice expects files to be in your libs top level directory. maybe it’d be better just to provide a class/module.
+generic names: activerecord, datamapper, and httpclient are very generic. now you can’t use those names in your app. be careful about using stdlib names like logger, thread. constant resolution issues may occur. gem writters should be careful about module lookup. be explicit and use the :: operator as needed.
+config
+yml was made for it. yml + erb is bearable. maybe just use ruby instead.
+be sure to expose the configuration to in system and not just via file. file only is hard for gems to work with. think lib.configure { ... }.
+docs
+readme, most people won’t get past it. sidekiq has a great experience. don’t bury important things in the docs.
+make versioning part of your docs.
+
+notes from rubyconf 2013.
+
+jason clark
+slides
+
+
+
+
+
+matz - living in the fantasy land
+
+nov 8th, 2013
+
+
+escapism: visiting the place of the unicorn
+a story of 2 fantasy lands.
+the first is distopia.
+
+out of uni worked at a enterprise, waterfall shop. lots of detailed documentation.
+felt wrong, couldn’t pinpoint why. 20 yrs of exp later gives insights.
+we has false assumptions:
+
+know what we make: software isn’t physical. hard to reason about. not governed by physical laws unlike a building architect.
+know what we want: software is hard to imagine. clients often would say, “that’s not what i wanted.” even after we delivered what they asked for. we don’t know what we should do to maximize business value.
+know what will happen: we don’t know the future. we had the wrong forecasts. we don’t know anything. we ignored our ignorance.
+
+
+
+2 strategies
+
+ conservative: learn from the past
+ ostrich algorithm: ignore everything and wait.
+good strategy… when situation will recover. easy for us to choose. instinctual.
+
+be careful, unless you go forward with a false assumption.
+in the past computers, software, and network was expensive. possession was power. had to optimize not to fail.
+now, computers, software and network are universal and ubiquitous. possession is not enough. it’s all cheaper. we have better tools. we have better languages. ruby. (and the crowd goes wild)
+we have open source software. great learning tool. before, you didn’t have access to an operating system to read and study. now we do.
+we can collaborate on the internet. social coding. we can do greater work than our own ability.
+we have more power, freedom, joy.
+however, we can’t ignore the mess. it’s reality. what we need is gc, garbage collectors. not memory management, but waste. we rely on them to get the job done.
+they are who:
+
+write books
+give talks
+write frameworks
+write languages
+write gems
+
+as the open source community we must move forward or die like a shark.
+a programmer is a creator. come join open source software as a contributor. make the world better. be a gc. take a part in keeping up the fantasy land. the fantasy land facade is a direct result of the efforts of gcs.
+examples: contribute to cruby. fix bugs in oss. give a talk at a conference.
+create a great fantasy land. take part and change the world. it’s the key to oss and ruby. i’m not a great programmer. i create bugs, but i respect myself and change the world.
+
+notes from rubyconf 2013.
+
+
+
+
+maybe normalizing isn’t normal
+
+nov 2nd, 2013
+
+
+jeff atwood has a very pragmatic post on database normalization. i love his summary, “normalize until it hurts, denormalize until it works.”
+maybe normalizing isn’t normal
+
+
+
+
+how to be more attractive
+
+oct 13th, 2013
+
+
+rejoice in the lord, o ye righteous: for praise is comely for the upright.
+psalms 33:1
+there are 4,200,000 results on google for “how to be more attractive.” google reports that the current trends for those  exact search terms is 100 people a month and there have been 5,353 searches since september 2006. i have wonderful news for you and all those people desiring to answer this question once and for all. there is an absolute authority on how to be attractive. no, you won’t find the answer within the pages of the magazines lining the supermarket aisle. it is however  contained in one of the best selling books of all times.
+so you want to know how to be more attractive? it’s really, really simple. praise the lord. yes sir, according to god’s word praise is comely for the upright. we don’t use that word comely too often today, but it’s just another word for           attractive. i admit, this wonderful truth isn’t going to help us to win any beauty pageants. it does however teach us how to please god.
+what does god find pleasing? what appeals to him? worship. “rejoice in the lord,” demands the psalmist. we talk about wanting a move of god. we say we want see god manifest his presence. having said that, are we rolling out the red     carpet for him? are we inviting him with our praise?
+why don’t you take a moment right now and gussy yourself up for god with your praise?
+
+
+
+← older
+blog archives
+
+
+
+
+
+
+
+elsewhere
+
+github
+stackoverflow
+linkedin
+twitter
+clearslide
+
+
+
+clips
+
+
+maybe normalizing isn’t normal
+
+
+pageobject
+
+
+your path through agile fluency
+
+
+purposeofestimation
+
+
+organizational skills beat algorithmic wizardry
+
+
+
+more
+feed
+
+
+
+
+
+
+  copyright © 2014 - tj singleton -
+  powered by octopress
+
+
+
+
+
+
+
+
+

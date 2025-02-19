@@ -1,0 +1,228 @@
+
+
+
+home - enterprise integration patterns
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+enterprise integration patterns
+
+home
+patterns
+ramblings
+articles
+talks
+download
+books
+contact
+
+
+
+
+ 
+			ramblings
+
+
+my latest thoughts on integration architecture:
+
+queues invert control flow but require flow control
+
+control flow—the other half of integration patterns
+
+event-driven = loosely coupled? not so fast!
+
+
+
+ 
+			upcoming events
+
+
+articles & interviews
+
+
+a decade of enterprise integration patterns
+				(ieee software)
+			
+
+20 years of patterns' impact 
+				(ieee software)
+			
+
+conversations between loosely coupled services 
+				(video on infoq)
+			
+
+developing in a service-oriented world 
+				(video on infoq)
+			
+
+soa patterns - new insights or recycled knowledge?
+					(whitepaper)
+			
+
+let's have a conversation(ieee internet computing)
+			
+
+programming without a call stack - event-driven architectures(objektspektrum, 2006) 
+
+
+your coffee shop does not use two-phase commit
+						(ieee software)
+
+
+developing in a service-oriented world(thoughtworks whitepaper)
+			
+
+
+an asynchronous world
+        (software development)
+			
+
+
+presentation downloads
+
+
+nearfield communication (nfc) in japan(oop 2012)
+			
+
+embedded oss(oop 2012)
+			
+
+programming the cloud(qcon tokyo 2010)
+			
+
+distributed programming the google way(devoxx 2009)
+			 
+ developing in a service-oriented world(soacon 2007)
+			
+
+programming without a call stack: event-driven architectures(soacon 2007)
+			
+
+software visualization and model extraction(theserverside)
+			
+
+where did all my beatiful code go?(springone, 2006)
+			
+
+conversations between loosely coupled systems(sd west, 2006)
+			
+
+enterprise integration patterns(jaoo, 2003)
+			
+
+
+messaging patternstable of contentsprefaceintroductionsolving integration problems using patternsintegration stylesfile transfershared databaseremote procedure invocationmessagingmessaging systemsmessage channelmessagepipes and filtersmessage routermessage translatormessage endpointmessaging channelspoint-to-point channelpublish-subscribe channeldatatype channelinvalid message channeldead letter channelguaranteed deliverychannel adaptermessaging bridgemessage busmessage constructioncommand messagedocument messageevent messagerequest-replyreturn addresscorrelation identifiermessage sequencemessage expirationformat indicatorinterlude: simple messagingjms request/reply example.net request/reply examplejms publish/subscribe examplemessage routingcontent-based routermessage filterdynamic routerrecipient listsplitteraggregatorresequencercomposed msg. processorscatter-gatherrouting slipprocess managermessage brokermessage transformationenvelope wrappercontent enrichercontent filterclaim checknormalizercanonical data modelinterlude: composed messagingsynchronous (web services)asynchronous (msmq)asynchronous (tibco)messaging endpointsmessaging gatewaymessaging mappertransactional clientpolling consumerevent-driven consumercompeting consumersmessage dispatcherselective consumerdurable subscriberidempotent receiverservice activatorsystem managementcontrol busdetourwire tapmessage historymessage storesmart proxytest messagechannel purgerinterlude: systems management exampleinstrumenting loan brokerintegration patterns in practicecase study: bond trading systemconcluding remarksemerging standardsappendicesbibliographyrevision history
+
+
+patterns and best practices for asynchronous messaging
+
+
+
+
+buy on
+
+
+
+
+today's applications rarely live in isolation. users expect instant access across all functions, which may reside in disparate applications or third-party services. however, building distributed and integrated applications requires developers to tackle asynchrony, partial failures, incompatible data models, api drift, and much more.
+this pattern language consisting of 65 integration patterns helps developers design and build distributed applications or integrate existing ones. the patterns provide a technology-independent vocabulary and visual notation harvested from proven solutions to recurring problems. they also share common "gotchas" and design considerations. besides receiving numerous accolades, the patterns spurred the development of a whole generation of open source enterprise service bus (esb) implementations, such as apache camel, mule, wso2, oracle service bus, open esb, sonicesb, or fuse servicemix.
+buy the book enterprise integration patterns or read a sample chapter first. find the most recent content in my blog or articles.
+
+
+messaging patterns in today's world: microservices and serverless
+
+
+
+
+
+when bobby woolf and i started to document the patterns 20 years ago, the key technologies for distributed applications were jms, soap, msmq, and .net wcf. large-scale application integration was done with integration tools and platforms, such as ibm websphere mq, tibco, webmethods (now software ag), or microsoft biztalk. although technology has evolved, many of these products still form the backbone of modern enterprises.
+cloud platforms and deployment automation have laid the foundation for a new generation of distributed systems: microservices and serverless architectures. those applications rely on a smooth interconnect between components, giving rise to service meshes, serverless orchestrators, and event buses. amazingly, we find the same integration patterns in those systems! that's why this site contains many modern examples for integration patterns:
+
+serverless loan broker implementation with aws step functions
+serverless loan broker implementation with gcp workflows
+modern examples and implementations
+serverless integration patterns on google cloud
+
+
+
+new book: platform strategy
+
+
+
+
+
+almost every it strategy these days includes some element of platform strategy. and that's no surprise: platforms appear to be able to rewrite the laws of it physics. they boost innovation despite (or perhaps due to) standardizing; they speed up developers while assuring compliance; and they reduce cognitive load without restricting choice.
+as one might guess, building such an in-house platform, or even deploying one, is far from easy. many organizations end up with something thatâs outdated by the time itâs launched, restricts rather than enables users, and faces a certain demise when its use is mandated in a last-ditch effort to make the economics work.
+harvested from a decade of building successful in-house platforms and enabling enterprises to utilize cloud platforms, this book provides a fresh look at what makes it platforms work, why they are different from other it services, and how you can use them to boost developer productivity. get a paper copy on amazon or the ebook from  leanpub (kindle, pdf).
+
+
+book: the software architect elevator
+
+
+
+
+
+modern architects must do more than draw uml diagrams and recite architectural styles. rather than focus on technical decisions alone, architects and senior technologists need to combine organizational and technical knowledge to help transform their companyâs structure and processes. that's why successful architects are those who connect the it engine room, where the technical reality is defined, to the organization's penthouse, where the business strategy is set.
+this books equips architects and it leaders with the technical, communication, and organizational skills to be successfully in modern enterprises. available now on amazon and anywhere where books are sold.
+
+
+work-in-progress: conversation patterns
+
+
+
+
+
+asynchronous messaging is the foundation for most integration solution because its architectural style acknowledges the challenges of distributed communication, such as latency or partial failure. however, many interactions between systems extend beyond sending a single, stateless message: a request may expect a response; a handshake or authentication are needed first; a reservation is confirmed or expires. such conversations, stateful exchanges between participants, present new design challenges and patterns. i therefore started documenting conversation patterns, which are the starting point for enterprise integration patterns 2.
+
+
+what makes integration difficult? 
+architecting integration solutions is a complex task. there are many conflicting drivers and even more possible 'right' solutions. whether the architecture was in fact a good choice usually is not known until many months or even years later, when inevitable changes and additions put the original architecture to test. unfortunately, there is no "cookbook" for enterprise integration solutions. most integration vendors provide methodologies and best practices, but these instructions tend to be very much geared towards the vendor-provided tool set and often lack treatment of the bigger picture, including underlying guidelines, principles and best practices.
+asynchronous messaging architectures
+asynchronous messaging architectures have proven to be the best strategy for enterprise integration because they allow for a loosely coupled solution that overcomes the limitations of remote communication, such as latency and unreliability. that's why most eai suites and esb's are based on asynchronous messaging. unfortunately, asynchronous messaging is not without pitfalls. many of the assumptions that hold true when developing single, synchronous applications are no longer valid. vendor-independent design guidance helps developers avoid these pitfalls so they can build robust integration architectures based on asynchronous messaging.
+how can patterns help? 
+patterns are a proven way to capture experts' knowledge where no simple “one size fits all” answers exist, for example in application architecture, object-oriented design, or message-oriented integration . each pattern tackles a specific problem by discussing design considerations and presenting an elegant solution that balances often conflicting forces. the solution is not the first approach that comes to mind, but one that has evolved through actual use over time, capturing the experience that senior developers and architects have gained by repeatedly building solutions and learning from their mistakes.
+
+
+what am i reading right now?
+
+
+modern software engineering: doing what works to build better software faster, dave farley, 2021
+the "father of continuous delivery" distills the concepts behind modern software delivery, such as modularity, feedback, coupling. a must-read for every modern software engineer.
+
+
+practical process automation: orchestration and integration in microservices and cloud native architectures, ruecker, 2021
+process automation is no longer the domain of large-scale business processes but an integral part of modern application architecture. this books shows you where the two meet.
+
+
+system architecture: strategy and product development for complex systems,  crawley, cameron, selva, addison-wesley 2015
+a tour de force on designing complex systems with a special emphasis on decomposition and logical relationships, augmented by a list of system architecture principles. most examples drawing on non-it domains helps convey the concepts without getting lost in technology debates and makes it worth the price.
+
+
+
+
+            © 2023 
+	 • all rights reserved.
+
+
+

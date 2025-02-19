@@ -1,0 +1,223 @@
+
+
+
+
+
+
+
+
+welcome to watson
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+watson
+interactive learning suite 
+
+
+
+  ebook  
+  labs  
+  download  
+
+about
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+history
+acknowledgements
+
+
+
+
+history of watson
+watson development has taken place in four distinct phases: the first from 1993 through 1995, the second from 1996 to 1998, the third phase from 2002 to 2004, and the fourth phase from 2013 â 2014.
+                    phase 1 (1993 â 1995)
+                    the first phase of watson involved the conceptualization, design, and initial implementation of nine lab environments. during this time, watson was support by a $100k grant from the national science foundation.
+
+ a watson lab: phase i (1993 â 1995) 
+watsonâs core concepts of a unified graphical user interface, cross platform compatibility, breadth of concept coverage through the use of a suite of independent labs, and depth of coverage within individual labs by careful attention to the pedagogical content of individual lab activities, were established early on.
+                    the original suite of labs included: a simple spreadsheet, a relational database, a data structures lab, a graphics-based programming environment, an imperative programming environment, a functional programming environment, a finite state automata lab, an assembly language and machine architecture lab, and a digital logic lab. these labs were implemented in c and used the suit (simple user interface toolkit) libraries for cross platform compatibility.
+while these prototypes established the viability of the watson approach to introductory computer science education, they were not robust enough to be used outside of a closed laboratory environment with extensive student assistance provided by instructors and lab monitors. in fact, the project directorâs candid assessment of the original implementation of watson would be âbuggy as hellâ. this should not be surprising, given the goals of the project, its groundbreaking nature, and limited funding. additionally the interface provided by the labs were not very attractive, nor intuitive.
+phase ii (1996-1998)
+by the mid-1990âs it became apparent that watson needed a total rewrite in order to become a viable teaching tool. after several years of continuous classroom use, resulting in feedback from hundreds of students, the project director had a very clear idea of what worked and what didnât. furthermore, the emergence of java and explosion of web technologies offered the hope of a stable cross-platform environment for watson.
+given that nsf funding had expired at this point, the project director, set about the bold task of designing and implementing watson in java. since very few java-based tools or libraries existed at the time (combined with the fact that java itself was rapidly evolving), the project director began by building up a âwatson java toolkitâ of common components, such as choice selectors, numeric entry pads, and even low-level primitives such as âwatson buttonsâ. once these were in place he redesigned the graphics lab based on student feedback from the phase i version. he then coded the lab and thoroughly debugged it. the graphics lab thus served as a âtemplateâ for all watson phase ii labs.
+given this template students were offered independent study classes in which they would âre-implementâ a phase i lab using the toolkit and graphics lab as a guide. some of the labs such as spreadsheet, database, assembly, and digital logic incorporated few pedagogical changes in their port to java. other labs, such as data structures, graphics, and imperative programming were completely rethought. still other labs, such as the functional programming lab and finite state automata lab, were abandoned.
+
+ a watson lab: phase ii (1996 â 1998) 
+the result of phase ii was a collection of stable, albeit somewhat plain-looking labs, that could be accessed via web browsers. these labs were used successfully in louisiana techâs csc 100 courses for a number of years. 
+                    by 1998, the project had reached the point where national dissemination appeared imminent. in addition to watson, its companion textbook (drafts of which have been student tested since the mid-1990âs) was nearing completion. despite watsonâs promise, the project director had to reluctantly shelve watson for several years. the continued lack of external funding for watson, combined with allure of the dot com boom, enticed the project director into a two-year sabbatical in industry where i became the chief technology officer for onenetnow.com. after onenetnow was sold to earthlink in 2001, the project director elected to return to academia rather than accept a permanent position with earthlink.
+                    phase iii (2002-2004)
+upon return to academia in the fall of 2001, four things became apparent (1) since the labs had been written in the very early days of java, they were no longer stable on modern java environments, (2) the look of the labs had become outdated since they were not built with swing components, (3) the pedagogical content embodied in the imperative lab was no longer as appropriate as it had been in the mid-1990âs, and (4) the fact that watson contained zero coverage of object-oriented programming concepts had become a serious omission.
+additionally, the uncompleted textbook could not simply be finished, as sections of it needed to be rewritten to reflect the changes in the field from the mid-late 1990âs to the early 2000âs. furthermore, since the textbook and the labs are interrelated, any changes to the labs required similar changes to the text.
+                    the project director began restarting watson development in 2002. he recruited a graduate student, cliff lemoine, to help maintain the phase ii labs and to design and develop an object-oriented programming lab. in the summer of 2002, he made some inroads into updating the textbook. during the spring of 2003, he applied to the national science foundation for funding to fully launch phase iii. though the proposal reviews were generally strong, the nsf ultimately declined the application. (oh wellâ¦ watson is not so easily killed.)
+so, in the tradition of watson, the project director embarked on phase iii. he recruited a bright team of undergraduates and with nothing but independent study credit in his pocket and pushed forward with phase iii.
+                    the phase iii team was able to build on a swing-based watson platform implemented in 1999 by a former graduate student, don garrett, together with a nearly complete implementation of the graphics lab don wrote. the phase iii team made rapid progress re-implementing several of the labs. from december 2003 through february 2004, database, assembly, and digital logic were ported. data structures, and javascript were begun. from march 2004 to may 2004, the spreadsheet lab was successfully ported. during this time, the data structures rewrite was completed, and the initial implementation of the object-oriented lab was finished. 
+                    as of may 2004 the only lab that is incomplete is the javascript lab. unfortunately, from a pedagogical standpoint, this is one of the most important watson labs.
+
+ a watson lab: phase iii (2003-2004) 
+during the spring of 2004, the project director had the good fortune of teaching csc 404 âsenior capstoneâ. in the spirit of âuse every resource at your disposalâ, the project director selected watson as the topic for senior capstone. in addition to providing desperately needed manpower for the watson project, this choice enabled the class to gain near-real-world experience with a large project on the back end of the software design process. the csc 404 class devoted tremendous effort to testing, documentation, and code maintenance. they tested the phase iii software with actual students and incorporated ui changes based on the studentâs feedback. furthermore the class refined the graphical âlookâ of the labs and incorporated this look into the web and printed documentation they developed.
+as of may 2004, the project director was once again in the process of applying to the national science foundation for funds. these funds are needed to complete development of the javascript lab, provide critically needed support for ongoing software maintenance, and to help finish the companion textbook.
+phase iv (2013 â 2014)
+with funding declined from the national science foundation in 2004, no additional progress was made on watson for 10 years.  it had always been the project directorâs vision to have the textbook and watson labs be combined into one entity. the invention of the tablet and smartphone made electronic books (e-books) more accessible and popular. perhaps the textbook and watson labs could be integrated into one e-book? in the fall of 2013, an independent study was taken on by a group of students regarding the future of watson.  java was beginning to show signs of weakening as new security updates were applied in late 2013. after three months of testing various platforms, it was decided that watson would be integrated into an e-book using html5 and javascript.  html seemed very pleasing as cross-compatibility is only a small issue between pcs, tablets, and smartphones.
+it just so happened that the project director was to teach software engineering and senior capstone at louisiana tech university back-to-back beginning in 2013, which ultimately meant six months of development toward a newest generation of watson. with no funding, the tradition yet again continued as the project director geared up for phase 4 of project watson.
+in winter 2014, the project director recruited his software engineering class for phase 4 under project manager andrew duryea.  four labs were taken this quarter to be re-implemented in html and javascript. the labs included the following: assembly, digital logic, graphics, and javascript. database lab was also included in this list; however, it was already implemented in the independent study to show the feasibility of implementing watson labs in html and javascript. the e-book began to quickly take shape as microsoft word documents were converted to html along with the implementation of navigation throughout the e-book. the ultimate goal for this quarter was to have each chapter in the e-book be implemented using interactive figures from each lab with mobile devices as the target platform.
+
+ a watson interactive figure: phase iv (2013-2014)
+in spring 2014, the project director and his students continued phase 4 as the vast majority of the software engineering class were enrolled in the senior capstone class. under project manager neil vosburg, watson development continued to progress as most of the interactive figures were completely implemented into the e-book. spreadsheet lab was picked up during this phase to begin its implementation in html and javascript. the motive for this quarter was to have each labâs âsandboxâ version implemented into the e-book. the idea was to supply a sandbox version for each lab to answer exercises at the end of each section within the chapters (very similar to phase 3 labs). the only difference; however, was that exercises could be accessible and solved without leaving the e-book. the idea of being able to save and load data from each exercise was implemented using the html data store which turned out to be very successful and useful.
+the vision had finally become a reality (although more work had to be done for completion); one could either visit the watson e-book via the internet or download a local copy to his/her device.  the user could read chapters, interact with figures, and solve exercises all under one package.
+                    as of may 2014, the project director will soon be reapplying for funding from the national science foundation. perhaps using concrete statistics via google analytics will prove that watson is a widely used and necessary tool to newcomers of computer science. the funds will be needed to complete, test, and maintain the implementation of each lab within the watson e-book.
+
+dr. mike o'neal
+director, project watson
+close
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+history
+acknowledgements
+
+
+
+
+acknowledgements
+the number of faculty members and students who have contributed to the watson project over the years is truly amazing. below, i have attempted to provide a comprehensive list â along with contact information where available â of those who have made watson possible. if any watson alumni out there are reading this page and notice that i have left someone out, or have outdated contact information, please contact me.
+                    the first person i would like to thank is barry kurtz. watson would not exist without him. barry came up with the original idea for a suite of labs to support a breadth-first introduction to computing â and then proceeded to convince me of both the value and feasibility of this approach. barry was also the driving force behind convincing the national science foundation to initially fund the project.
+                    during the first phase of the watson project, don garrett and alex ramos were key members of the team. don and alex implemented the library of shared code that was central to the original c / suit lab prototypes. other individuals who contributed to the development of this phase of watson include: pat bronson, lee falta, michael gaudet, dr. gary klein, josh kleinpeter, dr. barry kurtz, jeff matocha, unmesh s. mayekar, dr. mike o'neal, alex ramos, dr. louis roemer, vinay shivaiah, sameer singh, charlie stear, and mark williamson. 
+during the second phase of watson development, josh kleinpeter was my "right hand man. he was the first person to assist me with use of the labs in the classroom setting. plus, he did an excellent job keeping the c / suit prototypes running well beyond the point at which they should have been retired.
+the developers for the second phase of watson include: 
+
+
+chris dickenson, gene rogers, chris plock, and dave muse, imperative
+mike o'neal, graphics and watson-java toolkit
+chris plock, josh kleinpeter, and dave muse, database
+heather richards, digital logic
+jeff rugg, spreadsheets and data structures
+ben vanwagner, assembly
+kasoum gioul, portions of the spreadsheet code
+jon j. walker, mouse-oriented editor in graphics
+jayson calloway, cai hong, and byren vaughn helped prototype a number of these java-based labs.
+
+
+my âright hand manâ for the third phase of watson has been cliff lemoine. cliff was invaluable in helping me to restart watson development after a three-year lull resulting from my spending time in industry. cliff helped tutor students in my csc 100 classes, maintained the phase ii labs, and developed the object-oriented lab for phase iii.
+a special heart felt thank you also goes out to my good friend and former student don garrett who, in addition to being a primary developer in phase i of watson, returned to louisiana tech to pursue a masterâs degree and in the process developed the java swing framework for watson phase iii. donâs years in industry developing object-oriented java-based applications provided him with the background to lay a solid foundation for the current set of labs. without donâs efforts, watson phase iii would not exist.
+the primary developers for watson phase iii include:
+
+
+brandon george, spreadsheet
+jim patterson, database
+chris martin, data structures
+don garrett, graphics and overall watson framework
+james phillips, javascript
+cliff lemoine, object-oriented
+clay zuvich, assembly
+anthony stonaker, digital logic
+
+
+in addition to these developers, iâd like to thank the entire spring 2004 csc 404 âsenior capstoneâ class. this class did a spectacular job improving the look and feel of the phase iii labs, including developing all of the graphics, the userâs manual, brochure, cd case, flash-based web site, flash tutorials, and multi-platform (windows, mac, linux) watson cd. additional efforts included: testing, bug tracking, bug fixes, and numerous improvements to the ui based on feedback collected from actual users. while all of those who worked so hard on this project deserve a big thank you, special recognition should be give to jim patterson (the project director), and chris martin and louis landry (who were jointly responsible for the âlookâ of watson phase iii).
+the primary developers for watson phase iv include:
+
+
+tommy bozeman, database lab
+jacob burt, textbook framework
+andrew duryea, watson editor and javascript lab
+mitchell martin, spreadsheet lab
+james miltenberger, graphics lab
+cindy richard, graphic design
+brock tubre, graphic design
+neil vosburg, javascript and digital logic labs
+ricky waller, assembly lab 
+
+
+in addition to these developers, iâd like to thank everyone in the fall 2013 independent study, winter 2014 software engineering class, and spring 2014 senior capstone class. these students had a tremendous task of implementing watson into one fully functional e-book, and they did a fabulous job of doing so. with over 3,500 total developer hours dedicated in this phase (and still growing), itâs obvious to see the amount of effort these students put forth. with that being said, i am very thankful for these students and their work!
+
+in addition to the code written specifically for watson by our developers, several external libraries were used. these libraries along with their authors (if applicable) are enumerated below:
+
+
+acorn by marijn haverbeke (used in javascript chapter for parsing of javascript programs)
+angularjs by google (used in database and assembly chapter figures/exercise modes)
+bootstrap by twitter, inc. (used throughout the e-book for mobile scalability, etc)
+font awesome by dave gandy (used for icons throughout the book)
+handsontable by marcin warpechowski (used in spreadsheet figures and exercise modes)
+js-interpreter by neil fraser, google inc. (used in javascript chapter for interpreting javascript programs)
+jquery by jquery foundation (used in just about everywhere in figures/exercise modes)
+jqueryui by jquery foundation (used for components such as watson dialogs)
+jquerymobile by jquery foundation (used in graphics and spreadsheet figures/exercise modes)
+kinetic javascript by eric rowell (used in digital logic chapter for drawing circuits)
+require.js
+visibly by addy osmani (cross browser support for âonfocusâ event)
+
+
+ we would like to thank the developers from each and every one of these libraries!
+to each and every one of you, âthank you!â
+
+dr. mike o'neal
+director, project watson
+close
+
+
+
+
+
+ 
+
+
+
+
+
+
+watson.latech.edu
+
+
+
+
+
+
+

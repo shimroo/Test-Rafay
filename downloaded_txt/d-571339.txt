@@ -1,0 +1,841 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+davidbau.com
+
+
+
+
+
+
+
+
+
+
+davidbau.com
+a dabbler's weblog
+
+
+
+
+
+
+	march 28, 2024
+	
+
+
+the right kind of openness for ai
+there is a false dichotomy between two alternatives facing us in the burgeoning ai industry today: "open" versus "closed."
+this dichotomy is being promoted by both sides: closed-ai advocates (oddly, including the company named "open ai") justifiably warn about the misuse risks posed by unregulated use of ai and the geopolitical risks posed by exfiltration of weights of large-scale pretrained models, but then they falsely imply that the only solution to these risks is to lock their ai behind an opaque service interface, with no visibility to the internals provided to outsiders. on the other hand, open-ai advocates (including yann lecun, one of the giants of our field) correctly point out the huge community benefits that come from transparency and competition, but then they make the mistake of assuming that benefits will be guaranteed if they throw their trained models over the wall to the public, releasing full model weights openly.
+both sides are bankrolled by massive monetary investments and project the polished air of billion-dollar confidence. but the ugly truth is that the ai industry is built around an extraordinary uncertainty: although the industry has become expert in the science of creating ai, we are pitifully unequipped to meet the challenge of understanding ai. this unprecedented state of affairs is a direct outgrowth of the nature of modern machine learning: our clever training processes have created systems that contain orders of magnitude more complexity than has ever been created in software before, but no human has examined it. beyond a superficial level, we do not currently understand what is good or bad or smart or stupid inside these systems.
+the long-term risk for humanity comes from our ignorance about the limitations, capabilities, and societal impacts of ai as we continue to develop it. neither the open nor closed models on their own offer a credible path to cracking this problem. thus we ask: what is the right kind of openness? what ecosystem will lead to a healthy ai industry, built on strong science, transparency, accountability, and innovation?
+in the series of articles that follow, we will survey the benefits and drawbacks of both the open and closed models. then we will examine a third, pragmatic path that brings together the benefits of both approaches. our proposal does not foreclose either open nor closed corporate strategies for any individual company or product, but it provides a framework of standards and services that will create healthy incentives for companies to pursue vigorous innovation, meaningful transparency, and safety in the public interest.
+
+
+posted by david at 06:08 am
+		| comments (1)
+
+
+
+	march 16, 2024
+	
+
+
+reinvented
+following my 2017 blog entry, reinvention, where i had looked back to recount my jump from industry back to academia. here is a video from the csail 60th anniversary celebration where i finish telling my personal academic story about a career reinvention.
+if you watch it to the end, you can see the three big lessons about how to do research that i learned during my phd - and how i learned those lessons.
+
+continue reading "reinvented"
+
+posted by david at 05:27 pm
+		| comments (0)
+
+
+
+	october 28, 2023
+	
+
+
+function vectors in large language models
+in 1936, alonzo church made an amazing discovery: if a function can treat other functions as data, then it becomes so powerful that it can even express unsolvable problems.
+we know that deep neural networks learn to represent many concepts as data. do they also learn to treat functions as data?
+in a new preprint, my student eric todd finds evidence that deep networks do contain function references. inside large transformer language models (like gpt) trained on ordinary text, he discovers internal vectors that behave like functions. these function vectors (fvs) can be created from examples, invoked in different contexts, and even composed using vector algebra. but they are different from regular word-embedding vector arithmetic because they trigger complex calculations, rather than just making linear steps in representation space.
+it is a very cool finding. help eric spread the word!
+read and retweet the twitter thread
+share the facebook post
+the project website: functions.baulab.info
+
+posted by david at 11:17 am
+		| comments (0)
+
+
+
+	april 02, 2023
+	
+
+
+is artificial intelligence intelligent?
+the idea that large language models could be capable of cognition is not obvious. neural language modeling has been around since jeff elmans 1990 structure-in-time work, but 33 years passed between that initial idea and first contact with chatgpt.
+what took so long? in this blog i write about why few saw it coming, why some remain skeptical even in the face of amazing gpt-4 behavior, why machine cognition may be emerging anyway, and what we should study next.
+read more at the visible net.
+
+posted by david at 03:08 pm
+		| comments (0)
+
+
+
+	march 28, 2023
+	
+
+
+catching up
+today, i received an email from my good college friend david maymudes. david got his math degree from harvard a few years ahead of me, and we have both worked at microsoft and google at overlapping times. he is still at google now. we have both witnessed and helped drive major cycles of platform innovation in the industry in the past (david designed the video api for windows and created the avi format! and we both worked on internet explorer), so david is well aware of the important pieces of work that go into building a new technology ecosystem.
+from inside google today, he is a direct witness to the transformation of that company as the profound new approaches to artificial intelligence become a corporate priority. it is obvious that something major is afoot: a new ecosystem is being created. although david does not directly work on large-scale machine learning, it touches on his work, because it is touching everybody.
+despite being an outsider to our field, david reached out to ask some clarifying questions about some specific technical ideas, including rlhf, ai safety, and the new chatgpt plug-in model. there is so much to catch up on. in response to davids questions, i wrote up a crash-course in modern large language modeling, which we will delve into in a new blog i am creating.
+read more at the visible net.
+
+posted by david at 05:44 am
+		| comments (0)
+
+
+
+	december 28, 2021
+	
+
+
+running statistics for pytorch
+here is runningstats.py, a useful little module for computing efficient online gpu statistics in pytorch.
+
+pytorch is great for working with small batches of data: if you want to do some calculations over 100 small images, all the features fit into a single gpu and the pytorch functions are perfect.
+
+but what if your data doesn't fit in the gpu all at once?  what if they don't even fit into cpu ram?  for example, how would you calculate the median values of a set of a few thousand language features over all of wikipedia tokens?  if the data is small, it's easy: just sort them all and take the middle.  but if they don't fit - what to do?
+
+
+import datasets, runningstats
+ds = datasets.load_dataset('wikipedia', '20200501.en')['train']
+q = runningstats.quantile()
+for batch in tally(q, ds, batch_size=100, cache='quantile.npz'):
+  feats = compute_features_from_batch(batch)
+  q.add(feats) # dim 0 is batch dim; dim 1 is feature dim.
+print('median for each feature', q.quantile(0.5))
+
+here, online algorithms come to the rescue.  these are economical algorithms that summarize an endless stream of data using only a small amount of memory.  online algorithms are particularly handy for digesting big data on a gpu where memory is precious.  runningstats.py includes running stat objects for mean, variance, covariance, topk, quantile, bincount, iou, secondmoment, crosscovariance, crossiou, as well as an object to accumulate combinedstats....
+continue reading "running statistics for pytorch"
+
+posted by david at 02:23 pm
+		| comments (0)
+
+
+
+	november 26, 2021
+	
+
+
+reddit ama
+join me at this link on reddit on tuesday 3pmet/12pt to #ama about interpreting deep nets, ai research in academia vs industry; life as a phd student.  i am a new cs prof at northeastern @khourycollege; postdoc at harvard; recent mit phd; google, msft, startups...
+it is graduate school application season!  so with prospective phd students in mind, i am hosting an ama to talk about life as a phd student in computer vision and machine learning, and the choice between academia and industry. my research studies the structure of the computations learned within deep neural networks, so i would especially love to talk about why it is so important to crack open deep networks and understand what they are doing inside.
+before i start as a professor at northeastern university khoury college of computer sciences next year, i am doing a postdoc at harvard; and you can see my recent phd defense at mit here. i have a background in industry (google, microsoft, startup) before i did my own "great resignation to return to school as an academic, so ask me anything about basic versus applied work, or research versus engineering.  or ask me about grandmother neurons, making art with deep networks, ethical conundrums in ai, or what it's like to come back to academia after working.
+
+posted by david at 11:21 am
+		| comments (1)
+
+
+
+	august 25, 2021
+	
+
+
+assistant professor at neu khoury
+i am thrilled to announce that i will be joining the northeastern university khoury college of computer science as an assistant professor in fall 2022.
+for prospective students who are thinking of a phd, now is a perfect time to be thinking about the application process for 2022. drop me a note if you have a specific interest in what our lab does.  and if you know somebody who would be a fit, please share this!
+http://davidbau.com/research/
+https://www.khoury.northeastern.edu/apply/
+
+we think that understanding the rich internal structure of deep networks is a grand and fundamental research question with many practical implications.  (for a talk about this, check out my phd defense).  if this area fascinates you, consider applying! the neu khoury school is in downtown boston, an exciting, international city, and the best place in the world to be a student.
+
+posted by david at 06:48 pm
+		| comments (1)
+
+
+
+	august 24, 2021
+	
+
+
+phd defense
+today i did my phd defense, and my talk will be posted here on youtube.  here is the talk!
+title: dissection of deep networks
+do deep networks contain concepts?
+one of the great challenges of neural networks is to understand how they work.  because a deep network is trained by an optimizer, we cannot ask a programmer to explain the reasons for the specific computations that it happens to do. so we have traditionally focused on testing a network's external behavior, ignorant of insights or flaws that may hide within the black box.
+but what if we could ask the network itself what it is thinking?  inspired by classical neuroscience research on biological brains, i introduce methods to directly probe the internal structure of a deep convolutional neural network by testing the activity of individual neurons and their interactions.
+beginning with the simple proposal that an individual neuron might represent one internal concept, we investigate the possibility of reading human-understandable concepts within a deep network in a concrete, quantitative way:  which neurons?  which concepts?  what role do concept neurons play?  and can we see rules governing relationships between concepts?
+following this inquiry within state-of-the-art models in computer vision leads us to insights about the computational structure of those deep networks that enable several new applications, including "gan paint" semantic manipulation of objects in an image; understanding of the sparse logic of a classifier; and quick, selective editing of generalizable rules within a fully trained stylegan network.
+in the talk, we challenge the notion that the internal calculations of a neural network must be hopelessly opaque. instead, we strive to tear back the curtain and chart a path through the detailed structure of a deep network by which we can begin to understand its logic.
+
+
+posted by david at 03:13 pm
+		| comments (0)
+
+
+
+	august 06, 2021
+	
+
+
+global catastrophizing
+do you think the world is much darker than it used to be?  if so, you are not alone.
+i have always assumed that a feeling of psychological decline is just a side-effect of getting older.  but a paper by bollen, et al., out in pnas today suggests that a darker outlook in recent years might not be specific to any of us individually. by analyzing trends in published text in the google ngrams corpus, researchers from indiana university and wageningen have discovered that across english, spanish and german, text published in the world shows sudden changes in language use over time that are indicative of cognitive distortions and depression, coinciding with major wars or times of social upheaval.
+
+the chart above is from bollen's paper, and it counts something very simple.  for every year, it counts how many times a particular set of short phrases appear in the printed books published in that year. the annual counts come from google's books ngram corpus - derived from scans of published books - and the 241 phrases counted are word sequences chosen by a panel of cognitive behavioral therapy specialists as markers for cognitive distortion schemata (cds). that is, they are phrases that would suggest systematic errors in thinking that are correlated with mental health issues that are treated by psychologists.
+for example, one of the 241 counted phrases is "you always," because those words often indicate overgeneralization such as in the sentences "you always say no," or "you always win."  the bigram "everyone knows" indicates mind-reading, because it reveals that the speaker has a belief that they know what other people are thinking. the trigram "will never end" indicates catastrophizing, an exaggerated view of negative events. in total the panel of experts cataloged each of the 241 selected phrases, as a marker for a dozen specific cognitive distortions. these cognitive distortions are correlated with depression, so it is interesting to ask whether large-scale trends in the usage of these phrases reveals mass changes in psychology over time.
+the chart suggests that it might.  it seems to reveal suffering in germany coinciding with world wars i and ii, and trauma in the english-speaking world at the spanish-american war, vietnam war protests, and 9/11.  strikingly and worryingly, all the languages show a dramatic increase in cognitively distorted use of language since 2007.  if you believe the linguistic tea leaves, our collective state of mind seems to have taken an extraordinary turn for the worse in the last decade — globally.
+the paper is an example of a use of the google books ngrams corpus.  this is a pretty great resource that catalogs language use by counting words and ngrams in about 4% of all published text, by year, and it means that you can easily look further into the data yourself.  the authors provide their list of phrases, so you can examine the trends by individual category and phrase.  here are the top phrases for catastrophizing in english: 
+
+
+
+explore and modify the query yourself here.  you can see spikes in certain phrases corresponding to wwi and wwii, and the upwelling, in recent decades, of expressions of the idea that a variety of things "will end" and "will not happen".
+it is when the 241 phrases are added together, when we see dramatic recent spikes that are reminiscent of the climate change hockey stick plot by mann, bradley and hughes.
+do you agree with the authors that these changes in word usage are meaningful?  have we been experiencing a catastrophic worldwide decline in psychological health since 2007?
+or is this just an example in which the authors themselves are catastrophizing, looking at data in a way that interprets events in the world as much worse than they actually are?
+previous musings on society-wide catastrophizing here.
+
+
+posted by david at 08:10 am
+		| comments (0)
+
+
+
+	march 18, 2021
+	
+
+
+passwords should be illegal
+as part of modernizing u.s. infrastructure, america should eliminate passwords.
+our use of passwords to build security on the internet is akin to using flammable materials to build houses in densely-populated cities.  every single website that collects, stores and transmits password invites a new cybersecurity catastrophe.
+when half of chicago burned down in 1871, citizens reflexively blamed the disaster on evil actors: arsonists, immigrants, communists.  after the fire, the first response of political leaders was to impose martial law on the city to stop such evil-doers.  from our modern perch, it seems obvious that the blame and the fix was misplaced.  even if the spark were lit by somebody with bad intentions, the scale of the disaster was caused by outdated infrastructure.  chicago had been built out of combustible materials that were not safe in a densely-built city.
+our continued use of passwords on the internet today poses the same risk.
+just as a small fire in a flammable city can turn into a massive disaster, on the internet, a single compromised password can lead to a chain reaction of compromised secrets that can open vast parts of the internet to hacking.  the fundamental problem is that we store and transmit many of the secrets that we use to secure the internet, including passwords, on the internet itself.
+in the 2020's using, transmitting, and storing passwords on the internet should be as illegal as constructing a chicago shanty out of incendiary cardboard.
+physical key-based authentication systems are cheap.  they keep secrets secure on computer chips that are not connected to the internet and that never reveal their secrets on the network.  if physical keys were used everywhere we currently use passwords, all internet hacking would be far harder and slower.
+key-based login systems have been available for decades, but because standards are not mandated, they are adopted almost nowhere.  physical keys are slightly more inconvenient for system-builders, and consumers do not demand them because the dangers of hacking are invisible.  it is an excellent example of a situation where change is needed, but the marketplace will not create the change on its own.
+that is why our country's best response to the increasing wave of hacking disasters should be led by people like the folks at nist, rather than the u.s. army.  we should standardize, incentivize, mandate, and fund the use of non-password based authentication in all computer systems over the next few years. a common set of standards should be set, so that people can log into all systems using trustworthy physical keys that cannot be hacked remotely.
+eliminating passwords would make more of a difference to cybersecurity than any clever retaliation scheme that the cybersecurity soldiers might cook up.  although there are certainly evil actors on the internet, we ourselves are the ones who empower hackers by perpetuating our own dangerous practices.
+as we modernize u.s. infrastructure, we should prioritize modernizing standards and requirements around safe authentication systems on the internet.
+
+
+
+posted by david at 12:28 pm
+		| comments (2)
+
+
+
+	october 16, 2020
+	
+
+
+deception is a bug
+today twitter and facebook decided to manually limit the spread of the ny post's unverified story about a hack on the biden family.  taking responsibility for some of the broad impacts of their systems is an excellent move.
+but the fact that fb+twitter needed to intervene is a symptom of badly flawed systems. we all know that the systems would have otherwise amplified the misinformation and caused widespread confusion. in other words, we all know our big social networks have a bug. it is a fundamental bug with ethical implications - but in the end, it is a bug, and as engineers we need to learn to fix this kind of issue. as a field, we need to be willing to figure out how to design our systems to be ethical. to be good.
+what does it mean for an ai to be good?
+the fundamental reason twitter and facebook and google are having such problems is that the objectives used to train these systems are wrong. we can easily count clicks, minutes of engagement, re-shares, transactions. so we maximize those. but we know that these are not actually the right goals.
+the right goal?  in the end, a system serves users, and so its purpose is to expand human agency.  a good ai must help human users make better decisions.
+yet improving decisions is quite a bit harder than maximizing page views. it requires getting into subtle issues, developing an understanding of what it means to be helpful, informative, honest. and it means being willing to take on tricky choices that have traditionally been the realm of editors and policymakers.  but it is possible. and, as a field, it is what we should be aiming for.
+a few more thoughts in previous posts:
+the purpose of ai
+volo ergo sum
+
+posted by david at 12:42 pm
+		| comments (2)
+
+
+
+	august 19, 2020
+	
+
+
+rewriting a deep generative model
+can the rules in a deep network be directly rewritten?
+state-of-the-art deep nets are trained as black boxes, using huge piles of data and millions of rounds of optimization that can take weeks to complete.  but what if we want change a learned program after all that training is done?
+since the start of my phd i have been searching for a way to reprogram huge deep nets in a different way: i want to reconfigure learned programs by plugging pieces together instead of retraining them on big data sets. in my quest, i have found a lot of cool deep net structure and developed methods to exploit that structure.  yet most ideas do not work. generalizable editing is elusive.  research is hard.
+but now, i am delighted to share this finding:
+rewriting a deep generative model (eccv 2020 oral)
+website: https://rewriting.csail.mit.edu
+code: https://github.com/davidbau/rewriting
+preprint: https://arxiv.org/pdf/2007.15646.pdf
+2 min video: https://www.youtube.com/watch?v=i2_-znqtepk
+editing a styleganv2 model of horses.  after changing a rule, horses wear hats!
+unlike my ganpaint work, the focus of this paper is not on changing a single image, but on editing the rules of the network itself.  to stretch a programming analogy: in previous work we figured out how to edit fields of a single neural database record. now we aim to edit the logic of the neural program itself.
+here is how: to locate and change a single rule in a generative model, we treat a layer as an optimal linear associative memory that stores key-value pairs that associate meaningful conditions with visible consequences. we change a rule by rewriting a single entry of this memory. and we enable users to make these changes by providing an interactive tool.
+i edit styleganv2 and progressive gan and show how to do things like redefine horses to let them wear hats, or redefine pointy towers to have buildings that sprout trees.  my favorite effects are redefining kids eyebrows to be very bushy, and redefining the rule that governs reflected light in a scene, to invert the presence of reflections from windows.
+here is a 10 min video:
+https://rewriting.csail.mit.edu/video/
+mit news has a story about it here today:
+http://news.mit.edu/2020/rewriting-rules-machine-generated-art-0818
+
+posted by david at 11:11 am
+		| comments (2)
+
+
+
+	july 05, 2020
+	
+
+
+david's tips on how to read pytorch
+pytorch has a great design: easy and powerful.  easy enough that it is definitely possible to use pytorch without understanding what it is doing or why.  but it also gets better the more you understand.
+
+as part of summer school at mit, next week i'm doing a lecture to introduce students to pytorch.  i have written a few code examples that i hope will give students a head start on understanding the design of pytorch.  each concept is illustrated visually with a cute minimal hackable example. all the examples are notebooks that are hosted on google colab.
+it covers tensor indexing conventions, benchmarks gpu versus cpu speeds, explains autograd with simple systems, and plots what optimizers are doing using 2d problems. then i put the pieces together with a detailed discussion of network modules and data loaders, training toy networks where the whole space can be visualized as well as a simple but realistic five-minute resnet training example.
+here are david's tips on how to read pytorch.
+
+posted by david at 02:58 pm
+		| comments (3)
+
+
+
+	april 25, 2020
+	
+
+
+a covid battle map
+whenever heidi gets a headache after coming back from the hospital, i worry about losing her to covid.
+but i am very aware that, with the virus already so widespread, the decisive battle is no longer being fought by doctors in the hospitals. they are just buying time, containing the threat just like you and i do when we social distance.
+the outcome will depend on a race between two global teams furiously trying to hack a dozen proteins. the good guys are thousands of biologists, an historic worldwide collaboration. the bad guys are the random forces of natural selection, the mutations that happen inside each carrier. thanks to the bedford lab at fred hutchinson, you can see a map of the battlefield here, tracing the random moves made by the bad guys: (data from gisaid)
+
+what are the bad-guy mutations doing?  a small study came out of zhejiang university this week (medrxiv, not peer-reviewed) that hints at the risks as we let the virus propagate and evolve.  they did cell-culture studies on 11 samples and found, for example, a 19-fold difference in cell-culture virulence between one version similar to the virus in wa, ca, or, and va (not very virulent) compared to one resembling strains in england and france (far more virulent). one of the versions from wuhan was 249 times worse.  (strains common in ny or italy were not included.)
+so as we celebrate that wa state seems to be beating the virus, this study highlights that wa has just beaten one strain.  the european strains spreading elsewhere are different and might actually be more deadly. i think is important to contain covid before an even-worse strain spreads, as happened in 1918.
+happily, in 2020, we can map out a set of weak points that the good guys can counterattack.  here is a survey paper. some notable targets:
+
+attacks on the ace2 receptor, the molecular passkey used by the virus to break into human cells.
+attacks on the viral replication machine, the intricate rna-dependent-rna polymerase rdrps/nsp12.
+attacks on a key link in the viral factory, the protease 3clpro/nsp5 that cleaves out the viral proteins after they are made in one big chain.
+old-fashioned attacks on the virus armor. vaccines target the s protein shell on the outside of the virus.
+new-fangled behind-enemy-lines attacks by crispr hotshots who want to directly chop up viral rna.
+some scientists are working on defenses that improve the human body's response, steeling our organs to viral attack by trying to calm the inflammation that causes such problems.
+others are working on defenses that transplant a more robust immune response, via donated plasma.
+
+the new york times has beautiful renderings of all the molecular attack targets.
+unlike in a shooting war, we do not have news reporters going into the battlefield to report on the days wins and losses. but maybe we should.  none of these is sure thing.  but they all have a chance, and there are real salvos being launched on each of these targets.
+on both sides, the battlefield is active.
+on facebook here
+
+posted by david at 06:45 pm
+		| comments (1)
+
+
+
+	march 25, 2020
+	
+
+
+covid-19 chart api
+here is the covid-19 live chart api.  use it to create a custom live chart of covid-19 stats on a linear or logarithmic scale, comparing the set of countries and states that you choose (or an automatically sorted set of worst states or countries), on the timeframe that you want to see.
+new 3/27/20: you can now plot local data of most us counties.  just type the counties, states, and countries you want to see into the search box, and you can make a custom graph focused on the localities you care about.
+it is designed to help you use current data to anticipate the future. click on "advanced options" on covid19chart.org. it just takes a few clicks to make a new visualization.
+
+once you have created a custom chart, you can email it or print it for your local policymaker.  or better yet, if you are making a dashboard that leaders will see every day, theme the graph dark or light to match your webpage, use the "bare" mode for embedding it as an iframe, like this:
+<iframe src="https://covid19chart.org/#/?start=%3e%3d50&include=wa%3bma%3bny%3bitaly⊤=0&domain=intl&theme=dark&bare=1" width="500" height="388"></iframe>
+
+
+(the embedded chart is interactive.)
+the data is live, pulled directly off johns hopkins csse covid data feed on github.  although that feed is in flux and changes format every few days, i will track their changes and the chart up-to-date as needed.  please email me (david.bau@gmail.com) if you have any problems with this api.
+the current data tell a simple story.
+in the us, if we want to avoid a grim future, we need to be making better decisions now.  every state of our country is seeing a similar exponential explosion, just starting on different days.  please use these charts to tell this story.  and thank you for helping our leaders understand the importance of our choices today.
+
+continue reading "covid-19 chart api"
+
+posted by david at 10:46 am
+		| comments (5)
+
+
+
+	march 24, 2020
+	
+
+
+the beginning
+today marks the beginning of the covid-19 crisis for me.  it is the first day that surgeons are being called in from their regular duties to take care of the wave of covid-19 patients at mgh.  heidi needs to run into the hospital.  we will have weeks or months of this ahead.
+i am terrified.
+the covid-19 chart has been updated to include both state-level and international statistics, and it includes an api so that you can make, link, and embed a custom chart that focuses on the states or countries of your choice.  the (no doubt stressed-out) csse team has been screwing up the data feed, but i will keep the data cleaned and correct on the live chart as long as it can be patched together.  below we can see america first in the chart today.
+
+please use it as a tool to pressure your local policymakers to take this crisis seriously.
+thank you.
+
+posted by david at 10:40 am
+		| comments (1)
+
+
+
+	march 23, 2020
+	
+
+
+no testing is not cause for optimism
+two readings and a thought related to covid-19 testing.
+lack of information requires us to believe two contradictory things at once.  from a policy point of view, we need to understand that very few people are infected yet.  and from a personal behavior point of view, we need to understand that many people are already infected.
+policy first.  some people think that the lack of testing means that there could be far more asymptomatic cases than we know, and therefore the disease could far less deadly than we imagine.
+but consider the case of the town of vò, near the epicenter of the italian outbreak, where all 3000 residents were tested.  as severe as the outbreak is in italy, it corresponded to less then 3% of the population being infected.  so as bad as the italian case is, at least in the one town that was tested, it could be 30 times worse.  blindness is not cause for optimism.
+which individuals should be tested?  the right behavior is to do the things that maximize lives saved.  that means testing should be done in situations where it would change care, for example on on healthcare providers who do not have the option to isolate, so that they do not inadvertently spread it to other providers and patients.
+but of course that means many infected people will be untested, so everybody needs to operate under the assumption that we are all infected.
+paradoxically this lack of information means we need to keep in mind two different realities at once.  first, we need to recognize that almost nobody has it yet, so the society-wide damage can and will get far far worse; and second, that we and others are likely to have it, so our personal risk and responsibility is very high.  we need to isolate.
+the parable of two realities corresponds to the logarithmic and linear view of the disaster.  i have posted an updated version of the covid-19 time series tracker, which provides both views on covid19chart.org.
+
+posted by david at 01:45 pm
+		| comments (0)
+
+
+
+
+
+about david bau
+-
+list of all articles
+
+
+
+
+
+
+calendar
+
+
+
+february 2025
+
+sun
+mon
+tue
+wed
+thu
+fri
+sat
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+21
+
+22
+
+23
+
+24
+
+25
+
+26
+
+27
+
+28
+
+
+
+
+
+projects
+
+
+research page
+
+
+collected hacks & ideas
+
+
+search
+
+
+
+
+search this site:
+
+
+
+
+
+recent entries
+
+
+the right kind of openness for ai
+reinvented
+function vectors in large language models
+is artificial intelligence intelligent?
+catching up
+running statistics for pytorch
+reddit ama
+assistant professor at neu khoury
+phd defense
+global catastrophizing
+passwords should be illegal
+deception is a bug
+rewriting a deep generative model
+david's tips on how to read pytorch
+a covid battle map
+covid-19 chart api
+the beginning
+no testing is not cause for optimism
+two views of the covid-19 crisis
+the purpose of ai
+npycat for npy and npz files
+in code we trust?
+net kleptocracy
+it's our responsibility
+volo ergo sum
+a crisis of purpose
+reinvention
+government is not the problem
+oriental exclusion
+david hong-toh bau, sr
+dear senator collins
+trump is a two-bit dictator
+network dissection
+learnable programming
+beware the index fund
+does watching fox news kill you?
+our national identity
+outrage is not enough
+a warning from 1937
+nativist?
+a demon-haunted world
+by the people, for the people
+integrity in government
+thinking slow
+whose country?
+starting at mit
+when to sell
+one-off depreciation
+confidence games
+making a $400 linux laptop
+teaching about data
+code gym
+musical.js
+pencil code at worcester technical high school
+a bad chrome bug
+phantomjs and node.js
+integration testing in node.js
+second edition of pencil code
+learning to program with coffeescript
+teaching math through pencil code
+hour of code at lincoln
+hour of code at amsa
+a new book and a thanksgiving wish
+pencil code: lesson on angles
+pencil code: lesson on lines
+pencil code: a first look
+coffeescript syntax for kids
+css color names
+for versus repeat
+book sample page
+teaching programming and defending the middle class
+turtlebits at beaver country day
+book writing progress
+lessons from kids
+await and defer
+ticks, animation, and queueing in turtlebits
+using the turtlebits editor
+starting with turtlebits
+turtle bits
+no threshold, no limit
+local variable debugging with see.js
+mapping the earth with complex numbers
+conformal map viewer
+jobs in 1983
+the problem with china
+omega improved
+made in america again
+avoiding selectors for beginners
+turtle graphics fern with jquery
+learning to program with jquery
+jquery-turtle
+python templating with @stringfunction
+put and delete in call.jsonlib.com
+party like it's 1789
+using goo.gl with jsonlib
+simple cross-domain javascript http with call.jsonlib.com
+dabbler under version control
+snowpocalypse hits boston
+heidi's sudoku hintpad
+social responsibility in tech
+
+
+archives
+
+
+all articles
+march 2024
+october 2023
+april 2023
+march 2023
+december 2021
+november 2021
+august 2021
+march 2021
+october 2020
+august 2020
+july 2020
+april 2020
+march 2020
+january 2018
+december 2017
+november 2017
+june 2017
+may 2017
+april 2017
+march 2017
+january 2017
+december 2016
+november 2016
+october 2016
+june 2016
+may 2016
+september 2015
+august 2015
+july 2015
+october 2014
+july 2014
+may 2014
+january 2014
+december 2013
+november 2013
+october 2013
+september 2013
+august 2013
+april 2013
+february 2013
+october 2012
+september 2012
+december 2011
+november 2011
+october 2011
+september 2011
+march 2011
+february 2011
+january 2011
+december 2010
+november 2010
+october 2010
+september 2010
+june 2010
+may 2010
+april 2010
+march 2010
+february 2010
+january 2010
+november 2009
+september 2009
+august 2009
+july 2009
+june 2009
+may 2009
+april 2009
+march 2009
+february 2009
+january 2009
+december 2008
+november 2008
+october 2008
+september 2008
+august 2008
+june 2008
+may 2008
+march 2008
+february 2008
+january 2008
+december 2007
+november 2007
+october 2007
+august 2007
+july 2007
+june 2007
+may 2007
+april 2007
+march 2007
+february 2007
+january 2007
+december 2006
+november 2006
+october 2006
+september 2006
+august 2006
+july 2006
+june 2006
+may 2006
+april 2006
+march 2006
+february 2006
+january 2006
+december 2005
+october 2005
+september 2005
+august 2005
+july 2005
+june 2005
+may 2005
+april 2005
+january 2004
+december 2003
+november 2003
+
+
+links
+
+
+
+mastodon
+
+
+bau family website
+joe
+gary
+eric
+gayle
+reza
+ulysses
+blossom
+howie
+nelson
+glenn
+sacca
+davidmay
+pop
+wag
+physics
+nature
+mg
+legoed
+cedric
+adam
+mark
+scott
+ted
+joel
+xmlbeans
+quick search bar
+battelle
+bricklin
+digg
+jake
+gilmour
+googlers
+hotlinks
+mini
+raymond
+rb
+rmack
+sam
+tm
+volkh
+wonkette
+waxy
+witt
+xooglers
+zawodny
+econview
+uchicagolaw
+
+
+older writing
+
+
+the old dabbler
+
+
+dave on microsoft
+
+
+dave on transparency
+
+
+dave's linear algebra book
+
+
+about
+
+
+about david bau
+about this site
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+copyright 2025 © david bau. all rights reserved.
+
+
+
+ 
+
+
+
+

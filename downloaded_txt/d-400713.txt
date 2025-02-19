@@ -1,0 +1,1398 @@
+
+
+
+
+
+
+
+投稿一覧
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+kiyosite  
+					
+
+
+
+
+					bbs
+				
+
+
+
+
+
+
+sign
+            
+
+
+
+
+
+
+
+ログイン
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+search
+
+
+
+
+
+
+
+検索
+
+
+
+このサイト
+
+
+
+コメント機能追加
+
+
+
+
+
+もっと読む
+
+
+
+
+
+サイトの中断
+
+
+
+
+
+test投稿
+
+
+
+
+未分類
+
+
+
+postgreからmongodbへデータ移動
+
+
+
+
+
+npmでnodejsをダウングレード
+
+
+
+
+
+vine6.3で無理やりmeteor
+
+
+
+
+
+mongodb起動スクリプト
+
+
+
+
+
+caを使って無公開サイトの作成
+
+
+
+
+meteor
+
+
+
+ユーザアカウント
+
+
+
+
+
+meteor-cookieの使い方
+
+
+
+
+
+nodejsのfsを使う
+
+
+
+
+
+insecureとautopublishパッケージの削除
+
+
+
+
+
+minimongodb コマンド集
+
+
+
+
+
+collectionfs
+
+
+
+
+
+ubuntu14へテストデプロイ
+
+
+
+
+
+\n の扱いはどうなってる
+
+
+
+
+
+helpersとrenderedの違い
+
+
+
+
+
+間違ったデプロイ
+
+
+
+
+
+meteorの起動スクリプト upstart
+
+
+
+
+
+meteorでメール配備
+
+
+
+
+ubuntu 14lts
+
+
+
+ubuntuserver
+
+
+
+
+
+ファイルマネージャ root で開く
+
+
+
+
+
+ubuntu アップデート
+
+
+
+
+
+boot領域不足
+
+
+
+
+django
+
+
+
+django-blog-1
+
+
+
+
+
+django-blog-2
+
+
+
+
+
+django-otp 二要素認証
+
+
+
+
+tailwind
+
+
+bios等
+
+
+
+mbrとgpt
+
+
+
+
+
+lvm挑戦
+
+
+
+
+
+
+リンク
+
+
+
+象歩（owaさん家）
+
+
+
+
+
+
+
+
+
+
+
+最新の投稿
+
+
+
+1
+
+
+2
+
+
+3
+
+
+4
+
+
+5
+
+
+6
+
+
+
+next
+
+
+
+
+
+
+
+django-otp 二要素認証
+カテゴリー：django 作成日:2025年1月26日21:58
+google authenticator(スマホアプリ)とdjango認証
+すでに構築済みに二要素認証を追加する簡単な方法
+(venv)$ pip install django-otp qrcode
+
+
+setting.py に追加
+installed_apps = (
+
+    ...
+
+    'django_otp',
+    'django_otp.plugins.otp_totp',
+    'django_otp.plugins.otp_static',
+
+    ...
+
+
+)
+
+middleware = (
+    ...
+    'django_otp.middleware.otpmiddleware',
+    ...
+)
+
+migrateの実行
+(venv)$ python manage.py migrate
+
+superuserを作っていなければ作る
+(venv)$ python manage.py createsuperuser
+
+user:
+email:
+password:
+確認用password:
+を入力
+
+
+この跡 adminを実行する
+(venv)$ python manage.py runserver
+
+localhost:8000/adminを実行
+ 
+
+localhost:8000/adminを実行し
+左図のようにtotp devices ＋追加で
+user：枠に ユーザ名を入れ右の検索ボタンを押す
+ブラウザーが開くので登録したadminユーザを選択して日付、時刻など入力後保存する。
+
+
+
+次にqrcodeを表示させる
+ 
+
+赤枠のqrcodeをクリック
+
+
+
+qrcodeが表示される
+ 
+
+google authenticator(スマホアプリ)に追加する
+
+
+urls.pyに追加
+from django.contrib import admin
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from django.views.generic.base import templateview
+from django_otp.admin import otpadminsite # 追加
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    ．．．
+    path('', include('blog.urls')),
+
+]
+
+# admin でdjango-otp
+admin.site.__class__ = otpadminsite # 追加
+
+
+この設定後adminでのログイン画面
+ 
+
+otp token枠が表示される
+ここにはスマホのgoogle authenticatorの６文字を入力する。
+
+
+ここではincludeした blog.urls.pyにloginを追加
+from django.urls import path
+from . import views
+#from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import loginview
+from django_otp.forms import otpauthenticationform
+
+
+app_name = 'blog'
+
+urlpatterns = [
+    path('', views.postlist.as_view(), name='post_index'),
+    path('login/', loginview.as_view(authentication_form=otpauthenticationform,template_name='login.html'), name='login'),
+ ]
+
+最後にtemplates/ligin.htmlを作成
+{% load tailwind_filters %}は pip install django-tailwindを使ってるため 
+{% extends "base.html" %}
+{% load tailwind_filters %}
+
+{% block title %}ログイン | {{ block.super }}{% endblock %}
+
+{% block content  %}
+
+
+<form action="." method="post" class="max-w-sm mx-auto text-sm font-medium">
+    {% csrf_token %}
+    <div class="form-row"> {{ form.username.errors }}{{ form.username.label_tag }}{{ form.username }} </div>
+    <div class="form-row"> {{ form.password.errors }}{{ form.password.label_tag }}{{ form.password }} </div>
+    {% if form.get_user %}
+    <div class="form-row"> {{ form.otp_device.errors }}{{ form.otp_device.label_tag }}{{ form.otp_device }} </div>
+    {% endif %}
+    <div class="form-row"> {{ form.otp_token.errors }}{{ form.otp_token.label_tag }}{{ form.otp_token }} </div>
+    <div class="submit-row">
+        <input type="submit" value="ログイン" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"/>
+
+    </div>
+</form>
+{% endblock content  %}
+
+
+これによりlogin画面も otp tokenが追加表示される。
+ 
+
+login画面も otp tokenが追加表示される。
+
+
+
+
+lvm挑戦
+カテゴリー：bios等 作成日:2024年11月28日23:05
+proxmoxでlvm作成+結合の練習を行う
+後日に参照しても分かるようになるべく楽して（コマンド少なく）やりたい。
+xubuntu24.04 lts  isoのliveモードを起動してインスールを行う
+
+全容を簡単に説明する
+xubuntu24.04.iso をdvd又はuseにつくる
+最初１台のssdにlvm機能を使ってインストール
+インストールを終了後２台目を追加
+xubuntu24.04 cdかusbで再度起動し
+gpartedを使って追加した２台目のssdをlvm2 pvにてフォーマット
+pv(phisical volume)
+vg(volume group)
+lv(logical volume)
+上記コマンドで結合して２台で ( / )領域を共有する
+
+それでも容量がたりない場合同様の要領で追加可能
+
+インストール 1
+
+
+　日本語の選択をして
+　次をクリック
+
+
+インストール 2
+
+
+　日本語キーボードの選択
+　枠の中でキーの試し打ちをして
+　よければ　次をクリック
+
+
+インストール 3
+
+
+　対話式インストールを選択して次をクリック
+
+
+インストール 4
+
+
+　minimalを選ぶと基本的なものをインストール
+　最初はdesktopを選択する方が良いと思う（後から削除する事も可能）
+　ここではディスク容量が少ないのでminimalを選択した。
+　次をクリック
+
+
+インストール 5
+
+
+　ディスクを削除して xubuntu をインストールにチェックをいれ
+　高度な機能...をクリック
+
+
+インストール 6
+
+
+　lvmを使用　にチェックする
+
+
+
+インストールを完了して２台目のssdを追加しインストールに使ったcdかusbで再起動後 gparted を開く
+
+
+　インストールを終了したら
+　240gbのssdを取り付けて
+　再起動してもう一度 xubuntu24.04 lts のisoをliveモード起動して
+　メニュー　ー＞　システム　ー＞　gpartedを選択して確認する
+
+
+240ｇ ssdの設定 1
+
+
+　/dev/sdbを選択し
+　メニュー　ー＞　device　ー＞ create partition table  選択
+
+
+240ｇ ssdの設定 2
+
+
+　biosでuefi boisに設定しているので gptを選択
+　もしlegacy biosなら msdosを選択する
+
+
+240ｇ ssdの設定 3
+
+
+　gptを選択した。
+
+
+240ｇ ssdの設定 4
+
+
+　メニュー　partition　ー＞　newでpartitionを作る
+
+
+240ｇ ssdの設定 5
+
+
+　すべての partitionを ext4 に割り当てる
+
+
+240ｇ ssdの設定 6
+
+
+　その後作成した new partition #1を選択し　
+　メニューの partition ー＞ format to ー＞lvm2 pvを選択する
+ 
+
+240ｇ ssdの設定 7
+ 
+
+　lvm2 pvになっている事を確認
+
+
+240ｇ ssdの設定 8
+ 
+　メニューの　apply アイコンで設定を反映する。
+
+
+
+240ｇ ssdの設定 9
+
+
+　左端が少し切れてしまったがインストール後に 
+　240gssd を追加しlive usbでgpartedで設定したばかりの 
+　rootになって コマンド lsblkを叩いたところです。　 
+　sda 64g
+　　sda3 lvmになっているのがわかる
+　sdb 240g
+
+
+240ｇ ssdの設定 10
+ 
+
+　ここでは sdb1も設定されている
+
+
+240ｇ ssdの設定 11
+ 
+
+　pvscanで
+　/dev/sda3 vg ubuntu-vg lvm2
+　/dev/sdb1　　　　　　　lvm2
+　total: で容量が まだ 62.00 gで結合がされていないのがわかる
+
+
+240ｇ ssdの設定 12
+ 
+
+　pvscan で vgの名前が ubuntu-vg だと解り
+　vgextend ubuntu-vg /dev/sdb1 ubuntu-vgに結びつけている。
+
+
+240ｇ ssdの設定 13
+ 
+
+　vgdisplay  -v で
+　lv　name 　ubuntu-lv
+　vg　name　ubuntu-vg
+　など確かめる
+
+
+240ｇ ssdの設定 14
+ 
+
+　lvextend -l +100%free /dev/ubuntu-vg/ubuntu-lvで　ubuntu-lvに結びつけている。
+
+
+240ｇ ssdの設定 15
+ 
+
+　resize2fs /dev/ubuntu-vg/ubuntu-lvでフォーマットするつもりだったが
+　please 'e2fsck -f /dev/ubuntu-vg/ubuntu-lv' firstと怒られたので
+　e2fsck -f /dev/ubuntu-vg/ubuntu-lv　実行後
+　resize2fs /dev/ubuntu-vg/ubuntu-lv　とした。
+
+　df -h で
+　ubuntu-lv 301.99gと表示されているが
+　いつもの df -hの表示とは少し違うような？
+
+
+240ｇ ssdの設定 16
+ 
+
+　再起動してインストールした xubuntu24.04から df -hを実行
+　いつもの見慣れた df -h　
+　/dev/mapper/ubuntu-vg/ubuntu-lv 297g となり成功したようだ。
+
+
+
+
+mbrとgpt
+カテゴリー：bios等 作成日:2024年11月28日21:25
+古すぎるpc
+私のつかっているpcはあまりに古い
+dell t350, t550, t750, (全部で９台ある) 
+biosの設定にuefi等見当たらないので２tbまでしかシステムを起動不可能という事はなんとなく
+知ってはいたのだが
+windows 7 -> windows10 もうそろそろサポート終了かな
+windows11はuefiでないとアップデートできなくなると誰が言ったか知らないが気になる。
+そもそも最近はもっぱら xubuntuを使っていたので、、、
+どうしようか
+もちろん古いpcは速度も遅いなので hdd->ssdへ変更するとだいぶましになった
+アマゾンで少し又少しと買った結果 240gb(3個),480から500gb(4個),1tb(5個),2tb(2個）
+最近 xubuntu24.04 lts に変更ついでに240gb（ / ）+500gb（ /home ）構成でインストール完了した。
+
+
+これはもったいない
+/dev/sda1 198gも使われていない
+
+何とか198gを/homeで使う方法はないか
+
+調べた結果 lvmで何とかなるらしいので又挑戦してみよう
+
+
+django-blog-2
+カテゴリー：django 作成日:2024年6月13日12:29
+djangoでblog　その２
+今回（djangoでblog その１の続き）はdjango-breezeを使って
+djnago + inertia.js + react + tailwind.css + viteをubuntu22.04ltsに簡単に構築する方法
+完成するとこんな感じです
+
+django-breezeを使えるようにする
+django-breeze-githubサイト
+mkdir djb-react && cd djb-react
+pyenv local 3.8.10
+
+nodenv local 18.16.1
+
+python -m venv venv
+source venv/bin/activate
+
+pipを最新版にする
+(venv) pip install --upgrade pip
+(venv) pip install django-breeze
+
+(venv) django-breeze startproject conf . //「.」を忘れないように
+
+(venv) django-breeze startapp app
+
+
+react 又は vue3が選択可能のようです
+今回はreactを選択
+(venv) django-breeze create-app react 
+vueを選択する場合は
+(venv) django-breeze create-app vue3
+とします
+
+conf/settings.pyに以下設定
+installed_apps = [
+  #..............
+  'django_breeze',
+  'app'
+  #..............
+]
+
+language_code = 'ja'
+
+time_zone = 'asia/tokyo'
+
+use_i18n = true
+
+use_tz = true
+
+# axios　設定追加　今回はaxiosは使わないが一応設定しとく
+
+csrf_header_name = 'http_x_xsrf_token'
+csrf_cookie_name = 'xsrf-token'
+
+
+
+npm install も忘れずに行ってください
+ここまででほぼ設定まで完了しています
+
+src/main.jsx ここにはdjangoとreactをinetertia.jsを使って連結する内容が書かれています。
+
+src/index.cssにはtailwind cssが書かれています。
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+ただreactでimportする時src以下を@/で置き換える為 vite.config.jsに以下を追加
+resolve: {
+    resolve: {
+      extensions: [".js", ".jsx", ".json"],
+    },
+  // ここから
+    alias: {
+      '@': resolve(__dirname, './src')
+    },
+ //　ここまで追加
+},
+
+
+/src/layout/mylayoutを
+import mylayout from '@/layout/mylayout';
+とできます。
+階層が深くなった時にも '../../mylayout'いや'../../../mylayout'だったかな？
+と悩まずにすみます。
+
+後tailwindは多機能な感じで良いのですが少し楽をしたいのでflowbite flowbite-reactを入れます
+npm install flowbite flowbite-react
+
+tailwind.config.jsをflowbite対応に書き換えます
+/** @type {import('tailwindcss').config} */
+export default {
+  content: [
+    "./src/index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+    'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
+    'node_modules/flowbite/**/*.{js,jsx,ts,tsx}',
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [
+    /** forms, **/
+    require('flowbite/plugin'),
+  ],
+};
+
+それとreactでiconを使いたいので lucide-react 日付を日本語で表示したいので momentをインストール
+npm install moment lucide-react
+
+djangoには marshmallowをインストール
+databaseをjsonへ変換したりvalidation機能もあります
+(venv)pip install marshmallow
+
+
+1.データを作ります app/models.py
+from django.db import models
+from django.core import validators
+from django.utils.timezone import now
+
+class item(models.model):
+
+    sex_choices = (
+        (1, '男性'),
+        (2, '女性'),
+    )
+
+    name = models.charfield(
+        verbose_name='名前',
+        max_length=200,
+    )
+    age = models.integerfield(
+        verbose_name='年齢',
+        validators=[validators.minvaluevalidator(1)],
+        blank=true
+    )
+    sex = models.integerfield(
+        verbose_name='性別',
+        choices=sex_choices,
+        default=1
+    )
+    memo = models.textfield(
+        verbose_name='備考',
+        max_length=300,
+        blank=true
+    )
+    created_at = models.datetimefield(
+        verbose_name='登録日',
+        default=now
+    )
+
+    # 管理サイト上の表示設定
+    def __str__(self):
+        return self.name
+
+    class meta:
+        verbose_name = 'アイテム'
+        verbose_name_plural = 'アイテム'
+
+ここで気をつける事は
+from django.utils.timezone import now
+
+created_at = models.datetimefield(
+       verbose_name='登録日',
+        default=now
+)
+
+
+登録日は now関数を使う事です　auto_now_add=true やauto_now=true にすると後で日付を書き換える事ができないからです。
+2. djangoに登録します adminのユーザとパスワードも作成します
+(venv)python manage.py makemigrations
+(venv)python manage.py migrate
+
+## admin user, passwordを作る
+(venv)python manage.py createsuperuser エンターキーを叩くとuser,email,passwordを聞いてきます。
+例：
+user :demo
+email: demo@email.com
+password: password!!11aa
+password確認: password!!11aa
+passwordは先頭がアルファベットで大文字小文字を各１個以上数値も含ませ８文字以上との制約があります。 
+
+3.conf/urls.pyを修正します
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include("app.urls")),
+]
+
+
+4.app/urls.pyを作成して編集します
+from django.urls import path
+
+from . import views
+
+app_name = 'app'
+
+urlpatterns = [
+    path("", views.index, name="index"),
+    path("create/", views.create, name="create"),
+    path("store/", views.store, name="store"),
+    path("edit/<int:id>", views.edit, name="edit"),
+    path("update/<int:id>", views.update, name="update"),
+    path("delete/<int:id>", views.delete, name="delete"),
+    path("show/<int:id>", views.show, name="show"),
+]
+
+
+5.続いて app/views.pyを編集していきます
+from django.shortcuts import redirect
+from inertia import render, share
+from .models import item
+from .serializers import itemschema  # <-serializers.pyこのあと作ります
+from marshmallow import validationerror
+
+def index(request):
+  obj = item.objects.order_by('-created_at')
+  # auth_bool = request.user.is_superuser
+  return render(request, 'items/index', props={
+    'items': obj,
+  })
+
+def create(request):
+  return render(request, 'items/create', {})
+
+def show(request, id):
+    obj = item.objects.get(id=id)
+    return render(request, 'items/show', props={'item': obj})
+
+def store(request):
+  if request.method == 'post':
+    try:
+      schema = itemschema()
+      data = schema.loads(request.body)
+      obj = item.objects.create(**data)
+    except validationerror as err:
+      share(request, error="exists errors on form")
+      share(request, error=err.messages)
+    else:
+      share(request, success=f"item {obj.name} created")
+      return redirect("app:index")
+
+def edit(request, id):
+  obj = item.objects.get(id=id)
+  return render(request, 'items/edit', props={'item': obj})
+
+def update(request, id):
+  obj = item.objects.get(id=id)
+  schema = itemschema()
+  param = schema.loads(request.body)
+  obj.name = param["name"]
+  obj.age = param["age"]
+  obj.sex = param["sex"]
+  obj.memo = param["memo"]
+  obj.save()
+  #obj.objects.filter(id=id).update(**data)
+  share(request, success=f"item {obj.name} update")
+  return redirect("app:index")
+
+def delete(request, id):
+  obj = item.objects.get(id=id)
+  obj.delete()
+  share(request, success="item deleted")
+  return redirect("app:index")
+
+
+6. app/serializers.pyを作成し編集します
+from marshmallow import schema, fields, validate
+
+class itemschema(schema):
+    id = fields.int()
+    name = fields.str(validate=validate.length(min=1))
+    age = fields.int()
+    sex = fields.int()
+    memo = fields.str()
+    created_at = fields.datetime()
+
+
+7. src/pagesにitemsフォルダーをつくりitems/index.jsxを作ります
+mkdir -p src/pages/items
+touch src/pages/items/index.jsx
+touch src/pages/items/create.jsx
+touch src/pages/items/edit.jsx
+touch src/pages/items/show.jsx
+
+
+8. /src/pages/items/index.jsxを編集します
+import { usestate, useeffect } from 'react';
+import { router, link } from '@inertiajs/react';
+import mylayout from '@/layout/mylayout';
+import moment from 'moment';
+
+
+export default function index({items}){
+
+    const [prepage] = usestate(6)
+
+    const [totalpage] = usestate(items.length)
+
+    const [currentpage, setcurrentpage] = usestate(1)
+
+    const nextpage = () => {
+        if (currentpage !== math.ceil(items.length / prepage)) {
+            setcurrentpage(currentpage+1)
+        }
+    }
+
+    const prevpage = () => {
+        if(currentpage !== 1){
+            setcurrentpage(currentpage-1)
+        }
+    }
+
+    const gotopage = (page) => {
+        setcurrentpage(page)
+    }
+
+    const [lcount] = usestate(math.ceil(totalpage / prepage))
+
+    const pagenumbers = [];
+    for (let i=1; i<math.ceil(totalpage/prepage)+1; i++){
+        pagenumbers.push(i);
+    }
+
+    function deletepost( id ) {
+        if (confirm(`no.${id}を削除してよろしいですか`)) {
+            router.delete(`/delete/${id}`);
+        }
+    }
+
+    function dateformat(data) {
+        return  moment(data).format('yyyy年mm月dd日 hh:mm')
+    }
+
+    function get_sex_display(sex) { return (sex === 1) ? '男性' : '女性' }
+
+    return (
+        <>
+        <mylayout>
+            <div classname="flex flex-wrap columns-2 md:columns-3 lg:columns-4">
+            { items.slice((currentpage -1) * prepage, currentpage * prepage).map( (item) => (
+            <div key={item.id}   classname="mt-4 max-w-sm rounded border-gray-400 overflow-hidden shadow-xl">
+                <div classname="p-4 w-72">
+                <h2 classname="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    <p>{item.name}</p>
+                </h2>
+                <p  classname="font-normal text-gray-700 dark:text-gray-400">
+                        年齢 {item.age} 歳
+                </p>
+                <p classname="font-normal text-gray-700 dark:text-gray-400">
+                    性別 { get_sex_display(item.sex) }
+                </p>
+                <p classname="font-normal text-gray-700 dark:text-gray-400">
+                    備考 { item.memo }
+                </p>
+                <p classname="font-normal text-gray-700 dark:text-gray-400">
+                    登録日 {dateformat(item.created_at)}
+                </p>
+                <div classname="px-6 pt-4 pb-2">
+                    <link href={`/show/${item.id}`} classname="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                            確認
+                    </link>
+                    <link href={`/edit/${item.id}`} classname="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                            編集
+                    </link>
+                    <button onclick={() => deletepost(item.id)} classname="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-red-700 mr-2 mb-2">
+                            削除
+                    </button>
+               </div>
+            </div>
+            </div>
+            ))}
+            </div>
+            <br />
+            <nav aria-label="page navigation example">
+            <ul classname="flex items-center  -space-x-px h-8 text-sm">
+                <li classname="flex">
+                  { currentpage > 1 ? (
+                     <button onclick={prevpage} classname="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <span classname="sr-only">previous</span>
+                      <svg classname="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 6 10">
+                       <path stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 1 1 5l4 4"/>
+                     </svg>
+                     </button>
+                       ) : (<p></p>)
+                    }
+                </li>
+                <li classname="flex">
+                        {pagenumbers.map((number) => (
+                            <button onclick={() => gotopage(number)}
+                            classname={
+                                currentpage === number
+                                ? "z-10 flex items-center justify-center px-3 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+                                : "flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                            }
+                        >{number}</button>
+                        ))}
+                </li>
+                <li classname="flex">
+                    { currentpage < lcount ? (
+                    <button onclick={nextpage} classname="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <span classname="sr-only">next</span>
+                        <svg classname="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 6 10">
+                        <path stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                        </svg>
+                    </button>
+                        ) : (<p></p>)
+                    }
+                </li>
+            </ul>
+            </nav>
+        </mylayout>
+        </>
+    )
+}
+
+9. src/layout/mylayout.jsx作成編集
+import react from "react";
+import { navigation, header } from './index';
+
+
+export default function mylayout({children}) {
+    return  (
+        <>
+        <div classname="flex flex-col h-screen bg-gray-100">
+            <header />
+            <div classname="flex flex-grow bg-gray-100">
+              <div classname="w-2/12">
+                <navigation />
+              </div>
+              <div classname="w-10/12 m-2 bg-gray-100 overflow-y-auto">
+               {children}
+              </div>
+            </div>
+        </div>
+        </>
+    )
+}
+
+
+10. src/layout/header.jsx, src/layout/navigation.jsx src/layout/index.jsx作成
+src/layout/header.jsx
+import { link } from '@inertiajs/react';
+import {headermenus} from '../icons';
+
+export const header = () => {
+    return (
+        <div classname="h-12 bg-gray-100 text-yellow-900 flex items-center mx-4 pl-3 px-4">
+        <ul classname="mx4">
+            {headermenus.map((menu, index) => (
+                <li classname="mb-1 group" key={index}>
+                    <link href={menu.link} classname="flex font-semibold items-center py-1 px-4 text-gray-900 hover:bg-red-500 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                        <menu.icon  classname="mr-1 size-[24px] text-indigo-500"></menu.icon>{menu.label}
+                    </link>
+                </li>
+            ))}
+        </ul>
+        </div>
+    );
+}
+
+src/layout/navigation.jsx
+import { link } from '@inertiajs/react';
+import { navimenus } from '../icons';
+
+export const navigation = () =>{
+    return (
+        <nav classname="bg-gray-100 mx-auto p-4 text-black-600 flex flex-col items-center">
+        <ul classname="mx4">
+            {navimenus.map((menu, index) => (
+                <li classname="mb-1 group" key={index}>
+                    <link href={menu.link} classname="flex font-semibold items-center py-1 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                        <menu.icon  classname="mr-1 size-[24px] text-green-300"></menu.icon>{menu.label}
+                    </link>
+                </li>
+            ))}
+        </ul>
+        </nav>
+    );
+};
+
+src/layout/index.jsx
+export * from './header';
+export * from './navigation';
+export * from './mylayout';
+
+11. icon関係のファイルを作成します
+mkdir src/icons
+touch src/icons/hradermenus.jsx
+touch src/icons/navmenus.jsx
+touch src/icons/index.jsx
+
+
+src/icons/headermenus.jsx
+import {home} from 'lucide-react';
+
+export const headermenus = [
+    {
+        link: '/',
+        label: 'ホーム',
+        icon: home,
+    },
+];
+
+src/icons/navimenus.jsx
+import {home, plus} from 'lucide-react';
+
+export const navimenus = [
+    {
+        link: '/',
+        label: 'ホーム',
+        icon: home,
+    },
+    {
+        link: '/create',
+        label: '新規',
+        icon: plus,
+    },
+]
+
+
+src/icons/index.jsx
+export * from './headermenus';
+export * from './navimenus';
+
+12. app/admin.py編集します
+from django.contrib import admin
+
+# register your models here.
+from .models import item
+
+
+@admin.register(item)
+class itemadmin(admin.modeladmin):
+
+    class meta:
+        verbose_name = 'ユーザ'
+        verbose_name_plural = 'ユーザ'
+
+vscode ターミナルで npm run dev
+もう一つターミナルを開いて python manage.py runserver
+127.0.0.1:8000/adminで10個位サンプルを入れてください。
+
+django-blog-1
+カテゴリー：django 作成日:2024年5月24日15:55
+djangoでblog その１
+djangoでblogを作る方法
+条件
+マークダウンを使いたい
+tailwindcssを使いたい
+vueかreactを使いたい
+なるべく簡単に作りたい  
+
+
+まず開発環境
+1.ubuntu 22.04lts or 24.04lts //proxmox ve 8内で作業する為省略
+2.pyenv pythonのバージョンを管理
+3.nodenv nodejsのバージョンを管理
+
+
+pyenv インストール
+sudo apt update
+sudo apt install build-essential libffi-dev libssl-dev zlib1g-dev liblzma-dev libbz2-dev \
+  libreadline-dev libsqlite3-dev libopencv-dev tk-dev git
+
+gitでpyenv clone
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+
+echo '' >> ~/.bashrc
+echo 'export pyenv_root="$home/.pyenv"' >> ~/.bashrc
+echo 'export path="$pyenv_root/bin:$path"' >> ~/.bashrc
+echo 'eval "$(pyenv init --path)"' >> ~/.bashrc
+source ~/.bashrc
+
+pyenv でインスール可能なバージョン
+pyenv install --list
+
+pyenv で 3.10.8をインストール
+pyenv install 3.10.8
+pyenv install 3.7.0
+
+pyenv で現在インストールされているリスト
+pyenv versions
+
+pyenv の使うバージョンを全体で指定
+pyenv global 3.10.8
+
+pyenv フォルダ別にバージョン指定
+cd /home/folder
+pyenv local 3.7.0
+
+nodenv インストール
+pyenvの使い方によく似ています
+git clone https://github.com/nodenv/nodenv.git ~/.nodenv
+
+echo 'export path="$home/.nodenv/bin:$path"' >> ~/.bashrc
+echo 'eval "$(nodenv init -)"' >> ~/.bashrc
+
+nodejsバージョン一覧を取得用　node-build インストール
+git clone https://github.com/nodenv/node-build.git $(nodenv root)/plugins/node-build
+
+source ~/.bashrc
+
+nodenvでインストールできる一覧
+nodenv install --list
+
+nodenv でインストール
+nodenv install 18.16.1
+nodenv install 16.14.0
+
+nodenv で現在インストールされているリスト
+nodenv versions
+
+nodenv の使うバージョンを全体で指定
+nodenv global 18.16.1
+
+nodenv フォルダ別にバージョン指定
+cd /home/folder
+nodenv local 16.14.0
+
+pyenv local 又は nodenv localを指定すると フォルダーに .python-version  .node-versionが記録される
+
+.python-versionの中身
+3.10.8
+
+.node-versionの中身
+16.14.0
+
+
+
+
+
+
+
+1
+
+
+2
+
+
+3
+
+
+4
+
+
+5
+
+
+6
+
+
+
+next
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			このサイトでは クッキーを使っています。
+		
+
+
+
+

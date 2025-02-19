@@ -1,0 +1,241 @@
+
+
+
+
+welcome [savannah]
+
+
+
+
+
+
+
+
+
+
+
+
+
+not logged in
+
+login
+
+new user
+this page
+
+language
+
+clean reload
+search
+
+
+
+area to search in
+
+groups
+people
+support
+bugs
+tasks
+patches
+
+
+
+ 
+
+hosted projects
+
+hosting requirements
+
+register new project
+
+full list
+
+contributors wanted
+
+statistics
+site help
+
+user docs: faq
+
+user docs: in depth guide
+
+get support
+
+contact savannah
+gnu project
+
+help gnu
+
+all gnu packages
+
+dev resources
+
+license list
+
+gnu mirrors
+
+help us protect your freedom and the rights of computer
+users everywhere by becoming a member of the fsf.
+join now!
+
+free software foundation
+
+coming events
+
+free software directory
+
+cryptographic software legal notice
+
+copyright infringement notification
+related forges
+
+gnu savannah
+
+puszcza
+
+
+
+
+savannah statistics
+25607 registered users
+3846 hosted groups
+  -  gnu user groups: 26
+  -  non-gnu software and documentation: 3345
+  -  official gnu software: 405
+  -  www.gnu.org portions: 32
+  -  www.gnu.org translation teams: 38
+  + 13 registrations pending
+
+
+
+help wanted
+  - 60 developer
+  - 7 project manager
+  - 4 unix admin
+  - 13 doc writer
+  - 13 tester
+  - 1 support manager
+  - 11 graphic/other designer
+  - 26 translator
+  - 4 other
+
+
+
+
+most popular items
+  - bug #55093:  add luks2..., 1678 votes
+  - sr #108134:  use xdg dirs instead of $home..., 581 votes
+  - bug #55801:  fs: add bcachefs..., 400 votes
+  - bug #23435:  flash content rendered above..., 377 votes
+  - bug #40831:  lufa avrisp-mkii fails with..., 355 votes
+  - bug #51418:  support for opal..., 301 votes
+  - bug #23767:  iso-8601 and..., 253 votes
+  - bug #43731:  cryptomount support for luks..., 220 votes
+  - task #12188:  tab-complete should start..., 206 votes
+  - bug #24831:  grub does something that..., 201 votes
+
+
+
+newest non-gnu software and documentation
+  - emacs graph mode, 2025-02-01[all non-gnu software and documentation]
+
+
+welcome to savannah, the software forge for people
+committed to free software:
+
+we host free projects that run on free operating systems and without
+    any proprietary software dependencies.
+hosting requirements
+our service runs with 100% free software, including itself.
+why choose savannah?
+
+savannah.nongnu.org is a central point for
+development, maintenance and distribution of free software.
+if you would like to use savannah to host your project, then go to
+the register new project menu entry.
+it's not necessary for using savannah, but if you would like to make
+your project part of the gnu system, please see the gnu software evaluation web page.
+new packages are welcome in gnu.
+we strongly recommend all savannah users subscribe to this
+mailing list:
+
+savannah-announce:
+    low-volume notifications of important issues and changes at savannah.
+
+and this mailing list is a place for savannah users to communicate and
+ask questions:
+
+savannah-users:
+    help with using savannah in general (not with a specific project).
+
+
+happy hacking!
+ 
+
+latest news
+frontend upgraded
+     posted by ineiev, wed 31 jan 2024 05:45:55 pm utc
+savannah web interface has migrated from frontend1 (running trisquel 10) to frontend2 (running trisquel 11).  many thanks to bob proulx who upgraded frontend2 to trisquel 11 back in 2022.
+
+please report any problems.
+[download] sftp disabled
+     posted by ineiev, mon 27 nov 2023 11:00:33 am utc
+recently, we discovered a vulnerability in our sftp setup, and couldn't fix it otherwise than completely disabling sftp.  this affects uploading files to the download host, namely, the download area and audio-video.gnu.org.
+[...]
+git post-receive udp syndication
+     posted by carlc, thu 31 aug 2023 11:57:10 pm utc
+a new commit-hook is available to install for git repositories that will send a single datagram via udp after each successful commit.  this can be useful for continuous integration (ci) schemes and elsewise when a push driven model is prefered to (e.g) regularly repolling upstream when changes may or may not have occured.  
+[...]
+re-enabling reminders
+     posted by ineiev, tue 02 may 2023 11:40:13 am utc
+the periodical reminders weren't active since 2016-11-30.
+
+now they work again, powered by a rewritten script.
+
+to minimize the surprise, all previously existing reminder settings were reset; please re-enable them if needed.
+
+coincidentally, the support for per-group reminders is dropped.  it means that group administrators can't setup periodical mails to other people any more; the users who want them should configure them in their account preferences.
+frontend upgraded
+     posted by ineiev, fri 13 may 2022 06:43:50 am utc
+savannah web interface has migrated from frontend1 (running trisquel 8) to frontend2 (running trisquel 9); please report any problems.
+ssh member access updated
+     posted by rwp, wed 23 mar 2022 08:58:34 pm utc
+the server hosting svn, hg, and bzr services has been updated. this should resolve the openssh obsolescence of sha1. please report any problems.
+git server updated
+     posted by rwp, fri 31 dec 2021 04:08:42 am utc
+the server hosting git services has been updated. this should resolve the openssh obsolescence of sha1 that has been seen by early adopters. the switch to the new server produced some unexpected problems found by users due to incomplete setup. please report any problems you find so they can be fixed.
+
+the server hosting svn, hg, and bzr is still pending. until then the mitigation for sha1 previously posted will still be needed. this is getting attention and will be updated as well soonest.
+openssh 8.8 deprecates sha-1
+     posted by rwp, mon 11 oct 2021 05:14:54 am utc
+openssh 8.8 was released on september 26, 2021 and deprecated all use of the sha-1 hash algorithm.  this affects users using git, svn, hg repositories using ssh-rsa keys and who have upgraded to ssh 8.8.  (the cvs repositories are not affected.)  for user workarounds please see this documentation page.
+[...]
+certificate expiration event september 2021
+     posted by rwp, tue 05 oct 2021 06:54:40 am utc
+on september 30, 2021, as planned the dst root ca x3 cross-sign has expired for the let's encrypt trust chain.  that was a normal and planned event.  however coupled with a verification error in the code of libraries authenticating certificates it caused some clients that have not been updated to fixed versions to have problems validating
+[...]
+storage array problems
+     posted by rwp, sun 28 feb 2021 06:59:48 pm utc
+the storage array hosting much of the gnu and fsf infrastructure suffered problems this morning. the fsf admins are on the task and most services have been restored though issues linger. please look to https://hostux.social/@fsfstatus for current status updates.
+[204 news in archive]
+
+
+
+
+
+
+copyright © 2025 free software foundation, inc.
+
+verbatim copying and distribution of this entire article
+is permitted in any medium, provided this notice is preserved.
+
+the levitating,
+meditating, flute-playing gnu logo is a gnu gpl'ed image provided
+by the nevrax design team.
+page source code
+powered by savane 3.14-5139.corresponding source code
+ 
+ 
+
+

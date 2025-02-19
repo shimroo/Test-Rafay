@@ -1,0 +1,652 @@
+
+
+
+
+
+sectools.org top network security tools
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nmap.org
+npcap.com
+seclists.org
+sectools.org
+insecure.org
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+home
+about/help
+suggest a new tool
+
+
+
+
+
+sectools.org: top 125 network security tools
+for more than a decade, the nmap
+project has been cataloguing the network security community's
+favorite tools.  in 2011 this site became much more dynamic, offering
+ratings, reviews, searching, sorting, and a new tool suggestion form.
+this site allows open source and commercial tools on any platform,
+except those tools that we maintain (such as the nmap security scanner, ncat network connector, and nping packet manipulator).
+we're very impressed by the collective smarts of the security community and we highly recommend reading the whole list and investigating any tools you are unfamiliar with. click any tool name for more details on that particular application, including the chance to read (and write) reviews. many site elements are explained by tool tips if you hover your mouse over them.  enjoy!
+
+
+
+sort by:
+
+
+
+popularity
+
+
+
+rating
+
+
+release date
+
+
+
+
+
+
+
+tools 1–10 of 125
+
+
+next page →
+
+
+
+(20)
+★★★★★
+
+wireshark
+    (#1, 1)
+  
+
+
+  wireshark (known as ethereal until a trademark dispute in summer 2006) is a fantastic open source multi-platform network protocol analyzer. it allows you to examine data from a live network or from a capture file on disk. you can interactively browse the capture data, delving down into just the level of packet detail you need. wireshark has several powerful features, including a rich display filter language and the ability to view the reconstructed stream of a tcp session. it also supports hundreds of protocols and media types. a tcpdump-like console version named tshark is included. one word of caution is that wireshark has suffered from dozens of remotely exploitable security holes, so stay up-to-date and be wary of running it on untrusted or hostile networks (such as security conferences).
+  
+  
+  
+  
+    read 31 reviews.
+
+
+latest release: version 1.12.7 on aug. 12, 2015 (9 years, 6 months ago).
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sniffers
+
+
+
+
+
+(9)
+★★★★½
+
+metasploit
+    (#2, 3)
+  
+
+
+  metasploit took the security world by storm when it was released in 2004. it is an advanced open-source platform for developing, testing, and using exploit code. the extensible model through which payloads, encoders, no-op generators, and exploits can be integrated has made it possible to use the metasploit framework as an outlet for cutting-edge exploitation research. it ships with hundreds of exploits, as you can see in their list of modules. this makes writing your own exploits easier, and it certainly beats scouring the darkest corners of the internet for illicit shellcode of dubious quality.  one free extra is metasploitable, an intentionally insecure linux virtual machine you can use for testing metasploit and other exploitation tools without hitting live servers.
+
+metasploit was completely free, but the project was acquired by rapid7 in 2009 and it soon sprouted commercial variants.  the framework itself is still free and open source, but they now also offer a free-but-limited community edition, a more advanced express edition ($5,000 per year per user), and a full-featured pro edition.  other paid exploitation tools to consider are core impact (more expensive) and canvas (less).
+
+the metasploit framework now includes an official java-based gui and also raphael mudge's excellent armitage.  the community, express, and pro editions have web-based guis.
+  
+  
+  
+  
+    read 15 reviews.
+
+
+latest release: version 4.11 on dec. 18, 2014 (10 years, 2 months ago).
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sploits
+
+
+
+
+
+(14)
+★★★
+
+nessus
+    (#3, 2)
+  
+
+
+  nessus is one of the most popular and capable vulnerability scanners, particularly for unix systems.  it was initially free and open source, but they closed the source code in 2005 and removed the free "registered feed" version in 2008. it now costs $2,190 per year, which still beats many of its competitors. a free “nessus home” version is also available, though it is limited and only licensed for home network use. 
+nessus is constantly updated, with more than 70,000 plugins. key features include remote and local (authenticated) security checks, a client/server architecture with a web-based interface, and an embedded scripting language for writing your own plugins or understanding the existing ones.
+  
+  
+  
+  
+    read 20 reviews.
+
+
+latest release: version 6.3.3 on march 16, 2015 (9 years, 11 months ago).
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+vuln-scanners
+
+
+
+
+
+(10)
+★★★★½
+
+aircrack
+    (#4, 17)
+  
+
+
+  aircrack is a suite of tools for 802.11a/b/g wep and wpa cracking. it implements the best known cracking algorithms to recover wireless keys once enough encrypted packets have been gathered. . the suite comprises over a dozen discrete tools, including airodump (an 802.11 packet capture program), aireplay (an 802.11 packet injection program), aircrack (static wep and wpa-psk cracking), and airdecap (decrypts wep/wpa capture files).
+  
+  
+  
+  
+    read 15 reviews.
+
+
+latest release: version 1.1 on april 24, 2010 (14 years, 10 months ago).
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pass-audit
+wireless
+
+
+
+
+
+(2)
+★★★★★
+
+snort
+    (#5, 2)
+  
+
+
+  this network intrusion detection and prevention system excels at traffic analysis and packet logging on ip networks. through protocol analysis, content searching, and various pre-processors, snort detects thousands of worms, vulnerability exploit attempts, port scans, and other suspicious behavior. snort uses a flexible rule-based language to describe traffic that it should collect or pass, and a modular detection engine. also check out the free basic analysis and security engine (base), a web interface for analyzing snort alerts. 
+
+while snort itself is free and open source, parent company sourcefire offers their vrt-certified rules for $499 per sensor per year and a complementary product line of software and appliances with more enterprise-level features.  sourcefire also offers a free 30-day delayed feed.
+  
+  
+  
+  
+    read 2 reviews.
+
+
+latest release: version 2.9.7.5 on july 23, 2015 (9 years, 7 months ago).
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ids
+
+
+
+
+
+(6)
+★★★½
+
+cain and abel
+    (#6, 3)
+  
+
+
+  unix users often smugly assert that the best free security tools support their platform first, and windows ports are often an afterthought. they are usually right, but cain & abel is a glaring exception. this windows-only password recovery tool handles an enormous variety of tasks. it can recover passwords by sniffing the network, cracking encrypted passwords using dictionary, brute-force and cryptanalysis attacks, recording voip conversations, decoding scrambled passwords, revealing password boxes, uncovering cached passwords and analyzing routing protocols. it is also well documented.
+  
+  
+  
+  
+    read 17 reviews.
+
+
+latest release: version 4.9.56 on april 7, 2014 (10 years, 10 months ago).
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pass-audit
+sniffers
+
+
+
+
+
+(17)
+★★★★
+
+backtrack
+    (#7, 25)
+  
+
+
+  this excellent bootable live cd linux distribution comes from the merger of whax and auditor. it boasts a huge variety of security and forensics tools and provides a rich development environment. user modularity is emphasized so the distribution can be easily customized by the user to include personal scripts, additional tools, customized kernels, etc. backtrack is succeeded by kali linux.
+  
+  
+  
+  
+    read 22 reviews.
+
+
+latest release: version 5 r3 on aug. 13, 2012 (12 years, 6 months ago).
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sec-distros
+
+
+
+
+
+(10)
+★★★★½
+
+netcat
+    (#8, 4)
+  
+
+
+  this simple utility reads and writes data across tcp or udp network connections. it is designed to be a reliable back-end tool to use directly or easily drive by other programs and scripts. at the same time, it is a feature-rich network debugging and exploration tool, since it can create almost any kind of connection you would need, including port binding to accept incoming connections.
+
+the original netcat was released by hobbit in 1995, but it hasn't been maintained despite its popularity. it can sometimes even be hard to find a copy of the v1.10 source code. the flexibility and usefulness of this tool prompted the nmap project to produce ncat, a modern reimplementation which supports ssl, ipv6, socks and http proxies, connection brokering, and more. other takes on this classic tool include the amazingly versatile socat, openbsd's nc, cryptcat, netcat6, pnetcat, sbd, and so-called gnu netcat.
+  
+  
+  
+  
+    read 13 reviews.
+
+
+latest release: version 1.10 on march 20, 1996 (28 years, 11 months ago).
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+general
+packet-crafters
+
+
+
+
+
+(2)
+★★★★½
+
+tcpdump
+    (#9, 1)
+  
+
+
+  tcpdump is the network sniffer we all used before (wireshark) came on the scene, and many of us continue to use it frequently. it may not have the bells and whistles (such as a pretty gui and parsing logic for hundreds of application protocols) that wireshark has, but it does the job well and with less security risk. it also requires fewer system resources. while tcpdump doesn't receive new features often, it is actively maintained to fix bugs and portability problems. it is great for tracking down network problems or monitoring activity. there is a separate windows port named windump. tcpdump is the source of the libpcap/winpcap packet capture library, which is used by nmap and many other tools.
+  
+  
+  
+  
+    read 3 reviews.
+
+
+latest release: version 4.7.4 on april 22, 2015 (9 years, 10 months ago).
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sniffers
+
+
+
+
+
+(3)
+★★★★★
+
+john the ripper
+    (#10, unchanged)
+  
+
+
+  john the ripper is a fast password cracker for unix/linux and mac os x.. its primary purpose is to detect weak unix passwords, though it supports hashes for many other platforms as well. there is an official free version, a community-enhanced version (with many contributed patches but not as much quality assurance), and an inexpensive pro version. you will probably want to start with some wordlists, which you can find here, here, or here.
+  
+  
+  
+  
+    read 7 reviews.
+
+
+latest release: version 1.8.0 on may 30, 2013 (11 years, 8 months ago).
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pass-audit
+
+
+
+
+
+
+
+
+tools 1–10 of 125
+
+
+next page →
+
+categories
+
+antimalware (3)
+application-specific scanners (3)
+web browser–related (4)
+encryption tools (8)
+debuggers (5)
+firewalls (2)
+forensics (4)
+fuzzers (4)
+general-purpose tools (8)
+intrusion detection systems (6)
+packet crafting tools (6)
+password auditing (12)
+port scanners (4)
+rootkit detectors (5)
+security-oriented operating systems (5)
+packet sniffers (14)
+vulnerability exploitation tools (11)
+traffic monitoring tools (10)
+vulnerability scanners (11)
+web proxies (4)
+web vulnerability scanners (20)
+wireless tools (5)
+
+
+
+
+
+
+
+
+
+
+
+nmap security scanner
+
+ref guide
+install guide
+docs
+download
+nmap oem
+
+
+
+npcap packet capture
+
+user's guide
+api docs
+download
+npcap oem
+
+
+
+security lists
+
+nmap announce
+nmap dev
+full disclosure
+open source security
+breachexchange
+
+
+
+security tools
+
+vuln scanners
+password audit
+web scanners
+wireless
+exploitation
+
+
+
+about
+
+about/contact
+privacy
+advertising
+nmap public source license
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

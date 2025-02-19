@@ -1,0 +1,2336 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tom jordahl's musings
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tom jordahl's musings
+
+
+
+random thoughts about coldfusion, web services, apache axis, livecycle data services, blazeds and other stuff
+
+
+
+
+
+
+
+
+
+
+wednesday, july 24, 2019
+
+
+
+
+
+
+
+adobe sign - electronic signatures for everyone.
+
+
+
+
+
+i am currently working on adobe sign.  this is an enterprise electronic signature service that allows you to upload your document, enter the email addresses of people who need to sign and click send. 
+
+you can read more about it here: https://acrobat.adobe.com/us/en/sign.html
+
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+4:49 pm
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+thursday, may 24, 2012
+
+
+
+
+
+
+
+rancho - code coverage tool for coldfusion
+
+
+
+
+
+something coldfusion has been lacking for a while now is a code coverage tool.  now there is an experimental tool available.  its called rancho and you can read more about it here.
+
+it still has some limitations (covers only tags for instance), but it is a good start and hopefully will be enhanced to become a full fledged tool.
+
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+9:38 am
+
+
+
+1 comment:
+  
+
+
+
+
+
+
+
+
+labels:
+coldfusion
+
+
+
+
+
+
+
+
+
+
+
+tuesday, october 18, 2011
+
+
+
+
+
+
+
+the adep post
+
+
+
+
+
+readers of this blog might be interested in the adep post.  this is an aggregating blog which contains items of interest from around the web concerning the adobe digital enterprise platform and the technologies that make it up.
+
+quoting from the intro:
+the adep post is a human-moderated  aggregator of the best user assistance content created by the  livecycle/adobe digital enterprise platform community. the community at  large includes partners, users, customers, and adobe professionals.
+this blog aggregates content relevant to both the livecycle enterprise suite as well as the recently-released adobe digital enterprise platform.check it out!
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+9:49 am
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+labels:
+adep
+
+
+
+
+
+
+
+
+
+
+
+monday, october 10, 2011
+
+
+
+
+
+
+
+adep data services for java ee 4.6 released on adobe labs
+
+
+
+
+
+as of monday, october 4 2011 we have made a preview release of the next version of data service available up on adobe labs.
+
+some the sweet goodness in this release include:
+
+adobe flash® builder® 4.6, flex 4.6, air and air mobile support  — build flex and flex mobile applications that run in the browser,  desktop or on mobile devices using the very latest cutting edge adobe  technology.
+managed remoting —  leverage the power of data services data management features such as  inter-client data sync, paging, entity associations and lazy-loading,  with the ease of use of remoting to create powerful data-centric flex  applications. re-use your existing java beans and persistence using  simple jpa-based annotations.
+native html5 client sdk — support for  building high performance and very lightweight html5/js applications  with remoting (rpc) and messaging (push) networking capabilities  leveraging html5 websockets and http amf channels.
+native apple ios client sdk — support for  building very high performance apple ios applications with remoting  (rpc) and messaging (push) networking capabilities leveraging rtmp and  http amf for online, and apple push notification network (apn) for  offline app support.
+native android and java client sdks  —support for building very high performance google android and java  applications with remoting (rpc) and messaging (push) networking  capabilities leveraging rtmp and http amf channels.
+.net adapters and iis plug-ins — create  apps that communicate with server-side .net code using the new .net  adapters for remoting, messaging, data management and msmq, or use the  all-new native c#-based microsoft iis remoting and messaging plug-ins to  directly access c# server-side code in an all-c# environment.
+sap connector — create ria or mobile  applications that connect to server-side sap abap server. leveraging  powerful model-driven development technology, high performance  sap-backed applications can be created in just minutes and hours versus  days, weeks or months.
+spring support — leverage the new built-in  support for the spring framework servlet and nio-based channels,  including with nio channels hosted via data services edge server for dmz  deployments.
+
+check it out and leave us some feedback on the labs forums.
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+1:36 pm
+
+
+
+2 comments:
+  
+
+
+
+
+
+
+
+
+labels:
+adep,
+data services,
+managed remoting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+max 2011 session available - whats new in data services 4.6
+
+
+
+
+
+i have (mostly) recovered from another exciting and tiring adobe max, and i see that my session "whats new in data services 4.6 for java ee" has been posted on adobe tv.  since we released our 4.6 preview release on monday 3-oct-2011, everything i talk about in this session is available for download on the adobe labs site. please check it out and give us some feedback.
+
+i had about 60-70 folks in the room and my voice held up pretty well considering i was fighting a killer cough for the entire week.
+
+lots of other session have been posted as well, check out the adobe max online site for a complete rundown on the sessions, complete with "watch now" buttons for those that have been posted.  i do not believe that you need to have attended max to watch any of the sessions.
+
+enjoy!
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+1:31 pm
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+labels:
+adep,
+data management,
+data services,
+max
+
+
+
+
+
+
+
+
+
+
+
+wednesday, september 14, 2011
+
+
+
+
+
+
+
+brian kotek on remoting call ordering
+
+
+
+
+
+brian kotek blogged the result of some experimentation he did with data services remoting (aka rpc) calls from flex to uncover some relevant information on the ordering of calls from the client to the server.
+
+read about it in his blog post.
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+10:40 am
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+labels:
+blazeds,
+data services
+
+
+
+
+
+
+
+
+
+
+
+wednesday, september 07, 2011
+
+
+
+
+
+
+
+data services sessons at max 2011
+
+
+
+
+
+max is only 4 weeks away!  this is going to be another great conference, with tons of new stuff in all areas of adobe, and in particular the enterprise software space.  since we have released our new adep experence server product, there are lots of great sessions to attend to learn all about it.
+
+as for data services, make sure you sign up for these sessions:
+
+- discover what's new in adep experience services - data services with tom jordahl: http://t.co/i9sc94l 
+- building enterprise mobile applications with adep with mete atamel and stacy young: http://t.co/ukyeaya 
+- extending flex to the enterprise with data services connectors for .net and sap with matt butler: http://t.co/xfm0gms 
+- model driven development with flash builder and adep data services with dean harmon: http://t.co/bsmikyx 
+
+plus there is going to be our own "adep lounge" area for folks to gather, bring questions and problems and generally hang out with the development teams.
+
+see you there!
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+1:56 pm
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+labels:
+adep,
+data services,
+max
+
+
+
+
+
+
+
+
+
+
+
+thursday, september 01, 2011
+
+
+
+
+
+
+
+livecycle data services 3.1.1 update released!
+
+
+
+
+
+we have collected together all of the hotfixes and patches we have made to lcds 3.1 and released this as livecycle data services 3.1.1.
+
+you can find this release here.
+
+this release fixes 51 issues on both the client and server.  see the readme.txt file in the zip for details on what those fixes are and how to 'install' the update - basically by replacing swc files in your flex sdk, and jar files to the web-inf/lib of your web applications.
+
+lots of goodness in here.  the usual caution applies - test your applications before updating production systems.
+
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+1:22 pm
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+labels:
+data management,
+data services
+
+
+
+
+
+
+
+
+
+
+
+monday, august 15, 2011
+
+
+
+
+
+
+
+the adobe digital enterprise platform (formerly livecycle es) now available
+
+
+
+
+
+ 
+the adobe digital enterprise platform trial is now available on the adep developer center: http://adobe.ly/getadep. what is adep you may ask?  well, its a whole bunch of things.  the part that i work on (and you are probably interested in) is "experience services".  this is a whole new architecture based on osgi that provides a slew of services and solutions for the ria developer.  deep at the heart of the "experience server" is data services.  in particular, adep contains data services 4.5.  we have plans to release a j2ee version of what will now be named something like "digital enterprise platform - data services for jee" toward the end of this year (2011).  the j2ee (does anyone feel strange leaving out the "2"?  i can't do it!) version will have a slew of new features (i.e. the 4.5 feature set), including support for multiple clients (java, ios, html5/js, android), managed remoting, spring support and a slew of model driven development enhancements.to get the whole explanation, you can attend my adobe max session: discover what's new in adep experience services - data services. if you have any questions or comments about the trial, head over to the new dedicated adep forum space here: http://adobe.ly/adepforums.
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+3:00 pm
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+labels:
+adep,
+blazeds,
+data services,
+managed remoting,
+max
+
+
+
+
+
+
+
+
+
+
+
+monday, june 13, 2011
+
+
+
+
+
+
+
+adobetv - introduction to managed remoting
+
+
+
+
+
+i recently recorded a preview of an exciting new feature that we are working on for the next release of data services on j2ee.
+
+its called managed remoting and  it applies the power of data management to the simplicity of remoting.
+
+check it out: http://tv.adobe.com/watch/adc-presents/introduction-to-managed-remoting-in-data-services/
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+11:39 am
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+labels:
+data management,
+data services,
+managed remoting
+
+
+
+
+
+
+
+
+
+
+
+tuesday, april 05, 2011
+
+
+
+
+
+
+
+free ria training
+
+
+
+
+
+i normally don't pass on these kinds on things, but this one could be very nice.
+
+the adobe enterprise developer program is sponsoring a free full week ria training session in san francisco april 25-29.  they will be presenting an in-depth curriculum including the flash builder 4 crash course, data services data-driven development (that's the stuff i work on!), livecycle collaboration service, and livecycle mosaic es2.
+
+this seems like a pretty nice deal and you can't beat the price - free!
+
+for more information or to register: http://adobe.ly/eriasanfran
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+5:05 pm
+
+
+
+3 comments:
+  
+
+
+
+
+
+
+
+
+labels:
+data services,
+flex
+
+
+
+
+
+
+
+
+
+
+
+friday, january 21, 2011
+
+
+
+
+
+
+
+this space is not intentionally left blank.
+
+
+
+
+
+the "internet is written in ink".  this is one of the great lines in "the social network", a movie i highly recommend.  as someone said at the golden globes, arron sorkin made people typing at computers look exciting.  in the spirit of that, i realize that going months between posting on a blog is a sure fire way to ensure no one will read your blog when you do have something to say, and that the tom jordahl "internet brand" will not be maintained at its high level.  :-)
+
+my excuse this time, as it has been before, is i have been heads down making the software.  this time the next major release of livecycle data services, what we will probably call version 4.5.  why 4.5 when the last version was 3.1?  well, because we like confusing folks but mostly because we want to align our version number with flex in the same way that we align the blazeds version numbers already.  so before we had flex 4/blazeds 4.0/ lcds 3.1.  some time this year all the numbers will be the same.  so that will be less confusing we hope.
+
+we have some good stuff coming this year, we will continue to build on the fiber data model development paradigm which makes is super simple and fast to define your data model and deploy it to lcds to get data management functionality using hibernate/jpa persistence without writing any code.  we are expanding the java and actionscript code we generate from the data model to give you more control and customization abilities in your applications.  we are expanding the client options to include java, html5 and various mobile platforms.  we have some amazing integration with sap services.  and i have been working on some real nice enhancements to flash remoting to make it simpler to develop applications that use the various features of data management without having to change from the rpc-style of thinking.
+
+i hope to be able to post more about these great new features in 2011.
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+9:52 am
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+labels:
+data services,
+general
+
+
+
+
+
+
+
+
+
+
+
+monday, november 01, 2010
+
+
+
+
+
+
+
+speaking at ria unleashed boston - nov 11-12, 2010
+
+
+
+
+
+i have been scheduled to talk at ria unleashed this year in boston.  i will be talking about (and showing some demos) the upcoming lcds-next release support for non-flash clients, including html5, android and ios.  we have some really exciting stuff coming up in this area.  you can read my session description here.  for those attending, i will be in the 11:15am slot on friday.
+
+as a plug for ria unleashed, i have attended and spoken here before and it is a really great conference. it is just the right size for really getting an opportunity to engage with your peers who are working on client or server side of rich internet applications.  if you are in the boston area, i highly recommend it.
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+1:33 pm
+
+
+
+no comments:
+  
+
+
+
+
+
+
+
+
+labels:
+data services
+
+
+
+
+
+
+
+
+
+
+
+thursday, july 29, 2010
+
+
+
+
+
+
+
+model driven code generation post from matt butler
+
+
+
+
+
+matt butler has posted some good model driven code generation information on his brand new blog.  see the post here.  lcds 3.1 has the ability to generate jpa annotated javabeans as well, and if i don't find the time to post about it, perhaps he will!
+
+
+
+
+
+posted by
+
+
+
+tom
+
+
+
+
+at
+
+4:00 pm
+
+
+
+1 comment:
+  
+
+
+
+
+
+
+
+
+labels:
+data services
+
+
+
+
+
+
+
+
+
+
+
+
+
+older posts
+
+home
+
+
+
+
+subscribe to:
+posts (atom)
+
+
+
+
+
+
+tom jordahl
+
+
+
+
+
+
+subscribe
+
+subscribe to my feed
+
+
+
+links
+
+
+adobe acrobat sign
+about me
+adobe
+blazeds
+livecycle data services
+coldfusion
+apache axis
+
+
+
+
+subjects
+
+
+
+adep
+(5)
+
+
+air
+(3)
+
+
+axis
+(8)
+
+
+blazeds
+(19)
+
+
+blogging
+(1)
+
+
+cfunited
+(9)
+
+
+coldfusion
+(63)
+
+
+data management
+(16)
+
+
+data services
+(15)
+
+
+event gateway
+(7)
+
+
+flex
+(12)
+
+
+general
+(5)
+
+
+jrun
+(3)
+
+
+managed remoting
+(3)
+
+
+max
+(17)
+
+
+mysql
+(2)
+
+
+tivo
+(7)
+
+
+verity
+(3)
+
+
+web service
+(15)
+
+
+xmpp
+(2)
+
+
+
+
+
+blog archive
+
+
+
+
+
+
+
+
+        ▼ 
+      
+
+
+
+2019
+
+(1)
+
+
+
+
+
+        ▼ 
+      
+
+
+
+july
+
+(1)
+
+adobe sign - electronic signatures for everyone.
+
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2012
+
+(1)
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2011
+
+(10)
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2010
+
+(6)
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2009
+
+(9)
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2008
+
+(36)
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(11)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(2)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2007
+
+(24)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2006
+
+(20)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(1)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2005
+
+(40)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(3)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(12)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(5)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(4)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2004
+
+(43)
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+july
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+june
+
+(8)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+may
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+april
+
+(2)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+march
+
+(6)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+february
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+january
+
+(3)
+
+
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+2003
+
+(8)
+
+
+
+
+
+        ► 
+      
+
+
+
+december
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+november
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+october
+
+(1)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+september
+
+(4)
+
+
+
+
+
+
+
+        ► 
+      
+
+
+
+august
+
+(1)
+
+
+
+
+
+
+
+
+
+about me
+
+
+
+
+
+tom
+
+
+
+view my complete profile
+
+
+
+
+
+
+
+
+
+
+
+

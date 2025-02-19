@@ -1,0 +1,336 @@
+
+
+
+quellish
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+× close
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sunday, may 16, 2010
+been there, done that.... were you?“as far as not being able to use flash 5 to create apps for apple’s app store goes, it’s déjà vu all over again. apple tried something similar years ago when it kept its os proprietary (except for a brief flirtation with licensing in the mid ’90s before jobs came back).”from issues with apple’s decision to block flashfirst, the legal status of apple’s operating systems has not changed to the best of my knowledge. macos x is just as proprietary as macos 7, 8, or 9 was. second, i have read before that apple somehow used their “proprietary os” to prevent or control development on their hardware. i started developing for the mac right around the time that system 7.5 was available. i would use every discount i could to keep my codewarrior subscription up to date for many years, and right up until the end every set of cds came with a demo of marathon or another bungie game. the inside mac documentation was written for pascal, though pretty much all development was done in c. that’s about the biggest “barrier” that apple put in front of developers. more recent apis like quicktime had c examples and documentation.developer technical support was extremely accessible - you could get plenty of help through mailing lists and contact individuals at dts directly. all of the dts engineers i dealt with truly liked their jobs, and liked helping people. you had the opportunity to work with apple in seeding programs, helping to shape new products and apis. this idea that apple was somehow restricting development on the very platform they were promoting is absurd. there was never anything of the sort that i saw or heard of. anyone could write, distribute, and sell software for the mac without any intervention from apple. in fact, if the software was really good, apple may even approach you for a bundling deal. at the time there were few ways to get your software in a user’s hands. you could sell as shareware over the internet, or you could work with a publisher to try to get a boxed copy of your application into a catalog like macwarehouse, etc. or shelf space at retailers (good luck with that!). there were no apple stores. there was no app store. there were very few developers making a lot of money, but a lot of them doing it because it was what they liked doing.[ 5/16/2010 04:57:00 pm ] [ 
+	   
+	   0 comments
+	 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+thursday, april 29, 2010
+dear internet people....dear internet peoples:please, please shut the hell up about the "closed" itunes app store already. every time a news story about the iphone or ipad comes out, i get to read the same tired and incorrect comments over again. have you ever heard of brew?have you heard of the nstl?apple is only implementing the rules that carriers demand. duh. if you don't like it, drop your carrier and get a new one that does not have the same rules.oh wait. there are none.[ 4/29/2010 03:19:00 pm ] [ 
+	   
+	   0 comments
+	 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wednesday, april 28, 2010
+don't count() in mysql!if you're new to mysql, you're going to try:select count(*) from table_name;using that count() is resource intensive, it basically has to iterate over everything. if you have a large table that can take a while, and cause real problems. there's a better way. select table_rows from information_schema.tables where table_name='table_name';that gets the count that mysql uses to keep track of that table internally. there are some caveats - it may not always be 100% up to date depending on your configuration, etc. but it sure beats hosing your server.[ 4/28/2010 04:23:00 pm ] [ 
+	   
+	   0 comments
+	 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+monday, september 22, 2008
+so you want to back up hbase?just released the solution mahalo has been using for getting bulk data into and out of hbase, including backups.you get see it here:backup/import/export hbase data - hbase-897. documentation is included in the jira issue tracking it, as well as in the download.labels: hadoop, hbase[ 9/22/2008 05:39:00 pm ] [ 
+	   
+	   0 comments
+	 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+friday, august 29, 2008
+who would you vote for?which vp looks like a sure thing to you?democratic vp candidate joe biden?republican vp candidate sarah palin?people rarely seem to realize how much power the vp actually has day to day, not to mention powers in the legislative branch. yet we often treat the president as if he were a king, when executive power is very very limited. the constitution was designed to keep the united states from ever having a king, yet the people seem to still be in love with the idea.sadly...cuteness may be the deciding factor in november[ 8/29/2008 03:55:00 pm ] [ 
+	   
+	   0 comments
+	 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+monday, august 11, 2008
+grownups doing open sourcewell, in response to [ this ]...- we're using hadoop and hbase every day, in production. we'd talk more about it, but haven't had much time. - we'll be contributing some pretty useful code for backing up hbase that can also be used for importing and exporting data from other systems. in our case we used it for importing data that had lived in a mysql table into hbase, and use it for live backups. - i've been working on some even cooler applications of hadoop which you may hear about in the near future. hbase has a lot of advantages for certain problems, and absolutely none for a lot more. it weirds me out that several companies have deployed hbase into production without a way to back it up or monitor it's health and performance. we took a little more time to work out a very bare bones - but reliable - method to back it up and have several different monitors on it.so the quickie beatoff in the blogosphere can begin. [mahalo] has been running hbase in production for a while now, on top of hadoop's hdfs.[ 8/11/2008 09:00:00 pm ] [ 
+	   
+	   0 comments
+	 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+friday, may 16, 2008
+scale what?oh darn, it seems that popular college gossip site juicy campus is down from even moderate loads of traffic - they are featured on 20/20 here in the us today. if you want to know what [ the juicy campus site ] is about, check out the mahalo page.watched a video yesterday about a new testing tool at google - when they were testing it, they found that most startup websites could not handle more than 20 concurrent users. ouch.[ 5/16/2008 08:04:00 pm ] [ 
+	   
+	   0 comments
+	 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[archives]
+a good quick laugh
+
+
+ dan
+
+
+
+
+venice
+, 
+  ca
+, 
+  90291
+united states
+dan's links
+dan's links
+dan's friends
+dan's buddies
+flickr profile
+
+
+
+a good quick laugh
+
