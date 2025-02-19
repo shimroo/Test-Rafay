@@ -1,0 +1,504 @@
+
+
+
+
+
+
+
+
+isg news
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          please enable javascript for full functionality
+        
+
+
+
+
+
+
+
+it services group d-phys
+
+
+
+
+
+
+
+
+
+                menu
+              
+
+
+
+isg
+
+
+
+homepage
+
+
+main menu
+
+
+isg d-phys
+
+
+contact
+
+
+helpdesk chat room
+
+
+
+
+
+news
+
+
+documentation
+
+
+account
+
+
+
+
+support
+
+
+isg@phys.ethz.ch
+
+
+
+isg d-phys helpdesk chat room
+      
+
+
+isg d-phys helpdesk 32668
+
+
+id servicedesk 27777
+
+
+
+
+
+language
+
+
+
+english
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+eth zurich
+
+
+d-phys
+
+
+isg
+
+
+
+
+
+
+
+english
+
+
+
+
+
+
+
+
+
+
+
+
+isg helpdesk this week:
+ 
+
+
+stephan mueller 
+
+
+
+
+
+links 
+
+
+
+join isg chat
+
+
+create isg ticket
+
+
+
+
+
+subscribe to newsletter
+
+
+old news (before 2008)
+
+
+it survey
+
+
+
+ 
+search for:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2024 in review
+
+this post is meant to give you a short overview of what has been accomplished in d-phys it by isg this year. we’ve been hard at work to further improve and extend our services for you, our customers. 
+some highlights of 2024:
+
+infrastructure work: the vaultwarden password manager was introduced as a new service.
+email: as part of our continous email server improvements, we updated the mailman mailing list software to a new major release and drastically increased imap search performance.
+linux workstations: we overhauled the managed linux workstations setup and migrated almost all ubuntu workstations to debian bookworm.
+storage: we streamlined the storage infrastructure and implemented significant behind-the-scenes improvements. the disk space occupied by data and backup grew from 5.1 pib to 5.3 pib.
+isg lecture series: we teamed up with our sis colleagues and managed to increase attendance of the basics of computing environments for scientists lecture series.
+matrix/element: we started collaborating with epfl who joined the federation. we also received the first spam and implemented countermeasures and additional logging. this year we counted 819 active users on 2978 devices (1014 windows, 472 mac, 370 linux, 534 android, 276 iphone, 105 ipad), who sent 1'158'897 messages in 6'740 rooms created on our server. our users also participated in 1'746 other (and 1'563 spam) rooms with 1'790'894 messages.
+outages: apart from some short-term network interruptions, our systems were very stable in 2024.
+os upgrades: almost all managed windows workstations have been upgraded to windows 11 and the first macs to sequoia.
+apprentice: we take part in the new wayup apprenticeship pilot project and could welcome first eric and now vanessa into our team.
+
+i would like to take this opportunity to thank my whole team for their hard and dedicated work all year long.
+happy holidays and see you in 2025!
+
+
+tags: milestones, projects, review posted 
+december 16th, 2024 in announcements 
+ by
+christian herzog|
+comments off on 2024 in review 
+
+
+niche psa: disabling smb wide links
+
+this announcement will probably not affect too many users, but it might have some impact and we can't narrow down the recipient space.
+for some time now, our group shares on groupdata.phys.ethz.ch, when mounted via smb, allowed so-called wide links - they point from one group share to a place outside of this share (usually to another share). for $complicated_reasons we have to disable those wide links. this will break redirection to the target share. we believe this is mainly a convenience issue, but we might not be aware of legitimate use cases. so if you find something broken after
+tuesday, october 8, 2024
+please get in touch so that we can find a solution. links within a particular share will still work, but link targets have to be relative (../../papers/thesis.tex) instead of absolute (/home/sharename/documents/papers/thesis.tex).
+thanks.
+
+
+tags: file server, group share posted 
+october 7th, 2024 in announcements 
+ by
+christian herzog|
+comments off on niche psa: disabling smb wide links 
+
+
+network renovation in hpt
+
+this one goes out to all hpt inhabitants. as you might have noticed, the hpt network infrastructure is currently being remodelled. in order to be able to take full advantage of the new uplink cables and access switches, ideally all grey patch cables (from the wall sockets to the devices) should be replaced as well (the blue ones are ok). we do realize that this is not realistic in many (lab) settings, but please swap them out for new cat6 cables whenever you can (they're available in the d-phys shop). don't hesitate to contact us if you have questions.
+
+
+tags: network posted 
+october 2nd, 2024 in announcements, network 
+ by
+christian herzog|
+comments off on network renovation in hpt 
+
+
+linux workstations debian
+
+starting in mid-august, we will migrate the os of all managed linux workstations from ubuntu to debian during summer/fall of 2024.
+the exact migration dates for specific workstations will be coordinated individually in close collaboration with the respective user(s). please note that due to the complexity of the migration it is not possible to delay this indefinitely. the migration is mandatory for all ubuntu workstations (incl. older 20.04 focal).
+hardware owners and users are asked to check the required steps before the migration [1] now, which includes possibly needed hardware upgrades.
+all users should be aware of the (breaking) changes [2] introduced with the new setup.
+please also refer to our readme page on why [3] we do the switch to debian.
+beta test
+please get in touch with us if you have a spare workstation to participate in beta testing, starting now. note that any such workstation will be reinstalled again in august 2024 after completion of beta testing.
+
+
+tags: linux, migration, workstations posted 
+july 24th, 2024 in announcements, downtime, linux 
+ by
+sven mäder|
+comments off on linux workstations debian 
+
+
+mailing list server upgrade
+
+our d-phys mailing lists will be offline for maintenance on thursday 6th june from early morning to approximately 10h00. no emails to @lists.phys.ethz.ch addresses will be accepted during that downtime.
+under the hood, the mailing list software will be migrated from mailman2 to mailman3. after the migration, the web page lists.phys.ethz.ch will have a new look with a modern web interface. you will be able to see and manage all your mailing lists right from the landing page. but note that all other urls will have a new structure, so any browser bookmarks to individual mailing list configurations or archives will need to be updated.
+for users that only receive messages from these mailing lists, nothing should change.
+when sending messages to our mailing lists, pay attention, already now, to always use the <somelist>@lists.phys.ethz.ch domain. the obsolete <somelist>@phys.ethz.ch alias exceptions will no longer be accepted after the migration.
+mailing list owners and moderators will be contacted in a separate email with additional information, right after the migration. in particular, the new system will have personal accounts for all users, so that passwords must no longer be shared among list administrators. also note that any held messages pending for moderation will not be migrated. so please accept or discard moderation requests the day before the migration.
+further documentation is available in our readme.
+
+
+tags: email, mail server, mailing list, mailman, upgrade posted 
+may 31st, 2024 in announcements, downtime 
+ by
+claude becker|
+comments off on mailing list server upgrade 
+
+
+new service: hosted password manager
+
+tl;dr: we now offer a password manager service that also allows sharing passwords within groups.
+full story:
+for a long time, we've been trying to promote it security in general and secure password handling in particular. in both our introductory course and our documentation we recommend using a password manager to securely handle the plethora of passwords that modern-day life usually entails (hopefully a different one for each service!). what we did not have however was an easy-to-use solution to sync your password vault across your different devices. yes, there's keepassxc that can work with polybox to ensure coherent password databases on all devices, but that's not exactly straightforward to set up.
+in order to make setting up and handling the password manager easier for you, we're now announcing a new service: an open source password vault hosted at isg d-phys:
+vaultwarden is an alternative implementation of the the bitwarden backend and we've been evaluating it for a while. it now seems ready for prime time so after testing within isg, we're releasing it to the department. aside from easier daily usage, it offers another feature that many (research) groups might find interesting: passwords and confidential information in general can be shared with others, e.g. the group's credit card with all phd students.
+if you'd like to give it a try, please read our service description to get started.
+
+
+tags: password, security posted 
+april 8th, 2024 in announcements, security 
+ by
+christian herzog|
+comments off on new service: hosted password manager 
+
+
+2023 in review
+
+this post is meant to give you a short overview of what has been accomplished in d-phys it by isg this year. we’ve been hard at work to further improve and extend our services for you, our customers. unfortunately, two of our colleagues had to take extended sick leaves this year, so we didn't have as much capacity for innovation and had to focus on system maintenance.
+some highlights of 2023:
+
+storage: in the first half of 2023, we performed a major overhaul on our storage and backup infrastructure in both hardware and software. the disk space occupied by data and backup grew from 4.8 pib to 5.1 pib.
+infrastructure work: our ansible deployment setup was further extended and refined. all windows servers have been added as well as the macos clients.
+all egroupware users were migrated to the new sogo calendar. we also enabled dkim signing on our d-phys mailserver. the windows hyperv cluster has been upgraded for better performance.
+matrix/element: we upgraded both the os and the matrix server software. this year we counted 748 active users on 2579 devices (1019 windows, 517 linux, 424 mac, 619 mobile), who sent 1'086'537 messages in 5'510 rooms created on our server. our users also participated in 763 other rooms with 1'157'466 messages.
+isg lecture series: our basics of computing environments for scientists lecture series was held twice in 2023 with shockingly low attendance.
+outages: apart from some short-term network interruptions, our systems were pretty stable in 2023.
+os upgrades: work is well underway to migrate the managed linux workstations from ubuntu to debian and the majority of servers are now running debian bookworm. the windows team started the windows 11 rollout. most of the managed macs were upgraded to macos ventura.
+software upgrades: mostly incremental upgrades in our windows and linux software list this year.
+it security: with the world being what it is, it security plays an ever increasing role in our work and permeates all our plans and projects. we also take part in the current rewrite of eth's it security regulations. on the windows virus scanner front, sophos was eol'd and replaced by windows defender.
+
+i would like to take this opportunity to thank my whole team for their hard and dedicated work all year long.
+happy holidays and see you in 2024!
+
+
+tags: milestones, projects, review posted 
+december 21st, 2023 in announcements 
+ by
+christian herzog|
+comments off on 2023 in review 
+
+
+changes in printing
+
+update 27.11.: we now have the migration dates and final printer list here
+as you might have read elsewhere, eth will consolidate its printer fleet for cost cutting reasons. even though at d-phys we already have a very efficient printing landscape, id will enforce a uniform 30% cut across the board. we have tried to limit the impact as much as possible and still ensure a fair and even printer distribution throughout d-phys, but the implications will be felt by everyone.
+
+30% of all existing printers in d-phys will be dismantled.
+all remaining printers will be replaced with hp hardware.
+all those will get new generic queue names (like p-hil-hp002) that bear no indication as to the printer's location in the building.
+everybody will have to reinstall all printers they'd like to use in the future.
+
+on managed workstations we will prepare this as much as possible.
+on self-managed machines you'll have to follow our instructions.
+
+
+this might be the perfect opportunity to switch over to the universal card-ethz queue that will let you forget about queue names (you can do that already now).
+we understand that for some of you this change will significantly affect your daily work. we urge you to please not try to solve the problem by buying your own printer. instead, please get in touch with me (christian herzog) so that i can collect your complaints and forward them to the person responsible for this change.
+
+the whole process is supposed to happen in december and will be rolled out building by building. we're posting this already now as individual printers in d-phys have already been replaced.
+we will update this post with updates as they become available.
+
+
+tags: migration, printing posted 
+november 8th, 2023 in announcements 
+ by
+christian herzog|
+comments off on changes in printing 
+
+
+apple built-in vpn will stop working at eth
+
+the central it services will gradually disable the older ipsec protocol for eth vpn:
+
+16th nov 2023 for students (@student-net.ethz.ch realm)
+13th dec 2023 for employees (@staff-net.ethz.ch realm)
+
+those of you who are already using the cisco secure client for their vpn connections will not be affected by this change. also the linux openconnect client will continue to work.
+however, any client relying on the ipsec protocol will become non-functional. in particular, the built-in vpn of apple operating systems (macos, ios, ipados) will stop working. all affected users must migrate to the cisco secure client in the upcoming weeks, to avoid any disruption of the vpn service.
+for the actual installation, please refer to the vpn documentation of informatikdienste, or our own readme for macos.
+also note that, in the upcoming months, eth will enable multi-factor-authentication (mfa) for the vpn service. so all users will have to enter a one-time-password (otp) when connecting the vpn. this is similar to the other services, mainly the cloud services of microsoft, adobe and zoom, where mfa has already been enforced for eth accounts. further details regarding the vpn mfa migration will be announced as soon as the precise dates have been fixed.
+
+
+tags: vpn posted 
+october 30th, 2023 in announcements, apple, network 
+ by
+claude becker|
+comments off on apple built-in vpn will stop working at eth 
+
+
+matrix (chat) server maintenance
+
+all matrix services will be offline for maintenance starting on thursday 31th aug 2023 in the morning around 06h00. minimal downtime is 1h, but some bots/bridges may take longer.
+the host system will be upgraded from debian 10 to 12, followed by an upgrade of the database (postgresql 11 to 15) and ~20 application servers.
+upgrade schedule:
+phys.ethz.ch homeserver (people accounts)
+first priority is the phys.ethz.ch homeserver hosting our accounts and rooms. estimated (best case) downtime ~1h.
+your matrix clients (element) will show connectivity errors during the downtime:
+
+mbot.ethz.ch homeserver (bots, bridges)
+second priority is the mbot.ethz.ch homeserver, all bots, bridges present in the #mbot:phys.ethz.ch room and anything else. i expect most to be back after another few hours but thursday evening at the latest.
+the deprecated webhook bridge will be put out of service.
+not affected
+the eth homeservers staffchat.ethz.ch and studentchat.ethz.ch are not affected by this downtime.
+alternative: jitsi.phys.ethz.ch video conferencing with integrated chat.
+
+
+tags: chat, element, matrix posted 
+august 30th, 2023 in announcements, downtime 
+ by
+sven mäder|
+comments off on matrix (chat) server maintenance 
+
+
+« older entries «
+
+
+
+
+
+
+
+
+
+
+
+ isg status feedno major catastrophes informatikdienste status feed17.02.2025 09:34: licenseserver not reachable13.02.2025 12:12: network failure swi-hpr-e87-a isg fun facts364 managed windows workstations and servers209 managed linux workstations8 managed mac workstations361 maintained windows software packages1782 registered active mac addresses2899 tb used in group shares2513 tb in group share backups (compressed)11 rejected mails per min24 received mails per min228 mailing lists2554 active ldap accounts452 group drives140 websites146 computers in exile d-phys newssimon storz wins the first quantum entanglement prizegood news for gamma-ray astronomybreaking new ground: doubling down on neutral-atom quantum computingnurturing quantum connectionsgolden owl to tobias donnermeasuring cosmic distances to understand the expanding universea common ground for physics laboratory techniciansa noisy, intermediate-scale and fun quantum endeavourmeasuring riskquantum path eth newsthe next stage in the revolution“from lecture to hospital: no two days are the same for me”a new switch for the cell therapies of the futureeth students simulate venus missionhow eth zurich plans to develophow climate extremes fuel droughts and heavy rainsice streams move due to tiny ice quakesobese and healthyfrom eth to clinical practice: medical research requires cooperationeth zurich and hsg launch manufacturing alliance to strengthen switzerland as an industrial location food market[18.02. mittag] green daily: spätzli pan: bechamel | cheese | carrots | celery | savoy cabbage | fried onions[18.02. mittag] fire: poulet nuggets: mushroom sauce | mashed potatoes | peas[18.02. mittag] grill: samosas: sweet chili sauce | fried rice[18.02. mittag] pizza classica: pizza margherita: tomato sauce | mozzarella + salad or lemonade[18.02. mittag] pizza mamma mia: pizza cremoso: burrata | rocket salad | datterini tomatoes + salad or lemonade[18.02. mittag] pasta classica: melanzane con pollo: penne | chicken | tomatoes | eggplants | grated cheese + salad or lemonade[18.02. mittag] pasta della nonna: roasted tapenade gnocchi: potato gnocchi | olive tapenade | vegetables allumettes | radishes | radish sprouts + salad or lemonade chemiemensa[18.02. mittag] fusion meat: roast pork: red wine jus | sage gnocchi | ratatouille[18.02. mittag] fusion vegi: alpine macaroni:  gratinated with cheese | fried onions | apple sauce[18.02. mittag] green & beans: sesame bagel burger: eggplants | courgettes | pepperoni and tzatziki dip | french fries | cucumber salad[18.02. mittag] soul food: surf & turf: pork fillet medallion | baked prawns | porcini mushroom sauce | wild rice | vegetables[18.02. mittag] curry world: beef tamarind curry: vegetables | basmati rice[18.02. mittag] curry world (vegi): soy protein red thai curry: vegetables | basmati rice[18.02. mittag] fresh island: salad buffet: fresh salad selection with seasonal and regional specialties[18.02. mittag] persian delight: oriental buffet: oriental delicacies from 1001 nights[18.02. mittag] globetrotter: hot buffet: all national and international classics with seasonal vegetables[18.02. mittag] soup | curry world: ratatouille soup: marinated mozzarella | focaccia bread
+
+
+
+
+
+
+
+
+
+
+
+
+ login (isg only) 
+
+
+
+
+
+
+
+                  contact
+                
+
+
+
+
+
+eth zurich
+physics department
+
+
+it services group
+hpt h 6 – h 9
+auguste-piccard-hof 1
+8093
+zürich
+switzerland
+
+
+
+
+
+
+isg@phys.ethz.ch
+
+
+
++41 44 633 26 68
+
+
+
+
+
+
+
+
+
+
+
+
+imprint
+
+
+disclaimer & copyright
+
+
+data protection
+
+
+
+
+            © eidgenössische technische hochschule zürich
+
+
+
+
+
+
+
+

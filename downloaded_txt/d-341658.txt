@@ -1,0 +1,819 @@
+
+
+
+
+http 404 - wikipedia
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+jump to content
+
+
+
+
+
+
+
+main menu
+
+
+
+
+
+main menu
+move to sidebar
+hide
+
+
+
+		navigation
+	
+
+
+main pagecontentscurrent eventsrandom articleabout wikipediacontact us
+
+
+
+
+
+		contribute
+	
+
+
+helplearn to editcommunity portalrecent changesupload filespecial pages
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+search
+
+
+
+
+
+
+
+
+
+
+
+search
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+appearance
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+donate
+
+create account
+
+log in
+
+
+
+
+
+
+
+
+personal tools
+
+
+
+
+
+donate create account log in
+
+
+
+
+
+		pages for logged out editors learn more
+
+
+
+contributionstalk
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+contents
+move to sidebar
+hide
+
+
+
+
+(top)
+
+
+
+
+
+1
+overview
+
+
+
+
+
+
+
+
+2
+soft 404 errors
+
+
+
+
+toggle soft 404 errors subsection
+
+
+
+
+
+2.1
+proxy servers
+
+
+
+
+
+
+
+
+2.2
+intentional 404s
+
+
+
+
+
+
+
+
+
+
+3
+microsoft internet server 404 substatus error codes
+
+
+
+
+toggle microsoft internet server 404 substatus error codes subsection
+
+
+
+
+
+3.1
+substatus codes
+
+
+
+
+
+
+
+
+
+
+4
+custom error pages
+
+
+
+
+
+
+
+
+5
+tracking 404 errors
+
+
+
+
+
+
+
+
+6
+see also
+
+
+
+
+
+
+
+
+7
+references
+
+
+
+
+
+
+
+
+8
+external links
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+toggle the table of contents
+
+
+
+
+
+
+
+http 404
+
+
+
+53 languages
+
+
+
+
+العربيةअवधीবাংলাभोजपुरीбългарскиcatalàčeštinadanskdeutschελληνικάespañolesperantoeuskaraفارسیfrançaisgalego한국어हिन्दीbahasa indonesiaitalianoעבריתಕನ್ನಡlatviešumagyarмакедонскиമലയാളംbahasa melayuмонголမြန်မာဘာသာnederlands日本語norsk bokmåloʻzbekcha / ўзбекчаpapiamentupolskiportuguêsromânăрусскийshqipසිංහලsimple englishslovenščinaکوردیсрпски / srpskisuomisvenskaதமிழ்ไทยtürkçeукраїнськаtiếng việt粵語中文
+
+edit links
+
+
+
+
+
+
+
+
+
+
+
+articletalk
+
+
+
+
+
+english
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+readview sourceview history
+
+
+
+
+
+
+
+tools
+
+
+
+
+
+tools
+move to sidebar
+hide
+
+
+
+		actions
+	
+
+
+readview sourceview history
+
+
+
+
+
+		general
+	
+
+
+what links hererelated changesupload filepermanent linkpage informationcite this pageget shortened urldownload qr code
+
+
+
+
+
+		print/export
+	
+
+
+download as pdfprintable version
+
+
+
+
+
+		in other projects
+	
+
+
+wikimedia commonswikidata item
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+appearance
+move to sidebar
+hide
+
+
+
+
+
+
+
+
+
+
+
+from wikipedia, the free encyclopedia
+
+
+internet error message
+"404 not found" redirects here. for the tv episode, see 404 not found (mr. robot).
+
+
+http
+persistence
+compression
+https
+quic
+
+request methods
+options
+get
+head
+post
+put
+delete
+trace
+connect
+patch
+
+header fields
+cookie
+etag
+location
+http referer
+dnt
+x-forwarded-for
+
+response status codes
+301 moved permanently
+302 found
+303 see other
+403 forbidden
+404 not found
+451 unavailable for legal reasons
+
+security access control methods
+basic access authentication
+digest access authentication
+
+security vulnerabilities
+http header injection
+http request smuggling
+http response splitting
+http parameter pollution
+vte
+
+in computer network communications, the http 404, 404 not found, 404, 404 error, page not found, or file not found error message is a hypertext transfer protocol (http) standard response code,  to indicate that the browser was able to communicate with a given server, but the server could not find what was requested. the error may also be used when a server does not wish to disclose whether it has the requested information.[1]
+the website hosting server will typically generate a "404 not found" web page when a user attempts to follow a broken or dead link; hence the 404 error is one of the most recognizable errors encountered on the world wide web.
+
+english wikipedia's 404 page
+
+overview
+when communicating via http, a server is required to respond to a request, such as a web browser request for a web page, with a numeric response code and an optional, mandatory, or disallowed (based upon the status code) message. in code 404, the first digit indicates a client error, such as a mistyped uniform resource locator (url). the following two digits indicate the specific error encountered. http's use of three-digit codes is similar to the use of such codes in earlier protocols such as ftp and nntp. at the http level, a 404 response code is followed by a human-readable "reason phrase". the http specification suggests the phrase "not found"[1] and many web servers by default issue an html page that includes both the 404 code and the "not found" phrase.
+a 404 error is often returned when pages have been moved or deleted. in the first case, it is better to employ url mapping or url redirection by returning a 301 moved permanently response, which can be configured in most server configuration files, or through url rewriting; in the second case, a 410 gone should be returned. because these two options require special server configuration, most websites do not make use of them.
+404 errors should not be confused with dns errors, which appear when the given url refers to a server name that does not exist. a 404 error indicates that the server itself was found, but that the server was not able to retrieve the requested page.
+
+soft 404 errors
+
+some websites report a "not found" error by returning a standard web page with a "200 ok" response code, falsely reporting that the page loaded properly; this is known as a soft 404. the term "soft 404" was introduced in 2004 by ziv bar-yossef et al.[2]
+soft 404s are problematic for automated methods of discovering whether a link is broken. some search engines, like yahoo and google, use automated processes to detect soft 404s.[3] soft 404s can occur as a result of configuration errors when using certain http server software, for example with the apache software, when an error document 404 (specified in a .htaccess file) is specified as an absolute path (e.g. http://example.com/error.html) rather than a relative path (/error.html).[4] this can also be done on purpose to force some browsers (like internet explorer) to display a customized 404 error message rather than replacing what is served with a browser-specific "friendly" error message (in internet explorer, this behavior is triggered when a 404 is served and the received html is shorter than a certain length, and can be manually disabled by the user).
+there are also "soft 3xx" errors where content is returned with a status 200 but comes from a redirected page, such as when missing pages are redirected to the domain root/home page.
+
+proxy servers
+some proxy servers generate a 404 error when a 500-range error code would be more correct. if the proxy server is unable to satisfy a request for a page because of a problem with the remote host (such as hostname resolution failures or refused tcp connections), this should be described as a 5xx internal server error, but might deliver a 404 instead. this can confuse programs that expect and act on specific responses, as they can no longer easily distinguish between an absent web server and a missing web page on a web server that is present.
+
+intentional 404s
+in july 2004, the uk telecom provider bt group deployed the cleanfeed content blocking system, which returns a 404 error to any request for content identified as potentially illegal by the internet watch foundation.[5] other isps return a http 403 "forbidden" error in the same circumstances.[6] the practice of employing fake 404 errors as a means to conceal censorship has also been reported in thailand[7] and tunisia.[8] in tunisia, where censorship was severe before the 2011 revolution, people became aware of the nature of the fake 404 errors and created an imaginary character named "ammar 404" who represents "the invisible censor".[9]
+
+microsoft internet server 404 substatus error codes
+the webserver software developed by microsoft, microsoft's internet information services (iis), returns a set of substatus codes with its 404 responses. the substatus codes take the form of decimal numbers appended to the 404 status code. the substatus codes are not officially recognized by iana and are not returned by non-microsoft servers.
+
+substatus codes
+microsoft's iis 7.0, iis 7.5, and iis 8.0 servers define the following http substatus codes to indicate a more specific cause of a 404 error:
+
+404.0 – not found.
+404.1 – site not found.
+404.2 – isapi or cgi restriction.
+404.3 – mime type restriction.
+404.4 – no handler configured.
+404.5 – denied by request filtering configuration.
+404.6 – verb denied.
+404.7 – file extension denied.
+404.8 – hidden namespace.
+404.9 – file attribute hidden.
+404.10 – request header too long.
+404.11 – request contains double escape sequence.
+404.12 – request contains high-bit characters.
+404.13 – content length too large.
+404.14 – request url too long.
+404.15 – query string too long.
+404.16 – dav request sent to the static file handler.
+404.17 – dynamic content mapped to the static file handler via a wildcard mime mapping.
+404.18 – query string sequence denied.
+404.19 – denied by filtering rule.
+404.20 – too many url segments.
+custom error pages
+the wikimedia 404 message
+web servers can typically be configured to display a customised 404 error page, including a more natural description, the parent site's branding, and sometimes a site map, a search form or 404-page widget. the protocol level phrase, which is hidden from the user, is rarely customized. internet explorer, however, will not display custom pages unless they are larger than 512 bytes, opting instead to display a "friendly" error page.[10] google chrome included similar functionality, where the 404 is replaced with alternative suggestions generated by google algorithms, if the page is under 512 bytes in size.[11] another problem is that if the page does not provide a favicon, and a separate custom 404-page exists, extra traffic and longer loading times will be generated on every page view.[12][13]
+many organizations use 404 error pages as an opportunity to inject humor into what may otherwise be a serious website. for example, metro uk shows a polar bear on a skateboard, and the web development agency left logic has a simple drawing program.[14] during the 2015 uk general election campaign the main political parties all used their 404 pages to either take aim at political opponents or show relevant policies to potential supporters.[15] in europe, the notfound project, created by multiple european organizations including missing children europe and child focus, encourages site operators to add a snippet of code to serve customized 404 error pages[16] which provide data about missing children.[17]
+while many websites send additional information in a 404 error message—such as a link to the homepage of a website or a search box—some also endeavor to find the correct web page the user wanted. extensions are available for some content management systems (cmss) to do this.[18]
+
+tracking 404 errors
+a number of tools exist that crawl through a website to find pages that return 404 status codes. these tools can be helpful in finding links that exist within a particular website. the limitation of these tools is that they only find links within one particular website, and ignore 404s resulting from links on other websites. as a result, these tools miss out on 83% of the 404s on websites.[19] one way around this is to find 404 errors by analyzing external links.[20]
+one of the most effective ways to discover 404 errors is by using google search console, google analytics or crawling software.
+another common method is tracking traffic to 404 pages using log file analysis.[21] this can be useful to understand more about what 404s users reached on the site. another method of tracking traffic to 404 pages is using javascript-based traffic tracking tools.[22]
+
+see also
+
+internet portalcomputer programming portal
+blue screen of death
+funky caching
+link rot
+list of http status codes
+references
+
+
+^ a b fielding, r; reschke, j, eds. (june 2014). "404 not found". http/1.1 semantics and content. internet engineering task force (ietf). sec. 6.5.4. doi:10.17487/rfc7231. s2cid 14399078. rfc 7231. retrieved 13 december 2018.
+
+^ ziv bar-yossef; andrei z. broder; ravi kumar; andrew tompkins (2004). "sic transit gloria telae". proceedings of the 13th international conference on world wide web. pp. 328–337. doi:10.1145/988672.988716. isbn 978-1581138443. s2cid 587547.
+
+^ "why is your crawler asking for strange urls that have never existed on my site?". yahoo ysearch help page. archived from the original on 15 july 2014. retrieved 4 september 2013.
+
+^ "farewell to soft 404s". google official blog. retrieved 20 september 2008.
+
+^ "linx public affairs » cleanfeed: the facts". publicaffairs.linx.net. 10 september 2004. archived from the original on 13 may 2011. retrieved 6 march 2011.
+
+^ "demon – error 403". retrieved 14 june 2012.
+
+^ sambandaraksa, don (18 february 2009). "the old fake '404 not found' routine - dead link". bangkok post. retrieved 12 september 2010.
+
+^ noman, helmi (12 september 2008). "tunisian journalist sues government agency for blocking facebook, claims damage for the use of 404 error message instead of 403". open net initiative. retrieved 21 november 2010.
+
+^ "anti-censorship movement in tunisia: creativity, courage and hope!". global voices advocacy. 27 may 2010. retrieved 28 august 2010.
+
+^ "friendly http error pages". msdn.com. 18 august 2010. archived from the original on 2 december 2010. retrieved 14 june 2012.
+
+^ "issue 1695: chrome needs option to turn off "friendly 404" displays". bugs.chromium.org. retrieved 25 december 2021.
+
+^ heng, christopher (7 september 2008). "what is favicon.ico and how to create a favicon icon for your website". the site wizard. retrieved 23 february 2011.
+
+^ "the dastardly "favicon.ico not found" error". internet folks. 3 august 1999.
+
+^ "from skateboarding bears to missing children: the power of the 404 not found error page". metro. 6 june 2011. retrieved 16 april 2013.
+
+^ "the political page 404 war". bbc newsbeat. 27 april 2015. retrieved 18 may 2018.
+
+^ "notfound.org". notfound. archived from the original on 2 september 2014.
+
+^ "missing children messages go on 404 error pages". bbc news. 27 september 2012. retrieved 20 september 2014.
+
+^ swenson, sahala (19 august 2008). "make your 404 pages more useful". official google webmaster central blog. google, inc. retrieved 28 august 2009.
+
+^ "sources leading to 404s". springtrax. retrieved 11 february 2013.
+
+^ cushing, anne (2 april 2013). "a data-centric approach to identifying 404 pages worth saving". search engine land. retrieved 7 june 2013.
+
+^ "tracking and preventing 404 errors". 404errorpages.com. retrieved 7 june 2013.
+
+^ "understand 404 errors". springtrax.com. retrieved 7 june 2013.
+
+
+external links
+a more useful 404
+"404 not found". hypertext transfer protocol (http/1.1): semantics and content. internet engineering task force. sec. 6.5.4. doi:10.17487/rfc7231. rfc 7231.
+errordocument directive – instructions on custom error pages for the apache 2.0 web server
+404: not found – an award-winning filk song about the error code
+vteerror messagessystem failure
+bomb icon
+fatal system error
+guru meditation
+kernel panic
+linux kernel oops
+red ring of death
+sad mac
+screen of death
+blue
+black
+application failure
+abend
+fatal exception error
+segmentation fault
+device and data errors
+http 402
+http 403
+http 404
+http 500
+lp0 on fire
+not a typewriter
+pc load letter
+other
+abort, retry, fail?
+bad command or file name
+halt and catch fire
+http 418
+out of memory
+does not compute
+lists
+list of http status codes
+list of ftp server return codes
+list of smtp server return codes
+related
+spinning pinwheel
+windows wait cursor
+2024 crowdstrike-related it outages
+
+
+
+
+
+retrieved from "https://en.wikipedia.org/w/index.php?title=http_404&oldid=1264744647"
+categories: computer errorshypertext transfer protocol status codesinternet terminologyhidden categories: articles with short descriptionshort description is different from wikidatawikipedia indefinitely move-protected pageswikipedia indefinitely semi-protected pagesuse dmy dates from october 2020
+
+
+
+
+
+
+ this page was last edited on 23 december 2024, at 08:23 (utc).
+text is available under the creative commons attribution-sharealike 4.0 license;
+additional terms may apply. by using this site, you agree to the terms of use and privacy policy. wikipedia® is a registered trademark of the wikimedia foundation, inc., a non-profit organization.
+
+
+privacy policy
+about wikipedia
+disclaimers
+contact wikipedia
+code of conduct
+developers
+statistics
+cookie statement
+mobile view
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+search
+
+
+
+
+
+
+
+
+
+
+
+
+
+search
+
+
+
+
+
+
+
+
+
+toggle the table of contents
+
+
+
+
+
+
+
+http 404
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+53 languages
+
+
+add topic
+
+
+
+
+
+
+
+
+
+
+
+
+
+
