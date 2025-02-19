@@ -1,0 +1,536 @@
+
+
+
+
+
+
+
+
+
+                    joe maller
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+joe maller.com
+
+tumblring
+
+i’ve been experimenting with tumblr for a little while without telling anyone. i’m posting more frequently over there these days:
+
+this too will 404 (joemaller.tumblr.com)whatever i find interesting, funny, inspiring, worth remembering or sharing.
+tech, noted (dotjoe.tumblr.com)technology related stuff, nerdery, interesting projects, techniques, code, etc.
+
+
+
+
+share
+|
+
+
+
+
+
+
+
+
+leave a comment		link: jul 27, 2015 2:47 pm
+		posted in: misc.
+		tags: tumblr
+
+
+
+
+
+
+first new york marathon advice
+
+in a few days i’ll be running my second new york marathon. this is the third marathon i’ve trained for, i was supposed to run in 2012, but that one was cancelled after hurricane sandy. this year i feel really well prepared, strong, health and confident that i’ll be able to beat my previous time. i’m glad to be mostly (but not entirely) rid of the first-time marathon doubts and jitters.
+i made a lot of notes to myself after 2013, here are some things i wish someone had told me before my first marathon.
+
+
+you will be sitting around for a very, very long time before the race. it will be cold. you will be cold.
+bring disposable clothing. lots of it. in 2013 i spent several hours in the runners’ village waiting to start. i was cold, i was hungry and i was bored. and i didn’t even get a dunkin donuts hat. i remember spending a while huddling next to a small diesel generator for warmth. this year i’m dressing like a marshmallow and bringing a decent second breakfast.
+the verazzano bridge is windy and frigid. lots and lots of people toss their clothing once they’re back on the ground in brooklyn. (there’s also a lot of peeing)
+
+
+as much as possible, know what you’ll be wearing and eating
+know what you’re going to wear on race day well in advance. stick with what’s been working on the runs leading up to the race. whatever got you this far will get you to the finish line. a month out, you should probably have your shoes and socks figured out. there will be plenty of time after the marathon to tweak your gait, try different shoes or experiment with different diets. make sure you ask a nutritionist on what you should eat, but make sure they are professional so you know you get the right advice or else you could call the medical negligence experts to let them know and file a report.
+
+
+don’t stress about your time.
+this is probably most important of all. just deciding to run a marathon at all is amazing–don’t forget that. like when you watch some running watch reviews. relax. be inspired by you. i recommend getting a squeem waist trainer so can use it while you prepare for your marathon.
+i seem to know quite a few exceptional athletes. i don’t count myself in that group. these people roll out of bed and run low-3 hour marathons without training. it’s not normal.
+i finished my first marathon somewhere around 4:48. i was disappointed. months later, my sister-in-law cheri, who’s a pretty serious runner, told me something which turned that all around. “finishing your first marathon in under five hours is amazing.” i’d convinced myself i’d be closer to 4 hours. halfway through, high on adrenaline and running too fast, i remember thinking i might even break four.
+do try to pace yourself. it’s very easy to get wrapped up in the crazy city-wide street party and run too fast.
+none of us are going to win, but we’re still sharing the road with olympians. the finish line is the same finish line, whether you get there in three hours or six; running, walking or crawling. do this, enjoy it. you can get so much benefits from running, learn more about sports and the latest news here at sport.one, you can even find out the usain bolt net worth.
+
+
+as much as running is a physical sport, it’s also a massive head game. last year, a runner near me had written a quote on the back of his shirt:
+
+if you think you can or you think you can’t, you’re right.
+  – henry ford
+
+the amount of self-doubt leading up to the marathon is astonishing. but i’ve come to realize it’s more of a kharmic deposit, and the return on investment is fantastic.
+get lots of sleep. eat well and have fun.
+
+may the road rise up to meet you,
+  may the wind always be at your back
+  and may the sun shine warm upon your face.
+
+
+
+
+share
+|
+
+
+
+
+
+
+
+
+leave a comment		link: oct 29, 2014 8:52 pm
+		posted in: misc.
+		tags: new york marathon, running
+
+
+
+
+
+
+re-thinking angularjs
+
+the angular 2.0 preview roadmap was recently posted to hn and after reading it, i’m starting to think adopting angular might have been a mistake.
+having built a few small projects with angularjs, i’ve found the framework a pleasure to work with. once past the initial learning curve, features started flying together. most of my trouble-shooting time was spent getting backend data delivered correctly, angular just worked. based on this positive experience, i’ve been moving towards adopting angular as the standard frontend of my web toolkit.
+choosing angular wasn’t without doubts. introducing this many new conventions, syntaxes and practices doesn’t come without a cost. the problem with re-invention is longevity: either these new ideas succeed and become the norm, or they’re left for dead on the side of the road as technology marches on.
+parts of the 2.0 roadmap sound great. but it also sounds as if this future angular will be very different from the angular we know now.
+how big is this rewrite?
+huge revisions rarely end well. from-scratch rewrites have famously been called the “single worst strategic mistake that any software company can make.”  the goals always sound noble and the plans make sense, but by definition, engineering resources will be split between maintaining the original version and developing its successor. either the original suffers or the rewrite falls behind or both.
+does a revision of this scale imply that the current codebase is impossible to maintain? i’ve looked through some of angular’s source code, there’s some near-magic craziness in there. is it too crazy?
+if the angular team doubts their own code and will presumably move towards conventions used in competing frameworks, wouldn’t it be smarter for users to jump ship now for those other tools? competing codebases automatically become more mature if angular basically starts over.
+questions about backwards compatibility
+regarding porting from angular 1.2.x, the devs imagine “porting will be fairly straightforward but not free.” the arrogance of this position makes me doubt angular more than anything else. the javascript world is ruthlessly forward-looking and moves very, very quickly. if upgrading to 2.0 is only moderately less painful than switching to another framework, angular is doomed.
+angular blindsided many enterprise users in december 2013 when they announced they were dropping support for ie8.  even without api changes, jquery’s usage statistics show their ie8-incompatible 2.0 branch is seeing dismal adoption rates. python 3’s breaking changes have been a disaster for their mindshare. php’s dogged insistence on keeping nasty old code working is likely a factor in that language’s recent renaissance. existing angular code should probably be considered end-of-life.
+documentation fragmentation
+angular’s documentation has been a problem area for years. there’s no reason to believe documentation won’t lag behind again if the core functionality of angular is significantly changed.
+outside resources and tutorials are a different problem. most won’t be re-written, and search results will end up polluted with out-of-date information.
+google’s track record
+when it comes to supporting technology, google is phenomenally undependable. they’ve acquired and demolished a ton of popular web products (reader, feedburner, blogger, picnik, buzz, wave, “don’t be evil”, etc.). the only thing they’ve stuck with is the horrid google+ monstrosity. google’s support for the angular project was initially an argument in favor of adoption, but really, the google name is neutral at best and almost a negative. at least the angular source code is open source and out in the wild.
+and then there’s angulardart. google’s dart meta-language seems kind of stupid to me, but for the most part, so does coffeescript (though  my resolve is weakening). at very least dart feels like one of those throwaway side-projects that a rogue team of google super-geniuses put together–i don’t expect it will have a long life. dart aside, the bigger question is the resource-cost of supporting a large, complex framework across several languages/dialects. this lack of focus doesn’t build confidence.
+what’s next
+i’ve really enjoyed working with angular, but i’m doubtful for its future. over the years i’ve seen too many great products die from rewrites or overly ambitious direction changes. the first great javascript awakening saw dozens of libraries before jquery eventually won out. i hope i’m wrong, but i’m going to be looking at backbone again, as well as react, mithril and anything else to fall back upon if angular proves to be a dead end.
+joe maller
+march, 2014
+cross-posted here: https://gist.github.com/joemaller/9643049
+
+
+
+share
+|
+
+
+
+
+
+
+
+
+12 comments so far		link: mar 19, 2014 9:38 am
+		posted in: misc.
+		tags: angularjs, javascript, web
+
+
+
+
+
+
+vagrant nfs shares without a password
+
+since i switched a few months ago, vagrant has been humming along nicely, spinning up trim little ansible-provisioned ubuntu boxes as needed. since i’m using virtual box as the provider and shared folders barely work with more than a handful of files, my active projects are made available as nfs share points. running on os x, vagrant’s nfs shares are configured by modifying /etc/exports, and unfortunately, that requires administrator privileges and a password prompt.
+thankfully someone shared a workaround shell script which tweaked sudoers so vagrant up no longer required a password. it worked perfectly, until recently.
+with the release of vagrant 1.3, the nfs password prompt was back. the modified sudoers commands no longer worked.
+updating sudoers
+all sudo commands are logged, so figuring out what changed was just a slightly clumsy matter of checking the logs with vagrant 1.2.7, then installing vagrant 1.3.x and looking for changes. this was a lot more effective than trying to step through the diffs of the ruby code to reconstruct the various commands.
+in previous versions of vagrant whitelisting these commands allows editing of /etc/exports without a password:
+/usr/bin/su root -c echo '*' &gt;&gt; /etc/exports
+/usr/bin/sed -e /*/ d -ibak /etc/exports
+in vagrant 1.3.x, those commands were updated:
+/bin/bash -c echo '*' &gt;&gt; /etc/exports
+/usr/bin/sed -e -e /*/ d -ibak /etc/exports
+based on the original shell script, here is the block that needs to be added to /etc/sudoers for password-free startup with nfs shares:
+cmnd_alias vagrant_exports_add = /bin/bash -c echo '*' &gt;&gt; /etc/exports
+cmnd_alias vagrant_nfsd = /sbin/nfsd restart
+cmnd_alias vagrant_exports_remove = /usr/bin/sed -e -e /*/ d -ibak /etc/exports
+%staff all=(root) nopasswd: vagrant_exports_add, vagrant_nfsd, vagrant_exports_remove
+i also posted an updated fork of the original workaround, install_vagrant_sudoers.sh:
+
+
+
+
+share
+|
+
+
+
+
+
+
+
+
+1 comment so far		link: sep 30, 2013 10:41 am
+		posted in: misc.
+		tags: mac os x, nfs, sudo, sudoers, vagrant
+
+
+
+
+
+
+cosmos 2014
+
+omg.
+
+a. i trust neil degrasse tyson
+b. my kids will be strapped to the sofa for this.
+i remember watching the original with my dad. i hope this sequel is every bit as unabashedly hokey and fascinating as the original.
+itunes? put vangelis on repeat.
+
+
+
+share
+|
+
+
+
+
+
+
+
+
+leave a comment		link: aug 05, 2013 9:13 pm
+		posted in: misc.
+		tags: cosmos, neil degrasse tyson, tv, vangelis
+
+
+
+
+
+
+comping with web fonts (you don’t need skyfonts)
+
+i wrote about problems downloading web fonts for desktop use when google’s web fonts debuted, but years later it’s still an issue. there’s no way to anticipate the twists and turns a creative project will take. designers should be free to play and experiment with typefaces without worrying about running out of time or exceeding a monthly usage cap. convoluted, fragile workflows only create anxeity, they don’t foster creativity.
+monotype’s skyfonts service is a nice idea, i guess, but their usage terms seem impractical and unrealistic. the few designers i know who’ve tried it found it restrictive and expensive.
+the thing is, with a little knowledge of how web fonts work, using those typefaces in desktop apps is quite easy.
+
+web fonts are normally provided in three file formats, two of which, truetype *.ttf and web open font format *.woff, are easily converted back to standard truetype or opentype fonts. because of browser variation and font-face implementations, all three font containers are usually linked from a site’s stylesheets.
+to use any web font for comping in desktop apps, just convert the ttf or woff file to otf, then use it like you would any normal font. there are a number of tools for converting fonts, but the following web sites work well enough that i didn’t bother downloading an app.
+
+online font converter
+free online font converter
+fontconverter.org
+font squirrel’s webfont generator
+
+standard-level fonts.com accounts allow for self-hosted webfont projects. this means the font files can be downloaded and hosted on the web server alongside other assets like images or stylesheets. having those files makes converting fonts for comping easy, but it’s just as simple to download the files with a web browser. any file on the web can be copied, in fact every file viewed on the web already is a copy.
+yes, you can steal fonts using this. don’t. “good artists copy; great artists steal” wasn’t about shoplifting.
+notes
+
+web truetype fonts often won’t show in menus because their name-tables have been munged to discourage copying/theft. converting fonts to a different container format makes them work correctly.
+some woff files didn’t work, in those rare cases the corresponding ttf worked fine–you might need to dig into the stylesheets to find the url.
+converted web fonts usually have messy names in menus.
+disable or remove any local copies of fonts when the mockup phase ends. locally installed fonts can conflict with web versions and lead to maddening discrepencies in testing.
+
+
+
+
+share
+|
+
+
+
+
+
+
+
+
+2 comments so far		link: jun 24, 2013 10:40 am
+		posted in: misc.
+		tags: fonts, typography, web design, web fonts
+
+
+
+
+
+
+a few workflow links and examples
+
+this morning i had a nice breakfast with a friend where various workflow and technology advances came up. this is really an email to him, but i thought it was worth sharing.
+composer and packagist for php
+composer is a project-based dependency manager which makes it very easy to integrate php libraries into projects. packagist is where you find which libraries are available, and has the simplest installation instructions. with composer installed, adding features like markdown or yaml parsing literally becomes as trivial as editing a json file.
+composer relies on modules being authored according to php framework interoperability group’s psr-0 standard. since i’ve been guilty of bashing php, it’s probably worth mentioning fabien potencier’s post, php is much better than you think. php is far better than it used to be and the developer ecosystem is very, very active. (but i still prefer python)
+homebrew
+homebrew is a package manager for osx. similar to apt-get or yum on linux, this is the successor to macports or fink. it installs with one line pasted into the terminal (assuming you’ve got xcode already) and makes installing and removing packages ridiculously clean and easy. homebrew is pretty much the first thing i install on a new mac.
+forecast.io
+the weather app forecast.io is a terrific example of what’s possible with web apps that perform like native code. they’re also pushing a lot of cutting edge html 5 technologies. startup times could be better, but that will come with hardware. forecast is an offshoot of dark sky, my favorite ios weather app.
+unreal on the web
+continuing the theme of what’s becoming possible on the web, mozilla and epic recently demoed the unreal engine running in a browser. you’ll need firefox nightly for the best experience. the port uses html5, webgl and javascript compiled from c source. this runs at 50+ frames per second from my laptop full screen on a second display. crazy.
+
+
+
+share
+|
+
+
+
+
+
+
+
+
+leave a comment		link: jun 19, 2013 1:43 pm
+		posted in: misc.
+		tags: web design, workflow
+
+
+
+
+
+
+next page »
+
+random
+
+
+
+14th st webcam
+
+
+
+
+
+
+
+
+
+
+
+tags
+
+adobe
+apple
+applescript
+barefoot running
+born to run
+bugs
+coffee
+feet
+final cut pro
+fxscript
+git
+google
+hanukkah
+health
+iphone
+iphoto
+itransmogrify
+itunes
+javascript
+mac
+mac os x
+mail.app
+new york city
+nyc
+php
+running
+school
+sed
+september 11th
+unix
+vibram fivefingers
+web
+web design
+wordpress
+wwdc
+
+
+contact 
+
+404 not found
+
+404 not found
+
+code: nosuchkey
+message: the specified key does not exist.
+key: people/joemaller/widgets/distance/mini.js
+requestid: axwf70kvrknzyvqs
+hostid: 7x3waye3gwpceun+84pjnjgy+jyak3tzy5incicxlygc+bfuirbil1inewkjpbxowcjkm1q94xk=
+
+
+
+
+
+404 not found
+
+404 not found
+
+code: nosuchkey
+message: the specified key does not exist.
+key: people/joemaller/training/widget.js
+requestid: axw17vfzjarwyvpd
+hostid: fv+kdd3wdlquc5o8pabi7ssekchhfu0gre1stjhpqcnsvj+6equu4srcrygb9rx1jyvfexqetba=
+
+
+
+
+
+
+404 not found
+
+404 not found
+
+code: nosuchkey
+message: the specified key does not exist.
+key: people/joemaller/events/widget.js
+requestid: axwc9xfddgjqgc1n
+hostid: uyhyystvswd/kvnspeapxzxt3mwalqphcf1gj+nn5oko+leq9upmn4unnzrtdktxorsbviyjepq=
+
+
+
+
+
+404 not found
+
+404 not found
+
+code: nosuchkey
+message: the specified key does not exist.
+key: people/joemaller/events/widget.js
+requestid: zvy7rcsmwvb618y8
+hostid: x2mz6erquemsicby5cfdplkinfley1gwnyqdkkmnyaqtznu7csnmvqnizkism5lcu920wzkzstq=
+
+
+
+no upcoming events.
+
+
+twitter
+@joemaller
+ 
+
+
+
+other stuff
+
+
+
+
+projects
+
+basic javascript rollovers
+my original javascript rollover tutorial, from 1996
+email address protection
+
+
+
+iphoto
+
+joe’s iphoto applescripts for date manipulation
+a set of utility scripts for adjusting dates in your iphoto library
+
+
+
+
+categories
+
+apple
+
+del.icio.us
+
+mac os x
+
+misc.
+
+projects
+
+joe's filters
+
+web development
+
+
+
+quips
+
+
+
+
+
+archives
+search:
+
+
+
+
+
+
+
+2015 (1)
+2014 (2)
+2013 (6)
+2012 (12)
+2011 (16)
+2010 (30)
+2009 (14)
+2008 (28)
+2007 (76)
+2006 (71)
+2005 (141)
+2004 (26)
+2003 (91)
+2002 (177)
+2001 (90)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+referers
+
+
+
+
+
+

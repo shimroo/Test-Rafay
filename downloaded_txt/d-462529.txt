@@ -1,0 +1,629 @@
+
+
+
+14794 – "run ant..." starts ntvdm.exe which hangs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+downloadgetting startedmembersprojects community marketplaceeventsplanet eclipsenewslettervideosparticipate report a bugforumsmailing listswikiirchow to contributeworking groups automotiveinternet of thingslocationtechlong-term supportpolarsysscienceopenmdm 
+
+more
+
+
+
+
+
+communitymarketplaceeventsplanet eclipsenewslettervideosparticipatereport a bugforumsmailing listswikiirchow to contributeworking groupsautomotiveinternet of thingslocationtechlong-term supportpolarsysscienceopenmdm 
+
+
+
+
+
+
+
+
+toggle navigation
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+bugzilla – bug 14794
+"run ant..." starts ntvdm.exe which hangs
+last modified: 2002-11-12 17:02:34 est
+
+
+home
+| new
+| browse
+| search
+
+| 
+
+
+
+
+
+[?]
+| reports
+
+| 
+requests
+
+| 
+help
+
+
+| 
+log in
+
+
+
+
+
+[x]
+
+
+| 
+terms of use
+| 
+copyright agent
+
+
+
+this bugzilla instance is deprecated, and most eclipse projects now use 
+ github or eclipse gitlab. please see the deprecation plan for details.
+
+
+
+
+
+
+bug 14794 
+      - "run ant..." starts ntvdm.exe which hangs
+
+
+summary:
+"run ant..." starts ntvdm.exe which hangs
+    
+
+
+
+
+
+
+
+
+status:
+    
+
+verified
+          fixed
+      
+
+
+
+
+
+
+alias:
+
+
+        none
+    
+
+
+
+
+
+product:
+
+platform
+
+
+
+
+classification:
+
+eclipse project
+
+
+
+
+component:
+
+ant
+
+  (show other bugs)
+
+
+
+version:
+
+2.0   
+
+
+hardware:
+
+pc
+        windows xp
+      
+
+
+
+
+
+
+
+importance:
+      
+p3
+       normal
+    (vote)
+  
+
+
+
+target milestone:
+
+---   
+
+
+assignee:
+
+joe szurszewski 
+
+
+
+
+qa contact:
+
+
+
+
+
+
+
+
+
+
+url:
+
+
+
+
+
+
+
+whiteboard:
+
+
+
+
+keywords:
+
+core
+
+
+
+
+
+
+
+depends on:
+
+
+
+
+24318
+
+
+
+blocks:
+
+
+
+
+
+
+
+ 
+
+        show dependency tree
+
+
+
+
+
+ 
+
+
+
+
+
+      reported:
+    
+2002-04-26 16:22 edt by micah schehl 
+
+
+
+
+
+      modified:
+    
+2002-11-12 17:02 est
+      (history)
+    
+
+
+
+
+          cc list:
+        
+
+1 
+          user
+          
+            (show)
+          
+
+
+
+rodrigo
+
+
+
+
+
+
+
+
+
+see also:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      attachments
+    
+
+
+
+add an attachment
+        (proposed patch, testcase, etc.)
+    
+
+
+
+
+
+
+
+
+note
+              you need to
+              log in
+              before you can comment on or make changes to this bug.
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+description
+
+
+micah schehl 
+
+
+
+
+
+          2002-04-26 16:22:39 edt
+        
+
+after selecting a build.xml and clicking "run ant..." eclipse hangs.  by going 
+to the task manager, you can see that ntvdm.exe is eating around 99% of the cpu 
+cycles continuously.  to continue with "run ant", ntvdm.exe must be manually 
+terminated.
+
+more info:
+then when a task is selected and run, sometimes an error message comes back, "a 
+problem occurred executing the ant file.  reason: cannot use classic compiler, 
+as it is not available  a common solution is to set the environmental variable 
+java_home to your jdk directory".  this should not show up as java_home is set 
+to a valid directory.
+
+then when trying to close eclipse, an error message comes up, "problems 
+occurred while trying to save the state of the workbench."  details: "problems 
+occurred during save."
+
+
+
+
+comment 1
+
+
+rodrigo peretti 
+
+
+
+
+
+          2002-04-30 15:32:26 edt
+        
+
+could you provide more information like build number, vm, machine, os, etc?
+
+
+
+
+comment 2
+
+
+micah schehl 
+
+
+
+
+
+          2002-04-30 16:03:37 edt
+        
+
+eclipse r1.0
+os: windows xp professional (all updates)
+vm: sun java 1.4.0
+
+
+
+
+
+
+comment 3
+
+
+rodrigo peretti 
+
+
+
+
+
+          2002-05-03 10:22:02 edt
+        
+
+from the newsgroup:
+
+after replacing ant 1.4.1 with ant 1.5 beta1 the problem was gone.
+so this is really a problem of ant in combination with jdk 1.4.0 and 
+windows xp.
+
+but this leads to the question when ant 1.5 will be integrated into 
+eclipse? ;-)
+
+ullrich.
+
+
+
+
+comment 4
+
+
+dj houghton 
+
+
+
+
+
+          2002-05-23 16:36:21 edt
+        
+
+doesn't seem like we can do much about this.
+re-visit once ant 1.5 is no longer in beta.
+
+
+
+
+comment 5
+
+
+dj houghton 
+
+
+
+
+
+          2002-09-10 16:52:31 edt
+        
+
+reopening for investigation now that ant 1.5 is released.
+
+
+
+
+
+comment 6
+
+
+darin swanson 
+
+
+
+
+
+          2002-10-25 11:44:25 edt
+        
+
+micah, would you be able to check the next integration build (oct 29th) now 
+that eclipse has been upgraded to ant 1.5.1?
+
+
+
+
+comment 7
+
+
+darin swanson 
+
+
+
+
+
+          2002-11-04 14:36:59 est
+        
+
+joe can you take a look at this on xp.
+
+
+
+
+comment 8
+
+
+darin swanson 
+
+
+
+
+
+          2002-11-04 14:37:51 est
+        
+
+please verify that the problem was the combination of 1.4.1 and a 1.4.0 vm.
+
+
+
+
+comment 9
+
+
+joe szurszewski 
+
+
+
+
+
+          2002-11-12 17:02:34 est
+        
+
+verified that there is no problem running ant 1.5.1 with jdk1.4.0 on xp.  can't actually duplicate the problem on ant 1.4.1 because of bug 26061.
+
+
+
+
+
+
+
+
+
+format for printing
+ - xml
+ - clone this bug
+ - top of page 
+
+
+
+
+
+
+
+home
+| new
+| browse
+| search
+
+| 
+
+
+
+
+
+[?]
+| reports
+
+| 
+requests
+
+| 
+help
+
+
+| 
+log in
+
+
+
+
+
+[x]
+
+
+| 
+terms of use
+| 
+copyright agent
+
+
+
+
+
+
