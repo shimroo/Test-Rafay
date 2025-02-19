@@ -1,0 +1,699 @@
+
+
+m-j. dominus perl paraphernalia
+
+
+
+
+
+
+
+
+perl paraphernalia
+mark jason dominus
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+last change:
+11 july 2003
+history of changes to my pages,
+including this one.
+legend
+ added in the last four weeks.
+
+updated in the last four weeks.
+ don't hold your breath.
+
+
+
+ 
+higher-order perl
+
+
+complete list of perl paraphernalia
+
+ why i am boycotting amazon -- $581.96 so far.
+   list of upcoming public appearances
+ search perl paraphernalia
+ classes and talks: general information
+
+
+
+
+lightning talks / communications éclair
+ paid classes
+
+ advanced topics in perl
+ cgi programming with perl
+ hands-on introduction to perl
+ "how do i delete a line from a file?"
+ intermediate topics in perl
+ making programs faster
+ object-oriented programming in perl
+ perl program repair shop and red flags
+ perl regular expression mastery
+ programing with iterators and generators
+ stolen secrets of the wizards of the ivory tower
+ tricks of the wizards
+ web application security
+
+ free talks
+
+ conference presentation judo
+ "design patterns" aren't
+ dirty secrets of the perl regex engine
+ file locking tricks and traps
+ hook::lexwrap
+ the identity function
+ internals of familiar unix commands
+ internals of the ext2 filesystem
+ perl contains the lambda calculus
+ the perl hardware store
+ the perl hardware store (dc.pm version)
+ the perl hardware store (nylug version)
+ quantitative analysis of memoization
+ return to the perl hardware store
+ rx, the perl regular expression debugger
+ strong typing and perl
+ system programming in perl
+ tie::file
+ using tie to escape feature creep
+
+ this is the program that i used to make the slides.
+
+
+ mailing lists
+
+perl quiz of the week
+
+ perl journal articles
+
+bricolage
+    
+ infinite lists
+ b-trees
+ how regexes work
+ ray tracing
+ data compression
+ memoization
+
+just the faqs
+    
+ understand references today
+ suffering from buffering?
+ coping with scoping
+ precedence problems
+
+reviews
+
+ perl resource kit for unix (o'reilly and associates)
+ perl 5 for dummies (idg books)
+ object oriented perl (manning publications)
+
+miscellaneous
+    
+  seven useful uses of local
+
+
+ other published articles: 
+	
+
+qrpff explained
+	  (wired june 2001)
+ieee software
+what's that mean? (perlmonth #1 - may 1999)
+my life with spam linux planet web site
+articles from www.perl.com 
+
+a short guide
+            to dbi  (october 1999)
+            sins of perl
+            revisited (november 1999)
+            my
+            life with spam ii (february 2000) 
+            my life
+            with spam iii (march 2000)
+            pod is
+            not literate programming (march 2000)
+            program
+            repair shop and red flags i (may 2000)
+            perl meets
+            cobol (may 2000)
+            program
+            repair shop and red flags ii (june 2000) 
+            reports
+            from yapc 19100 (july 2000, with ten others)
+            report on
+            the perl 6 announcement (july 2000)
+            guide
+            to the perl 6 mailing lists (september 2000)
+            critique
+            of the perl 6 rfc process (october 2000)
+            program
+            repair shop and red flags iii (november 2000)
+            red 
+                 flags return: reader responses (november 2000)
+            why i
+            hate advocacy (december 2000)
+            perl
+            program repair shop and red flags at the open source conferences (may 2001)
+             why
+            not translate perl to c? (june 2001)
+          
+
+ usenet articles
+
+ why questions go unanswered
+ what is `scalar context'?
+ why it's stupid to `use a variable as a variable name' part
+    1
+2
+3
+ joining two tied hash classes into one.
+
+ perl modules
+
+   tie::file
+  text::template
+ memoize
+ interpolation
+  stat::lsmode
+ devel::trace
+ algorithm::diff (and diff.pl)
+ locked
+ tie::hashhistory
+ apache::addrmunge
+ the very very short tutorial about modules
+ async
+ arrayhashmonster
+  fakehash and fakehash::drawhash
+rx: a regex debugger for perl
+ezdbi is a quick and
+    simple interface to sql databases
+
+ perl programs
+
+ units
+  adventure
+     obfuscated perl contest entry
+
+ perl stupidity
+
+ identity is incredibly funny.
+         you must look at this module.
+ addition is possibly the stupidest perl program ever written.
+ roman is a new contender for stupidest perl module ever written.
+ allsubs is a stupid module that might actually be useful.
+
+ april fools' day  (explanations
+         and analysis to follow eventually.)
+    
+ thursday, april 1, 1999
+       
+ infrequently asked questions about perl
+ april fool patch 1999
+ perl is a superset of the -calculus or how to write a 163-line program to compute 1+1.
+ why it is easier to program in perl than
+	 in other languages
+
+ saturday, april 1, 2000
+       
+ through some grievous and inexplicable oversight, no
+              port of perl to the trs-80 model i microcomputer yet
+              exists.  until that happens, you can simulate the trs-80
+              environment with this
+              new module.
+       
+ sunday, april 1, 2001
+       
+ this new built-in time function fills a
+          much-needed gap
+
+ monday, april 1, 2002
+       
+ perl's time and calendar functions always need
+          improvement.  this
+          is an obvious and useful extension of the localtime
+          function
+
+
+
+ when hashes go wrong
+ perl oddity: a program that writes parser
+       programs in perl
+ read a description of the 1967 edition of perl!
+ perl regex matching is np-complete.
+ a perl program that prints its own source code
+ perl paraphernalia links
+ minutes from the next-to-last meeting of the perl institute (2 december 1997)
+ minutes from the last meeting of the perl institute (3 march 1999)
+ what does that  logo
+  mean?
+
+
+
+articles for the perl
+journal
+
+
+this area contains text, source code, and notes about my column in
+the perl journal.  as
+new articles appear, i'll add them here.
+autumn 1997: infinite lists
+winter 1997: b-trees
+spring 1998: how regexes work
+how do perl's regexes work on the inside?  suppose you were going
+to write a language like perl, which has regexes, in a language like c,
+which doesn't?  how might you do that?
+regex article main page
+regex article notes and errata page
+
+this article explains how it works.
+a sidebar explains the academic terminology
+    that i didn't use in the article.
+this module, regex implements
+    the scheme described in the article.
+this program, grep.pl implements a
+    version of unix grep in perl without using perl's
+    built-in regexes. 
+this program, demo.pl demonstrates
+    that for some tasks, the regex library is a whole lot
+    faster than perl's builtin regexes.
+
+summer 1998:
+ray tracing
+ray tracing is one of the most flexible and versatile methods of
+rendering three-dimensional computer images.  in this article, i show
+you a simple ray tracing program written in perl and explain how it
+works.
+ray tracing main page
+
+ postscript version of article.
+   ray-tracing software
+ tar file with ray-tracing
+       software and sample input files
+ do-it-yourselfer?
+       
+ latex source code for the articles
+ dvi file
+ metapost source code for the figures
+ postscript figure files:
+	      
+	      1
+2
+4
+7
+
+
+summer 1998:
+just the faqs: understand references today
+one of the most important new features in perl 5 was the capability
+to manage complicated data structures like multidimensional arrays and
+nested hashes.  to enable these, perl 5 introduced a feature called
+`references', and using references is the key to managing complicated,
+structured data in perl.  unfortunately, there's a lot of funny syntax
+to learn, and the manual is not as clear in this area as it usually
+is.  the manual is quite complete, and a lot of people find that a
+problem, because it can be hard to tell what is important and what
+isn't.
+fortunately, you only need to know 10% of what's in the manual to
+get 90% of the benefit.  this article will show you that 10%.  
+
+ read the article
+
+ autumn 1998:
+just the faqs: suffering from buffering?
+the deadline for written materials for the perl
+conference got in my way, so i wasn't able to do two articles
+again this issue.  i put my regular bricolage column on hold and wrote another
+article for novices.  it's about how stadard i/o buffering works and
+shows typical traps and hazards and how to avoid and remedy them.  i
+think even experienced programmers will learn something from it.
+
+ read the article
+
+if you're sad that you missed my regular bricolage column because it was on
+vacation, then seeing the notes for my
+conference talk might make you feel better.
+winter 1998:
+just the faqs: coping with scoping?
+
+this article discusses issues of variable scope and duration in
+perl, including packages, namespaces, and the difference between
+my and local.  the big secret:  perl has two separate and totally unrelated sets of variables.
+
+ read the article
+
+winter 1998:
+bricolage: data compression
+
+this article discusses how data compression works.  it comes with a module, huffman, which implements a simple data compression scheme in perl.
+ spring 1999:
+bricolage:  memoization
+
+caching is a straightforward way to speed up certain slow
+functions: you remember the return values by storing them in a
+cache, and if you are going to compute the same value again
+later, just get the result from the cache instead of recomputing it.
+it turns out it's not hard to build a facility that replaces
+any function with a caching version automatically; this is
+called memoization.  this article explains how such a module
+works, and shows a number of interesting applications and contexts for
+memoization and caching.
+
+memoization article main page
+article in html format
+minimemoize, a simple memoizing module that is explained in the article
+  main page for heavy-duty memoize module from cpan
+
+ summer 1999: seven useful uses of local
+
+in my article coping with
+scoping i offered the advice ``always use my;
+never use local.'' the most common use for both is to
+provide your subroutines with private variables, and for this
+application you should always use my, and never
+local. but many readers (and the tech editors) noted that
+local isn't entirely useless; there are cases in which
+my doesn't work, or doesn't do what you want. so i
+promised a followup article on useful uses for
+local. that is what this article is about.
+ autumn 1999: just the faqs:
+precedence problems
+i wrote a tutorial article about what precedence is and how it
+works in perl.
+read the article
+i also wrote a review of perl 5
+for dummies, by paul hoffman, published by idg books.  the
+review was quite a surprise to me; it didn't turn out the way i
+expected at all.
+
+other articles
+
+for ieee
+software
+i wrote an article for ieee
+software magazine; it's their first-ever article about
+perl.  it appears in vol. 15, #1 (the january / february 1998 issue)
+pages 69-74.
+it's partly an introduction to the language for people who have
+never seen it before, and partly a big boast about how great perl is.
+i'm not sure i believe that perl is as great as i made it out to be,
+but i do think it's pretty good.
+read the plain text of my last
+draft, or get a pdf
+copy of the published version from the computer society (computer
+society members only).
+
+modules
+
+
+text::template
+
+current version: 1.41.  last update: 2001-09-04.
+
+ read all about it here
+ read documentation
+ download most recent version
+  including makefile and test suite
+ view source code
+
+
+memoize
+
+current version: 0.61.  last update: 2000-10-24.
+the memoize module will make your functions faster by
+remembering their old values and reusing them instead of recomputing
+the same thing twice.  it is very easy to use.  very very easy.  step
+1: say memoize('some_function').  step 2: there is no step
+2.  i told you it was easy.
+
+ main memoize page.
+ read documentation
+ download most recent version
+ view source code
+ view source code for
+       memoize::expire, an expiration manager plug-in for memoize
+ expiration manager documentation
+
+
+interpolation: why
+	identity wasn't as funny as i thought.
+
+current version: 0.53.  last update: 1998-04-09.
+this module lets you define
+arbitrary string interpolation semantics, which means that 
+you can control the way variables and other expressions interpolate
+into your strings.  perl already provides \l...\e and
+\u...\e to say that a string should be put into lowercase or
+uppercase when it's interpolated; interpolation extends this
+notion.  the notation is compact and readable, and you can have as
+many interpolators as you want.
+
+about interpolation
+complete documentation
+peruse the source code
+dowload the
+  complete package.  (include makefile, test scripts, etc.)
+  see a list of clever uses for
+  interpolation contributed by users.
+  do you have a clever use for
+  interpolation?  please share it with
+  me here!  (or just send me mail about it.)
+
+
+stat::lsmode
+
+current version: 0.50.  last update: 1998-04-20.
+stat::lsmode is a module for
+displaying file permission 
+modes in the style of the unix ls -l command.  for example, a
+plain file that is world-readable and writable only by its owner is
+represented by the string -rw-r--r--. 
+
+ stat::lsmode main page
+ read documentation
+ download most recent version
+  including makefile and test suite
+ view source code
+
+
+ devel::trace main page and manual
+ view source code
+
+
+locked
+
+current version: 0.1.  last update: 1999-02-03.
+locked is a module for
+providing scalar variables that can be locked and unlocked.  unlocked
+scalars behave normally.  locked scalars abort the program if you try
+to assign to them.  variables can be locked and unlocked; you can also
+test them to see if they are locked or not.
+it's also a fine demonstration of the power of tie
+i just wrote this, so there's little documentation and no test
+suite yet. 
+
+ locked main page
+ module source code
+ test and demo program
+
+
+
+perl stupidity
+
+
+
+identity: a very funny module
+
+this is one of the funniest pieces of software i have ever written.
+it is an absolute riot.  and it is even possibly useful. it is called
+identity, but i am looking for a
+better name.  if you want to know why it's useful, it will help to read the explanation first.
+
+addition is possibly the stupidest perl program ever written.
+
+i don't really believe that it is the stupidest.  in fact, you
+should watch this space for the sudden appearance of other stupid
+programs.  but it sure is mighty stupid though.
+
+read the source code first, even though...
+  most of the real stupidity is actually in
+      this idiotic module.
+
+
+roman is a new contender for stupidest perl module ever written.
+
+this one may give addition a run for its money, if only
+because it takes so darn long to load.
+
+look at the demo program first.
+  this demo also uses
+  interpolation to achieve a
+  more useful (ha ha) functionality.
+  most of the real stupidity is actually in
+      this idiotic module.
+
+
+allsubs is a stupid module that might actually be useful.
+following a suggestion of alex davies, this module tries to
+automatically locate and declare all your subroutines at compile-time,
+so that you don't have to do it yourself.
+read the notes and then scrutinize the code.
+
+other paraphernalia and miscellanea
+
+perl regex matching is np-complete
+
+sometimes perl can take a very long time to evaluate a regular
+expression match.  is this a problem with perl's implementation of
+regexes?  the answer is no; this paper shows that regex matching in perl is np-complete.  this
+means that if you could come up with an efficient way to evaluate
+regex matches in perl, you would become very famous because your
+method would also be an efficient way to solve many other well-known
+and difficult problems.
+
+usenet articles
+
+
+why questions go unanswered
+
+someone on comp.lang.perl.misc wanted to know why nobody
+was answering his questions.  in answer, i wrote an article about how to ask a question so that
+it'll get an answer.
+
+what is `scalar context'?
+
+why doesn't print reverse $x work?  and what is `scalar
+context'?  and what is the scalar builtin function for?  this short article explains contexts and the
+scalar function.
+
+why it's stupid to `use a variable as a variable name'
+
+people show up in comp.lang.perl.misc all the time asking
+how to use the contents of a variable as the name of another variable.
+for example, they have $foo = 'snonk', and then they want to
+operate on the value of $snonk.  this anecdote suggests that is probably a
+bad idea, and explains what you should probably be doing instead.
+this follow-on article goes into more
+specifics about the sorts of things that can go wrong, and what to do
+instead.
+ is there no end to
+this topic?  no, apparently not.
+
+when hashes go wrong
+
+this program demonstrates what happens when
+hashes go wrong. it accepts one command-line argument,
+n, which defaults to 10,000.  it then constructs
+n strings and uses them as keys for the hash.  the strings
+are constructed so that their hash values are all the same, so they
+all go into one hash bucket.  this turns the hash search into a linear
+search---very slow.
+perl has one small win here.  normally, perl increases the number
+of buckets as the number of items in the hash increases.  if it did
+that here, it would be wasting time and space, since this program only
+uses one bucket.  but fortunately for perl, this program doesn't
+trigger the condition that makes perl expand the hash: perl only does
+that when a key is inserted into a previously empty
+bucket.
+
+a
+program to write yacclike parsers in perl
+
+this program, py, implements lalr(1)
+parsers in perl.  these are the sorts of parsers produced by
+yacc and bison.  but the program is a
+complete oddity.  find out why.
+
+perl, 1967 edition
+
+it occurred to me today that there was a language i'd heard about
+before that sounded a lot like perl.  i looked it up, and sure enough,
+it sounded just like someone in 1967 describing perl.  you can read the description of perl '67 and try to
+guess what language is really being described.
+over the next few weeks i hope to research this language and learn
+whether it really does resemble perl as much as it seems to.  if so,
+it could be a valuable example lesson that could teach us a lot about
+how to develop perl and what sorts of mistakes to avoid.
+
+perl paraphernalia links
+
+if you hated this page, you'll probably also dislike:
+
+
+
+uri's perl book page
+roderick schertler
+perlguts illustrated
+steven mcdougall
+kaoru maeda
+jenda krynicky
+stephen b. jenkins
+joseph hall
+cassidy curtis
+damian conway
+sean burke
+graham barr
+abigail
+
+i'd be glad to get other people's recommendations of other pages of
+perl paraphernalia.  
+
+
+search perl paraphernalia
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+software entities are more complex for their size than perhaps any
+other human construct because no two parts are alike.  if they are, we
+make the two similar parts into a subroutine -- open or closed.  in
+this respect, software systems differ profoundly from computers,
+buildings, or automobiles, where repeated elements abound.
+fred brooks, jr.
+
+
+
+return to: 
+universe of discourse main page |
+what's new page
+
+mjd@plover.com
+
+

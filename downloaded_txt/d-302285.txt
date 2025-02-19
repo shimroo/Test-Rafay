@@ -1,0 +1,691 @@
+
+
+
+
+
+
+
+
+
+
+travis illig
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+travis illig
+paraesthesia: .net development and some pictures of my cat
+
+
+about
+archives
+tags
+contact
+
+
+loading...
+
+
+
+
+twitter
+github
+linkedin
+rss
+
+
+
+
+
+
+
+
+
+
+235 trick-or-treaters
+
+
+november  4, 2024
+
+halloween, 
+
+costumes
+
+comments
+
+edit
+
+
+
+this year we had 235 trick-or-treaters. that’s a big increase from previous years.
+
+
+
+halloween was on a thursday and it was raining on-and-off. however, there was no school on friday, so kids were out and prepped for staying up late on a sugar high.
+we technically started handing out candy at 5:30 because the number of kids this year starting early was overwhelming. i’ve grouped the 5:30p to 6:00p kids (24) in with the 6:00p - 6:30p kids (22) to total 46 in the 6:00p - 6:30p time block. it throws the curve off a little but we’ll have to live with it.
+we didn’t hand out in 2022 (we were remodeling and not home) or 2023 (covid). it was good to be back in the swing of things. i did throw out my back a few days before, so i tallied the kids while jenn handed out candy, but we showed up!
+cumulative data:
+
+
+
+
+ 
+time block
+
+
+year
+6:00p - 6:30p
+6:30p - 7:00p
+7:00p - 7:30p
+7:30p - 8:00p
+8:00p - 8:30p
+total
+
+
+
+
+2006
+52
+59
+35
+16
+0
+162
+
+
+2007
+5
+45
+39
+25
+21
+139
+
+
+2008
+14
+71
+82
+45
+25
+237
+
+
+2009
+17
+51
+72
+82
+21
+243
+
+
+2010
+19
+77
+76
+48
+39
+259
+
+
+2011
+31
+80
+53
+25
+0
+189
+
+
+2013
+28
+72
+113
+80
+5
+298
+
+
+2014
+19
+54
+51
+42
+10
+176
+
+
+2015
+13
+14
+30
+28
+0
+85
+
+
+2016
+1
+59
+67
+57
+0
+184
+
+
+2019
+1
+56
+59
+41
+33
+190
+
+
+2021
+16
+37
+30
+50
+7
+140
+
+
+2024
+46
+82
+52
+26
+29
+235
+
+
+
+
+our costumes this year:
+
+me: newt scamander from fantastic beasts and where to find them
+jenn: sally slater, the tightrope walker from the disney haunted mansion
+phoenix: ursula from the little mermaid
+
+i made the coat and the vest for this one. i bought the wand, pants, and shirt. i’m pretty pleased with how it turned out. the coat is really warm and is fully lined - it’s not a costume pattern, it’s a historic reproduction pattern. i wore it to our usual halloween party but couldn’t wear it all night. it was just too hot.
+about halfway through making the coat i tried to push too much fabric through the serger so i broke it. it’s at the shop now. i think i threw off the timing. i also recently acquired a cover stitch machine, but i didn’t see any good places to use it on this costume. i’m excited to try it for a future project.
+
+
+
+
+
+using the az cli behind zscaler
+
+
+june  6, 2024
+
+azure
+
+comments
+
+edit
+
+
+
+at work i use the az cli behind a vpn/proxy package called zscaler. i’m not a big fan of these tls-intercepting-man-in-the-middle-attack sort of “security” products, but it is what it is.
+the problem for me is that, if i move to a new machine, or if someone else is setting up a machine, i always forget how to make the az cli trust zscaler so it can function properly and not get a tls certificate error. i’ve re-figured this out countless times, so this time i’m writing it down. it does seem to be slightly different on mac and windows and i’m not sure why. perhaps it has to do with the different ways the network stack works or something.
+the az cli is python-based so this will ostensibly work to generally solve python issues, but i always encounter it as part of az, so i’m blogging it as such.
+
+zscaler does have some help for enabling trust but you sometimes have to fudge the steps, like with this.
+
+on mac
+
+make sure you have the zscaler certificate in your system keychain as a trusted ca. likely if you have zscaler running this is already set up.
+install the latest ca-certificates package or get the content from here.
+set the requests_ca_bundle environment variable to point at the cert.pem that has all the ca certs in it.
+
+this works because the homebrew package for ca-certificates automatically includes all the certificates from your system keychain so you don’t have to manually append your custom/company ca info.
+on windows
+
+go get the latest ca-certificates bundle from here.
+open that cert.pem file in your favorite text editor. just make sure you keep the file with lf line endings.
+get your zscaler ca certificate in pem format. open that up in the text editor, too.
+at the bottom of the cert.pem main file, paste in the zscaler ca certificate contents, thereby adding it to the list of cas.
+set the requests_ca_bundle environment variable to point at the cert.pem that has all the ca certs in it.
+
+again, not sure why on windows you need to have the zscaler cert added to the main cert bundle but on mac you don’t. this also could just be something environmental - like there’s something on my work machines that somehow auto-trusts zscaler but does so to the exclusion of all else.
+regardless, this is what worked for me.
+
+
+
+ndepend 2023.2 - this time on mac!
+
+
+december 18, 2023
+
+architecture, 
+
+mac, 
+
+dotnet, 
+
+ndepend
+
+comments
+
+edit
+
+
+
+it’s been a few years since i’ve posted a look at ndepend and a lot has changed for me since then. i’ve switched my primary development machine to a mac. i don’t use visual studio at all - i’m a vs code person now because i do a lot of things in a lot of different languages and switching ides all day is painful (not to mention vs code starts up far faster and feels far slimmer than full vs). most of my day-to-day is in microservices now rather than larger monolith projects.
+
+full disclosure: patrick at ndepend gave me the license for testing and showing off ndepend for free. i’m not compensated for the blog post in any way other than the license, but i figured it’d be fair to mention i was given the license.
+
+i’ve loved ndepend from the start. i’ve been using it for years and it’s never been anything but awesome. i still think if you haven’t dived into that, you should just stop here and go do that because it’s worth it.
+get going on mac
+the main ndepend gui is windows-only, so this time around, since i’m focusing solely on mac support (that’s what i have to work with!) i’m going to wire this thing up and see how it goes.
+first thing i need to do is register my license using the cross-platform console app. you’ll see that in the net8.0 folder of the zip package you get when you download ndepend.
+dotnet ./net8.0/ndepend.console.multios.dll --reglic xxxxxxxx
+
+this gives me a message that tells me my computer is now registered to run ndepend console.
+running the command line now, i get a bunch of options.
+ pwsh> dotnet ./net8.0/ndepend.console.multios.dll
+//
+//  ndepend v2023.2.3.9706
+//  https://www.ndepend.com
+//  support@ndepend.com
+//  copyright (c) zen program hld 2004-2023
+//  all rights reserved
+//
+_______________________________________________________________________________
+to analyze code and build reports ndepend.console.multios.dll accepts these arguments.
+ndepend.console.multios.dll can also be used to create projects (see how below after
+the list of arguments).
+
+  _____________________________________________________________________________
+  the path to the input .ndproj (or .xml) ndepend project file.  mandatory
+
+    it must be specified as the first argument. if you need to specify a path
+    that contains a space character use double quotes ".. ..". the specified
+    path must be either an absolute path (with drive letter c:\ or
+    unc \\server\share format on windows or like /var/dir on linux or osx),
+    or a path relative to the current directory (obtained with
+    system.environment.currentdirectory),
+    or a file name in the current directory.
+
+
+following arguments are optional and can be provided in any order. any file or
+directory path specified in optionals arguments can be:
+  - absolute : with drive letter c:\ or unc \\server\share format on windows
+               or like /var/dir on linux or osx.
+  - relative : to the ndepend project file location.
+  - prefixed with an environment variable with the syntax  %envvar%\dir\
+  - prefixed with a path variable with the syntax   $(variable)\dir
+  _____________________________________________________________________________
+  /viewreport                 to view the html report
+  _____________________________________________________________________________
+  /silent                     to disable output on console
+  _____________________________________________________________________________
+  /hideconsole                to hide the console window
+  _____________________________________________________________________________
+  /concurrent                 to parallelize analysis execution
+  _____________________________________________________________________________
+  /logtrendmetrics            to force log trend metrics
+  _____________________________________________________________________________
+  /trendstoredir              to override the trend store directory specified
+                              in the ndepend project file
+  _____________________________________________________________________________
+  /persisthistoricanalysisresult   to force persist historic analysis result
+  _____________________________________________________________________________
+  /dontpersisthistoricanalysisresult   to force not persist historic analysis
+                                       result
+  _____________________________________________________________________________
+  /forcereturnzeroexitcode    to force return a zero exit code even when
+                              one or many quality gate(s) fail
+  _____________________________________________________________________________
+  /historicanalysisresultsdir to override the historic analysis results
+                              directory specified in the ndepend project file.
+  _____________________________________________________________________________
+  /outdir dir                 to override the output directory specified
+                              in the ndepend project file.
+
+     visualndepend.exe won't work on the machine where you used
+     ndepend.console.multios.dll with the option /outdir because visualndepend.exe is
+     not aware of the output dir specified and will try to use the output dir
+     specified in your ndepend project file.
+  _____________________________________________________________________________
+  /analysisresultid id        to assign an identifier to the analysis result
+  _____________________________________________________________________________
+  /githubpat pat              to provide a github pat (personal access token).
+
+     such pat is used in case some artifacts (like a baseline analysis result) are
+     required during analysis and must be loaded from github.
+     such pat overrides the pat registered on the machine (if any).
+  _____________________________________________________________________________
+  /xslforreport xlsfilepath   to provide your own xsl file used to build report
+  _____________________________________________________________________________
+  /keepxmlfilesusedtobuildreport  to keep xml files used to build report
+  _____________________________________________________________________________
+  /indirs [/keepprojectindirs] dir1 [dir2 ...]
+                              to override input directories specified in the
+                              ndepend project file.
+
+     this option is used to customize the location(s) where assemblies to
+     analyze (application assemblies and third-party assemblies) can be found.
+     only assemblies resolved in dirs are concerned, not assemblies resolved
+     from a visual studio solution.
+     the search in dirs is not recursive, it doesn't look into child dirs.
+     directly after the option /indirs, the option /keepprojectindirs can be
+     used to avoid ignoring directories specified in the ndepend
+     project file.
+  _____________________________________________________________________________
+  /coveragefiles [/keepprojectcoveragefiles] file1 [file2 ...]
+                              to override input coverage files specified
+                              in the ndepend project file.
+
+     directly after the option /coveragefiles, the option
+     /keepprojectcoveragefiles can be used to avoid ignoring coverage files
+     specified in the ndepend project file.
+
+  _____________________________________________________________________________
+  /coveragedir dir            to override the directory that contains
+                              coverage files specified in the project file.
+
+  _____________________________________________________________________________
+  /coverageexclusionfile file to override the  .runsettings  file specified
+                              in the project file. ndepend gathers coverage
+                              exclusion data from such file.
+
+  _____________________________________________________________________________
+  /rulefiles [/keepprojectrulefiles] file1 [file2 ...]
+                              to override input rule files specified
+                              in the ndepend project file.
+
+     directly after the option /rulefiles, the option
+     /keepprojectrulefiles can be used to avoid ignoring rule files
+     specified in the ndepend project file.
+  _____________________________________________________________________________
+  /pathvariables name1 value1 [name2 value2 ...]
+                              to override the values of one or several
+                              ndepend project path variables, or
+                              create new path variables.
+  _____________________________________________________________________________
+  /analysisresulttocomparewith to provide a previous analysis result to
+                               compare with.
+
+     analysis results are stored in files with file name prefix
+     {ndependanalysisresult_} and with extension {.ndar}.
+     these files can be found under the ndepend project output directory.
+     the preferred option to provide a previous analysis result to
+     compare with during an analysis is to use:
+     ndepend > project properties > analysis > baseline for comparison
+     you can use the option /analysisresulttocomparewith in special
+     scenarios where using project properties doesn't work.
+
+  _____________________________________________________________________________
+  /help   or   /h              to display the current help on console
+
+  _____________________________________________________________________________
+  code queries execution time-out value used through ndepend.console.multios.dll
+  execution.
+
+     if you need to adjust this time-out value, just run visualndepend.exe once
+     on the machine running ndepend.console.exe and choose a time-out value in:
+        visualndepend > tools > options > code query > query execution time-out
+
+     this value is persisted in the file visualndependoptions.xml that can be
+     found in the directory:
+        visualndepend > tools > options > export / import / reset options >
+        open the folder containing the options file
+
+_______________________________________________________________________________
+ndepend.console.multios.dll can be used to create an ndepend project file.
+this is useful to create ndepend project(s) on-the-fly from a script.
+
+to do so the first argument must be  /createproject  or  /cp  (case-insensitive)
+
+the second argument must be the project file path to create. the file name must
+have the extension .ndproj. if you need to specify a path that contains a space
+character use double quotes "...". the specified path must be either an
+absolute path (with drive letter c:\ or unc \\server\share format on windows
+or like /var/dir on linux or osx), or a path relative to the current directory
+(obtained with system.environment.currentdirectory),
+or a file name in the current directory.
+
+
+then at least one or several sources of code to analyze must be precised.
+a source of code to analyze can be:
+
+- a path to a visual studio solution file.
+  the solution file extension must be .sln.
+  the vertical line character '|' can follow the path to declare a filter on
+  project names. if no filter is precised the default filter "-test"
+  is defined. if you need to specify a path or a filter that contains a space
+  character use double quotes "...".
+  example: "..\my file\mysolution.sln|filterin -filterout".
+
+- a path to a visual studio project file. the project file extension must
+  be within: .csproj .vbproj .proj
+
+- a path to a compiled assembly file. the compiled assembly file extension must
+  be within: .dll .exe .winmd
+
+notice that source of code paths can be absolute or relative to the project file
+location. if you need to specify a path or a filter that contains a space
+character use double quotes.
+
+_______________________________________________________________________________
+ndepend.console.multios.dll can be used to register a license on a machine,
+or to start evaluation. here are console arguments to use (case insensitive):
+
+  /regeval      start the ndepend 14 days evaluation on the current machine.
+
+  _____________________________________________________________________________
+  /reglic xyz   register a seat of the license key xyz on the current machine.
+
+  _____________________________________________________________________________
+  /unreglic     unregister a seat of the license key already registered
+                on the current machine.
+  _____________________________________________________________________________
+  /refreshlic   refresh the license data already registered on the current
+                machine. this is useful when the license changes upon renewal.
+
+each of these operation requires internet access to do a roundtrip with the
+ndepend server. if the current machine doesn't have internet access
+a procedure is proposed to complete the operation by accessing manually the
+ndepend server from a connected machine.
+
+_______________________________________________________________________________
+register a github pat with ndepend.console.multios.dll
+
+a github pat (personal access token) can be registered on a machine.
+this way when ndepend needs to access github, it can use such pat.
+here are console arguments to use (case insensitive):
+
+  /reggithubpat xyz  register the github pat xyz on the current machine.
+
+  _____________________________________________________________________________
+  /unreggithubpat    unregister the github pat actually registered on the
+                     current machine.
+
+as explained above, when using ndepend.console.multios.dll to run an analysis,
+a pat can be provided with the switch githubpat.
+in such case, during analysis the pat provided overrides the pat
+registered on the machine (if any).
+
+as usual, a great amount of help and docs right there to help me get going.
+create a project
+i created the project for one of my microservices by pointing at the microservice solution file. (despite not using visual studio myself, some of our devs do, so we maintain compatibility with both vs and vs code. plus, the c# dev kit really likes it when you have a solution.)
+dotnet ~/ndepend/net8.0/ndepend.console.multios.dll --cp ./demoproject.ndproj ~/path/to/my/microservice.sln
+
+this created a default ndepend project for analysis of my microservice solution. this is a pretty big file (513 lines of xml) so i won’t paste it here.
+as noted in the online docs, right now if you want to modify this project, you can do so by hand; you can work with the ndepend api; or you can use the currently-windows-only gui. i’m not going to modify the project because i’m curious what i will get with the default. obviously this won’t include various custom queries and metrics i may normally run for my specific projects, but that’s ok for this.
+run the analysis
+let’s see this thing go!
+dotnet ~/ndepend/net8.0/ndepend.console.multios.dll ./demoproject.ndproj
+
+this kicks off the analysis (like you might see on a build server) and generates a nice html report.
+
+i didn’t include coverage data in this particular run because i wanted to focus mostly on the code analysis side of things.
+since my service code broke some rules, the command line exited non-zero. this is great for build integration where i want to fail if rules get violated.
+dig deeper
+from that main report page, it looks like the code in the service i analyzed failed some of the default quality gates. let’s go to the quality gates tab to see what happened.
+
+yow! four critical rules violated. i’ll click on that to see what they were.
+
+looks like there’s a type that’s too big, some mutually dependent namespaces, a non-readonly static field, and a couple of types that have the same name. some of this is easy enough to fix; some of it might require some tweaks to the rules, since the microservice has some data transfer objects and api models that look different but have the same data (so the same name in different namespaces is appropriate).
+all in all, not bad!
+i still love it
+ndepend is still a great tool, even on mac, and i still totally recommend it. to get the most out of it right now, you really need to be on windows so you can get the gui support, but for folks like me that are primarily mac right now, it still provides some great value. honestly, if you haven’t tried it yet, just go do that.
+room for improvement
+i always like providing some ideas on ways to make a good product even better, and this is no exception. i love this thing, and i want to see some cool improvements to make it “more awesomer.”
+installation mechanism
+i’m very used to installing things through homebrew on mac, and on windows as we look at things like chocolatey, winget, and others - it seems like having an installation that would enable me to use these mechanisms instead of going to a download screen on a website would be a big help. i would love to be able to do brew install ndepend and have that just work.
+visual studio code support and cross-platform ui
+there’s some integration in visual studio for setting up projects and running ndepend on the current project. it’d be awesome to see similar integration for vs code.
+
+at the time of this writing, the ndepend getting started on mac documentation says that this is coming. i’m looking forward to it.
+
+i’m hoping that whatever comes out, the great gui experience to view the various graphs and charts will also be coming for cross-platform. that’s a huge job, but it would be awesome, especially since i’m not really on any windows machines anymore.
+invoking the command line
+the cross-platform executable is a .dll so running it is a somewhat long command line:
+dotnet ~/path/to/net8.0/ndepend.console.multios.dll
+
+it’d be nice if this was more… single-command, like ndepend-console or something. perhaps if it was a dotnet global tool it would be easier. that would also take care of the install mechanism - dotnet tool install ndepend-console -g seems like it’d be pretty nifty.
+commands and sub-commands
+the command line executable gets used to create projects, register licenses, and run analyses. i admit i’ve gotten used to commands taking command/sub-command hierarchies to help disambiguate the calls i’m making rather than having to mix-and-match command line arguments at the top. i think that’d be a nice improvement here.
+for example, instead of…
+dotnet ./net8.0/ndepend.console.multios.dll /reglic xxxxxxxx
+dotnet ./net8.0/ndepend.console.multios.dll /unreglic
+
+it could be…
+dotnet ./net8.0/ndepend.console.multios.dll license register --code xxxxxxxx
+dotnet ./net8.0/ndepend.console.multios.dll license unregister
+
+that would mean when i need to create a project, maybe it’s under…
+dotnet ./net8.0/ndepend.console.multios.dll project create [args]
+
+and executing analysis might be under…
+dotnet ./net8.0/ndepend.console.multios.dll analyze [args]
+
+it’d make getting help a little easier, too, since the help could list the commands and sub-commands, with details being down at the sub-command level instead of right at the top.
+graphs in html reports
+without the full gui you don’t get to see the graphs like the dependency matrix that i love so much. granted, these are far more useful if you can click on them and interact with them, but still, i miss them in the html.
+support for roslyn analyzers
+ndepend came out long before roslyn analyzers were a thing, and some of what makes ndepend shine are the great rules based on cqlinq - a much easier way to query for things in your codebase than trying to write a roslyn analyzer.
+it would be so sweet if the rules that could be analyzed at develop/build time - when we see roslyn analyzer output - could actually be executed as part of the build. perhaps it’d require pointing at an .ndproj file to get the list of rules. perhaps not all rules would be something that can be analyzed that early in the build. i’m just thinking about the ability to “shift left” a bit and catch the failing quality gates before running the analysis. that could potentially lead to a new/different licensing model where some developers, who are not authorized to run “full ndepend,” might have cheaper licenses that allow running of cql-as-roslyn-analyzer for build purposes.
+maybe an alternative to that would be to have a code generator that “creates a roslyn analyzer package” based on cql rules. someone licensed for full ndepend could build that package and other devs could reference it.
+i’m not sure exactly how it would work, i’m kinda brainstorming. but the “shift left” concept along with catching things early does appeal to me.
+
+
+
+another covid halloween
+
+
+november  6, 2023
+
+halloween, 
+
+maker, 
+
+costumes
+
+comments
+
+edit
+
+
+
+back in 2021 we didn’t get to go to the usual halloween party we attend due to covid. that meant i didn’t really get to wear my loki time prisoner costume. i decided i’d bring that one back out for this year so i could actually wear it.
+
+this year we got to go to the party (no symptoms, even tested negative for covid before walking out the door!) but ended up getting covid for halloween. that meant we didn’t hand out candy again, making this the second year in a row.
+we did try to put a bowl of candy out with a “take one” sign. that didn’t last very long. while adults with small children were very good about taking one piece of candy per person, tweens and teens got really greedy really fast. we kind of expected that, but i’m always disappointed that people can’t just do the right thing; it’s always a selfish desire for more for me with no regard for you. maybe that speaks to larger issues in society today? i dunno.
+i need to start gathering ideas for next year’s costume. since i reused a costume this year i didn’t really gather a lot of ideas or make anything, and i definitely missed that. on the other hand, my motivation lately has been a little low so it was also nice to not have to do anything.
+
+
+
+hosting customized homebrew formulae
+
+
+september 28, 2023
+
+mac
+
+comments
+
+edit
+
+
+
+scenario: you’re installing something from homebrew and, for whatever reason, that standard formula isn’t working for you. what do you do?
+i used this opportunity to learn a little about how homebrew formulae generally work. it wasn’t something where i had my own app to deploy, but it also wasn’t something i wanted to submit as a pr for an existing formula. for example, i wanted to have the bash and wget formulae use a different main url (one of the mirrors). the current one works for 99% of folks, but for reasons i won’t get into, it wasn’t working for me.
+this process is called “creating a tap” - it’s a repo you’ll own with your own stuff that won’t go into the core homebrew repo.
+tl;dr:
+
+create a github repo called homebrew-xxxx where xxxx is how homebrew will see your repo name.
+copy the original formulae into your repo. anything with a .rb extension will work - the name of the file is the name of the formula.
+install using brew install your-username/xxxx/formula.rb
+
+let’s get a little more specific and use an example.
+first i created my github repo, homebrew-mods. this is where i can store my customized formulae. in there, i created a formula folder to put them in.
+i went to the homebrew-core repo where all the main formulae are and found the ones i was interested in updating:
+
+gettext - a dependency of bash
+bash
+libidn2 - a dependency of wget
+wget
+
+i copied the formulae into my own repo and made some minor updates to switch the url and mirror values around a bit.
+finally, install time! it has to be installed in this order because otherwise the dependencies in the bash and wget modules will try to pull from homebrew-core instead of my mod repo.
+brew install tillig/mods/gettext
+brew install tillig/mods/bash
+brew install tillig/mods/libidn2
+brew install tillig/mods/wget
+
+that’s it! if other packages have dependencies on gettext or libidn2, it’ll appear to be already installed since homebrew just matches on name.
+the downside of this approach is that you won’t get the upgrades for free. you have to maintain your tap and pull version updates as needed.
+if you want to read more, check out the documentation from homebrew on creating and maintaining a tap as well as the formula cookbook.
+
+
+
+
+next
+blog archives
+
+
+
+
+  copyright © 2024 - travis illig blog content licensed under the creative commons cc by 2.5 | as an amazon associate i earn from qualifying purchases.
+
+
+
+
+
+
+
+
+
+
