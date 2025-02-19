@@ -1,0 +1,233 @@
+
+
+
+
+
+
+
+murray todd williams – random notes on life, coding and politics
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skip to content
+
+
+
+murray todd williams
+random notes on life, coding and politics
+
+
+
+
+
+
+
+
+three-part medium.com article on option, try & either 
+
+i’ve been working for the past couple weeks on writing a three-part series based on last month’s scala beginner’s presentation on using option, try and either. i just finished them and published them on medium.com.
+scala for beginners: how to really use option (…and try and either)diving deeper into scala’s option, try & eitherbottom of the rabbit hole: for-comprehensions and monads
+
+
+
+author  murray todd williamsposted on march 15, 2021march 15, 2021categories scalatags beginners, scala, tutorial, typeclass 
+
+
+
+sichuan-style braised cod recipe 
+
+
+we’ve been trying to experiment with cooking healthier (i.e. lower-calorie) dishes lately, and we wanted to branch out from pan-frying tilapia filets. i remembered how much we use to enjoy a sichuan restaurant in nyc that had a sort of fish-in-broth that was very spicy and also very very delicious.
+a traditional dish would include cooking the cod in a nest of thai chilis, but i thought i could do something a little less spicy and a lot easier, so i decided to try stealing some ideas from a sichuan stir-fried pork in garlic sauce recipe i got from my america’s test kitchen twentieth anniversary cookbook. (highly recommended!)
+the principle ingredients that deliver the flavor are garlic and chili paste. the latter i bought for that aforementioned stir-fry recipe, worried that i would have an unused chili paste just for one dish, but a few months later i’m almost out! you should be able to find this stuff at your local grocery without going to a specialty shop, but it may take some digging to find it.
+
+if you don’t have some of the ingredients for the braising liquid (mirin, black vinegar, fish sauce) that should be fine. we’ve been playing around with homemade ramen lately, so we’re starting to accumulate some asian condiments.
+ingredients
+2 cups prepared white rice
+1 lb cod, cut into 4 piecessalt & pepper2 tsp corn starch2 tsp sake (rice wine)
+6-8 oz sliced shitake mushrooms2 celery ribs, cut on bias into 1/4-inch slices
+combine these three in a small bowl:2 scallions, finely chopped – white parts separated4 cloves garlic2 tbsp asian chili paste
+combine together for the braising liquid:1 cup chicken or fish stock1 tbsp cornstarch2 tsp soy sauce1 tbsp chinese black vinegar (optional, or substitute 1/2 tbsp rich vinegar and 1/2 tbsp balsamic vinegar)1 tbsp mirin, if available, or sake2 tsp fish sauce1 tsp sesame oil
+cilantro (optional for garnish)
+wine pairing: sancerre or other white bordeaux, loire valley preferred.
+pat the cod dry and sprinkle with some salt and pepper. mix the sake and corn starch into a little slurry and coat the cod pieces.
+heat 2-3 tbsp vegetable oil to medium-high heat and cook the shitake mushrooms for a 3-5 minutes, then add the celery and cook for another 3-5 minutes. remove to a bowl and set aside.
+add another 3 tsbp oil into the pan and add the chili paste mixture and cook for 30 seconds until fragrant. add the cod. (i move some of the chili paste mixture to the top of the cod so it doesn’t scorch). cook for only a couple minutes, and then flip the cod and cook the other side for a couple more minutes. the surface of the cod should just be a little browned (from the cornstarch) but don’t worry about having it cooked through.
+add the braising liquid and cover. once the liquid starts to bubble, lower the temperature to medium low. cook for another 5-10 minutes until the fish is tender. serve over white rice.
+garnish with cilantro.
+if adding green beans make a nice side dish, add a tsp of the chili paste to them near the end.
+
+
+
+author  murray todd williamsposted on march 15, 2021march 15, 2021categories food and winetags braised, cod, recipe, sichuan 
+
+
+
+scala for beginners: option, try and either 
+
+beginning-scala-options-either-try
+
+use this link to download the above pdf. the video below can also be accessed via this link.
+meetup lecture video recording.
+i have been programming with scala now for about five years, and i’ve got a confession: until really really recently, there’s a bunch of stuff i never really understood. now that i look back, i guess it’s understandable. but to be honest, i’m a bit embarrassed.
+for example, when i was first learning about scala, i read that it was a great language because—if you used the right tools—you could write fault-tolerant code that could avoid things like nullpointerexceptions.
+i’m talking about option.
+so at times i would use option if there were scenarios where i might or might not have a value, and i would write inelegant code that would first test whether the item was defined or not, and then would try to extract the value and do something with it. i thought i was just properly following the scala principles, but things were clunky.
+and to be honest, just two weeks ago i was writing some code that was testing and validating a number of scenarios before getting to the core functionality. it was the inner framework to a toolkit that i wanted developers to use, and if a problem happened, it would be really important to catch it and get the appropriate feedback back to the developer. (if i didn’t do that, nobody would ever use my application, or worse: my ears might start burning as they cursed the day they ever decided to give my product a chance!)
+i started writing nested code that kept unboxing try and option and either containers, and what felt like it should take take five or six simple lines just looked messy. and i hate messy code!
+long story short, i thought about what i was doing, and rewrote everything so that it involved some nice, clean looking for comprehensions. and then i thought about how i’d first tried using these option and try typeclasses. i wished that someone could have sat me down and shown me how to use them properly, way back when about five years ago.
+this month, i’ve volunteered to give a presentation in our local austin scala enthusiasts meetup, and i decided to do another one of my “beginners learning series” with the goal of showing how to use these tools in a way i’d wished someone could have taught it to me.
+the code sample for the talk can be found in my scala tutorials github repository (under the “monads” subdirectory) 
+
+
+author  murray todd williamsposted on february 10, 2021february 23, 2021categories scala, technologytags functional programming, monads, scala, tutorial 
+
+
+
+advanced scala: implicits 
+
+first draft of my implicits lecture.
+for about the last 3-4 years i’ve been on a journey that wouldn’t have started if it were for a series of presentations in my local austin “scala enthusiasts” meetup, starting with one where i was first introduced to the concept of “implicits”.
+now, years later, and after reading several books and scratching my head and butting it into walls a whole bunch, i’ve been feeling the desire to create a lecture aimed for the person i was at the very beginning of the journey. you see, i feel like a lot of time i knew i wanted to understand these interesting things… monads and monoids and typeclasses, but i lacked some sort of roadmap that put everything together. i would be grasping at drips and drabs of concepts, but i felt like i was lacking a sort of map that would help me understand where i was headed and where some of the traps and esoteric syntax were all about.
+the above video weighs in at 1 hour 25 minutes, and it’s my first attempt to deliver the first of a planned two lectures. i’m planning on re-recording this (having stumbled and mumbled through the first dry run here) and i might break it into a few smaller parts. but rather than letting the “perfect be the enemy of the good” i’m just going to post this now.
+also, here are the slides in pdf form:
+advanced_scala_implicits_reduced
+
+advanced_scala_implicits_reduceddownload
+
+
+author  murray todd williamsposted on august 7, 2020august 7, 2020format videocategories scalatags functional programming, scala, tutorial, typeclasses, video 
+
+
+
+thinking of a scala option as a list 
+
+just wanted to show a tiny tidbit of cool and tidy code—and this is one of those things that become intuitive as you start working with lists and flatmap (i.e. monads, even if you don’t know the term yet) and working toward the wizardry of true fp.
+so i’ve got a list (or seq or similar collection) and i want to append an object to it. something like:
+
+val name: option[string] = some(dude)
+val greetingwords: seq[string] = list(hi, there, dude)
+
+but we’ve got the hitch that the object we want to append is an option[string]. maybe it comes from a “getname” function that may not be able to get a name. we could always write the code like this…
+
+val name: option[string] = some("dude")
+val greetingwords: seq[string] = seq("hi", "there") ++ { 
+  name match {
+    case some(name) => seq(name)
+    case none => seq.empty[string]
+  }
+}
+
+…but that’s ugly and inelegant.
+so here’s the elegant way of approaching this: option[a] can be thought of as a special kind of list that has either one or zero values, depending on whether it’s a some or a none! so in fact, you can save a lot of the code and add the option as though it were another seq…
+
+scala> seq("hi","there") ++ some("dude")
+val res3: seq[string] = list(hi, there, dude)
+
+scala> seq("hi","there") ++ none
+val res4: seq[string] = list(hi, there)
+
+clever, huh?
+
+
+author  murray todd williamsposted on june 16, 2020june 16, 2020categories life 
+
+
+posts navigation
+page 1
+page 2
+…
+page 12
+next page
+
+
+
+
+pages
+
+computers
+
+e-mail safety rules
+
+
+contact
+
+special site pages!
+
+cooking
+music
+photography
+quotes
+
+
+categories
+
+apple and os x (12)
+
+food and wine (1)
+
+j2ee, cdi and soa (3)
+
+life (5)
+
+politics (2)
+
+scala (5)
+
+technology (33)
+
+
+meta
+
+log in
+entries feed
+comments feed
+wordpress.org
+
+ 
+
+
+
+murray todd williams
+
+					proudly powered by wordpress				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
