@@ -1,0 +1,1928 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+nuku's collage of life: images, impressions & thoughts
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+nuku's collage of life 
+
+
+
+
+internet, linux & it 
+
+linux bluetooth: stotternder klang beim start eines songs 
+
+
+
+problem: der klang ist stotternd, wenn man einen song in amarok oder einem anderen linux-audioplayer mit vlc-backend und einem bluetooth-headset abspielt.
+
+merkwürdigerweise tritt dieses problem nur auf, wenn der song mit vlc mit einem bluetooth-headset abgespielt wird. andere anwendungen funktionieren einwandfrei. auch die verwendung kabelgebundener kopfhörer ist unproblematisch.
+
+das muster ist immer gleich: zwei aussetzer von ca. 1 sekunde, getrennt durch ca. 1 sekunde normalen klangs, danach spielt der song ohne probleme. wenn man den vlc-cursor zurück an den anfang des songs bewegt, um ihn erneut abzuspielen, ohne stop/start zu verwenden, treten keine aussetzer auf.
+ 
+lösung: öffne pavucontrol -> ausgabegeräte -> öffne den abschnitt erweitert in den bluetooth-geräteeinstellungen -> stelle den latenzversatz auf einen wert zwischen -100 ms und -1000 ms ein.
+
+quelle: https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/2958
+ 
+
+
+			vom 21.12.2024 
+
+
+						    kommentar verfassen »
+					    
+
+
+
+
+
+
+internet, linux & it 
+
+spiele und desktop streamen mit sunshine und moonlight 
+
+
+gestern habe ich auf youtube den erfahrungsbericht von keno zum spiele-streaming mit sunshine und moonlight gesehen. ich selbst hatte auch schon verschiedene lösungen wie parsec und stream remote play ausprobiert. wirklich überzeugen konnte mich aber bisher nichts.da ich die kombination von sunshine (server) und moonlight (client) noch nicht kannte, habe ich es einmal ausprobiert, mit meinem windows pc als server und einem raspberry pi4 2gb als client. ob es brauchbar ist, muss sich noch zeigen.die installation war aber leider gerade auf client-seite etwas fummelig, daher hier meine notizen:
+
+windows host:
+die installation erfolgte ohne probleme: einfach den aktuellen sunshine-windows-installer.exe von der homepage laden und den anweisungen des installationsprogramms folgen.
+linux client:
+das aktuelle raspberry os (bookworm) in der lite-version mit dem raspberry pi imager auf eine sd-karte installieren. dabei kann  direkt ssh, wlan sowie ein eigener user konfiguriert werden.
+
+nach dem booten konnte dann der moonlight client enstprechend der anleitung installiert werden mit den befehlen:
+
+
+
+
+user@linux ~ $ 
+curl -1slf 'https://dl.cloudsmith.io/public/moonlight-game-streaming/moonlight-qt/setup.deb.sh' | distro=raspbian sudo -e bash
+sudo apt install moonlight-qt
+
+
+
+
+moonlight kann man dann grundsätzlich mit dem folgenden befehl starten:
+
+
+
+user@linux ~ $ moonlight-qt
+
+
+
+nach der installation ggf. die kernel-parameter in datei /boot/firmware/cmdline.txt um folgende zwei parameter erweitern:
+
+
+
+
+video=hdmi-a-1:1920x1080m@60 usbhid.mousepoll=0
+
+
+der erste parameter stellt die auflösung fest ein. dies ist sinnvoll, falls diese nicht korrekt erkannt wird, was bei meinem monitor der fall war. übrigens, dass aktivieren der anzeige-option "4k output" in raspi-config führte bei mir dazu, dass moonlight keine bildausgabe schaffte (ich habe allerdings auch keinen 4k monitor). der zweite parameter hilft dabei, falls die maus zu langsam ist.
+zuächst funktionierte bei mir der ton in moonlight nicht. hier half es, pulseaudio zu installieren und anschliessend mit raspi-config den audio-ausgang auf den korrekten hdmi-port zu legen:
+
+
+user@linux ~ $ sudo apt install pulseaudio
+user@linux ~ $ sudo raspi-config
+
+
+damit jetzt noch pulseaudio und moonlight in der richtigen reihenfolge automatisch beim einschalten des raspis gestartet werden, musste ich im verzeichnis /lib/systemd/system zwei .service-dateien anlegen:
+
+
+/lib/systemd/system/pulseaudio.service:
+
+
+
+
+[unit]
+description=pulseaudio
+after=rc-local.service
+before=moonlight.service
+
+[service]
+type=simple
+user=pi
+execstart=/usr/bin/pulseaudio --daemonize=no --log-target=journal
+
+[install]
+wantedby=multi-user.target
+
+
+
+/lib/systemd/system/moonlight.service:
+
+
+
+
+[unit]
+description=moonlight
+after=rc-local.service
+after=pulseaudio.service
+
+[service]
+type=simple
+user=pi
+execstart=/usr/bin/moonlight-qt
+
+[install]
+wantedby=multi-user.target
+
+
+damit diese services auch automatisch beim systemstart gestartet werden, noch die befehle ausführen:
+
+
+user@linux ~ $ sudo systemctl enable pulseaudio.service
+user@linux ~ $ sudo systemctl enable moonlight.service
+
+
+ 
+
+
+			vom 29.01.2024 
+
+
+						    kommentar verfassen »
+					    
+
+
+
+
+
+
+computerspiele 
+
+sin 
+
+
+mit dominatrix ist ein source port für das spiel sin aus dem jahr 1998 erschienen. neben dem source port selbst wird auf der homepage auch auch ein installer bereitgestellt, mit dem die spieldateien bequem von der windows-cd unter linux installiert werden können. 
+
+
+			vom 10.11.2023 
+
+
+						    kommentar verfassen »
+					    
+
+
+
+
+
+
+computerspiele 
+
+windowstaste umbelegen 
+
+
+in computerspielen verwende ich gerne die linke windowstaste für bestimmte bewegungen (v.a. ducken). leider lässt sich diese nicht in allen spielen binden, sondern ruft dann das windows-menü auf. 
+abhilfe schafft das kleine tool autohotkey.
+
+dazu im order dieser pc > dokumente eine konfigurationsdatei mit dem dateinamen autohotkey.ahk anlegen, um so beispielsweise die linke windowstaste (lwin) auf einen anderen buchstaben, hier "p", zu mappen:
+
+
+
+
+lwin::p
+
+
+dieses skript wird beim start des tools automatisch ausgeführt.
+ 
+
+
+			vom 07.01.2023 
+
+
+						    kommentar verfassen »
+					    
+
+
+
+
+
+
+computerspiele 
+
+quake 2 
+
+
+nach mehr als 15 abstinenten jahren habe ich das hobby meiner kindheit und jugendzeit wiederentdeckt: computerspiele.  neben aktuellen titeln haben es mir vor allem die dos- und windows-spiele der 1990er jahre angetan. doch wie spielt man diese auf moderner hardware und unter linux?
+ 
+
+
+
+
+
+
+yamagi quake 2 mit neural upscale mod
+
+
+
+
+
+
+
+
+
+
+
+ yamagi quake 2 mit neural upscale mod
+
+
+
+
+
+für ein originalgetreues spielerlebnis der singleplayer-kampagne von quake 2 aus dem jahr 1997 verwende ich den source port yamagi quake ii mit der grafischen modifikation quake 2 neural upscale.
+
+das spiel
+grundsätzlich wird auch für den source port eine originalversion des spiels benötigt. wer das spiel nicht ohnehin bereits auf cdrom besitzt, kann es u.a. bei steam oder gog erwerben. laut internetforen ist bei den digitalen versionen allerdings nicht immer der soundtrack enthalten.
+die modifikationen
+
+die modifikation quake 2 nueral upscale enthält mit verfahren der künstlichen intelligenz hochskalierte versionen der originalgrafiken, welche auf den heutigen hochauflösenden monitoren optisch ansprechender sind als die originalgrafiken.
+
+die verzeichnisstruktur und spieldateien
+
+es wird davon ausgegangen, dass sich die original-(windows/steam/gog)-version von quake 2 im ordner ~/quake2 befindet. hier werden zusätzlich gemäß den nachfolgenden anweisungen die dateien der modifikationen und die audiodateien des soundtracks abgelegt. der source port wird über die paketverwaltung des betriebssystems ausserhalb dieses verzeichnisbaums installiert. die ordnerstruktur sieht in etwa wie folgt aus:
+
+
+
+
+~/quake2                    originalversion von quake 2
+├── baseq2                  datendateien des hauptspiels und modifikationen
+│   ├── music               verzeichnis für soundtrack des hauptspiels
+│   ├── players
+│   │   ├── crakhor
+│   │   ├── cyborg
+│   │   ├── female
+│   │   └── male
+│   ├── save
+│   │   ├── current
+│   │   └── save0
+│   └── video
+├── ctf                     erweiterung capture the flag (optional)
+├── docs
+│   └── quake2_manual
+│       └── images
+├── rogue                   erweiterung ground zero (optional)
+│   ├── docs
+│   ├── music               verzeichnis für soundtrack der erweiterung
+│   └── video
+└── xatrix                  erweiterung the reckoning (optional)
+    ├── docs
+    ├── music               verzeichnis für soundtrack der erweiterung
+    └── video
+
+installation von yamagi quake ii unter gentoo linux
+eine (fast) aktuelle version von yamagi quake ii ist in der offiziellen paketdatenbank von gentoo linux enthalten. ich empfehle die installation mit den folgenden use-flags:
+
+
+
+linux ~ # accept_keywords="~amd64" use="client ctf dedicated openal opengl rogue softrender vulkan xatrix" emerge games-fps/yamagi-quake2 -pv
+
+
+download der modifikationen
+die benötigten dateien der modifikationen können von folgenden seiten bezogen werden:
+
+quake 2 neural upscale 2.0.1: quake2-neural-upscale-models-2.0.1.pkz und quake2-neural-upscale-textures-2.0.1.pkz
+
+installation der modifikationen
+es wird davon ausgegangen, dass sich alle heruntergeladenen dateien im ordner ~/downloads befinden.
+
+
+user@linux ~ $ cp ~/downloads/quake2-neural-upscale-models-2.0.1.pkz ~/quake2/baseq2/
+user@linux ~ $ cp ~/downloads/quake2-neural-upscale-textures-2.0.1.pkz ~/quake2/baseq2/
+
+
+installation der musikdateien:
+der soundtrack von quake 2 und den beiden erweiterungen befindet sich nur in form von separaten tonspuren auf den jeweiligen original-cds. das hantieren mit cds ist in der heutigen zeit natürlich unpraktisch und die source ports haben dafür eine elegante lösung parat: sie können die musik auch ohne cd abspielen, wenn die tonspuren mit einem geeigneten programm (z.b. k3b) ausgelesen und als musikdateien im ogg vorbis-format mit bestimmten dateinamen in bestimmten verzeichnissen abgelegt wurden:
+
+
+die tonspuren von quake 2 können mit den dateinamen 02.ogg bis 12.ogg im verzeichnis ~/quake2/baseq2/music abgelegt werden.
+die tonspuren von ground zero können mit den dateinamen 02.ogg bis 11.ogg im verzeichnis ~/quake2/rogue/music abgelegt werden.
+die tonspuren von the reckoning können mit den dateinamen 02.ogg bis 11.ogg im verzeichnis ~/quake2/xatrix/music abgelegt werden.
+
+
+starten von yamagi quake ii
+um yamagi quake 2 zu starten, muss lediglich in das verzeichnis ~/quake2 gewechselt werden und dort das systemweit installierte programm yquake2 aufgerufen werden. die im verzeichnis baseq2 abgelegten modifikationen werden automatisch geladen. parameter sind lediglich für die auswahl der erweiterungen erforderlich.
+
+
+1. start des hauptspiels:
+
+
+
+user@linux ~ $ cd ~/quake2
+user@linux ~/quake2 $ yquake2
+
+
+
+2. start der erweiterung ground zero:
+
+
+
+user@linux ~ $ cd ~/quake2
+user@linux ~/quake2 $ yquake2 +set game rogue
+
+
+
+3. start der erweiterung the reckoning:
+
+
+
+user@linux ~ $ cd ~/quake2
+user@linux ~/quake2 $ yquake2 +set game xatrix
+
+
+ 
+
+
+			vom 18.09.2022 
+
+
+						    kommentar verfassen »
+					    
+
+
+
+
+
+
+computerspiele 
+
+heretic 
+
+
+nach mehr als 15 abstinenten jahren habe ich das hobby meiner kindheit und jugendzeit wiederentdeckt: computerspiele.  neben aktuellen titeln haben es mir vor allem die dos- und windows-spiele der 1990er jahre angetan. doch wie spielt man diese auf moderner hardware und unter linux?
+ 
+
+
+
+
+
+
+heretic (1994)
+
+
+
+
+
+
+
+
+
+
+
+heretic (gzdoom) m. neural texture pack
+
+
+
+
+
+den fantasy-doom-clone heretic aus dem jahr 1994 spiele ich mit dem source port gzdoom. für ein aufgewertetes, aber immer noch weitgehend originalgetreues spielerlebnis kombiniere ich diesen mit der grafischen modifikation heretic neural texture pack und den musikalischen modifikationen dwars's heretic hq sfx pack sowie dem heretic sc-55 music pack oder alternativ dem heretic music cover by xeotroid.
+
+das spiele
+grundsätzlich wird auch für den source port eine originalversion des spiels benötigt. diese kann u.a. bei gog.com erworben werden.
+die modifikationen
+
+die modifikation heretic neural texture pack enthält mit verfahren der künstlichen intelligenz hochskalierte versionen der originalgrafiken, welche auf den heutigen hochauflösenden monitoren optisch ansprechender sind als die originalgrafiken.
+
+
+dwars's heretic hq sfx pack enthält originalgetreue neuaufnahmen der soundeffekte in hoher tonqualität. in mühevoller kleinarbeit wurden entweder die originalquellen der soundeffekte ermittelt oder annähernd gleichklingende samples abgemischt. 
+
+
+das heretic sc-55 music pack enthält aufnahmen der original-midi-soundtracks von einem echten roland midi synthesizer im sc-55 standardprofil. der sc-55 war in den 90er jahren bei komponisten beliebt und die midi-wiedergabe auf diesen geräten entspricht daher am ehesten der originalkomposition. alternativ ist das heretic music cover by xeotroid für den soundtrack empfehlenswert.
+
+die verzeichnisstruktur und dateien für den source port
+
+alle für heretic benötigten datendateien sollen der einfachheit halber unterhalb des ordners ~/heretic abgelegt werden, so dass am ende die folgende ordner/dateistrukur entsteht:
+
+
+
+
+~/heretic
+├── dos                             original dos-version von heretic
+│   ├── heretic.wad                 datendatei von heretic
+│   └── ...
+└── mods
+    ├── audio                       modifikationen audio:
+    │   ├── sfxogg.wad              dwars's heretic hq sfx pack
+    │   ├── heretic_sc55_ogg.zip    heretic sc-55 music pack
+    │   └── hereticpk3.pk3          heretic music cover by xeotroid
+    │
+    └── graphics                    modifikationen grafik:
+        └── heretic_gz.pk3          heretic neural texture pack
+
+aufbau der verzeichnisstruktur und ablage der original-spieldaten
+zuerst werden die verzeichnisse angelegt:
+
+
+user@linux ~ $ mkdir -p ~/heretic/{dos,mods/audio,mods/graphics}
+
+anschließend werden die dateien des dos-originalspiels in den ordner ~/heretic/dos kopiert. für den source port ist die wad-datei heretic.wad ausreichend.
+installation von gzdoom unter gentoo linux
+die aktuelle version von gzdoom ist in der offiziellen paketdatenbank von gentoo linux enthalten. ich empfehle die installation mit den folgenden use-flags:
+
+
+
+linux ~ # accept_keywords="~amd64" use="gtk non-free openmp vulkan -debug gles2 -telemetry" emerge games-fps/gzdoom -pv
+
+
+download der modifikationen
+die benötigten dateien der modifikationen können von folgenden seiten bezogen werden:
+
+heretic neural texture pack (version 4.0.1 für gz): heretic_gz.pk3
+dwars's heretic hq sfx pack (ogg-version for gzdoom, 06/28/21): sfxogg.wad
+
+heretic sc-55 music pack (ogg pack): heretic_sc55_ogg.zip
+heretic music cover by xeotroid (game covers -> heretic -> for zdoom-based ports): hereticpk3.pk3
+
+
+installation der modifikationen
+es wird davon ausgegangen, dass sich alle heruntergeladenen dateien im ordner ~/downloads befinden.
+
+
+user@linux ~ $ cp ~/downloads/heretic_gz.pk3 ~/heretic/mods/graphics/
+user@linux ~ $ cp ~/downloads/{sfxogg.wad,heretic_sc55_ogg.zip,hereticpk3.pk3} ~/heretic/mods/audio/
+
+
+starten und konfigurieren von gzdoom
+um gzdoom mit der gewünschten kombination von spiel(daten) und modifikationen zu starten, gibt es zwei möglichkeiten: entweder werden die informationen in form von kommandozeilenparametern bei programmstart übergeben, oder sie werden in einer konfigurationsdatei hinterlegt und können anschließend bei programmstart über ein popup ausgewählt werden. für beide varianten gilt, dass nach dem ersten programmstart im options-menü einstellungen vorgenommen werden sollten. mehr dazu unten.
+
+
+hinweis: falls gzdoom schon früher verwendet wurde, empfehle ich, die alte konfigurationsdatei ~/.config/gzdoom/gzdoom.ini zu löschen, um bei der konfiguration mit einer sauberen ausgangslage zu beginnen.
+
+
+1. auswahl von spiel(daten) und modifikationen per kommandozeile:
+
+heretic mit sc-55 music pack:
+
+
+user@linux ~ $ gzdoom -iwad ~/heretic/dos/heretic.wad -file ~/heretic/mods/graphics/heretic_gz.pk3 -file ~/heretic/mods/audio/sfxogg.wad -file ~/heretic/mods/audio/heretic_sc55_ogg.zip
+
+
+
+heretic mit music cover by xeotroid:
+
+
+user@linux ~ $ gzdoom -iwad ~/heretic/dos/heretic.wad -file ~/heretic/mods/graphics/heretic_gz.pk3 -file ~/heretic/mods/audio/sfxogg.wad -file ~/heretic/mods/audio/hereticpk3.pk3
+
+
+
+
+2. auswahl von spiel(daten) und modifikationen per popup:
+
+analog zu den angaben in meinem beitrag zu doom.
+3. gzdoom nach dem ersten start konfigurieren
+analog zu den angaben in meinem beitrag zu doom.
+ 
+
+
+			vom 18.04.2022 
+
+
+						    kommentar verfassen »
+					    
+
+
+
+
+
+
+computerspiele 
+
+blood 
+
+
+nach mehr als 15 abstinenten jahren habe ich das hobby meiner kindheit und jugendzeit wiederentdeckt: computerspiele.  neben aktuellen titeln haben es mir vor allem die dos- und windows-spiele der 1990er jahre angetan. doch wie spielt man diese auf moderner hardware und unter linux?
+ 
+
+
+
+
+
+
+blood (1997)
+
+
+
+
+
+
+
+
+
+
+
+nblood mit upscale pack
+
+
+
+
+
+
+für die singleplayer-kampagnen des dos-spiels blood aus dem jahr 1997 verwende ich den source port nblood mit der modifikation blood upscale pack, welche optional mit dem blood voxel pack kombiniert werden kann.
+
+der source port nblood
+
+mit nblood lässt sich blood nativ unter linux mit heutigen bildschirmauflösungen und wahlweise einem software- oder opengl-renderer spielen
+mit stand vom 19.11.2021 unterstützt der nblood-hauptentwicklungszweig (master) allerdings noch nicht das feature "indexed hightiles" (u.a. definition von "t_indexed" in der datei source/build/src/defs.cpp). dieses wird benötigt, wenn das aktuelle upscale-paket (version 2.1) verwendet werden soll und ist im entwicklungszweig "upscale" enthalten (commit).
+
+der nblood-entwicklungszweig "upscale" kann wie folgt heruntergeladen und kompiliert werden:
+
+
+im folgenden wird davon ausgegangen, dass sich die dos-version von blood im ordner ~/blood befindet. auf abhängigkeiten zu externen bibliotheken wird an dieser stelle nicht eingegangen.
+
+
+
+user@linux ~/blood $ git clone https://github.com/nukeykt/nblood.git
+user@linux ~/blood $ cd nblood
+user@linux ~/blood/nblood $ git checkout upscale
+user@linux ~/blood/nblood $ make
+
+
+
+soll das upscale-paket nicht verwendet werden oder wurde die "indexed hightiles" funktionalität in den hauptzweig aufgenommen, kann auf den befehl "git checkout upscale" verzichtet werden.
+
+die installation des gentoo-pakets aus dem inoffiziellen overlay jorgicio (enthält nicht die "indexed hightiles" funktionalität) ist unabhängig von dessen verwendung vor dem kompilieren der git-version empfehlenswert, da so automatisch alle benötigen bibliotheken installiert werden:
+
+
+linux ~ # 
+accept_keywords="~amd64" use="flac fluidsynth gtk opengl pulseaudio server timidity vorbis vpx xmp tools" emerge nblood -pv
+
+
+
+zuletzt von mir verwendete revision: dfbee4aa6c233af062147d9cb873b217b322201d
+die mods blood upscale pack und blood voxel pack
+
+das upscale pack enthält mit verfahren der künstlichen intelligenz hochskalierte versionen der originalgrafiken, welche auf den heutigen hochauflösenden monitoren optisch ansprechender sind als die originalgrafiken. es enthält außerdem eine ebenfalls hochskalierte version der modifikation smoothblood, welche das spiel um flüssigere waffenanmiationen ergänzt.
+
+
+das voxel pack ersetzt die 2d-sprites einiger objekte durch 3d-modelle. leider sind die texturen dieser 3d-modelle nicht analog zu den grafiken des upscale packs hochskaliert und die betroffenen objekte wirken in der spielewelt daher pixeliger als die im upscale-pack enthaltenen grafiken. hier muss man abwägen, was besser gefällt: auf die restliche optik abgestimmte 2d-sprites mit feineren pixeln oder 3d-modelle mit etwas gröberen pixeln.
+
+
+
+die mods können wie folgt heruntergeladen werden:
+
+
+blood upscale pack version 2.1:bloodupscalepack.zip
+blood voxel pack version 0.95 (bloodgdx, nblood, raze): voxels_blood_v095.zip
+
+
+die mods können wie folgt installiert werden:
+
+
+im folgenden wird davon ausgegangen, dass die heruntergeladenen dateien im ordner ~/downloads gespeichert wurden.
+
+upscale pack:
+
+
+user@linux ~ $ mkdir -p ~/blood/mods/blood-upscale-pack-v2.1
+user@linux ~ $ unzip ~/downloads/bloodupscalepack.zip -d ~/blood/mods/blood-upscale-pack-v2.1/
+
+
+voxel pack:
+
+
+user@linux ~ $ mkdir -p ~/blood/mods/blood-voxel-pack-v0.95
+user@linux ~ $ cp ~/downloads/voxels_blood_v095.zip ~/blood/mods/blood-voxel-pack-v0.95/.
+
+
+
+nblood kann mit den installierten mods wie folgt gestartet werden:
+
+
+reguläre kampagne und plasma pak:
+
+
+
+user@linux ~/blood $ nblood/nblood -g mods/blood-upscale-pack-v2.1/autoload/base-component.zip -g mods/blood-upscale-pack-v2.1/autoload/smoothblood_upscale.zip -g mods/blood-voxel-pack-v0.95/voxels_blood_v095.zip -h mods/blood-upscale-pack-v2.1/blood.def
+
+
+
+offizielle erweiterung cryptic passage:
+
+
+
+user@linux ~/blood $ nblood/nblood -ini cryptic.ini -g mods/blood-upscale-pack-v2.1/autoload/base-component.zip -g mods/blood-upscale-pack-v2.1/autoload/smoothblood_upscale.zip -g mods/blood-voxel-pack-v0.95/voxels_blood_v095.zip -h mods/blood-upscale-pack-v2.1/blood.def
+
+
+
+der gewünschte renderer (software oder opengl) kann gemeinsam mit der bildschirmauflösung über das popup bei programmstart ausgewählt werden.
+
+
+soll das voxel-pack nicht verwendet werden, ist es ausreichend, den kommandozeilenparameter "-g mods/blood-voxel-pack-v0.95/voxels_blood_v095.zip" wegzulassen.
+
+
+anmerkung: die definitionsdatei blood.def aus dem upscale-pack sieht bereits die integration des voxel-packs vor und enthält bereits dessen definitionen. daher ist es nicht erforderlich, die dem voxel-pack beiliegende definitionsdatei zusätzlich zu laden. 
+
+
+multiplayer
+
+
+ob multiplayerspiele mit nblood möglich sind, habe ich bislang weder recherchiert noch ausprobiert. ggf. ist hier ein anderer source port erforderlich oder es muss auf die ursprüngliche dos-version mit dosbox zurückgegriffen werden.
+
+
+nachtrag - auch interessant:
+
+
+blood: hq sound effects [44 khz]
+ 
+
+
+			vom 17.01.2022 
+
+
+						    kommentar verfassen »
+					    
+
+
+
+
+
+
+computerspiele 
+
+shadow warrior 
+
+
+nach mehr als 15 abstinenten jahren habe ich das hobby meiner kindheit und jugendzeit wiederentdeckt: computerspiele.  neben aktuellen titeln haben es mir vor allem die dos- und windows-spiele der 1990er jahre angetan. doch wie spielt man diese auf moderner hardware und unter linux?
+ 
+
+
+
+
+
+
+shadow warrior (1997)
+
+
+
+
+
+
+
+
+
+
+
+voidsw mit hrp und upscale pack
+
+
+
+
+
+
+für die single-player-kampagnen des dos-spiels shadow warrior aus dem jahr 1997 verwende ich den source port voidsw mit der modifikation shadow warrior upscale pack v1.1. alternativ bzw. ergänzend denke ich über den einsatz ausgewählter bestandteile der mod hrp shadow warrior nach.
+
+dos-version von shadow warrior
+
+auch für den source port muss eine originalversion des spiels vorhanden sein. falls dies nicht der fall ist, kann die dos-version von shadow warrior kostenlos über gog.com bezogen werden. hierzu den "linux-installer" des spiels herunterladen (datei gog_shadow_warrior_classic_complete_2.0.0.4.sh) und im ordner ~/downloads speichern. die installation kann wie folgt erfolgen:
+
+1. linux-installer ausführbar machen, aufrufen und das gesamtpaket im vorgabeverzeichnis (~/gog games/shadow warrior classic complete) installieren:
+
+
+user@linux ~/downloads $ chmod 755 gog_shadow_warrior_classic_complete_2.0.0.4.sh
+user@linux ~/downloads $ ./gog_shadow_warrior_classic_complete_2.0.0.4.sh
+
+
+2. dateien der dos-version aus der gog-installation in den ordner ~/shadowwarrior kopieren:
+
+
+user@linux ~/downloads $ cp -r ~/gog\ games/shadow\ warrior\ classic\ complete/data ~/shadowwarrior
+
+
+3. korrekte benannte symlinks zu den audiodateien anlegen, damit der soundtrack in voidsw abgespielt wird:
+
+
+user@linux ~/downloads $ cd ~/shadowwarrior
+user@linux ~/shadowwarrior $ ln -s music/track02.ogg track02.ogg
+user@linux ~/shadowwarrior $ ln -s music/track03.ogg track03.ogg
+user@linux ~/shadowwarrior $ ln -s music/track04.ogg track04.ogg
+user@linux ~/shadowwarrior $ ln -s music/track05.ogg track05.ogg
+user@linux ~/shadowwarrior $ ln -s music/track06.ogg track06.ogg
+user@linux ~/shadowwarrior $ ln -s music/track07.ogg track07.ogg
+user@linux ~/shadowwarrior $ ln -s music/track08.ogg track08.ogg
+user@linux ~/shadowwarrior $ ln -s music/track09.ogg track09.ogg
+user@linux ~/shadowwarrior $ ln -s music/track10.ogg track10.ogg
+user@linux ~/shadowwarrior $ ln -s music/track11.ogg track11.ogg
+user@linux ~/shadowwarrior $ ln -s music/track12.ogg track12.ogg
+user@linux ~/shadowwarrior $ ln -s music/track13.ogg track13.ogg
+user@linux ~/shadowwarrior $ ln -s music/track14.ogg track14.ogg
+
+
+die modifikationen shadow warrior upscale pack und hrp shadow warrior
+das upscale pack enthält mit verfahren der künstlichen intelligenz hochskalierte versionen der originalgrafiken, welche auf den heutigen hochauflösenden monitoren optisch ansprechender sind als die originalgrafiken. das hrp enthält hochauflösende, von fans neu erstellte grafiken und 3d-modelle.
+
+
+leider enthält das shadow warrior upscale pack noch keine hochskalierten texturen, sondern nur hochskalierte sprites. diese gefallen mir dafür in einigen fällen deutlich besser als die hochauflösenden versionen im hrp. insbesondere im fall der monster gefallen mir die sprites deutlich besser als die 3d-modelle des hrps, welche zudem noch unvollständig animiert und damit aus meiner sich auch insgesamt unbrauchbar sind. bei zerstörung eines monsters mit dem schwert springt nämlich die anzeige zwischen 3d-modell und sprite hin- und her. auch sind die grafiken im hrp naturgemäß nicht immer originalgetreu und beispielsweise sieht der himmel im ersten level der ersten episode schon deutlich anders als im original und im upscale pack aus. dies muss nicht stören, ist aber geschmackssache.
+
+
+da im hrp die einzelnen bestandteile (z.b. texturen, monster-modelle, voxels, schriften, etc.) gut strukturiert und mit jeweils separaten definitionsdateien versehen sind, kann es nicht nur vollumfänglich verwendet werden, sondern relativ einfach auch eine eigene auswahl von bestimmten bestandteilen getroffen werden. beispielsweise bietet es sich an, das upscale pack mit den texturen des hrps zu kombinieren. dazu unten mehr.
+
+der source port voidsw
+
+mit voidsw lässt sich shadow warrior nativ unter linux mit heutigen bildschirmauflösungen und wahlweise einem software- oder opengl-renderer spielen. es ist bestandteil des eduke32-projektes, einem source port für duke nukem 3d.
+mit stand vom 20.11.2021 unterstützt der voidsw-hauptentwicklungszweig (master) noch nicht das feature "indexed hightiles" (u.a. definition von t_indexed in source/build/src/defs.cpp). dieses ist im entwicklungszweig "upscale" enthalten und wird benötigt, wenn das upscale-paket zusammen mit dem klassischen software-renderer verwendet werden soll.
+
+der voidsw-entwicklungszweig "upscale" kann wie folgt heruntergeladen und kompiliert werden:
+
+
+im folgenden wird davon ausgegangen, dass sich die dos-version von shadow warrior im ordner ~/shadowwarrior befindet. auf abhängigkeiten zu externen bibliotheken wird an dieser stelle nicht näher eingegangen.
+
+
+
+user@linux ~/shadowwarrior $ git clone https://voidpoint.io/terminx/eduke32.git voidsw
+user@linux ~/shadowwarrior $ cd voidsw
+user@linux ~/shadowwarrior/voidsw $ git checkout upscale
+user@linux ~/shadowwarrior/voidsw $ make sw
+
+
+
+das hrp funktioniert nur mit dem opengl-renderer vollständig.
+
+soll das upscale-paket oder der software-renderer nicht verwendet werden, oder wurde die "indexed hightiles" funktionalität in den hauptzweig aufgenommen, kann auf den befehl "git checkout upscale" verzichtet werden und der hauptzweig verwendet werden. alternativ könnte dann auch die (ggf. nicht so aktuelle) version von voidsw aus dem gentoo-repository verwendet werden (paket: games-fps/eduke32) - sie enthält die "indexed hightiles" funktionalität ebenfalls noch nicht. 
+die installation des gentoo-pakets (enthält nicht die "indexed hightiles" funktionalität) ist unabhängig von dessen verwendung vor dem kompilieren der git-version empfehlenswert, da so automatisch alle benötigen bibliotheken installiert werden:
+
+
+linux ~ # 
+accept_keywords="~amd64"  use=" fluidsynth gtk opengl png server timidity tools voidsw vpx xmp -duke3d -hrp -offensive -opl -psx -sc-55 -sdk -voxels"  emerge eduke32 -pv
+
+
+
+zuletzt von mir verwendete revision: 3a30f5a7a68c175e534b2476be737fffbe2d08db
+
+issue 208: mausbewegungen sind sehr langsam
+
+im hauptentwicklungszweig (master) sind mit stand vom 20.11.2021 die mausbewegungen in voidsw sehr langsam. dieser regressionsfehler wurde durch 2 commits verursacht und mit issue 208 berichtet. der upscale-entwicklungszweig ist derzeit nicht so stark besprochen, da dort nur einer von den beiden verursachenden commits enthalten ist. bis zur zentralen fehlerbehebung kann der eine commit (upscale-zweig) bzw. können die beiden commits (master-zweig) lokal rückgängig gemacht werden, indem vor dem ausführen des befehls "make sw" die folgenden befehle ausgeführt werden:
+
+
+
+user@linux ~/shadowwarrior/voidsw $ wget https://voidpoint.io/terminx/eduke32/-/commit/08d6271dfe4efbe84f4baf46bd324cd624aca6a5.diff
+user@linux ~/shadowwarrior/voidsw $ patch -r -p1 < 08d6271dfe4efbe84f4baf46bd324cd624aca6a5.diff
+user@linux ~/shadowwarrior/voidsw $ wget https://voidpoint.io/terminx/eduke32/-/commit/b51b553460b711b6965dda2e18e37b696312e191.diff
+user@linux ~/shadowwarrior/voidsw $ patch -r -p1 < b51b553460b711b6965dda2e18e37b696312e191.diff
+
+
+
+die mods können wie folgt heruntergeladen werden:
+
+
+shadow warrior upscale pack version 1.1: swupscale.zip
+hrp shadow warrior: download der aktuellsten version (rev 21) aus dem svn-repository http://svn.eduke32.com/sw_hrp/ (siehe unten)
+
+
+die mods können wie folgt installiert werden:
+
+
+upscale pack:
+
+im folgenden wird davon ausgegangen, dass die heruntergeladene datei im ordner ~/downloads gespeichert wurde.
+
+
+user@linux ~ $ mkdir -p ~/shadowwarrior/mods/shadow-warrior-upscale-pack-v1.1
+user@linux ~ $ cp ~/downloads/swupscale.zip ~/shadowwarrior/mods/shadow-warrior-upscale-pack-v1.1/.
+
+
+
+high resolution pack (hrp):
+es wird eine zusätzliche, optionale definitionsdatei für das gesamte hrp ohne 3d-monster erzeugt.
+
+
+
+user@linux ~ $ mkdir -p ~/shadowwarrior/mods/shadow-warrior-hrp-svn
+user@linux ~ $ cd ~/shadowwarrior/mods/shadow-warrior-hrp-svn
+user@linux /shadowwarrior/mods/shadow-warrior-hrp-svn $ svn checkout http://svn.eduke32.com/sw_hrp
+user@linux /shadowwarrior/mods/shadow-warrior-hrp-svn $ grep -v "monsters" sw_hrp/highres/sw_hrp.def > sw_hrp/highres/sw_hrp_nomonsters.def
+user@linux ~ $ cd sw_hrp
+user@linux ~/shadowwarrior/mods/shadow-warrior-hrp-svn/sw_hrp $ zip -r ../sw_hrp.zip *
+
+
+
+voidsw kann mit den installierten mods wie folgt gestartet werden:
+
+software-renderer mit upscale-pack
+voraussetzung: voidsw-version mit unterstürzung für "indexed hightiles" (siehe oben)
+kampagne des hauptspiels:
+
+
+user@linux ~/shadowwarrior $ voidsw/voidsw -gmods/shadow-warrior-upscale-pack-v1.1/swupscale.zip -mhswindexed.def
+
+
+kampagne der erweiterung wanton destruction:
+
+
+user@linux ~/shadowwarrior $ voidsw/voidsw -addon1 -gmods/shadow-warrior-upscale-pack-v1.1/swupscale.zip -mhwdindexed.def
+
+
+kampagne der erweiterung twin dragon:
+
+
+user@linux ~/shadowwarrior $ voidsw/voidsw -j`pwd`/dragon/ -addon2 -gmods/shadow-warrior-upscale-pack-v1.1/swupscale.zip -mhtdindexed.def
+
+
+
+der software-renderer muss gemeinsam mit der bildschirmauflösung über das popup bei programmstart ausgewählt werden. 
+
+opengl-renderer mit upscale-pack und hrp (ohne monster)
+kampagne des hauptspiels:
+
+
+user@linux ~/shadowwarrior $ voidsw/voidsw -gmods/shadow-warrior-upscale-pack-v1.1/swupscale.zip -hswupscale.def -gmods/shadow-warrior-hrp-svn/sw_hrp.zip -mhhighres/sw_hrp_nomonsters.def
+
+
+kampagne der erweiterung wanton destruction:
+
+
+user@linux ~/shadowwarrior $ voidsw/voidsw -addon1 -gmods/shadow-warrior-upscale-pack-v1.1/swupscale.zip -hwdupscale.def -gmods/shadow-warrior-hrp-svn/sw_hrp.zip -mhhighres/sw_hrp_nomonsters.def
+
+
+kampagne der erweiterung twin dragon:
+
+
+user@linux ~/shadowwarrior $ voidsw/voidsw -j`pwd`/dragon/ -addon2 -gmods/shadow-warrior-upscale-pack-v1.1/swupscale.zip -htdupscale.def -gmods/shadow-warrior-hrp-svn/sw_hrp.zip -mhhighres/sw_hrp_nomonsters.def
+
+
+
+der opengl-renderer muss gemeinsam mit der bildschirmauflösung über das popup bei programmstart ausgewählt werden. 
+
+zu beachten ist, dass viele texturen der erweiterungen im hrp nicht enthalten sind; es werden stattdessen die originaltexturen angezeigt.
+der obige aufruf sieht vor, dass inhalte im hrp vorrang gegenüber inhalten im upscale-paket haben. dies erfolgt, indem mit dem parameter "-h" die definitionsdatei des upscale-pakets als hauptdefinitionsdatei geladen wird und mit dem parameter "-mh" die definitionsdatei des hrps als moduldefinitionsdatei geladen wird. die reihenfolge kann auf wunsch auch getauscht werden.
+falls das hrp nicht verwendet werden soll, kann der parameter "-mhhighres/sw_hrp_nomonsters.def" weglassen werden.
+falls nur bestimmte bestandteile und nicht das vollständige hrp verwendet werden soll, kann der parameter "-mhhighres/sw_hrp_nomonsters.def" durch beliebig viele parameter entsprechend der nachfolgenden tabelle ersetzt werden. sollen beispielsweise nur die texturen, schilder und knöpfe aus dem hrp verwendet werden, bietet sich stattdessen eine kombination der parameter "-mhhighres/textures.def -mhhighres/sprites/signs.def -mhhighres/sprites/switches.def" an.
+
+
+parameterhrp-bestandteil
+-mhhighres/sw_hrp.defvollständiges hrp
+-mhhighres/sw_hrp_nomonsters.defvollständiges hrp außer 3d-modelle der monster
+-mhhighres/screen/fonts.defoberfläche: schriften
+-mhhighres/screen/menu.deoberfläche: menü
+-mhhighres/screen/hud.defoberfläche: hud
+-mhhighres/skyboxes/skyboxes.defhimmel/hintergründe
+-mhhighres/sprites/decals.defsprites: blutspuren
+-mhhighres/sprites/effects.defsprites: effekte
+-mhhighres/sprites/monsters.def3d-modelle: monster
+-mhhighres/sprites/pickups.defsprites und 3d-modelle: aufnehmbare gegenstände 
+-mhhighres/sprites/props.defsprites und 3d-modelle: requisiten 
+-mhhighres/sprites/signs.defsprites: schilder
+-mhhighres/sprites/switches.defsprites: schalter
+-mhhighres/sprites/voxels.def3d-modelle: requisiten
+-mhhighres/sprites/projectiles.defsprites: projektile
+-mhhighres/textures.deftexturen
+
+
+
+multiplayer
+
+
+ob multiplayerspiele mit voidsw möglich sind, habe ich bislang weder recherchiert noch getestet. ggf. ist hier ein anderer source port erforderlich oder es muss auf die ursprüngliche dos-version mit dosbox zurückgegriffen werden.
+
+auch interessant - für später merken:
+
+
+shadow warrior: high quality sound effects: soundeffekte in höherer qualität, entweder aus den originalquellen oder hochskaliert. leider aktuell noch nicht mit voidsw kompatibel.
+
+
+ 
+
+
+			vom 04.01.2022 
+
+
+						    kommentar verfassen »
+					    
+
+
+
+
+
+
+computerspiele 
+
+duke nukem 3d 
+
+
+nach mehr als 15 abstinenten jahren habe ich das hobby meiner kindheit und jugendzeit wiederentdeckt: computerspiele.  neben aktuellen titeln haben es mir vor allem die dos- und windows-spiele der 1990er jahre angetan. doch wie spielt man diese auf moderner hardware und unter linux?
+ 
+
+
+
+
+
+
+duke nukem 3d (1996)
+
+
+
+
+
+
+
+
+
+
+
+eduke32 mit high resolution pack inkl. 3d-monster
+
+
+
+
+
+
+für die single-player-kampagnen von duke nukem 3d aus dem jahr 1996 verwende ich den source port eduke32 mit der grafischen modifikation high resolution pack (hrp) oder alternativ den upscale- und voxel-packs aus dem enhanced resource pack. als musikalische modifikationen kommen die duke3d psx highres sounds und das roland sc-55 music pack hinzu. um die episode alien world order aus der relativ neuen 20th anniversary editon von duke nukem 3d spielen zu können, wird außerdem der stopgap compatibility layer for eduke32 benötigt. für drei offizielle erweiterungen  gibt es zudem separate hrp addons (duke it out in d.c., duke: nuclear winter, duke caribbean: life's a beach) und music packs.
+
+für den mehrspielermodus über das internet kann entweder das ältere eduke32-oldmp oder das neuere netduke32 verwendet werden. diese separaten source ports sind erforderlich, da der netzwerkmodus in der hauptversion von eduke32 selbst (noch) nicht funktionsfähig ist. auf die installation und verwendung gehe ich vorerst nicht weiter ein; dies ergänze ich ggf. später.
+das spiel duke nukem 3d und seine erweiterungen
+grundsätzlich werden auch für die source ports die datendateien der originalspiele benötigt. wenn diese nicht ohnehin bereits vorhanden sind, können die spiele und erweiterungen auf digitalen plattformen käuflich erwerben werden.
+
+leider gibt es kein einzelnes paket, dass alle der aufgeführten spiele und erweiterungen enthält. die auf steam erhältliche duke nukem 3d: 20th anniversary world tour enthält die ursprünglichen vier episoden aus der atomic edition sowie die spieleswerte neue fünfte episode alien world order, aber nicht die erweiterungen. dagegen enthält die auf zoom-platform erhältliche duke nukem 3d: atomic edition zwar nur die vier urspünglichen episoden, aber als einziges mir bekanntes digitales paket auch die erweiterungen duke caribbean: life's a beach, duke it out in d.c., duke nukem's penthouse paradise, duke! zone ii (includes zone i) und duke: nuclear winter. im folgenden wird davon ausgegangen, dass mindestens eines dieser beiden pakete oder die urspüngliche dos-version von duke nukem 3d oder der atomic edition vorliegt.
+
+die modifikationen
+das high resolution pack (hrp) enthält hochauflösende, von fans neu erstellte grafiken und 3d-modelle. naturgemäß sind die grafiken in solchen hrps nicht immer ganz so originalgetreu wie die grafiken von sogenannten upscale packs. das duke nukem hrp ist meiner meinung nach aber in sich stimmig und auch die 3d-modelle überzeugen. bei meinem letzten spieldurchlauf vor etwa einem jahr hatte ich das hrp genutzt und viel spaß damit gehabt. ergänzend gibt es mehr oder weniger vollständige hrp addons für die drei spieleerweiterungen duke it out in d.c., duke: nuclear winter und duke caribbean: life's a beach.
+
+als alternative zu dem hrp gibt es seit kurzem auch ein upscale pack, welches mit verfahren der künstlichen intelligenz hochskalierte versionen der originalgrafiken enthält. die grafiken sind nicht so hochauflösend wie im hrp, dafür aber naturgemäß originalgetreuer. die aktuelle version deckt bislang allerdings nur die ursprünglichen episoden 1 bis 3 vollständig ab. es bietet sich eine kombination mit dem voxel pack an, welches einige 3d-objekte ergänzt. beide modifikationen sind in dem enhanced resource pack for duke nukem enthalten.
+
+die modifikation duke3d psx highres sounds enthält  soundeffekte des spiels in höherer tonqualität.
+die roland sc-55 music packs für das hauptspiel und die beiden erweiterungen duke caribbean und nuclear winter enthalten aufnahmen der original-midi-soundtracks von einem echten roland midi synthesizer im sc-55 standardprofil. der sc-55 war in den 90er jahren bei komponisten beliebt und die midi-wiedergabe auf diesen geräten entspricht daher am ehesten der originalkomposition. das duke it out in d.c. music pack enthält einen von dem in der community bekannten komponisten james paddock erstellten soundtrack, da diese erweiterung über keinen eigenen soundtrack verfügt.
+
+
+der stopgap compatibility layer for eduke32 wird benötigt, um die duke nukem 3d: 20th anniversary world tour edition mit eduke32 spielen zu können.
+
+die verzeichnisstruktur und dateien für die spiele, erweiterungen, source ports und modifikationen
+
+alle benötigten dateien sollen unterhalb des ordners ~/dukenukem3d abgelegt werden, so dass am ende in etwa die folgende ordner/dateistrukur entsteht: 
+
+
+
+~/dukenukem3d
+│
+├── worldtour                               duke nukem 3d: 20th anniv. w. t.
+│   └── ...
+│
+├── atomic                                  duke nukem 3d: atomic edition
+│   └── ...
+│
+├── addons                                  offizielle erweiterungen
+│   ├── dukedc.grp                          duke it out in d.c.
+│   ├── dukedc.con                          duke it out in d.c.
+│   ├── nwinter.grp                         duke: nuclear winter
+│   ├── nwinter.con                         duke: nuclear winter
+│   ├── vacation.grp                        duke caribbean: life's a beach
+│   ├── vacation.con                        duke caribbean: life's a beach
+│   ├── duke!zon.grp                        duke! zone ii (includes zone i)
+│   ├── dz-game.con                         duke! zone ii (includes zone i)
+│   ├── penthous.grp                        duke nukem's penthouse paradise
+│   └── ppakgame.con                        duke nukem's penthouse paradise
+│
+├── eduke32                                 eduke32 source port
+│   ├── eduke32
+│   └── ...
+│
+└── mods                            
+    ├── audio                               audio modifikationen
+    │   ├── duke3d_psx.zip                  duke 3d highres sounds
+    │   ├── duke3d_music-sc55.zip           duke 3d roland sc-55 music pack
+    │   ├── dukedc_music20.zip              duke it out in d.c. music pack
+    │   └── duke3d_music-nwvaca.zip         caribbean & n. winter music pack
+    │
+    ├── e32wt                               stopgap compatibility layer
+    │   └── ...
+    │
+    └── graphics                            grafik modifikationen
+        ├── erp.def                         erp definitionsdatei
+        ├── dukeupscale.zip                 erp upscale pack
+        ├── duke3d_voxelpack-master.zip     erp voxelpack
+        ├── duke3d_hrp.zip                  hrp high resolution pack
+        ├── dukedc_hrp.zip                  hrp addon für duke it out in d.c.
+        ├── nwinter_hrp.zip                 hrp addon für nuclear winter
+        └── vaca_hrp.zip                    hrp addon für duke caribbean
+
+aufbau der verzeichnisstruktur und ablage der original-spieldaten
+1. anlage der verzeichnisse:
+
+
+user@linux ~ $ mkdir -p ~/dukenukem3d/{mods/audio,mods/graphics,addons,atomic}
+
+2. falls vorhanden, wird die 20th anniversary world tour edition in den ordner ~/dukenukem/worldtour kopiert und die pfadangaben in der datei user.con für linux korrigiert.
+es wird angenommen, dass die 20th anniversary world tour edition mit steam in den standardordner ~/.local/share/steam/steamapps/common/duke nukem 3d twentieth anniversary world tour installiert wurde.
+
+
+user@linux ~ $ cp -r ~/.local/share/steam/steamapps/common/duke\ nukem\ 3d\ twentieth\ anniversary\ world\ tour/ ~/dukenukem3d/worldtour
+user@linux ~ $ sed -i 's/sound\\\\/sound\//g' ~/dukenukem3d/worldtour/user.con
+user@linux ~ $ sed -i 's/sound\\/sound\//g' ~/dukenukem3d/worldtour/user.con
+
+2a. falls vorhanden, werden die datendatein duke3d.grp und duke.rts der atomic edition von der zoom-plattform oder einer anderen dos-version des spiels in den ordner ~/dukenukem/atomic kopiert.
+es wird angenommen, dass die atomic edition der zoom-plattform mit wine in den standardordner ~/.wine/drive_c/zoom platform/gearbox software/duke nukem 3d - atomic edition installiert wurde.
+
+
+user@linux ~ $ cp ~/.wine/drive_c/zoom\ platform/gearbox\ software/duke\ nukem\ 3d\ -\ atomic\ edition/{duke3d.grp,duke.rts} ~/dukenukem3d/atomic/.
+
+2b. falls nur die 20th anniversary edition und nicht zusätzlich auch die atomic edition vorhanden ist, werden im verzeichnis ~/dukenukem/atomic symbolische links zu den entsprechenden datendateien der 20th anniversary edition angelegt:
+
+
+
+user@linux ~ $ cd ~/dukenukem3d/atomic
+user@linux ~/dukenukem3d/atomic $ ln -s ../worldtour/duke3d.grp duke3d.grp
+user@linux ~/dukenukem3d/atomic $ ln -s ../worldtour/duke.rts duke3d.rts
+
+3. falls vorhanden, werden die datendatein der erweiterungen in den ordner ~/dukenukem/addons kopiert.
+im folgenden wird angenommen, dass die atomic edition und das addon-paket der zoom-plattform mit wine in den ordner ~/.wine/drive_c/zoom platform/gearbox software/duke nukem 3d - atomic edition bzw. dessen unterordner addons installiert wurde.
+hinweis: die zoom-versionen der erweiterungen bestehen aus jeweils zwei dateien (eine grp-datei und eine con-datei). es scheint auch andere versionen der erweiterungen zu geben, welche nur aus jeweils einer grp-datei bestehen und ohne die zusätzliche con-datei auskommen. dann sind entsprechend nur die grp-dateien in den ordner ~/dukenukem/addons zu kopieren.
+
+
+user@linux ~ $ cp ~/.wine/drive_c/zoom\ platform/gearbox\ software/duke\ nukem\ 3d\ -\ atomic\ edition/addons/{*.grp,*.con} ~/dukenukem3d/addons/.
+
+der source port eduke32
+
+mit eduke32 lässt sich duke nukem 3d nativ unter linux mit heutigen bildschirmauflösungen und wahlweise einem software- oder zwei verschiedenen opengl-renderern (polymost und polymer) spielen. polymost ist älter als polymer und bietet laut foreneinträgen insgesamt eine korrektere darstellung. polymer begeistert dagegen mit schöneren lichteffekten.
+mit stand vom 14.12.2021 unterstützt der eduke32-hauptentwicklungszweig (master) noch nicht das feature "indexed hightiles" (u.a. definition von t_indexed in source/build/src/defs.cpp). dieses ist im entwicklungszweig "upscale" enthalten und wird benötigt, wenn das upscale-paket verwendet werden soll.
+
+der eduke32-entwicklungszweig "upscale" kann wie folgt heruntergeladen und kompiliert werden:
+
+
+auf abhängigkeiten zu externen bibliotheken wird an dieser stelle nicht näher eingegangen.
+
+
+
+user@linux ~/dukenukem3d $ git clone https://voidpoint.io/terminx/eduke32.git
+user@linux ~/dukenukem3d $ cd eduke32
+user@linux ~/dukenukem3d/eduke32 $ git checkout upscale
+user@linux ~/dukenukem3d/eduke32 $ make
+
+
+
+das hrp funktioniert nur mit einem der beiden opengl-renderer (polymost oder polymer). das upscale-pack dagegen sowohl mit software- als auch opengl-renderern.
+
+soll das upscale-paket nicht verwendet werden, oder wurde die "indexed hightiles" funktionalität in den hauptzweig aufgenommen, kann auf den befehl "git checkout upscale" verzichtet werden und der hauptzweig verwendet werden. alternativ könnte dann auch die (ggf. nicht so aktuelle) version von eduke32 aus dem gentoo-repository verwendet werden (paket: games-fps/eduke32) - sie enthält die "indexed hightiles" funktionalität ebenfalls noch nicht. 
+die installation des gentoo-pakets (enthält nicht die "indexed hightiles" funktionalität) ist unabhängig von dessen verwendung vor dem kompilieren der git-version empfehlenswert, da so automatisch alle benötigen bibliotheken installiert werden:
+
+
+linux ~ # 
+accept_keywords="~amd64"  use=" fluidsynth gtk opengl png server timidity tools voidsw vpx xmp -duke3d -hrp -offensive -opl -psx -sc-55 -sdk -voxels"  emerge eduke32 -pv
+
+
+
+zuletzt von mir verwendete revision: 3a30f5a7a68c175e534b2476be737fffbe2d08db
+
+
+download der modifikationen
+
+
+die benötigten dateien der modifikationen können von folgenden seiten bezogen werden:
+
+
+duke3d hrp v5.4 (standalone version): duke3d_hrp.zip
+dukedc hrp v1.64: dukedc_hrp.zip
+duke carribean hrp: siehe unten im rahmen der installation
+nuclear winter hrp: siehe unten im rahmen der installation
+duke nukem enhanced resource pack (upscale- u. voxel-pack): duke-erp-210701.zip
+duke3d psx highres sounds v1.11: duke3d_psx.zip
+duke 3d roland sc-55 music pack v4.02: duke3d_music-sc55.zip
+duke it out in d.c. music pack v2.0: dukedc_music20.zip
+duke caribbean & nuclear winter music pack v1.0: duke3d_music-nwvaca.zip
+stopgap compatibility layer: siehe unten im rahmen der installation
+
+
+installation der modifikationen:
+
+
+es wird davon ausgegangen, dass sich alle heruntergeladenen dateien im ordner ~/downloads befinden.
+
+duke3d high resolution pack (hrp):
+
+
+user@linux ~ $ cp ~/downloads/duke3d_hrp.zip ~/dukenukem3d/mods/graphics/.
+
+
+dukedc hrp:
+
+
+user@linux ~ $ cp ~/downloads/dukedc_hrp.zip ~/dukenukem3d/mods/graphics/.
+
+
+duke carribean hrp:
+dieses hrp addon ist bestandteil der umfangreicheren modifikation duke caribbean: life's a beach plus. vorerst nutze ich nur den hrp-teil.
+
+
+user@linux ~ $ svn checkout http://svn.eduke32.com/vaca_plus /tmp/vhrp
+user@linux ~ $ cd /tmp/vhrp
+user@linux /tmp/vhrp $ cp vaca_plus/vacation_hrp.def .
+user@linux /tmp/vhrp $ zip -r ~/dukenukem3d/mods/graphics/vaca_hrp.zip vaca_hrp vacation_hrp.def
+user@linux /tmp/vhrp $ rm -rf /tmp/vhrp
+
+
+nuclear winter hrp:
+dieses hrp addon ist bestandteil der umfangreicheren modifikation duke: nuclear winter plus. vorerst nutze ich nur den hrp-teil.
+
+
+user@linux ~ $ svn checkout http://svn.eduke32.com/nw_plus /tmp/nhrp
+user@linux ~ $ cd /tmp/nhrp
+user@linux /tmp/nhrp $ cp nw_plus/nwinter_hrp.def .
+user@linux /tmp/nhrp $ zip -r ~/dukenukem3d/mods/graphics/nwinter_hrp.zip nw_hrp nwinter_hrp.def
+user@linux /tmp/nhrp $ rm -rf /tmp/nhrp
+
+
+upscale- u. voxel-packs (aus dem duke nukem enhanced resource pack):
+das upscale pack und das voxel pack sind bestandteile der umfangreicheren modifikation enhanced resource pack. ich nutze diese teile sowie die zugehörige definitionsdatei.
+
+
+
+user@linux ~ $ unzip -j ~/downloads/duke-erp-210701.zip autoload/dukeupscale.zip -d ~/dukenukem3d/mods/graphics
+user@linux ~ $ unzip -j ~/downloads/duke-erp-210701.zip autoload/duke3d_voxelpack-master.zip -d ~/dukenukem3d/mods/graphics
+user@linux ~ $ unzip -j ~/downloads/duke-erp-210701.zip duke3d.def -d /tmp && mv /tmp/duke3d.def ~/dukenukem3d/mods/graphics/erp.def
+
+
+duke3d psx highres sounds:
+
+
+user@linux ~ $ cp ~/downloads/duke3d_psx.zip ~/dukenukem3d/mods/audio/.
+
+
+duke 3d roland sc-55 music pack:
+
+
+user@linux ~ $ cp ~/downloads/duke3d_music-sc55.zip ~/dukenukem3d/mods/audio/.
+
+
+duke it out in d.c. music pack:
+
+
+user@linux ~ $ cp ~/downloads/dukedc_music20.zip ~/dukenukem3d/mods/audio/.
+
+
+duke caribbean & nuclear winter music pack:
+
+
+user@linux ~ $ cp ~/downloads/duke3d_music-nwvaca.zip ~/dukenukem3d/mods/audio/.
+
+
+
+duke nukem 3d: 20th anniversary world tour - stopgap compatibility layer for eduke32 :
+
+
+
+user@linux ~ $ git clone https://github.com/hendricks266/e32wt.git ~/dukenukem3d/mods/e32wt
+
+
+starten und konfigurieren von eduke32:
+je nachdem, ob das high resolution pack oder das upscale-pack verwendet werden soll, sind unterschiedliche kommandozeilenparameter für den aufruf von eduke32 erforderlich.
+1. mit high resolution pack (hrp):
+
+das hrp kann nur mit einem der beiden opengl-renderer verwendet werden; mit dem software-renderer funktioniert es nicht. die auswahl des renderers erfolgt gemeinsam mit der bildschirmauflösung über das popup bei programmstart. wird opengl ausgewählt und ein haken bei "polymer" gesetzt wird der neuere polymer-opengl-renderer genutzt, andernfalls der ältere polymost-opengl-renderer.
+
+1.1. 20th anniversary edition (mit hrp):
+
+
+user@linux ~/dukenukem3d $ 
+eduke32/eduke32 -j `pwd`/worldtour -j `pwd`/mods/e32wt -g `pwd`/mods/graphics/duke3d_hrp.zip -mh duke3d_hrp.def
+
+
+
+zu beachten ist, dass im popup von eduke32 im reiter "game", der eintrag "duke nukem 3d 20th  anniversary world tour [stopgap]" ausgewählt werden muss!
+da die 20th anniversary edition selbst neue audiodateien mitbringt, binde ich die audio-modifikationen hier nicht ein.
+
+die stopgap-modifikation ermöglicht das vornehmen folgender einstellungen über die konsole im spiel (aufruf mit taste `):
+
+
+new duke voice acting: use "setvar voice <value>" in the console to configure. 0 - 2016 voice, 1 - 1996 voice except during episode 5, 2 - 1996 voice except new lines only
+developer commentary in episode 5: use "setvar commentary <value>" in the console to configure. 0 - off, 1 - on, 2 - show but don't allow playback
+
+
+
+1.2. atomic edition oder andere dos-version (mit hrp):
+
+
+user@linux ~/dukenukem3d $ 
+eduke32/eduke32 -j `pwd`/atomic -g `pwd`/mods/audio/duke3d_music-sc55.zip -g `pwd`/mods/audio/duke3d_psx.zip -g `pwd`/mods/graphics/duke3d_hrp.zip -mh duke3d_hrp.def
+
+
+
+1.3. erweiterung duke it out in d.c. (mit hrp):
+
+
+user@linux ~/dukenukem3d $ 
+eduke32/eduke32 -j `pwd`/atomic -g `pwd`/mods/audio/duke3d_music-sc55.zip -g `pwd`/mods/audio/duke3d_psx.zip -g `pwd`/addons/dukedc.grp -x `pwd`/addons/dukedc.con -g `pwd`/mods/audio/dukedc_music20.zip -g `pwd`/mods/graphics/duke3d_hrp.zip -mh duke3d_hrp.def -g `pwd`/mods/graphics/dukedc_hrp.zip -mh dukedc_hrp.def -mh dukedc_ogg.def
+
+
+
+falls eine version der erweiterung ohne separate con-datei vorliegt, muss der parameter "-x `pwd`/addons/dukedc.con" weggelassen werden. dies gilt analog auch für die anderen erweiterungen.
+1.4. erweiterung duke caribbean: life's a beach (mit hrp):
+
+
+user@linux ~/dukenukem3d $ 
+eduke32/eduke32 -j `pwd`/atomic -g `pwd`/mods/audio/duke3d_music-sc55.zip -g `pwd`/mods/audio/duke3d_psx.zip -g `pwd`/addons/vacation.grp -x `pwd`/addons/vacation.con -g `pwd`/mods/audio/duke3d_music-nwvaca.zip -g `pwd`/mods/graphics/duke3d_hrp.zip -mh duke3d_hrp.def -g `pwd`/mods/graphics/vaca_hrp.zip -mh vacation_hrp.def
+
+
+
+1.5 erweiterung duke: nuclear winter (mit hrp):
+
+
+user@linux ~/dukenukem3d $ 
+eduke32/eduke32 -j `pwd`/atomic -g `pwd`/mods/audio/duke3d_music-sc55.zip -g `pwd`/mods/audio/duke3d_psx.zip -g `pwd`/addons/nwinter.grp -x `pwd`/addons/nwinter.con -g `pwd`/mods/audio/duke3d_music-nwvaca.zip -g `pwd`/mods/graphics/duke3d_hrp.zip -mh duke3d_hrp.def -g `pwd`/mods/graphics/nwinter_hrp.zip -mh nwinter_hrp.def
+
+
+
+1.6. erweiterung penthouse paradise (mit hrp):
+
+
+user@linux ~/dukenukem3d $ 
+eduke32/eduke32 -j `pwd`/atomic -g `pwd`/mods/audio/duke3d_music-sc55.zip -g `pwd`/mods/audio/duke3d_psx.zip -g `pwd`/addons/penthous.grp -x `pwd`/addons/ppakgame.con  -g `pwd`/mods/graphics/duke3d_hrp.zip -mh duke3d_hrp.def 
+
+
+
+1.7. erweiterung duke! zone ii (mit hrp):
+
+
+user@linux ~/dukenukem3d $ 
+eduke32/eduke32 -j `pwd`/atomic -g `pwd`/mods/audio/duke3d_music-sc55.zip -g `pwd`/mods/audio/duke3d_psx.zip -g `pwd`/addons/duke\!zon.grp -x `pwd`/addons/dz-game.con  -g `pwd`/mods/graphics/duke3d_hrp.zip -mh duke3d_hrp.def 
+
+
+
+2. mit upscale- und voxel-pack:
+das upscale- und voxel-pack funktionieren sowohl mit dem opengl- als auch mit dem software-renderer. voraussetzung ist allerdings eine eduke32-version mit unterstürzung für "indexed hightiles" (siehe oben). die auswahl des renderers erfolgt gemeinsam mit der bildschirmauflösung über das popup bei programmstart. wird opengl ausgewählt und ein haken bei "polymer" gesetzt wird der neuere polymer-opengl-renderer genutzt, andernfalls der ältere polymost-opengl-renderer. achtung: das voxelpack fuktioniert mit polymer nicht!
+
+2.1. 20th anniversary edition (mit upscale pack):
+
+
+user@linux ~/dukenukem3d $ 
+eduke32/eduke32 -j `pwd`/worldtour -j `pwd`/mods/e32wt -g `pwd`/mods/graphics/dukeupscale.zip -g `pwd`/mods/graphics/duke3d_voxelpack-master.zip -mh `pwd`/mods/graphics/erp.def
+
+
+
+die obigen anmerkungen gelten analog!
+soll das optionale voxel-pack nicht verwendet werden, muss der parameter "-g `pwd`/mods/graphics/duke3d_voxelpack-master.zip" weggelassen werden. dies gilt auch für alle folgendenden aufrufe.
+
+2.2. atomic edition oder andere dos-version (mit upscale pack):
+
+
+user@linux ~/dukenukem3d $ 
+eduke32/eduke32 -j `pwd`/atomic -g `pwd`/mods/audio/duke3d_music-sc55.zip -g `pwd`/mods/audio/duke3d_psx.zip -g `pwd`/mods/graphics/dukeupscale.zip -g `pwd`/mods/graphics/duke3d_voxelpack-master.zip -mh `pwd`/mods/graphics/erp.def
+
+
+
+2.3. erweiterung duke it out in d.c. (mit upscale pack):
+
+
+user@linux ~/dukenukem3d $ 
+eduke32/eduke32 -j `pwd`/atomic -g `pwd`/mods/audio/duke3d_music-sc55.zip -g `pwd`/mods/audio/duke3d_psx.zip -g `pwd`/addons/dukedc.grp -x `pwd`/addons/dukedc.con -g `pwd`/mods/audio/dukedc_music20.zip -g `pwd`/mods/graphics/dukeupscale.zip -g `pwd`/mods/graphics/duke3d_voxelpack-master.zip -mh `pwd`/mods/graphics/erp.def
+
+
+
+die obigen anmerkungen gelten analog!
+2.4. erweiterung duke caribbean: life's a beach (mit upscale pack):
+
+
+user@linux ~/dukenukem3d $ 
+eduke32/eduke32 -j `pwd`/atomic -g `pwd`/mods/audio/duke3d_music-sc55.zip -g `pwd`/mods/audio/duke3d_psx.zip -g `pwd`/addons/vacation.grp -x `pwd`/addons/vacation.con -g `pwd`/mods/audio/duke3d_music-nwvaca.zip -g `pwd`/mods/graphics/dukeupscale.zip -g `pwd`/mods/graphics/duke3d_voxelpack-master.zip -mh `pwd`/mods/graphics/erp.def
+
+
+
+2.5. erweiterung duke: nuclear winter (mit upscale pack):
+
+
+user@linux ~/dukenukem3d $ 
+eduke32/eduke32 -j `pwd`/atomic -g `pwd`/mods/audio/duke3d_music-sc55.zip -g `pwd`/mods/audio/duke3d_psx.zip -g `pwd`/addons/nwinter.grp -x `pwd`/addons/nwinter.con -g `pwd`/mods/audio/duke3d_music-nwvaca.zip -g `pwd`/mods/graphics/dukeupscale.zip -g `pwd`/mods/graphics/duke3d_voxelpack-master.zip -mh `pwd`/mods/graphics/erp.def
+
+
+
+2.6. erweiterung penthouse paradise (mit upscale pack):
+
+
+user@linux ~/dukenukem3d $ 
+eduke32/eduke32 -j `pwd`/atomic -g `pwd`/mods/audio/duke3d_music-sc55.zip -g `pwd`/mods/audio/duke3d_psx.zip -g `pwd`/addons/penthous.grp -x `pwd`/addons/ppakgame.con -g `pwd`/mods/graphics/dukeupscale.zip -g `pwd`/mods/graphics/duke3d_voxelpack-master.zip -mh `pwd`/mods/graphics/erp.def
+
+
+
+2.7. erweiterung duke! zone ii (mit upscale pack):
+
+
+user@linux ~/dukenukem3d $ 
+eduke32/eduke32 -j `pwd`/atomic -g `pwd`/mods/audio/duke3d_music-sc55.zip -g `pwd`/mods/audio/duke3d_psx.zip -g `pwd`/addons/duke\!zon.grp -x `pwd`/addons/dz-game.con -g `pwd`/mods/graphics/dukeupscale.zip -g `pwd`/mods/graphics/duke3d_voxelpack-master.zip -mh `pwd`/mods/graphics/erp.def
+
+
+
+auch interessant - für später merken:
+
+
+duke nukem 3d: high quality sound effects: soundeffekte in höherer qualität, entweder aus den originalquellen oder hochskaliert. eine neue alternative zu der mod "duke3d psx highres sounds"
+
+
+ 
+
+
+			vom 27.12.2021 
+
+
+						    kommentar verfassen »
+					    
+
+
+
+
+
+
+computerspiele 
+
+quake 
+
+
+nach mehr als 15 abstinenten jahren habe ich das hobby meiner kindheit und jugendzeit wiederentdeckt: computerspiele.  neben aktuellen titeln haben es mir vor allem die dos- und windows-spiele der 1990er jahre angetan. doch wie spielt man diese auf moderner hardware und unter linux?
+ 
+
+
+
+
+
+
+quake (1996)
+
+
+
+
+
+
+
+
+
+
+
+darkplaces mit qrp-texturen
+
+
+
+
+
+für das bahnbrechende quake aus dem jahr 1996 gibt es unzählige source ports und noch viel mehr grafische modifikationen und erweiterungen, so dass die auswahl und zusammenstellung von komponenten schon fast zur qual wird. im gegenzug gibt es vermutlich für jeden geschmack etwas passendes.
+
+für ein originalgetreues spielerlebnis der singleplayer-kampagne verwende ich den source port quakespasm ohne modifikationen. möchte ich zusätzlich modernere grafikeffekte und hochauflösende texturen sehen, aber immer noch nah am ursprünglichen look und feel bleiben, wähle ich den source port darkplaces mit den modifikationen qrp textures, romi's rtlights und teilweise authentic model improvements for quake. soll es dagegen ganz extravagant und nicht mehr so nah am ursprünglichen erscheinungsbild sein, greife ich auf das ebenfalls auf darkplaces aufbauende und mit diversen modifikationen vorkonfigurierte paket quake epsilon build zurück.
+
+
+die installation aller drei möglichkeiten beschreibe ich im folgenden.
+
+ vorbereiten der verzeichnisstruktur
+als ausgangslage wird angenommen, dass sich die dos-version von quake und ggf. die zusatzmissionen (mission pack 1, mission pack 2, dimension of the past) im verzeichnis ~/quake befinden. falls quake noch nicht vorhanden ist, kann es inkl. aller zusatzmissionen z.b. auf steam erworben werden. da verschiedene source ports und diese ohne bzw. mit modifikationen zum einsatz kommen sollen, wird zur differenzierung zunächst die folgende verzeichnisstruktur aufgebaut, bei der die dos-version sich dann zukünftig im ordner ~/quake/dos befindet:
+
+
+
+
+quake
+├── darkplaces
+│   ├── dopa
+│   ├── hipnotic
+│   │   └── music -> ../../dos/hipnotic/music
+│   ├── id1
+│   │   └── music -> ../../dos/id1/music
+│   └── rogue
+│       └── music -> ../../dos/rogue/music
+├── dos
+│   ├── dopa
+│   ├── hipnotic
+│   │   └── music
+│   ├── id1
+│   │   └── music
+│   └── rogue
+│       └── music
+└── quakespasm
+    ├── dopa
+    ├── hipnotic
+    │   └── music -> ../../dos/hipnotic/music
+    ├── id1
+    │   └── music -> ../../dos/id1/music
+    └── rogue
+        └── music -> ../../dos/rogue/music
+
+
+
+der aufbau dieser struktur kann mit folgenden schritten erfolgen:
+
+1. umbenennen des ursprünglichen quake-ordners mit der dos-version und erstellen einer zip-datei der dos-version. die zip-datei wird angelegt, da so auf einfache art und weise beim nachfolgenden entpacken im neuen zielordner alle datei- und verzeichnisnnamen in kleinbuchstaben konvertiert werden können. dies ist für quakespasm erforderlich.
+
+
+
+user@linux ~ $ mv quake quake.old
+user@linux ~ $ cd quake.old
+user@linux ~/quake.old $ zip -r /tmp/quake.zip *
+
+
+2. verzeichnisse und symlinks zur vermeidung von datenredundanz anlegen sowie zip-datei mit dos-quake in kleinbuchstaben im neuen zielordner entpacken:
+
+
+user@linux ~ $ mkdir -p ~/quake/dos
+user@linux ~ $ cd ~/quake/dos
+user@linux ~/quake/dos $ unzip -ll /tmp/quake.zip
+user@linux ~/quake/dos $ mkdir -p id1/music hipnotic/music rogue/music
+user@linux ~/quake/dos $ cd ..
+user@linux ~/quake $ mkdir -p quakespasm/id1 quakespasm/hipnotic quakespasm/rogue quakespasm/dopa
+user@linux ~/quake $ ln -s ../../dos/id1/music quakespasm/id1/music
+user@linux ~/quake $ ln -s ../../dos/hipnotic/music quakespasm/hipnotic/music
+user@linux ~/quake $ ln -s ../../dos/rogue/music quakespasm/rogue/music
+user@linux ~/quake $ mkdir -p darkplaces/id1 darkplaces/hipnotic darkplaces/rogue darkplaces/dopa darkplaces/config
+user@linux ~/quake $ ln -s ../../dos/id1/music darkplaces/id1/music
+user@linux ~/quake $ ln -s ../../dos/hipnotic/music darkplaces/hipnotic/music
+user@linux ~/quake $ ln -s ../../dos/rogue/music darkplaces/rogue/music
+user@linux ~/quake $ mkdir -p epsilon/id1 epsilon/hipnotic epsilon/rogue epsilon/config
+user@linux ~/quake $ ln -s ../../dos/id1/music epsilon/id1/music
+user@linux ~/quake $ ln -s ../../dos/hipnotic/music epsilon/hipnotic/music
+user@linux ~/quake $ ln -s ../../dos/rogue/music epsilon/rogue/music
+
+
+
+3a. symlinks zu den datendateien von quake in den ordnern der source ports anlegen:
+
+
+
+user@linux ~/quake $ ln -s ../../dos/id1/pak0.pak quakespasm/id1/pak0.pak
+user@linux ~/quake $ ln -s ../../dos/id1/pak1.pak quakespasm/id1/pak1.pak
+user@linux ~/quake $ ln -s ../../dos/id1/pak0.pak darkplaces/id1/pak0.pak
+user@linux ~/quake $ ln -s ../../dos/id1/pak1.pak darkplaces/id1/pak1.pak
+user@linux ~/quake $ ln -s ../../dos/id1/pak0.pak epsilon/id1/pak0.pak
+user@linux ~/quake $ ln -s ../../dos/id1/pak1.pak epsilon/id1/pak1.pak
+
+
+
+3b. (optional) symlinks zu den datendateien von mission pack 1 in den  ordnern der source ports anlegen:
+
+
+
+user@linux ~/quake $ ln -s ../../dos/hipnotic/pak0.pak quakespasm/hipnotic/pak0.pak
+user@linux ~/quake $ ln -s ../../dos/hipnotic/pak0.pak darkplaces/hipnotic/pak0.pak
+user@linux ~/quake $ ln -s ../../dos/hipnotic/pak0.pak epsilon/hipnotic/pak0.pak
+
+
+
+3c. (optional) symlinks zu den datendateien von mission pack 2 in den  ordnern der source ports anlegen:
+
+
+
+user@linux ~/quake $ ln -s ../../dos/rogue/pak0.pak quakespasm/rogue/pak0.pak
+user@linux ~/quake $ ln -s ../../dos/rogue/pak0.pak darkplaces/rogue/pak0.pak
+user@linux ~/quake $ ln -s ../../dos/rogue/pak0.pak epsilon/rogue/pak0.pak
+
+
+
+3d. (optional) symlinks zu den datendateien von der jubiläumserweiterung mission dimension of the past in den ordnern der source ports anlegen:
+
+
+
+user@linux ~/quake $ ln -s ../../dos/dopa/pak0.pak quakespasm/dopa/pak0.pak
+user@linux ~/quake $ ln -s ../../dos/dopa/pak0.pak darkplaces/dopa/pak0.pak
+
+
+
+hinweis 1: falls noch nicht vorhanden und gewünscht, kann diese von machine games erstellte jubiläumserweiterung kostenlos heruntergeladen werden und kann anschließend unter der annahme, dass die datei dopa.rar im ordner ~/downloads liegt, wie folgt installiert werden:
+
+
+user@linux ~/quake $ unrar e ~/downloads/dopa.rar ~/quake/dos/dopa/
+
+
+
+hinweis 2: dopa ist in der quake epsilon build bereits in anderer form enthalten, daher wird an dieser stelle kein symbolischer link erstellt.
+
+installation der musik für die source ports:
+der soundtrack von quake und den beiden mission packs befindet sich nur in form von separaten tonspuren auf den jeweiligen original-cds. das hantieren mit cds ist in der heutigen zeit natürlich unpraktisch und die source ports haben dafür eine elegante lösung parat: sie können die musik auch ohne cd abspielen, wenn die tonspuren mit einem geeigneten programm (z.b. k3b) ausgelesen und als musikdateien im ogg vorbis-format mit bestimmten dateinamen in bestimmten verzeichnissen abgelegt wurden:
+
+
+die tonspuren von quake können mit den dateinamen track02.ogg bis track11.ogg im verzeichnis ~/quake/id1/music abgelegt werden.
+die tonspuren von mission pack 1 können mit den dateinamen track02.ogg bis track09.ogg im verzeichnis ~/quake/hipnotic/music abgelegt werden.
+die tonspuren von mission pack 2 können mit den dateinamen track02.ogg bis track09.ogg im verzeichnis ~/quake/rogue/music abgelegt werden.
+
+
+
+hinweis: für dimension of the past gibt es keinen separaten offiziellen soundtrack. stattdessen wird der soundtrack der hauptkampagne verwendet.
+
+
+hinweis 2: in der digitalen steam-version von quake ist der soundtrack im "rerelease"-ordner bereits in form von ogg-dateien enthalten.
+
+ quakespasm
+installation von quakespasm unter gentoo linux:
+
+leider ist quakespasm nicht in der offiziellen paketdatenbank von gentoo linux enthalten, aber über die overlay-pakete-suche können mehrere ebuilds in externen repositories gefunden und dann in das eigene lokale overlay übernommen werden. ich selbst verwende eine ältere ebuild aus dem overlay winny, welche ich auf die neuste quakespasm-version aktualisiert habe (download ebuild games-fps/quakespasm-0.94.2).
+
+
+wenn die ebuilds für quakespasm korrekt im lokalen overlay unter games-fps/quakespasm abgelegt sind, kann die installation wie folgt erfolgen:
+
+
+linux ~ # 
+accept_keywords="~amd64"  use="flac mp3 ogg opus -cdinstall -debug -demo -mikmod -sdl2" emerge quakespasm -pv
+
+
+der vorteil einer installation per ebuild gegenüber dem manuellen kompilieren und installieren liegt vor allem in der damit verbundenen automatischen installation der benötigten bibliotheken.
+starten und konfigurieren von quakespasm
+achtung: quakespasm speichert einmal übergebene kommandozeilenparameter dauerhaft in den konfigurationsdateien (~/.quakespasm/*/config.cfg). ein weglassen von bestimmten parametern ist nicht gleichbedeutend mit dem deaktivieren oder zurücksetzen des betroffenen parameters. dies ist nur durch explizite angabe des neuen gewünschten wertes möglich. daher ist es empfehlenswert die konfigurationsdateien zu löschen, falls quakespasm zuvor schon einmal mit anderen einstellungen genutzt wurde oder falls die kommandozeilenparameter geändert wurden. dies macht der folgende befehl:
+
+
+user@linux ~ $ rm -i ~/.quakespasm/*/config.cfg
+
+
+
+
+mit dem folgenden aufruf startet quakespasm mit einer grafikkonfiguration, die aus meiner sicht einen guten kompromiss aus originalgetreuem erscheinungsbild und optischer verbesserung für die darstellung der originalgrafiken auf hochauflösenden monitoren darstellt. viele dieser parameter waren vermutlich ohnehin bereits in dem auf dos-quake wenig später folgenden glquake enthalten, da nach meinem kenntnisstand quakespasm grundsätzlich wert auf originalgetreues spielerlebnis legt und keine oder nur wenige neue grafische effekte einführt.
+
+
+
+user@linux ~/quake $ 
+quakespasm -basedir quakespasm +gl_texturemode gl_nearest_mipmap_linear +gl_texture_anisotropy 8 +r_shadows 1 +r_novis 1 +r_wateralpha 0.5 +r_skyalpha 0.5 +r_particles 2
+
+
+nach dem starten können über das konfigurationsmenü die einstellungen zur bildschirmauflösung, vollbild, skalierung der menü- und hud-größe, den tastenbelegungen und mausoptionen (z.b. mouse look und invert mouse) vorgenommen werden.
+mit den obigen einstellungen sind bei nahansicht wie im ursprünglichen dos-quake einzelne pixel sichtbar. mir persönlich gefällt dies bei nutzung der originaltexturen am besten. wer dagegen die weichgezeichneten texturen wie in glquake bzw. mit 3dfx voodoo-karte bevorzugt, kann hierzu den parameter "+gl_texturemode gl_nearest_mipmap_linear" durch den parameter "+gl_texturemode gl_linear_mipmap_linear" ersetzen.
+der hier verwendete parameter "+r_novis 1" aktiviert die darstellung von transparenten flüssigkeiten (wasser, lava) durch die engine, ist aber relativ rechenintensiv. dies wirkt sich auf älterer hardware (z.b. meinem 10 jahre alten notebook) durchaus negativ auf die fps aus. alternativ kann man die datendateien von quake einmalig mit dem tool vispatch patchen und anschließend auf die rechenintensiven funktionen der engine verzichten oder gleich ganz auf die darstellung von transparenten flüssigkeiten verzichten. für beide fälle muss der parameter auf "+r_novis 0" geändert werden. die installation und das ausführen von vispatch kann so erfolgen:
+
+
+
+user@linux ~/quake $ git clone git://git.code.sf.net/p/vispatch/vispatch.git tools/vispatch
+user@linux ~/quake $ cd tools/vispatch
+user@linux ~/quake/tools/vispatch $ make
+user@linux ~/quake/tools/vispatch $ wget -o id1_vis.tgz "https://sourceforge.net/project/downloading.php?group_id=215114&filename=id1_vis.tgz"
+user@linux ~/quake/tools/vispatch $ wget -o hipnotic_vis.tgz "https://sourceforge.net/project/downloading.php?group_id=215114&filename=hipnotic_vis.tgz"
+user@linux ~/quake/tools/vispatch $ wget -o rogue_vis.tgz "https://sourceforge.net/project/downloading.php?group_id=215114&filename=rogue_vis.tgz"
+user@linux ~/quake/tools/vispatch $ tar xvfz id1_vis.tgz
+user@linux ~/quake/tools/vispatch $ tar xvfz hipnotic_vis.tgz
+user@linux ~/quake/tools/vispatch $ tar xvfz rogue_vis.tgz
+user@linux ~/quake/tools/vispatch $ cp ../../dos/id1/pak0.pak ../../dos/id1/pak0.pak.pre-vispatch-backup
+user@linux ~/quake/tools/vispatch $ cp ../../dos/id1/pak1.pak ../../dos/id1/pak1.pak.pre-vispatch-backup
+user@linux ~/quake/tools/vispatch $ cp ../../dos/hipnotic/pak0.pak ../../dos/hipnotic/pak0.pak.pre-vispatch-backup
+user@linux ~/quake/tools/vispatch $ cp ../../dos/rogue/pak0.pak ../../dos/rogue/pak0.pak.pre-vispatch-backup
+user@linux ~/quake/tools/vispatch $ ./vispatch -data id1.vis -dir ../../dos/id1
+user@linux ~/quake/tools/vispatch $ ./vispatch -data hipnotic.vis -dir ../../dos/hipnotic
+user@linux ~/quake/tools/vispatch $ ./vispatch -data rogue.vis -dir ../../dos/rogue
+
+
+auf manchen webseiten wird der parameter "+vid_fsaa 8" (eine antialiasing-option) empfohlen. diese ist jedoch rechenintensiv und verlangsamt das spiel auf älterer hardware erheblich, ohne einen für mich deutlich erkennbaren optischen mehrwert.
+
+mit dem parameter "+host_maxfps 144" kann die auf 72 fps begrenzte framerate auf z.b. 144 für moderne monitore angepasst werden. allerdings kann es hier laut forenbeiträgen zu problemen mit dem timing in der engine und dem spielablauf kommen und ist daher nur bedingt empfehlenswert. der parameter "+scr_showfps 1" aktiviert die fps-anzeige.
+die offiziellen erweiterungen können gestartet werden, indem einer der folgenden parameter ergänzt wird:
+
+
+"-hipnotic" für mission pack 1: scourge of armagon
+"-rogue" für mission pack 2: dissolution of eternity
+"-game dopa" für dimension of the past
+
+
+ darkplaces
+installation von darkplaces unter gentoo linux:
+
+die aktuelle version von darkplaces (20140513) ist in der offiziellen paketdatenbank von gentoo linux enthalten. ich empfehle die installation mit den folgenden use-flags:
+
+
+linux ~ # 
+accept_keywords="~amd64" use="alsa opengl sdl cdsound -cdinstall -debug -dedicated -demo -lights -oss -textures" emerge darkplaces -pv
+
+
+
+
+wichtig: ohne das use-flag cdsound funktioniert auch die wiedergabe der ogg-dateien nicht!
+der vorteil einer installation per ebuild gegenüber dem manuellen kompilieren und installieren liegt vor allem in der damit verbundenen automatischen installation der benötigten bibliotheken. auch wenn diese  offizielle release-version schon mehrere jahre alt ist, soll sie stabiler sein als der aktuelle entwicklungszweig.
+die modifikationen qrp texture packs, romi's rtlights und quake authmdl
+
+bei meiner darkplaces-installation verwende ich die folgenden modifikationen:
+
+
+
+die hochauflösenden qrp-texturen aus dem quake retexturing project, da sie ziemlich originalgetreu sind.
+die rtlights-pakete von romi für quake und das mission pack 1, welche die performance der echtzeitbeleuchtung erhöhen
+die verbesserten aber weiterhin originalgetreuen monstermodelle und programmkorrekturen der authentic model improvements for quake. als alternative hatte ich die deutlich hochauflösenderen aber nicht mehr ganz so originalgetreuen monstermodelle aus dem quake reforged bestiary-paket in erwägung gezogen, mich letztendlich aber für die authentischeren modelle entschieden.
+
+
+herunterladen der modifikationen
+die benötigten dateien der modifikationen können von folgenden seiten bezogen werden:
+
+
+qrp map textures v.1.00 für das hauptspiel: qrp_map_textures_v.1.00.pk3.7z
+qrp normal map textures add-on v.1.00 für das hauptspiel: qrp_normalmap_textures_add-on_v.1.00.pk3.7z
+qrp item textures v.0.73 für darkplaces: qrp_item_textures_v.0.73_dp.pk3.7z
+qrp soa map textures add-on v.1.00 für mission pack 1: qrp_soa_map_textures_add-on_v.1.00.pk3.zip
+qrp soa normal map textures add-on v.1.00 für mission pack 1: qrp_soa_normal_map_textures_add-on_v.1.00.rar
+qrp doe map textures add-on v.1.00 für mission pack 2: qrp_doe_mtex_add-on_v.1.00.zip
+qrp doe normal map textures add-on v.1.00 für mission pack 2: qrp_doe_normal_map_textures_add-on_v.1.00.zip
+romi's rtlights file for quake: romirtlights_id1.pk3
+romi's rtlights file for quake mission pack 1: romirtlights_soa.pk3
+
+
+
+der download der authentic model improvements for quake wird weiter unten im rahmen der installation beschrieben.
+
+installation der modifikationen
+
+es wird davon ausgegangen, dass sich alle heruntergeladenen dateien im ordner ~/downloads befinden.
+
+qrp-texturenpakete:
+
+
+
+user@linux ~/quake $ 7z e -odarkplaces/id1/ ~/downloads/qrp_map_textures_v.1.00.pk3.7z
+user@linux ~/quake $ 7z e -odarkplaces/id1/ ~/downloads/qrp_normalmap_textures_add-on_v.1.00.pk3.7z
+user@linux ~/quake $ 7z e -odarkplaces/id1/ ~/downloads/qrp_item_textures_v.0.73_dp.pk3.7z
+user@linux ~/quake $ unzip -e ~/downloads/qrp_soa_map_textures_add-on_v.1.00.pk3.zip -d darkplaces/hipnotic/
+user@linux ~/quake $ unrar e ~/downloads/qrp_soa_normal_map_textures_add-on_v.1.00.rar darkplaces/hipnotic/
+user@linux ~/quake $ unzip -e ~/downloads/qrp_doe_mtex_add-on_v.1.00.zip -d darkplaces/rogue/
+user@linux ~/quake $ unzip -e ~/downloads/qrp_doe_normal_map_textures_add-on_v.1.00.zip -d darkplaces/rogue/
+
+
+romi's rtlights:
+
+
+user@linux ~/quake $ cp ~/downloads/quake1/romirtlights/romirtlights_id1.pk3 darkplaces/id1/
+user@linux ~/quake $ cp ~/downloads/romirtlights_soa.pk3 darkplaces/hipnotic/
+
+
+authentic model improvements for quake:
+die installation dieser mod ist etwas umständlicher, da ich nur bestimmte teile des gesamtpakets (programmkorrekturen und monstermodelle) verwenden möchte. das gesamtpaket enthält neben den programmkorrekturen und monstermodellen nämlich auch modelle für gegenstände und waffen. bei letzteren gibt es überschneidungen und inkompatibilitäten mit den qrp item textures, welche mir persönlich besser gefallen. daher müssen die gewünschten komponenten aus dem gesamtpaket mit dem tool pakextract extrahiert und separat installiert werden. hierzu gehe ich wie folgt vor:
+
+1. herunterladen und kompilieren des tools pakextract:
+
+
+user@linux ~/quake $ git clone https://github.com/yquake2/pakextract.git tools/pakextract
+user@linux ~/quake $ cd tools/pakextract
+user@linux ~/quake/tools/pakextract $ make
+
+
+2. download der aktuellen entwicklerversion der mod in ein temporäres verzeichnis und entpacken der pak-dateien:
+
+
+user@linux ~/quake/tools/pakextract $ git clone https://github.com/nightfright2k19/quake_authmdl.git /tmp/quake_authmdl
+user@linux ~/quake/tools/pakextract $ ./pakextract -o /tmp/quake_authmdl/id1/ /tmp/quake_authmdl/id1/pakz.pak
+user@linux ~/quake/tools/pakextract $ ./pakextract -o /tmp/quake_authmdl/hipnotic/ /tmp/quake_authmdl/hipnotic/pakz.pak
+user@linux ~/quake/tools/pakextract $ ./pakextract -o /tmp/quake_authmdl/rogue/ /tmp/quake_authmdl/rogue/pakz.pak
+user@linux ~/quake/tools/pakextract $ cd ../..
+
+
+3. installation der programmkorrekturen und extrahierten monstermodelle:
+
+
+user@linux ~/quake $ mkdir darkplaces/id1/progs darkplaces/rogue/progs
+user@linux ~/quake $ cp /tmp/quake_authmdl/id1/progs.dat darkplaces/id1/
+user@linux ~/quake $ cp /tmp/quake_authmdl/hipnotic/progs.dat darkplaces/hipnotic/
+user@linux ~/quake $ cp /tmp/quake_authmdl/rogue/progs.dat darkplaces/rogue/
+user@linux ~/quake $ 
+cp /tmp/quake_authmdl/id1/progs/{boss.mdl,hknight.mdl,h_hellkn.mdl,enforcer.mdl,h_mega.mdl,demon.mdl,h_demon.mdl,soldier.mdl,h_guard.mdl,knight.mdl,h_knight.mdl,ogre.mdl,h_ogre.mdl,player.mdl,h_player.mdl,fish.mdl,dog.mdl,h_dog.mdl,wizard.mdl,h_wizard.mdl,shambler.mdl,h_shams.mdl,oldone.mdl,tarbaby.mdl,shalrath.mdl,h_shal.mdl,zombie.mdl,h_zombie.mdl} darkplaces/id1/progs/
+
+user@linux ~/quake $ 
+cp /tmp/quake_authmdl/rogue/progs/{h_hellkn.mdl,hknight.mdl,knight.mdl,ogre.mdl,tarbaby.mdl,h_knight.mdl,h_ogre.mdl,mummy.mdl,player.mdl} darkplaces/rogue/progs/
+
+
+
+starten und konfigurieren von darkplaces
+achtung: darkplaces speichert einmal übergebene kommandozeilenparameter dauerhaft in den konfigurationsdateien unter ~/quake/darkplaces/config/*/config.cfg gemäß parameter "-userdir darkplaces/config". die definition eines bestimmten verzeichnisses ist hier erforderlich, damit es zu keinen überschneidungen mit quake epsilon build kommt. ein weglassen von bestimmten parametern ist nicht gleichbedeutend mit dem deaktivieren oder zurücksetzen des betroffenen parameters. dies ist nur durch explizite angabe des neuen gewünschten wertes möglich. daher ist es empfehlenswert die konfigurationsdateien zu löschen, falls die kommandozeilenparameter geändert wurden. dies macht der folgende befehl:
+
+
+user@linux ~ $ rm -i ~/quake/darkplaces/config/*/config.cfg
+
+
+
+da darkplaces deutlich mehr grafikoptionen als quakespasm anbietet, habe ich mir drei verschiedene konfigurationen zusammengestellt:
+
+darkplaces mit minimalkonfiguration der grafikeffekte
+
+geeignet um quake auf ältereren computern mit den hochauflösenden texturen zu spielen. je nach rechenleistung sollten ggf. die effekte für transparente flüssigkeiten und schatten deaktiviert werden, siehe unten.
+
+
+
+user@linux ~/quake $ darkplaces -basedir darkplaces  -userdir darkplaces/config +gl_texturemode gl_linear_mipmap_linear +gl_texture_anisotropy 2 +r_shadows 1 +r_novis 1 +r_wateralpha 0.5 +cl_particles_quality 1 +cl_stainmaps 0 +r_bloom 0 +r_coronas 0 +r_lerpsprites 0 +vid_samples 1 +r_shadow_realtime_world 0 +r_glsl_offsetmapping 0 +r_glsl_offsetmapping_reliefmapping 0
+
+
+nach dem starten können über das konfigurationsmenü die einstellungen zur bildschirmauflösung, den tastenbelegungen und mausoptionen (z.b. invert mouse) vorgenommen werden.
+die hier verwendeten parameter "+r_novis 1" (transparente flüssigkeiten) und "+r_shadows 1" (schatteneffekte) sind relativ rechenintensiv und wirken sich bei älteren computern auf die framerate aus. hier ggf. wie oben beschrieben die datendateien mit vispatch anpassen oder auf die transparenten wassereffekte ganz verzichten. in beiden fällen den parameter auf "+r_novis 0" setzen. die schatteneffekte können mit "+r_shadows 0" deaktiviert werden. gleiches gilt für den parameter "+gl_texture_anisotropy 2", welcher bei bedarf auf kosten der optik auf den wert 1 reduziert werden kann.
+darkplaces mit ausgeglichener konfiguration der grafikeffekte:
+für ein hochauflösendes und originalgetreues spielerlebnis auf aktuellen computern. je nach rechenleistung ggf. den parameter "+vid_samples 2" auf den wert 4 für noch bessere kantenglättung erhöhen.
+
+
+
+user@linux ~/quake $ darkplaces -basedir darkplaces -userdir darkplaces/config +gl_texturemode gl_linear_mipmap_linear +gl_texture_anisotropy 8 +r_shadows 1 +r_novis 1 +r_wateralpha 0.5 +cl_particles_quality 2 +cl_stainmaps 1 +r_bloom 1 +r_coronas 1 +r_lerpsprites 1 +vid_samples 2 +r_shadow_realtime_world 0 +r_glsl_offsetmapping 0 +r_glsl_offsetmapping_reliefmapping 0
+
+
+darkplaces mit highend-grafikkonfiguration inkl. echtzeit-beleuchtung:
+für ein erweitertes, hochauflösendes spielerlebnis mit beeindruckender echtzeit-beleuchtung. dafür allerdings nicht mehr ganz so originalgetreu im erscheinungsbild.
+
+
+user@linux ~/quake $ darkplaces -basedir darkplaces -userdir darkplaces/config +gl_texturemode gl_linear_mipmap_linear +gl_texture_anisotropy 16 +r_shadows 0 +r_novis 1 +r_wateralpha 0.5 +cl_particles_quality 2 +cl_stainmaps 1 +r_bloom 1 +r_coronas 1 +r_lerpsprites 1 +vid_samples 4 +r_shadow_realtime_world 1 +r_glsl_offsetmapping 1 +r_glsl_offsetmapping_reliefmapping 1
+
+
+die offiziellen erweiterungen können in allen drei fällen gestartet werden, indem einer der folgenden parameter ergänzt wird:
+
+
+"-hipnotic" für mission pack 1: scourge of armagon
+"-rogue" für mission pack 2: dissolution of eternity
+"-game dopa" für dimension of the past
+
+
+ quake epsilon build
+download von quake epsilon build:
+
+alle benötigten pakete können von moddb: quake epsion build heruntergeladen werden:
+
+
+quake epsion build für das hauptspiel: quake_epsilon_v2_56.zip
+quake epsion addon für mission pack 1: epsilon_mp1_addon_v2_56.zip
+quake epsion addon für mission pack 2: epsilon_mp2_addon_v2_56.zip
+quake epsion addon für dimensions of the past: epsilon_dopa_v2_56.zip
+
+
+installation von quake epsilon build:
+es wird davon ausgegangen, dass sich die heruntergeladenen dateien im ordner ~/downloads befinden. die installation erfolgt dann wie folgt. dabei werden die beiliegende shareware-version von quake sowie die beiliegenden alternativen soundtracks gelöscht, damit der originalsoundtrack wiedergegeben wird. außerdem wird das benutzerverzeichnis für konfigurationsdateien und savegames in den skripten auf ~/quake/epsilon/config angepasst, um überschneidungen mit der darkplaces-installation zu vermeiden.
+
+
+user@linux ~ $ cd ~/quake/epsilon
+user@linux ~/quake/epsilon $ unzip ~/downloads/quake_epsilon_v2_56.zip
+user@linux ~/quake/epsilon $ rm id1/pak0.pak id1/quake1_music_diabolipak.pk3
+user@linux ~/quake/epsilon $ unzip ~/downloads/epsilon_mp1_addon_v2_56.zip
+user@linux ~/quake/epsilon $ rm hipnotic/baz-pakwerk_soundtrack_xolvemastered.pk3
+user@linux ~/quake/epsilon $ unzip ~/downloads/epsilon_mp2_addon_v2_56.zip
+user@linux ~/quake/epsilon $ rm rogue/sonic_mayhem-methods_of_destruction_mp2-xolveedited.pk3
+user@linux ~/quake/epsilon $ unzip ~/downloads/epsilon_dopa_v2_56.zip
+user@linux ~/quake/epsilon $ rm dopa/nineinchnails_lightsinthesky_dopa_soundtrack.pk3
+user@linux ~/quake/epsilon $ sed -i 's/~\/\.darkplaces/\.\/config/g' linux_changegraphicsquality.sh
+user@linux ~/quake/epsilon $ sed -i 's/darkplaces-linux-x86_64-glx/darkplaces-linux-x86_64-glx -userdir config/g' *.sh
+user@linux ~/quake/epsilon $ sed -i 's/darkplaces-linux-686-glx/darkplaces-linux-686-glx -userdir config/g' *.sh
+
+
+konfiguration von quake epsilon build
+
+quake epsilon build bringt vier verschiedene grafikkonfigurationen mit: low, high, medium und ultra. die grafikkonfiguration muss vor dem ersten spielstart mit dem folgenden skript ausgewählt werden und kann anschließend auch jederzeit damit verändert werden:
+
+
+user@linux ~/quake/epsilon $ ./linux_changegraphicsquality.sh
+
+
+starten von quake epsilon build
+die hauptkampagne und die verschiedenen mission packs können bequem über separate skriptdateien aus dem verzeichnis ~/quake/epsilon heraus gestartet werden:
+
+quake hauptkampagne:
+
+
+
+user@linux ~/quake/epsilon $ ./linux_quake.sh
+
+
+
+mission pack 1:
+
+
+
+user@linux ~/quake/epsilon $ ./linux_mp1.sh
+
+
+
+mission pack 2:
+
+
+
+user@linux ~/quake/epsilon $ ./linux_mp2.sh
+
+
+
+dimensions of the past:
+
+
+
+user@linux ~/quake/epsilon $ ./linux_dimensionsofthepast.sh
+
+
+wechsel der darkplaces-version von quake epsilon build:
+die quake epison build enthält verschiedene vorkompilierte binärversionen von darkplaces. sowohl für 32-bit als auch 64-bit linux gibt es jeweils eine version mit dem grafikbackend glx und eine version mit dem grafikbackend sdl. in der standardeinstellung wird die glx-version verwendet. bei problemen kann mit folgenden befehlen die aufgerufene version in den startskripen ausgetauscht werden. in meinem fall funktionierte die sdl-version besser; bei der glx-version gab es audioprobleme.
+wechel von glx- zu sdl-version:
+
+
+user@linux ~/quake/epsilon $ sed -i 's/darkplaces-linux-x86_64-glx/darkplaces-linux-x86_64-sdl/g' *.sh
+user@linux ~/quake/epsilon $ sed -i 's/darkplaces-linux-686-glx/darkplaces-linux-686-sdl/g' *.sh
+
+
+wechsel von sdl- zu glx-version:
+
+
+user@linux ~/quake/epsilon $ sed -i 's/darkplaces-linux-x86_64-sdl/darkplaces-linux-x86_64-glx/g' *.sh
+user@linux ~/quake/epsilon $ sed -i 's/darkplaces-linux-686-sdl/darkplaces-linux-686-glx/g' *.sh
+
+
+ muliplayer - quakeworld
+für multiplayerspiele mit dem internet-optimierten quakeworld eignen sich andere source ports. einer davon ist ezquake, welcher in einem komplett vorkonfigurierten paket unter dem namen nquake zum download angeboten wird. auf der homepage gibt es sowohl client- als auch serverpakete für verschiedene betriebssysteme. hierzu werde ich ggf. später in einem separaten artikel etwas schreiben.
+
+ 
+
+
+			vom 21.12.2021 
+
+
+						    kommentar verfassen »
+					    
+
+
+
+
+nächste seite »
+
+
+
+weitersagen 
+
+
+
+
+
+
+
+
+
+rubriken 
+regionen, länder und ortenordamerikakanadaunited states of americanordeuropadänemarkenglandestlandfinnlandlettlandlitauennorwegenschwedenostasienchinajapankoreaosteuropatschechiensüdamerikaargentinienbolivienchileperuuruguaysüdeuropagriechenlanditalienmaltaportugalspaniensüdostasienindonesienkambodschalaosmalaysiamekong deltamyanmarphilippinensingapurthailandvietnamwestasiendubaitürkeiwesteuropabelgiendeutschlandfrankreichmonaconiederlandeschweizallgemeine themencomputerspielehochzeitinteressante webseiteninternet, linux & itmovies & cinemaparty & musicspeise & trankwebsite newsberichtenordamerikakanadas osten 2003kanadas westen 2014nordeuropaskandinavien & baltikum 2015ostasienpraktikum in korea 2005studium in korea 2006/07urlaub in korea 2004südamerikasüdamerika 2011südeuropakreta 2017portugal 2015/16spanien & portugal 2013südostasienindonesien & myanmar 2009philippinen & thailand 2012südostasien-rundreise 2008westeuropaschweiz & frankreich 2013erfahren sie mehr!weitere länder, themen & berichte » 
+
+
+suchen 
+
+
+
+
+
+
+
+kommentare 
+burkhard falkenberg zum thema kellerrestaurant ve skale: sehr geehrte damen und herren, heute besuchten wir ihr restaurant mit 17 personen. leider kamen wir ...simon brocher zum thema altstadt von chania: guten tag 
+
+dies ist ein ausgesprochen aufschlussreicher blog! sauber recherchiert! sehr schöne f...sunhee zum thema bücher aus korea in deutschland kaufen: guten tag,
+
+ich suche ein bestimmten buch über koreanische sprache zu bekommen. 
+wäre das mögl...ruth zum thema phu si hill (park mit tempeln in luang prabang): sehr schöne fotos und ich erinnere mich gerne daran, als wir dort waren (ca. 10 jahre später). wir...sandy zum thema altstadt von vilnius: tolle bilder! sie haben einen sehr schönen blog. ich wünschte, sie könnten weiter aktualisieren o... 
+
+
+archiv 
+2024 (2)2023 (2)2022 (4)2021 (7)2020 (1)2019 (3)2018 (46)2017 (48)2016 (559)2015 (269)2014 (262)2013 (165)2012 (403)2011 (341)2010 (222)2009 (176)2008 (157)2007 (127)2006 (123)2005 (241)2004 (229)archiv nach monaten » 
+
+
+abonnieren 
+auf twitter folgenartikel aus allen rubrikenkommentare aus allen rubrikenweitere rss-feeds » 
+
+ 
+
+
+startseite
+rubriken
+archiv
+suche
+lesezeichen
+gästebuch
+über dieses blog
+impressum
+
+
+
+
+
+copyright © 2004-2025 nuku's collage of life. all rights reserved. no reproduction of text, images, or any other content without prior permission.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
