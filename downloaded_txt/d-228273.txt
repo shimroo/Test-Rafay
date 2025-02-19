@@ -1,0 +1,322 @@
+
+
+
+
+
+python page richard gruet @ free.fr
+
+
+
+
+
+
+ 
+
+
+
+
+created oct 8, 2001. last updated on
+  apr 21, 2013
+
+
+
+       
+
+
+
+
+richard gruet's python page
+
+ 
+ 
+welcome to this page, entirely dedicated to python.
+
+ python stuff 
+ a bit of propaganda
+i am a big fan of python, a so called
+scripting language comparable to perl but far more readable and elegant
+(in my opinion, no offense ;-) it is free and available for a wide variety of platforms.
+as a programmer i have been using many different languages ranging from assembly
+language to java, including vb, c, c++, delphi, and even lisp or forth.
+python is my favorite. it has the clearest syntax i've seen so far, it is object
+oriented (but not limited to ;-), well designed, clever, concise, simple to learn
+and use yet powerful, has a thriving and friendly community of users and is available
+for free. i've been using python not only for scripting or prototyping (where it shines),
+but also for "serious" corporate applications, and i consider it robust.
+in particular, i have used it to implement corba servers using the corba orb
+omniorb, and created some
+utilities for that orb.
+i have also updated (with simon
+brunning and josh stone) a python quick reference originally written by
+chris hoffmann for python 1.3.
+
+eric raymond, author of the famous essay on the open source movement "the cathedral and
+the bazaar" explains why python is his favorite programming language
+there.
+
+just try python!
+i suggest that you download the official distribution,
+or the activepython distribution,
+and then start here.
+                
+python quick reference
+this is a (relatively) quick reference for python in a single long html page. also exists in pdf.
+   don't expect a 2 pages cheat sheet, but rather a 40-50 pages digest of the official reference documentation.
+
+
+if you want to print the quick ref, try first from your browser (i suggest to select styles
+     printing or modern b&w). if it doesn't work for you
+     (right-hand edge truncated), try to print the pdf versions instead. 
+ starting from version 2.2, if you intend to download the pqr and use it offline,
+    you should download the zipped html rather than the pqrx.y.html alone, it
+    includes the stylesheets used by the main page.
+
+
+ the following documents are available under the creative commons license
+
+
+:
+ 
+
+pqr 2.7
+
+this version of the quick reference has been created by stefan mckinnon høj-edwards from the pqr 2.6.
+
+quick reference for python 2.7
+      (html single page + external stylesheets, with a choice of 4 different styles)
+[mirror]
+quick reference for python 2.7
+      (html + stylesheets, zipped)
+quick reference for python 2.7
+      (pdf / printing style, a4)
+quick reference for python 2.7
+      (pdf / printing style, letter)
+
+
+
+pqr 2.6
+
+quick reference for python 2.6
+      (html single page + external stylesheets, with a choice of 4 different styles)
+[mirror]
+quick reference for python 2.6
+      (html + stylesheets, zipped)
+quick reference for python 2.6
+      (pdf / printing style, a4)
+quick reference for python 2.6
+      (pdf / modern black & white style, a4)
+quick reference for python 2.6
+      (pdf / modern black & white style, letter)
+quick reference for python 2.6
+      (pdf / modern style, a4)
+
+
+pqr 2.5
+
+quick reference for python 2.5
+      (html single page + external stylesheets, with a choice of 4 different styles)
+[mirror]
+quick reference for python 2.5
+      (html + stylesheets, zipped)
+quick reference for python 2.5
+      (pdf / printing style, a4)
+quick reference for python 2.5
+      (pdf / modern black & white style, a4)
+quick reference for python 2.5
+      (pdf / modern black & white style, letter)
+quick reference for python 2.5
+      (pdf / modern style, a4)
+quick reference for python 2.5
+      (pdf / classic style, a4)
+
+
+pqr 2.4
+
+quick reference for python 2.4
+      (html single page + external stylesheets, with a choice of 4 different styles)
+[mirror]
+quick reference for python 2.4
+      (html + stylesheets, zipped)
+quick reference for python 2.4
+      (pdf / modern black & white style, a4)
+quick reference for python 2.4
+      (pdf / modern black & white style, letter)
+quick reference for python 2.4
+      (pdf / modern style, a4)
+quick reference for python 2.4
+      (pdf / classic style, a4)
+
+
+pqr 2.3
+
+quick reference for python 2.3
+      (html single page + external stylesheets, with a choice of 4 different styles) 
+quick reference for python 2.3 (html + stylesheets, zipped)
+quick reference for python 2.3
+      (pdf / modern style)
+quick reference for python 2.3 (pdf / classic style)
+quick reference for python 2.3
+      in korean (translated by johnsonj)
+
+
+pqr 2.2
+
+quick reference for python 2.2
+        (html single page + external stylesheets, with a choice of 4 different styles) 
+quick reference for python 2.2
+             (ditto, zipped) 
+quick reference for python 2.2
+             (acrobat pdf / sans serif for booklet printing) 
+
+
+pqr 2.1
+
+quick reference for python 2.1
+             (html single page) 
+quick reference for python 2.1
+             (zipped html single page)
+quick reference for python 2.1
+             (acrobat pdf)
+ quick reference for python 2.1
+             (acrobat pdf, font times) 
+
+
+pqr 2.0
+
+ quick reference for python 2.0
+             (html single page)
+ quick reference for python 2.0
+             (zipped html single page)
+ quick reference for python 2.0
+             (acrobat pdf)
+
+
+pqr 1.52
+
+ quick reference for python 1.52
+             (html single page)
+
+
+omniorbpy utilities
+ipy
+ipy is a free python/corba utility program that generates python
+implementation skeletons from idl sources (idl files or interface repository).
+it allows to create very quickly a basic but running python prototype of a
+corba server, given its idl definition.
+more information here
+idlb
+idlb is a simple idl definition textual browser written in python
+on top of the att's omniorb orb. it allows you to quickly find the
+definition of idl objects in idl files, given their full or partial names.
+this is especially handy when you manage big idl files.
+
+for example, if you have an idl file myidl.idl, you will be able to retrieve
+the exact definition (including comments) of any symbol appearing in myidl.idl
+or in its included idl files; if you remember only partially a name, you can
+use * and ? wildcards.
+warning! idlb has been a suspended work for
+a while now. i have no idea if i will resume it or not !
+more information here
+misc python packages and modules
+i created these modules when i could not find existing ones with the same
+  functionality (but i can be wrong) or when it didn't match my needs.
+  they might be useful to other pythoners. 
+warning (march 2006): these modules are now pretty much outdated.   glock.py and getargs.py might still be of some interest, though. 
+
+
+package
+description
+
+
+rgutils
+misc utilities modules (also detailed below)
+
+
+scf
+simple corba framework.
+
+
+
+the following modules are bundled in the package
+rgutils, but also available separately :
+
+
+
+module
+description
+
+
+async.py
+asynchronous function calls utility (so far, only a timed out function call).
+
+
+getargs.py
+ (yet another getopt) parse command line arguments (updated march 2006) 
+
+
+process.py
+simple process management. allows to launch, kill and see
+             the status of a process independently from the platform (at least on win32 and unix).
+
+
+dataxfer.py
+functions for transfering arbitrary sized data in
+             a distributed (client/server) environment via a ftp server.
+
+
+glock.py
+global (inter-process) mutex on windows and unix.
+
+
+pool.py
+resource pool management.
+
+
+message.py
+representation of an e-mail.
+                 used by imap.py and pop3.py.
+
+
+imap.py
+utilities for reading imap mail.
+
+
+pop3.py
+utilities for reading pop3 mail.
+
+
+fwdmail.py
+script for forwarding imap or pop mail.
+
+
+platform.py
+platform information.
+                 this one was written by marc-andre lemburg
+                 (mal@lemburg.com), i have included it
+                 here because it is used by some of my modules.
+                 nb: this module is now part of python 2.3+ std distribution. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
